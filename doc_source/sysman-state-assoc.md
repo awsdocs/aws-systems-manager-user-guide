@@ -65,7 +65,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
    Following are the minimal permissions required to turn on Amazon S3 output for an association\. You might further restrict access to individual IAM users or roles within an account\. At minimum, an Amazon EC2 instance profile should have an IAM role with the `AmazonSSMManagedInstanceCore` managed policy and the following inline policy\. 
 
@@ -151,14 +151,19 @@ When you create an association, you specify when the schedule runs\. Specify the
 
    ```
    aws ssm create-association \
-     --association-name association_name \
-     --targets target_options \
-     --name document_name \
-     --compliance-severity severity_level \
-     --schedule "cron_or_rate_expression" \
-     --parameters (if any) \
-     --max-concurrency a_number_of_instances_or_a_percentage_of_target_set \
-     --max-errors a_number_of_errors_or_a_percentage_of_target_set
+       --name document_name \
+       --document-version version_of_document_applied \
+       --instance-id instances_to_apply_association_on \
+       --parameters (if any) \
+       --targets target_options \
+       --schedule "cron_or_rate_expression" \
+       --output-location s3_bucket_to_store_output_details \
+       --association-name association_name \
+       --max-errors a_number_of_errors_or_a_percentage_of_target_set \
+       --max-concurrency a_number_of_instances_or_a_percentage_of_target_set \
+       --compliance-severity severity_level \
+       --calendar-names change_calendar_names \
+       --target-locations aws_region_or_account
    ```
 
 ------
@@ -166,14 +171,19 @@ When you create an association, you specify when the schedule runs\. Specify the
 
    ```
    aws ssm create-association ^
-     --association-name association_name ^
-     --targets target_options ^
-     --name document_name ^
-     --compliance-severity severity_level ^
-     --schedule "cron_or_rate_expression" ^
-     --parameters (if any) ^
-     --max-concurrency a_number_of_instances_or_a_percentage_of_target_set ^
-     --max-errors a_number_of_errors_or_a_percentage_of_target_set
+       --name document_name ^
+       --document-version version_of_document_applied ^
+       --instance-id instances_to_apply_association_on ^
+       --parameters (if any) ^
+       --targets target_options ^
+       --schedule "cron_or_rate_expression" ^
+       --output-location s3_bucket_to_store_output_details ^
+       --association-name association_name ^
+       --max-errors a_number_of_errors_or_a_percentage_of_target_set ^
+       --max-concurrency a_number_of_instances_or_a_percentage_of_target_set ^
+       --compliance-severity severity_level ^
+       --calendar-names change_calendar_names ^
+       --target-locations aws_region_or_account
    ```
 
 ------
@@ -181,14 +191,19 @@ When you create an association, you specify when the schedule runs\. Specify the
 
    ```
    New-SSMAssociation `
-     -AssociationName association_name `
-     -Target target_options `
-     -Name document_name `
-     -ComplianceSeverity severity_level `
-     -ScheduleExpression "cron_or_rate_expression" `
-     -Parameters (if any) `
-     -MaxConcurrency a_number_of_instances_or_a_percentage_of_target_set `
-     -MaxError  a_number_of_errors_or_a_percentage_of_target_set
+       -Name document_name `
+       -DocumentVersion version_of_document_applied `
+       -InstanceId instances_to_apply_association_on `
+       -Parameters (if any) `
+       -Target target_options `
+       -ScheduleExpression "cron_or_rate_expression" `
+       -OutputLocation s3_bucket_to_store_output_details `
+       -AssociationName association_name `
+       -MaxError  a_number_of_errors_or_a_percentage_of_target_set
+       -MaxConcurrency a_number_of_instances_or_a_percentage_of_target_set `
+       -ComplianceSeverity severity_level `
+       -CalendarNames change_calendar_names `
+       -TargetLocations aws_region_or_account
    ```
 
 ------

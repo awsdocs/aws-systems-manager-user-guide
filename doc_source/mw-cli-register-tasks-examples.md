@@ -1,6 +1,6 @@
 # Examples: Register tasks with a maintenance window<a name="mw-cli-register-tasks-examples"></a>
 
-You can register a task in Run Command, a capability of AWS Systems Manager, with a maintenance window using the AWS Command Line Interface \(AWS CLI\), as demonstrated in [Step 3: Register a task with the maintenance window \(AWS CLI\)](mw-cli-tutorial-tasks.md)\. You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated later in this topic\.
+You can register a task in Run Command, a capability of AWS Systems Manager, with a maintenance window using the AWS Command Line Interface \(AWS CLI\), as demonstrated in [Register tasks with the maintenance window](mw-cli-tutorial-tasks.md)\. You can also register tasks for Systems Manager Automation workflows, AWS Lambda functions, and AWS Step Functions tasks, as demonstrated later in this topic\.
 
 **Note**  
 Specify one or more targets for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
@@ -66,7 +66,7 @@ aws ssm register-task-with-maintenance-window \
     --max-concurrency 1 --max-errors 1 --priority 10 \
     --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" \
     --task-type "RUN_COMMAND" \
-    --task-invocation-parameters "{"RunCommand":{"Parameters":{"commands":["df"]}}}"
+    --task-invocation-parameters '{"RunCommand":{"Parameters":{"commands":["df"]}}}'
 ```
 
 ------
@@ -79,7 +79,7 @@ aws ssm register-task-with-maintenance-window ^
     --max-concurrency 1 --max-errors 1 --priority 10 ^
     --targets "Key=InstanceIds,Values=i-02573cafcfEXAMPLE" ^
     --task-type "RUN_COMMAND" ^
-    --task-invocation-parameters "{"RunCommand":{"Parameters":{"commands":["df"]}}}"
+    --task-invocation-parameters "{\"RunCommand\":{\"Parameters\":{\"commands\":[\"df\"]}}}"
 ```
 
 ------
@@ -131,10 +131,9 @@ The following examples demonstrate how to register Systems Manager Automation ta
 ------
 #### [ Linux & macOS ]
 
-The following command restarts EC2 instances that belong to the maintenance window target group with the ID e32eecb2\-646c\-4f4b\-8ed1\-205fbEXAMPLE\.
-
 ```
 aws ssm register-task-with-maintenance-window \
+    --window-id "mw-0c50858d01EXAMPLE" \
     --task-arn "AWS-RestartEC2Instance" \
     --service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole \
     --task-type AUTOMATION \
@@ -149,7 +148,7 @@ aws ssm register-task-with-maintenance-window \
 ```
 aws ssm register-task-with-maintenance-window ^
     --window-id "mw-0c50858d01EXAMPLE" ^
-   --task-arn "AWS-RestartEC2Instance" ^
+    --task-arn "AWS-RestartEC2Instance" ^
     --service-role-arn arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole ^
     --task-type AUTOMATION ^
     --task-invocation-parameters "Automation={DocumentVersion=5,Parameters={InstanceId='{{TARGET_ID}}'}}" ^
@@ -192,6 +191,9 @@ The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to
 ------
 #### [ Linux & macOS ]
 
+**Important**  
+If you are using version 2 of the AWS CLI, you must include the option `--cli-binary-format raw-in-base64-out` in the following command if your Lambda payload is not base64 encoded\. The `cli_binary_format` option is available only in version 2\. For information about this and other AWS CLI `config` file settings, see [Supported `config` file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-settings) in the *AWS Command Line Interface User Guide*\.
+
 ```
 aws ssm register-task-with-maintenance-window \
     --window-id "mw-0c50858d01EXAMPLE" \
@@ -204,6 +206,9 @@ aws ssm register-task-with-maintenance-window \
 
 ------
 #### [ PowerShell ]
+
+**Important**  
+If you are using version 2 of the AWS CLI, you must include the option `--cli-binary-format raw-in-base64-out` in the following command if your Lambda payload is not base64 encoded\. The `cli_binary_format` option is available only in version 2\. For information about this and other AWS CLI `config` file settings, see [Supported `config` file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html#cli-configure-files-settings) in the *AWS Command Line Interface User Guide*\.
 
 ```
 aws ssm register-task-with-maintenance-window `
@@ -267,22 +272,22 @@ aws ssm register-task-with-maintenance-window \
     --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
     --task-arn arn:aws:states:us-east-2:123456789012:stateMachine:SSMMyStateMachine-MggiqEXAMPLE \
     --task-type STEP_FUNCTIONS \
-    --task-invocation-parameters '{"StepFunctions":{"Input":"{\"InstanceId\":\"{{RESOURCE_ID}}\"}"}, "Name": "{{INVOCATION_ID}}"}' \
+    --task-invocation-parameters '{"StepFunctions":{"Input":"{\"InstanceId\":\"{{RESOURCE_ID}}\"}", "Name":"{{INVOCATION_ID}}"}}' \
     --priority 0 --max-concurrency 10 --max-errors 5 \
     --name "My-Step-Functions-Task" --description "A description for my Step Functions task"
 ```
 
 ------
-#### [ Windows ]
+#### [ PowerShell ]
 
 ```
-aws ssm register-task-with-maintenance-window ^
-    --window-id "mw-0c50858d01EXAMPLE" ^
-    --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
-    --task-arn arn:aws:states:us-east-2:123456789012:stateMachine:SSMMyStateMachine-MggiqEXAMPLE ^
-    --task-type STEP_FUNCTIONS ^
-    --task-invocation-parameters '{"StepFunctions":{"Input":"{\"InstanceId\":\"{{RESOURCE_ID}}\"}"}, "Name": "{{INVOCATION_ID}}"}' ^
-    --priority 0 --max-concurrency 10 --max-errors 5 ^
+aws ssm register-task-with-maintenance-window `
+    --window-id "mw-0c50858d01EXAMPLE" `
+    --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" `
+    --task-arn arn:aws:states:us-east-2:123456789012:stateMachine:SSMMyStateMachine-MggiqEXAMPLE `
+    --task-type STEP_FUNCTIONS `
+    --task-invocation-parameters '{\"StepFunctions\":{\"Input\":\"{\\\"InstanceId\\\":\\\"{{RESOURCE_ID}}\\\"}\", \"Name\":\"{{INVOCATION_ID}}\"}}' `
+    --priority 0 --max-concurrency 10 --max-errors 5 `
     --name "My-Step-Functions-Task" --description "A description for my Step Functions task"
 ```
 

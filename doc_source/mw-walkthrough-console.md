@@ -20,9 +20,9 @@ Before you complete the following procedure, you must either have administrator 
 
 1. Choose **Create maintenance window**\.
 
-1. For **Name**, enter a descriptive name to help you identify this maintenance window as a test maintenance window\.
+1. For **Name**, enter a descriptive name to help you identify this maintenance window\.
 
-1. For **Description**, enter a description\.
+1. \(Optional\) For **Description**, enter a description\.
 
 1. Choose **Allow unregistered targets** if you want to allow a maintenance window task to run on managed instances, even if you haven't registered those instances as targets\. If you choose this option, then you can choose the unregistered instances \(by instance ID\) when you register a task with the maintenance window\.
 
@@ -36,13 +36,20 @@ Before you complete the following procedure, you must either have administrator 
 
 1. For **Stop initiating tasks**, enter the number of hours before the end of the maintenance window that the system should stop scheduling new tasks to run\.
 
-1. \(Optional\) For **Start date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become active\. This allows you to delay activation of the maintenance window until the specified future date\.
+1. \(Optional\) For **Window start date \- *optional***, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become active\. This allows you to delay activation of the maintenance window until the specified future date\.
 
-1. \(Optional\) For **End date \(optional\)**, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become inactive\. This allows you to set a date and time in the future after which the maintenance window no longer runs\.
+1. \(Optional\) For **Window end date \- *optional***, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become inactive\. This allows you to set a date and time in the future after which the maintenance window no longer runs\.
 
-1. \(Optional\) For **Time zone \(optional\)**, specify the time zone to base scheduled maintenance window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
+1. \(Optional\) For **Schedule time zone** \- *optional*****, specify the time zone to base scheduled maintenance window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
 
    For more information about valid formats, see the [Time Zone Database](https://www.iana.org/time-zones) on the IANA website\.
+
+1. \(Optional\) In the **Manage tags** area, apply one or more tag key name/value pairs to the maintenance window\.
+
+   Tags are optional metadata that you assign to a resource\. Tags allow you to categorize a resource in different ways, such as by purpose, owner, or environment\. For example, you might want to tag a maintenance window to identify the type of tasks it runs, the types of targets, and the environment it runs in\. In this case, you could specify the following key name/value pairs:
+   + `Key=TaskType,Value=AgentUpdate`
+   + `Key=OS,Value=Windows`
+   + `Key=Environment,Value=Production`
 
 1. Choose **Create maintenance window**\. The system returns you to the maintenance window page\. The maintenance window you just created is in the **Enabled** state\.
 
@@ -56,17 +63,16 @@ Use the following procedure to register a target with the maintenance window you
 
 1. Choose **Actions**, and then choose **Register targets**\.
 
-1. For **Target Name**, enter a name for the target\.
+1. \(Optional\) For **Target name**, enter a name for the target\.
 
-1. For **Description**, enter a description\.
+1. \(Optional\) For **Description**, enter a description\.
 
 1. \(Optional\) For **Owner information**, specify your name or work alias\. Owner information is included in any Amazon EventBridge event raised while running tasks for these targets in this maintenance window\.
 
    For information about using EventBridge to monitor Systems Manager events, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)\.
 
-1. In the **Select targets by** section, choose **Specifying Tags** to target instances by using Amazon EC2 tags that you previously assigned to the instances\. Choose **Manually Selecting Instances** to choose individual instances according to their instance IDs\.
-**Note**  
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+1. In the **Targets** area, choose one of the options described in the following table\.    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/mw-walkthrough-console.html)
 
 1. Choose **Register target**\.
 
@@ -78,21 +84,21 @@ Use the following procedure to register a Run Command task for the maintenance w
 
 1. In the list of maintenance windows, choose the maintenance window you just created\.
 
-1. Choose **Actions**, and then choose **Register Run Command task**\.
+1. Choose **Actions**, and then choose **Register Run command task**\.
 
-1. For **Name**, enter a name for the task, such as UpdateSSMAgent\.
+1. \(Optional\) For **Name**, enter a name for the task, such as UpdateSSMAgent\.
 
-1. For **Description**, enter a description\.
+1. \(Optional\) For **Description**, enter a description\.
 
-1. For **Document**, choose the SSM Command document `AWS-UpdateSSMAgent`\.
+1. In the **Command document** area, choose the SSM Command document `AWS-UpdateSSMAgent`\.
 **Note**  
 If the targets you registered in the preceding step are Windows Server 2012 R2 or earlier, you must use the `AWS-UpdateEC2Config` document\.
 
+1. For **Document version**, choose the document version to use\.
+
 1. For **Task priority**, specify a priority for this task\. Zero \(`0`\) is the highest priority\. Tasks in a maintenance window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
 
-1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
-**Note**  
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+1. In the **Targets** section, identify the instances on which you want to run this operation by choosing **Selecting registered target groups** or **Selecting unregistered targets**\.
 
 1. For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
@@ -117,11 +123,11 @@ If a service\-linked role has already been created for your account, choose **Us
 
    To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 
-1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, do one of the following:
+   + Select the **Enable writing to S3** check box to save the command output to a file\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, ensure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
-
-   To stream the output to an Amazon CloudWatch Logs log group, select the **CloudWatch output** box\. Type the log group name in the box\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+   + Select the **CloudWatch output** check box to write complete output to Amazon CloudWatch Logs\. Enter the name of a CloudWatch Logs log group\.
 
 1. In the **SNS notifications** section, you can optionally allow Systems Manager to send notifications about command statuses using Amazon Simple Notification Service \(Amazon SNS\)\. If you choose to turn on this option, you need to specify the following:
 
@@ -133,6 +139,6 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
    1. The notification type that you want to receive when the status of a command changes\. For commands sent to multiple instances, choose **Invocation** to receive notification on an invocation \(per\-instance\) basis when the status of each invocation changes\.
 
-1. In the **Input Parameters** section, you can optionally provide a specific version of SSM Agent to install, or you can allow SSM Agent service to be downgraded to an earlier version\. However, for this walkthrough we don't provide a version\. Therefore, SSM Agent is updated to the latest version\.
+1. In the **Parameters** area, you can optionally provide a specific version of SSM Agent to install, or you can allow SSM Agent service to be downgraded to an earlier version\. However, for this walkthrough we don't provide a version\. Therefore, SSM Agent is updated to the latest version\.
 
-1. Choose **Register Run Command task**\.
+1. Choose **Register Run command task**\.

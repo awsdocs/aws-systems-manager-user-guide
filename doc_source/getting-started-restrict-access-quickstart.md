@@ -25,7 +25,7 @@ Choose from the following tabs to view the sample policy for the range of sessio
 ------
 #### [ Session Manager and CLI ]
 
-Use this sample policy to provider users with the ability to start and resume sessions from only the Session Manager console and the AWS CLI\. This policy doesn't provide all the permissions needed to start sessions from the Amazon EC2 console\.
+Use this sample policy to give users the ability to start and resume sessions from only the Session Manager console and the AWS CLI\. This policy doesn't provide all the permissions needed to start sessions from the Amazon EC2 console\.
 
 ```
 {
@@ -80,7 +80,7 @@ Use this sample policy to provider users with the ability to start and resume se
 ------
 #### [ Amazon EC2 ]
 
-Use this sample policy to provider users with the ability to start and resume sessions from only the Amazon EC2 console\. This policy doesn't provide all the permissions needed to start sessions from the Session Manager console and the AWS CLI\.
+Use this sample policy to give users the ability to start and resume sessions from only the Amazon EC2 console\. This policy doesn't provide all the permissions needed to start sessions from the Session Manager console and the AWS CLI\.
 
 ```
 {
@@ -121,7 +121,7 @@ Use this sample policy to provider users with the ability to start and resume se
 ------
 #### [ Session Manager, CLI, and Amazon EC2 ]
 
-Use this sample policy to provider users with the ability to start and resume sessions from the Session Manager console, the AWS CLI, and the Amazon EC2 console\.
+Use this sample policy to give users the ability to start and resume sessions from the Session Manager console, the AWS CLI, and the Amazon EC2 console\.
 
 ```
 {
@@ -214,7 +214,7 @@ Choose from the following tabs to view the sample policy for the access scenario
 ------
 #### [ Session Manager and CLI ]
 
-Use this sample policy to provider administrators with the ability to perform session\-related tasks from only the Session Manager console and the AWS CLI\. This policy doesn't provide all the permissions needed to perform session\-related tasks from the Amazon EC2 console\.
+Use this sample policy to give administrators the ability to perform session\-related tasks from only the Session Manager console and the AWS CLI\. This policy doesn't provide all the permissions needed to perform session\-related tasks from the Amazon EC2 console\.
 
 ```
 {
@@ -272,7 +272,7 @@ Use this sample policy to provider administrators with the ability to perform se
 ------
 #### [ Amazon EC2 ]
 
-Use this sample policy to provider administrators with the ability to perform session\-related tasks from only the Amazon EC2 console\. This policy doesn't provide all the permissions needed to perform session\-related tasks from the Session Manager console and the AWS CLI\.
+Use this sample policy to give administrators the ability to perform session\-related tasks from only the Amazon EC2 console\. This policy doesn't provide all the permissions needed to perform session\-related tasks from the Session Manager console and the AWS CLI\.
 
 ```
 {
@@ -320,7 +320,7 @@ Use this sample policy to provider administrators with the ability to perform se
 ------
 #### [ Session Manager, CLI, and Amazon EC2 ]
 
-Use this sample policy to provider administrators with the ability to perform session\-related tasks from the Session Manager console, the AWS CLI, and the Amazon EC2 console\.
+Use this sample policy to give administrators the ability to perform session\-related tasks from the Session Manager console, the AWS CLI, and the Amazon EC2 console\.
 
 ```
 {

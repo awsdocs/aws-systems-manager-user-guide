@@ -62,7 +62,14 @@ With this condition element set to `true`, explicit access to a Session document
 }
 ```
 
+If the `SessionDocumentAccessCheck` condition element is set to `false`, it will not affect the evaluation of the IAM policy\. That means if the `SessionDocumentAccessCheck` condition element is set to `false`, and you specify a document name in the `Resource`, you must provide the specified document name when starting a session\. If you provide a different document name when starting a session, the request fails\.
+
+If the `SessionDocumentAccessCheck` condition element is set to `false`, and a document name is not specified in the `Resource`, you do not need to provide a document name when you start a session\. By default, the `SSM-SessionManagerRunShell` document is used in the request\.
+
 For an example of specifying a Session Manager Session document in an IAM policy, see [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\.
+
+**Note**  
+To ensure the condition element is enforced, it must be included in all policy statements which allow the `ssm:StartSession` action\.
 
 **Other scenarios**  
 Using the default `SSM-SessionManagerRunShell` session document is the only case when a document name can be omitted from the `[start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)` CLI command\. In other cases, the user must specify a value for the `--document-name` option of the `[start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)` AWS CLI command\. The system checks whether the user has explicit access to the Session document they specify\.

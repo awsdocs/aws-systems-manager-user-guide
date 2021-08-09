@@ -37,7 +37,7 @@ You can add tags to patch baselines that you own by using the Systems Manager co
 
 1. Choose the name of a custom patch baseline you have already created, scroll down to the **Tags table** section, and then choose **Edit tags**\.
 
-1. Choose **Add tags**\.
+1. Choose **Add tag**\.
 
 1. For **Key**, enter a key for the tag, such as **Environment**\.
 

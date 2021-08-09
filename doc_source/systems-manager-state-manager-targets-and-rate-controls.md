@@ -38,7 +38,7 @@ If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting A
 **Choose a resource group**  
 Use this option to create an association on all instances returned by an AWS Resource Groups tag\-based or AWS CloudFormation stack\-based query\. 
 
-Note the following details about targeting resource groups for an association:
+Below are details about targeting resource groups for an association\.
 + If you add new instances to a group, the system automatically maps the instances to the association that targets the resource group\. The system applies the association to the instances when it discovers the change\. After this initial run, the system runs the association according to the schedule you specified\.
 + If you delete a resource group, all instances in that group no longer run the association\. As a best practice, delete associations targeting the group\.
 + At most you can target a single resource group for an association\. Multiple or nested groups aren't supported\.

@@ -2,7 +2,7 @@
 
 You can use the AWS Systems Manager console to generate patch compliance reports that are saved as a \.csv file to an Amazon Simple Storage Service \(Amazon S3\) bucket of your choice\. You can generate a single on\-demand report or specify a schedule for generating the reports automatically\. 
 
-Reports can be generated for a single instance or for all instances in your AWS account\. For a single instance, a report contains comprehensive details, including the IDs of patches related to an instance being noncompliant\. For a report on all instances, only summary information and counts of noncompliant instances' patches are provided\.
+Reports can be generated for a single instance or for all instances in your selected AWS account and AWS Region\. For a single instance, a report contains comprehensive details, including the IDs of patches related to an instance being noncompliant\. For a report on all instances, only summary information and counts of noncompliant instances' patches are provided\.
 
 **Note**  
 After a report is generated, you can use a tool like Amazon QuickSight to import and analyze the data\. Amazon QuickSight is a business intelligence \(BI\) service you can use to explore and interpret information in an interactive visual environment\. For more information, see the *[Amazon QuickSight User Guide](https://docs.aws.amazon.com/quicksight/latest/user/)*\.
@@ -10,7 +10,7 @@ After a report is generated, you can use a tool like Amazon QuickSight to import
 You can also specify an Amazon Simple Notification Service \(Amazon SNS\) topic to use for sending notifications when a report is generated\.
 
 **Service roles for generating patch compliance reports**  
-The first time you generate a report, Systems Manager creates a service role named `AWS-SystemsManager-PatchSummaryExportRole` to use for the export process\. The first time you generate a report on a schedule, Systems Manager creates another service role named `AWS-EventBridge-Start-SSMAutomationRole`, along with the service role `AWS-SystemsManager-PatchSummaryExportRole` \(if not created already\) to use for the export process\. `AWS-EventBridge-Start-SSMAutomationRole` enables Amazon EventBridge to start an automation using the runbook [AWS\-ExportPatchReportToS3 ](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-exportpatchreporttos3)\.
+The first time you generate a report, Systems Manager creates a service role named `AWS-SystemsManager-PatchSummaryExportRole` to use for the export process\. The first time you generate a report on a schedule, Systems Manager creates another service role named `AWS-EventBridge-Start-SSMAutomationRole`, along with the service role `AWS-SystemsManager-PatchSummaryExportRole` \(if not created already\) to use for the export process\. `AWS-EventBridge-Start-SSMAutomationRole` enables Amazon EventBridge to start an automation using the runbook [AWS\-ExportPatchReportToS3](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-aws-exportpatchreporttos3)\.
 
 We recommend against attempting to modify these policies and roles\. Doing so could cause patch compliance report generation to fail\. For more information, see [Troubleshooting patch compliance report generation](#patch-compliance-reports-troubleshooting)\.
 

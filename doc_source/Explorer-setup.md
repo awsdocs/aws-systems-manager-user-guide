@@ -18,7 +18,7 @@ You can change setup configurations at any time on the **Settings** page\.
 
 ## Configuring OpsData sources<a name="Explorer-setup-data-sources"></a>
 
-Integrated Setup allowss the following data sources that populate Explorer widgets\.
+Integrated Setup allows the following data sources that populate Explorer widgets\.
 + AWS Support Center \(You must have either a Business or Enterprise Support plan to allow this source\.\)
 + AWS Compute Optimizer \(You must have either a Business or Enterprise Support plan to allow this source\.\)
 + Systems Manager State Manager association compliance

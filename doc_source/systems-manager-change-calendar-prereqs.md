@@ -16,9 +16,15 @@ Install the latest command line tools to get state information about calendars\.
 
 To create, update, or delete a Change Calendar entry, including adding and removing events from the entry, a policy attached to your AWS Identity and Access Management \(IAM\) user or service role must allow the following actions:
 + `ssm:CreateDocument`
-+ `ssm:DescribeDocument`
-+ `ssm:UpdateDocument`
 + `ssm:DeleteDocument`
++ `ssm:DescribeDocument`
++ `ssm:DescribeDocumentPermission`
++ `ssm:GetCalendar`
++ `ssm:ListDocuments`
++ `ssm:ModifyDocumentPermission`
++ `ssm:PutCalendar`
++ `ssm:UpdateDocument`
++ `ssm:UpdateDocumentDefaultVersion`
 
 To get information about the current or upcoming state of the calendar, a policy attached to your IAM user or service role must allow the following action:
 + `ssm:GetCalendarState`

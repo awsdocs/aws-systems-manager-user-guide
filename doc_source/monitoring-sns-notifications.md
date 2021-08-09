@@ -109,7 +109,11 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
    }
    ```
 
-   *sns\-topic\-arn* represents the ARN of the existing Amazon Simple Notification Service \(Amazon SNS\) topic to use to send Amazon SNS notifications, in the format of `arn:aws:sns::account-id:sns-topic-name.` For example: `arn:aws:sns::123456789012:my-sns-topic`\.
+   *sns\-topic\-arn* represents the ARN of the existing Amazon Simple Notification Service \(Amazon SNS\) topic to use to send Amazon SNS notifications, in the format of `arn:aws:sns:region:account-id:sns-topic-name.` For example: `arn:aws:sns:us-east-2:123456789012:my-sns-topic`\.
+
+1. Choose **Next: Tags**\.
+
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this policy, and then choose **Next: Review**\. 
 
 1. Choose **Review policy**\.
 
@@ -131,7 +135,9 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 1. Under **Select type of trusted entity**, choose **AWS service**\.
 
-1. In the **Choose a use case** section, choose **Systems Manager**, and then choose **Next: Permissions**\.
+1. In the **Choose a use case** section, choose **Systems Manager**\. 
+
+1. In the **Select your use case** section, choose **Systems Manager**, and then choose **Next: Permissions**\.
 
 1. On the **Attach permissions policies** page, select the box to the left of the name of the custom policy you created in Task 2\. For example: **my\-sns\-publish\-permissions**\.
 
@@ -155,7 +161,7 @@ If your IAM user account, group, or role is assigned administrator permissions, 
 
 Use the following procedure to configure a user account to use Run Command and Maintenance Windows\. If you need to create a new user account, see [Creating an IAM user in your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
 
-**To configure user access and attach the iam:PassRole policy to a user account**
+**To configure user access and attach the `iam:PassRole` policy to a user account**
 
 1. In the IAM navigation pane, choose **Users**, and then choose the user account that you want to configure\.
 
@@ -165,13 +171,11 @@ Use the following procedure to configure a user account to use Run Command and M
 
 1. On the **Create policy** page, choose the **Visual editor** tab\.
 
-1. Choose **Service**, and then choose ** IAM**\.
+1. Choose **Choose a service**, and then choose ** IAM**\.
 
-1. Choose **Select actions**\.
+1. For **Actions**, in the **Filter actions** text box, enter **PassRole**, and then choose the **PassRole** option\.
 
-1. In the **Filter actions** text box, enter **PassRole**, and then choose the **PassRole** option\.
-
-1. Choose **Resources**\. Verify that **Specific** is selected, and then choose **Add ARN**\.
+1. For **Resources**, verify that **Specific** is selected, and then choose **Add ARN**\.
 
 1. In the **Specify ARN for role** field, paste the Amazon SNS IAM role ARN that you copied at the end of Task 3\. The system automatically populates the **Account** and **Role name with path** fields\.
 
@@ -194,7 +198,7 @@ If you need to create a custom service role, see one of the following topics:
 [Control access to maintenance windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
 [Control access to maintenance windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
 
-**To attach the iam:PassRole policy to your Maintenance Windows role**
+**To attach the` iam:PassRole` policy to your Maintenance Windows role**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -208,7 +212,7 @@ If you need to create a custom service role, see one of the following topics:
 
 1. Choose **Add inline policy**\.
 
-1. Choose the **Visual Editor** tab\.
+1. Choose the **Visual editor** tab\.
 
 1. For **Service**, choose **IAM**\.
 
@@ -220,4 +224,4 @@ If you need to create a custom service role, see one of the following topics:
 
 1. Choose **Review policy**\.
 
-1. On the **Review Policy** page, specify a name for the PassRole policy, and then choose **Create policy**\.
+1. On the **Review Policy** page, specify a name for the `PassRole` policy, and then choose **Create policy**\.

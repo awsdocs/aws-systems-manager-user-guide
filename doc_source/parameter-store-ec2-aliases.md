@@ -39,7 +39,7 @@ You can also choose your preferred AMI when you create an instance using the Ama
 
 When it's time to use a different AMI in your instance creation workflow, you need only update the parameter with the new AMI value, and Parameter Store again validates that you have entered an ID in the proper format\.
 
-## Grant permissions to create a parameter of aws:ec2:image data type<a name="parameter-store-ec2-iam"></a>
+## Grant permissions to create a parameter of `aws:ec2:image` data type<a name="parameter-store-ec2-iam"></a>
 
 Using AWS Identity and Access Management \(IAM\) policies, you can provide or restrict user access to Parameter Store API operations and content\.
 

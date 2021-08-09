@@ -120,10 +120,8 @@ You can reregister a managed instance after you deregistered it\. Use the follow
 
 1. Connect to your instance\.
 
-1. Search the `C:\ProgramData\Package Cache\` directory for `AmazonSSMAgentSetup.exe`\.
+1. Run the following command\. Be sure to replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the Region you want to download the SSM Agent from\.
 
-1. Run the file\.
-
-1. Choose the option to uninstall SSM Agent\.
-
-1. Repeat the procedure in this topic to install SSM Agent\. 
+   ```
+   'yes' | & 'C:\Program Files\Amazon\SSM\amazon-ssm-agent.exe' -register -code activation-code -id activation-id -region region; Restart-Service AmazonSSMAgent
+   ```

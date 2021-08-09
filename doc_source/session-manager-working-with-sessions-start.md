@@ -60,7 +60,7 @@ After the connection is made, you can run bash commands \(Linux and macOS\) or P
 
 ## Starting a session \(AWS CLI\)<a name="sessions-start-cli"></a>
 
-Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
 For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

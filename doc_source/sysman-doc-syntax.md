@@ -22,6 +22,21 @@ A structure that defines the parameters the document accepts\. For parameters th
 ```
 {{ssm:parameter-name}}
 ```
+
+```
+AMI:
+  type: String
+  description: "(Required) The AMI to use when launching the instance."
+  default: {{ssm:/aws/service/list/ami-windows-latest}}
+```
+
+```
+"AMI": {
+  "type": "String",
+  "description": "(Required) The AMI to use when launching the instance.",
+  "default": "{{ssm:/aws/service/list/ami-windows-latest}}"
+}
+```
 For more information about Parameter Store, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
 Type: Structure  
 The `parameters` structure accepts the following fields and values:  

@@ -34,7 +34,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 
 **Parameter Store**  
 [Parameter Store](systems-manager-parameter-store.md), a capability of AWS Systems Manager, provides a centralized store to manage your configuration data, whether plaintext data such as database strings or secrets such as passwords\. This allows you to separate your secrets and configuration data from your code\. You can tag and organize parameters into hierarchies to help manage them\.
-+ [Create a parameter \(console\)](parameter-create-console.md#param-create-console)
++ [Create a Systems Manager parameter \(console\)](parameter-create-console.md)
 + [Create a Systems Manager parameter \(AWS CLI\)](param-create-cli.md)
 + [Working with parameter hierarchies](sysman-paramstore-hierarchies.md)
 + Advanced: [Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](sysman-paramstore-walk.md#sysman-param-securestring-walkthrough)
@@ -43,7 +43,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 
 **Change Manager**  
 [Change Manager](change-manager.md), a capability of AWS Systems Manager, is an enterprise change management framework for requesting, approving, implementing, and reporting on operational changes to your application configuration and infrastructure\.
-+ Advanced: [Try out the AWS managed Hello World change template](change-templates-aws-managed.md)
++ Advanced: [Try out the AWS managed `Hello World` change template](change-templates-aws-managed.md)
 
 **Automation**  
 [Automation](systems-manager-automation.md), a capability of AWS Systems Manager, allows you to safely automate operations and management tasks across AWS resources\. You can automate common IT tasks, safely perform disruptive tasks in bulk, simplify complex tasks, enhance operations security, and use stored configuration scripts to share best practices with the rest of your organization\.
@@ -57,7 +57,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 + Advanced: [Walkthrough: Using Automation with Jenkins](automation-jenkins.md)
 
 **Change Calendar**  
-[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify are or not permitted to occur in your AWS account\. 
+[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify are or are not permitted to occur in your AWS account\. 
 + [Creating a Change Calendar entry](change-calendar-create.md)
 + [Creating a Change Calendar event](change-calendar-create-event.md)
 

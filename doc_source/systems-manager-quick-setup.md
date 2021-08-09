@@ -29,5 +29,6 @@ After setting up a configuration, you can view details about it and its deployme
 **Topics**
 + [Quick Setup Host Management](quick-setup-host-management.md)
 + [AWS Config recording](quick-setup-config.md)
++ [Deploy AWS Config conformance packs](quick-setup-cpack.md)
 + [Configure DevOps Guru with Quick Setup](quick-setup-devops.md)
 + [Deploy Distributor packages with Quick Setup](quick-setup-distributor.md)

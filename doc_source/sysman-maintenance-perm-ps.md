@@ -33,7 +33,7 @@ A custom service role isn't required if you choose to use a Systems Manager serv
    }
    ```
 
-1. Open Tools for Windows PowerShell and run the following command to create a role with a name that identifies this role as a maintenance window role; for example `my-maintenance-window-role`\. The role uses the policy that you created in the previous step\.
+1. Open Tools for Windows PowerShell and run the following command to create a role with a name that identifies this role as a maintenance window role\. For example `my-maintenance-window-role`\. The role uses the policy that you created in the previous step\.
 
    ```
    New-IAMRole `

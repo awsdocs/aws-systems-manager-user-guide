@@ -1,6 +1,6 @@
 # Using roles to create OpsData and OpsItems for Systems Manager Explorer: `AWSServiceRoleForSystemsManagerOpsDataSync`<a name="using-service-linked-roles-service-action-3"></a>
 
-AWS Systems Manager uses AWS Identity and Access Management \(IAM\)[ service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to Systems Manager\. Service\-linked roles are predefined by Systems Manager and include all the permissions that the service requires to call other AWS services on your behalf\. 
+AWS Systems Manager uses AWS Identity and Access Management \(IAM\)[service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to Systems Manager\. Service\-linked roles are predefined by Systems Manager and include all the permissions that the service requires to call other AWS services on your behalf\. 
 
 A service\-linked role makes setting up Systems Manager easier because you don’t have to manually add the necessary permissions\. Systems Manager defines the permissions of its service\-linked roles, and unless defined otherwise, only Systems Manager can assume its roles\. The defined permissions include the trust policy and the permissions policy, and that permissions policy can't be attached to any other IAM entity\.
 
@@ -18,7 +18,7 @@ The `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role trusts the
 The role permissions policy allows Systems Manager to complete the following actions on the specified resources:
 + Systems Manager Explorer requires that a service\-linked role grant permission to update a security finding when an OpsItem is updated, create and update an OpsItem, and turn off the Security Hub data source when a SSM managed rule is deleted by customers\.
 
-The managed policy that is used to provide permissions for the `AWSServiceRoleForSystemsManagerOpsDataSync` role is `AWSServiceRoleForSystemsManagerOpsDataSyncPolicy `\. For details about the permissions it grants, see [AWS managed policy: `AWSServiceRoleForSystemsManagerOpsDataSyncPolicy`](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSServiceRoleForSystemsManagerOpsDataSyncPolicy)\. 
+The managed policy that is used to provide permissions for the `AWSServiceRoleForSystemsManagerOpsDataSync` role is `AWSSystemsManagerOpsDataSyncServiceRolePolicy`\. For details about the permissions it grants, see [AWS managed policy: `AWSSystemsManagerOpsDataSyncServiceRolePolicy`](security-iam-awsmanpol.md#security-iam-awsmanpol-AWSSystemsManagerOpsDataSyncServiceRolePolicy)\. 
 
 You must configure permissions to allow an IAM entity \(such as a user, group, or role\) to create, edit, or delete a service\-linked role\. For more information, see [Service\-Linked Role Permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
 

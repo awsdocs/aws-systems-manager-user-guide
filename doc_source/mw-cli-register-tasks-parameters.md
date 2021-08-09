@@ -94,9 +94,9 @@ The following list describes the pseudo parameters that you can specify using th
 + **`TARGET_TYPE`**: The type of target\. Supported types include `RESOURCE_GROUP` and `INSTANCE`\.
 + **`TARGET_ID`**: 
 
-  If the target type you specify is `INSTANCE`, the `TARGET_ID` pseudo parameter is replaced by the ID of the instance; for example, `i-078a280217EXAMPLE`\.
+  If the target type you specify is `INSTANCE`, the `TARGET_ID` pseudo parameter is replaced by the ID of the instance\. For example, `i-078a280217EXAMPLE`\.
 
-  If the target type you specify is `RESOURCE_GROUP`, the value referenced for the task execution is the full ARN of the resource; for example: `arn:aws:ec2:us-east-1:123456789012:instance/i-078a280217EXAMPLE`\. The following table provides sample `TARGET_ID` values for particular resource types in a resource group\. 
+  If the target type you specify is `RESOURCE_GROUP`, the value referenced for the task execution is the full ARN of the resource\. For example: `arn:aws:ec2:us-east-1:123456789012:instance/i-078a280217EXAMPLE`\. The following table provides sample `TARGET_ID` values for particular resource types in a resource group\. 
 **Note**  
 `TARGET_ID` isn't supported for Run Command tasks\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/mw-cli-register-tasks-parameters.html)

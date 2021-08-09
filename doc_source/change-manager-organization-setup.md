@@ -42,7 +42,7 @@ When a user creates a change request, they first select a change template\. This
   You can use Change Manager with all the member accounts in all your organizational units that are set up in Organizations, and in all the AWS Regions they operate in\. If you prefer, you can instead use Change Manager with only some of your organizational units\.
 
 **Important**  
-We strongly recommend, before you begin this procedure, that you read through its steps to understand the configuration choices you're making and the permissions you're granting\. In particular, plan the custom job functions you will create and the permissions you assign to each job function\. This ensures that when later you attach the job function policies you create to individual users or user groups, they're being granted only the permissions you intend for them to have\.  
+We strongly recommend, before you begin this procedure, that you read through its steps to understand the configuration choices you're making and the permissions you're granting\. In particular, plan the custom job functions you will create and the permissions you assign to each job function\. This ensures that when later you attach the job function policies you create to individual users, user groups, or IAM roles, they're being granted only the permissions you intend for them to have\.  
 As a best practice, begin by setting up the delegated administrator account using the login for an AWS account administrator\. Then configure job functions and their permissions after you have created change templates and identified the runbooks that each one uses\.
 
 To set up Change Manager for use with an organization, perform the following task in the Quick Setup area of the Systems Manager console\.
@@ -63,7 +63,7 @@ You repeat this task for each job function you want to create for your organizat
 
 1. Choose **Change Manager**, and then choose **Next**\.
 
-1. For **Delegated administrator account**, enter the account ID of the AWS account you want to use for managing change templates, change requests, and runbook workflows in Change Manager\. 
+1. For **Delegated administrator account**, enter the ID of the AWS account you want to use for managing change templates, change requests, and runbook workflows in Change Manager\. 
 
    If you have previously specified a delegated administrator account for Systems Manager, its ID is already reported in this field\. 
 **Important**  
@@ -93,7 +93,12 @@ Granting users full administrative permissions should be done sparingly, and onl
 **Tip**  
 We recommend that you use the IAM policy editor to construct your policy and then paste the policy JSON into the **Permissions policy** field\.
 
-   For example, you might begin with policy content that provides permissions for working with the Systems Manager documents \(SSM documents\) the job function needs access to\. Here is sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account 123456789012\. This example isn't comprehensive\. Additional permissions might be needed for working with other AWS resources, such as databases and instances\.
+**Sample policy: DynamoDB database management**  
+For example, you might begin with policy content that provides permissions for working with the Systems Manager documents \(SSM documents\) the job function needs access to\. Here is a sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account 123456789012, in the US East \(Ohio\) Region \(`us-east-2`\)\. 
+
+   The policy also includes permission for the [StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html) operation, which is required for creating a change request in Change Calendar\. 
+**Note**  
+This example isn't comprehensive\. Additional permissions might be needed for working with other AWS resources, such as databases and instances\.
 
    ```
    {
@@ -102,15 +107,15 @@ We recommend that you use the IAM policy editor to construct your policy and the
            {
                "Effect": "Allow",
                "Action": [
-                   "ssm:ListDocumentVersions",
+                   "ssm:CreateDocument",
                    "ssm:DescribeDocument",
-                   "ssm:UpdateDocumentDefaultVersion",
-                   "ssm:ModifyDocumentPermission",
                    "ssm:DescribeDocumentParameters",
-                   "ssm:GetDocument",
                    "ssm:DescribeDocumentPermission",
+                   "ssm:GetDocument",
+                   "ssm:ListDocumentVersions",
+                   "ssm:ModifyDocumentPermission",
                    "ssm:UpdateDocument",
-                   "ssm:CreateDocument"
+                   "ssm:UpdateDocumentDefaultVersion"
                ],
                "Resource": [
                    "arn:aws:ssm:us-east-2:123456789012:document/AWS-CreateDynamoDbBackup",
@@ -120,13 +125,18 @@ We recommend that you use the IAM policy editor to construct your policy and the
                    "arn:aws:ssm:us-east-2:123456789012:document/AWS-AWSConfigRemediation-EnableEncryptionOnDynamoDbTable",
                    "arn:aws:ssm:us-east-2:123456789012:document/AWS-AWSConfigRemediation-EnablePITRForDynamoDbTable",
                    "arn:aws:ssm:us-east-2:123456789012:document/MyFirstDBChangeTemplate",
-                   "arn:aws:ssm:us-east-2:123456789012:document/MySecondDBChangeTemplate"                              
+                   "arn:aws:ssm:us-east-2:123456789012:document/MySecondDBChangeTemplate"
                ]
            },
            {
                "Effect": "Allow",
                "Action": "ssm:ListDocuments",
                "Resource": "*"
+           },
+           {
+               "Effect": "Allow",
+               "Action": "ssm:StartChangeRequestExecution",
+               "Resource": "arn:aws:ssm:us-east-2:123456789012:automation-definition/*:*"
            }
        ]
    }
@@ -144,7 +154,7 @@ We recommend that you use the IAM policy editor to construct your policy and the
 
 1. Choose **Create**\.
 
-After the system finishes setting up Change Manager for your organization, it displays a summary of your deployments\. This summary information includes the name of the permissions policy that was created for the job function you configured\. For example, `AWS-QuickSetup-SSMChangeMgr-DBAdminInvocationRole`\. Make a note of this policy name and attach it to the IAM user or groups who will perform this job function\. For information about attaching IAM policies, see [Changing permissions for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.
+After the system finishes setting up Change Manager for your organization, it displays a summary of your deployments\. This summary information includes the name of the permissions policy that was created for the job function you configured\. For example, `AWS-QuickSetup-SSMChangeMgr-DBAdminInvocationRole`\. Make a note of this policy name and attach it to the users, groups, or IAM roles who will perform this job function\. For information about attaching IAM policies, see [Changing permissions for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html) in the *IAM User Guide*\.
 
 **Note**  
 Quick Setup uses AWS CloudFormation StackSets to deploy your configurations\. You can also view information about a completed deployment configuration in the AWS CloudFormation console\. For information about StackSets, see [Working with AWS CloudFormation StackSets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html) in the *AWS CloudFormation User Guide*\.

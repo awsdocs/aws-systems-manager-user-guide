@@ -5,7 +5,7 @@ Out\-of\-compliance instances are identified when either of two AWS Systems Mana
 There are two SSM documents that are used to identify or update out\-of\-compliance instances: `AWS-RunPatchBaseline` and `AWS-RunPatchBaselineAssociation`\. Each one is used by different processes, and their compliance results are available through different channels\. The following table outlines the differences between these documents\.
 
 **Note**  
-Patch compliance data from Patch Manager can be sent to AWS Security Hub\. Security Hub gives you a comprehensive view of your high\-priority security alerts and compliance status\. It also monitors the patching status of your fleet\. For more information, see [Integration with AWS Security Hub](patch-manager-security-hub-integration.md)\. 
+Patch compliance data from Patch Manager can be sent to AWS Security Hub\. Security Hub gives you a comprehensive view of your high\-priority security alerts and compliance status\. It also monitors the patching status of your fleet\. For more information, see [ AWS Security Hub integration with Patch Manager](patch-manager-security-hub-integration.md)\. 
 
 
 |  | `AWS-RunPatchBaseline` | `AWS-RunPatchBaselineAssociation` | 

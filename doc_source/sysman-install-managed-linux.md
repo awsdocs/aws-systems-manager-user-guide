@@ -42,7 +42,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 #### [ Debian Server ]
 + **Intel 64\-bit \(x86\_64\)**
 
-  `ttps://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb`
+  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb`
 + **ARM 64\-bit \(arm64\)**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb`
@@ -210,11 +210,11 @@ You can reregister a managed instance after you deregistered it\. Use the follow
 
 1. Connect to your instance\.
 
-1. Search for and run `amazon-ssm-agent`\.
+1. Run the following command\. Be sure to replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the Region you want to download the SSM Agent from\.
 
-1. Choose the option to uninstall SSM Agent\.
-
-1. Repeat the procedure in this topic to install SSM Agent\. 
+   ```
+   echo "yes" | sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" && sudo systemctl restart amazon-ssm-agent
+   ```
 
 ## Troubleshooting SSM Agent installation in a Linux hybrid environment<a name="systems-manager-install-managed-linux-troubleshooting"></a>
 

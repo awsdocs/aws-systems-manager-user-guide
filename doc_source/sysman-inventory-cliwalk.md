@@ -13,7 +13,7 @@ You can quickly configure all managed instances in your AWS account and in the c
 
 **To configure inventory for all managed instances in your AWS account and in the current Region \(CLI\)**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
@@ -52,7 +52,7 @@ Use the following procedure to manually configure AWS Systems Manager Inventory 
 
 **To manually configure your managed instances for inventory \(CLI\)**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

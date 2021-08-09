@@ -23,19 +23,17 @@ Use the following procedure to register a Run Command task that is configured to
 
 1. Select the maintenance window for which you would like to register a Run Command task configured to send Amazon Simple Notification Service \(Amazon SNS\) notifications\.
 
-1. Choose **Actions** and then choose **Register Run Command task**\.
+1. Choose **Actions** and then choose **Register Run command task**\.
 
-1. In the **Name** field, enter a name for the task\.
+1. \(Optional\) In the **Name** field, enter a name for the task\.
 
-1. In the **Description** field, enter a description\.
+1. \(Optional\) In the **Description** field, enter a description\.
 
-1. From the **Document** list, choose a Command document\.
+1. From the **Command document** list, choose a Command document\.
 
-1. In the **Task priority** list, specify a priority for this task\. 1 is the highest priority\. Tasks in a maintenance window are scheduled in priority order\. Tasks that have the same priority are scheduled in parallel\.
+1. In the **Task priority** list, specify a priority for this task\. Zero \(`0`\) is the highest priority\. Tasks in a maintenance window are scheduled in priority order\. Tasks that have the same priority are scheduled in parallel\.
 
-1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
-**Note**  
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+1. In the **Targets** section, select a registered target group or select unregistered targets\.
 
 1. For **Rate control**:
    + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
@@ -47,25 +45,22 @@ If you selected targets by specifying tags applied to managed instances or by sp
 **Note**  
 Add `iam:PassRole` permissions to the Maintenance Windows role to allow Systems Manager to pass the SNS role to Amazon SNS\. If you haven't added `iam:PassRole` permissions, see Task 5 in the topic [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
-1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
+1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, make sure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
 
-1. In the **SNS notifications** section, choose **Enable SNS Notifications**\.
+1. In the **SNS notifications** section, do the following:
+   + Choose **Enable SNS Notifications**\.
+   + For **IAM role**, choose the Amazon SNS IAM role Amazon Resource Name \(ARN\) you created in Task 3 in [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md) to initiate Amazon SNS\.
+   + For **SNS topic**, enter the Amazon SNS topic ARN to be used\.
+   + For **Event type**, choose the events for which you want to receive notifications\.
+   + For **Notification type**, choose to receive notifications for each copy of a command sent to multiple instances \(invocations\) or the command summary\.
 
-1. In the **IAM role** section, choose the Amazon SNS IAM role Amazon Resource Name \(ARN\) you created in Task 3 in [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md) to initiate Amazon SNS\.
+1. In the **Parameters** section, enter the required parameters based on the Command document you chose\.
 
-1. In the **SNS topic** section, enter the Amazon SNS topic ARN to be used\.
+1. Choose **Register Run command task**\.
 
-1. In the **Event type** section, choose the events for which you want to receive notifications\.
-
-1. In the **Notification type** section, choose to receive notifications for each copy of a command sent to multiple instances \(invocations\) or the command summary\.
-
-1. In the **Input Parameters** section, enter the required parameters based on the Command document you chose\.
-
-1. Choose **Register Run Command task**\.
-
-1. After the next execution of your maintenance window, check your email for a message from Amazon SNS and open the email message\. Amazon SNS can take a few minutes to send the email message\.
+1. After the next time your maintenance window runs, check your email for a message from Amazon SNS and open the email message\. Amazon SNS can take a few minutes to send the email message\.
 
 ## Registering a Run Command task to a maintenance window that returns notifications \(CLI\)<a name="monitoring-sns-mw-register-cli"></a>
 
@@ -119,13 +114,15 @@ To better manage your task options, this procedure uses the command option `--cl
 
    You can also restore options we've omitted from this example if you want to use them\. For example, you can save command output to an S3 bucket\. 
 
-   For more information, see [register\-task\-with\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-task-with-maintenance-window.html)\.
+   For more information, see [register\-task\-with\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-task-with-maintenance-window.html) in the *AWS CLI Command Reference*\.
 
 1. Save the file\.
 
 1. In the directory on your local machine where you saved the file, run the following command\.
 
-   `aws ssm register-task-with-maintenance-window --cli-input-json file://RunCommandTask.json`
+   ```
+   aws ssm register-task-with-maintenance-window --cli-input-json file://RunCommandTask.json
+   ```
 **Important**  
 Be sure to include `file://` before the file name\. It's required in this command\.
 
@@ -139,4 +136,4 @@ Be sure to include `file://` before the file name\. It's required in this comman
 
 1. After the next execution of your maintenance window, check your email for a message from Amazon SNS and open the email message\. Amazon SNS can take a few minutes to send the email message\.
 
-For more information about registering tasks for a maintenance window from the command line, see [Amazon EC2 Systems Manager API Reference](https://docs.aws.amazon.com/ssm/latest/APIReference/) and the [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
+For more information about registering tasks for a maintenance window from the command line, see [Register tasks with the maintenance window](mw-cli-tutorial-tasks.md)\.

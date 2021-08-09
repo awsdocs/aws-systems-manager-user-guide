@@ -59,11 +59,13 @@ For information about patch compliance status values, see [Understanding patch c
 On Debian Server, the patch baseline service offers filtering on the *Priority* and *Section *fields\. These fields are typically present for all Debian Server packages\. To determine whether a patch is selected by the patch baseline, Patch Manager does the following:
 
 1. On Debian Server systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos aren't configured and the data is pulled from repos configured in a `sources` list\.
+
+1. If an update is available for `python3-apt` \(a Python library interface to `libapt`\), it is upgraded to the latest version\. \(This nonsecurity package is upgraded even if you did not select the **Include nonsecurity updates** option\.\)
 **Important**  
 On Debian Server 8 only: Because Debian Server 8\.\* operating systems refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs the following additional steps to ensure that patching operations succeed:  
 On your instance, the reference to the `jessie-backports` repository is commented out from the source location list \(`/etc/apt/sources.list.d/jessie-backports`\)\. As a result, no attempt is made to download patches from that location\.
 A Stretch security update signing key is imported\. This key provides the necessary permissions for the update and install operations on Debian Server 8\.\* distributions\.
-An `apt-get` operation is run to ensure that the latest version of `python3-apt` is installed before the patching process begins\.
+The `apt-get` operation is run at this point to ensure that the latest version of `python3-apt` is installed before the patching process begins\.
 After the installation process is complete, the reference to the `jessie-backports` repository is restored and the signing key is removed from the apt sources keyring\. This is done to leave the system configuration as it was before the patching operation\. 
 
 1. Next, the [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters), [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules), [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) and [RejectedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches) lists are applied\.
@@ -179,6 +181,8 @@ For information about accepted formats for lists of approved patches and rejecte
 On Ubuntu Server, the patch baseline service offers filtering on the *Priority* and *Section *fields\. These fields are typically present for all Ubuntu Server packages\. To determine whether a patch is selected by the patch baseline, Patch Manager does the following:
 
 1. On Ubuntu Server systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos aren't configured and the data is pulled from repos configured in a `sources` list\.
+
+1. If an update is available for `python3-apt` \(a Python library interface to `libapt`\), it is upgraded to the latest version\. \(This nonsecurity package is upgraded even if you did not select the **Include nonsecurity updates** option\.\)
 
 1. Next, the [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters), [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules), [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) and [RejectedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-RejectedPatches) lists are applied\.
 **Note**  

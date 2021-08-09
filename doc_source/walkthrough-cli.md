@@ -18,7 +18,7 @@ You must either have administrator permissions on the instances you want to conf
 
 **To run commands using the AWS CLI**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

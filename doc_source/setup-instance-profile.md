@@ -30,7 +30,7 @@ Required permissions in either of the following cases:
   arn:aws:s3:::aws-ssm-region/*
   ```
 
-  For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md), [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md), and [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) in the *Amazon VPC User Guide*\.
+  For more information, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md), [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md), and [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints.html) in the *Amazon VPC User Guide*\.
 + **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations\.
 
   Your Amazon EC2 instance profile for Systems Manager must grant access to an Amazon S3 bucket that you own for tasks like the following: 
@@ -57,7 +57,7 @@ To create an instance profile with permissions for additional Systems Manager se
 
 Creating a custom policy for Amazon S3 access is required only if you're using a VPC endpoint or using an S3 bucket of your own in your Systems Manager operations\.
 
-For information about the AWS managed S3 buckets you provide access to in the following policy, see [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
+For information about the AWS managed S3 buckets you provide access to in the following policy, see [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)\.
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 

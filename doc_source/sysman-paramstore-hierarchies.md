@@ -110,7 +110,7 @@ This procedure shows how to work with parameters and parameter hierarchies by us
 
 **To manage parameters using hierarchies**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 

@@ -157,6 +157,13 @@ For information about specifying preferences for storing session logs, see [Logg
            },
            {
                "Effect": "Allow",
+               "Action": [
+                   "kms:Decrypt"
+               ],
+               "Resource": "key-name"
+           },
+           {
+               "Effect": "Allow",
                "Action": "kms:GenerateDataKey",
                "Resource": "*"
            }

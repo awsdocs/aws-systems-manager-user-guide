@@ -136,11 +136,19 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 
 **Usage**: Optional\.
 
-**Options**: `RebootIfNeeded` \| `NoReboot`\. 
+**Options**: `RebootIfNeeded` \| `NoReboot` 
 
 RebootIfNeeded  
-When you choose the `RebootIfNeeded` option, the instance is rebooted if Patch Manager installed new patches, and it detected any patches with a status of `INSTALLED_PENDING_REBOOT` during the `Install` operation\. The `INSTALLED_PENDING_REBOOT` status can mean that the option `NoReboot` was selected the last time the `Install` operation was run\. \(Patches installed outside of Patch Manager are never given a status of `INSTALLED_PENDING_REBOOT`\.\)  
-When you choose the `RebootIfNeeded` option, Patch Manager doesn't evaluate whether a reboot is *required* by the patch\. A reboot occurs whenever there are missing packages that require a reboot or packages with a status of `INSTALLED_PENDING_REBOOT`\.
+When you choose the `RebootIfNeeded` option, the instance is rebooted in either of the following cases:   
++ Patch Manager installed one or more patches\. 
+
+  Patch Manager doesn't evaluate whether a reboot is *required* by the patch\. The system is rebooted even if the patch doesn't require a reboot\.
++ Patch Manager detects one or more patches with a status of `INSTALLED_PENDING_REBOOT` during the `Install` operation\. 
+
+  The `INSTALLED_PENDING_REBOOT` status can mean that the option `NoReboot` was selected the last time the `Install` operation was run\.
+**Note**  
+Patches installed outside of Patch Manager are never given a status of `INSTALLED_PENDING_REBOOT`\.
+Rebooting instances in these two cases ensures that updated packages are flushed from memory and keeps patching and rebooting behavior consistent across all operating systems\.
 
 NoReboot  
 When you choose the `NoReboot` option, Patch Manager doesn't reboot an instance even if it installed patches during the `Install` operation\. This option is useful if you know that your instances don't require rebooting after patches are applied, or you have applications or processes running on an instance that shouldn't be disrupted by a patching operation reboot\. It's also useful when you want more control over the timing of instance reboots, such as by using a maintenance window\.  

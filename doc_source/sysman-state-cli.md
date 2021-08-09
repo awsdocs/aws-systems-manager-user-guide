@@ -1,25 +1,23 @@
 # Walkthrough: Automatically update SSM Agent \(CLI\)<a name="sysman-state-cli"></a>
 
-The following procedure walks you through the process of creating a State Manager association using the AWS Command Line Interface \(AWS CLI\)\. State Manager is a capability of AWS Systems Manager\. The association automatically updates the SSM Agent according to a schedule that you specify\. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
+The following procedure walks you through the process of creating a State Manager association using the AWS Command Line Interface\. The association automatically updates the SSM Agent according to a schedule that you specify\. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md)\. To customize the update schedule for SSM Agent using the console, see [Automatically updating SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console)\.
 
-**Note**  
-Note the following details about automatically updating SSM Agent:  
-Beginning September 21, 2020, autoupdate installs SSM Agent version 3\.0\. For more information, see [SSM Agent version 3\.0](ssm-agent-v3.md)\.
 To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/master/RELEASENOTES.md) page on GitHub\.
 
 **Before you begin**  
 Before you complete the following procedure, verify that you have at least one running Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Linux, macOS, or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
 
-**Note**  
-If you create an association by using either the AWS CLI or AWS Tools for Windows PowerShell \(Tools for Windows PowerShell\), use the `--Targets` parameter to target instances, as shown in the following example\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\.
+If you create an association by using either the AWS CLI or AWS Tools for Windows PowerShell, use the `--Targets` parameter to target instances, as shown in the following example\. Don't use the `--InstanceID` parameter\. The `--InstanceID` parameter is a legacy parameter\.
 
 **To create an association for automatically updating SSM Agent**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you have't already\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command to create an association by targeting instances using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
+
+   State Manager associations don't support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
 ------
 #### [ Linux & macOS ]
@@ -42,10 +40,8 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
    ```
 
 ------
-**Note**  
-State Manager associations don't support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-   If you want, you can also target multiple instances by specifying instances IDs in a comma\-separated list\.
+   You can target multiple instances by specifying instances IDs in a comma\-separated list\.
 
 ------
 #### [ Linux & macOS ]
@@ -53,7 +49,7 @@ State Manager associations don't support all cron and rate expressions\. For mor
    ```
    aws ssm create-association \
    --targets Key=instanceids,Values=instance_ID,instance_ID,instance_ID \
-   --name document_name \
+   --name AWS-UpdateSSMAgent \
    --schedule-expression "cron(0 2 ? * SUN *)"
    ```
 
@@ -63,8 +59,34 @@ State Manager associations don't support all cron and rate expressions\. For mor
    ```
    aws ssm create-association ^
    --targets Key=instanceids,Values=instance_ID,instance_ID,instance_ID ^
-   --name document_name ^
+   --name AWS-UpdateSSMAgent ^
    --schedule-expression "cron(0 2 ? * SUN *)"
+   ```
+
+------
+
+   You can specify the version of the SSM Agent you want to update to\.
+
+------
+#### [ Linux & macOS ]
+
+   ```
+   aws ssm create-association \
+   --targets Key=instanceids,Values=instance_ID,instance_ID,instance_ID \
+   --name AWS-UpdateSSMAgent \
+   --schedule-expression "cron(0 2 ? * SUN *)" \
+   --parameters version=ssm_agent_version_number
+   ```
+
+------
+#### [ Windows ]
+
+   ```
+   aws ssm create-association ^
+   --targets Key=instanceids,Values=instance_ID,instance_ID,instance_ID ^
+   --name AWS-UpdateSSMAgent ^
+   --schedule-expression "cron(0 2 ? * SUN *)" ^
+   --parameters version=ssm_agent_version_number
    ```
 
 ------
@@ -104,5 +126,5 @@ State Manager associations don't support all cron and rate expressions\. For mor
    ```
    aws ssm list-associations
    ```
-**Note**  
-If your instances *aren't* running the most recent version of the SSM Agent, the status shows `Failed`\. This behavior is expected\. When a new version of SSM Agent is published, the association automatically installs the new agent, and the status shows `Success`\.
+
+   If your instances *aren't* running the most recent version of the SSM Agent, the status shows `Failed`\. When a new version of SSM Agent is published, the association automatically installs the new agent, and the status shows `Success`\.

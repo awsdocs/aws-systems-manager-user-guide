@@ -12,7 +12,7 @@ SSM Agent must be installed on each instance you want to use with AWS Systems Ma
 + Windows Server 2016 and 2019
 
 **Note**  
-SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\. For example, SSM Agent isn't preinstalled on EKS\-Optimized AMIs based on Amazon Linux 2\.
+SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\.
 
 On other AMIs, and on\-premises servers and virtual machines for your hybrid environment, you must install the agent manually, as described in the following table\.
 
@@ -25,6 +25,6 @@ An updated version of SSM Agent is released whenever new capabilities are added 
 | Operating system type | SSM Agent installation | 
 | --- | --- | 
 | Linux | SSM Agent is installed by default on Amazon Linux, Amazon Linux 2, Ubuntu Server 16\.04, and Ubuntu Server 18\.04 LTS base Amazon EC2 AMIs\. You must manually install SSM Agent on other versions of Amazon EC2 for Linux, including non\-base images\. For more information, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\. | 
-| macOS |  SSM Agent is installed by default on macOS 10\.14\.6 \(Mojave\) and 10\.15\.7 \(Catalina\) AMIs for Amazon EC2\. For more information, see [Installing and configuring SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md)\.  | 
+| macOS |  SSM Agent is installed by default on macOS 10\.14\.6 \(Mojave\), 10\.15\.7 \(Catalina\), and 11\.x \(BigSur\) AMIs for Amazon EC2\. For more information, see [Installing and configuring SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md)\.  | 
 | Windows |  Windows AMIs published before November 2016 use the EC2Config service to process requests and configure instances\. Unless you have a specific reason for using the EC2Config service or an earlier version of SSM Agent to process Systems Manager requests, we recommend that you download and install the latest version of the SSM Agent to each of your EC2 instances and managed instances in your hybrid environment\. For more information, see [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.  | 
 | On\-premises servers and VMs |  SSM Agent must be installed manually on virtual machines \(VMs\) and on\-premises servers you want to use in a hybrid environment\. The SSM Agent download and installation process for these machines is different than the process used for Amazon EC2 instances\. For more information, see the following topics: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/prereqs-ssm-agent.html)  | 

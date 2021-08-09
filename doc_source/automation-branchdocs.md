@@ -244,7 +244,7 @@ Here is a JSON example that shows how * "Variable": "\{\{ describeInstance\.Plat
 
 Here are some example runbooks that use `aws:branch`\.
 
-**Example 1: Using `aws:branch`h with an output variable to run commands based on the operating system type**
+**Example 1: Using `aws:branch` with an output variable to run commands based on the operating system type**
 
 In the first step of this example \(`GetInstance`\), the runbook author uses the `aws:executeAwsApi` action to call the `ssm` `DescribeInstanceInformation` API operation\. The author uses this action to determine the type of operating system being used by an instance\. The `aws:executeAwsApi` action outputs the instance ID and the platform type\.
 

@@ -63,7 +63,7 @@ In the Middle East \(Bahrain\) Region \(me\-south\-1\) only, these buckets use d
   arn:aws:s3:::patch-baseline-snapshot-us-east-2/*
   arn:aws:s3:::aws-ssm-us-east-2/*
   ```
-+ The S3 buckets listed in [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)\.
++ The S3 buckets listed in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)\.
 
 **Amazon CloudWatch Logs**  
 If you don't allow your instances to access the internet, create a VPC endpoint for CloudWatch Logs to use features that send logs to CloudWatch Logs\. For more information about creating an endpoint for CloudWatch Logs, see [Creating a VPC endpoint for CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs) in the *Amazon CloudWatch Logs User Guide*\.
@@ -91,7 +91,7 @@ In the second step, you create the required *gateway* endpoint for Systems Manag
    + **`com.amazonaws.region.kms`**: This endpoint is optional but can be created if you want to use AWS Key Management Service \(AWS KMS\) encryption for Session Manager or Parameter Store parameters\.
 
 1. Follow the steps in [Creating a Gateway Endpoint](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-gateway.html#create-gateway-endpoint) to create the following gateway endpoint for Amazon S3\. 
-   + **`com.amazonaws.region.s3`**: Systems Manager uses this endpoint to update SSM Agent, perform patching operations, and for tasks like uploading output logs you choose to store in S3 buckets, retrieving scripts or other files you store in buckets, and so on\.
+   + **`com.amazonaws.region.s3`**: Systems Manager uses this endpoint to update SSM Agent, perform patching operations, and for tasks like uploading output logs you choose to store in S3 buckets, retrieving scripts or other files you store in buckets, and so on\. If the security group associated with your instances restricts outbound traffic, you must add a rule to allow traffic to the prefix list for Amazon S3\. For more information, see [Modify your security group](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html#vpc-endpoints-security) in the *AWS PrivateLink Guide*\.
 
 ## Create an interface VPC endpoint policy<a name="sysman-endpoint-policies"></a>
 

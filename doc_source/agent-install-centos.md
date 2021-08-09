@@ -96,20 +96,20 @@ If you use a `yum` command to update SSM Agent on a managed instance after the a
 
 **To install SSM Agent on CentOS 6\.x**
 
-1. Run the following command to download and run the SSM Agent installer\.
+1. Run the following command to download and run the SSM Agent installer\. SSM Agent version 3\.1 and later are not supported for CentOS 6\.
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
    Intel 64\-bit \(x86\_64\) instances:
 
    ```
-   sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
+   sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/3.0.1390.0/linux_amd64/amazon-ssm-agent.rpm
    ```
 
    Intel 32\-bit \(x86\) instances:
 
    ```
-   sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_386/amazon-ssm-agent.rpm
+   sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/3.0.1390.0/linux_386/amazon-ssm-agent.rpm
    ```
 
 1. Run the following commands to determine if SSM Agent is running\. The command should return the message amazon\-ssm\-agent is running\.

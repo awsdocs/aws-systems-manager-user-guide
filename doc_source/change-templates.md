@@ -10,6 +10,6 @@ The changes that are made when a runbook workflow runs are based on the contents
 To create a change template, you can use the **Builder** option in the **Create template** console page to build a change template\. Alternatively, using the **Editor** option, you can manually author JSON or YAML content with the configuration you want for your runbook workflow\. You can also use a command line tool to create a change template, with JSON content for the change template stored in an external file\.
 
 **Topics**
-+ [Try out the AWS managed Hello World change template](change-templates-aws-managed.md)
++ [Try out the AWS managed `Hello World` change template](change-templates-aws-managed.md)
 + [Creating change templates](change-templates-create.md)
 + [Reviewing and approving or rejecting change templates](change-templates-review.md)

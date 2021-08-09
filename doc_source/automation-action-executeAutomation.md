@@ -58,9 +58,45 @@ The version of the secondary runbook to run\. If not specified, Automation runs 
 Type: String  
 Required: No
 
+MaxConcurrency  
+The maximum number of targets allowed to run this task in parallel\. You can specify a number, such as 10, or a percentage, such as 10%\.  
+Type: String  
+Required: No
+
+MaxErrors  
+The number of errors that are allowed before the system stops running the automation on additional targets\. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%\. If you specify 3, for example, the system stops running the automation when the fourth error is received\. If you specify 0, then the system stops running the automation on additional targets after the first error result is returned\. If you run an automation on 50 resources and set `MaxErrors` to 10%, then the system stops running the automation on additional targets when the sixth error is received\.  
+Automations that are already running when the `MaxErrors` threshold is reached are allowed to complete, but some of these automations may fail as well\. If you need to ensure that there won't be more failed automations than the specified `MaxErrors`, set `MaxConcurrency` to 1 so the automations proceed one at a time\.  
+Type: String  
+Required: No
+
 RuntimeParameters  
 Required parameters for the secondary runbook\. The mapping uses the following format: \{"parameter1" : "value1", "parameter2" : "value2" \}  
 Type: Map  
+Required: No
+
+Tags  
+Optional metadata that you assign to a resource\. You can specify a maximum of five tags for an automation\.  
+Type: MapList  
+Required: No
+
+TargetLocations  
+A location is a combination of AWS Regions and/or AWS accounts where you want to run the automation\. A minimum number of 1 item must be specified and a maximum number of 100 items can be specified\.  
+Type: MapList  
+Required: No
+
+TargetMaps  
+A list of key\-value mappings of document parameters to target resources\. Both `Targets` and `TargetMaps` can't be specified together\.   
+Type: MapList  
+Required: No
+
+TargetParameterName  
+The name of the parameter used as the target resource for the rate\-controlled automation\. Required if you specify `Targets`\.  
+Type: String  
+Required: No
+
+Targets  
+A list of key\-value mappings to target resources\. Required if you specify `TargetParameterName`\.  
+Type: MapList  
 Required: NoOutput
 
 Output  

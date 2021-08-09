@@ -1,6 +1,6 @@
 # Troubleshooting problems with Systems Manager Inventory<a name="syman-inventory-troubleshooting"></a>
 
-This topic includes information about how to troubleshoot common errors or problems with AWS Systems Manager Inventory\.
+This topic includes information about how to troubleshoot common errors or problems with AWS Systems Manager Inventory\. If you're having trouble viewing your instances in Systems Manager, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md)\.
 
 **Topics**
 + [Multiple apply all associations with document '`AWS-GatherSoftwareInventory`' are not supported](#systems-manager-inventory-troubleshooting-multiple)

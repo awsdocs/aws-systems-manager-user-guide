@@ -100,15 +100,23 @@ The following table describes the ARN formats for the resource types supported b
 
 | Resource type | ARN format | 
 | --- | --- | 
+| Application \(AWS AppConfig\) | arn:aws:appconfig:region:account\-id:application/application\-id | 
 | Association | arn:aws:ssm:region:account\-id:association/association\-id | 
 | Automation execution | arn:aws:ssm:region:account\-id:automation\-execution/automation\-execution\-id | 
 | Automation definition \(with version subresource\) |  arn:aws:ssm:*region*:*account\-id*:automation\-definition/*automation\-definition\-id*:*version\-id* ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)  | 
+| Configuration profile \(AWS AppConfig\) | arn:aws:appconfig:region:account\-id:application/application\-id/configurationprofile/configurationprofile\-id | 
+| Contact \(Incident Manager\) |  arn:aws:ssm\-contacts:*region*:*account\-id*:contact/*contact\-alias*  | 
+| Deployment strategy \(AWS AppConfig\) | arn:aws:appconfig:region:account\-id:deploymentstrategy/deploymentstrategy\-id | 
 | Document |  arn:aws:ssm:*region*:*account\-id*:document/*document\-name*  | 
+| Environment \(AWS AppConfig\) | arn:aws:appconfig:region:account\-id:application/application\-id/environment/environment\-id | 
+| Incident |  arn:aws:ssm\-incidents:*region*:*account\-id*:incident\-record/*response\-plan\-name*/*incident\-id*  | 
 | Maintenance window |  arn:aws:ssm:*region*:*account\-id*:maintenancewindow/*window\-id*  | 
 | Managed instance |  arn:aws:ssm:*region*:*account\-id*:managed\-instance/*managed\-instance\-id*  | 
 | Managed instance inventory | arn:aws:ssm:region:account\-id:managed\-instance\-inventory/managed\-instance\-id | 
+| OpsItem | arn:aws:ssm:region:account\-id:opsitem/OpsItem\-id | 
 | Parameter |  A one\-level parameter: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/security_iam_service-with-iam.html) A parameter named with a hierarchical construction: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/security_iam_service-with-iam.html)  | 
 | Patch baseline |  arn:aws:ssm:*region*:*account\-id*:patchbaseline/*patch\-baseline\-id*   | 
+| Response plan |  arn:aws:ssm\-incidents:*region*:*account\-id*:response\-plan/*response\-plan\-name*  | 
 | Session |  arn:aws:ssm:*region*:*account\-id*:session/*session\-id* ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)  | 
 |  All Systems Manager resources  |  arn:aws:ssm:\*  | 
 |  All Systems Manager resources owned by the specified AWS account in the specified AWS Region  |  arn:aws:ssm:*region*:*account\-id*:\*  | 
@@ -131,7 +139,7 @@ arn:aws:us-east-2:111122223333:session/session-1a2b3c4sEXAMPLE
 
 For more information about the format of ARNs, see [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
-For a list of Systems Manager resource types and their ARNs, see [Resources Defined by AWS Systems Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-resources-for-iam-policies) in the *Service Authorization Reference*\. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS Systems Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-actions-as-permissions)\.
+For a list of Systems Manager resource types and their ARNs, see [Resources Defined by AWS Systems Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-resources-for-iam-policies) in the *Service Authorization Reference*\. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS Systems Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-actions-as-permissions)\.<a name="policy-conditions"></a>
 
 ### Condition keys<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
@@ -232,7 +240,7 @@ The following AWS managed policies, which you can attach to users in your accoun
 + **AmazonSSMServiceRolePolicy** – Service role policy that provides access to AWS resources managed or used by Systems Manager\.
 + **AWSResourceAccessManagerServiceRolePolicy** – Service role policy containing read\-only AWS Resource Access Manager access to the account's AWS Organizations structure\. It also contains IAM permissions to self\-delete the role\.
 + **AWSSystemsManagerChangeManagementServicePolicy** – Service policy that provides access to AWS resources managed or used by the Systems Manager change management framework and used by the service\-linked role `AWSServiceRoleForSystemsManagerChangeManagement`\.
-+ **AWSServiceRoleForSystemsManagerOpsDataSyncPolicy** – Service policy that allows the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\.
++ **AWSSystemsManagerOpsDataSyncServiceRolePolicy** – Service policy that allows the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\.
 + **AmazonEC2RoleforSSM** – This policy will be deprecated soon\. In its place, use the **AmazonSSMManagedInstanceCore** policy to allow Systems Manager service core functionality on EC2 instances\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
 **Note**  

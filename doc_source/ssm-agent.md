@@ -16,5 +16,5 @@ If you monitor traffic, you will see your Amazon Elastic Compute Cloud \(Amazon 
 + [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 + [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)
 + [Subscribing to SSM Agent notifications](ssm-agent-subscribe-notifications.md)
-+ [About minimum S3 Bucket permissions for SSM Agent](ssm-agent-minimum-s3-permissions.md)
++ [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)
 + [Troubleshooting SSM Agent](troubleshooting-ssm-agent.md)

@@ -79,19 +79,14 @@ On Debian Server instances, the patch installation workflow is as follows:
 
 1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
 
-1. On Debian Server 8 only: Because some Debian Server 8\.\* instances refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs the following additional steps to ensure that patching operations succeed:
-
-   1. On your instance, the reference to the `jessie-backports` repository is commented out from the source location list \(`/etc/apt/sources.list.d/jessie-backports`\)\. As a result, no attempt is made to download patches from that location\.
-
-   1. A Stretch security update signing key is imported\. This key provides the necessary permissions for the update and install operations on Debian Server 8\.\* distributions\.
-
-   1. An `apt-get` operation is run to ensure that the latest version of `python3-apt` is installed before the patching process begins\.
-
-   1. After the installation process is complete, the reference to the `jessie-backports` repository is restored and the signing key is removed from the apt sources keyring\. This is done to leave the system configuration as it was before the patching operation\. 
-
-   The next time Patch Manager updates the system, the same process is repeated\.
-
-   The remaining steps in the patch installation workflow apply to Debian Server 8 9, and 10\.
+1. If an update is available for `python3-apt` \(a Python library interface to `libapt`\), it is upgraded to the latest version\. \(This nonsecurity package is upgraded even if you did not select the **Include nonsecurity updates** option\.\)
+**Important**  
+On Debian Server 8 only: Because some Debian Server 8\.\* instances refer to an obsolete package repository \(`jessie-backports`\), Patch Manager performs the following additional steps to ensure that patching operations succeed:  
+On your instance, the reference to the `jessie-backports` repository is commented out from the source location list \(`/etc/apt/sources.list.d/jessie-backports`\)\. As a result, no attempt is made to download patches from that location\.
+A Stretch security update signing key is imported\. This key provides the necessary permissions for the update and install operations on Debian Server 8\.\* distributions\.
+The `apt-get` operation is run at this point to ensure that the latest version of `python3-apt` is installed before the patching process begins\.
+After the installation process is complete, the reference to the `jessie-backports` repository is restored and the signing key is removed from the apt sources keyring\. This is done to leave the system configuration as it was before the patching operation\. 
+The next time Patch Manager updates the system, the same process is repeated\.
 
 1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 
@@ -290,6 +285,8 @@ On SUSE Linux Enterprise Server \(SLES\) instances, the patch installation workf
 On Ubuntu Server instances, the patch installation workflow is as follows:
 
 1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
+
+1. If an update is available for `python3-apt` \(a Python library interface to `libapt`\), it is upgraded to the latest version\. \(This nonsecurity package is upgraded even if you did not select the **Include nonsecurity updates** option\.\)
 
 1. Apply [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) as specified in the patch baseline, keeping only the qualified packages for further processing\. 
 

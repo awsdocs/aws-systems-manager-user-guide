@@ -107,7 +107,7 @@ outputs:
 
 ## Working with inputs and outputs<a name="automation-aws-apis-calling-input-output"></a>
 
-Each of the previously described automation actions allows you to call a specific API operation by specifying the service namespace, the API operation name, the input parameters, and the output parameters\. Inputs are defined by the API operation that you choose\. You can view the API operations \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API operations \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.
+Each of the previously described automation actions allows you to call a specific API operation by specifying the service namespace, the API operation name, the input parameters, and the output parameters\. Inputs are defined by the API operation that you choose\. You can view the API operations \(also called methods\) by choosing a service in the left navigation on the following [Services Reference](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) page\. Choose a method in the **Client** section for the service that you want to invoke\. For example, all API operations \(methods\) for Amazon Relational Database Service \(Amazon RDS\) are listed on the following page: [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\.
 
 You can view the schema for each automation action in the following locations:
 + [`aws:assertAwsResourceProperty` – Assert an AWS resource state or event state](automation-action-assertAwsResourceProperty.md)
@@ -352,11 +352,11 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
 
    1. Determine the namespace of the service to invoke\. You can view a list of AWS service namespaces in [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\. The namespace for Amazon RDS is `rds`\.
 
-   1. Determine which Amazon RDS API operation allows you to view the status of a database instance\. You can view the API operations \(also called methods\) on the [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html) page\. 
+   1. Determine which Amazon RDS API operation allows you to view the status of a database instance\. You can view the API operations \(also called methods\) on the [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html) page\. 
 
    1. Specify one or more request parameters for the DescribeDBInstances API operation\. For example, this action uses the `DBInstanceIdentifier` request parameter\.
 
-   1. Determine one or more PropertySelectors\. A PropertySelector is a response object that is returned by the request of this API operation\. For example, on the [Amazon RDS methods](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to the **Response Structure** section\. **DBInstances** is listed as a response object\. For the purposes of this walkthrough, specify `DBInstances` and `DBInstanceStatus` as the PropertySelectors\. Remember that PropertySelectors are entered by using JSONPath\. This means that you format the information in the runbook like the following\.
+   1. Determine one or more PropertySelectors\. A PropertySelector is a response object that is returned by the request of this API operation\. For example, on the [Amazon RDS methods](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html)\. Choose the [describe\_db\_instances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) method and scroll down to the **Response Structure** section\. **DBInstances** is listed as a response object\. For the purposes of this walkthrough, specify `DBInstances` and `DBInstanceStatus` as the PropertySelectors\. Remember that PropertySelectors are entered by using JSONPath\. This means that you format the information in the runbook like the following\.
 
       `PropertySelector: "$.DBInstances[0].DBInstanceStatus"`\.
 
@@ -396,7 +396,7 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
 
    1. View the schema to see all available inputs for [`aws:executeAwsApi` – Call and run AWS API operations](automation-action-executeAwsApi.md)\. 
 
-   1. Specify the Amazon RDS [StartDBInstance](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.start_db_instance) API operation to start the instance\. 
+   1. Specify the Amazon RDS [StartDBInstance](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.start_db_instance) API operation to start the instance\. 
 
    1. Enter the information you collected into the runbook as shown in the following example\.
 
@@ -439,7 +439,7 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
 
    1. View the schema to see all available inputs for the [`aws:waitForAwsResourceProperty` – Wait on an AWS resource property](automation-action-waitForAwsResourceProperty.md)\. 
 
-   1. Specify the Amazon RDS [DescribeDBInstances](http://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) API operation to determine the instance status\. 
+   1. Specify the Amazon RDS [DescribeDBInstances](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rds.html#RDS.Client.describe_db_instances) API operation to determine the instance status\. 
 
    1. Specify `$.DBInstances[0].DBInstanceStatus` as the `PropertySelector`
 

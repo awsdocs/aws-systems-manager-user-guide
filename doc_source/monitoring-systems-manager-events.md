@@ -34,7 +34,8 @@ When a service in your AWS account emits an event, it always goes to your accoun
 
      If you choose **All Events**, all events emitted by Systems Manager will match the rule\. Be aware that this option can result in many event target actions\.
    + Choose the type of Systems Manager event to use for this rule\. EventBridge supports events from the following AWS Systems Manager capabilities: 
-     +  Change Calendar
+     + Automation
+     + Change Calendar
      + Compliance
      + Inventory
      + Maintenance Windows
@@ -54,9 +55,9 @@ For Systems Manager actions that aren't supported by EventBridge, you can choose
 
 1. If you chose a Systems Manager capability in step 8, choose whether to invoke targets for all or only certain detail types, statuses, or other supported options\. The available options depend on the capability you have selected\.
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to respond to matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+1. In the **Select event bus** area, choose the event bus that you want to associate with this rule\. If you want this rule to respond to matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
-1. For **Select targets**, choose the AWS service that is to act when an event of the selected type is detected\.
+1. In the **Select targets** area, choose the AWS service that is to act when an event of the selected type is detected\.
 
 1. In the other fields in this section, enter information specific to this target type, if any is needed\. 
 
@@ -64,9 +65,9 @@ For Systems Manager actions that aren't supported by EventBridge, you can choose
    + To create an IAM role automatically, choose **Create a new role for this specific resource**\.
    + To use an IAM role that you created earlier, choose **Use existing role**\.
 
-1. Optionally, choose **Add target** to add another target for this rule\.
+1. \(Optional\) Choose **Add target** to add another target for this rule\.
 
-1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*\.
+1. \(Optional\) In the **Tags** area, enter one or more tags for the rule\. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*\.
 
 1. Choose **Create**\.
 

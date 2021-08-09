@@ -36,7 +36,7 @@ Perform the task in this procedure the first time you access Change Manager\. Yo
      Choose **Create sample change request**, **Skip**, and then choose the **Settings** tab\.
 
 1. For **User identity management**, choose one of the following\.
-   + **AWS Identity and Access Management \(IAM\)** – Identify the users who make and approve requests and perform other action in Change Manager by using your existing IAM user accounts and groups\.
+   + **AWS Identity and Access Management \(IAM\)** – Identify the users who make and approve requests and perform other action in Change Manager by using your existing IAM user accounts, groups, and roles\.
    + **AWS Single Sign\-On \(AWS SSO\)** – Allow [AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/) to create and manage identities, or connect to your existing identity source to identify the users who perform actions in Change Manager\.
 
 1. In the **Template reviewer notification** section, specify the Amazon Simple Notification Service \(Amazon SNS\) topics to use to notify template reviewers that a new change template or change template version is ready for review\. Ensure that the Amazon SNS topic you choose is configured to send notifications to your template reviewers\. 
@@ -59,7 +59,7 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
    1. Choose **Add**\.
 
-   1. Select the check box next to the name of each user or group you want to assign as a change template reviewer\.
+   1. Select the check box next to the name of each user, group, or IAM role you want to assign as a change template reviewer\.
 
    1. Choose **Add approvers**\.
 
@@ -71,7 +71,7 @@ The Amazon SNS topic you select must be configured to specify the notifications 
 
 After you complete the steps in [Task 1: Configuring Change Manager user identity management and template reviewers](#cm-configure-account-task-1), you can designate extra reviewers for change requests during *change freeze events* and specify which available best practices you want to allow for your Change Manager operations\.
 
-A change freeze event means that restrictions are in place in the current change calendar \(the calendar state in AWS Systems Manager Change Calendar is CLOSED\)\. In these cases, in addition to regular approvers for change requests, change freeze approvers must also grant permission for this change request to run\. If they don't, the change won't be processed until the calendar state is again OPEN\.
+A change freeze event means that restrictions are in place in the current change calendar \(the calendar state in AWS Systems Manager Change Calendar is `CLOSED`\)\. In these cases, in addition to regular approvers for change requests, or if the change request is created using a template that allow auto\-approvals, change freeze approvers must grant permission for this change request to run\. If they don't, the change won't be processed until the calendar state is again `OPEN`\.
 
 **To configure Change Manager change freeze event approvers and best practices**
 
@@ -91,7 +91,7 @@ To allow change freeze reviews, you must turn on the **Check Change Calendar for
 
    1. Choose **Add**\.
 
-   1. Select the check box next to the name of each user or group you want to assign as an approver for change freeze events\.
+   1. Select the check box next to the name of each user, group, or IAM role you want to assign as an approver for change freeze events\.
 
    1. Choose **Add approvers**\.
 

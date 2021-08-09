@@ -1,10 +1,10 @@
-# About minimum S3 Bucket permissions for SSM Agent<a name="ssm-agent-minimum-s3-permissions"></a>
+# SSM Agent communications with AWS managed S3 buckets<a name="ssm-agent-minimum-s3-permissions"></a>
 
-AWS Systems Manager Agent \(SSM Agent\) might need to access Amazon Simple Storage Service \(Amazon S3\) buckets in order to perform Systems Manager operations\. These S3 buckets are publicly accessible\. However, in some cases, you might need to provide explicit permission in an Amazon Elastic Compute Cloud \(Amazon EC2\) instance profile for Systems Manager, or in a service role for instances in a hybrid environment\. Most commonly, you must grant these permissions if you're using a private VPC endpoint in your Systems Manager operations\. Otherwise, your resources can't access these public buckets\.
+In the course of performing various Systems Manager operations, AWS Systems Manager Agent \(SSM Agent\) accesses a number of Amazon Simple Storage Service \(Amazon S3\) buckets\. These S3 buckets are publicly accessible, and by default, SSM Agent connects to them using `HTTP` calls\. 
 
-To grant access to these buckets, you create a custom Amazon S3 permissions policy, and then attach it to your instance profile \(for EC2 instances\) or your service role \(for on\-premises servers and virtual machines\) in a hybrid environment\.
+However, if you're using a virtual private cloud \(VPC\) endpoint in your Systems Manager operations, you must provide explicit permission in an Amazon Elastic Compute Cloud \(Amazon EC2\) instance profile for Systems Manager, or in a service role for instances in a hybrid environment\. Otherwise, your resources can't access these public buckets\.
 
-For SSM Agent updates, if the instance profile doesn't provide permissions to these buckets, the SSM Agent makes an HTTP call to download the update\.
+To grant your managed instances access to these buckets when you are using a VPC endpoint, you create a custom Amazon S3 permissions policy, and then attach it to your instance profile \(for EC2 instances\) or your service role \(for on\-premises servers and virtual machines\) in a hybrid environment\.
 
 **Note**  
 These permissions only provide access to the AWS managed buckets required by SSM Agent\. They don't provide the permissions that are necessary for other Amazon S3 operations\. They also don't provide permission to your own S3 buckets\. 
@@ -14,12 +14,12 @@ For more information, see the following topics:
 + [Create an IAM service role for a hybrid environment](sysman-service-role.md)
 
 **Topics**
-+ [Required permissions](#ssm-agent-minimum-s3-permissions-required)
++ [Required bucket permissions](#ssm-agent-minimum-s3-permissions-required)
 + [Example](#ssm-agent-minimum-s3-permissions-example)
 
-## Required permissions<a name="ssm-agent-minimum-s3-permissions-required"></a>
+## Required bucket permissions<a name="ssm-agent-minimum-s3-permissions-required"></a>
 
-The following table describes each of the Amazon S3 policy permissions needed for using Systems Manager\.
+The following table describes each of the S3 buckets that SSM Agent might need to access for Systems Manager operations\.
 
 **Note**  
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
@@ -40,7 +40,7 @@ Amazon S3 permissions required by SSM Agent
 
 ## Example<a name="ssm-agent-minimum-s3-permissions-example"></a>
 
-The following example illustrates how to provide access to the S3 buckets required for Systems Manager operations in the US East \(Ohio\) Region \(us\-east\-2\)\.
+The following example illustrates how to provide access to the S3 buckets required for Systems Manager operations in the US East \(Ohio\) Region \(us\-east\-2\)\. In most cases, you need to provide these permissions explicitly in an instance profile or service role only when using a VPC endpoint\.
 
 **Important**  
 We recommend that you avoid using wildcard characters \(\*\) in place of specific Regions in this policy\. For example, use `arn:aws:s3:::aws-ssm-us-east-2/*` and don't use `arn:aws:s3:::aws-ssm-*/*`\. Using wildcards could provide access to S3 buckets that you don’t intend to grant access to\. If you want to use the instance profile for more than one Region, we recommend repeating the first `Statement` block for each Region\.
@@ -54,12 +54,14 @@ We recommend that you avoid using wildcard characters \(\*\) in place of specifi
             "Principal": "*",
             "Action": "s3:GetObject",
             "Resource": [
-                "arn:aws:s3:::aws-ssm-us-east-2/*",
                 "arn:aws:s3:::aws-windows-downloads-us-east-2/*",
                 "arn:aws:s3:::amazon-ssm-us-east-2/*",
                 "arn:aws:s3:::amazon-ssm-packages-us-east-2/*",
                 "arn:aws:s3:::us-east-2-birdwatcher-prod/*",
-                "arn:aws:s3:::patch-baseline-snapshot-us-east-2/*"
+                "arn:aws:s3:::aws-ssm-document-attachments-us-east-2/*",
+                "arn:aws:s3:::patch-baseline-snapshot-us-east-2/*",
+                "arn:aws:s3:::aws-ssm-us-east-2/*",
+                "arn:aws:s3:::aws-patchmanager-macos-us-east-2/*"
             ]
         }
     ]

@@ -26,6 +26,6 @@ If a single maintenance window task is registered with multiple targets, its tas
 1. In the **Targets** area, choose one of the options described in the following table\.    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-assign-targets.html)
 
-1. Choose **Register targets**\.
+1. Choose **Register target**\.
 
 If you want to assign more targets to this maintenance window, choose the **Targets** tab, and then choose **Register target**\. With this option, you can choose a different means of targeting\. For example, if you previously targeted instances by instance ID, you can register new targets and target instances by specifying tags applied to managed instances or choosing resource types from a resource group\.

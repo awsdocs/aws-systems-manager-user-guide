@@ -10,7 +10,7 @@ Provide the Maintenance Windows service with the AWS Identity and Access Managem
 You specify one of these roles as part of the configuration when you create a maintenance window task\. This allows Systems Manager to run tasks in maintenance windows on your behalf\.
 
 **Note**  
-A service\-linked role for Systems Manager might already have been created in your AWS account\. The service\-linked role also provides permissions for the Inventory capability\.
+A service\-linked role for Systems Manager might already have been created in your account\. Currently, the service\-linked role also provides permissions for Systems Manager Inventory and Systems Manager Explorer\. For more information, see [Using roles to collect inventory, run maintenance window tasks, and view OpsData: `AWSServiceRoleForAmazonSSM`](using-service-linked-roles-service-action-1.md)\.
 
 To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](#maintenance-window-tasks-service-role)\.
 
@@ -21,7 +21,7 @@ Allow `iam:PassRole` permissions for the users in your AWS account who assign ta
 Deny `ssm:RegisterTaskWithMaintenanceWindow` permissions for the users in your AWS account who you don't want to register tasks with maintenance windows\. This prevents users from registering a maintenance window task by using the service\-linked role in a maintenance window task registration request\.
 
 **Before you begin**  
-In order to complete the tasks in the section, you need one or both of the following resources\.
+To complete the tasks in the section, you need one or both of the following resources\.
 + You're assigning permissions to IAM users or groups\. These users or groups should already have been granted general permissions for working with maintenance windows\. This can be done by assigning the IAM policy `AmazonSSMFullAccess` to the users or groups, or by creating and assigning an IAM policy that provides a smaller set of access permissions for Systems Manager that covers maintenance window tasks\. For more information, see [Create user groups](setup-create-users-nonadmin-groups.md) and [Create users and assign permissions](setup-create-users-nonadmin-users.md)\.
 + \(Optional\) For maintenance windows that run Run Command tasks, you can choose for Amazon Simple Notification Service \(Amazon SNS\) status notifications to be sent\. For information about configuring Amazon SNS notifications for Systems Manager, including information about creating an IAM role to use for sending SNS notifications, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 

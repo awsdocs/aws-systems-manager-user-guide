@@ -51,6 +51,7 @@ This example demonstrates two levels of approvals\. You can specify up to five l
          }
       ],
       "emergencyChange": false,
+      "autoApprove": false,
       "mainSteps": [
          {
             "name": "ApproveAction1",

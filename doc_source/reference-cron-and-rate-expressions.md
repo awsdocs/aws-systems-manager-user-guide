@@ -214,7 +214,7 @@ Here are some rate examples for associations\.
 
 This section includes examples of cron and rate expressions for maintenance windows\.
 
-Unlike State Manager associations, maintenance windows support all cron and rate expressions\. This includes support for values in the seconds field\. \(Zero \(0\) isn't supported in the seconds field\.\)
+Unlike State Manager associations, maintenance windows support all cron and rate expressions\. This includes support for values in the seconds field\.
 
 For example, the following 6\-field cron expression runs a maintenance window at 9:30 AM every day\.
 

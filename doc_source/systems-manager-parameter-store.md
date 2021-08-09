@@ -14,6 +14,7 @@ Parameter Store offers these benefits:
 + Improve your security posture by separating your data from your code\.
 + Store configuration data and encrypted strings in hierarchies and track versions\.
 + Control and audit access at granular levels\.
++ Store parameters reliably because Parameter Store is hosted in multiple Availability Zones in an AWS Region\.
 
 ## Who should use Parameter Store?<a name="parameter-store-who"></a>
 + Any AWS customer who wants to have a centralized way to manage configuration data\.
@@ -32,7 +33,7 @@ Parameter Store offers these benefits:
   You can associate an alias for versions of your parameter by creating labels\. Labels can help you remember the purpose of a parameter version when there are multiple versions\. 
 + **Data validation**
 
-  You can create parameters that point to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance and Parameter Store validates these parameters to make sure that it references expected resource type, that the resource exists, and that the customer has permission to use the resource\. For example, you can create a parameter with Amazon Machine Image \(AMI\) ID as a value with aws:ec2:image data type, and Parameter Store performs an asynchronous validation operation to make sure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\. 
+  You can create parameters that point to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance and Parameter Store validates these parameters to make sure that it references expected resource type, that the resource exists, and that the customer has permission to use the resource\. For example, you can create a parameter with Amazon Machine Image \(AMI\) ID as a value with `aws:ec2:image` data type, and Parameter Store performs an asynchronous validation operation to make sure that the parameter value meets the formatting requirements for an AMI ID, and that the specified AMI is available in your AWS account\. 
 + **Reference secrets**
 
   Parameter Store is integrated with AWS Secrets Manager so that you can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. 
@@ -101,7 +102,7 @@ from __future__ import print_function
 import json
 import boto3
 ssm = boto3.client('ssm', 'us-east-2')
- def get_parameters():
+def get_parameters():
     response = ssm.get_parameters(
         Names=['LambdaSecureString'],WithDecryption=True
     )
