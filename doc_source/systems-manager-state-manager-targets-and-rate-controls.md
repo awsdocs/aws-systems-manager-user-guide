@@ -20,7 +20,7 @@ Use this option to specify a tag key and \(optionally\) a tag value assigned to 
 
 If you create new instances and assign the specified tag key and value to those instances, the system automatically applies the association, runs it immediately, and then runs it according to the schedule\. This applies when the association uses a Command or Policy document and doesn't apply if the association uses an Automation runbook\. If you delete the specified tags from an instance, the system no longer runs the association on those instances\.
 
-It's a best practice to use instance tags when creating associations to run association uses a Command or Policy document and doesn't apply if the association uses an Automation runbook\. If you delete the specified tags from an instance, the system no longer runs the association on those instances\.
+It's a best practice to use instance tags when creating associations that use a Command or Policy document; this doesn't apply if the association uses an Automation runbook\. If you delete the specified tags from an instance, the system no longer runs the association on those instances\.
 
 It's a best practice to use instance tags when creating associations to run Auto Scaling groups\. For more information, see [Running Auto Scaling groups with associations](systems-manager-state-manager-asg.md)\.
 
