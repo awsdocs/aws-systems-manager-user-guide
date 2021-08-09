@@ -20,6 +20,7 @@ To use Patch Manager, a capability of AWS Systems Manager, complete the followin
 + For information about monitoring patch compliance, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
 
 **Topics**
++ [Viewing patch Dashboard summaries \(console\)](view-patch-dashboard-summaries.md)
 + [Viewing AWS predefined patch baselines \(console\)](view-predefined-patch-baselines.md)
 + [Viewing patch compliance results \(console\)](viewing-patch-compliance-results.md)
 + [Generating \.csv patch compliance reports \(console\)](patch-compliance-reports-to-s3.md)
