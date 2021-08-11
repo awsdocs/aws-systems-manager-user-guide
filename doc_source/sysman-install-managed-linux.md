@@ -48,7 +48,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb`
 
 ------
-#### [ Raspberry Pi OS \(formerly Raspbian\) ]
+#### [ Raspbian ]
 + `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm/amazon-ssm-agent.deb`
 
 ------
@@ -125,7 +125,7 @@ sudo -E amazon-ssm-agent -register -code "activation-code" -id "activation-id" -
 sudo service amazon-ssm-agent start
 ```
 
-## Raspberry Pi OS \(formerly Raspbian\)<a name="rasp"></a>
+## Raspbian<a name="rasp"></a>
 
 ```
 mkdir /tmp/ssm

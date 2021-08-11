@@ -2,7 +2,7 @@
 
 AWS Systems Manager \(formerly known as [SSM](#service-naming-history)\) is an AWS service that you can use to view and control your infrastructure on AWS\. Using the Systems Manager console, you can view operational data from multiple AWS services and automate operational tasks across your AWS resources\. Systems Manager helps you maintain security and compliance by scanning your *managed instances* and reporting on \(or taking corrective action on\) any policy violations it detects\.
 
-A managed instance is a machine configured for use with Systems Manager\. Systems Manager also helps you configure and maintain your managed instances\. Supported machine types include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises servers, and virtual machines \(VMs\), including VMs in other cloud environments\. Supported operating system types include Windows Server, macOS, Raspberry Pi OS \(formerly Raspbian\), and multiple distributions of Linux\.
+A managed instance is a machine configured for use with Systems Manager\. Systems Manager also helps you configure and maintain your managed instances\. Supported machine types include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises servers, and virtual machines \(VMs\), including VMs in other cloud environments\. Supported operating system types include Windows Server, macOS, Raspbian, and multiple distributions of Linux\.
 
 Using Systems Manager, you can associate AWS resources together by applying the same identifying *resource tag* to each of them\. You can then view operational data for these resources as a *resource group*, to help monitor and troubleshoot\. 
 

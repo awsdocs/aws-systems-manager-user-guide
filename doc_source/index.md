@@ -453,7 +453,6 @@ Amazon's trademarks and trade dress may not be used in
          + [Understanding patch compliance state values](about-patch-compliance-states.md)
          + [Patching out-of-compliance instances](patch-compliance-remediate.md)
       + [Working with Patch Manager (console)](sysman-patch-working.md)
-         + [Viewing patch Dashboard summaries (console)](view-patch-dashboard-summaries.md)
          + [Viewing AWS predefined patch baselines (console)](view-predefined-patch-baselines.md)
          + [Viewing patch compliance results (console)](viewing-patch-compliance-results.md)
          + [Generating .csv patch compliance reports (console)](patch-compliance-reports-to-s3.md)
