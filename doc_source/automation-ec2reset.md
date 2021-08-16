@@ -52,7 +52,7 @@ You can either attach the following IAM policy to your IAM user account, group, 
 **Note**  
 If you create a new IAM managed policy, you must also attach the **AmazonSSMAutomationRole** managed policy to it so that your instances can communicate with the Systems Manager API\.
 
-**IAM Policy for AWSSupport\-ResetAccess**
+**IAM Policy for `AWSSupport-ResetAccess`**
 
 ```
 {

@@ -10,8 +10,16 @@ The following procedure walks you through the process of using the AWS Systems M
 
 1. Run the following command to assign rack location information to an instance\.
 
+   **Linux**
+
    ```
    aws ssm put-inventory --instance-id "ID" --items '[{"CaptureTime": "2016-08-22T10:01:01Z", "TypeName": "Custom:RackInfo", "Content":[{"RackLocation": "Bay B/Row C/Rack D/Shelf E"}], "SchemaVersion": "1.0"}]'
+   ```
+
+   **Windows**
+
+   ```
+   aws ssm put-inventory --instance-id "ID" --items "TypeName=Custom:RackInfo,SchemaVersion=1.0,CaptureTime=2021-05-22T10:01:01Z,Content=[{RackLocation='Bay B/Row C/Rack D/Shelf F'}]"
    ```
 
 1. Run the following command to view custom inventory entries for this instance\.

@@ -238,9 +238,9 @@ The following AWS managed policies, which you can attach to users in your accoun
   **AmazonSSMMaintenanceWindowRole** – Service role policy for Systems Manager Maintenance Windows\.
 + **AmazonSSMManagedInstanceCore** – Instance trust policy that allows an instance to use Systems Manager service core functionality\.
 + **AmazonSSMServiceRolePolicy** – Service role policy that provides access to AWS resources managed or used by Systems Manager\.
-+ **AWSResourceAccessManagerServiceRolePolicy** – Service role policy containing read\-only AWS Resource Access Manager access to the account's AWS Organizations structure\. It also contains IAM permissions to self\-delete the role\.
-+ **AWSSystemsManagerChangeManagementServicePolicy** – Service policy that provides access to AWS resources managed or used by the Systems Manager change management framework and used by the service\-linked role `AWSServiceRoleForSystemsManagerChangeManagement`\.
-+ **AWSSystemsManagerOpsDataSyncServiceRolePolicy** – Service policy that allows the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\.
++ **`AWSResourceAccessManagerServiceRolePolicy`** – Service role policy containing read\-only AWS Resource Access Manager access to the account's AWS Organizations structure\. It also contains IAM permissions to self\-delete the role\.
++ **`AWSSystemsManagerChangeManagementServicePolicy`** – Service policy that provides access to AWS resources managed or used by the Systems Manager change management framework and used by the service\-linked role `AWSServiceRoleForSystemsManagerChangeManagement`\.
++ **`AWSSystemsManagerOpsDataSyncServiceRolePolicy`** – Service policy that allows the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\.
 + **AmazonEC2RoleforSSM** – This policy will be deprecated soon\. In its place, use the **AmazonSSMManagedInstanceCore** policy to allow Systems Manager service core functionality on EC2 instances\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
 **Note**  

@@ -1,8 +1,8 @@
 # Walkthrough: Run the EC2Rescue tool on unreachable instances<a name="automation-ec2rescue"></a>
 
-EC2Rescue can help you diagnose and troubleshoot problems on Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux and Windows Server\. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html)\. Or, you can run the tool automatically by using Systems Manager Automation and the **AWSSupport\-ExecuteEC2Rescue** runbook\. Automation is a capability of AWS Systems Manager\. The **AWSSupport\-ExecuteEC2Rescue** runbook is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
+EC2Rescue can help you diagnose and troubleshoot problems on Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux and Windows Server\. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html)\. Or, you can run the tool automatically by using Systems Manager Automation and the **`AWSSupport-ExecuteEC2Rescue`** runbook\. Automation is a capability of AWS Systems Manager\. The **`AWSSupport-ExecuteEC2Rescue`** runbook is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
 
-You can use the **AWSSupport\-ExecuteEC2Rescue** runbook to troubleshoot and potentially remediate different types of operating system \(OS\) issues\. See the following topics for a complete list:
+You can use the **`AWSSupport-ExecuteEC2Rescue`** runbook to troubleshoot and potentially remediate different types of operating system \(OS\) issues\. See the following topics for a complete list:
 
 **Windows**: See *Rescue Action* in [Using EC2Rescue for Windows Server with the Command Line](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-cli.html#ec2rw-rescue)\.
 
@@ -10,7 +10,7 @@ You can use the **AWSSupport\-ExecuteEC2Rescue** runbook to troubleshoot and pot
 
 ## How it works<a name="automation-ec2rescue-how"></a>
 
-Troubleshooting an instance with Automation and the **AWSSupport\-ExecuteEC2Rescue** runbook works as follows:
+Troubleshooting an instance with Automation and the **`AWSSupport-ExecuteEC2Rescue`** runbook works as follows:
 + You specify the ID of the unreachable instance and start the runbook\.
 + The system creates a temporary VPC, and then runs a series of Lambda functions to configure the VPC\.
 + The system identifies a subnet for your temporary VPC in the same Availability Zone as your original instance\.
@@ -26,7 +26,7 @@ Before you run the following Automation, do the following:
 + Optionally, collect the ID of a subnet in the same availability zone as your unreachable instance\. The EC2Rescue instance will be created in this subnet\. If you don’t specify a subnet, then Automation creates a new temporary VPC in your AWS account\. Verify that your AWS account has at least one VPC available\. By default, you can create five VPCs in a Region\. If you already created five VPCs in the Region, the automation fails without making changes to your instance\. For more information about Amazon VPC quotas, see [VPC and Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-vpcs-subnets) in the *Amazon VPC User Guide*\.
 + Optionally, you can create and specify an AWS Identity and Access Management \(IAM\) role for Automation\. If you don't specify this role, then Automation runs in the context of the user who ran the automation\. For more information about creating roles for Automation, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\.
 
-### Granting AWSSupport\-EC2Rescue permissions to perform actions on your instances<a name="automation-ec2rescue-access"></a>
+### Granting `AWSSupport-EC2Rescue` permissions to perform actions on your instances<a name="automation-ec2rescue-access"></a>
 
 EC2Rescue needs permission to perform a series of actions on your instances during the automation\. These actions invoke the AWS Lambda, IAM, and Amazon EC2 services to safely and securely attempt to remediate issues with your instances\. If you have Administrator\-level permissions in your AWS account and/or VPC, you might be able to run the automation without configuring permissions, as described in this section\. If you don't have Administrator\-level permissions, then you or an administrator must configure permissions by using one of the following options\.
 + [Granting permissions by using IAM policies](#automation-ec2rescue-access-iam)

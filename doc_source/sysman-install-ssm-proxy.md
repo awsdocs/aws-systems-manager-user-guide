@@ -63,9 +63,9 @@ When configuring proxy settings for the SSM Agent on Windows Server instances, i
 
 1. LocalSystem user account environment variables \(http\_proxy, https\_proxy, no\_proxy\)
 
-1. WinHTTP proxy settings
-
 1. Internet Explorer settings
+
+1. WinHTTP proxy settings
 
 ## SSM Agent proxy settings and Systems Manager services<a name="ssm-agent-proxy-services"></a>
 

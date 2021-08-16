@@ -101,7 +101,7 @@ inputs:
 ------
 
 Runtime  
-The runtime language to be used for executing the provided script\. aws:executeScript supports Python 3\.6 \(python3\.6\), Python 3\.7 \(python3\.7\), and PowerShell Core 6\.0 \(dotnetcore2\.1\) scripts\.  
+The runtime language to be used for executing the provided script\. `aws:executeScript` supports Python 3\.6 \(python3\.6\), Python 3\.7 \(python3\.7\), and PowerShell Core 6\.0 \(dotnetcore2\.1\) scripts\.  
 Supported values: **python3\.6** \| **python3\.7** \| **PowerShell Core 6\.0**  
 Type: String  
 Required: Yes

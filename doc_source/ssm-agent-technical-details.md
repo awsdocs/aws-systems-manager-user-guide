@@ -8,6 +8,7 @@ Use the information in this topic to help you implement AWS Systems Manager Agen
 + [SSM Agent and the Instance Metadata Service \(IMDS\)](#imds)
 + [Keeping SSM Agent up\-to\-date](#updating)
 + [SSM Agent rolling updates by AWS Regions](#rolling-updates)
++ [Installing SSM Agent on VMs and on\-premises instances](#agent-hybrid-installations)
 + [Validating on\-premises servers and virtual machines using a hardware fingerprint](#fingerprint-validation)
 + [AMIs with SSM Agent preinstalled](#ami-preinstalled-agent)
 + [SSM Agent on GitHub](#github)
@@ -85,6 +86,10 @@ curl https://s3.region.amazonaws.com/amazon-ssm-region/latest/VERSION
 ```
 
 You can also open the `VERSION` file directly in your browser without a `curl` command\.
+
+## Installing SSM Agent on VMs and on\-premises instances<a name="agent-hybrid-installations"></a>
+
+For information about installing SSM Agent on VMs and on\-premises instance in a hybrid environment, see [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md) and [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
 ## Validating on\-premises servers and virtual machines using a hardware fingerprint<a name="fingerprint-validation"></a>
 
