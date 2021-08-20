@@ -27,7 +27,7 @@ If you turned on the best practice option **Require monitors for all templates**
 
 1. For **Name**, enter a name for the change request that makes its purpose easy to identify, such as **MyChangeRequestTest**\.
 
-1. For the remainder of the steps to create your change request, see [Creating change requests](change-requests-create.md)\.
+1. For the remainder of the steps to create your change request, see [Creating change requestsCreating change requests \(console\)](change-requests-create.md)\.
 
 **Next steps**  
 For information about approving change requests, see [Reviewing and approving or rejecting change requests](change-requests-review.md)\.

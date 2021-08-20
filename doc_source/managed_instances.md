@@ -12,6 +12,7 @@ Advanced instances also allow you to connect to your hybrid machines by using AW
 The standard\-instances quota also applies to EC2 instances that use a Systems Manager on\-premises activation \(which isn't a common scenario\)\.
 To patch applications released by Microsoft on virtual machines \(VMs\) on\-premises instances, activate the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [About patching applications released by Microsoft on Windows Server](about-windows-app-patching.md)\.
 
+**Display managed instances**  
 If you don't see your managed instances listed in the console, then do the following:
 
 1. Verify that the console is open in the AWS Region where you created your managed instances\. You can switch Regions by using the list in the top, right corner of the console\. 
@@ -33,7 +34,10 @@ AWS Config provides AWS Managed Rules, which are predefined, customizable rules 
 For information about Systems Manager prerequisites, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. For information about configuring on\-premises servers and VMs as managed instances, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 **Increase security posture on managed instances**  
-For more information about increasing your security posture against unauthorized root\-level commands on your instances, see [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
+For information about increasing your security posture against unauthorized root\-level commands on your instances, see [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)\.
+
+**Deregister managed instances**  
+You can deregister managed instances at any time\. For example, if you are managing multiple instances with the same AWS Identity and Access Management \(IAM\) role and you notice any kind of malicious behavior, you can deregister any number of machines at any point\. For information about deregistering managed instances, see [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)\.
 
 **Topics**
 + [Configuring instance tiers](systems-manager-managed-instances-tiers.md)

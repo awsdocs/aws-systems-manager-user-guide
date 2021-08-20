@@ -37,7 +37,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 + [Create a Systems Manager parameter \(console\)](parameter-create-console.md)
 + [Create a Systems Manager parameter \(AWS CLI\)](param-create-cli.md)
 + [Working with parameter hierarchies](sysman-paramstore-hierarchies.md)
-+ Advanced: [Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](sysman-paramstore-walk.md#sysman-param-securestring-walkthrough)
++ Advanced: [Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)
 
 ## Change management<a name="getting-started-walkthroughs-change-management"></a>
 
