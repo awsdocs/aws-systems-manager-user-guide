@@ -30,4 +30,3 @@ To use Patch Manager, a capability of AWS Systems Manager, complete the followin
 + [Creating a patching configuration \(console\)](create-patching-configuration.md)
 + [Creating a patch group \(console\)](sysman-patch-group-tagging.md)
 + [Patching instances on demand \(console\)](patch-on-demand.md)
-+ [Creating a maintenance window for patching \(console\)](sysman-patch-mw-console.md)

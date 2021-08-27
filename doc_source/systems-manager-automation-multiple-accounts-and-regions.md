@@ -25,7 +25,7 @@ Running automations across multiple Regions and accounts or OUs works as follows
 
 1. Choose the runbook, Regions, and accounts or OUs where you want to run the automation\.
 **Note**  
-Automations don't run recursively through OUs\. Be sure the target OU contains the desired accounts\.
+Automations don't run recursively through OUs\. Be sure the target OU contains the desired accounts\. If you choose a custom runbook, the runbook must be shared with all of the target accounts\. For information about sharing runbooks, see [Sharing SSM documents](ssm-sharing.md)\. For information about using shared runbooks, see [Using shared SSM documents](ssm-using-shared.md)\.
 
 1. Run the automation\. When running automations across multiple Regions, accounts, or OUs, the automation you run from the primary account starts child automations in each of the target accounts\. The automation in the primary account will have `aws:executeAutomation` steps for each of the target accounts\.
 

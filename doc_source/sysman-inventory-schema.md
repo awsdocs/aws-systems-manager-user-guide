@@ -18,7 +18,7 @@ The following sample shows the complete list of metadata collected by each AWS S
       { "name": "PlatformVersion",                        "dataType" : "STRING"},
       { "name": "ResourceType",                           "dataType" : "STRING"},
       { "name": "AgentStatus",                            "dataType" : "STRING"},
-      { "name": "InstanceStatus",                         "dataType" : "STRING"}
+      { "name": "InstanceStatus",                         "dataType" : "STRING"}    
     ]
   },
   {
@@ -298,4 +298,5 @@ The following sample shows the complete list of metadata collected by each AWS S
 ```
 
 **Note**  
+For `"typeName": "AWS:InstanceInformation"`, `InstanceStatus` can be one of the following: Active, ConnectionLost, Stopped, Terminated\.
 With the release of version 2\.5, RPM Package Manager replaced the Serial attribute with Epoch\. The Epoch attribute is a monotonically increasing integer like Serial\. When you inventory by using the `AWS:Application` type, a larger value for Epoch means a newer version\. If Epoch values are the same or empty, then use the value of the Version or Release attribute to determine the newer version\. 

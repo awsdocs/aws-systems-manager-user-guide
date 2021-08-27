@@ -1,4 +1,4 @@
-# Creating a maintenance window for patching \(console\)<a name="sysman-patch-mw-console"></a>
+# Walkthrough: Creating a maintenance window for patching \(console\)<a name="sysman-patch-mw-console"></a>
 
 **Important**  
 You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Creating a patching configuration \(console\)](create-patching-configuration.md)\. Although many patching use cases benefit from patching instances on a schedule with a maintenance window, you can also run a one\-time patching operation manually without a maintenance window\. For more information, see [Patching instances on demand \(console\)](patch-on-demand.md)\.

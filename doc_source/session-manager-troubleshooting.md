@@ -4,7 +4,7 @@ Use the following information to help you troubleshoot problems with AWS Systems
 
 **Topics**
 + [No permission to start a session](#session-manager-troubleshooting-start-permissions)
-+ [No permission to change session preferences](#session-maner-troubleshooting-preferences-permissions)
++ [No permission to change session preferences](#session-manager-troubleshooting-preferences-permissions)
 + [Instance not available or not configured for Session Manager](#session-manager-troubleshooting-instances)
 + [Session Manager plugin not found](#plugin-not-found)
 + [Session Manager plugin not automatically added to command line path \(Windows\)](#windows-plugin-env-var-not-set)
@@ -18,7 +18,7 @@ Use the following information to help you troubleshoot problems with AWS Systems
 **Problem**: You try to start a session, but the system tells you that you don't have the necessary permissions\.
 + **Solution**: A system administrator hasn't granted you AWS Identity and Access Management \(IAM\) policy permissions for starting Session Manager sessions\. For information, see [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
 
-## No permission to change session preferences<a name="session-maner-troubleshooting-preferences-permissions"></a>
+## No permission to change session preferences<a name="session-manager-troubleshooting-preferences-permissions"></a>
 
 **Problem**: You try to update global session preferences for your organization, but the system tells you that you don't have the necessary permissions\.
 + **Solution**: A system administrator hasn't granted you IAM policy permissions for setting Session Manager preferences\. For information, see [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md)\.

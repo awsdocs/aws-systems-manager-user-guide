@@ -107,9 +107,10 @@ Type: String
 Required: Yes
 
 Handler  
-The entry for running the script, usually a function name\. You must ensure the function defined in the handler has two parameters, `events` and `context`\. \(Not required for PowerShell\.\)  
+The entry for running the script, usually a function name\. You must ensure the function defined in the handler has two parameters, `events` and `context`\.  
+This field is not allowed if the runtime is a PowerShell runtime\.
 Type: String  
-Required: Yes \(Python\) \| No \(PowerShell\)
+Required: Yes \(Python\) \| Not allowed \(PowerShell\)
 
 InputPayload  
 A JSON or YAML object that will be passed to the first parameter of the handler\. This can be used to pass input data to the script\.  
