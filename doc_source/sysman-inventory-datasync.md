@@ -65,7 +65,9 @@ For information about viewing your AWS account ID, see [Your Amazon Web Services
             "Effect":"Allow",
             "Principal":{
                "Service":"ssm.amazonaws.com"
-            }
+            },
+            "Action":"s3:PutObject",
+            "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*"
          },
          {
             "Sid":" SSMBucketDelivery",
@@ -170,7 +172,9 @@ Use the following procedure to create a central Amazon S3 bucket to store aggreg
                "Effect": "Allow",
                "Principal": {
                    "Service": "ssm.amazonaws.com"
-               }
+               },
+               "Action":"s3:PutObject",
+               "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*"
            },
            {
                "Sid": " SSMBucketDelivery",
