@@ -227,6 +227,7 @@ The following section describes how to view and query the data in Amazon Athena\
    ```
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_Application (
    Name string,
+   ResourceId string,
    ApplicationType string,
    Publisher string,
    Version string,
