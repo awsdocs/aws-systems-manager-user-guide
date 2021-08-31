@@ -60,7 +60,7 @@ For information about viewing your AWS account ID, see [Your Amazon Web Services
    {
       "Version":"2012-10-17",
       "Statement":[
-         {
+              {
             "Sid":" SSMBucketDelivery",
             "Effect":"Allow",
             "Principal":{

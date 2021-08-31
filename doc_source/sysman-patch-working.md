@@ -21,12 +21,10 @@ To use Patch Manager, a capability of AWS Systems Manager, complete the followin
 
 **Topics**
 + [Viewing patch Dashboard summaries \(console\)](view-patch-dashboard-summaries.md)
-+ [Viewing AWS predefined patch baselines \(console\)](view-predefined-patch-baselines.md)
-+ [Viewing patch compliance results \(console\)](viewing-patch-compliance-results.md)
-+ [Generating \.csv patch compliance reports \(console\)](patch-compliance-reports-to-s3.md)
-+ [Viewing available patches \(console\)](viewing-available-patches.md)
-+ [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)
-+ [Setting an existing patch baseline as the default \(console\)](set-default-patch-baseline.md)
-+ [Creating a patching configuration \(console\)](create-patching-configuration.md)
-+ [Creating a patch group \(console\)](sysman-patch-group-tagging.md)
++ [Working with patch compliance reports](patch-compliance-reports.md)
 + [Patching instances on demand \(console\)](patch-on-demand.md)
++ [Working with patch baselines](patch-baselines.md)
++ [Viewing available patches \(console\)](viewing-available-patches.md)
++ [Creating a patching configuration \(console\)](create-patching-configuration.md)
++ [Working with patch groups](sysman-patch-group-tagging.md)
++ [Working with Patch Manager settings](patch-manager-settings.md)

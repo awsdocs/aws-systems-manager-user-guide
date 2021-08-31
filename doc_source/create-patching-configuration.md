@@ -1,6 +1,8 @@
 # Creating a patching configuration \(console\)<a name="create-patching-configuration"></a>
 
-A patching configuration defines a unique patching operation\. The configuration specifies the instances for patching, which patch baseline is to be applied, the schedule for patching, and the maintenance window that the configuration is to be associated with\. 
+A patching configuration defines a unique patching operation\. The configuration specifies the instances for patching, which patch baseline is to be applied, the schedule for patching, and typically, the maintenance window that the configuration is to be associated with\. 
+
+ In a patching configuration, you associate a patching configuration with an existing maintenance window, create a new maintenance window for the configuration, or run a one\-time manual patching operation on a set of instances\.
 
 **Note**  
 Many patching use cases benefit from patching instances on a schedule with a maintenance window, but you can also run a one\-time patching operation manually without a maintenance window\. For more information, see [Patching instances on demand \(console\)](patch-on-demand.md)\.

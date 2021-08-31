@@ -19,7 +19,7 @@ For more information, see [Setting an existing patch baseline as the default \(c
 
 1. Choose the **Approval rules** tab and review the patch baseline configuration\.
 
-1. If the configuration is acceptable for your instances, you can skip ahead to the procedure [Creating a patch group \(console\)](sysman-patch-group-tagging.md)\. 
+1. If the configuration is acceptable for your instances, you can skip ahead to the procedure [Working with patch groups](sysman-patch-group-tagging.md)\. 
 
    \-or\-
 
