@@ -97,6 +97,7 @@ The following example shows how to deny some commands while allowing the user to
 {
     "Version": "2012-10-17",
     "Statement": [
+        {
             "Effect": "Deny",
             "Action": [
                 "ssm:PutParameter",
