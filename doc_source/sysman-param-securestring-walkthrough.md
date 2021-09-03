@@ -31,7 +31,7 @@ Saving output log data in an S3 bucket is optional, but we recommend setting it 
 **Note**  
 Using CloudWatch and EventBridge features is optional, but we recommend setting them up at the beginning of your Systems Manager configuration process if you have decided to use them\. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)* and the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
 
-1. Edit the IAM role attached to the instance and add the following policy\. This policy gives the instance permissions to call the `kms:Decrypt` API\. 
+1. Edit the IAM role attached to the instance and add the following policy\. This policy gives the instance permissions to call the `kms:Decrypt` and the `ssm:CreateDocument` API\. 
 
    ```
    {
@@ -40,7 +40,8 @@ Using CloudWatch and EventBridge features is optional, but we recommend setting 
          {
             "Effect":"Allow",
             "Action":[
-               "kms:Decrypt"
+               "kms:Decrypt",
+               "ssm:CreateDocument"
             ],
             "Resource":[
                "arn:aws:kms:region:account-id:key/kms-key-id"
