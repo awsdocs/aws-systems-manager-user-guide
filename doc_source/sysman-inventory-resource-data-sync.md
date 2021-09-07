@@ -45,13 +45,6 @@ Before you start this walkthrough, you must collect inventory metadata from your
        "Version": "2012-10-17",
        "Statement": [
            {
-               "Sid": "SSMBucketPermissionsCheck",
-               "Effect": "Allow",
-               "Principal": {
-                   "Service": "ssm.amazonaws.com"
-               }
-           },
-           {
                "Sid": " SSMBucketDelivery",
                "Effect": "Allow",
                "Principal": {
