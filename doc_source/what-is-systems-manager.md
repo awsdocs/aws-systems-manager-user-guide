@@ -2,7 +2,7 @@
 
 AWS Systems Manager \(formerly known as [SSM](#service-naming-history)\) is an AWS service that you can use to view and control your infrastructure on AWS\. Using the Systems Manager console, you can view operational data from multiple AWS services and automate operational tasks across your AWS resources\. Systems Manager helps you maintain security and compliance by scanning your *managed instances* and reporting on \(or taking corrective action on\) any policy violations it detects\.
 
-A managed instance is a machine configured for use with Systems Manager\. Systems Manager also helps you configure and maintain your managed instances\. Supported machine types include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises servers, and virtual machines \(VMs\), including VMs in other cloud environments\. Supported operating system types include Windows Server, macOS, Raspbian, and multiple distributions of Linux\.
+A managed instance is a machine configured for use with Systems Manager\. Systems Manager also helps you configure and maintain your managed instances\. Supported machine types include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises servers, and virtual machines \(VMs\), including VMs in other cloud environments\. Supported operating system types include Windows Server, macOS, Raspberry Pi OS \(formerly Raspbian\), and multiple distributions of Linux\.
 
 Using Systems Manager, you can associate AWS resources together by applying the same identifying *resource tag* to each of them\. You can then view operational data for these resources as a *resource group*, to help monitor and troubleshoot\. 
 
@@ -76,7 +76,7 @@ Systems Manager was formerly known as "Amazon Simple Systems Manager \(SSM\)" an
   + **[AWS Systems Manager Service Level Agreement](https://aws.amazon.com/systems-manager/sla/)** – The Systems Manager Service Level Agreement \(SLA\) is a policy governing the use of Systems Manager and applies separately to each AWS account using Systems Manager\.
 
   The following related resources can help you as you work with this service\.
-  + ** [Classes & Workshops](https://aws.amazon.com/training/course-descriptions/)** – Links to role\-based and specialty courses as well as self\-paced labs to help sharpen your AWS skills and gain practical experience\.
+  + ** [Classes & Workshops](https://aws.amazon.com/training/course-descriptions/)** – Links to role\-based and specialty courses, in addition to self\-paced labs to help sharpen your AWS skills and gain practical experience\.
   + ** [AWS Developer Tools](https://aws.amazon.com/tools/)** – Links to developer tools, SDKs, IDE toolkits, and command line tools for developing and managing AWS applications\.
   + ** [AWS Whitepapers](https://aws.amazon.com/whitepapers/)** – Links to a comprehensive list of technical AWS whitepapers, covering topics such as architecture, security, and economics and authored by AWS Solutions Architects or other technical experts\.
   + ** [AWS Support Center](https://console.aws.amazon.com/support/home#/)** – The hub for creating and managing your AWS Support cases\. Also includes links to other helpful resources, such as forums, technical FAQs, service health status, and AWS Trusted Advisor\.

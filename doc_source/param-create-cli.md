@@ -295,7 +295,7 @@ If successful, the command returns the version number of the parameter\.
 
 ------
 **Note**  
-Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special character to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` type\.
+Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special characters to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` type\.
 
 1. Run the `get-parameters` command to verify the details of the parameter\. For example:
 
@@ -603,6 +603,9 @@ To use the AWS KMS key assigned to your AWS account and AWS Region, remove the `
 You can manually create a parameter with an encrypted value\. In this case, because the value is already encrypted, you don’t have to choose the `SecureString` parameter type\. If you do choose `SecureString`, your parameter is doubly encrypted\.
 
 By default, all `SecureString` values are displayed as cipher\-text\. To decrypt a `SecureString` value, a user must have permission to call the AWS KMS [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) API operation\. For information about configuring AWS KMS access control, see [Authentication and Access Control for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*\.
+
+**Important**  
+If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must also update the key alias the parameter uses to reference AWS KMS\. This only applies to the KMS key alias; the key ID that an alias attaches to stays the same unless you delete the whole key\.
 
 ## Create a multi\-line parameter \(AWS CLI\)<a name="param-create-cli-multiline"></a>
 

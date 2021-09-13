@@ -37,7 +37,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 + [Create a Systems Manager parameter \(console\)](parameter-create-console.md)
 + [Create a Systems Manager parameter \(AWS CLI\)](param-create-cli.md)
 + [Working with parameter hierarchies](sysman-paramstore-hierarchies.md)
-+ Advanced: [Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](sysman-paramstore-walk.md#sysman-param-securestring-walkthrough)
++ Advanced: [Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)
 
 ## Change management<a name="getting-started-walkthroughs-change-management"></a>
 
@@ -58,7 +58,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 
 **Change Calendar**  
 [Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify are or are not permitted to occur in your AWS account\. 
-+ [Creating a Change Calendar entry](change-calendar-create.md)
++ [Creating a change calendar](change-calendar-create.md)
 + [Creating a Change Calendar event](change-calendar-create-event.md)
 
 **Maintenance Windows**  
@@ -102,7 +102,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 **Patch Manager**  
 [Patch Manager](systems-manager-patch.md), a capability of AWS Systems Manager, helps you select and deploy operating system and software patches automatically across large groups of EC2 instances or on\-premises servers and VMs\.
 + [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)
-+ [Creating a patch group \(console\)](sysman-patch-group-tagging.md)
++ [Working with patch groups](sysman-patch-group-tagging.md)
 + [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)
 
 **Distributor**  

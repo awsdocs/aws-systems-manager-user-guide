@@ -1,4 +1,4 @@
-# Walkthrough: Create a maintenance window to update SSM Agent \(console\)<a name="mw-walkthrough-console"></a>
+# Walkthrough: Create a maintenance window to automatically update SSM Agent \(console\)<a name="mw-walkthrough-console"></a>
 
 The following walkthrough shows you how to use the AWS Systems Manager console to create a maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Systems Manager Run Command task to update SSM Agent\.
 

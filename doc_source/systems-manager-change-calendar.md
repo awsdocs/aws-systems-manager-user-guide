@@ -2,6 +2,8 @@
 
 Change Calendar, a capability of AWS Systems Manager, allows you to set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) might or might not be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you're creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\.
 
+You can create a calendar and its events in the Systems Manager console\. You can also import an iCalendar \(`.ics`\) file that you have exported from a supported third\-party calendar provider to add its events to your calendar\. Supported providers include Google Calendar, Microsoft Outlook, and iCloud Calendar\.
+
 A Change Calendar entry can be one of two types:
 
 **`DEFAULT_OPEN`**, or Open by default  
@@ -37,3 +39,4 @@ This Systems Manager capability is supported as an *event* type in Amazon EventB
 + [Setting up Change Calendar](systems-manager-change-calendar-prereqs.md)
 + [Working with Change Calendar](systems-manager-change-calendar-working.md)
 + [Adding Change Calendar dependencies to Automation runbooks](systems-manager-change-calendar-automations.md)
++ [Troubleshooting Change Calendar](change-calendar-troubleshooting.md)

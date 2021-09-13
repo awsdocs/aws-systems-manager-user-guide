@@ -1,4 +1,4 @@
-# Use Kernel Live Patching on Amazon Linux 2 instances<a name="kernel-live-patching"></a>
+# Using Kernel Live Patching on Amazon Linux 2 instances<a name="kernel-live-patching"></a>
 
 Kernel Live Patching for Amazon Linux 2 allows you to apply security vulnerability and critical bug patches to a running Linux kernel without reboots or disruptions to running applications\. This allows you to benefit from improved service and application availability, while keeping your infrastructure secure and up to date\. Kernel Live Patching is supported on Amazon EC2 instances and [on\-premises virtual machines](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/amazon-linux-2-virtual-machine.html) running Amazon Linux 2\.
 

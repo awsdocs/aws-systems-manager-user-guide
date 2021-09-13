@@ -1,6 +1,6 @@
 # Walkthrough: Use resource data sync to aggregate inventory data<a name="sysman-inventory-resource-data-sync"></a>
 
-The following walkthrough describes how to create a resource data sync configuration for AWS Systems Manager Inventory by using the AWS Command Line Interface \(AWS CLI\)\. A resource data sync automatically ports inventory data from all of your managed instances to a central Amazon Simple Storage Service \(Amazon S3\) bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a resource data sync by using Systems Manager in the AWS Management Console, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\.
+The following walkthrough describes how to create a resource data sync configuration for AWS Systems Manager Inventory by using the AWS Command Line Interface \(AWS CLI\)\. A resource data sync automatically ports inventory data from all of your managed instances to a central Amazon Simple Storage Service \(Amazon S3\) bucket\. The sync automatically updates the data in the central Amazon S3 bucket whenever new inventory data is discovered\. This walkthrough also describes how to use Amazon Athena and Amazon QuickSight to query and analyze the aggregated data\. For information about creating a resource data sync by using Systems Manager in the AWS Management Console, see [Configuring resource data sync for Inventory](sysman-inventory-datasync.md)\. For information about querying inventory from multiple AWS Regions and accounts by using Systems Manager in the AWS Management Console, see [Querying inventory data from multiple Regions and accounts](systems-manager-inventory-query.md)\.
 
 **Note**  
 This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory doesn't collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
@@ -44,15 +44,6 @@ Before you start this walkthrough, you must collect inventory metadata from your
    {
        "Version": "2012-10-17",
        "Statement": [
-           {
-               "Sid": "SSMBucketPermissionsCheck",
-               "Effect": "Allow",
-               "Principal": {
-                   "Service": "ssm.amazonaws.com"
-               },
-               "Action": "s3:GetBucketAcl",
-               "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET"
-           },
            {
                "Sid": " SSMBucketDelivery",
                "Effect": "Allow",
@@ -229,6 +220,7 @@ The following section describes how to view and query the data in Amazon Athena\
    ```
    CREATE EXTERNAL TABLE IF NOT EXISTS ssminventory.AWS_Application (
    Name string,
+   ResourceId string,
    ApplicationType string,
    Publisher string,
    Version string,

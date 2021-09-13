@@ -11,9 +11,11 @@ In some cases, a change template might be configured so you specify your own Aut
 **Important**  
 If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes won't be reported in or viewable from the delegated administrator account\.
 
+## Creating change requests \(console\)<a name="change-requests-create-console"></a>
+
 The following procedure describes how to create a change request by using the Systems Manager console\.
 
-**To create a change request**
+**To create a change request \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -126,3 +128,74 @@ If you're using Change Manager with a single AWS account only and not with an or
    When you're satisfied with the change request details, choose **Submit for approval**\.
 
 If an Amazon SNS topic has been specified in the change template you chose for the request, notifications are sent when the request is rejected or approved\. If you don't receive notifications for the request, you can return to Change Manager to check the status of your request\. 
+
+## Creating change requests \(AWS CLI\)<a name="change-requests-create-cli"></a>
+
+You can create a change request using the AWS Command Line Interface \(AWS CLI\) by specifying options and parameters for the change request in a JSON file and using the `--cli-input-json` option to include it in your command\.
+
+**To create a change request \(AWS CLI\)**
+
+1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
+
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+
+1. Create a JSON file on your local machine with a name such as `MyChangeRequest.json` and paste the following content into it\.
+
+   Replace *placeholders* with values for your change request\.
+**Note**  
+This sample JSON creates a change request using the `AWS-HelloWorldChangeTemplate` change template and `AWS-HelloWorld` runbook\. To help you adapt this sample for your own change requests, see [StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html) in the *AWS Systems Manager API Reference* for information about all available parameters,
+
+   ```
+   {
+       "ChangeRequestName": "MyChangeRequest",
+       "DocumentName": "AWS-HelloWorldChangeTemplate",
+       "DocumentVersion": "$DEFAULT",
+       "ScheduledTime": "2021-12-30T03:00:00",
+       "ScheduledEndTime": "2021-12-30T03:05:00",
+       "Tags": [
+           {
+               "Key": "Purpose",
+               "Value": "Testing"
+           }
+       ],
+       "Parameters": {
+           "Approver": [
+               "JohnDoe"
+           ],
+           "ApproverType": [
+               "IamUser"
+           ],
+           "ApproverSnsTopicArn": [
+               "arn:aws:sns:us-east-2:123456789012:MyNotificationTopic"
+           ]
+       },
+       "Runbooks": [
+           {
+               "DocumentName": "AWS-HelloWorld",
+               "DocumentVersion": "1",
+               "MaxConcurrency": "1",
+               "MaxErrors": "1",
+               "Parameters": {
+                   "AutomationAssumeRole": [
+                       "arn:aws:iam::123456789012:role/MyChangeManagerAssumeRole"
+                   ]
+               }
+           }
+       ],
+       "ChangeDetails": "### Document Name: HelloWorldChangeTemplate\n\n## What does this document do?\nThis change template demonstrates the feature set available for creating change templates for Change Manager. This template starts a Runbook workflow for the Automation document called AWS-HelloWorld.\n\n## Input Parameters\n* ApproverSnsTopicArn: (Required) Amazon Simple Notification Service ARN for approvers.\n* Approver: (Required) The name of the approver to send this request to.\n* ApproverType: (Required) The type of reviewer.\n  * Allowed Values: IamUser, IamGroup, IamRole, SSOGroup, SSOUser\n\n## Output Parameters\nThis document has no outputs \n"
+   }
+   ```
+
+1. In the directory where you created the JSON file, run the following command\.
+
+   ```
+   aws ssm start-change-request-execution --cli-input-json file://MyChangeRequest.json
+   ```
+
+   The system returns information like the following\.
+
+   ```
+   {
+       "AutomationExecutionId": "b3c1357a-5756-4839-8617-2d2a4EXAMPLE"
+   }
+   ```

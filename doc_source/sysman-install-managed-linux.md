@@ -48,7 +48,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb`
 
 ------
-#### [ Raspbian ]
+#### [ Raspberry Pi OS \(formerly Raspbian\) ]
 + `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm/amazon-ssm-agent.deb`
 
 ------
@@ -125,7 +125,7 @@ sudo -E amazon-ssm-agent -register -code "activation-code" -id "activation-id" -
 sudo service amazon-ssm-agent start
 ```
 
-## Raspbian<a name="rasp"></a>
+## Raspberry Pi OS \(formerly Raspbian\)<a name="rasp"></a>
 
 ```
 mkdir /tmp/ssm
@@ -162,6 +162,8 @@ sudo systemctl start amazon-ssm-agent
 + **Using Snap packages**
 
   You don't need to specify a URL for the download, because the `snap` command automatically downloads the agent from the [Snap app store](https://snapcraft.io/amazon-ssm-agent) at [https://snapcraft\.io](https://snapcraft.io)\.
+
+  On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, SSM Agent installer files, including agent binaries and config files, are stored in the following directory: `/snap/amazon-ssm-agent/current/`\. If you make changes to any configuration files in this directory, then you must copy these files from the `/snap` directory to the `/etc/amazon/ssm/` directory\. Log and library files haven't changed \(`/var/lib/amazon/ssm`, `/var/log/amazon/ssm`\)\.
 
   ```
   sudo snap install amazon-ssm-agent --classic

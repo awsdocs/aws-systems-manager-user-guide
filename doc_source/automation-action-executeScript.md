@@ -101,15 +101,16 @@ inputs:
 ------
 
 Runtime  
-The runtime language to be used for executing the provided script\. aws:executeScript supports Python 3\.6 \(python3\.6\), Python 3\.7 \(python3\.7\), and PowerShell Core 6\.0 \(dotnetcore2\.1\) scripts\.  
+The runtime language to be used for executing the provided script\. `aws:executeScript` supports Python 3\.6 \(python3\.6\), Python 3\.7 \(python3\.7\), and PowerShell Core 6\.0 \(dotnetcore2\.1\) scripts\.  
 Supported values: **python3\.6** \| **python3\.7** \| **PowerShell Core 6\.0**  
 Type: String  
 Required: Yes
 
 Handler  
-The entry for running the script, usually a function name\. You must ensure the function defined in the handler has two parameters, `events` and `context`\. \(Not required for PowerShell\.\)  
+The entry for running the script, usually a function name\. You must ensure the function defined in the handler has two parameters, `events` and `context`\.  
+This field is not allowed if the runtime is a PowerShell runtime\.
 Type: String  
-Required: Yes \(Python\) \| No \(PowerShell\)
+Required: Yes \(Python\) \| Not allowed \(PowerShell\)
 
 InputPayload  
 A JSON or YAML object that will be passed to the first parameter of the handler\. This can be used to pass input data to the script\.  

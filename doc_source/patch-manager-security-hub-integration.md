@@ -1,4 +1,4 @@
-# AWS Security Hub integration with Patch Manager<a name="patch-manager-security-hub-integration"></a>
+# Integrating Patch Manager with AWS Security Hub<a name="patch-manager-security-hub-integration"></a>
 
 [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS\. Security Hub collects security data from across AWS accounts, AWS services, and supported third\-party partner products\. With Security Hub, you can check your environment against security industry standards and best practices\. Security Hub helps you to analyze your security trends and identify the highest priority security issues\.
 

@@ -27,7 +27,7 @@ You can also specify distinct entries in the `Content` section, as shown in the 
 
 ```
 {
-    "SchemaVersion": "1.0",
+"SchemaVersion": "1.0",
 "TypeName": "Custom:PuppetModuleInfo",
     "Content": [{
         "Name": "puppetlabs/aws",

@@ -16,7 +16,7 @@ As of January 14, 2020, Windows Server 2008 is [no longer supported](https://www
    ```
    $serviceKey = "HKLM:\SYSTEM\CurrentControlSet\Services\AmazonSSMAgent"
    $keyInfo = (Get-Item -Path $serviceKey).GetValue("Environment")
-   $proxyVariables = @("http_proxy=hostname:port", "no_proxy=169.254.169.254")
+   $proxyVariables = @("http_proxy=hostname:port", "https_proxy=hostname:port", "no_proxy=169.254.169.254")
    
    If($keyInfo -eq $null)
    {
@@ -34,7 +34,7 @@ After running the preceding command, you can review the SSM Agent logs to confir
 2020-02-24 15:31:54 INFO Getting WinHTTP proxy default configuration: The operation completed successfully.
 2020-02-24 15:31:54 INFO Proxy environment variables:
 2020-02-24 15:31:54 INFO http_proxy: hostname:port
-2020-02-24 15:31:54 INFO https_proxy: 
+2020-02-24 15:31:54 INFO https_proxy: hostname:port
 2020-02-24 15:31:54 INFO no_proxy: 169.254.169.254
 2020-02-24 15:31:54 INFO Starting Agent: amazon-ssm-agent - v2.3.871.0
 2020-02-24 15:31:54 INFO OS: windows, Arch: amd64
@@ -63,9 +63,9 @@ When configuring proxy settings for the SSM Agent on Windows Server instances, i
 
 1. LocalSystem user account environment variables \(http\_proxy, https\_proxy, no\_proxy\)
 
-1. WinHTTP proxy settings
-
 1. Internet Explorer settings
+
+1. WinHTTP proxy settings
 
 ## SSM Agent proxy settings and Systems Manager services<a name="ssm-agent-proxy-services"></a>
 

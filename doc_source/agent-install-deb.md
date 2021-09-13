@@ -7,7 +7,7 @@ Connect to your Debian Server instance and perform the following steps to instal
 ------
 #### [ Debian Server 9 and 10 64\-bit \(deb\) ]
 
-**To install SSM Agent on Debian Server 9 64\-bit instances \(with deb installer package\)**
+**To install SSM Agent on Debian Server 9 and 10 64\-bit instances \(with deb installer package\)**
 
 1. Connect to your Debian Server instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\. 
 
@@ -23,13 +23,21 @@ Connect to your Debian Server instance and perform the following steps to instal
    cd /tmp/ssm
    ```
 
-   Run the following commands\.
+   Run one of the following commands, depending on your instance type\.
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+   + Intel 64\-bit \(x86\_64\) instances:
 
-   ```
-   wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb
-   ```
+     ```
+     wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb
+     ```
+   + ARM 64\-bit \(arm64\) instances:
+
+     ```
+     wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb
+     ```
+
+1. Run the following command\.
 
    ```
    sudo dpkg -i amazon-ssm-agent.deb
@@ -111,6 +119,12 @@ Intel 64\-bit \(x86\_64\)
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
   ```
+ARM 64\-bit \(arm64\)  
+
+  ```
+  https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm64/amazon-ssm-agent.deb
+  ```
+We don't officially support Debian Server 8 on ARM 64\-bit \(arm64\)\.
 
 **Important**  
 An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.

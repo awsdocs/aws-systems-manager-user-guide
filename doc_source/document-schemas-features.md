@@ -1,4 +1,4 @@
-# SSM document schemas and features<a name="document-schemas-features"></a>
+# SSM document schema features and examples<a name="document-schemas-features"></a>
 
 AWS Systems Manager \(SSM\) documents use the following schema versions\.
 + Documents of type `Command` can use schema version 1\.2, 2\.0, and 2\.2\. If you use schema 1\.2 documents, we recommend that you create documents that use schema version 2\.2\.
@@ -36,7 +36,7 @@ The following table lists the differences between major schema versions\.
 |  not applicable  |  name  |  In version 2\.2, `name` is any user\-defined name for a step\.  | 
 
 **Using the precondition parameter**  
-With schema version 2\.2 or later, you can use the `precondition` parameter to specify the target operating system for each plugin or to validate input parameters you've defined in your SSM document\. The `precondition` parameter supports referencing your SSM document's input parameters, and `platformType` using values of `Linux`, `MacOS`, and `Windows`\.
+With schema version 2\.2 or later, you can use the `precondition` parameter to specify the target operating system for each plugin or to validate input parameters you've defined in your SSM document\. The `precondition` parameter supports referencing your SSM document's input parameters, and `platformType` using values of `Linux`, `MacOS`, and `Windows`\. Only the `StringEquals` operator is supported\.
 
 For documents that use schema version 2\.2 or later, if `precondition` isn't specified, each plugin is either run or skipped based on the plugin’s compatibility with the operating system\. Plugin compatibility with the operating system is evaluated before the `precondition`\. For documents that use schema 2\.0 or earlier, incompatible plugins throw an error\.
 
@@ -696,7 +696,6 @@ The following example shows the top\-level elements of a schema version 0\.3 Aut
             "description": "parameter-1-description",
             "default": ""
         },
-        {
         "parameter-2": {
             "type": "String",
             "description": "parameter-2-description",

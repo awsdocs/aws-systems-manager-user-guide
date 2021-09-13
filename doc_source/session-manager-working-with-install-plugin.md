@@ -291,6 +291,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.2\.245\.0 |  August 19, 2021  | Enhancement: Upgrade aws\-sdk\-go to latest version \(v1\.40\.17\) to support single sign\-on \(SSO\)\. | 
 | 1\.2\.234\.0 |  July 26, 2021  | Bug fix: Handle session abruptly terminated scenario in interactive session type\. | 
 | 1\.2\.205\.0 |  June 10, 2021  | Enhancement: Added support for signed macOS installer\. | 
 | 1\.2\.54\.0 |  January 29, 2021  | Enhancement: Added support for running sessions in NonInteractiveCommands execution mode\. | 

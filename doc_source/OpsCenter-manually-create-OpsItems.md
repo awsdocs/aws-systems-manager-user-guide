@@ -3,16 +3,21 @@
 This section includes information about how to manually create OpsItems in AWS Systems Manager OpsCenter\.
 
 **Before You Begin**  
-If you manually create an OpsItem for an impacted AWS resource, then collect information about that resource so that you can create an Amazon Resource Name \(ARN\)\. If you specify an ARN when you create an OpsItem, then OpsCenter automatically creates a deep link to detailed information about the resource\. For example, if you specify the ARN of an impacted EC2 instance, then OpsCenter creates a deep link to the details about that instance\. For information about how to create an ARN, see the [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
+When you manually create an OpsItem, you can specify an Amazon Resource Name \(ARN\) for an impacted resource\. If you specify an ARN, then OpsCenter automatically creates a deep link to detailed information about the resource\. For example, if you specify the ARN of an impacted Amazon EC2 instance, then OpsCenter creates a deep link to the details about that instance\. For information about how to create an ARN, see the [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
 **Note**  
 OpsCenter doesn't support creating deep links for all ARN types\. To view a list of resources the support deep links based on ARNs, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
 
-This section includes the following procedures\.
-+ [To manually create an OpsItem \(console\)](#OpsCenter-manually-create-OpsItems-console)
-+ [To manually create an OpsItem \(AWS CLI\)](#OpsCenter-manually-create-OpsItems-cli)<a name="OpsCenter-manually-create-OpsItems-console"></a>
+**Topics**
++ [Creating OpsItems by using the console](#OpsCenter-manually-create-OpsItems-console)
++ [Creating OpsItems by using the AWS CLI](#OpsCenter-manually-create-OpsItems-CLI)
++ [Creating OpsItems by using AWS Tools for Windows PowerShell](#OpsCenter-manually-create-OpsItems-PowerShell)
 
-**To manually create an OpsItem \(console\)**
+## Creating OpsItems by using the console<a name="OpsCenter-manually-create-OpsItems-console"></a>
+
+The following procedure describes how to create an OpsItem by using the Systems Manager console\.
+
+**To manually create an OpsItem by using the console**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -42,9 +47,17 @@ You can't edit the **Source** field after you create the OpsItem\.
 
 1. Choose **Create OpsItem**\.
 
-If successful, the OpsItem opens\. For information about how to configure the options in an OpsItem, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md)\.<a name="OpsCenter-manually-create-OpsItems-cli"></a>
+If successful, the OpsItem opens\. For information about how to configure the options in an OpsItem, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md)\.
 
-**To manually create an OpsItem \(AWS CLI\)**
+## Creating OpsItems by using the AWS CLI<a name="OpsCenter-manually-create-OpsItems-CLI"></a>
+
+The following procedure describes how to create an OpsItem by using the AWS Command Line Interface \(AWS CLI\)\.
+
+**To manually create an OpsItem by using the AWS CLI**
+
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
+
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Open the AWS Command Line Interface \(AWS CLI\) and run the following command to create an OpsItem\.
 
@@ -54,7 +67,7 @@ If successful, the OpsItem opens\. For information about how to configure the op
 
    Here are some examples\.
 
-   **Linux**
+   **Linux management portal macOS**
 
    ```
    aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data '{"EC2":{"Value":"12345","Type":"SearchableString"}}' --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser1" --tags "Key=EC2,Value=ProductionServers"
@@ -168,4 +181,42 @@ For information about how to enter JSON\-formatted parameters on the command lin
 
    ```
    aws ssm get-ops-item --ops-item-id ID
+   ```
+
+## Creating OpsItems by using AWS Tools for Windows PowerShell<a name="OpsCenter-manually-create-OpsItems-PowerShell"></a>
+
+
+
+1. Open AWS Tools for Windows PowerShell and run the following command to specify your credentials\. 
+
+   ```
+   Set-AWSCredentials –AccessKey key-name –SecretKey key-name
+   ```
+
+1. Run the following command to set the region for your PowerShell session\.
+
+   ```
+   Set-DefaultAWSRegion -Region Region
+   ```
+
+1. Run the following command to create a new OpsItem\. This command specifies a Systems Manager Automation runbook for remediating this OpsItem\. 
+
+   ```
+   $opsItem = New-Object Amazon.SimpleSystemsManagement.Model.OpsItemDataValue
+   $opsItem.Type = [Amazon.SimpleSystemsManagement.OpsItemDataType]::SearchableString 
+   $opsItem.Value = '[{\"automationId\":\"runbook_name\",\"automationType\":\"AWS::SSM::Automation\"}]'
+   $newHash = @{" /aws/automations"=[Amazon.SimpleSystemsManagement.Model.OpsItemDataValue]$opsItem}
+   New-SSMOpsItem -Title "title" -Description "description" -Priority priority_number -Source AWS_service -OperationalData $newHash
+   ```
+
+   If successful, the command outputs the ID of the new OpsItem\.
+
+   The following example specifies the ARN of an impaired Amazon EC2 instance\.
+
+   ```
+   $opsItem = New-Object Amazon.SimpleSystemsManagement.Model.OpsItemDataValue
+   $opsItem.Type = [Amazon.SimpleSystemsManagement.OpsItemDataType]::SearchableString 
+   $opsItem.Value = '[{\"arn\":\"arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0\"}]'
+   $newHash = @{" /aws/resources"=[Amazon.SimpleSystemsManagement.Model.OpsItemDataValue]$opsItem}
+   New-SSMOpsItem -Title "EC2 instance disk full still" -Description "Log clean up may have failed which caused the disk to be full" -Priority 2 -Source ec2 -OperationalData $newHash
    ```

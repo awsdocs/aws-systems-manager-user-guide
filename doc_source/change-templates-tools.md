@@ -104,7 +104,7 @@ This example demonstrates two levels of approvals\. You can specify up to five l
        --name MyChangeTemplate \
        --document-format JSON \
        --document-type Automation.ChangeTemplate \
-       --content file://MyChangeTemplate.json
+       --content file://MyChangeTemplate.json \
        --tags Key=tag-key,Value=tag-value
    ```
 
@@ -116,8 +116,8 @@ This example demonstrates two levels of approvals\. You can specify up to five l
        --name MyChangeTemplate ^
        --document-format JSON ^
        --document-type Automation.ChangeTemplate ^
-       --content file://MyChangeTemplate.json
-       Key=tag-key,Value=tag-value
+       --content file://MyChangeTemplate.json ^
+       --tags Key=tag-key,Value=tag-value
    ```
 
 ------

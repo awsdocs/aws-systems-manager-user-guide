@@ -102,7 +102,7 @@ To create a parameter with a tag, create the service\.model\.tag before hand as 
        -Tags $tag
    ```
 **Note**  
-Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special character to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` type\.
+Items in a `StringList` must be separated by a comma \(,\)\. You can't use other punctuation or special characters to escape items in the list\. If you have a parameter value that requires a comma, then use the `String` type\.
 
 1. Run the following command to verify the details of the parameter\.
 
@@ -115,6 +115,9 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 Before you create a `SecureString` parameter, read about the requirements for this type of parameter\. For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.
 
 **Important**  
+Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties aren't encrypted\.
+
+**Important**  
 Parameter Store only supports [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
 
 1. Install and configure the AWS Tools for PowerShell, if you haven't already\.
@@ -123,7 +126,7 @@ Parameter Store only supports [symmetric KMS keys](https://docs.aws.amazon.com/k
 
 1. Run the following command to create a parameter\.
 **Note**  
-To create a parameter with a tag, create the service\.model\.tag before hand as a variable\. Here is an example\.   
+To create a parameter with a tag, first create the service\.model\.tag as a variable\. Here is an example\.   
 
    ```
    $tag = New-Object Amazon.SimpleSystemsManagement.Model.Tag
@@ -159,3 +162,8 @@ To use the AWS managed AWS KMS key assigned to your account, remove the `-KeyId`
    ```
    (Get-SSMParameterValue -Name "the-parameter-name-you-specified" –WithDecryption $true).Parameters
    ```
+
+By default, all `SecureString` values are displayed as cipher\-text\. To decrypt a `SecureString` value, a user must have permission to call the AWS KMS [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) API operation\. For information about configuring AWS KMS access control, see [Authentication and Access Control for AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/control-access.html) in the *AWS Key Management Service Developer Guide*\.
+
+**Important**  
+If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must also update the key alias the parameter uses to reference AWS KMS\. This only applies to the KMS key alias; the key ID that an alias attaches to stays the same unless you delete the whole key\.

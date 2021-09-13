@@ -97,6 +97,7 @@ The following example shows how to deny some commands while allowing the user to
 {
     "Version": "2012-10-17",
     "Statement": [
+        {
             "Effect": "Deny",
             "Action": [
                 "ssm:PutParameter",
@@ -170,7 +171,7 @@ Instance policies, like in the following example, are assigned to the instance r
 
 Parameter Store `SecureString` parameters are encrypted and decrypted using AWS KMS keys\. You can choose to encrypt your `SecureString` parameters using either a AWS KMS key or the default KMS key provided by AWS\.
 
-When using a customer managed key, the IAM policy that grants a user access to a parameter or parameter path must provide explicit `kms:Encrypt` permissions for the key\. For example, the following policy allows a user to create, update, and view `SecureString` parameters that begin with `prod-` in the specified AWS Region and AWS accounta\.
+When using a customer managed key, the IAM policy that grants a user access to a parameter or parameter path must provide explicit `kms:Encrypt` permissions for the key\. For example, the following policy allows a user to create, update, and view `SecureString` parameters that begin with `prod-` in the specified AWS Region and AWS account\.
 
 ```
 {

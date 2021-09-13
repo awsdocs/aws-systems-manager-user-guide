@@ -5,7 +5,7 @@ Your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises servers
 **Topics**
 + [Linux](#prereqs-os-linux)
 + [macOS](#prereqs-os-mac)
-+ [Raspbian](#prereqs-os-raspbian)
++ [Raspberry Pi OS \(formerly Raspbian\)](#prereqs-os-raspbian)
 + [Windows Server](#prereqs-os-windows-server)
 
 ## Linux<a name="prereqs-os-linux"></a>
@@ -120,15 +120,15 @@ Europe \(Ireland\) \(eu\-west\-1\)
 Asia Pacific \(Singapore\) \(ap\-southeast\-1\)
 For more information about Amazon EC2 support for macOS, see [Amazon EC2 Mac instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html) in the *Amazon EC2 User Guide for Linux Instances*
 
-## Raspbian<a name="prereqs-os-raspbian"></a>
+## Raspberry Pi OS \(formerly Raspbian\)<a name="prereqs-os-raspbian"></a>
 
 
 ****  
 
 | Version | ARM 32\-bit \(arm\) | 
 | --- | --- | 
-| Jessie | ✓ | 
-| Stretch | ✓ | 
+| 8 \(Jessie\) | ✓ | 
+| 9 \(Stretch\) | ✓ | 
 
 **Related content**
 

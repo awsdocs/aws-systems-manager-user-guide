@@ -9,4 +9,5 @@ Application Manager is a component of AWS Systems Manager\. This section include
 + [Viewing monitoring information](application-manager-working-viewing-monitors.md)
 + [Viewing OpsItems for an application](application-manager-working-viewing-OpsItems.md)
 + [Viewing log groups and log data](application-manager-viewing-logs.md)
-+ [Working with runbooks for applications](application-manager-working-runbooks.md)
++ [Working with runbooks in Application Manager](application-manager-working-runbooks.md)
++ [Working with tags in Application Manager](application-manager-working-tags.md)

@@ -79,4 +79,4 @@ For example, if a user specifies the name of a custom Session document you creat
 If a user runs a command to start a session using SSH, the user’s policy must grant them access to the `AWS-StartSSHSession` session document\. 
 
 **Note**  
-To start a session using SSH, configuration steps must be completed on both the target instance and the user's local machine\. For information, see [\(Optional\) Allow SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
+To start a session using SSH, configuration steps must be completed on both the target instance and the user's local machine\. For information, see [\(Optional\) Enable and control permissions for SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.

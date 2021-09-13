@@ -85,7 +85,7 @@ To start a Session Manager SSH session, version 2\.3\.672\.0 or later of SSM Age
 
 **SSH connection requirements**  
 Take note of the following requirements and limitations for session connections using SSH:
-+ Your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Allow SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
++ Your target instance must be configured to support SSH connections\. For more information, see [\(Optional\) Enable and control permissions for SSH connections through Session Manager](session-manager-getting-started-enable-ssh-connections.md)\.
 + You must use the user on the instance associated with the Privacy Enhanced Mail \(PEM\) certificate, not the `ssm-user` account that is used for other types of session connections\. For example, on EC2 instances for Linux and macOS, the default user is `ec2-user`\. For information about identifying the default user for each instance type, see [Get Information About Your Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connection-prereqs.html#connection-prereqs-get-info-about-instance) in the *Amazon EC2 User Guide for Linux Instances*\.
 + Logging isn't available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
