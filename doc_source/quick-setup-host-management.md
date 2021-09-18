@@ -1,13 +1,13 @@
 # Quick Setup Host Management<a name="quick-setup-host-management"></a>
 
-Use Quick Setup, a capability of AWS Systems Manager, to quickly configure required security roles and commonly used Systems Manager capabilities on your Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. You can use Quick Setup in an individual account or across multiple accounts and AWS Regions by integrating with AWS Organizations\. These capabilities help you manage and monitor the health of your instances while providing the minimum required permissions to get started\. If you are unfamiliar with the Systems Manager services and features, we recommend learning more about the service by reviewing the content in the *AWS Systems Manager User Guide* before creating a configuration with Quick Setup\. For more information about Systems Manager, see [What is AWS Systems Manager?](what-is-systems-manager.md)\.
+Use Quick Setup, a capability of AWS Systems Manager, to quickly configure required security roles and commonly used Systems Manager capabilities on your Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. You can use Quick Setup in an individual account or across multiple accounts and AWS Regions by integrating with AWS Organizations\. These capabilities help you manage and monitor the health of your instances while providing the minimum required permissions to get started\. If you're unfamiliar with Systems Manager services and features, we recommend that you review the *AWS Systems Manager User Guide* before creating a configuration with Quick Setup\. For more information about Systems Manager, see [What is AWS Systems Manager?](what-is-systems-manager.md)\.
 
 **Note**  
 You can't create multiple Quick Setup Host Management configurations that target the same AWS Region\.
 
-**Organization** Quick Setup is available in the following AWS Regions:
-+ US East \(N\. Virginia\)
+Organization Quick Setup is available in the following AWS Regions:
 + US East \(Ohio\)
++ US East \(N\. Virginia\)
 + US West \(N\. California\)
 + US West \(Oregon\)
 + Asia Pacific \(Mumbai\)
@@ -15,11 +15,11 @@ You can't create multiple Quick Setup Host Management configurations that target
 + Asia Pacific \(Singapore\)
 + Asia Pacific \(Sydney\)
 + Asia Pacific \(Tokyo\)
++ Canada \(Central\)
 + Europe \(Frankfurt\)
 + Europe \(Ireland\)
 + Europe \(London\)
 + Europe \(Paris\)
-+ Canada \(Central\)
 + South America \(São Paulo\)
 
 Quick Setup for individual AWS accounts is available in all AWS Regions where Systems Manager is supported\. For a list of supported Regions, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
@@ -42,18 +42,18 @@ To set up host management, perform the following tasks in the AWS Systems Manage
 
 1. Choose **Host management**, and then choose **Next**\.
 
-1. In the **Configuration options** section, choose the options you want to allow for your configuration\.
+1. In the **Configuration options** section, choose the options that you want to allow for your configuration\.
 
-   If you choose the **Update Systems Manager \(SSM\) Agent** option, then Systems Manager automatically checks every two weeks for a new version of the agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of SSM Agent\. For more information about SSM Agent, including information about how to manually install the agent, see [Working with SSM Agent](ssm-agent.md)\.
+   If you choose the **Update Systems Manager \(SSM\) Agent every two weeks** option, then Systems Manager automatically checks every two weeks for a new version of the agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of SSM Agent\. For more information about SSM Agent, including information about how to manually install the agent, see [Working with SSM Agent](ssm-agent.md)\.
 
-   If you choose the **Collect inventory from your instances** option, Quick Setup configures collection for the following types of metadata:
-   + **AWS components**: EC2 driver, agents, versions, and more\.
-   + **Applications**: Application names, publishers, versions, and more\.
-   + **Instance details**: System name, operating system \(OS\) name, OS version, last boot, DNS, domain, work group, OS architecture, and more\.
-   + **Network configuration**: IP address, MAC address, DNS, gateway, subnet mask, and more\. 
-   + **Services**: Name, display name, status, dependent services, service type, start type, and more \(Windows Server instances only\)\.
-   + **Windows roles**: Name, display name, path, feature type, installed state, and more \(Windows Server instances only\)\.
-   + **Windows updates**: Hotfix ID, installed by, installed date, and more \(Windows Server instances only\)\.
+   If you choose the **Collect inventory from your instances every 30 minutes** option, Quick Setup configures collection for the following types of metadata:
+   + **AWS components** – EC2 driver, agents, versions, and more\.
+   + **Applications** – Application names, publishers, versions, and more\.
+   + **Instance details** – System name, operating system \(OS\) name, OS version, last boot, DNS, domain, work group, OS architecture, and more\.
+   + **Network configuration** – IP address, MAC address, DNS, gateway, subnet mask, and more\. 
+   + **Services** – Name, display name, status, dependent services, service type, start type, and more \(Windows Server instances only\)\.
+   + **Windows roles** – Name, display name, path, feature type, installed state, and more \(Windows Server instances only\)\.
+   + **Windows updates** – Hotfix ID, installed by, installed date, and more \(Windows Server instances only\)\.
 
    For more information about Inventory, a capability of AWS Systems Manager, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
 
@@ -61,11 +61,11 @@ To set up host management, perform the following tasks in the AWS Systems Manage
 
    If you choose the **Install and configure the CloudWatch agent** option, the CloudWatch agent is installed on your Amazon EC2 instances\. The agent collects metrics and log files from your instances for Amazon CloudWatch\. This information is consolidated so you can quickly determine the health of your instances\. For more information, see [Collecting metrics and logs from EC2 instances and on\-premises servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There might be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
 
-   If you choose the **Update the CloudWatch agent** option, then Systems Manager automatically checks every four weeks for a new version of the CloudWatch agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of the CloudWatch agent\.
+   If you choose the **Update the CloudWatch agent once every 30 days** option, then Systems Manager automatically checks every 30 days for a new version of the CloudWatch agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of the CloudWatch agent\.
 
 1. In the **Targets** section, choose whether to set up host management for your entire organization, some of your organizational units \(OUs\), or the account you're logged in to\.
 
-   If you choose **Entire organization**, continue to step 8\.
+   If you choose **Entire organization**, continue to step 8\. 
 
    If you choose **Custom**, continue to step 7\.
 

@@ -18,7 +18,11 @@ If you use an on\-premises firewall and plan to use Patch Manager, that firewall
 
 **To create an IAM service role for a hybrid environment \(AWS CLI\)**
 
-1. Create a text file with a name such as `SSMService-Trust.json` with the following trust policy\. Make sure to save the file with the `.json` file extension\.
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
+
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+
+1. On your local machine, create a text file with a name such as `SSMService-Trust.json` with the following trust policy\. Make sure to save the file with the `.json` file extension\.
 
    ```
    {
@@ -33,7 +37,7 @@ If you use an on\-premises firewall and plan to use Patch Manager, that firewall
    }
    ```
 
-1. Use the [create\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html) command to create the service role\. This example creates a role named `SSMServiceRole`\. You can choose another name if you prefer\.
+1. Open the AWS CLI, and in the directory where you created the JSON file, run the [create\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html) command to create the service role\. This example creates a role named `SSMServiceRole`\. You can choose another name if you prefer\.
 
 ------
 #### [ Linux & macOS ]
@@ -55,7 +59,7 @@ If you use an on\-premises firewall and plan to use Patch Manager, that firewall
 
 ------
 
-1. Use [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) as follows to allow the service role you just created to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
+1. Run the [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) command as follows to allow the service role you just created to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
 **Note**  
 The policies you add for a service profile for managed instances in a hybrid environment are the same policies used to create an instance profile for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
@@ -138,7 +142,11 @@ The policies you add for a service profile for managed instances in a hybrid env
 
 **To create an IAM service role for a hybrid environment \(AWS Tools for Windows PowerShell\)**
 
-1. Create a text file with a name such as `SSMService-Trust.json` with the following trust policy\. Make sure to save the file with the `.json` file extension\.
+1. Install and configure the AWS Tools for PowerShell, if you haven't already\.
+
+   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+
+1. On your local machine, create a text file with a name such as `SSMService-Trust.json` with the following trust policy\. Make sure to save the file with the `.json` file extension\.
 
    ```
    {
@@ -153,7 +161,7 @@ The policies you add for a service profile for managed instances in a hybrid env
    }
    ```
 
-1. Use [New\-IAMRole](https://docs.aws.amazon.com/powershell/latest/reference/items/New-IAMRole.html) as follows to create a service role\. This example creates a role named `SSMServiceRole`\. You can choose another name if you prefer\.
+1. Open PowerShell in administrative mode, and in the directory where you created the JSON file, run [New\-IAMRole](https://docs.aws.amazon.com/powershell/latest/reference/items/New-IAMRole.html) as follows to create a service role\. This example creates a role named `SSMServiceRole`\. You can choose another name if you prefer\.
 
    ```
    New-IAMRole `

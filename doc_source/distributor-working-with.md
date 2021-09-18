@@ -11,6 +11,8 @@ You can delete or repurpose this bucket after you finish creating your package b
 
 AWS published packages are already packaged and ready for deployment\. To deploy an AWS\-published package to managed instances, see [Install or update packages](distributor-working-with-packages-deploy.md)\.
 
+You can share Distributor packages between AWS accounts\. When using a package shared from another account in AWS CLI commands use the package Amazon Resource Name \(ARN\) instead of the package name\.
+
 **Topics**
 + [View packages](distributor-view-packages.md)
 + [Create a package](distributor-working-with-packages-create.md)

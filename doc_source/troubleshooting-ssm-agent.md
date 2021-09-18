@@ -60,4 +60,7 @@ SSM Agent must be able to connect to the following endpoints:
 + `ssmmessages.region.amazonaws.com`
 + `ec2messages.region.amazonaws.com`
 
+**Note**  
+*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+
 SSM Agent won't work if it can't communicate with the preceding endpoints, even if you use AWS provided Amazon Machine Images \(AMIs\) such as Amazon Linux or Amazon Linux 2\. Your network configuration must have open internet access or you must have custom virtual private cloud \(VPC\) endpoints configured\. If you don't plan on creating a custom VPC endpoint, check your internet gateways or NAT gateways\. For more information about how to manage VPC endpoints, see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
