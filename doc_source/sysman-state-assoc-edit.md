@@ -1,6 +1,6 @@
 # Editing and creating a new version of an association<a name="sysman-state-assoc-edit"></a>
 
-You can edit a State Manager association to specify a new name, schedule, severity level, or targets\. State Manager is a capability of AWS Systems Manager\. You can also choose to write the output of the command to an Amazon Simple Storage Service \(Amazon S3\) bucket\. After you edit an association, State Manager, a capability of AWS Systems Manager, creates a new version\. You can view different versions after editing, as described in the following procedures\. 
+You can edit a State Manager association to specify a new name, schedule, severity level, or targets\. You can also choose to write the output of the command to an Amazon Simple Storage Service \(Amazon S3\) bucket\. After you edit an association, State Manager creates a new version\. You can view different versions after editing, as described in the following procedures\. 
 
 The following procedures describe how to edit and create a new version of an association using the Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell \(Tools for PowerShell\)\. 
 
@@ -9,7 +9,7 @@ The following procedures describe how to edit and create a new version of an ass
 The following procedure describes how to use the Systems Manager console to edit and create a new version of an association\.
 
 **Note**  
-This procedure requires that you have write access to an existing S3 bucket\. If you haven't used Amazon S3 before, be aware that you will incur charges for using Amazon S3\. For information about how to create a bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
+This procedure requires that you have write access to an existing Amazon S3 bucket\. If you haven't used Amazon S3 before, be aware that you will incur charges for using Amazon S3\. For information about how to create a bucket, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)\.
 
 **To edit a State Manager association**
 
@@ -23,7 +23,7 @@ This procedure requires that you have write access to an existing S3 bucket\. If
 
 1. Choose the association you created in [Create an association \(command line\)](sysman-state-assoc.md#create-state-manager-association-commandline) and then choose **Edit**\.
 
-1. In the **Name** field, enter a new name\. For example, enter **TestHostnameAssociation2**\.
+1. In the **Name** field, enter a new name\.
 
 1. In the **Specify schedule** section, choose a new option\. For example, choose **CRON schedule builder**, and then choose **Every 1 hour**\.
 
@@ -37,7 +37,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Choose the name of the S3 bucket you specified for storing command output, and then choose the folder named with the ID of the instance that ran the association\. \(If you chose to store output in a folder in the bucket, open it first\.\)
+1. Choose the name of the Amazon S3 bucket you specified for storing command output, and then choose the folder named with the ID of the instance that ran the association\. \(If you chose to store output in a folder in the bucket, open it first\.\)
 
 1. Drill down several levels, through the `awsrunPowerShell` folder, to the `stdout` file\.
 

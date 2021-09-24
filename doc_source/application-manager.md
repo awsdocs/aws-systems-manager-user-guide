@@ -59,9 +59,6 @@ Application Manager includes the following features:
   Application Manager integrates with [Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/) and [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) to provide information about the health of your cluster infrastructures and a component runtime view of the compute, networking, and storage resources in a cluster\.
 
   However, you can't manage or view operations information about your Amazon EKS pods or containers in Application Manager\. You can only manage and view operations information about the infrastructure that is hosting your Amazon EKS resources\.
-+ **View resource cost details for an application**
-
-  Application Manager is integrated with AWS Billing and Cost Management through the **Cost Explorer** widget\. After you enable Cost Explorer in the Billing and Cost Management console, the Cost Explorer widget in Application Manager shows cost data for a specific non\-container application or application component\. You can use filters in the widget to view cost data according to different time periods, granularities, and cost types in either a bar or line chart\. 
 + **View detailed resource information in one console**
 
   Choose a resource name listed in Application Manager and view contextual information and operations information about that resource without having to leave Systems Manager\.
@@ -71,6 +68,9 @@ Application Manager includes the following features:
 + **Discover Launch Wizard applications automatically**
 
   Application Manager is integrated with [AWS Launch Wizard](https://docs.aws.amazon.com/launchwizard/?id=docs_gateway)\. If you used Launch Wizard to deploy resources for an application, Application Manager can automatically import and display them in a Launch Wizard section\.
++ **Monitor application resources in Application Manager by using CloudWatch Application Insights**
+
+  Application Manager integrates with Amazon CloudWatch Application Insights\. Application Insights identifies and sets up key metrics, logs, and alarms across your application resources and technology stack\. Application Insights continuously monitors metrics and logs to detect and correlate anomalies and errors\. When the system detects errors or anomalies, Application Insights generates CloudWatch Events that you can use to set up notifications or take actions\. You can enable and view Application Insights on the **Overview** and **Monitoring** tabs in Application Manager\. For more information about Application Insights, see [What is Amazon CloudWatch Application Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-what-is.html) in the *Amazon CloudWatch User Guide*\.
 + **Remediate issues with runbooks** 
 
   Application Manager includes predefined Systems Manager runbooks for remediating common issues with AWS resources\. You can choose a resource in Application Manager and then choose a runbook that performs a remediation task\.

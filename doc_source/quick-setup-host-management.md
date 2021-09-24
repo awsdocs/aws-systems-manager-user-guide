@@ -59,19 +59,16 @@ To set up host management, perform the following tasks in the AWS Systems Manage
 
    If you choose the **Scan instances for missing patches daily** option, then Systems Manager uses Patch Manager to scan your instances each day and generate a simple report in the **Compliance** page\. Patch Manager is a capability of AWS Systems Manager\. The report shows how many instances are patch\-compliant according to the *default patch baseline*\. The report includes a list of each instance and its compliance status\. You can navigate this list to see details about noncompliant instances\. For more information about patching operations and patch baselines, see [AWS Systems Manager Patch Manager](systems-manager-patch.md)\. To view compliance information, see the Systems Manager [Compliance](https://console.aws.amazon.com/systems-manager/compliance) page\.
 
-   If you choose the **Install and configure the CloudWatch agent** option, the CloudWatch agent is installed on your Amazon EC2 instances\. The agent collects metrics and log files from your instances for Amazon CloudWatch\. This information is consolidated so you can quickly determine the health of your instances\. For more information, see [Collecting metrics and logs from EC2 instances and on\-premises servers with the CloudWatch Agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. There might be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
+   If you choose the **Install and configure the CloudWatch agent** option, the basic configuration of the unified CloudWatch agent is installed on your Amazon EC2 instances\. The agent collects metrics and log files from your instances for Amazon CloudWatch\. This information is consolidated so you can quickly determine the health of your instances\. For more information about the CloudWatch agent basic configuration, see [CloudWatch agent predefined metric sets](AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file-wizard.html#cloudwatch-agent-preset-metrics)\. There might be added cost\. For more information, see [Amazon CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/)\.
 
    If you choose the **Update the CloudWatch agent once every 30 days** option, then Systems Manager automatically checks every 30 days for a new version of the CloudWatch agent\. If there is a new version, then Systems Manager automatically updates the agent on your instance to the latest released version\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of the CloudWatch agent\.
 
-1. In the **Targets** section, choose whether to set up host management for your entire organization, some of your organizational units \(OUs\), or the account you're logged in to\.
-
-   If you choose **Entire organization**, continue to step 8\. 
-
-   If you choose **Custom**, continue to step 7\.
-
-1. In the **Target OUs** section, select the check boxes of the OUs and Regions where you want to set up host management\.
-
-1. In the **Instance profile options** section, choose whether you want to add the required IAM policies to the existing instance profiles attached to your instances, or to allow Quick Setup to create the IAM policies and instance profiles with the permissions needed for the configuration you choose\.
+1. In the **Targets** section, choose whether to set up host management for your **Entire organization**, **Custom** organizational units \(OUs\), or the **Current account** you're signed in to:
+   + **Entire organization** – In the **Instance profile options** section, choose whether you want to add the required IAM policies to the existing instance profiles attached to your instances, or to allow Quick Setup to create the IAM policies and instance profiles with the permissions needed for the configuration you choose\.
+**Note**  
+ The **Entire organization** option is only available if you're configuring host management from your organization's management account\.
+   + **Custom** – In the **Target OUs** section, select the OUs where you want to set up host management\. Next, in the **Target Regions** section, select the Regions where you want to set up host management\. Then, in the **Instance profile options** section, choose whether you want to add the required IAM policies to the existing instance profiles attached to your instances, or to allow Quick Setup to create the IAM policies and instance profiles with the permissions needed for the configuration you choose\.
+   + **Current account** – Select **Current Region** or **Choose Regions**\. Next, select how you want to target instances\. Then, if you selected **Current Region**, continue to step 7\. If you selected **Choose Regions** choose the **Target Regions** where you want to set up host management and then continue to step 7\.
 
 1. Choose **Create**\.
 

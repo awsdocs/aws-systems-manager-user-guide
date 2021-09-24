@@ -1,6 +1,9 @@
 # Viewing monitoring information<a name="application-manager-working-viewing-monitors"></a>
 
-In Application Manager, a component of AWS Systems Manager, the **Monitoring** tab displays Amazon CloudWatch alarm status for resources in an application\.
+In Application Manager, a component of AWS Systems Manager, the **Monitoring** tab displays Amazon CloudWatch Application Insights and alarm details for resources in an application\.
+
+**About Application Insights**  
+CloudWatch Application Insights identifies and sets up key metrics, logs, and alarms across your application resources and technology stack\. Application Insights continuously monitors metrics and logs to detect and correlate anomalies and errors\. When the system detects errors or anomalies, Application Insights generates CloudWatch Events that you can use to set up notifications or take actions\. If you choose the **Edit configuration** button on the **Monitoring** tab, the system opens the CloudWatch Application Insights console\. For more information about Application Insights, see [What is Amazon CloudWatch Application Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-what-is.html) in the *Amazon CloudWatch User Guide*\.
 
 **Actions you can perform on this page**  
 You can perform the following actions on this page:

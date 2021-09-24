@@ -43,6 +43,7 @@ For information about SSM document quotas, see [Systems Manager service quotas](
 + [Systems Manager Command document plugin reference](ssm-plugins.md)
 + [Viewing SSM Command document content](viewing-ssm-document-content.md)
 + [Creating SSM documents](create-ssm-doc.md)
++ [Deleting custom SSM documents](ssm-deleting.md)
 + [Comparing SSM document versions](ssm-comparing.md)
 + [Sharing SSM documents](ssm-sharing.md)
 + [Searching for SSM documents](ssm-documents-searching.md)

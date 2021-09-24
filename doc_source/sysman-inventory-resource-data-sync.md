@@ -6,29 +6,30 @@ The following walkthrough describes how to create a resource data sync configura
 This walkthrough includes information about how to encrypt the sync by using AWS Key Management Service \(AWS KMS\)\. Inventory doesn't collect any user\-specific, proprietary, or sensitive data so encryption is optional\. For more information about AWS KMS, see [AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
 
 **Before You Begin**  
-Before you start this walkthrough, you must collect inventory metadata from your managed instances\. For the purpose of the Amazon Athena and Amazon QuickSight sections in this walkthrough, we recommend that you collect Application metadata\. For more information about how to collect inventory metadata, see [Walkthrough: Configure your managed instances for Inventory by using the CLI](sysman-inventory-cliwalk.md)\.
+Review or complete the following tasks before you begin the walkthrough in this section\.
++ Collect inventory data from your managed instances\. For the purpose of the Amazon Athena and Amazon QuickSight sections in this walkthrough, we recommend that you collect Application data\. For more information about how to collect inventory data, see [Configuring inventory collection](sysman-inventory-configuring.md) or [Walkthrough: Configure your managed instances for Inventory by using the CLI](sysman-inventory-cliwalk.md)\.
++ \(Optional\) If the inventory data is stored in an Amazon Simple Storage Service \(Amazon S3\) bucket that uses AWS Key Management Service \(AWS KMS\) encryption, you must also configure your IAM account and the `Amazon-GlueServiceRoleForSSM` service role for AWS KMS encryption\. If you don't configure your IAM account and this role, Systems Manager displays Cannot load Glue tables when you choose the **Detailed View** tab in the console\. For more information, see [\(Optional\) Configure permissions for viewing AWS KMS encrypted data](systems-manager-inventory-query.md#systems-manager-inventory-query-kms)\.
++ \(Optional\) If you want to encrypt the resource data sync by using AWS KMS, then you must either create a new key that includes the following policy, or you must update an existing key and add this policy to it\.
 
-\(Optional\) If you want to encrypt the sync by using AWS KMS, then you must either create a new key that includes the following policy, or you must update an existing key and add this policy to it\.
-
-```
-{
-   "Version":"2012-10-17",
-   "Id":"ssm-access-policy",
-   "Statement":[
-      {
-         "Sid":"ssm-access-policy-statement",
-         "Action":[
-            "kms:GenerateDataKey"
-         ],
-         "Effect":"Allow",
-         "Principal":{
-            "Service":"ssm.amazonaws.com"
-         },
-         "Resource":"arn:aws:kms:Region:account_ID:key/KMS_key_id"
-      }
-   ]
-}
-```
+  ```
+  {
+     "Version":"2012-10-17",
+     "Id":"ssm-access-policy",
+     "Statement":[
+        {
+           "Sid":"ssm-access-policy-statement",
+           "Action":[
+              "kms:GenerateDataKey"
+           ],
+           "Effect":"Allow",
+           "Principal":{
+              "Service":"ssm.amazonaws.com"
+           },
+           "Resource":"arn:aws:kms:Region:account_ID:key/KMS_key_id"
+        }
+     ]
+  }
+  ```
 
 **To create a resource data sync for Inventory**
 

@@ -33,7 +33,7 @@ The following document plugins are supported on Amazon Elastic Compute Cloud \(A
 
 ## Shared inputs<a name="shared-inputs"></a>
 
-All plugins can use the following inputs:
+With SSM Agent version 3\.0\.502 and later only, all plugins can use the following inputs:
 
 **finallyStep**  
 The last step you want the document to run\. If this input is defined for a step, it takes precedence over an `exit` value specified in the `onFailure` or `onSuccess` inputs\. In order for a step with this input to run as expected, the step must be the last one defined in the `mainSteps` of your document\.  

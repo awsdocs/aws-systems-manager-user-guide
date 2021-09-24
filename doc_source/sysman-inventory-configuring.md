@@ -2,11 +2,7 @@
 
 This section describes how to configure AWS Systems Manager Inventory collection on one or more managed instances by using the Systems Manager console\. For an example of how to configure inventory collection by using the AWS Command Line Interface \(AWS CLI\), see [Systems Manager Inventory walkthroughs](sysman-inventory-walk.md)\.
 
-When you configure inventory collection, you start by creating a AWS Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the `aws:softwareInventory` plugin by using, for example, AWS Systems Manager Run Command, the system returns the following error:
-
-```
-The aws:softwareInventory plugin can only be invoked via ssm-associate.
-```
+When you configure inventory collection, you start by creating a AWS Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the `aws:softwareInventory` plugin by using, for example, AWS Systems Manager Run Command, the system returns the following error: `The aws:softwareInventory plugin can only be invoked via ssm-associate.`
 
 **Note**  
 Be aware of the following behavior if you create multiple inventory associations for an instance\.  

@@ -40,5 +40,6 @@ This Systems Manager capability is supported as an *event* type in Amazon EventB
 + [Working with Systems Manager inventory data](systems-manager-inventory-data-working.md)
 + [Working with custom inventory](sysman-inventory-custom.md)
 + [Viewing inventory history and change tracking](sysman-inventory-history.md)
++ [Stopping data collection and deleting inventory data](systems-manager-inventory-delete.md)
 + [Systems Manager Inventory walkthroughs](sysman-inventory-walk.md)
 + [Troubleshooting problems with Systems Manager Inventory](syman-inventory-troubleshooting.md)
