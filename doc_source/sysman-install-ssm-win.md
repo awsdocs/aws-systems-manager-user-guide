@@ -14,6 +14,9 @@ Unless you have a specific reason for using the EC2Config service, or an earlier
 **Important**  
 An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
 
+**Important** 
+At present, there is a gotcha related to SSM when provisioning instances via CDK\. When assigning non\-default security groups to your EC2 instances, please ensure that the allowAllOutbound property set to true\. Otherwise, some EC2 instances may not launch with SSM preinstalled e.g. WindowsVersion.WINDOWS_SERVER_2016_ENGLISH_FULL_BASE\. This may be due to these versions being deprecated\. You can find out more information regarding deprecated versions here: [Window Versions](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-ec2/lib/windows-versions.ts)\.
+
 To view details about the different versions of SSM Agent, see the [release notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md)\.
 
 **Topics**
