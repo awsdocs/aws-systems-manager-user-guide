@@ -39,7 +39,7 @@ Use the following procedure to configure Compliance as the target of an EventBri
 
 1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to initiate on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
-1. For **Target**, choose **SSM Run Command**\. 
+1. For **Target**, choose **Systems Manager Run Command**\. 
 
 1. In the **Document** list, choose a Systems Manager document \(SSM document\) to run when your target is invoked\. For example, choose `AWS-RunPatchBaseline` for a non\-compliant patch event, or choose `AWS-RefreshAssociation` for a non\-compliant association event\.
 

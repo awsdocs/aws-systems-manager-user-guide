@@ -114,8 +114,8 @@ You can install the Session Manager plugin on macOS using the signed installer\.
 1. Run the install command\.
 
    ```
-   sudo installer -pkg session-manager-plugin.pkg -target \
-   ln -s /usr/local/sessionmanagerplugin/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
+   sudo installer -pkg session-manager-plugin.pkg -target /
+   sudo ln -s /usr/local/sessionmanagerplugin/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
    ```
 
 1. Verify that the installation was successful\. For information, see [Verify the Session Manager plugin installation](#install-plugin-verify)\.

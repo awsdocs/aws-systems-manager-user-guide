@@ -1,6 +1,6 @@
 # Setting up Run Command<a name="sysman-rc-setting-up"></a>
 
-Before you can manage instances by using Run Command, a capability of AWS Systems Manager, configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up.md)\.
+Before you can manage instances by using Run Command, a capability of AWS Systems Manager, configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up-ec2.md)\.
 
 Also create an IAM instance profile role for any instance that will process commands and attach it to those instances\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)\. 
 

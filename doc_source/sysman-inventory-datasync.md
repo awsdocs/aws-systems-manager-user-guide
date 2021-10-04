@@ -30,13 +30,13 @@ You can use AWS Key Management Service \(AWS KMS\) to encrypt inventory data in 
 Before you create a resource data sync, use the following procedure to create a central Amazon S3 bucket to store aggregated inventory data\. The procedure describes how to assign a bucket policy that allows Systems Manager to write inventory data to the bucket from multiple accounts\. If you already have an Amazon S3 bucket that you want to use to aggregate inventory data for resource data sync, then you must configure the bucket to use the policy in the following procedure\.
 
 **Note**  
-Systems Manager Inventory can't add data to a specified Amazon S3 bucket if that bucket is configured to use Object Lock\. Verify that the Amazon S3 bucket you create or choose for resource data sync isn't configured to use Amazon S3 Object Lock\. For more information, see [How Amazon S3 Object Lock works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html) in the *Amazon Simple Storage Service Console User Guide*\.
+Systems Manager Inventory can't add data to a specified Amazon S3 bucket if that bucket is configured to use Object Lock\. Verify that the Amazon S3 bucket you create or choose for resource data sync isn't configured to use Amazon S3 Object Lock\. For more information, see [How Amazon S3 Object Lock works](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-overview.html) in the *Amazon Simple Storage Service User Guide*\.
 
 **To create and configure an Amazon S3 bucket for resource data sync**
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Create a bucket to store your aggregated Inventory data\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. Make a note of the bucket name and the AWS Region where you created it\.
+1. Create a bucket to store your aggregated Inventory data\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*\. Make a note of the bucket name and the AWS Region where you created it\.
 
 1. Choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
@@ -146,7 +146,7 @@ Use the following procedure to create a central Amazon S3 bucket to store aggreg
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Create a bucket to store your aggregated inventory data\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\. Make a note of the bucket name and the AWS Region where you created it\.
+1. Create a bucket to store your aggregated inventory data\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*\. Make a note of the bucket name and the AWS Region where you created it\.
 
 1. Choose the **Permissions** tab, and then choose **Bucket Policy**\.
 
@@ -190,15 +190,27 @@ Use the following procedure to create a central Amazon S3 bucket to store aggreg
    }
    ```
 **Note**  
-The Asia Pacific Region came online in April 25, 2019\. If you create a resource data sync for an AWS Region that came online since the Asia Pacific \(Hong Kong\) Region \(ap\-east\-1\) or later, then you must enter a Region\-specific service principal entry in the `SSMBucketDelivery` section\. The following example includes a Region\-specific service principal entry for `ssm.ap-east-1.amazonaws.com`\.   
+The Asia Pacific Region came online in April 25, 2019\. If you create a resource data sync for an AWS Region that came online since the Asia Pacific \(Hong Kong\) Region \(ap\-east\-1\) or later, then you must enter a Region\-specific service principal entry in the `SSMBucketDelivery` and `SSMBucketDeliveryTagging` sections\. The following example includes a Region\-specific service principal entry for `ssm.ap-east-1.amazonaws.com`\.   
 
    ```
    {
-            "Sid":" SSMBucketDelivery",
-            "Effect":"Allow",
-            "Principal":{
-               "Service":["ssm.amazonaws.com","ssm.ap-east-1.amazonaws.com"]
-            },
+       "Sid": " SSMBucketDelivery",
+       "Effect": "Allow",
+       "Principal": {
+           "Service": [
+               "ssm.amazonaws.com",
+               "ssm.ap-east-1.amazonaws.com"
+           ]
+       },
+       ...
+       "Sid": " SSMBucketDeliveryTagging",
+       "Effect": "Allow",
+       "Principal": {
+           "Service": [
+               "ssm.amazonaws.com",
+               "ssm.ap-east-1.amazonaws.com"
+           ]
+       },
    ```
 
 ### Create an inventory resource data sync for accounts defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations-create"></a>

@@ -27,7 +27,7 @@ The Amazon Simple Storage Service \(Amazon S3\) bucket you want to send session 
 Type: String  
 Required: No  
 [s3KeyPrefix](#prefix)  
-The prefix to use when sending logs to the Amazon S3 bucket you specified in the `s3BucketName` input\. For more information about using a shared prefix with objects stored in Amazon S3, see [How do I use folders in an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html) in the *Amazon Simple Storage Service Console User Guide*\.  
+The prefix to use when sending logs to the Amazon S3 bucket you specified in the `s3BucketName` input\. For more information about using a shared prefix with objects stored in Amazon S3, see [How do I use folders in an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html) in the *Amazon Simple Storage Service User Guide*\.  
 Type: String  
 Required: No  
 [s3EncryptionEnabled](#s3Encrypt)  

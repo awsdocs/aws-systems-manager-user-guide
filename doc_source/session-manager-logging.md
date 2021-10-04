@@ -92,7 +92,7 @@ You can also use the AWS CLI to specify or change the Amazon S3 bucket that sess
 
 1. For **S3 bucket name**, select one of the following:
 **Note**  
-We recommend that you don't use periods \("\."\) in bucket names when using virtual hosted–style buckets\. For more information about Amazon S3 bucket\-naming conventions, see [Bucket Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon Simple Storage Service Developer Guide*\.
+We recommend that you don't use periods \("\."\) in bucket names when using virtual hosted–style buckets\. For more information about Amazon S3 bucket\-naming conventions, see [Bucket Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon Simple Storage Service User Guide*\.
    + **Choose a bucket name from the list**: Select an Amazon S3 bucket that has already been created in your account to store session log data\.
    + **Enter a bucket name in the text box**: Enter the name of an Amazon S3 bucket that has already been created in your account to store session log data\.
 
@@ -100,7 +100,7 @@ We recommend that you don't use periods \("\."\) in bucket names when using virt
 
 1. Choose **Save**\.
 
-For more information about working with Amazon S3 and Amazon S3 buckets, see the *[Amazon Simple Storage Service Getting Started Guide](https://docs.aws.amazon.com/AmazonS3/latest/gsg/)* and the *[Amazon Simple Storage Service Console User Guide](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/)*\.
+For more information about working with Amazon S3 and Amazon S3 buckets, see the *[Amazon Simple Storage Service User Guide](https://docs.aws.amazon.com/AmazonS3/latest/gsg/)* and the *[Amazon Simple Storage Service User Guide](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/)*\.
 
 ## Logging session data using Amazon CloudWatch Logs \(console\)<a name="session-manager-logging-cloudwatch-logs"></a>
 

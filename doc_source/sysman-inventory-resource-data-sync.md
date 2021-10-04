@@ -35,7 +35,7 @@ Review or complete the following tasks before you begin the walkthrough in this 
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Create a bucket to store your aggregated inventory data\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the Amazon Simple Storage Service Getting Started Guide\. Make a note of the bucket name and the AWS Region where you created it\.
+1. Create a bucket to store your aggregated inventory data\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the Amazon Simple Storage Service User Guide\. Make a note of the bucket name and the AWS Region where you created it\.
 
 1. After you create the bucket, choose the **Permissions** tab, and then choose **Bucket Policy**\.
 

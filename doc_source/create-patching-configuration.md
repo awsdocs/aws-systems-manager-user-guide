@@ -60,4 +60,4 @@ For any target instances you selected that aren't part of a patch group, Patch M
 
 1. Choose **Configure patching**\.
 
-If you created a new maintenance window for this patching configuration, you can add to it or make patching configuration changes in the **Maintenance Windows** area of Systems Manager\. For more information, see [Update or delete a maintenance window \(console\)](sysman-maintenance-update.md)\.
+If you created a new maintenance window for this patching configuration, you can add to it or make patching configuration changes in the **Maintenance Windows** area of Systems Manager\. For more information, see [Updating or deleting maintenance window resources \(console\)](sysman-maintenance-update.md)\.

@@ -49,7 +49,7 @@ If the Systems Manager service is using the role when you try to delete tags, re
 
 1. To delete resource groups, see [Delete Groups from AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/deleting-resource-groups.html)\.
 
-1. For information about how to delete maintenance window tasks, see [Update or delete maintenance window tasks \(console\)](sysman-maintenance-update.md#sysman-maintenance-update-tasks)\.
+1. For information about how to delete maintenance window tasks, see [Updating or deleting maintenance window tasks \(console\)](sysman-maintenance-update.md#sysman-maintenance-update-tasks)\.
 
 **To manually delete the service\-linked role using IAM**
 

@@ -139,7 +139,7 @@ aws kms describe-key --key-id alias/aws/ssm
 The following example allows instances to get a parameter value only for parameters that begin with `prod-`\. If the parameter is a `SecureString` parameter, then the instance decrypts the string using AWS KMS\.
 
 **Note**  
-Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
+Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting up AWS Systems Manager for EC2 instances](systems-manager-setting-up-ec2.md)\.
 
 ```
 {
@@ -221,7 +221,7 @@ You can locate the Amazon Resource Name \(ARN\) of the default key in the AWS KM
                 "kms:GenerateDataKey "
             ],
             "Resource": [
-                "default-key-ARN"
+                "arn:aws:kms:us-east-2:111122223333:key/abcd1234-ab12-cd34-ef56-abcdeEXAMPLE"
             ]
         }
     ]

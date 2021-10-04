@@ -68,12 +68,20 @@ The following procedure describes how to use the IAM console to configure your I
            {
                "Effect": "Allow",
                "Action": [
-                   "iam:PassRole",
                    "iam:CreateRole",
                    "iam:AttachRolePolicy"
                ],
                "Resource": [
                    "arn:aws:iam::account_ID:role/*"
+               ]
+           },
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "iam:PassRole"
+               ],
+               "Resource": [
+                   "arn:aws:iam::account_ID:role/Amazon-GlueServiceRoleForSSM"
                ]
            },
            {

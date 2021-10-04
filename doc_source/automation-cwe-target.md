@@ -30,7 +30,7 @@ Use the following procedure to configure a runbook as the target of a EventBridg
 
 1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to initiate on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
-1. For **Target**, choose **SSM Automation**\. 
+1. For **Target**, choose **Systems Manager Automation**\. 
 
 1. For **Document**, choose a runbook to use when your target is invoked\.
 

@@ -30,7 +30,7 @@ For more information, see [What is a parameter?](systems-manager-parameter-store
 **Content in Amazon S3 buckets**  
 As part of your Systems Manager operations, you might choose to upload or store data in one or more Amazon Simple Storage Service \(Amazon S3\) buckets\. 
 
-For information about S3 bucket encryption, see [Protecting Data Using Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html) and [Data Protection in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/DataDurability.html) in the *Amazon Simple Storage Service Developer Guide*\.
+For information about S3 bucket encryption, see [Protecting Data Using Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html) and [Data Protection in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/DataDurability.html) in the *Amazon Simple Storage Service User Guide*\.
 
 The following are types of data you can upload or have stored in S3 buckets as part of your Systems Manager activities:
 + The output of commands in Run Command, a capability of AWS Systems Manager

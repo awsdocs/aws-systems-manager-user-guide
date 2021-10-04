@@ -103,13 +103,19 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
                "Action": [
                    "sns:Publish"
                ],
-               "Resource": "sns-topic-arn"
+               "Resource": "arn:aws:sns:region:account-id:sns-topic-name"
            }
        ]
    }
    ```
 
-   *sns\-topic\-arn* represents the ARN of the existing Amazon Simple Notification Service \(Amazon SNS\) topic to use to send Amazon SNS notifications, in the format of `arn:aws:sns:region:account-id:sns-topic-name.` For example: `arn:aws:sns:us-east-2:123456789012:my-sns-topic`\.
+   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+
+   **account\-id** represents the 12\-digit identifier for your AWS account, in the format `123456789012`\. 
+
+   *sns\-topic\-name* represents the name of the Amazon SNS topic you want to use for publishing notifications\.
+
+   
 
 1. Choose **Next: Tags**\.
 

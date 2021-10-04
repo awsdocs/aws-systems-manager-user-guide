@@ -84,13 +84,17 @@ You are choosing the option **Systems Manager** instead of **Systems Manager \- 
           {
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "sns-access-role-arn"
+            "Resource": "arn:aws:iam::account-id:role/my-sns-access-role"
           }
         ]
       }
       ```
 
-      Replace *sns\-access\-role\-arn* with the Amazon Resource Name \(ARN\) of the existing AWS Identity and Access Management \(IAM\) role to use to send Amazon SNS notifications related to the maintenance window, in the format of `arn:aws:iam::account-id:role/role-name.` For example: `arn:aws:iam::123456789012:role/my-sns-access-role`\. For information about configuring Amazon SNS notifications for Systems Manager, including information about creating an IAM role to use for sending SNS notifications, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
+      **account\-id** represents the the 12\-digit identifier for your AWS account, in the format `123456789012`\.
+
+      *my\-sns\-access\-role* represents the name of the existing AWS Identity and Access Management \(IAM\) role to use to send Amazon SNS notifications related to the maintenance window`.`
+
+      For information about configuring Amazon SNS notifications for Systems Manager, including information about creating an IAM role to use for sending SNS notifications, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 **Note**  
 In the Systems Manager console, this ARN is selected in the ** IAM Role** list on the **Register run command task** page\. For information, see [Assign tasks to a maintenance window \(console\)](sysman-maintenance-assign-tasks.md)\. In the Systems Manager API, this ARN is entered as the value of [ServiceRoleArn](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html#EC2-SendCommand-request-ServiceRoleArn) in the [SendCommand](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_SendCommand.html) request\.
 
@@ -125,7 +129,7 @@ Depending on whether you're assigning the `iam:Passrole` permission to an indivi
            {
                "Effect": "Allow",
                "Action": "iam:PassRole",
-               "Resource": "custom-role-arn"
+               "Resource": "arn:aws:iam::account-id:role/my-maintenance-window-role"
            },
            {
                "Effect": "Allow",
@@ -141,9 +145,9 @@ Depending on whether you're assigning the `iam:Passrole` permission to an indivi
    }
    ```
 
-   Replace *custom\-role\-arn* with the ARN of the custom maintenance window role you created earlier, such as `arn:aws:iam::123456789012:role/my-maintenance-window-role`\.
+   *my\-maintenance\-window\-role* represents the name of the custom maintenance window role you created earlier\.
 
-   Replace *account\-id* in the two `iam:ListRoles` permissions with the ID of your AWS account\. Adding this permission for the resource `arn:aws:iam::account-id:role/` allows a user to view and choose from customer roles in the console when they create a maintenance window task\. Adding this permission for `arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/` allows a user to choose the Systems Manager service\-linked role in the console when they create a maintenance window task\. 
+   *account\-id* represents the ID of your AWS account\. Adding this permission for the resource `arn:aws:iam::account-id:role/` allows a user to view and choose from customer roles in the console when they create a maintenance window task\. Adding this permission for `arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/` allows a user to choose the Systems Manager service\-linked role in the console when they create a maintenance window task\. 
 
 1. Choose **Review policy**\.
 
@@ -168,7 +172,7 @@ Depending on whether you're assigning the `iam:Passrole` permission to an indivi
            {
                "Effect": "Allow",
                "Action": "iam:PassRole",
-               "Resource": "custom-role-arn"
+               "Resource": "arn:aws:iam::account-id:role/my-maintenance-window-role"
            },
            {
                "Effect": "Allow",
@@ -184,9 +188,9 @@ Depending on whether you're assigning the `iam:Passrole` permission to an indivi
    }
    ```
 
-   Replace *custom\-role\-arn* with the ARN of the custom maintenance window role you created earlier, such as `arn:aws:iam::123456789012:role/my-maintenance-window-role`\.
+   *my\-maintenance\-window\-role* represents the name of the custom maintenance window role you created earlier\.
 
-   Replace *account\-id* in the two `iam:ListRoles` permissions with the ID of your AWS account\. Adding this permission for the resource `arn:aws:iam::account-id:role/` allows a user to view and choose from customer roles in the console when they create a maintenance window task\. Adding this permission for `arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/` allows a user to choose the Systems Manager service\-linked role in the console when they create a maintenance window task\. 
+   *account\-id* represents the ID of your AWS account\. Adding this permission for the resource `arn:aws:iam::account-id:role/` allows a user to view and choose from customer roles in the console when they create a maintenance window task\. Adding this permission for `arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/` allows a user to choose the Systems Manager service\-linked role in the console when they create a maintenance window task\. 
 
 1. Choose **Review policy**\.
 

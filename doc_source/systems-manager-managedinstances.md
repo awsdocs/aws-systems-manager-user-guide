@@ -5,7 +5,7 @@ This section describes the setup tasks that account and system administrators pe
 **Note**  
 macOS isn't supported for Systems Manager hybrid environments\.
 
-If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances, or to use both Amazon EC2 instances and your own resources in a hybrid environment, follow the steps in [Setting up AWS Systems Manager](systems-manager-setting-up.md) first\. 
+If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances, or to use both Amazon EC2 instances and your own resources in a hybrid environment, follow the steps in [Setting up AWS Systems Manager for EC2 instances](systems-manager-setting-up-ec2.md) first\. 
 
 Configuring your hybrid environment for Systems Manager allows you to do the following: 
 + Create a consistent and secure way to remotely manage your hybrid workloads from one location using the same tools or scripts\.

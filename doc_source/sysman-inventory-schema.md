@@ -57,20 +57,6 @@ The following sample shows the complete list of metadata collected by each AWS S
     ]
   },
   {
-    "typeName" : "AWS:Certificate",
-    "version": "1.0",
-    "attributes":[
-      { "name": "Name",               "dataType": "STRING"},
-      { "name": "SignatureAlgorithm", "dataType": "STRING"},
-      { "name": "KeyAlgorithm",       "dataType": "STRING"},
-      { "name": "SerialNumber",       "dataType": "STRING"},
-      { "name": "Issuer",             "dataType": "STRING"},
-      { "name": "ValidityFrom",       "dataType": "STRING"},
-      { "name": "ValidityTo",         "dataType": "STRING"},
-      { "name": "Subject",            "dataType": "STRING"}
-    ]
-  },
-  {
     "typeName" : "AWS:Process",
     "version": "1.0",
     "attributes":[
