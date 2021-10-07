@@ -45,7 +45,7 @@ This is your only opportunity to view or download the secret access keys\. Your 
      https://account-ID or alias.signin.aws.amazon.com/console
      ```
 
-   For more information, see [How IAM Users Sign In to AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html) in the *IAM User Guide*\.
+   For more information, see [How IAM users sign in to AWS](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_sign-in.html) in the *IAM User Guide*\.
 **Important**  
 The user's password isn't included in the generated email\. Provide the password to the user in a way that complies with your organization's security guidelines\.
 

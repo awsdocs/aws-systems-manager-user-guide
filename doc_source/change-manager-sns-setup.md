@@ -26,21 +26,28 @@ Use the following procedure to update the Amazon SNS access policy so that Syste
 
 1. Expand **Access policy**\.
 
-1. Add and update the following `Sid` block to the existing policy\.
+1. Add and update the following `Sid` block to the existing policy and replace each *user input placeholder* with your own information \.
 
    ```
    {
-         "Sid": "Allow Change Manager to publish to this topic",
-         "Effect": "Allow",
-         "Principal": {
+       "Sid": "Allow Change Manager to publish to this topic",
+       "Effect": "Allow",
+       "Principal": {
            "Service": "ssm.amazonaws.com"
-         },
-         "Action": "SNS:Publish",
-         "Resource": "arn:aws:sns:region:account-id:topic_name"
+       },
+       "Action": "sns:Publish",
+       "Resource": "arn:aws:sns:region:account-id:topic-name",
+       "Condition": {
+           "StringEquals": {
+               "aws:SourceAccount": [
+                   "account-id"
+               ]
+           }
+       }
    }
    ```
 
-   Enter this block after the existing `Sid` block, and replace *region*, *account\-id*, and *topic\_name* with the appropriate values for the topic you created\.
+   Enter this block after the existing `Sid` block, and replace *region*, *account\-id*, and *topic\-name* with the appropriate values for the topic you created\.
 
 1. Choose **Save changes**\.
 
@@ -65,18 +72,28 @@ If you turned on AWS Key Management Service \(AWS KMS\) server\-side encryption 
 
 1. Choose **Edit**\.
 
-1. Add the following `Sid` block to the existing policy\.
+1. Add the following `Sid` block to the existing policy and replace each *user input placeholder* with your own information \.
 
    ```
    {
-         "Sid": "Allow Change Manager to decrypt the key",
-         "Effect": "Allow",
-         "Principal": {
+       "Sid": "Allow Change Manager to decrypt the key",
+       "Effect": "Allow",
+       "Principal": {
            "Service": "ssm.amazonaws.com"
-         },
-         "Action": ["kms:Decrypt", "kms:GenerateDataKey*"],
-          "Resource": "arn:aws:kms:region:account-id:key/key_ID"
+       },
+       "Action": [
+           "kms:Decrypt",
+           "kms:GenerateDataKey*"
+       ],
+       "Resource": "arn:aws:kms:region:account-id:key/key-id",
+       "Condition": {
+           "StringEquals": {
+               "aws:SourceAccount": [
+                   "account-id"
+               ]
+           }
        }
+   }
    ```
 
    Enter this block after one of the existing `Sid` blocks\. 

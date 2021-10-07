@@ -5,7 +5,7 @@ You can use Amazon EventBridge to perform a target event when supported AWS Syst
 The following procedure provides general steps for creating an EventBridge rule that engages when a specified event is emitted by Systems Manager\. For a list of procedures in this user guide that address specific scenarios, see **Related content** at the end of this topic\.
 
 **Note**  
-When a service in your AWS account emits an event, it always goes to your account’s default event bus\. To write a rule that responds to events from AWS services in your account, associate it with the default event bus\. You can create a rule on a custom event bus that looks for events from AWS services, but this rule only engages when you receive such an event from another account through cross\-account event delivery\. For more information, see [Sending and receiving events between AWS accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html) in the *Amazon EventBridge User Guide*\.
+When a service in your AWS account emits an event, it always goes to your account’s default event bus\. To write a rule that responds to events from AWS services in your account, associate it with the default event bus\. You can create a rule on a custom event bus that looks for events from AWS services, but this rule only engages when you receive such an event from another account through cross\-account event delivery\. For more information, see [Sending and receiving Amazon EventBridge events between AWS accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html) in the *Amazon EventBridge User Guide*\.
 
 **To configure EventBridge for Systems Manager events**
 
@@ -51,7 +51,7 @@ For Systems Manager actions that aren't supported by EventBridge, you can choose
    + For targets to be invoked when any supported event type for the selected capability occurs, choose **Any detail type**\.
    + For targets to be invoked when only certain event types for the selected capability occur, choose **Specific detail type\(s\)**, and then choose one or more types from the list\.
 
-     For complete details about supported detail types, see [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md) and [AWS Systems Manager Events](https://docs.aws.amazon.com/eventbridge/latest/userguide/event-types.html#ssm-event-types) in the *Amazon EventBridge User Guide*\.
+     For complete details about supported detail types, see [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
 
 1. If you chose a Systems Manager capability in step 8, choose whether to invoke targets for all or only certain detail types, statuses, or other supported options\. The available options depend on the capability you have selected\.
 
@@ -67,7 +67,7 @@ For Systems Manager actions that aren't supported by EventBridge, you can choose
 
 1. \(Optional\) Choose **Add target** to add another target for this rule\.
 
-1. \(Optional\) In the **Tags** area, enter one or more tags for the rule\. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*\.
+1. \(Optional\) In the **Tags** area, enter one or more tags for the rule\. For more information, see [EventBridge tagging](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-tagging.html) in the *Amazon EventBridge User Guide*\.
 
 1. Choose **Create**\.
 

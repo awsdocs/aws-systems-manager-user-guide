@@ -21,7 +21,7 @@ The following is an example of a permissions policy that allows a user to delete
 }
 ```
 
-To learn how to create an IAM identity\-based policy using these example JSON Policy documents, see [Creating Policies on the JSON Tab](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-json-editor) in the *IAM User Guide*\.
+To learn how to create an IAM identity\-based policy using these example JSON Policy documents, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-json-editor) in the *IAM User Guide*\.
 
 **Topics**
 + [Policy best practices](#security_iam_service-with-iam-policy-best-practices)
@@ -121,7 +121,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 ## Customer managed policy examples<a name="customer-managed-policies"></a>
 
-You can create standalone policies that you administer in your own AWS account\. We refer to these as *customer managed policies*\. You can attach these policies to multiple principal entities in your AWS account\. When you attach a policy to a principal entity, you give the entity the permissions that are defined in the policy\. For more information, see [Customer Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#customer-managed-policies) in *[IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)*\.
+You can create standalone policies that you administer in your own AWS account\. We refer to these as *customer managed policies*\. You can attach these policies to multiple principal entities in your AWS account\. When you attach a policy to a principal entity, you give the entity the permissions that are defined in the policy\. For more information, see [Customer managed policy examples](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#customer-managed-policies) in the *[IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)*\.
 
 The following examples of user policies grant permissions for various Systems Manager actions\. Use them to limit the Systems Manager access for your IAM users and roles\. These policies work when performing actions in the Systems Manager API, AWS SDKs, or the AWS CLI\. For users who use the console, you need to grant additional permissions specific to the console\. For more information, see [Using the Systems Manager console](#security_iam_id-based-policy-examples-console)\.
 
@@ -298,4 +298,4 @@ You can use conditions in your identity\-based policy to control access to Syste
 }
 ```
 
-You can attach this policy to the IAM users in your account\. If a user named `richard-roe` attempts to view an Systems Manager document, the document must be tagged `Owner=richard-roe` or `owner=richard-roe`\. Otherwise they're denied access\. The condition tag key `Owner` matches both `Owner` and `owner` because condition key names aren't case\-sensitive\. For more information, see [IAM JSON Policy Elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
+You can attach this policy to the IAM users in your account\. If a user named `richard-roe` attempts to view an Systems Manager document, the document must be tagged `Owner=richard-roe` or `owner=richard-roe`\. Otherwise they're denied access\. The condition tag key `Owner` matches both `Owner` and `owner` because condition key names aren't case\-sensitive\. For more information, see [IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.

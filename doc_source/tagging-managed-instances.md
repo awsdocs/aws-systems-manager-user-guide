@@ -16,7 +16,7 @@ The instructions in this topic are applicable to any machine that is managed usi
 You can add tags to EC2 instances at the time you create them\. You can add tags to on\-premises servers and virtual machines \(VMs\) at the time you activate them\.
 
 For information, see the following topics:
-+ For EC2 instances, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances*\. \(Content applies to both EC2 instances for Linux and for Windows\)
++ For EC2 instances, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances*\. \(Content applies to both EC2 instances for Linux and for Windows\)
 + For on\-premises servers and VMs, see [Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\.
 
 ## Adding tags to existing managed instances<a name="tagging-managed-instances-update"></a>

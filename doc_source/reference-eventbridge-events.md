@@ -12,7 +12,7 @@ An event indicates a change in an environment in your own applications, software
 For information about creating EventBridge rules, see the following topics:
 + [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)
 + [Amazon EventBridge event examples for Systems Manager](monitoring-systems-manager-event-examples.md)
-+ [Getting Started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html) in the *Amazon EventBridge User Guide*
++ [Getting started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *Amazon EventBridge User Guide*
 
 The remainder of this topic describes the types of Systems Manager events that you can include in your EventBridge rules\.
 

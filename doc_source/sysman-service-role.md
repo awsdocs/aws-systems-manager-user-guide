@@ -161,7 +161,7 @@ The policies you add for a service profile for managed instances in a hybrid env
    }
    ```
 
-1. Open PowerShell in administrative mode, and in the directory where you created the JSON file, run [New\-IAMRole](https://docs.aws.amazon.com/powershell/latest/reference/items/New-IAMRole.html) as follows to create a service role\. This example creates a role named `SSMServiceRole`\. You can choose another name if you prefer\.
+1. Open PowerShell in administrative mode, and in the directory where you created the JSON file, run [New\-IAMRole](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-IAMRolePolicy.html) as follows to create a service role\. This example creates a role named `SSMServiceRole`\. You can choose another name if you prefer\.
 
    ```
    New-IAMRole `

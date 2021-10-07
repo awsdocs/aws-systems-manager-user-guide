@@ -35,7 +35,7 @@ EventBridge supports the following three Systems Manager capabilities as targets
 
 For suggested ways you might use these targets, see [Amazon EventBridge target examples for Systems Manager](monitoring-systems-manager-targets.md)\.
 
-For more information about how to get started with EventBridge and set up rules, see [Getting Started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html) in the *Amazon EventBridge User Guide*\. For complete information about working with EventBridge, see the [https://docs.aws.amazon.com/eventbridge/latest/userguide/](https://docs.aws.amazon.com/eventbridge/latest/userguide/)\.
+For more information about how to get started with EventBridge and set up rules, see [Getting started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *Amazon EventBridge User Guide*\. For complete information about working with EventBridge, see the [https://docs.aws.amazon.com/eventbridge/latest/userguide/](https://docs.aws.amazon.com/eventbridge/latest/userguide/)\.
 
 **Topics**
 + [Configuring EventBridge for Systems Manager events](monitoring-systems-manager-events.md)

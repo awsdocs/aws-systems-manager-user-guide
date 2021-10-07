@@ -5,7 +5,7 @@ AWS Systems Manager Agent \(SSM Agent\) is Amazon software that runs on your EC2
 In addition, using the following steps, you can configure SSM Agent to send log data to Amazon CloudWatch Logs\. 
 
 **Before you begin**  
-Create a log group in CloudWatch Logs\. For more information, see [Create a log group in CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Create-Log-Group.html) in the *Amazon CloudWatch Logs User Guide*\.
+Create a log group in CloudWatch Logs\. For more information, see [Getting started with CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_GettingStarted.html) in the *Amazon CloudWatch Logs User Guide*\.
 
 **To configure SSM Agent to send logs to CloudWatch**
 

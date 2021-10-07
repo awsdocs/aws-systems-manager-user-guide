@@ -23,7 +23,7 @@ Use the following procedure to create a user group for your Systems Manager user
 
      AWS resource groups can be managed in the AWS Resource Groups service\. It is optional to provide the users and user groups in your account access to this service and its Tag Editor, but we recommend it for more effective management operations\.
 
-     For more information, see the [What are Amazon Web Services?](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html)
+     For more information, see [What are resource groups?](https://docs.aws.amazon.com/ARG/latest/userguide/welcome.html) in the *AWS Resource Groups User Guide*\.
    + To provide users in this group with full access to the Systems Manager console, choose the **AmazonSSMFullAccess** policy\.
 
      \-or\-

@@ -30,7 +30,7 @@ For more information, see [What is a parameter?](systems-manager-parameter-store
 **Content in Amazon S3 buckets**  
 As part of your Systems Manager operations, you might choose to upload or store data in one or more Amazon Simple Storage Service \(Amazon S3\) buckets\. 
 
-For information about S3 bucket encryption, see [Protecting Data Using Encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html) and [Data Protection in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/DataDurability.html) in the *Amazon Simple Storage Service User Guide*\.
+For information about S3 bucket encryption, see [Protecting data using encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html) and [Data protection in Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/DataDurability.html) in the *Amazon Simple Storage Service User Guide*\.
 
 The following are types of data you can upload or have stored in S3 buckets as part of your Systems Manager activities:
 + The output of commands in Run Command, a capability of AWS Systems Manager
@@ -51,7 +51,7 @@ The following are types of data you can upload or have stored in S3 buckets as p
 **CloudWatch Logs log groups**  
 As part of your Systems Manager operations, you might choose to stream data to one or more Amazon CloudWatch Logs log groups\.
 
-For information about CloudWatch Logs log group encryption, see [Encrypt Log Data in CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html) in the *Amazon CloudWatch Logs User Guide*\.
+For information about CloudWatch Logs log group encryption, see [Encrypt log data in CloudWatch Logs using AWS Key Management Service](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/encrypt-log-data-kms.html) in the *Amazon CloudWatch Logs User Guide*\.
 
 The following are types of data you might have streamed to a CloudWatch Logs log group as part of your Systems Manager activities:
 + The output of Run Command commands
@@ -66,7 +66,7 @@ We recommend that you use an encryption protocol such as Transport Layer Securit
 Systems Manager provides the following support for encryption of your data in transit\.
 
 **Connections to Systems Manager API endpoints**  
-Systems Manager API endpoints only support secure connections over HTTPS\. When you manage Systems Manager resources with the AWS Management Console, AWS SDK, or the Systems Manager API, all communication is encrypted with Transport Layer Security \(TLS\)\. For a full list of API endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) in the *Amazon Web Services General Reference*\. 
+Systems Manager API endpoints only support secure connections over HTTPS\. When you manage Systems Manager resources with the AWS Management Console, AWS SDK, or the Systems Manager API, all communication is encrypted with Transport Layer Security \(TLS\)\. For a full list of API endpoints, see [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html) in the *Amazon Web Services General Reference*\. 
 
 **Managed instances**  
 AWS provides secure and private connectivity between Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. In addition, we automatically encrypt in\-transit traffic between supported instances in the same virtual private cloud \(VPC\) or in peered VPCs, using AEAD algorithms with 256\-bit encryption\. This encryption feature uses the offload capabilities of the underlying hardware, and there is no impact on network performance\. The supported instances are: C5n, G4, I3en, M5dn, M5n, P3dn, R5dn, and R5n\.
@@ -81,4 +81,4 @@ By default, remote access to your instances using Run Command is encrypted using
 
 You can use Amazon Virtual Private Cloud \(Amazon VPC\) to create boundaries between resources in your managed instances and control traffic between them, your on\-premises network, and the internet\. For details, see [\(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\. 
 
-For more information about Amazon Virtual Private Cloud security, see [Security](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html) in the *Amazon VPC User Guide*\.
+For more information about Amazon Virtual Private Cloud security, see [Internetwork traffic privacy in Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html) in the *Amazon VPC User Guide*\.
