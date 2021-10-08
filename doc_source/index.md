@@ -581,5 +581,6 @@ Amazon's trademarks and trade dress may not be used in
    + [Deleting Systems Manager resources and artifacts](systems-manager-best-practices-delete-resources.md)
    + [Choosing between State Manager and Maintenance Windows](state-manager-vs-maintenance-windows.md)
 + [Document history](systems-manager-release-history.md)
+   + [Updates prior to June 2018](release-archive.md)
 + [Document conventions](docconventions.md)
 + [AWS glossary](glossary.md)

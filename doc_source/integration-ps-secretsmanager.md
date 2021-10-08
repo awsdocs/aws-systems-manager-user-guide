@@ -2,12 +2,12 @@
 
 AWS Secrets Manager helps you organize and manage important configuration data such as credentials, passwords, and license keys\. Parameter Store, a capability of AWS Systems Manager, is integrated with Secrets Manager so that you can retrieve Secrets Manager secrets when using other AWS services that already support references to Parameter Store parameters\. These services include Amazon Elastic Compute Cloud \(Amazon EC2\), Amazon Elastic Container Service \(Amazon ECS\), AWS Lambda, AWS CloudFormation, AWS CodeBuild, AWS CodeDeploy, and other Systems Manager capabilities\. By using Parameter Store to reference Secrets Manager secrets, you create a consistent and secure process for calling and using secrets and reference data in your code and configuration scripts\. 
 
-For more information about Secrets Manager, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html) in the *AWS Secrets Manager User Guide*\.
+For more information about Secrets Manager, see [What Is AWS Secrets Manager?](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) in the *AWS Secrets Manager User Guide*\.
 
 ## Restrictions<a name="integration-ps-secretsmanager-restrictions"></a>
 
 Note the following restrictions when using Parameter Store to reference Secrets Manager secrets:
-+ You can only retrieve Secrets Manager secrets by using the [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html) and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operations\. Modification operations and advance querying API operations, such as [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) and [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html), aren't supported for Secrets Manager\. 
++ You can only retrieve Secrets Manager secrets by using the [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html) and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operations\. Modification operations and advance querying API operations, such as [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html) and [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html), aren't supported for Secrets Manager\.
 + You can use the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, and the SDKs to retrieve a secret by using Parameter Store\.
 + When you retrieve a Secrets Manager secret from Parameter Store, the name must begin with the following reserved path: /aws/reference/secretsmanager/*secret\_ID\_in\_Secrets\_Manager*\.
 
@@ -28,7 +28,7 @@ Parameter Store functions as a pass\-through service for references to Secrets M
 
 **To reference a Secrets Manager secret by using Parameter Store**
 
-1. Create a secret in Secrets Manager\. For more information, see [Creating and Managing Secrets with AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managing-secrets.html)\.
+1. Create a secret in Secrets Manager\. For more information, see [Create and manage secrets with with AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managing-secrets.html)\.
 
 1. Reference a secret by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDK\. When you reference a Secrets Manager secret, the name must begin with the following reserved path: `/aws/reference/secretsmanager/`\. By specifying this path, Systems Manager knows to retrieve the secret from Secrets Manager instead of Parameter Store\. Here are some example names that correctly reference the Secrets Manager secrets, `CFCreds1` and `DBPass`, using Parameter Store\.
    + `/aws/reference/secretsmanager/CFCreds1`

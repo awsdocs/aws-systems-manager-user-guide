@@ -55,10 +55,11 @@ The following procedure describes how to use the IAM console to configure your I
        "Version": "2012-10-17",
        "Statement": [
            {
+               "Sid": "AllowGlue",
                "Effect": "Allow",
                "Action": [
-                   "glue:GetCrawlers",
                    "glue:GetCrawler",
+                   "glue:GetCrawlers",
                    "glue:GetTables",
                    "glue:StartCrawler",
                    "glue:CreateCrawler"
@@ -66,24 +67,30 @@ The following procedure describes how to use the IAM console to configure your I
                "Resource": "*"
            },
            {
+               "Sid": "iamPassRole",
                "Effect": "Allow",
+               "Action": "iam:PassRole",
+               "Resource": "*",
+               "Condition": {
+                   "StringEquals": {
+                       "iam:PassedToService": "glue.amazonaws.com"
+                   }
+               }
+           },
+           {
+               "Sid": "iamRoleCreation",
+              "Effect": "Allow",
                "Action": [
-                   "iam:PassRole"
                    "iam:CreateRole",
                    "iam:AttachRolePolicy"
                ],
-               "Resource": [
-                   "arn:aws:iam::account_ID:role/service-role/Amazon-GlueServiceRoleForSSM"
-               ]
+               "Resource": "arn:aws:iam::account_ID:role/*"
            },
            {
+               "Sid": "iamPolicyCreation",
                "Effect": "Allow",
-               "Action": [
-                   "iam:CreatePolicy"
-               ],
-               "Resource": [
-                   "arn:aws:iam::account_ID:policy/service-role/Amazon-GlueServiceRoleForSSM*"
-               ]
+               "Action": "iam:CreatePolicy",
+               "Resource": "arn:aws:iam::account_ID:policy/*"
            }
        ]
    }
