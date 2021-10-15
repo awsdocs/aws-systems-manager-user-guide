@@ -13,7 +13,7 @@ With Change Manager, you can use pre\-approved *change templates* to help automa
 
 Through its integration with Change Calendar, which is another capability of Systems Manager, Change Manager also helps you safely implement changes while avoiding schedule conflicts with important business events\. Change Manager integration with AWS Organizations and AWS Single Sign\-On helps you manage changes across your organization from a single account using your existing identity management system\. You can monitor change progress from Change Manager and audit operational changes across your organization, providing improved visibility and accountability\.
 
-Change Manager complements the safety controls of your [continuous integration](https://aws.amazon.com/devops/continuous-integration) \(CI\) practices and [continuous delivery](https://aws.amazon.com/devops/continuous-delivery) \(CD\) methodology\. Change Manager isn't intended for changes made as part of an automated release process, such as a CI/CD pipeline, unless there is an exception or approval required\. 
+Change Manager complements the safety controls of your [continuous integration](http://aws.amazon.com/devops/continuous-integration) \(CI\) practices and [continuous delivery](http://aws.amazon.com/devops/continuous-delivery) \(CD\) methodology\. Change Manager isn't intended for changes made as part of an automated release process, such as a CI/CD pipeline, unless there is an exception or approval required\. 
 
 ## How Change Manager works<a name="how-change-manager-works"></a>
 
@@ -97,7 +97,7 @@ Primary features of Change Manager include the following:
 
 ## Is there a charge to use Change Manager?<a name="change-manager-cost"></a>
 
-Yes\. Change Manager is priced on a pay\-per\-use basis\. You pay only for what you use\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
+Yes\. Change Manager is priced on a pay\-per\-use basis\. You pay only for what you use\. For more information, see [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\.
 
 ## What are the primary components of Change Manager?<a name="change-manager-primary-components"></a>
 

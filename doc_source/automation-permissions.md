@@ -147,13 +147,13 @@ Use the following procedure to configure a user account to use Automation\. The 
 
 1. Choose **Add inline policy**\.
 
-1. On the **Create policy** page, choose **Visual Editor**, and then choose **Choose a service**\.
+1. On the **Create policy** page, choose the **Visual editor** tab, and then choose **Choose a service**\.
 
-1. From **AWS Services**, choose **AWS Identity and Access Management**\.
+1. In the search box, enter **IAM**, or scroll down to find **IAM** lower in the page, and choose **IAM**\.
 
-1. For **Actions**, enter **PassRole** in the **Filter actions** prompt, and choose **PassRole**\.
+1. For **Actions**, enter **PassRole** in the search box, and choose **PassRole**\.
 
-1. In the **Resources** section, choose **Add ARN**, paste the ARN for the Automation service role you copied at the end of Task 1, and then choose **Add**\.
+1. Expand the **Resources** section, choose **Add ARN**, paste the ARN for the Automation service role you copied at the end of Task 1, and then choose **Add**\.
 
 1. Choose **Review policy**\.
 

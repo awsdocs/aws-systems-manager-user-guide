@@ -34,6 +34,7 @@ For information about creating custom runbooks that run scripts, see the followi
 + [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md) – Provides step\-by\-step guidance for creating a runbook that runs scripts to \(1\) launch an EC2 instance and \(2\) wait for the instance status to change to `ok`\.
 
 **Topics**
++ [Creating input parameters that populate AWS resources](populating-input-parameters.md)
 + [Creating runbooks using Document Builder](automation-document-builder.md)
 + [Creating a runbook using the Editor](automation-document-editor.md)
 + [Creating runbooks that run scripts](automation-document-script.md)

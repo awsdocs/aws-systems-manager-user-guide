@@ -67,7 +67,7 @@ You can still reboot the instance if required for other types of patches install
 
 To turn on Kernel Live Patching, you can either run `yum` commands on your instances or use Run Command and a custom Systems Manager document \(SSM document\) that you create\.
 
-For information about turning on Kernel Live Patching by running `yum` commands directly on the instance, see [Enabling Kernel Live Patching](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-enable) in the *Amazon EC2 User Guide for Linux Instances*\.
+For information about turning on Kernel Live Patching by running `yum` commands directly on the instance, see [Enable Kernel Live Patching](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-prereq) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Note**  
 When you turn on Kernel Live Patching, if the kernel already running on the instance is *earlier* than `kernel-4.14.165-131.185.amzn2.x86_64` \(the minimum supported version\), the process installs the latest available kernel version and reboots the instance\. If the instance is already running `kernel-4.14.165-131.185.amzn2.x86_64` or later, the process doesn't install a newer version and doesn't reboot the instance\.
@@ -127,7 +127,7 @@ When you turn on Kernel Live Patching, if the kernel already running on the inst
 
 To apply kernel live patches, you can either run `yum` commands on your instances or use Run Command and the SSM document `AWS-RunPatchBaseline`\. 
 
-For information about applying kernel live patches by running `yum` commands directly on the instance, see [Applying kernel live patches](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-apply) in the *Amazon EC2 User Guide for Linux Instances*\.
+For information about applying kernel live patches by running `yum` commands directly on the instance, see [Apply kernel live patches](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-apply) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **To apply kernel live patches using Run Command \(console\)**
 
@@ -216,7 +216,7 @@ To turn off Kernel Live Patching, you can either run `yum` commands on your inst
 **Note**  
 If you no longer need to use Kernel Live Patching, you can turn it off at any time\. In most cases, turning off the feature isn't necessary\.
 
-For information about turning off Kernel Live Patching by running `yum` commands directly on the instance, see [Enabling Kernel Live Patching](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-enable) in the *Amazon EC2 User Guide for Linux Instances*\.
+For information about turning off Kernel Live Patching by running `yum` commands directly on the instance, see [Enable Kernel Live Patching](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/al2-live-patching.html#al2-live-patching-enable) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Note**  
 When you turn off Kernel Live Patching, the process uninstalls the Kernel Live Patching plugin and then reboots the instance\.

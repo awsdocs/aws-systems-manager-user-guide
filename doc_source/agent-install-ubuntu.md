@@ -248,6 +248,11 @@ Intel 64\-bit \(x86\_64\)
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
   ```
+ARM 64\-bit \(arm64\)  
+
+  ```
+  https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm64/amazon-ssm-agent.deb
+  ```
 Intel 32\-bit \(x86\)  
 
   ```

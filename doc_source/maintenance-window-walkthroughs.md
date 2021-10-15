@@ -7,4 +7,4 @@ The walkthroughs in this section show you how to create an AWS Systems Manager m
 + [Walkthrough: Create a maintenance window to automatically update SSM Agent \(console\)](mw-walkthrough-console.md)
 + [Walkthrough: Creating a maintenance window for patching \(console\)](sysman-patch-mw-console.md)
 
-You can also view sample commands in the [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
+You can also view sample commands in the [Systems Manager AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/)\.

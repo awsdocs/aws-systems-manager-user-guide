@@ -57,4 +57,4 @@ Use the IAM console, the AWS CLI, or the IAM API to delete the `AWSServiceRoleFo
 
 ## Supported Regions for Systems Manager service\-linked roles<a name="slr-regions-service-action-1"></a>
 
-Systems Manager supports using service\-linked roles in all of the AWS Regions where the service is available\. For more information, see [AWS Regions and Endpoints for Systems Manager](https://docs.aws.amazon.com/general/latest/gr/rande.html#ssm_region)\.
+Systems Manager supports using service\-linked roles in all of the AWS Regions where the service is available\. For more information, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html)\.

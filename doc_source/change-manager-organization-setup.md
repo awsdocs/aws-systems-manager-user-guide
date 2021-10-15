@@ -4,7 +4,7 @@ The tasks in this topic apply if you're using Change Manager, a capability of AW
 
 Perform the tasks in this section in an AWS account that is serving as the *management account* in Organizations\. For information about the management account and other Organizations concepts, see [AWS Organizations terminology and concepts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html)\.
 
-If you need to turn on Organizations and specify your account as the management account before proceeding, see [Creating and managing an organization](url-ao-user;orgs_manage_org.html) in the *AWS Organizations User Guide*\. 
+If you need to turn on Organizations and specify your account as the management account before proceeding, see [Creating and managing an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org.html) in the *AWS Organizations User Guide*\. 
 
 **Note**  
 This setup process can't be performed in the following AWS Regions:  
@@ -142,7 +142,7 @@ This example isn't comprehensive\. Additional permissions might be needed for wo
    }
    ```
 
-   For more information about IAM policies, see [Access management for AWS Config resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) and [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide\.*
+   For more information about IAM policies, see [Access management for AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) and [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide\.*
 
 1. In the **Targets** section, choose whether to grant permissions for the job function you're creating to your entire organization or only some of your organizational units\.
 

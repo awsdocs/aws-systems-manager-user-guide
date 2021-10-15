@@ -1,6 +1,6 @@
 # AWS Systems Manager Maintenance Windows<a name="systems-manager-maintenance"></a>
 
-Maintenance Windows, a capability of AWS Systems Manager, helps you define a schedule for when to perform potentially disruptive actions on your instances such as patching an operating system, updating drivers, or installing software or patches\. With Maintenance Windows, you can schedule actions on numerous other AWS resource types, such as Amazon Simple Storage Service \(Amazon S3\) buckets, Amazon Simple Queue Service \(Amazon SQS\) queues, AWS Key Management Service \(AWS KMS\) keys, and many more\. For a full list of supported resource types that you can include in a maintenance window target, see [Supported Resources for AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html#supported-resources-console) in the *AWS Resource Groups User Guide*\.
+Maintenance Windows, a capability of AWS Systems Manager, helps you define a schedule for when to perform potentially disruptive actions on your instances such as patching an operating system, updating drivers, or installing software or patches\. With Maintenance Windows, you can schedule actions on numerous other AWS resource types, such as Amazon Simple Storage Service \(Amazon S3\) buckets, Amazon Simple Queue Service \(Amazon SQS\) queues, AWS Key Management Service \(AWS KMS\) keys, and many more\. For a full list of supported resource types that you can include in a maintenance window target, see [Resources you can use with AWS Resource Groups and Tag Editor](https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html#supported-resources-console) in the *AWS Resource Groups User Guide*\.
 
 **Note**  
 State Manager and Maintenance Windows can perform some similar types of updates on your managed instances\. Which one you choose depends on whether you need to automate system compliance or perform high\-priority, time\-sensitive tasks during periods you specify\.  
@@ -22,7 +22,7 @@ Maintenance windows support running four types of tasks:
   For more information about Automation workflows, see [AWS Systems Manager Automation](systems-manager-automation.md)\.
 + Functions in AWS Lambda
 
-  For more information about Lambda functions, see [Working with Lambda Functions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction-function.html) in the *AWS Lambda Developer Guide*\.
+  For more information about Lambda functions, see [Getting started with Lambda](https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html) in the *AWS Lambda Developer Guide*\.
 + Tasks in AWS Step Functions
 
   For more information about Step Functions, see the *[AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/)*\.

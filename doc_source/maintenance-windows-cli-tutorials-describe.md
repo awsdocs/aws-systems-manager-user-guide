@@ -4,7 +4,7 @@ This tutorial includes commands to help you update or get information about your
 
 As you follow the steps in this tutorial, replace the values in italicized *red* text with your own options and IDs\. For example, replace the maintenance window ID *mw\-0c50858d01EXAMPLE* and the instance ID *i\-02573cafcfEXAMPLE* with IDs of resources you create\.
 
-For information about setting up and configuring the AWS Command Line Interface \(AWS CLI\), see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) and [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)\.
+For information about setting up and configuring the AWS Command Line Interface \(AWS CLI\), see [Installing, updating, and uninstalling the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and [Configuring the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)\.
 
 **Topics**
 + [Examples for 'describe\-maintenance\-windows'](#mw-cli-tutorials-describe-maintenance-windows)

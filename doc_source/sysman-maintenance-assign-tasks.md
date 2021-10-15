@@ -28,6 +28,12 @@ The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to
 
 1. \(Optional\) For **Description**, enter a description\.
 
+1. For **New task invocation cutoff**, if you don't want any new task invocations to start after the maintenance window cutoff time is reached, choose **Enabled**\.
+
+   When this option is *not* enabled, the task continues running when the cutoff time is reached and starts new task invocations until completion\. 
+**Note**  
+The status for tasks that are not completed when you enable this option is `TIMED_OUT`\. 
+
 1. In the **Command document** list, choose the Systems Manager Command document \(SSM document\) or Automation runbook that defines the tasks to run\.
 
 1. For **Document version** \(for Automation tasks\), choose the document version to use\.

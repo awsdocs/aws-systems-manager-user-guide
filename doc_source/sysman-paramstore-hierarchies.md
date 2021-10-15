@@ -49,7 +49,7 @@ You could then create a unique password for your production environment, as show
 
 `/prod/MyApp/database/my-password`
 
-You aren't required to specify a parameter hierarchy\. You can create parameters at level one\. These are called root parameters\. For backward compatibility, all parameters created in Parameter Store before hierarchies were released are root parameters\. The systems treats both of the following parameters as root parameters\.
+You aren't required to specify a parameter hierarchy\. You can create parameters at level one\. These are called *root* parameters\. For backward compatibility, all parameters created in Parameter Store before hierarchies were released are root parameters\. The systems treats both of the following parameters as root parameters\.
 
 `/parameter-name`
 

@@ -1,6 +1,6 @@
 # Increasing Parameter Store throughput<a name="parameter-store-throughput"></a>
 
-Increasing Parameter Store throughput increases the maximum number of transactions per second \(TPS\) that Parameter Store, a capability of AWS Systems Manager, can process\. Increased throughput allows you to operate Parameter Store at higher volumes to support applications and workloads that need concurrent access to multiple parameters\. You can increase the limit up to the max throughput on the **Settings** tab\. For more information about max throughput, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm)\. Increasing the throughput limit incurs a charge on your AWS account\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
+Increasing Parameter Store throughput increases the maximum number of transactions per second \(TPS\) that Parameter Store, a capability of AWS Systems Manager, can process\. Increased throughput allows you to operate Parameter Store at higher volumes to support applications and workloads that need concurrent access to multiple parameters\. You can increase the limit up to the max throughput on the **Settings** tab\. For more information about max throughput, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm)\. Increasing the throughput limit incurs a charge on your AWS account\. For more information, see [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\.
 
 **Note**  
 The Parameter Store throughput setting applies to all transactions created by all AWS Identity and Access Management \(IAM\) users in the current AWS account and AWS Region\. The throughput setting applies to standard and advanced parameters\. 
@@ -89,7 +89,7 @@ Administrators can specify read\-only permission by assigning the following inli
 }
 ```
 
-For more information about creating and editing IAM policies, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
+For more information about creating and editing IAM policies, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
 
 ## Increasing throughput \(console\)<a name="parameter-store-throughput-increasing"></a>
 

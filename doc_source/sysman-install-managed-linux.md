@@ -34,6 +34,9 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 + **Intel 64\-bit \(x86\_64\)**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb`
++ **ARM 64\-bit \(arm64\)**
+
+  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb`
 + **Intel 32\-bit \(x86\)**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_386/amazon-ssm-agent.deb`
