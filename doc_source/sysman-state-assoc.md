@@ -6,7 +6,6 @@ The following procedures describe how to create a State Manager association by u
 The following procedures describe how to create an association that uses either a `Command` or a `Policy` document\. For information about creating an association that uses an Automation runbook, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
 
 When you create a State Manager association, by default, the system immediately runs it on the specified instances or targets\. After the initial run, the association runs in intervals according to the schedule that you defined and according to the following rules:
-+ Associations only run on instances that are online when the interval starts\. Offline instances are skipped\.
 + State Manager attempts to run the association on all specified or targeted instances during an interval\.
 + If an association doesn't run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
@@ -75,8 +74,12 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
        "Statement": [
            {
                "Effect": "Allow",
-               "Action": "s3:PutObject",
-               "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET1/*"
+               "Action": [
+                   "s3:PutObject",
+                   "s3:GetObject",
+                   "s3:PutObjectAcl"
+               ],
+               "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*"
            }
        ]
    }

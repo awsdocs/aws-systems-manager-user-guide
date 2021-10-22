@@ -78,7 +78,8 @@ During a port forwarding session, traffic might stop forwarding if you have anti
 ## TargetNotConnected<a name="ssh-target-not-connected"></a>
 
 **Problem**: You try to start a session, but the system returns the error message, "An error occurred \(TargetNotConnected\) when calling the StartSession operation: *InstanceID* isn't connected\."
-+ **Solution**: This error is returned when the specified target instance for the session isn't fully configured for use with Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
++ **Solution A**: This error is returned when the specified target instance for the session isn't fully configured for use with Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
++ **Solution B**: This error is also returned if you attempt to start a session on an instance that is located in a different AWS account or AWS Region\.
 
 ## Blank screen displays after starting a session<a name="session-manager-troubleshooting-start-blank-screen"></a>
 

@@ -7,6 +7,7 @@ SSM Agent must be installed on each instance you want to use with AWS Systems Ma
 + Amazon Linux 2
 + Amazon Linux 2 ECS\-Optimized Base AMIs
 + macOS 10\.14\.x \(Mojave\), 10\.15\.x \(Catalina\), and 11\.x \(Big Sur\)
++ SUSE Linux Enterprise Server \(SLES\) 12 and 15
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019

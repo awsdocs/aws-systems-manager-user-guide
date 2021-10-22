@@ -81,6 +81,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 Note the following important details:  
 `sudo` isn't necessary if you're a root user\.
 Each command block specifies `sudo -E amazon-ssm-agent`\. The `-E` is only necessary if you set an HTTP or HTTPS proxy environment variable\.
+Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
