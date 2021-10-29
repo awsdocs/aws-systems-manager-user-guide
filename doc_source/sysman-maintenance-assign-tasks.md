@@ -44,7 +44,7 @@ The status for tasks that are not completed when you enable this option is `TIME
    + **Selecting registered target groups**: Select one or more maintenance window targets you have registered with the current maintenance window\.
    + **Selecting unregistered targets**: Choose available resources one by one as targets for the task\.
 
-     If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+     If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
    + **Task target not required**: Targets for the task might already be specified in other functions for all but Run Command\-type tasks\.
 
      Specify one or more targets for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.

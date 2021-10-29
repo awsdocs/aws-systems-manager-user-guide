@@ -11,7 +11,7 @@ Run Command, a capability of AWS Systems Manager, provides status details with e
 
 In the **Run a command** page, after you choose an SSM document to run and select **Manually selecting instances** in the **Targets** section, a list is displayed of instances you can choose to run the command on\.
 
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 After you create, activate, reboot, or restart a managed instance, install Run Command on an instance, or attach an AWS Identity and Access Management \(IAM\) instance profile to an instance, it can take a few minutes for the instance to be added to the list\.
 

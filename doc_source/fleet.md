@@ -1,6 +1,6 @@
 # AWS Systems Manager Fleet Manager<a name="fleet"></a>
 
-Fleet Manager, a capability of AWS Systems Manager, is a unified user interface \(UI\) experience that helps you remotely manage your server fleet running on AWS, or on premises\. With Fleet Manager, you can view the health and performance status of your entire server fleet from one console\. You can also gather data from individual instances to perform common troubleshooting and management tasks from the console\. This includes viewing folder and file contents, Windows registry management, operating system user management, and more\.
+Fleet Manager, a capability of AWS Systems Manager, is a unified user interface \(UI\) experience that helps you remotely manage your server fleet running on AWS, or on premises\. With Fleet Manager, you can view the health and performance status of your entire server fleet from one console\. You can also gather data from individual instances to perform common troubleshooting and management tasks from the console\. This includes viewing directory and file contents, Windows registry management, operating system user management, and more\.
 
 ## How can Fleet Manager benefit my organization?<a name="fleet-benefits"></a>
 
@@ -20,7 +20,7 @@ Key features of Fleet Manager include the following:
 If you stopped your instance before July 12, 2021, it won't display the `stopped` marker\. To show the marker, start and stop the instance\.
 + **View instance information**
 
-  View information about the folder and file data stored on the volumes attached to your managed instances, performance data about your instances in real\-time, and log data stored on your instances\.
+  View information about the directory and file data stored on the volumes attached to your managed instances, performance data about your instances in real\-time, and log data stored on your instances\.
 + **Manage accounts and registry**
 
   Manage operating system \(OS\) user accounts on your instances and registry on your Windows instances\.

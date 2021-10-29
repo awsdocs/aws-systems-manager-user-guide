@@ -28,7 +28,7 @@ Systems Manager requires accurate time references in order to perform its operat
 When instance tags are created or edited, it takes up to an hour for the table filter to reflect those changes\.
 
 **Verify Systems Manager support on an instance**  
-AWS Config provides AWS Managed Rules, which are predefined, customizable rules that AWS Config uses to evaluate whether your AWS resource configurations comply with common best practices\. AWS Config Managed Rules include the [ec2\-instance\-managed\-by\-systems\-manager](https://docs.aws.amazon.com/config/latest/developerguide/ec2-instance-managed-by-ssm.html) rule\. This rule checks whether the Amazon EC2 instances in your account are managed by Systems Manager\. For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html)\. 
+AWS Config provides AWS Managed Rules, which are predefined, customizable rules that AWS Config uses to evaluate whether your AWS resource configurations comply with common best practices\. AWS Config Managed Rules include the [ec2\-instance\-managed\-by\-systems\-manager](https://docs.aws.amazon.com/config/latest/developerguide/ec2-instance-managed-by-systems-manager.html) rule\. This rule checks whether the Amazon EC2 instances in your account are managed by Systems Manager\. For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html)\. 
 
 **Verify Systems Manager prerequisites**  
 For information about Systems Manager prerequisites, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. For information about configuring on\-premises servers and VMs as managed instances, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
@@ -43,4 +43,4 @@ You can deregister managed instances at any time\. For example, if you are manag
 + [Configuring instance tiers](systems-manager-managed-instances-tiers.md)
 + [Resetting passwords on managed instances](managed-instances-password-reset.md)
 + [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)
-+ [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md)
++ [Troubleshooting managed instance availability](troubleshooting-managed-instances.md)

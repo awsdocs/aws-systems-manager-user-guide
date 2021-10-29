@@ -72,7 +72,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 
 **Fleet Manager**  
 [Fleet Manager](fleet.md), a capability of AWS Systems Manager, is a unified user interface \(UI\) experience that helps you remotely manage your server fleet running on AWS, or on premises\. With Fleet Manager, you can view the health and performance status of your entire server fleet from one console\. 
-+ [Viewing the file system ](fleet-file-management.md)
++ [Working with the file system ](fleet-file-management.md)
 
 **Compliance**  
 [Compliance](systems-manager-compliance.md), a capability of AWS Systems Manager, scans your fleet of managed instances for patch compliance and configuration inconsistencies\.

@@ -51,35 +51,43 @@ Systems Manager Inventory can't add data to a specified Amazon S3 bucket if that
         "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*/accountid=777788889999/*"
                    ],
    ```
-
-   Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix/* from the ARN in the following policy\. 
 **Note**  
 For information about viewing your AWS account ID, see [Your Amazon Web Services Account ID and Its Alias](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html) in the *IAM User Guide*\.
 
    ```
    {
-      "Version":"2012-10-17",
-      "Statement":[
-              {
-            "Sid":" SSMBucketDelivery",
-            "Effect":"Allow",
-            "Principal":{
-               "Service":"ssm.amazonaws.com"
-            },
-            "Action":"s3:PutObject",
-            "Resource":[
-               "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id-1/*",
-               "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id-2/*",
-               "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id-3/*"
-            ],
-            "Condition":{
-               "StringEquals":{
-                  "s3:x-amz-acl":"bucket-owner-full-control"
-               }
-            }
-         }
-      ]
-   }
+               "Version": "2012-10-17",
+               "Statement": [
+                   {
+                       "Sid": "SSMBucketPermissionsCheck",
+                       "Effect": "Allow",
+                       "Principal": {
+                           "Service": "ssm.amazonaws.com"
+                       },
+                       "Action": "s3:GetBucketAcl",
+                       "Resource": "arn:aws:s3:::S3_bucket_name"
+                   },
+                   {
+                       "Sid": " SSMBucketDelivery",
+                       "Effect": "Allow",
+                       "Principal": {
+                           "Service": "ssm.amazonaws.com"
+                       },
+                       "Action": "s3:PutObject",
+                       "Resource": [
+                           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*",
+                           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*",
+                           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*",
+                           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*"
+                       ],
+                       "Condition": {
+                           "StringEquals": {
+                               "s3:x-amz-acl": "bucket-owner-full-control"
+                           }
+                       }
+                   }
+               ]
+           }
    ```
 **Note**  
 The Asia Pacific Region came online in April 25, 2019\. If you create a resource data sync for an AWS Region that came online since the Asia Pacific \(Hong Kong\) Region \(ap\-east\-1\) or later, then you must enter a Region\-specific service principal entry in the `SSMBucketDelivery` section\. The following example includes a Region\-specific service principal entry for `ssm.ap-east-1.amazonaws.com`\.   
@@ -152,12 +160,21 @@ Use the following procedure to create a central Amazon S3 bucket to store aggreg
 
 1. Copy and paste the following bucket policy into the policy editor\. Replace *DOC\-EXAMPLE\-BUCKET* and *organization\-id* with the name of the Amazon S3 bucket you created and a valid AWS Organizations account ID\.
 
-   Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix/* from the ARN in the following policy\. 
+   Optionally, replace *bucket\-prefix* with the name of an Amazon S3 prefix \(subdirectory\)\. If you didn't create a prefix, remove *bucket\-prefix*/ from the ARN in the following policy\. 
 
    ```
    {
        "Version": "2012-10-17",
        "Statement": [
+           {
+               "Sid": "SSMBucketPermissionsCheck",
+               "Effect": "Allow",
+               "Principal": {
+                   "Service": "ssm.amazonaws.com"
+               },
+               "Action": "s3:GetBucketAcl",
+               "Resource": "arn:aws:s3:::S3_bucket_name"
+           },
            {
                "Sid": " SSMBucketDelivery",
                "Effect": "Allow",

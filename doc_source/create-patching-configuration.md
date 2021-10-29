@@ -31,7 +31,7 @@ The **Select a patch group** list displays only those patch groups that are atta
 Alternatively, to specify an existing patch group that isn't registered with the patch baseline, choose **Enter instance tag**, enter **Patch Group** as the tag key and the patch group's name as the tag value\.
    + **Select instances manually**: Select the check box next to the name of each instance you want to patch\.
 **Note**  
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. In the **Patching schedule** section, choose one of the following:
    + **Select an existing maintenance window**: From the list, select a maintenance window you have already created, and then continue to Step 7\. 

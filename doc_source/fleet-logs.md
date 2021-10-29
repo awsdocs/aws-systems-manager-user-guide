@@ -1,6 +1,6 @@
 # View logs<a name="fleet-logs"></a>
 
-You can use Fleet Manager, a capability of AWS Systems Manager, to view log data stored on your instances\. For Windows instances, you can view Windows event logs and copy their details from the console\. To help you search events, filter Windows event logs by **Event level**, **Event ID**, **Event source**, and **Time created**\. You can also view other log data using the procedure to view the file system\. For more information about viewing the file system with Fleet Manager, see [Viewing the file system ](fleet-file-management.md)\.
+You can use Fleet Manager, a capability of AWS Systems Manager, to view log data stored on your instances\. For Windows instances, you can view Windows event logs and copy their details from the console\. To help you search events, filter Windows event logs by **Event level**, **Event ID**, **Event source**, and **Time created**\. You can also view other log data using the procedure to view the file system\. For more information about viewing the file system with Fleet Manager, see [Working with the file system ](fleet-file-management.md)\.
 
 **To view Windows event logs with Fleet Manager**
 
