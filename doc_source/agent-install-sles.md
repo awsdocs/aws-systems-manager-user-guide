@@ -16,15 +16,23 @@ Connect to your SLES instance and perform the following steps to install the AWS
    cd /tmp/ssm
    ```
 
-1. Run the following commands one at a time to download and run the SSM Agent installer\. 
+1. Run the following command to download the SSM Agent installer\. 
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-   64\-bit instances:
+   Intel/AMD 64\-bit \(x86\_64\) instances:
 
    ```
    wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
    ```
+   
+   ARM 64\-bit \(arm64\) instances:
+   
+   ```
+   wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_arm64/amazon-ssm-agent.rpm
+   ```
+   
+1. Run the following command to install and run the SSM Agent\.
 
    ```
    sudo rpm --install amazon-ssm-agent.rpm
@@ -56,10 +64,16 @@ Connect to your SLES instance and perform the following steps to install the AWS
 
 **Note**  
 If you're unable to download the agent from the AWS Region you specify, use one of the following global URLs\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
-Intel 64\-bit \(x86\_64\)  
+Intel/AMD 64\-bit \(x86\_64\)  
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+  ```
+
+ARM 64\-bit \(arm64\)  
+
+  ```
+  https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
   ```
 
 **Important**  
