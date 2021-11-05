@@ -94,7 +94,7 @@ Granting users full administrative permissions should be done sparingly, and onl
 We recommend that you use the IAM policy editor to construct your policy and then paste the policy JSON into the **Permissions policy** field\.
 
 **Sample policy: DynamoDB database management**  
-For example, you might begin with policy content that provides permissions for working with the Systems Manager documents \(SSM documents\) the job function needs access to\. Here is a sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account 123456789012, in the US East \(Ohio\) Region \(`us-east-2`\)\. 
+For example, you might begin with policy content that provides permissions for working with the Systems Manager documents \(SSM documents\) the job function needs access to\. Here is a sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account `123456789012`, in the US East \(Ohio\) Region \(`us-east-2`\)\. 
 
    The policy also includes permission for the [StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html) operation, which is required for creating a change request in Change Calendar\. 
 **Note**  

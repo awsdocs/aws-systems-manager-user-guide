@@ -218,7 +218,7 @@ You can locate the Amazon Resource Name \(ARN\) of the default key in the AWS KM
             "Effect": "Deny",
             "Action": [
                 "kms:Decrypt",
-                "kms:GenerateDataKey "
+                "kms:GenerateDataKey"
             ],
             "Resource": [
                 "arn:aws:kms:us-east-2:111122223333:key/abcd1234-ab12-cd34-ef56-abcdeEXAMPLE"

@@ -12,3 +12,4 @@ The only supported feature for macOS instances is viewing the file system\.
 + [View logs](fleet-logs.md)
 + [User management](fleet-user-management.md)
 + [Windows registry management](fleet-registry.md)
++ [Accessing the Red Hat Knowledgebase portal](fleet-rhel.md)

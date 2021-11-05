@@ -43,7 +43,7 @@ Toggle between **Hide preview** and **Show preview** to see what your content lo
 **Note**  
 Enabling auto\-approvals in a change template provides users with the *option* of bypassing reviewers\. They can still choose to specify reviewers when creating a change request\. Therefore, you must still specify reviewer options in the change template\.
 **Important**  
-If you enable auto\-approval for a change template, users can submit change requests using that template that do not require review by reviewers before they run \(with the exception of change freeze event approvers\)\. If you want to restrict a particular user, group, or IAM role from submitting auto\-approval requests, you can use a condition in an IAM policy for this purpose\. For more information, see [Controlling access to auto\-approval runbook workflows](change-manager-auto-approval-access.md)\.
+If you enable auto\-approval for a change template, users can submit change requests using that template that do not require review by reviewers before they run \(with the exception of change freeze event approvers\)\. 
    + To add mandatory first\-level approvers, choose **Add approver**, and then choose from the following:
      + **Template specified approvers** – Choose one or more users, groups, or AWS Identity and Access Management \(IAM\) roles from your account to approve change requests created from this change template\. Any change requests that are created using this template must be reviewed and approved by each approver you specify\.
      + **Request specified approvers** – The user who makes the change request specifies reviewers at the time they make the request and can choose from a list of users in your account\. 

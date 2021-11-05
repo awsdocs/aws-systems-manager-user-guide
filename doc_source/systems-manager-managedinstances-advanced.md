@@ -14,7 +14,7 @@ Review pricing details for advanced instances\. Advanced instances are an accoun
 
 ## Configuring permissions to turn on the advanced\-instances tier<a name="systems-manager-managedinstances-advanced-permissions"></a>
 
-Verify that you have permission in AWS Identity and Access Management \(IAM\) to change your environment from the standard\-instances tier to the advanced\-instances tier\. You must either have the AdministratorAccess policy attached to your IAM user, group, or role\. Or, you must have permission to change the Systems Manager activation\-tier service setting\. The activation\-tier setting uses the following API operations: 
+Verify that you have permission in AWS Identity and Access Management \(IAM\) to change your environment from the standard\-instances tier to the advanced\-instances tier\. You must either have the AdministratorAccess policy attached to your IAM user, group, or role, or you must have permission to change the Systems Manager activation\-tier service setting\. The activation\-tier setting uses the following API operations: 
 + [GetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html)
 + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
 + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)
