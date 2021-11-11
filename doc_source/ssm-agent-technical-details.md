@@ -53,7 +53,7 @@ On Windows Server, SSM Agent handles setting a new password for the `ssm-user` a
 Starting with SSM Agent version 2\.3\.612\.0, the `ssm-user` account isn't created automatically on Windows Server machines that are being used as domain controllers\. To use Session Manager on a Windows Server domain controller, create the `ssm-user` account manually if it isn't already present, and assign Domain Administrator permissions to the user\.
 
 **Important**  
-In order for the ssm\-user account to be created, the instance profile attached to the instance must provide the necessary permissions\. For information, see [Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
+In order for the ssm\-user account to be created, the instance profile attached to the instance must provide the necessary permissions\. For information, see [Verify or create an IAM role with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
 
 ## SSM Agent and the Instance Metadata Service \(IMDS\)<a name="imds"></a>
 

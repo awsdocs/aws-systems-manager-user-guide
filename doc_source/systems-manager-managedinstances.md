@@ -30,7 +30,6 @@ For more information, see [Configuring instance tiers](systems-manager-managed-i
 **Topics**
 + [Step 1: Complete general Systems Manager setup steps](hybrid-setup-general.md)
 + [Step 2: Create an IAM service role for a hybrid environment](sysman-service-role.md)
-+ [Step 3: Install a TLS certificate on on\-premises servers and VMs](hybrid-tls-certificate.md)
-+ [Step 4: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)
-+ [Step 5: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
++ [Step 3: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)
++ [Step 4: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
 + [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)

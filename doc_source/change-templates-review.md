@@ -22,5 +22,5 @@ To review the change template, follow the link in your notification, sign in to 
 1. In the **Change templates** list, locate and choose the name of change template to review\.
 
 1. In the summary page, review the proposed content of the change template and do one of the following:
-   + To approve the change template, which allows it to be used in change requests, choose **Actions, Approve template**\.
-   + To reject the change template, which prevents it from being used in change requests, choose ** Action, Reject template**\.
+   + To approve the change template, which allows it to be used in change requests, choose **Approve**\.
+   + To reject the change template, which prevents it from being used in change requests, choose **Reject**\.

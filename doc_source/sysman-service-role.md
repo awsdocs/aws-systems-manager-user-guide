@@ -1,17 +1,45 @@
 # Step 2: Create an IAM service role for a hybrid environment<a name="sysman-service-role"></a>
 
-Servers and virtual machines \(VMs\) in a hybrid environment require an AWS Identity and Access Management \(IAM\) role to communicate with the AWS Systems Manager service\. The role grants AWS Security Token Service \(AWS STS\) [https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) trust to the Systems Manager service\. You only need to create the service role for a hybrid environment once for each AWS account\.
+Servers and virtual machines \(VMs\) in a hybrid environment require an AWS Identity and Access Management \(IAM\) role to communicate with the AWS Systems Manager service\. The role grants AWS Security Token Service \(AWS STS\) [https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) trust to the Systems Manager service\. You only need to create a service role for a hybrid environment once for each AWS account\. However, you might choose to create multiple service roles for different hybrid activations if machines in your hybrid environment require different permissions\.
 
-**Note**  
-Users in your company or organization who will use Systems Manager on your hybrid machines must be granted permission in IAM to call the Systems Manager API\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+The following procedures describe how to create the required service role using the Systems Manager console or your preferred command line tool\.
+
+## Create an IAM service role \(console\)<a name="sysman-service-role-console"></a>
+
+Use the following procedure to create a service role for hybrid activation\. Please note that this procedure uses the **AmazonSSMManagedInstanceCore** policy for Systems Manager core functionality\. Depending on your use case, you might need to add additional policies to your service role for your on\-premises machines to be able to access other capabilities or AWS services\. For example, without access to the required AWS managed Amazon Simple Storage Service \(Amazon S3\) buckets, Patch Manager patching operations fail\.
+
+**To create a service role \(console\)**
+
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
+
+1. Mark the following selections:
+
+   1. ** Select type of trusted entity** area: **AWS service**
+
+   1. **Choose the service that will use this role** area: **Systems Manager**
+
+1. Choose **Next: Permissions**\. 
+
+1. In the list of policies, select the box next to **AmazonSSMManagedInstanceCore**, and then choose **Next: Tags**\.
+
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
+
+1. In **Role name**, enter a name that identifies this role as a hybrid activation service role\. For example: **my\-hybrid\-service\-role**\.
+
+1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: **Provides permissions for on\-premises machines**\.
+
+1. Choose **Create role**\. The system returns you to the **Roles** page\.
+
+## Create an IAM service role \(command line\)<a name="sysman-service-role-cli"></a>
+
+Use the following procedure to create a service role for hybrid activation\. Please note that this procedure uses the **AmazonSSMManagedInstanceCore** policy Systems Manager core functionality\. Depending on your use case, you might need to add additional policies to your service role for your on\-premises machines to be able to access other capabilities or AWS services\.
 
 **S3 bucket policy requirement**  
 If either of the following cases are true, you must create a custom IAM permission policy for Amazon Simple Storage Service \(Amazon S3\) buckets before completing this procedure:
 + **Case 1**: You're using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink\. 
 + **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an Amazon S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
-**Note**  
-If you use an on\-premises firewall and plan to use Patch Manager, that firewall must also allow access to the patch baseline endpoint `arn:aws:s3:::patch-baseline-snapshot-region/*`\.  
-*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ------
 #### [ AWS CLI ]
@@ -207,7 +235,4 @@ The policies you add for a service profile for managed instances in a hybrid env
 
 ------
 
-**Note**  
-Users in your company or organization who are to use Systems Manager on your hybrid machines must be granted permission in IAM to call the Systems Manager API\. For more information, see [Create users and assign permissions](setup-create-users-nonadmin-users.md)\.
-
-Continue to [Step 3: Install a TLS certificate on on\-premises servers and VMs](hybrid-tls-certificate.md)\.
+Continue to [Step 3: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\.

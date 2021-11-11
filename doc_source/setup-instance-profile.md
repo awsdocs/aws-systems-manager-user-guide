@@ -50,7 +50,7 @@ Using EventBridge and CloudWatch Logs features is optional, but we recommend set
 To create an instance profile with permissions for additional Systems Manager services, see the following resources\.  
 + [Restricting access to Systems Manager parameters using IAM policies](sysman-paramstore-access.md)
 + [Setting up Automation](automation-setup.md)
-+ [Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)
++ [Verify or create an IAM role with Session Manager permissions](session-manager-getting-started-instance-profile.md)
 + [Setting up Run Command](sysman-rc-setting-up.md)
 
 ## Task 1: \(Optional\) Create a custom policy for S3 bucket access<a name="instance-profile-custom-s3-policy"></a>

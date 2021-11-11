@@ -1,16 +1,16 @@
-# Create a custom IAM instance profile for Session Manager<a name="getting-started-create-iam-instance-profile"></a>
+# Create a custom IAM role for Session Manager<a name="getting-started-create-iam-instance-profile"></a>
 
-You can create a custom AWS Identity and Access Management \(IAM\) instance profile that provides permissions for only Session Manager actions on your instances\. You can also create a policy to provide the permissions needed for logs of session activity to be sent to Amazon Simple Storage Service \(Amazon S3\) and Amazon CloudWatch Logs\.
+You can create a custom AWS Identity and Access Management \(IAM\) role that provides permissions for only Session Manager actions on your instances\. You can also include a policy to provide the permissions needed for session logs to be sent to Amazon Simple Storage Service \(Amazon S3\) and Amazon CloudWatch Logs\.
 
-After you create an instance profile, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/IAM/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) and [Attach or Replace an Instance Profile](https://aws.amazon.com/premiumsupport/knowledge-center/attach-replace-ec2-instance-profile/) for information about how to attach the instance profile to an instance, For more information about IAM instance profiles and roles, see [Using Instance Profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) and [IAM roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) in the *IAM User Guide*\.
+After you create the IAM role, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/IAM/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) and [Attach or Replace an Instance Profile](https://aws.amazon.com/premiumsupport/knowledge-center/attach-replace-ec2-instance-profile/) for information about how to attach the role to an instance\. For more information about IAM instance profiles and roles, see [Using Instance Profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) and [IAM roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) in the *IAM User Guide*\. For more information about creating an IAM service role for on\-premises machines, see [Create an IAM service role for a hybrid environment](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html)\.
 
 **Topics**
-+ [Creating an instance profile with minimal Session Manager permissions \(console\)](#create-iam-instance-profile-ssn-only)
-+ [Creating an instance profile with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)](#create-iam-instance-profile-ssn-logging)
++ [Creating an IAM role with minimal Session Manager permissions \(console\)](#create-iam-instance-profile-ssn-only)
++ [Creating an IAM role with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)](#create-iam-instance-profile-ssn-logging)
 
-## Creating an instance profile with minimal Session Manager permissions \(console\)<a name="create-iam-instance-profile-ssn-only"></a>
+## Creating an IAM role with minimal Session Manager permissions \(console\)<a name="create-iam-instance-profile-ssn-only"></a>
 
-Use the following procedure to create a custom IAM instance profile with a policy that provides permissions for only Session Manager actions on your instances\.
+Use the following procedure to create a custom IAM role with a policy that provides permissions for only Session Manager actions on your instances\.
 
 **To create an instance profile with minimal Session Manager permissions \(console\)**
 
@@ -94,19 +94,19 @@ In this policy, the `kms:Decrypt` permission turns on customer key encryption an
 
 1. Choose **Next: Review**\.
 
-1. On the **Review** page, for **Role name**, enter a name for the IAM instance profile, such as **MySessionManagerInstanceProfile**\.
+1. On the **Review** page, for **Role name**, enter a name for the IAM role, such as **MySessionManagerRole**\.
 
 1. \(Optional\) For **Role description**, enter a description for the instance profile\. 
 
 1. Choose **Create role**\.
 
-## Creating an instance profile with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)<a name="create-iam-instance-profile-ssn-logging"></a>
+## Creating an IAM role with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)<a name="create-iam-instance-profile-ssn-logging"></a>
 
-Use the following procedure to create a custom IAM instance profile with a policy that provides permissions for Session Manager actions on your instances\. The policy also provides the permissions needed for session logs to be stored in Amazon Simple Storage Service \(Amazon S3\) buckets and Amazon CloudWatch Logs log groups\.
+Use the following procedure to create a custom IAM role with a policy that provides permissions for Session Manager actions on your instances\. The policy also provides the permissions needed for session logs to be stored in Amazon Simple Storage Service \(Amazon S3\) buckets and Amazon CloudWatch Logs log groups\.
 
 For information about specifying preferences for storing session logs, see [Logging session activity](session-manager-logging.md)\.
 
-**To create an instance profile with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)**
+**To create an IAM role with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)**
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -191,7 +191,7 @@ To output session logs to an Amazon S3 bucket owned by a different AWS account, 
 
 1. Choose **Next: Review**\.
 
-1. On the **Review** page, for **Role name**, enter a name for the IAM instance profile, such as **MySessionManagerInstanceProfile**\.
+1. On the **Review** page, for **Role name**, enter a name for the IAM role, such as **MySessionManagerRole**\.
 
 1. \(Optional\) For **Role description**, enter a description for the instance profile\. 
 

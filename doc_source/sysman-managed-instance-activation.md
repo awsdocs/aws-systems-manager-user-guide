@@ -1,4 +1,4 @@
-# Step 4: Create a managed\-instance activation for a hybrid environment<a name="sysman-managed-instance-activation"></a>
+# Step 3: Create a managed\-instance activation for a hybrid environment<a name="sysman-managed-instance-activation"></a>
 
 To set up servers and virtual machines \(VMs\) in your hybrid environment as managed instances, you need to create a managed\-instance activation\. After you successfully complete the activation, you *immediately* receive an Activation Code and Activation ID\. You specify this Code/ID combination when you install AWS Systems Manager SSM Agent on servers and VMs in your hybrid environment\. The Code/ID provides secure access to the Systems Manager service from your managed instances\.
 

@@ -60,7 +60,7 @@ If you don't want to encrypt the session log data, change `true` to `false` for 
 If you aren't sending logs to either an Amazon S3 bucket or a CloudWatch Logs log group, don't want to encrypt active session data, or don't want to turn on Run As support for the sessions in your account, you can delete the lines for those options\. Make sure the last line in the `inputs` section doesn't end with a comma\.  
 If you add a KMS key ID to encrypt your session data, both the users who start sessions and the instances that they connect to must have permission to use the key\. You provide permission to use the KMS key with Session Manager through AWS Identity and Access Management \(IAM\) policies\. For information, see the following topics:  
 Add AWS KMS permissions for users in your account: [Quickstart default IAM policies for Session Manager](getting-started-restrict-access-quickstart.md)\.
-Add AWS KMS permissions for instances in your account: [Step 2: Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
+Add AWS KMS permissions for instances in your account: [Step 2: Verify or create an IAM role with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
 
 1. Save the file\.
 

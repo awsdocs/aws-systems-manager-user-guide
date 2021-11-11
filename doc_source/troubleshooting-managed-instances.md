@@ -93,6 +93,8 @@ If the command doesn't return results after 5 minutes or so, use the following i
 + [Solution 4: Verify target operating system support](#instances-missing-solution-4)
 + [Solution 5: Verify you're working in the same AWS Region as the Amazon EC2 instance](#instances-missing-solution-5)
 + [Solution 6: Verify the proxy configuration you applied to the SSM Agent on your instance](#instances-missing-solution-6)
++ [Solution 7: Install a TLS certificate on managed instances](#hybrid-tls-certificate)
++ [Troubleshooting Amazon EC2 managed instance availability using `ssm-cli`](ssm-cli.md)
 
 ## Solution 1: Verify that SSM Agent is installed and running on the instance<a name="instances-missing-solution-1"></a>
 
@@ -156,3 +158,42 @@ Amazon EC2 instances are created and available in specific AWS Regions, such as 
 ## Solution 6: Verify the proxy configuration you applied to the SSM Agent on your instance<a name="instances-missing-solution-6"></a>
 
 Verify that the proxy configuration you applied to the SSM Agent on your instance is correct\. If the proxy configuration is incorrect, the instance can't connect to the required service endpoints, or Systems Manager might identify the operating system of the instance incorrectly\. For more information, see [Configure SSM Agent to use a proxy \(Linux\)](sysman-proxy-with-ssm-agent.md) and [Configure SSM Agent to use a proxy for Windows Server instances](sysman-install-ssm-proxy.md)\.
+
+## Solution 7: Install a TLS certificate on managed instances<a name="hybrid-tls-certificate"></a>
+
+A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with AWS Systems Manager\. AWS services use these certificates to encrypt calls to other AWS services\.
+
+A TLS certificate is already installed by default on each Amazon EC2 instance created from any Amazon Machine Image \(AMI\)\. Most modern operating systems include the required TLS certificate from Amazon Trust Services CAs in their trust store\.
+
+To verify whether the required certificate is installed on your instance run the following command based on the operating system of your instance\. Be sure to replace the *region* portion of the URL with the AWS Region where your managed instance is located\.
+
+------
+#### [ Linux & macOS ]
+
+```
+curl -L https://ssm.region.amazonaws.com
+```
+
+------
+#### [ Windows ]
+
+```
+Invoke-WebRequest -Uri https://ssm.region.amazonaws.com
+```
+
+------
+
+The command should return an `UnknownOperationException` error\. If you receive an SSL/TLS error message instead then the required certificate might not be installed\.
+
+If you find the required Amazon Trust Services CA certificates aren't installed on your base operating systems, on instances created from AMIs that aren't supplied by Amazon, or on your own on\-premises servers and VMs, you must install and allow a certificate from [Amazon Trust Services](https://www.amazontrust.com/repository/), or use AWS Certificate Manager \(ACM\) to create and manage certificates for a supported integrated service\.
+
+Each of your managed instances must have one of the following Transport Layer Security \(TLS\) certificates installed\.
++ Amazon Root CA 1
++ Starfield Services Root Certificate Authority \- G2
++ Starfield Class 2 Certificate Authority
+
+For information about using ACM, see the *[AWS Certificate Manager User Guide](https://docs.aws.amazon.com/acm/latest/userguide/)*\.
+
+If certificates in your computing environment are managed by a Group Policy Object \(GPO\), then you might need to configure Group Policy to include one of these certificates\.
+
+For more information about the Amazon Root and Starfield certificates, see the blog post [How to Prepare for AWS’s Move to Its Own Certificate Authority](http://aws.amazon.com/blogs/security/how-to-prepare-for-aws-move-to-its-own-certificate-authority/)\.
