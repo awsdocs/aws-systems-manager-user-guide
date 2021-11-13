@@ -57,7 +57,7 @@ In order for the ssm\-user account to be created, the instance profile attached 
 
 ## SSM Agent and the Instance Metadata Service \(IMDS\)<a name="imds"></a>
 
-Systems Manager relies on EC2 instance metadata to function correctly\. Systems Manager can access instance metadata using either version 1 or version 2 of the Instance Metadata Service \(IMDSv1 and IMDSv2\)\. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide for Linux Instances*\.
+Systems Manager relies on EC2 instance metadata to function correctly\. Systems Manager can access instance metadata using either version 1 or version 2 of the Instance Metadata Service \(IMDSv1 and IMDSv2\)\. Your instance must be able to access IPv4 address of the instance metadata service: 169\.254\.169\.254\. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 ## Keeping SSM Agent up\-to\-date<a name="updating"></a>
 

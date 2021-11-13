@@ -41,7 +41,7 @@ ssm-cli.exe get-diagnostics --output table
 #### [ PowerShell ]
 
 ```
-ssm-cli.exe get-diagnostics --output table
+.\ssm-cli.exe get-diagnostics --output table
 ```
 
 ------
@@ -56,7 +56,7 @@ The command returns output similar to the following\. Connectivity checks to the
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 │ Check                                 │ Status  │ Note                                                                  │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-│ EC2 IMDS                              │ Success │ IMDS is accessible and has instance id i-07330aca1eb7xxxxx in region  │
+│ EC2 IMDS                              │ Success │ IMDS is accessible and has instance id i-0123456789abcdefa in Region  │
 │                                       │         │ us-east-1                                                             │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 │ Hybrid instance registration          │ Skipped │ Instance does not have hybrid registration                            │
@@ -83,7 +83,7 @@ The command returns output similar to the following\. Connectivity checks to the
 │                                       │         │ is reachable                                                          │
 ├───────────────────────────────────────┼─────────┼───────────────────────────────────────────────────────────────────────┤
 │ AWS Credentials                       │ Success │ Credentials are for                                                   │
-│                                       │         │ arn:aws:sts::528314611111:assumed-role/Fullaccess/i-07330aca1eb7xxxxx │
+│                                       │         │ arn:aws:sts::123456789012:assumed-role/Fullaccess/i-0123456789abcdefa │
 │                                       │         │ and will expire at 2021-08-17 18:47:49 +0000 UTC                      │
 ├───────────────────────────────────────┼─────────┼───────────────────────────────────────────────────────────────────────┤
 │ Agent service                         │ Success │ Agent service is running and is running as expected user              │
@@ -91,7 +91,7 @@ The command returns output similar to the following\. Connectivity checks to the
 │ Proxy configuration                   │ Skipped │ No proxy configuration detected                                       │
 ├───────────────────────────────────────┼─────────┼───────────────────────────────────────────────────────────────────────┤
 │ SSM Agent version                     │ Success │ SSM Agent version is 3.0.1209.0, latest available agent version is    │
-│                                       │         │ 3.1.127.0                                                             │
+│                                       │         │ 3.1.192.0                                                             │
 └───────────────────────────────────────┴─────────┴───────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -104,7 +104,7 @@ PS C:\Program Files\Amazon\SSM> ssm-cli.exe get-diagnostics --output table
 │ Check                                 │ Status  │ Note                                                                │
 ├───────────────────────────────────────┼─────────┼─────────────────────────────────────────────────────────────────────┤
 │ EC2 IMDS                              │ Success │ IMDS is accessible and has instance id i-0123456789abcdefa in       │
-│                                       │         │ region us-east-1                                                    │
+│                                       │         │ Region us-east-1                                                    │
 ├───────────────────────────────────────┼─────────┼─────────────────────────────────────────────────────────────────────┤
 │ Hybrid instance registration          │ Skipped │ Instance does not have hybrid registration                          │
 ├───────────────────────────────────────┼─────────┼─────────────────────────────────────────────────────────────────────┤
@@ -132,7 +132,7 @@ PS C:\Program Files\Amazon\SSM> ssm-cli.exe get-diagnostics --output table
 ├───────────────────────────────────────┼─────────┼─────────────────────────────────────────────────────────────────────┤
 │ Windows sysprep image state           │ Success │ Windows image state value is at desired value IMAGE_STATE_COMPLETE  │
 ├───────────────────────────────────────┼─────────┼─────────────────────────────────────────────────────────────────────┤
-│ SSM Agent version                     │ Success │ SSM Agent version is 3.0.655.0, latest agent version in us-east-1   │
+│ SSM Agent version                     │ Success │ SSM Agent version is 3.0.1209.0, latest agent version in us-east-1  │
 │                                       │         │ is 3.1.192.0                                                        │
 └───────────────────────────────────────┴─────────┴─────────────────────────────────────────────────────────────────────┘
 ```

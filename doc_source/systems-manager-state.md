@@ -12,7 +12,7 @@ State Manager offers these benefits:
 + Bootstrap instances with specific software at start\-up\.
 + Download and update agents on a defined schedule, including the SSM Agent\.
 + Configure network settings\.
-+ Join instances to a Windows domain \(only Windows Server instances\)\.
++ Join instances to a Microsoft Active Directory domain\.
 + Patch instances with software updates throughout their lifecycle\.
 + Run scripts on Linux, macOS, and Windows managed instances throughout their lifecycle\.
 
