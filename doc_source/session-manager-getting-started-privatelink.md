@@ -18,8 +18,4 @@ To use optional features like AWS Key Management Service \(AWS KMS\) encryption,
 + `logs.region.amazonaws.com`
 + `s3.region.amazonaws.com`
 
-<<<<<<< HEAD
 For more information about required endpoints for Systems Manager, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md)\.
-=======
-For more information about required endpoints for Systems Manager, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
->>>>>>> dab311de0fb148e423873c890671c5d5d75b2cc3

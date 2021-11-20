@@ -21,10 +21,6 @@ The title of each section here is an active link to the corresponding section in
 + Use Parameter Store, a capability of AWS Systems Manager, to centrally manage global configuration settings\.
 + [How AWS Systems Manager Parameter Store uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
 + [Reference AWS Secrets Manager secrets from Parameter Store parameters](integration-ps-secretsmanager.md)\.
-<<<<<<< HEAD
-=======
-+ [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)\.
->>>>>>> dab311de0fb148e423873c890671c5d5d75b2cc3
 
 **[Patch Manager](systems-manager-patch.md)**
 + Use Patch Manager, a capability of AWS Systems Manager, to roll out patches at scale and increase fleet compliance visibility across your instances\.
@@ -39,11 +35,7 @@ The title of each section here is an active link to the corresponding section in
 **Note**  
 By default, the log files delivered by CloudTrail to your bucket are encrypted by Amazon [server\-side encryption with Amazon S3\-managed encryption keys \(SSE\-S3\)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingServerSideEncryption.html)\. To provide a security layer that is directly manageable, you can instead use [server\-side encryption with AWS KMS–managed keys \(SSE\-KMS\)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html) for your CloudTrail log files\.  
 For more information, see [Encrypting CloudTrail log files with AWS KMS–Managed Keys \(SSE\-KMS\)](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/encrypting-cloudtrail-log-files-with-aws-kms.html) in the *AWS CloudTrail User Guide*\.
-<<<<<<< HEAD
 + [Use the targets and rate control features in Run Command to perform a staged command operation](send-commands-multiple.md)\.
-=======
-+ [Use the targets and rate control features in Run Command to perform a staged command execution](send-commands-multiple.md)\.
->>>>>>> dab311de0fb148e423873c890671c5d5d75b2cc3
 + [Use fine\-grained access permissions for Run Command \(and all Systems Manager capabilities\) by using AWS Identity and Access Management \(IAM\) policies](security_iam_id-based-policy-examples.md#customer-managed-policies)\.
 
 **[Session Manager](session-manager.md)**
