@@ -13,6 +13,7 @@ Before a user can update Session Manager preferences, they must have been grante
 **Topics**
 + [Grant or deny a user permissions to update Session Manager preferences](preference-setting-permissions.md)
 + [Specify an idle session timeout value](session-preferences-timeout.md)
++ [Specify maximum session duration](session-preferences-max-timeout.md)
 + [Allow configurable shell profiles](session-preferences-shell-config.md)
 + [Turn on run as support for Linux and macOS instances](session-preferences-run-as.md)
 + [Turn on KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)

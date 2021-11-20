@@ -7,8 +7,9 @@ The only supported feature for macOS instances is viewing the file system\.
 
 **Topics**
 + [Managed Instances](managed_instances.md)
-+ [Viewing the file system](fleet-file-management.md)
++ [Working with the file system](fleet-file-management.md)
 + [Monitoring instance performance](fleet-monitoring.md)
 + [View logs](fleet-logs.md)
 + [User management](fleet-user-management.md)
 + [Windows registry management](fleet-registry.md)
++ [Accessing the Red Hat Knowledgebase portal](fleet-rhel.md)

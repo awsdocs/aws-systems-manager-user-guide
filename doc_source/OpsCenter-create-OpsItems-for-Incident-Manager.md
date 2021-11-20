@@ -18,7 +18,7 @@ After you set up and configure Incident Manager, the system integrates with OpsC
 1. After an incident is closed, you can create an analysis from the incident in Incident Manager\. An analysis can help you define improvement processes for mitigating similar issues in the future\. The system automatically updates the incident in OpsCenter with an analysis\. If an analysis includes action items, the system creates additional OpsItems beneath the analysis\. These additional OpsItems are of type **Action Item**\. 
 
 **Before you begin**  
-You must set up and configure response plans in Incident Manager\. A *response plan* defines how to escalate an incident to first responders and what actions those responders should take\. For more information, see [Response plans](https://docs.aws.amazon.com/incident-manager/latest/userguideresponse-plans.html)\.
+You must set up and configure response plans in Incident Manager\. A *response plan* defines how to escalate an incident to first responders and what actions those responders should take\. For more information, see [Response plans](https://docs.aws.amazon.com/incident-manager/latest/userguide/response-plans.html)\.
 
 ## Create an incident for an OpsItem<a name="OpsCenter-create-OpsItems-for-Incident-Manager-create"></a>
 

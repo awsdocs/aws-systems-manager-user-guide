@@ -26,7 +26,7 @@ Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, d
 
      For information about creating a custom policy for Amazon S3 bucket access, see [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)
 **Note**  
-Saving output log data in an S3 bucket is optional, but we recommend setting it up at the beginning of your Systems Manager configuration process if you have decided to use it\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service Getting Started Guide*\.
+Saving output log data in an S3 bucket is optional, but we recommend setting it up at the beginning of your Systems Manager configuration process if you have decided to use it\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*\.
    + **CloudWatchAgentServerPolicy** – Optional\. This AWS managed policy allows you to run the CloudWatch agent on managed instances\. This policy makes it possible to read information on an instance and write it to Amazon CloudWatch\. Your instance profile needs this policy only if you use services such as Amazon EventBridge or CloudWatch Logs\.
 **Note**  
 Using CloudWatch and EventBridge features is optional, but we recommend setting them up at the beginning of your Systems Manager configuration process if you have decided to use them\. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)* and the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
@@ -56,7 +56,7 @@ Using CloudWatch and EventBridge features is optional, but we recommend setting 
    ```
    {
        "schemaVersion": "2.2",
-       "description": "Run a PowerShell script to securely domain-join a Windows Server instance",
+       "description": "Run a PowerShell script to securely join a Windows Server instance to a domain",
        "mainSteps": [
            {
                "action": "aws:runPowerShellScript",
@@ -75,7 +75,7 @@ Using CloudWatch and EventBridge features is optional, but we recommend setting 
                        "$password = (Get-SSMParameterValue -Name domainJoinPassword -WithDecryption $True).Parameters[0].Value | ConvertTo-SecureString -asPlainText -Force",
                        "$credential = New-Object System.Management.Automation.PSCredential($username,$password)",
                        "Add-Computer -DomainName $domain -Credential $credential -ErrorAction SilentlyContinue -ErrorVariable domainjoinerror",
-                       "if($?){Write-Host \"Domain join succeeded, restarting\"; exit 3010}else{Write-Host \"Failed to join domain with error:\" $domainjoinerror; exit 1 }"
+                       "if($?){Write-Host \"Instance joined to domain successfully. Restarting\"; exit 3010}else{Write-Host \"Instance failed to join domain with error:\" $domainjoinerror; exit 1 }"
                    ]
                }
            }

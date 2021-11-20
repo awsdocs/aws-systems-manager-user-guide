@@ -45,25 +45,25 @@ We recommend not changing the role name as specified in the template to somethin
 
 1. Open the AWS CloudFormation console at [https://console\.aws\.amazon\.com/cloudformation](https://console.aws.amazon.com/cloudformation/)\.
 
-1. Choose **Create Stack**\.
+1. Choose **Create stack**\.
 
-1. In the **Choose a template section**, choose **Upload a template to Amazon S3**\.
+1. In the **Specify template** section, choose **Upload a template**\.
 
-1. Choose **Browse**, and then choose the `AWS-SystemsManager-AutomationExecutionRole.json` AWS CloudFormation template file\.
-
-1. Choose **Next**\.
-
-1. On the **Specify Details** page, in the **Stack Name** field, enter a name\. 
-
-1. In the **Parameters** section, in the **MasterAccountID** field, enter the ID for the account that you want to use to run multi\-Region and multi\-account automations\.
+1. Choose **Choose file**, and then choose the `AWS-SystemsManager-AutomationExecutionRole.json` AWS CloudFormation template file\.
 
 1. Choose **Next**\.
 
-1. On the **Options** page, enter values for any options you want to use\. Choose **Next**\.
+1. On the **Specify stack details** page, in the **Stack name** field, enter a name\. 
 
-1. On the **Review** page, scroll down and choose the **I acknowledge that AWS CloudFormation might create IAM resources** option\.
+1. In the **Parameters** section, in the **MasterAccountId** field, enter the ID for the account that you want to use to run multi\-Region and multi\-account automations\.
 
-1. Choose **Create**\.
+1. Choose **Next**\.
+
+1. On the **Configure stack options** page, enter values for any options you want to use\. Choose **Next**\.
+
+1. On the **Review** page, scroll down and choose the **I acknowledge that AWS CloudFormation might create IAM resources with custom names** option\.
+
+1. Choose **Create stack**\.
 
    AWS CloudFormation shows the **CREATE\_IN\_PROGRESS** status for approximately three minutes\. The status changes to **CREATE\_COMPLETE**\.
 

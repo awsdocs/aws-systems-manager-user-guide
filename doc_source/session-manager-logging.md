@@ -21,7 +21,7 @@ If you're using Windows Server 2012 or earlier, the data in your logs might not 
 If you're using Linux or macOS instances, ensure that the screen utility is installed\. If it isn't, your log data might be truncated\. On Amazon Linux, Amazon Linux 2, and Ubuntu Server, the screen utility is installed by default\. To install screen manually, depending on your version of Linux, run either `sudo yum install screen` or `sudo apt-get install screen`\.
 Logging isn't available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
-For more information about the permissions required to use Amazon S3 or Amazon CloudWatch Logs for logging session data, see [Creating an instance profile with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)](getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging)\.
+For more information about the permissions required to use Amazon S3 or Amazon CloudWatch Logs for logging session data, see [Creating an IAM role with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)](getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging)\.
 
 Refer to the following topics for more information about logging options for Session Manager\.
 
@@ -92,7 +92,7 @@ You can also use the AWS CLI to specify or change the Amazon S3 bucket that sess
 
 1. For **S3 bucket name**, select one of the following:
 **Note**  
-We recommend that you don't use periods \("\."\) in bucket names when using virtual hosted–style buckets\. For more information about Amazon S3 bucket\-naming conventions, see [Bucket Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon Simple Storage Service Developer Guide*\.
+We recommend that you don't use periods \("\."\) in bucket names when using virtual hosted–style buckets\. For more information about Amazon S3 bucket\-naming conventions, see [Bucket Restrictions and Limitations](https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules) in the *Amazon Simple Storage Service User Guide*\.
    + **Choose a bucket name from the list**: Select an Amazon S3 bucket that has already been created in your account to store session log data\.
    + **Enter a bucket name in the text box**: Enter the name of an Amazon S3 bucket that has already been created in your account to store session log data\.
 
@@ -100,7 +100,7 @@ We recommend that you don't use periods \("\."\) in bucket names when using virt
 
 1. Choose **Save**\.
 
-For more information about working with Amazon S3 and Amazon S3 buckets, see the *[Amazon Simple Storage Service Getting Started Guide](https://docs.aws.amazon.com/AmazonS3/latest/gsg/)* and the *[Amazon Simple Storage Service Console User Guide](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/)*\.
+For more information about working with Amazon S3 and Amazon S3 buckets, see the *[Amazon Simple Storage Service User Guide](https://docs.aws.amazon.com/AmazonS3/latest/gsg/)* and the *[Amazon Simple Storage Service User Guide](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/)*\.
 
 ## Logging session data using Amazon CloudWatch Logs \(console\)<a name="session-manager-logging-cloudwatch-logs"></a>
 

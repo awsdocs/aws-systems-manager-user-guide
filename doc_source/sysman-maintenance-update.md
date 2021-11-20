@@ -1,10 +1,15 @@
-# Update or delete a maintenance window \(console\)<a name="sysman-maintenance-update"></a>
+# Updating or deleting maintenance window resources \(console\)<a name="sysman-maintenance-update"></a>
 
 You can update or delete a maintenance window in Maintenance Windows, a capability of AWS Systems Manager\. You can also update or delete the targets or tasks of a maintenance window\. If you edit the details of a maintenance window, you can change the schedule, targets, and tasks\. You can also specify names and descriptions for windows, targets, and tasks, which helps you better understand their purpose, and makes it easier to manage your queue of windows\.
 
 This section describes how to update or delete a maintenance window, targets, and tasks by using the Systems Manager console\. For examples of how to do this by using the AWS Command Line Interface \(AWS CLI\), see [Tutorial: Update a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-update.md)\. 
 
-## Update or delete a maintenance window \(console\)<a name="sysman-maintenance-update-mw"></a>
+**Topics**
++ [Updating or deleting a maintenance window \(console\)](#sysman-maintenance-update-mw)
++ [Updating or deleting maintenance window targets \(console\)](#sysman-maintenance-update-target)
++ [Updating or deleting maintenance window tasks \(console\)](#sysman-maintenance-update-tasks)
+
+## Updating or deleting a maintenance window \(console\)<a name="sysman-maintenance-update-mw"></a>
 
 You can update a maintenance window to change its name, description, and schedule, and whether the maintenance window should allow unregistered targets\.
 
@@ -20,7 +25,7 @@ You can update a maintenance window to change its name, description, and schedul
 
      For information about the configuration choices you can make, see [Create a maintenance window \(console\)](sysman-maintenance-create-mw.md)\.
 
-## Update or delete maintenance window targets \(console\)<a name="sysman-maintenance-update-target"></a>
+## Updating or deleting maintenance window targets \(console\)<a name="sysman-maintenance-update-target"></a>
 
 You can update or delete the targets of a maintenance window\. If you choose to update a maintenance window target you can specify a new target name, description, and owner\. You can also choose different targets\. 
 
@@ -34,7 +39,7 @@ You can update or delete the targets of a maintenance window\. If you choose to 
    + To update targets, choose **Edit**\.
    + To delete targets, choose the **Targets** tab, select the button next to the target to deregister, and then choose **Deregister targets**\. In the **Deregister maintenance windows target** dialog box, choose **Deregister**\.
 
-## Update or delete maintenance window tasks \(console\)<a name="sysman-maintenance-update-tasks"></a>
+## Updating or deleting maintenance window tasks \(console\)<a name="sysman-maintenance-update-tasks"></a>
 
 You can update or delete the tasks of a maintenance window\. If you choose to update, you can specify a new task name, description, and owner\. For Run Command and Automation tasks, you can choose a different SSM document for the tasks\. You can't, however, edit a task to change its type\. For example, if you created an Automation task, you can't edit that task and change it to a Run Command task\. 
 

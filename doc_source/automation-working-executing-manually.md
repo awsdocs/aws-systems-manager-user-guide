@@ -42,7 +42,7 @@ The console displays the status of the automation\. If the automation fails to r
 
 ## Running an automation step by step \(command line\)<a name="automation-working-executing-manually-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to manually run an automation step by step\.
+The following procedure describes how to use the AWS CLI \(on Linux, macOS, or Windows\) or AWS Tools for PowerShell to manually run an automation step by step\.
 
 **To run an automation step by step**
 

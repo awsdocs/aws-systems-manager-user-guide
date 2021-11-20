@@ -4,7 +4,7 @@ In the course of performing various Systems Manager operations, AWS Systems Mana
 
 However, if you're using a virtual private cloud \(VPC\) endpoint in your Systems Manager operations, you must provide explicit permission in an Amazon Elastic Compute Cloud \(Amazon EC2\) instance profile for Systems Manager, or in a service role for instances in a hybrid environment\. Otherwise, your resources can't access these public buckets\.
 
-To grant your managed instances access to these buckets when you are using a VPC endpoint, you create a custom Amazon S3 permissions policy, and then attach it to your instance profile \(for EC2 instances\) or your service role \(for on\-premises servers and virtual machines\) in a hybrid environment\.
+To grant your managed instances access to these buckets when you are using a VPC endpoint, you create a custom Amazon S3 permissions policy, and then attach it to your instance profile \(for EC2 instances\) or your service role \(for on\-premises servers and virtual machines in a hybrid environment\)\.
 
 **Note**  
 These permissions only provide access to the AWS managed buckets required by SSM Agent\. They don't provide the permissions that are necessary for other Amazon S3 operations\. They also don't provide permission to your own S3 buckets\. 

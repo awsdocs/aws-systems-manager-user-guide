@@ -1,6 +1,6 @@
 # About targets and rate controls in State Manager associations<a name="systems-manager-state-manager-targets-and-rate-controls"></a>
 
-This topic describes State Manager, a capability of AWS Systems Manager, features that help you deploy an association to dozens or hundreds of instances while controlling the number of instances run the association at the scheduled time\.
+This topic describes State Manager, a capability of AWS Systems Manager, features that help you deploy an association to dozens or hundreds of instances while controlling the number of instances that run the association at the scheduled time\.
 
 ## Targets<a name="systems-manager-state-manager-targets-and-rate-controls-about-targets"></a>
 
@@ -9,9 +9,6 @@ When you create a State Manager association, you choose which instances to confi
 ![\[Different options for targeting instances when creating a State Manager association\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-targets.png)
 
 If you create an association by using a command line tool such as the AWS Command Line Interface \(AWS CLI\), then you specify the `targets` parameter\. Targeting instances allows you to configure tens, hundreds, or thousands of instances with an association without having to specify or choose individual instance IDs\. 
-
-**Note**  
-You can only target Systems Manager managed instances\. So, before you create an association, set up and configure your instances for Systems Manager\. For more information, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\. 
 
 State Manager includes the following target options when creating an association\.
 
@@ -33,7 +30,7 @@ For information about assigning tags to your instances, see [Tagging Your Amazon
 Use this option to manually select the instances where you want to create the association\. The **Instances** pane displays all Systems Manager managed instances in the current AWS account and AWS Region\. You can manually select as many instances as you want\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\.
 
 **Note**  
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 **Choose a resource group**  
 Use this option to create an association on all instances returned by an AWS Resource Groups tag\-based or AWS CloudFormation stack\-based query\. 

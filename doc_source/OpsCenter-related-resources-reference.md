@@ -14,7 +14,7 @@ AWS Systems Manager OpsCenter automatically creates a deep link to the primary r
 |  Amazon CloudWatch alarm  |  <pre>arn:aws:cloudwatch:region:account-id:alarm:alarm-name</pre>  | 
 |  AWS CloudTrail trail  |  <pre>arn:aws:cloudtrail:region:account-id:trail/trailname</pre>  | 
 |  AWS CodeBuild project  |  <pre>arn:aws:codebuild:region:account-id:resourcetype/resource</pre>  | 
-|  AWS CodePipeline <pre>arn:aws:codepipeline:region:account-id:resource-specifier</pre>  |   | 
+|  AWS CodePipeline  |  <pre>arn:aws:codepipeline:region:account-id:resource-specifier</pre>  | 
 |  DevOps Guru insight  |  <pre>arn:aws:devops-guru:region:account-id:insight/proactive or reactive/resource-id</pre>  | 
 |  Amazon DynamoDB table  |  <pre>arn:aws:dynamodb:region:account-id:table/tablename</pre>  | 
 |  Amazon Elastic Compute Cloud \(Amazon EC2\) customer gateway  |  <pre>arn:aws:ec2:region:account-id:customer-gateway/cgw-id</pre>  | 

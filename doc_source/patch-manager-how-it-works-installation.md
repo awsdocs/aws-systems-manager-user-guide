@@ -73,9 +73,9 @@ On CentOS instances, the patch installation workflow is as follows:
 1. The instance is rebooted if any updates were installed\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the instance isn't rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\)
 
 ------
-#### [ Debian Server ]
+#### [ Debian Server and Raspberry Pi OS ]
 
-On Debian Server instances, the patch installation workflow is as follows:
+On Debian Server and Raspberry Pi OS \(formerly Raspbian\) instances, the patch installation workflow is as follows:
 
 1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
 
@@ -100,7 +100,7 @@ Because it isn't possible to reliably determine the release dates of update pack
 
    If nonsecurity updates are included, patches from other repositories are considered as well\.
 **Note**  
-For Debian Server, patch candidate versions are limited to patches included in `debian-security`\.
+For Debian Server and Raspberry Pi OS, patch candidate versions are limited to patches included in `debian-security`\.
 
 1. Apply [ApprovedPatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovedPatches) as specified in the patch baseline\. The approved patches are approved for update even if they're discarded by [GlobalFilters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-GlobalFilters) or if no approval rule specified in [ApprovalRules](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#EC2-CreatePatchBaseline-request-ApprovalRules) grants it approval\.
 

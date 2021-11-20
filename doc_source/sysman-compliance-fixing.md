@@ -1,6 +1,6 @@
 # Remediating compliance issues using EventBridge<a name="sysman-compliance-fixing"></a>
 
-You can quickly remediate patch and association compliance issues by using Run Command, a capability of AWS Systems Manager\. You can target either instance IDs or Amazon Elastic Compute Cloud \(Amazon EC2\) tags and run the `AWS-RunPatchBaseline` document or the `AWS-RefreshAssociation` document\. If refreshing the association or re\-running the patch baseline fails to resolve the compliance issue, then you need to investigate your associations, patch baselines, or instance configurations to understand why the Run Command executions didn't resolve the problem\. 
+You can quickly remediate patch and association compliance issues by using Run Command, a capability of AWS Systems Manager\. You can target either instance IDs or Amazon Elastic Compute Cloud \(Amazon EC2\) tags and run the `AWS-RunPatchBaseline` document or the `AWS-RefreshAssociation` document\. If refreshing the association or re\-running the patch baseline fails to resolve the compliance issue, then you need to investigate your associations, patch baselines, or instance configurations to understand why the Run Command operations didn't resolve the problem\. 
 
 For more information about patching, see [AWS Systems Manager Patch Manager](systems-manager-patch.md) and [About the `AWS-RunPatchBaseline` SSM document](patch-manager-about-aws-runpatchbaseline.md)\.
 
@@ -39,7 +39,7 @@ Use the following procedure to configure Compliance as the target of an EventBri
 
 1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to initiate on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
-1. For **Target**, choose **SSM Run Command**\. 
+1. For **Target**, choose **Systems Manager Run Command**\. 
 
 1. In the **Document** list, choose a Systems Manager document \(SSM document\) to run when your target is invoked\. For example, choose `AWS-RunPatchBaseline` for a non\-compliant patch event, or choose `AWS-RefreshAssociation` for a non\-compliant association event\.
 

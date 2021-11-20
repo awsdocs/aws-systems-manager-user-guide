@@ -140,8 +140,8 @@ The command returns information like the following\.
 
 ```
 [
+    "ap-northeast-3",
     "ap-south-1",
-    "ca-central-1",
     "cn-north-1",
     "eu-central-1",
     "eu-west-1",
@@ -155,11 +155,12 @@ The command returns information like the following\.
     "ap-northeast-1",
     "ap-northeast-2",
     "ap-southeast-1",
-    "ap-southeast-2",
+    "ca-central-1",
     "eu-north-1",
     "eu-south-1",
     "us-gov-east-1",
     "us-west-1",
+    "ap-southeast-2",
     "cn-northwest-1",
     "sa-east-1",
     "us-east-1",
@@ -175,7 +176,7 @@ You can view a Regional endpoint for a service by using the following command\.
 
 ```
 aws ssm get-parameter \
-    --name /aws/service/global-infrastructure/regions/us-west-1/services/ssm/endpoint \
+    --name /aws/service/global-infrastructure/regions/us-east-2/services/ssm/endpoint \
     --query 'Parameter.Value'
 ```
 
@@ -184,7 +185,7 @@ aws ssm get-parameter \
 
 ```
 aws ssm get-parameter ^
-    --name /aws/service/global-infrastructure/regions/us-west-1/services/ssm/endpoint ^
+    --name /aws/service/global-infrastructure/regions/us-east-2/services/ssm/endpoint ^
     --query Parameter.Value
 ```
 
@@ -193,7 +194,7 @@ aws ssm get-parameter ^
 The command returns information like the following\.
 
 ```
-"ssm.us-west-1.amazonaws.com"
+"ssm.us-east-2.amazonaws.com"
 ```
 
 **View complete Availability Zone details**  
@@ -345,7 +346,7 @@ aws ssm get-parameters-by-path ^
 
 ------
 
-The command returns information like the following\.
+The command returns information like the following\. This example has been truncated for space\.
 
 ```
 [
@@ -379,7 +380,7 @@ aws ssm get-parameters-by-path ^
 
 ------
 
-The command returns information like the following\.
+The command returns information like the following\. This example has been truncated for space\.
 
 ```
 {
@@ -389,35 +390,35 @@ The command returns information like the following\.
             "Type": "String",
             "Value": "use1-bos1-az1",
             "Version": 3,
-            "LastModifiedDate": "2020-12-15T14:16:37.850000-08:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/use1-bos1-az1",
+            "LastModifiedDate": "2020-12-15T14:16:17.502000-08:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-bos1-az1",
             "DataType": "text"
         },
         {
-            "Name": "/aws/service/global-infrastructure/local-zones/use1-mia1-az1",
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-chi1-az1",
             "Type": "String",
-            "Value": "use1-mia1-az1",
-            "Version": 3,
-            "LastModifiedDate": "2020-12-15T14:16:29.234000-08:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/use1-mia1-az1",
-            "DataType": "text"
-        },
-        {
-            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1",
-            "Type": "String",
-            "Value": "usw2-lax1-az1",
+            "Value": "use1-chi1-az1",
             "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:36:58.284000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1",
+            "LastModifiedDate": "2021-09-08T10:05:38.634000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-chi1-az1",
             "DataType": "text"
         },
         {
-            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az2",
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-dfw1-az1",
             "Type": "String",
-            "Value": "usw2-lax1-az2",
-            "Version": 2,
-            "LastModifiedDate": "2020-08-27T15:22:58.350000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az2",
+            "Value": "use1-dfw1-az1",
+            "Version": 1,
+            "LastModifiedDate": "2021-07-07T05:28:16.412000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-dfw1-az1",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-mci1-az1",
+            "Type": "String",
+            "Value": "use1-mci1-az1",
+            "Version": 1,
+            "LastModifiedDate": "2021-09-08T10:05:37.571000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-mci1-az1",
             "DataType": "text"
         }
     ]
@@ -445,7 +446,7 @@ aws ssm get-parameters-by-path ^
 
 ------
 
-The command returns information like the following\.
+The command returns information like the following\. This example has been truncated for space\.
 
 ```
 {
@@ -455,8 +456,8 @@ The command returns information like the following\.
             "Type": "String",
             "Value": "apne1-wl1-nrt-wlz1",
             "Version": 3,
-            "LastModifiedDate": "2020-12-15T14:16:21.815000-08:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/apne1-wl1-nrt-wlz1",
+            "LastModifiedDate": "2020-12-15T14:16:04.715000-08:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/wavelength-zones/apne1-wl1-nrt-wlz1",
             "DataType": "text"
         },
         {
@@ -464,8 +465,8 @@ The command returns information like the following\.
             "Type": "String",
             "Value": "use1-wl1-atl-wlz1",
             "Version": 3,
-            "LastModifiedDate": "2020-09-22T13:10:33.763000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-atl-wlz1",
+            "LastModifiedDate": "2020-09-22T13:10:11.783000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-atl-wlz1",
             "DataType": "text"
         },
         {
@@ -473,80 +474,8 @@ The command returns information like the following\.
             "Type": "String",
             "Value": "use1-wl1-bos-wlz1",
             "Version": 3,
-            "LastModifiedDate": "2020-08-06T07:11:42.758000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-bos-wlz1",
-            "DataType": "text"
-        },
-        {
-            "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-dfw-wlz1",
-            "Type": "String",
-            "Value": "use1-wl1-dfw-wlz1",
-            "Version": 3,
-            "LastModifiedDate": "2020-11-11T07:35:17.303000-08:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-dfw-wlz1",
-            "DataType": "text"
-        },
-        {
-            "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-mia-wlz1",
-            "Type": "String",
-            "Value": "use1-wl1-mia-wlz1",
-            "Version": 3,
-            "LastModifiedDate": "2020-11-11T07:35:29.329000-08:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-mia-wlz1",
-            "DataType": "text"
-        },
-        {
-            "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-nyc-wlz1",
-            "Type": "String",
-            "Value": "use1-wl1-nyc-wlz1",
-            "Version": 3,
-            "LastModifiedDate": "2020-09-22T13:10:22.365000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-nyc-wlz1",
-            "DataType": "text"
-        },
-        {
-            "Name": "/aws/service/global-infrastructure/wavelength-zones/use1-wl1-was-wlz1",
-            "Type": "String",
-            "Value": "use1-wl1-was-wlz1",
-            "Version": 3,
-            "LastModifiedDate": "2020-09-22T13:10:26.787000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-was-wlz1",
-            "DataType": "text"
-        },
-        {
-            "Name": "/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-las-wlz1",
-            "Type": "String",
-            "Value": "usw2-wl1-las-wlz1",
-            "Version": 3,
-            "LastModifiedDate": "2020-12-01T07:29:21.944000-08:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-las-wlz1",
-            "DataType": "text"
-        },
-        {
-            "Name": "/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-sea-wlz1",
-            "Type": "String",
-            "Value": "usw2-wl1-sea-wlz1",
-            "Version": 3,
-            "LastModifiedDate": "2021-01-07T06:10:28.236000-08:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-sea-wlz1",
-            "DataType": "text"
-        },
-        {
-            "Name": "/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-sfo-wlz1",
-            "Type": "String",
-            "Value": "usw2-wl1-sfo-wlz1",
-            "Version": 3,
-            "LastModifiedDate": "2020-08-06T07:11:38.750000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-sfo-wlz1",
-            "DataType": "text"
-        },
-        {
-            "Name": "/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-den-wlz1",
-            "Type": "String",
-            "Value": "usw2-wl1-den-wlz1",
-            "Version": 3,
-            "LastModifiedDate": "2021-01-07T06:10:21.506000-08:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/wavelength-zones/usw2-wl1-den-wlz1",
+            "LastModifiedDate": "2020-08-06T07:11:23.225000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/wavelength-zones/use1-wl1-bos-wlz1",
             "DataType": "text"
         }
     ]

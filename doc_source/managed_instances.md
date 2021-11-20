@@ -5,7 +5,7 @@ A *managed instance* is any machine configured for AWS Systems Manager\. You can
 **Note**  
 In the Systems Manager console, any machine prefixed with "mi\-" is an on\-premises server or virtual machine \(VM\) managed instance\. 
 
-AWS Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and VMs in your hybrid environment\. The standard\-instances tier allows you to register a maximum of 1,000 servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 servers or VMs in a single account and Region, then use the advanced\-instances tier\. You can create as many instances as you like in the advanced\-instances tier, but all instances configured for Systems Manager are priced on a pay\-per\-use basis\. For more information about turning on advanced instances, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\. For more information about pricing, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
+AWS Systems Manager offers a standard\-instances tier and an advanced\-instances tier for servers and VMs in your hybrid environment\. The standard\-instances tier allows you to register a maximum of 1,000 servers or VMs per AWS account per AWS Region\. If you need to register more than 1,000 servers or VMs in a single account and Region, then use the advanced\-instances tier\. You can create as many instances as you like in the advanced\-instances tier, but all instances configured for Systems Manager are priced on a pay\-per\-use basis\. For more information about turning on advanced instances, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\. For more information about pricing, see [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\.
 
 **Note**  
 Advanced instances also allow you to connect to your hybrid machines by using AWS Systems Manager Session Manager\. Session Manager provides interactive shell access to your instances\. For more information, see [AWS Systems Manager Session Manager](session-manager.md)\.
@@ -28,7 +28,7 @@ Systems Manager requires accurate time references in order to perform its operat
 When instance tags are created or edited, it takes up to an hour for the table filter to reflect those changes\.
 
 **Verify Systems Manager support on an instance**  
-AWS Config provides AWS Managed Rules, which are predefined, customizable rules that AWS Config uses to evaluate whether your AWS resource configurations comply with common best practices\. AWS Config Managed Rules include the [ec2\-instance\-managed\-by\-systems\-manager](https://docs.aws.amazon.com/config/latest/developerguide/ec2-instance-managed-by-ssm.html) rule\. This rule checks whether the Amazon EC2 instances in your account are managed by Systems Manager\. For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html)\. 
+AWS Config provides AWS Managed Rules, which are predefined, customizable rules that AWS Config uses to evaluate whether your AWS resource configurations comply with common best practices\. AWS Config Managed Rules include the [ec2\-instance\-managed\-by\-systems\-manager](https://docs.aws.amazon.com/config/latest/developerguide/ec2-instance-managed-by-systems-manager.html) rule\. This rule checks whether the Amazon EC2 instances in your account are managed by Systems Manager\. For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html)\. 
 
 **Verify Systems Manager prerequisites**  
 For information about Systems Manager prerequisites, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. For information about configuring on\-premises servers and VMs as managed instances, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
@@ -43,4 +43,4 @@ You can deregister managed instances at any time\. For example, if you are manag
 + [Configuring instance tiers](systems-manager-managed-instances-tiers.md)
 + [Resetting passwords on managed instances](managed-instances-password-reset.md)
 + [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)
-+ [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md)
++ [Troubleshooting managed instance availability](troubleshooting-managed-instances.md)

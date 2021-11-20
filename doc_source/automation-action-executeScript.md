@@ -58,7 +58,7 @@ For examples of installing and importing `AWS.Tools` modules, and using PowerShe
 Each `aws:executeScript` action can run up to a maximum duration of 600 seconds \(10 minutes\)\. You can limit the timeout by specifying the `timeoutSeconds` parameter for an `aws:executeScript` step\.
 
 **Input**  
-Provide the runtime and handler required to run the provided Python 3\.6, Python 3\.7, or PowerShell Core 6\.0 script\.
+Provide the runtime and handler required to run the provided Python 3\.6, Python 3\.7, Python 3\.8, PowerShell Core 6\.0, or PowerShell 7\.0 script\.
 
 **Important**  
 The script input parameter isn't supported for JSON runbooks\. JSON runbooks must provide script content using the attachment input parameter\.
@@ -101,8 +101,8 @@ inputs:
 ------
 
 Runtime  
-The runtime language to be used for executing the provided script\. `aws:executeScript` supports Python 3\.6 \(python3\.6\), Python 3\.7 \(python3\.7\), and PowerShell Core 6\.0 \(dotnetcore2\.1\) scripts\.  
-Supported values: **python3\.6** \| **python3\.7** \| **PowerShell Core 6\.0**  
+The runtime language to be used for executing the provided script\. `aws:executeScript` supports Python 3\.6 \(python3\.6\), Python 3\.7 \(python3\.7\), Python 3\.8 \(python3\.8\), PowerShell Core 6\.0 \(dotnetcore2\.1\), and PowerShell 7\.0 \(dotnetcore3\.1\) scripts\.  
+Supported values: **python3\.6** \| **python3\.7** \| **python3\.8** \| **PowerShell Core 6\.0** \| **PowerShell 7\.0**  
 Type: String  
 Required: Yes
 

@@ -33,7 +33,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
    ```
    aws ssm update-service-setting \
-       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/automation/customer-script-log-destination \
+       --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/automation/customer-script-log-destination \
        --setting-value CloudWatch
    ```
 
@@ -42,7 +42,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
    ```
    aws ssm update-service-setting ^
-       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/automation/customer-script-log-destination ^
+       --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/automation/customer-script-log-destination ^
        --setting-value CloudWatch
    ```
 
@@ -51,7 +51,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
    ```
    Update-SSMServiceSetting `
-       -SettingId "arn:aws:ssm:region:aws-account-id:servicesetting/ssm/automation/customer-script-log-destination" `
+       -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/automation/customer-script-log-destination" `
        -SettingValue "CloudWatch"
    ```
 
@@ -66,7 +66,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
    ```
    aws ssm update-service-setting \
-       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/automation/customer-script-log-group-name \
+       --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/automation/customer-script-log-group-name \
        --setting-value my-log-group
    ```
 
@@ -75,7 +75,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
    ```
    aws ssm update-service-setting ^
-       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/automation/customer-script-log-group-name ^
+       --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/automation/customer-script-log-group-name ^
        --setting-value my-log-group
    ```
 
@@ -84,7 +84,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
    ```
    Update-SSMServiceSetting `
-       -SettingId "arn:aws:ssm:region:aws-account-id:servicesetting/ssm/automation/customer-script-log-group-name" `
+       -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/automation/customer-script-log-group-name" `
        -SettingValue "my-log-group"
    ```
 
@@ -99,7 +99,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
    ```
    aws ssm get-service-setting \
-       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/automation/customer-script-log-destination
+       --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/automation/customer-script-log-destination
    ```
 
 ------
@@ -107,7 +107,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
    ```
    aws ssm get-service-setting ^
-       --setting-id arn:aws:ssm:region:aws-account-id:servicesetting/ssm/automation/customer-script-log-destination
+       --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/automation/customer-script-log-destination
    ```
 
 ------
@@ -115,7 +115,7 @@ Systems Manager doesn't create a log group or any log streams for documents that
 
    ```
    Get-SSMServiceSetting `
-       -SettingId "arn:aws:ssm:region:aws-account-id:servicesetting/ssm/automation/customer-script-log-destination"
+       -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/automation/customer-script-log-destination"
    ```
 
 ------

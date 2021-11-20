@@ -5,7 +5,7 @@ This section describes the setup tasks that account and system administrators pe
 **Note**  
 macOS isn't supported for Systems Manager hybrid environments\.
 
-If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances, or to use both Amazon EC2 instances and your own resources in a hybrid environment, follow the steps in [Setting up AWS Systems Manager](systems-manager-setting-up.md) first\. 
+If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances, or to use both Amazon EC2 instances and your own resources in a hybrid environment, follow the steps in [Setting up AWS Systems Manager for EC2 instances](systems-manager-setting-up-ec2.md) first\. 
 
 Configuring your hybrid environment for Systems Manager allows you to do the following: 
 + Create a consistent and secure way to remotely manage your hybrid workloads from one location using the same tools or scripts\.
@@ -30,7 +30,6 @@ For more information, see [Configuring instance tiers](systems-manager-managed-i
 **Topics**
 + [Step 1: Complete general Systems Manager setup steps](hybrid-setup-general.md)
 + [Step 2: Create an IAM service role for a hybrid environment](sysman-service-role.md)
-+ [Step 3: Install a TLS certificate on on\-premises servers and VMs](hybrid-tls-certificate.md)
-+ [Step 4: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)
-+ [Step 5: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
++ [Step 3: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)
++ [Step 4: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
 + [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)

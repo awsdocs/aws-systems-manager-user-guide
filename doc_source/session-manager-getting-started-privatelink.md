@@ -13,4 +13,9 @@ The alternative to using a VPC endpoint is to allow outbound internet access on 
 
 Systems Manager uses the last of these endpoints, `ssmmessages.region.amazonaws.com`, to make calls from SSM Agent to the Session Manager service in the cloud\.
 
-For more information about required endpoints for Systems Manager, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
+To use optional features like AWS Key Management Service \(AWS KMS\) encryption, streaming logs to Amazon CloudWatch Logs \(CloudWatch Logs\), and sending logs to Amazon Simple Storage Service \(Amazon S3\) you must allow HTTPS \(port 443\) outbound traffic to the following endpoints:
++ `kms.region.amazonaws.com`
++ `logs.region.amazonaws.com`
++ `s3.region.amazonaws.com`
+
+For more information about required endpoints for Systems Manager, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md)\.

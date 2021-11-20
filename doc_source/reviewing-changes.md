@@ -1,6 +1,6 @@
 # Reviewing change request details, tasks, and timelines \(console\)<a name="reviewing-changes"></a>
 
-You can view information about a change request, including requests for which changes have already been processed, in the dashboard of Change Manager, a capability of AWS Systems Manager\. These details include a link to the Automation execution that runs the runbooks that make the change\. An Automation execution ID is generated when the request is created, but the process doesn't run until all approvals have been given and no restrictions are in place to block the change\.
+You can view information about a change request, including requests for which changes have already been processed, in the dashboard of Change Manager, a capability of AWS Systems Manager\. These details include a link to the Automation operation that runs the runbooks that make the change\. An Automation execution ID is generated when the request is created, but the process doesn't run until all approvals have been given and no restrictions are in place to block the change\.
 
 **To review change request details, tasks, and timelines**
 
@@ -31,6 +31,6 @@ You can view information about a change request, including requests for which ch
    1. In the results, choose the name of the successfully completed change request to review results for\.
 
 1. View information about the change request on the following tabs:
-   + **Request details** – View basic details about the change request, including the requester, the change template, and the Automation runbooks selected for the change\. You can also follow a link to the Automation execution details and view information about any runbook parameters specified in the request, Amazon CloudWatch alarms assigned to the change request, and approvals and comments provided for the request\.
+   + **Request details** – View basic details about the change request, including the requester, the change template, and the Automation runbooks selected for the change\. You can also follow a link to the Automation operation details and view information about any runbook parameters specified in the request, Amazon CloudWatch alarms assigned to the change request, and approvals and comments provided for the request\.
    + **Task** – View information about the task in the change, including task status for completed change requests, the targeted resources, the steps in the associated Automation runbooks, and concurrency and error threshold details\.
    + **Timeline** – View a summary of all events associated with the change request, listed by date and time\. The summary indicates when the change request was created, actions by assigned approvers, a note of when approved change requests are scheduled to run, runbook workflow details, and status changes for the overall change process and each step in the runbook\.

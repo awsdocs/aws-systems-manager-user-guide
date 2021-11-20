@@ -5,7 +5,7 @@ The rules in a patch baseline for Linux distributions operate differently based 
 **Topics**
 + [How patch baseline rules work on Amazon Linux and Amazon Linux 2](#patch-manager-how-it-works-linux-rules-amazon-linux)
 + [How patch baseline rules work on CentOS](#patch-manager-how-it-works-linux-rules-centos)
-+ [How patch baseline rules work on Debian Server](#patch-manager-how-it-works-linux-rules-debian)
++ [How patch baseline rules work on Debian Server and Raspberry Pi OS](#patch-manager-how-it-works-linux-rules-debian)
 + [How patch baseline rules work on macOS](#patch-manager-how-it-works-linux-rules-macos)
 + [How patch baseline rules work on Oracle Linux](#patch-manager-how-it-works-linux-rules-oracle)
 + [How patch baseline rules work on RHEL](#patch-manager-how-it-works-linux-rules-rhel)
@@ -54,11 +54,11 @@ For information about accepted formats for lists of approved patches and rejecte
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
 
-## How patch baseline rules work on Debian Server<a name="patch-manager-how-it-works-linux-rules-debian"></a>
+## How patch baseline rules work on Debian Server and Raspberry Pi OS<a name="patch-manager-how-it-works-linux-rules-debian"></a>
 
-On Debian Server, the patch baseline service offers filtering on the *Priority* and *Section *fields\. These fields are typically present for all Debian Server packages\. To determine whether a patch is selected by the patch baseline, Patch Manager does the following:
+On Debian Server and Raspberry Pi OS \(formerly Raspbian\), the patch baseline service offers filtering on the *Priority* and *Section *fields\. These fields are typically present for all Debian Server and Raspberry Pi OS packages\. To determine whether a patch is selected by the patch baseline, Patch Manager does the following:
 
-1. On Debian Server systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos aren't configured and the data is pulled from repos configured in a `sources` list\.
+1. On Debian Server and Raspberry Pi OS systems, the equivalent of `sudo apt-get update` is run to refresh the list of available packages\. Repos aren't configured and the data is pulled from repos configured in a `sources` list\.
 
 1. If an update is available for `python3-apt` \(a Python library interface to `libapt`\), it is upgraded to the latest version\. \(This nonsecurity package is upgraded even if you did not select the **Include nonsecurity updates** option\.\)
 **Important**  
@@ -78,8 +78,8 @@ Because it isn't possible to reliably determine the release dates of update pack
 
    These repos are named as follows:
    + Debian Server 8: `debian-security jessie`
-   + Debian Server 9: `debian-security stretch`
-   + Debian Server 10: `debian-security buster`
+   + Debian Server and Raspberry Pi OS 9: `debian-security stretch`
+   + Debian Server and Raspberry Pi OS 10: `debian-security buster`
 
    If nonsecurity updates are included, patches from other repositories are considered as well\.
 **Note**  

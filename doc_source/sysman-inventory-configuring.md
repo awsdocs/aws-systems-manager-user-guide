@@ -2,11 +2,7 @@
 
 This section describes how to configure AWS Systems Manager Inventory collection on one or more managed instances by using the Systems Manager console\. For an example of how to configure inventory collection by using the AWS Command Line Interface \(AWS CLI\), see [Systems Manager Inventory walkthroughs](sysman-inventory-walk.md)\.
 
-When you configure inventory collection, you start by creating a AWS Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the `aws:softwareInventory` plugin by using, for example, AWS Systems Manager Run Command, the system returns the following error:
-
-```
-The aws:softwareInventory plugin can only be invoked via ssm-associate.
-```
+When you configure inventory collection, you start by creating a AWS Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the `aws:softwareInventory` plugin by using, for example, AWS Systems Manager Run Command, the system returns the following error: `The aws:softwareInventory plugin can only be invoked via ssm-associate.`
 
 **Note**  
 Be aware of the following behavior if you create multiple inventory associations for an instance\.  
@@ -76,7 +72,7 @@ This section includes information about how to configure Systems Manager Invento
    + **Specifying a tag** \- Use this option to specify a single tag to identify instances in your account from which you want to collect inventory\. If you use a tag, any instances created in the future with the same tag will also report inventory\. If there is an existing inventory association with all instances, using a tag to select specific instances as a target for a different inventory overrides instance membership in the **All managed instances** target group\. Instances with the specified tag are skipped on future inventory collection from **All managed instances**\.
    + **Manually selecting instances** \- Use this option to choose specific managed instances in your account\. Explicitly choosing specific instances by using this option overrides inventory associations on the **All managed instances** target\. The instance is skipped on future inventory collection from **All managed instances**\.
 **Note**  
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. In the **Schedule** section, choose how often you want the system to collect inventory metadata from your instances\.
 

@@ -13,7 +13,7 @@ With Change Manager, you can use pre\-approved *change templates* to help automa
 
 Through its integration with Change Calendar, which is another capability of Systems Manager, Change Manager also helps you safely implement changes while avoiding schedule conflicts with important business events\. Change Manager integration with AWS Organizations and AWS Single Sign\-On helps you manage changes across your organization from a single account using your existing identity management system\. You can monitor change progress from Change Manager and audit operational changes across your organization, providing improved visibility and accountability\.
 
-Change Manager complements the safety controls of your [continuous integration](https://aws.amazon.com/devops/continuous-integration) \(CI\) practices and [continuous delivery](https://aws.amazon.com/devops/continuous-delivery) \(CD\) methodology\. Change Manager isn't intended for changes made as part of an automated release process, such as a CI/CD pipeline, unless there is an exception or approval required\. 
+Change Manager complements the safety controls of your [continuous integration](http://aws.amazon.com/devops/continuous-integration) \(CI\) practices and [continuous delivery](http://aws.amazon.com/devops/continuous-delivery) \(CD\) methodology\. Change Manager isn't intended for changes made as part of an automated release process, such as a CI/CD pipeline, unless there is an exception or approval required\. 
 
 ## How Change Manager works<a name="how-change-manager-works"></a>
 
@@ -97,7 +97,7 @@ Primary features of Change Manager include the following:
 
 ## Is there a charge to use Change Manager?<a name="change-manager-cost"></a>
 
-Yes\. Change Manager is priced on a pay\-per\-use basis\. You pay only for what you use\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
+Yes\. Change Manager is priced on a pay\-per\-use basis\. You pay only for what you use\. For more information, see [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\.
 
 ## What are the primary components of Change Manager?<a name="change-manager-primary-components"></a>
 
@@ -124,7 +124,7 @@ A change request is a request in Change Manager to run an Automation runbook tha
 
 When you create a change request, one or more approvers in your organization or account must review and approve the request\. Without the required approvals, the runbook workflow, which applies the changes you request, isn't permitted to run\.
 
-In the system, change requests are a type of OpsItem in AWS Systems Manager OpsCenter\. However, OpsItems of the type `/aws/changerequest` aren't displayed in OpsCenter\. As OpsItems, change requests are subject to the same enforced limits as other types of OpsItems\. For information about the number of OpsItems that can be created for an AWS account in an AWS Region, see [What are the quotas for OpsCenter?](OpsCenter.md#OpsCenter-learn-more-limits)\.
+In the system, change requests are a type of OpsItem in AWS Systems Manager OpsCenter\. However, OpsItems of the type `/aws/changerequest` aren't displayed in OpsCenter\. As OpsItems, change requests are subject to the same enforced quotas as other types of OpsItems\. For information about the number of OpsItems that can be created for an AWS account in an AWS Region, see [What are the quotas for OpsCenter?](OpsCenter.md#OpsCenter-learn-more-limits)\.
 
 Additionally, to create a change request programmatically, you don't call the `CreateOpsItem` API operation\. Instead, you use the `[StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html)` API operation\. But rather than running immediately, the change request must be approved, and there must not any blocking events in Change Calendar to prevent the workflow from running\. When approvals have been received and the calendar isn't blocked \(or permission has been given to bypass blocking calendar events\), the `StartChangeRequestExecution` action is able to complete\.
 

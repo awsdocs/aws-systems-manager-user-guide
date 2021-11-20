@@ -8,7 +8,7 @@ The formats you can specify for approved and rejected patches in your patch base
 
 **Topics**
 + [Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and Red Hat Enterprise Linux \(RHEL\)](#patch-manager-approved-rejected-package-name-formats-standard)
-+ [Debian Server and Ubuntu Server](#patch-manager-approved-rejected-package-name-formats-ubuntu)
++ [Debian Server, Raspberry Pi OS \(formerly Raspbian\), and Ubuntu Server](#patch-manager-approved-rejected-package-name-formats-ubuntu)
 + [SUSE Linux Enterprise Server \(SLES\)](#patch-manager-approved-rejected-package-name-formats-sles)
 
 ### Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and Red Hat Enterprise Linux \(RHEL\)<a name="patch-manager-approved-rejected-package-name-formats-standard"></a>
@@ -36,14 +36,14 @@ The formats you can specify for approved and rejected patches in your patch base
   + `example-pkg-*-20180914-2.2.amzn1.noarch`
   + `example-pkg-EE-2018*.amzn1.noarch`
 
-### Debian Server and Ubuntu Server<a name="patch-manager-approved-rejected-package-name-formats-ubuntu"></a>
+### Debian Server, Raspberry Pi OS \(formerly Raspbian\), and Ubuntu Server<a name="patch-manager-approved-rejected-package-name-formats-ubuntu"></a>
 
 **Package manager**: APT
 
 **Approved patches** and **rejected patches**: For both approved and rejected patches, specify the following:
 + Package names, in the format `ExamplePkg33`
 **Note**  
-For Debian Server lists and Ubuntu Server lists, don't include elements such as architecture or versions\. For example, you specify the package name `ExamplePkg33` to include all the following in a patch list:  
+For Debian Server lists, Raspberry Pi OS lists, and Ubuntu Server lists, don't include elements such as architecture or versions\. For example, you specify the package name `ExamplePkg33` to include all the following in a patch list:  
 `ExamplePkg33.x86.1`
 `ExamplePkg33.x86.2`
 `ExamplePkg33.x64.1`

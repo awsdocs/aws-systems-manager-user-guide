@@ -86,7 +86,7 @@ To run an Automation task that copies a snapshot of an Amazon Elastic Block Stor
 
 The following list describes the pseudo parameters that you can specify using the `{{PSEUDO_PARAMETER}}` syntax in the `--task-invocation-parameters` option\.
 + **`WINDOW_ID`**: The ID of the target maintenance window\.
-+ **`WINDOW_TASK_ID`**: The ID of the window task that is executing\.
++ **`WINDOW_TASK_ID`**: The ID of the window task that is running\.
 + **`WINDOW_TARGET_ID`**: The ID of the window target that includes the target \(target ID\)\.
 + **`WINDOW_EXECUTION_ID`**: The ID of the current window execution\.
 + **`TASK_EXECUTION_ID`**: The ID of the current task execution\.

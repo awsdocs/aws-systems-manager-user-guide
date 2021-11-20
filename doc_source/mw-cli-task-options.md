@@ -5,7 +5,7 @@ The register\-task\-with\-maintenance\-window command provides several options f
 This topic provides information about some of these options to help you work with samples in this tutorial section\. For information about all command options, see [register\-task\-with\-maintenance\-window](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-task-with-maintenance-window.html) in the *AWS CLI Command Reference*\.
 
 **About the `--task-arn` option**  
-The option `--task-arn` is used to specify the resource that the task uses during execution\. The value that you specify depends on the type of task you're registering, as described in the following table\.
+The option `--task-arn` is used to specify the resource that the task operates on\. The value that you specify depends on the type of task you're registering, as described in the following table\.
 
 
 **TaskArn formats for maintenance window tasks**  

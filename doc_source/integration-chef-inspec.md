@@ -77,7 +77,7 @@ This section includes information about how to run an InSpec compliance scan by 
 
 1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. In the **Specify schedule** section, use the schedule builder options to create a schedule that specifies when you want the Compliance scan to run\.
 

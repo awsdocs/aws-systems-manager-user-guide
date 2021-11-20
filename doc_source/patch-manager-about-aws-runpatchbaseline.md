@@ -20,7 +20,7 @@ On Windows Server instances, the `AWS-RunPatchBaseline` document downloads and i
 On Linux instances, the `AWS-RunPatchBaseline` document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the instance\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each instance type: 
 + Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL 7 instances use YUM\. For YUM operations, Patch Manager requires `Python 2.6` or later\. 
 + RHEL 8 instances use DNF\. For DNF operations, Patch Manager requires `Python 2` or `Python 3`\. \(Neither version is installed by default on RHEL 8\. You must install one or the other manually\.\)
-+ Debian Server and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires `Python 3`\. 
++ Debian Server, Raspberry Pi OS, and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires `Python 3`\.
 + SUSE Linux Enterprise Server instances use Zypper\. For Zypper operations, Patch Manager requires `Python 2.6` or later\.
 
 ------
@@ -332,6 +332,11 @@ The **id** field is required\. The value for the **id** field can be supplied us
 **Usage**: Optional\.
 
 **Options**: `RebootIfNeeded` \| `NoReboot` 
+
+**Default**: `RebootIfNeeded`
+
+**Warning**  
+The default option is `RebootIfNeeded`\. Be sure to select the correct option for your use case\. For example, if your instances must reboot immediately to complete a configuration process, choose `RebootIfNeeded`\. Or, if you need to maintain instances availability until a scheduled reboot time, choose `NoReboot`\.
 
 RebootIfNeeded  
 When you choose the `RebootIfNeeded` option, the instance is rebooted in either of the following cases:   

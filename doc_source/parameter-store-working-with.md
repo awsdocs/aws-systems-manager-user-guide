@@ -4,6 +4,7 @@ This section describes how to organize and create tag parameters, and how to cre
 
 **Topics**
 + [Creating Systems Manager parameters](sysman-paramstore-su-create.md)
++ [Deleting Systems Manager parameters](deleting-parameters.md)
 + [Working with public parameters](parameter-store-public-parameters.md)
 + [Assigning parameter policies](parameter-store-policies.md)
 + [Searching for Systems Manager parameters](parameter-search.md)

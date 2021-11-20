@@ -1,6 +1,9 @@
 # Viewing overview information about an application<a name="application-manager-working-viewing-overview"></a>
 
-In Application Manager, a component of AWS Systems Manager, the **Overview** tab displays a summary of Amazon CloudWatch alarms, operational work items \(OpsItems\), and runbook history\. If your application includes subcomponents, you can choose a subcomponent in the **Components** tree to view its summary of alarms, OpsItems, and runbook history\. Choose **View all** for any card to open the corresponding tab where you can view all alarms, OpsItems, or runbook history\.
+In Application Manager, a component of AWS Systems Manager, the **Overview** tab displays a summary of Amazon CloudWatch alarms, operational work items \(OpsItems\), CloudWatch Application Insights, and runbook history\. Choose **View all** for any card to open the corresponding tab where you can view all application insights, alarms, OpsItems, or runbook history\.
+
+**About Application Insights**  
+CloudWatch Application Insights identifies and sets up key metrics, logs, and alarms across your application resources and technology stack\. Application Insights continuously monitors metrics and logs to detect and correlate anomalies and errors\. When the system detects errors or anomalies, Application Insights generates CloudWatch Events that you can use to set up notifications or take actions\. If you choose the **Edit configuration** button on the **Monitoring** tab, the system opens the CloudWatch Application Insights console\. For more information about Application Insights, see [What is Amazon CloudWatch Application Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-what-is.html) in the *Amazon CloudWatch User Guide*\.
 
 **Actions you can perform on this page**  
 You can perform the following actions on this page:

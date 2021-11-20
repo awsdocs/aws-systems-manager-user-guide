@@ -18,15 +18,15 @@ For more information about the AWS CLI, see the *[AWS Command Line Interface Use
 For information about all Systems Manager commands you can run using the AWS CLI, see [the Systems Manager section of the *AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
 
 **Important**  
-As of January 10th, 2020, AWS CLI version 1\.17 and later no longer support Python 2\.6 or Python 3\.3\. Since that date, the installer for the AWS CLI requires Python 2\.7, Python 3\.4, or a later version\. For more information, see [Using the AWS CLI version 1 with Python 2\.6 or Python 3\.3](https://docs.aws.amazon.com/cli/latest/userguide/deprecate-python-26-33.html) in the *IAM User Guide*\.
+As of January 10th, 2020, AWS CLI version 1\.17 and later no longer support Python 2\.6 or Python 3\.3\. Since that date, the installer for the AWS CLI requires Python 2\.7, Python 3\.4, or a later version\.
 
 **To install or upgrade and then configure the AWS CLI**
 
-1. Follow the instructions in [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) in the *AWS Command Line Interface User Guide* to install or upgrade the AWS CLI on your local machine\.
+1. Follow the instructions in [Installing the AWS Command Line Interface version 2](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) in the *AWS Command Line Interface User Guide* to install or upgrade the AWS CLI on your local machine\.
 **Tip**  
 The AWS CLI is frequently updated with new functionality\. Upgrade \(reinstall\) the AWS CLI periodically to verify that you have access to all the latest functionality\.
 
-1. To configure the AWS CLI, see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html) in the *AWS Command Line Interface User Guide*\.
+1. To configure the AWS CLI, see [Configuring the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) in the *AWS Command Line Interface User Guide*\.
 
    In this step, you specify credentials that an AWS administrator in your organization has given you, in the following format\.
 
@@ -37,7 +37,7 @@ The AWS CLI is frequently updated with new functionality\. Upgrade \(reinstall\)
 **Important**  
 When you configure the AWS CLI, you're prompted to specify an AWS Region\. Choose one of the supported Regions listed for Systems Manager in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. If necessary, first verify with an administrator for your AWS account which AWS Region you should choose\.
 
-   For more information about access keys, see [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html) in the *IAM User Guide*\.
+   For more information about access keys, see [Managing access heys for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in the *IAM User Guide*\.
 
 1. To verify the installation or upgrade, run the following command from the AWS CLI\.
 
@@ -51,13 +51,13 @@ When you configure the AWS CLI, you're prompted to specify an AWS Region\. Choos
 
 The AWS Tools for PowerShell are a set of PowerShell modules that are built on the functionality exposed by the AWS SDK for \.NET\. The AWS Tools for PowerShell allow you to script operations on your AWS resources from the PowerShell command line\. The cmdlets provide an idiomatic PowerShell experience for specifying parameters and handling results even though they are implemented using the various AWS service HTTP query APIs\.
 
- For information about the Tools for Windows PowerShell, see the *[AWS Tools for Windows PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/)*\.
+ For information about the Tools for Windows PowerShell, see the [https://docs.aws.amazon.com/powershell/latest/userguide/](https://docs.aws.amazon.com/powershell/latest/userguide/)\.
 
- For information about all Systems Manager commands you can run using the AWS Tools for PowerShell, see [the Systems Manager section of the *AWS Tools for PowerShell Cmdlet Reference*](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)\.
+ For information about all Systems Manager commands you can run using the AWS Tools for PowerShell, see [the Systems Manager section of the *AWS Tools for PowerShell Cmdlet Reference*](https://docs.aws.amazon.com/powershell/latest/reference/items/SimpleSystemsManagement_cmdlets.html)\.
 
 **To install or upgrade and then configure the AWS Tools for PowerShell**
 
-1. Follow the instructions in [Setting up the AWS Tools for Windows PowerShell or AWS Tools for PowerShell Core](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html) in the *AWS Tools for Windows PowerShell User Guide* to install or upgrade Tools for PowerShell on your local machine\.
+1. Follow the instructions in [Installing the Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html) in the *AWS Tools for Windows PowerShell User Guide* to install or upgrade Tools for PowerShell on your local machine\.
 **Tip**  
 Tools for PowerShell is frequently updated with new functionality\. Upgrade \(reinstall\) the Tools for PowerShell periodically to ensure that you have access to all the latest functionality\.
 
@@ -74,7 +74,7 @@ Tools for PowerShell is frequently updated with new functionality\. Upgrade \(re
 **Important**  
 When you configure Tools for PowerShell, you can run `Set-DefaultAWSRegion` to specify an AWS Region\. Choose one of the supported Regions listed for Systems Manager in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. If necessary, first verify with an administrator for your AWS account which Region you should choose\.
 
-   For more information about access keys, see [Managing Access Keys for IAM Users](https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html) in the *IAM User Guide*\.
+   For more information about access keys, see [Managing access keys for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in the *IAM User Guide*\.
 
 1. To verify the installation or upgrade, run the following command from Tools for PowerShell\.
 

@@ -11,7 +11,8 @@ SSM Agent is installed by default on the following AMIs:
 + Amazon Linux
 + Amazon Linux 2
 + Amazon Linux 2 ECS\-Optimized Base AMIs
-+ macOS 10\.14\.x \(Mojave\) and 10\.15\.x \(Catalina\)
++ macOS 10\.14\.x \(Mojave\), 10\.15\.x \(Catalina\), and 11\.x \(Big Sur\)
++ SUSE Linux Enterprise Server \(SLES\) 12 and 15
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019
@@ -22,7 +23,7 @@ SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\.
 For information about manually installing SSM Agent on other Linux operating systems, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
 
 **TLS certificate requirement for instances**  
-A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. These certificates are used to encrypt calls to other AWS services\. A TLS certificate is already installed on each EC2 instance created from any AMI\. On instances created from AMIs not supplied by Amazon, and on your own on\-premises servers and VMs, install the certificate yourself\. For more information, see [Install a TLS certificate on and VMs on\-premises servers](hybrid-tls-certificate.md)\.
+A Transport Layer Security \(TLS\) certificate must be installed on each managed instance you use with Systems Manager\. These certificates are used to encrypt calls to other AWS services\. A TLS certificate is already installed on each EC2 instance created from any AMI\. On instances created from AMIs not supplied by Amazon, and on your own on\-premises servers and VMs, install the certificate yourself\. For more information, see [Install a TLS certificate on and VMs on\-premises servers](troubleshooting-managed-instances.md#hybrid-tls-certificate)\.
 
 **Topics**
 + [Launch an instance that uses the Systems Manager instance profile \(console\)](#setup-launch-managed-instance-new)
@@ -45,8 +46,8 @@ A Transport Layer Security \(TLS\) certificate must be installed on each managed
 1. On the **Configure Instance Details** page, in the **IAM role** dropdown list, select the instance profile you created using the procedure in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. For other options on the page, make selections that meet your requirements for the instance\. For more information, choose one of the following, depending on your selected operating system type:
-   + **Linux**: [Launching an Instance Using the Launch Instance Wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) in the *Amazon EC2 User Guide for Linux Instances*
-   + **Windows Server**: [Launching an Instance Using the Launch Instance Wizard](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/launching-instance.html) in the *Amazon EC2 User Guide for Windows Instances*
+   + **Linux**: [Launch an instance using the Launch Instance Wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) in the *Amazon EC2 User Guide for Linux Instances*
+   + **Windows Server**: [Launch an instance using the Launch Instance Wizard](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/launching-instance.html) in the *Amazon EC2 User Guide for Windows Instances*
 
 1. Complete the wizard\.
 
@@ -67,7 +68,7 @@ If you create other instances that you want to configure using Systems Manager, 
 1. Choose **Apply**\.
 
 For more information about attaching IAM roles to instances, choose one of the following, depending on your selected operating system type:
-+ [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Linux Instances*
-+ [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Windows Instances*
++ [Attach an IAM role to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Linux Instances*
++ [Attach an IAM role to an instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Windows Instances*
 
 Continue to [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.

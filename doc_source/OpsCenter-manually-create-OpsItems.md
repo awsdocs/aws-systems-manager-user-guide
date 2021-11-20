@@ -122,7 +122,7 @@ The following procedure describes how to create an OpsItem by using the AWS Comm
    aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data file:///Users/TestUser1/Desktop/OpsItems/opsData.json --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser1" --tags "Key=EC2,Value=Production"
    ```
 **Note**  
-For information about how to enter JSON\-formatted parameters on the command line on different local operating systems, see [Using quotation marks with strings](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html#quoting-strings) in the *AWS Command Line Interface User Guide*\.
+For information about how to enter JSON\-formatted parameters on the command line on different local operating systems, see [Using quotation marks with strings in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html) in the *AWS Command Line Interface User Guide*\.
 
    The system returns information like the following\.
 

@@ -83,34 +83,29 @@ The command returns information like the following\. This example output has bee
         {
             "Name": "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-ebs",
             "Type": "String",
-            "Value": "ami-0d75cc1d706735521",
-            "Version": 7,
-            "LastModifiedDate": 1543873943.358,
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-ebs"
+            "Value": "ami-02f31e7644d23a001",
+            "Version": 32,
+            "LastModifiedDate": "2021-10-04T14:51:40.313000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-ebs",
+            "DataType": "text"
         },
         {
             "Name": "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2",
             "Type": "String",
-            "Value": "ami-0cd3dfa4e37921605",
-            "Version": 7,
-            "LastModifiedDate": 1543873943.47,
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2"
+            "Value": "ami-0a787ac2e0c399e8b",
+            "Version": 32,
+            "LastModifiedDate": "2021-10-04T14:51:40.424000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2",
+            "DataType": "text"
         },
         {
             "Name": "/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-s3",
             "Type": "String",
-            "Value": "ami-0a0e3ff8af8d19497",
-            "Version": 7,
-            "LastModifiedDate": 1543873943.576,
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-s3"
-        },
-        {
-            "Name": "/aws/service/ami-amazon-linux-latest/amzn-ami-minimal-hvm-x86_64-ebs",
-            "Type": "String",
-            "Value": "ami-0786a9626196d6dac",
-            "Version": 7,
-            "LastModifiedDate": 1543873943.682,
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-amazon-linux-latest/amzn-ami-minimal-hvm-x86_64-ebs"
+            "Value": "ami-0437136c909273ff3",
+            "Version": 32,
+            "LastModifiedDate": "2021-10-04T14:51:40.533000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-s3",
+            "DataType": "text"
         },
 ```
 
@@ -122,7 +117,7 @@ You can view details of a specific AMI by using the [GetParameters](https://docs
 ```
 aws ssm get-parameters \
     --names /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 \
-    --region us-west-2
+    --region us-east-2
 ```
 
 ------
@@ -131,7 +126,7 @@ aws ssm get-parameters \
 ```
 aws ssm get-parameters ^
     --names /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 ^
-    --region us-west-2
+    --region us-east-2
 ```
 
 ------
@@ -144,10 +139,11 @@ The command returns the following information\.
         {
             "Name": "/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2",
             "Type": "String",
-            "Value": "ami-061392db613a6357b",
-            "Version": 16,
-            "LastModifiedDate": 1552519670.776,
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2"
+            "Value": "ami-074cce78125f09d61",
+            "Version": 51,
+            "LastModifiedDate": "2021-10-06T16:50:43.294000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2",
+            "DataType": "text"
         }
     ],
     "InvalidParameters": []
@@ -190,15 +186,19 @@ The command returns information like the following\. This example output has bee
     "/aws/service/ami-windows-latest/Windows_Server-2016-English-Core-Containers",
     "/aws/service/ami-windows-latest/Windows_Server-2016-German-Full-Base",
     "/aws/service/ami-windows-latest/Windows_Server-2016-Japanese-Full-SQL_2017_Web",
-    "/aws/service/ami-windows-latest/amzn2-ami-hvm-2.0.20190313-x86_64-gp2-SQL_2017_Express",
+    "/aws/service/ami-windows-latest/Windows_Server-2019-English-Core-EKS_Optimized-1.17",
     "/aws/service/ami-windows-latest/amzn2-ami-hvm-2.0.20191217.0-x86_64-gp2-mono",
-    "/aws/service/ami-windows-latest/EC2LaunchV2_Preview-Windows_Server-2019-English-Core-Base",
     "/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-English-64Bit-SQL_2016_SP2_Standard",
     "/aws/service/ami-windows-latest/Windows_Server-2012-RTM-Italian-64Bit-Base",
     "/aws/service/ami-windows-latest/Windows_Server-2016-English-Deep-Learning",
     "/aws/service/ami-windows-latest/Windows_Server-2016-English-Full-SQL_2014_SP3_Enterprise",
-    "/aws/service/ami-windows-latest/Windows_Server-2016-Korean-Full-SQL_2016_SP2_Standard",
-    "/aws/service/ami-windows-latest/Windows_Server-2019-English-Core-EKS_Optimized-1.17",
+    "/aws/service/ami-windows-latest/Windows_Server-2019-English-Core-EKS_Optimized-1.21",
+    "/aws/service/ami-windows-latest/Windows_Server-2019-Italian-Full-Base",
+    "/aws/service/ami-windows-latest/Windows_Server-2019-Japanese-Full-SQL_2017_Enterprise",
+    "/aws/service/ami-windows-latest/Windows_Server-2022-Italian-Full-Base",
+    "/aws/service/ami-windows-latest/Windows_Server-2022-Portuguese_Brazil-Full-Base",
+    "/aws/service/ami-windows-latest/Windows_Server-20H2-English-Core-ContainersLatest",
+    "/aws/service/ami-windows-latest/EC2LaunchV2_Preview-Windows_Server-2019-English-Core-Base",
 ]
 ```
 
@@ -209,7 +209,7 @@ You can view details about these AMIs, including the AMI IDs and Amazon Resource
 
 ```
 aws ssm get-parameters-by-path \
-    --path "/aws/service/aws/service/ami-windows-latest" \
+    --path "/aws/service/ami-windows-latest" \
     --region region
 ```
 
@@ -218,7 +218,7 @@ aws ssm get-parameters-by-path \
 
 ```
 aws ssm get-parameters-by-path ^
-    --path "/aws/service/aws/service/ami-windows-latest" ^
+    --path "/aws/service/ami-windows-latest" ^
     --region region
 ```
 
@@ -230,31 +230,30 @@ The command returns information like the following\. This example output has bee
 
 ```
 {
-            "Name": "/aws/service/ami-windows-latest/Windows_Server-2016-English-Core-Containers",
+            "Name": "/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Chinese_Simplified-64Bit-Base",
             "Type": "String",
-            "Value": "ami-0b19f0a8c08620b34",
-            "Version": 53,
-            "LastModifiedDate": "2020-09-10T19:49:05.760000-07:00",
-            "ARN": "arn:aws:ssm:us-east-1::parameter/aws/service/ami-windows-latest/Windows_Server-2016-English-Core-Containers",
+            "Value": "ami-0b7899820bf83a6a1",
+            "Version": 70,
+            "LastModifiedDate": "2021-09-16T17:20:07.716000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Chinese_Simplified-64Bit-Base",
             "DataType": "text"
         },
         {
-            "Name": "/aws/service/ami-windows-latest/Windows_Server-2016-German-Full-Base",
+            "Name": "/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Chinese_Traditional-64Bit-Base",
             "Type": "String",
-            "Value": "ami-068badb2c4fe9d831",
-            "Version": 53,
-            "LastModifiedDate": "2020-09-10T19:53:44.049000-07:00",
-            "ARN": "arn:aws:ssm:us-east-1::parameter/aws/service/ami-windows-latest/Windows_Server-2016-German-Full-Base",
+            "Value": "ami-0fb7114182bd85f9f",
+            "Version": 70,
+            "LastModifiedDate": "2021-09-16T17:20:22.660000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Chinese_Traditional-64Bit-Base",
             "DataType": "text"
         },
         {
-            "Name": "/aws/service/ami-windows-latest/Windows_Server-2016-Japanese-Full-SQL_2017_Web",
+            "Name": "/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Dutch-64Bit-Base",
             "Type": "String",
-            "Value": "ami-0b12e609d6733dac7",
-            "Version": 20,
-            "LastModifiedDate": "2020-09-10T19:55:24.166000-07:00",
-            "ARN": "arn:aws:ssm:us-east-1::parameter/aws/service/ami-windows-latest/Windows_Server-2016-Japanese-Full-SQL_2017_Web",
-            "DataType": "text"
+            "Value": "ami-0ae137ae6fe86b15a",
+            "Version": 70,
+            "LastModifiedDate": "2021-09-16T17:20:40.545000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Dutch-64Bit-Base",-- Mor            "DataType": "text"
         },
 ```
 
@@ -288,10 +287,10 @@ The command returns the following information\.
         {
             "Name": "/aws/service/ami-windows-latest/Windows_Server-2016-English-Core-Containers",
             "Type": "String",
-            "Value": "ami-0315ac376f3dac169",
-            "Version": 53,
-            "LastModifiedDate": "2020-09-10T19:50:01.955000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/ami-windows-latest/Windows_Server-2016-English-Core-Containers",
+            "Value": "ami-06eeda984b8f887b7",
+            "Version": 66,
+            "LastModifiedDate": "2021-09-16T17:30:55.502000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-windows-latest/Windows_Server-2016-English-Core-Containers",
             "DataType": "text"
         }
     ],

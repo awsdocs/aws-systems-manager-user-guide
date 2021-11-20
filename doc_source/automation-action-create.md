@@ -68,7 +68,9 @@ Type: Map
 Required: NoOutput
 
 ImageId  
-The ID of the newly created image\.
+The ID of the newly created image\.  
+Type: String
 
 ImageState  
-The current state of the image\. If the state is available, the image is successfully registered and can be used to launch an instance\.
+The current state of the image\. If the state is available, the image is successfully registered and can be used to launch an instance\.  
+Type: String

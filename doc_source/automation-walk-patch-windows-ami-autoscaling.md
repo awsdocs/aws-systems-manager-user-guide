@@ -60,7 +60,7 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. Make no changes in the **Designer** section\.
 
-1. In the **Code source** section, delete the pre\-populated code in the **lambda\_function** field, and then paste the following code sample\.  
+1. In the **Code source** section, delete the pre\-populated code in the **lambda\_function** field, and then paste the following code example\.  
 ![\[Paste the sample code into the lambda_function field\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-asg-lamb.png)
 
    ```

@@ -2,6 +2,10 @@
 
 This topic includes information about how to troubleshoot common problems with AWS Systems Manager Explorer\.
 
+ **Not able to filter AWS resources in Explorer after updating tags on the Settings page** 
+
+If you update tags keys or other data settings in Explorer, the system can take up to six hours to synchronize data based on your changes\.
+
  **The AWS Organizations options on the *Create resource data sync* page are greyed out** 
 
 The **Include all accounts from my AWS Organizations configuration** and **Select organization units in AWS Organizations** options on the **Create resource data sync** page are only available if you set up and configured AWS Organizations\. If you set up and configured AWS Organizations, then either the AWS Organizations management account or an Explorer delegated administrator can create resource data syncs that use these options\. 

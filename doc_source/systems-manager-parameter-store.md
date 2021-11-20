@@ -117,7 +117,7 @@ def lambda_handler(event, context):
 **AWS KMS encryption and pricing**  
 If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS KMS to encrypt the parameter value\.
 Parameter Store only supports [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
-There is no charge from Parameter Store to create a `SecureString` parameter, but charges for use of AWS KMS encryption do apply\. For information, see [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing)\.  
+There is no charge from Parameter Store to create a `SecureString` parameter, but charges for use of AWS KMS encryption do apply\. For information, see [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing)\.  
 For more information about AWS managed and customer managed keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and AWS KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.  
 To view an AWS managed key, use the AWS KMS `DescribeKey` operation\. This AWS Command Line Interface \(AWS CLI\) example uses `DescribeKey` to view and AWS managed key\.  
 
@@ -126,6 +126,5 @@ aws kms describe-key --key-id alias/aws/ssm
 ```
 **Related topics**  
 For an example of how to create and use a `SecureString` parameter, see [Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)\. For more information about using Systems Manager parameters with other AWS services, see the following blog posts:
-+ [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
 + [Use Parameter Store to Securely Access Secrets and Config Data in CodeDeploy](http://aws.amazon.com/blogs/mt/use-parameter-store-to-securely-access-secrets-and-config-data-in-aws-codedeploy/)
 + [Interesting Articles on Amazon EC2 Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/interesting-articles-on-ec2-systems-manager-parameter-store/)

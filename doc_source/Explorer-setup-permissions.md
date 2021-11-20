@@ -126,26 +126,7 @@ For more information about creating and editing IAM policies, see [Creating IAM 
 
 ### Restricting access to OpsItems by using tags<a name="OpsCenter-getting-started-user-permissions-tags"></a>
 
-You can also restrict access to OpsItems by using an inline IAM policy that specifies tags\. The policy uses the following format\. 
-
-```
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "One_or_more_OpsItem_API_actions"
-             ],
-      "Resource": "*"
-      ,
-      "Condition": { "StringEquals": { "ssm:resourceTag/tag_key": "tag_value" } }
-    }
-  ]
-}
-```
-
-Here is an example that specifies a tag key of *Department* and a tag value of *Finance*\. With this policy, the user can only call the *GetOpsItem* API operation to view OpsItems that were previously tagged with Key=Department and Value=Finance\. Users can't view any other OpsItems\.
+You can also restrict access to OpsItems by using an inline IAM policy that specifies tags\. Here is an example that specifies a tag key of *Department* and a tag value of *Finance*\. With this policy, the user can only call the *GetOpsItem* API operation to view OpsItems that were previously tagged with Key=Department and Value=Finance\. Users can't view any other OpsItems\.
 
 ```
 {

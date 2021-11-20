@@ -36,7 +36,7 @@ For more information about working with the `--schedule` option, see [Reference:
 
 1. \(Optional\) For **Window end date \- *optional***, specify a date and time, in ISO\-8601 Extended format, for when you want the maintenance window to become inactive\. This allows you to set a date and time in the future after which the maintenance window no longer runs\.
 
-1. \(Optional\) For **Schedule time zone \- *optional***, specify the time zone to base scheduled maintenance window executions on, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
+1. \(Optional\) For **Schedule time zone \- *optional***, specify the time zone to use as the basis for when scheduled maintenance windows run, in Internet Assigned Numbers Authority \(IANA\) format\. For example: "America/Los\_Angeles", "etc/UTC", or "Asia/Seoul"\.
 
    For more information about valid formats, see the [Time Zone Database](https://www.iana.org/time-zones) on the IANA website\.
 

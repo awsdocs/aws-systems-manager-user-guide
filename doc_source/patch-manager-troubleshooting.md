@@ -94,9 +94,9 @@ An unsupported package manager and python version combination was found. Apt req
 failed to run commands: exit status 1
 ```
 
-**Cause**: python3 isn't installed on the Ubuntu Server or Debian Server instance\.
+**Cause**: python3 isn't installed on the Debian Server, Raspberry Pi OS, or Ubuntu Server instance\.
 
-**Solution**: Install python3 on the server, which is required for Ubuntu Server or Debian Server instances\.
+**Solution**: Install python3 on the server, which is required for Debian Server, Raspberry Pi OS, and Ubuntu Server instances\.
 
 ### Issue: Patch Manager isn't applying rules specified to exclude certain packages<a name="patch-manager-troubleshooting-linux-6"></a>
 
@@ -304,7 +304,7 @@ PatchWindows\_script.ps1 : An error occurred when executing PatchBaselineOperati
 failed to run commands: exit status 4294967295
 ```
 
-**Solution**: Check the instance connectivity and permissions to Amazon Simple Storage Service \(Amazon S3\)\. The instance's AWS Identity and Access Management \(IAM\) role must use the minimum permissions cited in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)\. The instance must communicate with the Amazon S3 endpoint via Amazon S3 gateway endpoint, NAT gateway, or internet gateway\. For more information about the VPC Endpoint requirements for AWS Systems Manager SSM Agent \(SSM Agent\), see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\. 
+**Solution**: Check the instance connectivity and permissions to Amazon Simple Storage Service \(Amazon S3\)\. The instance's AWS Identity and Access Management \(IAM\) role must use the minimum permissions cited in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)\. The instance must communicate with the Amazon S3 endpoint through the Amazon S3 gateway endpoint, NAT gateway, or internet gateway\. For more information about the VPC Endpoint requirements for AWS Systems Manager SSM Agent \(SSM Agent\), see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\. 
 
 ### Issue: missing patches<a name="patch-manager-troubleshooting-missing-patches"></a>
 
@@ -358,7 +358,7 @@ The following are some common causes and their solutions\.
 
 ## Contacting AWS Support<a name="patch-manager-troubleshooting-contact-support"></a>
 
-If you can't find troubleshooting solutions in this section or in the [Systems Manager Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=185), and you have a [Developer, Business, or Enterprise AWS Support plan](http://aws.amazon.com/premiumsupport/plans), you can create a technical support case at [AWS Support](https://aws.amazon.com/premiumsupport/)\.
+If you can't find troubleshooting solutions in this section or in the [Systems Manager Developer Forum](http://forums.aws.amazon.com/forum.jspa?forumID=185), and you have a [Developer, Business, or Enterprise AWS Support plan](http://aws.amazon.com/premiumsupport/plans), you can create a technical support case at [AWS Support](https://aws.amazon.com/premiumsupport/)\.
 
 Before you contact AWS Support, collect the following items:
 + [SSM agent logs](sysman-agent-logs.md)

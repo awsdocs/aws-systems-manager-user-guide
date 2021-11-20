@@ -17,7 +17,7 @@ The ASCP is available on GitHub in the [secrets\-store\-csi\-driver\-provider\-a
 1. To install the Kubernetes Secrets Store CSI Driver, run the following commands\. For full installation instructions, see [Installation](https://secrets-store-csi-driver.sigs.k8s.io/getting-started/installation.html) in the Kubernetes Secrets Store CSI Driver Book\. For information about installing Helm, see [Using Helm with Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/helm.html)\.
 
    ```
-   helm repo add secrets-store-csi-driver https://raw.githubusercontent.com/kubernetes-sigs/secrets-store-csi-driver/master/charts
+   helm repo add secrets-store-csi-driver https://kubernetes-sigs.github.io/secrets-store-csi-driver/charts
    helm install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
    ```
 

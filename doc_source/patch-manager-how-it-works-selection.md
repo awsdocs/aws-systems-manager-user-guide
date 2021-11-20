@@ -54,9 +54,9 @@ However, CentOS default repos aren't configured with an update notice\. This mea
 CentOS update notices are supported\. Repos with update notices can be downloaded after launch\.
 
 ------
-#### [ Debian Server ]
+#### [ Debian Server and Raspberry Pi OS ]
 
-On Debian Server, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
+On Debian Server and Raspberry Pi OS \(formerly Raspbian\), the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the instance\. These preconfigured repos are used to pull an updated list of available package upgrades\. For this, Systems Manager performs the equivalent of a `sudo apt-get update` command\. 
 
 Packages are then filtered from `debian-security codename` repos\. This means that on Debian Server 8, Patch Manager only identifies upgrades that are part of `debian-security jessie`\. On Debian Server 9, only upgrades that are part of `debian-security stretch` are identified\. On Debian Server 10, only upgrades that are part of `debian-security buster` are identified\.
 

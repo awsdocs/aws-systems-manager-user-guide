@@ -14,9 +14,9 @@ To run **Patch now**, you specify just two required settings:
 + Whether to scan for missing patches only, or to scan *and* install patches on your instances
 + Which instances to run the operation on
 
-When the **Patch now** operation runs, it uses the patch baseline that is currently set as the default for the operating system type of your instances\. This can be a predefined baseline, or the custom baseline you have set as the default\.
+When the **Patch now** operation runs, it determines which patch baseline to use in the same way one is selected for other patching operations\. If an instance is associated with a patch group, the patch baseline specified for that group is used\. If the instance isn't associated with a patch group, the operation uses the patch baseline that is currently set as the default for the operating system type of the instance\. This can be a predefined baseline, or the custom baseline you have set as the default\. For more information about patch baseline selection, see [About patch groups](sysman-patch-patchgroups.md)\. 
 
-Options you can specify include choosing when, or whether, to reboot instances after patching, specifying an Amazon Simple Storage Service \(Amazon S3\) bucket to store log data for the patching operation, and running Systems Manager documents \(SSM documents\) as lifecycle hooks during patching\.
+Options you can specify for **Patch now** include choosing when, or whether, to reboot instances after patching, specifying an Amazon Simple Storage Service \(Amazon S3\) bucket to store log data for the patching operation, and running Systems Manager documents \(SSM documents\) as lifecycle hooks during patching\.
 
 ### Concurrency and error thresholds for 'Patch now'<a name="patch-on-demand-concurrency"></a>
 
@@ -86,7 +86,7 @@ Use the following procedure to patch your instances on demand\.
 
 1. Use this step only if you chose **Patch only the target instances I specify** in the previous step\. In the **Target selection** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
 **Note**  
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.  
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.  
 If you choose to target a resource group, note that resource groups that are based on an AWS CloudFormation stack must still be tagged with the default `aws:cloudformation:stack-id` tag\. If it has been removed, Patch Manager might be unable to determine which instances belong to the resource group\.
 
 1. \(Optional\) For **Patching log storage**, if you want to create and save logs from this patching operation, select the S3 bucket for storing the logs\.

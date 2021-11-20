@@ -36,7 +36,13 @@ For best results, we recommend that you start sessions on Windows clients using 
    https://s3.amazonaws.com/session-manager-downloads/plugin/latest/windows/SessionManagerPluginSetup.exe
    ```
 
-1. Run the downloaded installer, and follow the on\-screen instructions\.
+   Alternatively, you can download a zipped version of the installer using the following URL\.
+
+   ```
+   https://s3.amazonaws.com/session-manager-downloads/plugin/latest/windows/SessionManagerPlugin.zip
+   ```
+
+1. Run the downloaded installer, and follow the on\-screen instructions\. If you downloaded the zipped version of the installer, you must unzip the installer first\.
 
    Leave the install location box blank to install the plugin to the default directory\.
    +  `C:\%PROGRAMFILES%\Amazon\SessionManagerPlugin\bin\` 
@@ -115,7 +121,7 @@ You can install the Session Manager plugin on macOS using the signed installer\.
 
    ```
    sudo installer -pkg session-manager-plugin.pkg -target /
-   ln -s /usr/local/sessionmanagerplugin/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
+   sudo ln -s /usr/local/sessionmanagerplugin/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
    ```
 
 1. Verify that the installation was successful\. For information, see [Verify the Session Manager plugin installation](#install-plugin-verify)\.
@@ -291,6 +297,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.2\.279\.0 |  October 27, 2021  | Enhancement: Zip packaging for Windows platform\. | 
 | 1\.2\.245\.0 |  August 19, 2021  | Enhancement: Upgrade aws\-sdk\-go to latest version \(v1\.40\.17\) to support single sign\-on \(SSO\)\. | 
 | 1\.2\.234\.0 |  July 26, 2021  | Bug fix: Handle session abruptly terminated scenario in interactive session type\. | 
 | 1\.2\.205\.0 |  June 10, 2021  | Enhancement: Added support for signed macOS installer\. | 

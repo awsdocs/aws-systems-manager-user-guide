@@ -300,7 +300,7 @@ sh_command_id=$(aws ssm send-command \
     --instance-ids "instance-ID" \
     --document-name "AWS-RunShellScript" \
     --comment "Demo run shell script on Linux Instances" \
-    --parameters '{"commands":["#!/usr/bin/python","print \"Hello world from python\""]}' \
+    --parameters '{"commands":["#!/usr/bin/python","print \"Hello World from python\""]}' \
     --output text \
     --query "Command.CommandId") sh -c 'aws ssm list-command-invocations \
     --command-id "$sh_command_id" \

@@ -68,11 +68,6 @@ These links are provided for informational purposes only, and shouldn't be consi
   Trey McElhattan demonstrates how to effectively use Parameter Store as part of a continuous delivery pipeline using AWS CodePipeline\. 
 
   *Published March 2017*
-+ [Managing Secrets for Amazon ECS Applications Using Parameter Store and IAM Roles for Tasks](http://aws.amazon.com/blogs/compute/managing-secrets-for-amazon-ecs-applications-using-parameter-store-and-iam-roles-for-tasks/)
-
-  By using Parameter Store and task AWS Identity and Access Management \(IAM\) roles, you can create a central secret management store and a well integrated access layer that allows applications to access only the keys they need, to restrict access on a container basis, and to further encrypt secrets with custom AWS Key Management Service \(AWS KMS\) keys\.
-
-  *Published January 2017*
 
 **Actions and Change**
 +  [Providing temporary instance permissions with AWS Systems Manager Automations](http://aws.amazon.com/blogs/mt/providing-temporary-instance-permissions-with-aws-systems-manager-automations/) 

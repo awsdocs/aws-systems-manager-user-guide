@@ -12,4 +12,4 @@ Before you create a maintenance window, you must configure access to Maintenance
 + [Create a maintenance window \(console\)](sysman-maintenance-create-mw.md)
 + [Assign targets to a maintenance window \(console\)](sysman-maintenance-assign-targets.md)
 + [Assign tasks to a maintenance window \(console\)](sysman-maintenance-assign-tasks.md)
-+ [Update or delete a maintenance window \(console\)](sysman-maintenance-update.md)
++ [Updating or deleting maintenance window resources \(console\)](sysman-maintenance-update.md)

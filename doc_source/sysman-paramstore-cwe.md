@@ -8,7 +8,7 @@ Parameter policies are available for parameters that use the advanced parameters
 The topics in this section also explain how to initiate other actions on a target for specific parameter events\. For example, you can run an AWS Lambda function to recreate a parameter automatically when it expires or is deleted\. You can set up a notification to invoke a Lambda function when your database password is updated\. The Lambda function can force your database connections to reset or reconnect with the new password\. EventBridge also supports running Run Command commands and Automation executions, and actions in many other AWS services\. Run Command and Automation are both capabilities of AWS Systems Manager\. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)*\.
 
 **Before You Begin**  
-Create any resources you need to specify the target action for the rule you create\. For example, if the rule you create is for sending a notification, first create an Amazon SNS topic\. For more information, see [Getting Started with Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/GettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
+Create any resources you need to specify the target action for the rule you create\. For example, if the rule you create is for sending a notification, first create an Amazon SNS topic\. For more information, see [Getting started with Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.htmlGettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **Topics**
 + [Configuring EventBridge for parameters](#cwe-parameter-changes)
@@ -94,7 +94,7 @@ This topic explains how to create an EventBridge rule that invokes a target base
 
 1. Expand **Configure input** and choose an option\. Then provide any other configuration details required by the target type you selected\.
 
-1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*\.
+1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Amazon EventBridge tags](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-tagging.html) in the *Amazon EventBridge User Guide*\.
 
 1. Choose **Create**\.
 
@@ -174,11 +174,11 @@ This topic explains how to create EventBridge rules that invoke targets based on
 
 1. Expand **Configure input** and choose an option\. Then provide any other configuration details required by the target type you selected\.
 
-1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*\.
+1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Amazon EventBridge tags](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-tagging.html) in the *Amazon EventBridge User Guide*\.
 
 1. Choose **Create**\.
 
 **Related Information**
 + \(Blog post\) [Use parameter labels for easy configuration update across environments](http://aws.amazon.com/blogs/mt/use-parameter-labels-for-easy-configuration-update-across-environments/)
-+ [Tutorial: Use EventBridge to Relay Events to AWS Systems Manager Run Command](https://docs.aws.amazon.com/eventbridge/latest/userguide/ec2-run-command.html) in the *Amazon EventBridge User Guide*
-+ [Tutorial: Set AWS Systems Manager Automation as an EventBridge Target](https://docs.aws.amazon.com/eventbridge/latest/userguide/ssm-automation-as-target.html) in the *Amazon EventBridge User Guide*
++ [Tutorial: Use EventBridge to relay events to AWS Systems Manager Run Command](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-ec2-run-command.html) in the *Amazon EventBridge User Guide*
++ [Tutorial: Set AWS Systems Manager Automation as an EventBridge target](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-ssm-automation-as-target.html) in the *Amazon EventBridge User Guide*

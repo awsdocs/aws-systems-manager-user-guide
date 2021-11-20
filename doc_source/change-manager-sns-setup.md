@@ -9,7 +9,7 @@ You can configure Change Manager, a capability of AWS Systems Manager, to send n
 
 ## Task 1: Create and subscribe to an Amazon SNS topic<a name="change-manager-sns-setup-create-topic"></a>
 
-First, you must create and subscribe to an Amazon SNS topic\. For more information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html) and [Subscribing an Endpoint to an Amazon SNS Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*\.
+First, you must create and subscribe to an Amazon SNS topic\. For more information, see [Creating a Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html) and [Subscribing to an Amazon SNS topic](https://docs.aws.amazon.com/sns/latest/dg/sns-tutorial-create-subscribe-endpoint-to-topic.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
 **Note**  
 To receive notifications, you must specify the Amazon Resource Name \(ARN\) of an Amazon SNS topic that is in the same AWS Region and AWS account as the delegated administrator account\. 
@@ -26,21 +26,28 @@ Use the following procedure to update the Amazon SNS access policy so that Syste
 
 1. Expand **Access policy**\.
 
-1. Add and update the following `Sid` block to the existing policy\.
+1. Add and update the following `Sid` block to the existing policy and replace each *user input placeholder* with your own information \.
 
    ```
    {
-         "Sid": "Allow Change Manager to publish to this topic",
-         "Effect": "Allow",
-         "Principal": {
+       "Sid": "Allow Change Manager to publish to this topic",
+       "Effect": "Allow",
+       "Principal": {
            "Service": "ssm.amazonaws.com"
-         },
-         "Action": "SNS:Publish",
-         "Resource": "arn:aws:sns:region:account-id:topic_name"
+       },
+       "Action": "sns:Publish",
+       "Resource": "arn:aws:sns:region:account-id:topic-name",
+       "Condition": {
+           "StringEquals": {
+               "aws:SourceAccount": [
+                   "account-id"
+               ]
+           }
+       }
    }
    ```
 
-   Enter this block after the existing `Sid` block, and replace *region*, *account\-id*, and *topic\_name* with the appropriate values for the topic you created\.
+   Enter this block after the existing `Sid` block, and replace *region*, *account\-id*, and *topic\-name* with the appropriate values for the topic you created\.
 
 1. Choose **Save changes**\.
 
@@ -65,18 +72,28 @@ If you turned on AWS Key Management Service \(AWS KMS\) server\-side encryption 
 
 1. Choose **Edit**\.
 
-1. Add the following `Sid` block to the existing policy\.
+1. Add the following `Sid` block to the existing policy and replace each *user input placeholder* with your own information \.
 
    ```
    {
-         "Sid": "Allow Change Manager to decrypt the key",
-         "Effect": "Allow",
-         "Principal": {
+       "Sid": "Allow Change Manager to decrypt the key",
+       "Effect": "Allow",
+       "Principal": {
            "Service": "ssm.amazonaws.com"
-         },
-         "Action": ["kms:Decrypt", "kms:GenerateDataKey*"],
-          "Resource": "arn:aws:kms:region:account-id:key/key_ID"
+       },
+       "Action": [
+           "kms:Decrypt",
+           "kms:GenerateDataKey*"
+       ],
+       "Resource": "arn:aws:kms:region:account-id:key/key-id",
+       "Condition": {
+           "StringEquals": {
+               "aws:SourceAccount": [
+                   "account-id"
+               ]
+           }
        }
+   }
    ```
 
    Enter this block after one of the existing `Sid` blocks\. 

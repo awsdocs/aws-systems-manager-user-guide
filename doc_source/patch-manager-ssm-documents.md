@@ -1,6 +1,6 @@
 # About SSM documents for patching instances<a name="patch-manager-ssm-documents"></a>
 
-This topic describes the eight Systems Manager documents \(SSM documents\) available to help you keep your managed instances patched with the latest security\-related updates\. 
+This topic describes the nine Systems Manager documents \(SSM documents\) available to help you keep your managed instances patched with the latest security\-related updates\. 
 
 We recommend using just five of these documents in your patching operations\. Together, these five SSM documents provide you with a full range of patching options using AWS Systems Manager\. Four of these documents were released later than the four legacy SSM documents they replace and represent expansions or consolidations of functionality\.
 

@@ -27,7 +27,7 @@ The Amazon Simple Storage Service \(Amazon S3\) bucket you want to send session 
 Type: String  
 Required: No  
 [s3KeyPrefix](#prefix)  
-The prefix to use when sending logs to the Amazon S3 bucket you specified in the `s3BucketName` input\. For more information about using a shared prefix with objects stored in Amazon S3, see [How do I use folders in an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html) in the *Amazon Simple Storage Service Console User Guide*\.  
+The prefix to use when sending logs to the Amazon S3 bucket you specified in the `s3BucketName` input\. For more information about using a shared prefix with objects stored in Amazon S3, see [How do I use folders in an S3 bucket?](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html) in the *Amazon Simple Storage Service User Guide*\.  
 Type: String  
 Required: No  
 [s3EncryptionEnabled](#s3Encrypt)  
@@ -62,6 +62,11 @@ Required: No
 The amount of time of inactivity you want to allow before a session ends\. This input is measured in minutes\.  
 Type: String  
 Valid values: 1\-60  
+Required: No  
+[maxSessionDuration](#maxDuration)  
+The maximum amount of time you want to allow before a session ends\. This input is measured in minutes\.  
+Type: String  
+Valid values: 1\-1440  
 Required: No  
 [shellProfile](#shell)  
 The preferences you specify per operating system to apply within sessions such as shell preferences, environment variables, working directories, and running multiple commands when a session is started\.  
@@ -114,6 +119,7 @@ inputs:
   runAsEnabled: true
   runAsDefaultUser: ''
   idleSessionTimeout: '20'
+  maxSessionDuration: '60'
   shellProfile:
     windows: ''
     linux: ''
@@ -138,6 +144,7 @@ inputs:
         "runAsEnabled": true,
         "runAsDefaultUser": "",
         "idleSessionTimeout": "20",
+        "maxSessionDuration": "60",
         "shellProfile": {
             "windows": "date",
             "linux": "pwd;ls"

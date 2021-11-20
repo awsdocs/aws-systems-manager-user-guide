@@ -10,7 +10,7 @@ You can configure and assign a CloudWatch alarm to a change template\. If any co
 
 For information about creating a Change Manager template, see [Working with change templates](change-templates.md)\.
 
-For information about creating CloudWatch alarms, see [Using CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*\.
+For information about creating CloudWatch alarms, see [Using CloudWatch Alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html) in the *Amazon CloudWatch User Guide*\.
 
 ## Audit Change Manager activity using CloudTrail<a name="change-manager-logging-auditing-cloudtrail"></a>
 

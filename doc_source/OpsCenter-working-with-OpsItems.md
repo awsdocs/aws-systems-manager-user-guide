@@ -5,7 +5,7 @@ This section describes how to configure the options available in an AWS Systems 
 **Topics**
 + [Working with related resources](#OpsCenter-working-with-OpsItems-related-resources)
 + [Viewing other OpsItems for a specific resource](#OpsCenter-working-other-OpsItems-for-a-resource)
-+ [Editing OpsItem details](#OpsCenter-working-with-OpsItems-editing-details)
++ [Editing OpsItems](#OpsCenter-working-with-OpsItems-editing-details)
 + [Working with similar and related OpsItems](#OpsCenter-working-with-OpsItems-similar)
 + [Working with operational data](#OpsCenter-working-operational-data)
 
@@ -56,11 +56,9 @@ To help you investigate issues and provide context for a problem, you can view a
 
 1. Expand **Other OpsItems for this resource**\.
 
-## Editing OpsItem details<a name="OpsCenter-working-with-OpsItems-editing-details"></a>
+## Editing OpsItems<a name="OpsCenter-working-with-OpsItems-editing-details"></a>
 
-The **OpsItem details** section includes information about the OpsItem, including the description, title, source, OpsItem ID, and the status, to name a few\.
-
-![\[Viewing details in the console about an OpsItem\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_3.png)
+The **OpsItem details** section includes information about an OpsItem, including the description, title, source, OpsItem ID, and the status, to name a few\. You can edit OpsItems individually or you can select multiple OpsItems and edit one of the following fields: **Status**, **Priority**, **Severity**, **Category**\. 
 
 For OpsItems that were created automatically, Amazon EventBridge populates the **Title**, **Source**, and **Description** fields\. You can edit the **Title** and the **Description** fields, but you can't edit the **Source** field\.
 
@@ -93,7 +91,7 @@ The Amazon SNS topic must exist in the same AWS Region as the OpsItem\. If they'
 
 1. In the navigation pane, choose **OpsCenter**\.
 
-1. Choose an OpsItem ID to open the details page\.
+1. Choose an OpsItem ID to open the details page or choose multiple OpsItems\. If you choose multiple OpsItems, you can only edit the status, priority, severity, or category\. If you edit multiple OpsItems, OpsCenter updates and saves your changes as soon as you choose the new status, priority, severity, or category\.
 
 1. In the **OpsItem details** section, choose **Edit**\.
 

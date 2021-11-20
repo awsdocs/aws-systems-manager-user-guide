@@ -5,6 +5,7 @@ Before you manually install AWS Systems Manager Agent \(SSM Agent\) on an Amazon
   + Amazon Linux
   + Amazon Linux 2
   + Amazon Linux 2 ECS\-Optimized Base AMIs
+  + SUSE Linux Enterprise Server \(SLES\) 12 and 15
   + Ubuntu Server 16\.04, 18\.04, and 20\.04  
 **Note**  
 SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\.

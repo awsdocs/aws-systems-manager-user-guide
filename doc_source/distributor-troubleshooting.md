@@ -7,6 +7,7 @@ The following information can help you troubleshoot problems that might occur wh
 + [Error: Failed to retrieve manifest: Could not find latest version of package](#distributor-tshoot-2)
 + [Error: Failed to retrieve manifest: Validation exception](#distributor-tshoot-3)
 + [Package isn't supported \(package is missing install action\)](#distributor-tshoot-4)
++ [Error: Failed to download manifest : Document with name does not exist](#distributor-tshoot-5)
 
 ## Wrong package with the same name is installed<a name="distributor-tshoot-1"></a>
 
@@ -54,3 +55,15 @@ Package is not supported (package is missing install action)
 **Cause:** The package directory structure is incorrect\.
 
 **Solution:** Don't zip a parent directory containing the software and required scripts\. Instead, create a `.zip` file of all the required contents directly in the absolute path\. To verify the `.zip` file was created correctly, unzip the target platform directory and review the directory structure\. For example, the install script absolute path should be `/ExamplePackage_targetPlatform/install.sh`\.
+
+## Error: Failed to download manifest : Document with name does not exist<a name="distributor-tshoot-5"></a>
+
+**Problem:** You received an error like the following\. 
+
+```
+Failed to download manifest - failed to retrieve package document description: InvalidDocument: Document with name filename does not exist.
+```
+
+**Cause:** Distributor can't find the package by the package name when sharing a Distributor package from another account\.
+
+**Solution:** When sharing a package from another account use the package Amazon Resource Name \(ARN\)\.

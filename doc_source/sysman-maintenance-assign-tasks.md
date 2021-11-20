@@ -1,6 +1,6 @@
 # Assign tasks to a maintenance window \(console\)<a name="sysman-maintenance-assign-tasks"></a>
 
-In this procedure, you add a task to a maintenance window\. Tasks are the actions performed on a resource when a maintenance window\. 
+In this procedure, you add a task to a maintenance window\. Tasks are the actions performed when a maintenance window runs\.
 
 The following four types of tasks can be added to a maintenance window:
 + AWS Systems Manager Run Command commands
@@ -28,6 +28,12 @@ The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to
 
 1. \(Optional\) For **Description**, enter a description\.
 
+1. For **New task invocation cutoff**, if you don't want any new task invocations to start after the maintenance window cutoff time is reached, choose **Enabled**\.
+
+   When this option is *not* enabled, the task continues running when the cutoff time is reached and starts new task invocations until completion\. 
+**Note**  
+The status for tasks that are not completed when you enable this option is `TIMED_OUT`\. 
+
 1. In the **Command document** list, choose the Systems Manager Command document \(SSM document\) or Automation runbook that defines the tasks to run\.
 
 1. For **Document version** \(for Automation tasks\), choose the document version to use\.
@@ -38,7 +44,7 @@ The IAM policy for Maintenance Windows requires that you add the prefix `SSM` to
    + **Selecting registered target groups**: Select one or more maintenance window targets you have registered with the current maintenance window\.
    + **Selecting unregistered targets**: Choose available resources one by one as targets for the task\.
 
-     If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+     If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
    + **Task target not required**: Targets for the task might already be specified in other functions for all but Run Command\-type tasks\.
 
      Specify one or more targets for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.

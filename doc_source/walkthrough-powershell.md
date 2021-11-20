@@ -226,7 +226,7 @@ Get-SSMCommandInvocation `
 
 ## Join an instance to a Domain using the `AWS-JoinDirectoryServiceDomain` JSON document<a name="walkthrough-powershell-domain-join"></a>
 
-Using Run Command, you can quickly join an instance to an AWS Directory Service domain\. Before executing this command, [create a directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/create_directory.html)\. We also recommend that you learn more about the AWS Directory Service\. For more information, see [What Is AWS Directory Service?](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
+Using Run Command, you can quickly join an instance to an AWS Directory Service domain\. Before executing this command, [create a directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_create_directory.html)\. We also recommend that you learn more about the AWS Directory Service\. For more information, see the [AWS Directory Service Administration Guide](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/)\.
 
 You can only join an instance to a domain\. You can't remove an instance from a domain\.
 
@@ -281,7 +281,7 @@ Get-SSMCommandInvocation `
 
 You can send Windows Server messages in the application, system, security, and Event Tracing for Windows \(ETW\) logs to Amazon CloudWatch Logs\. When you allow logging for the first time, Systems Manager sends all logs generated within one \(1\) minute from the time that you start uploading logs for the application, system, security, and ETW logs\. Logs that occurred before this time aren't included\. If you turn off logging and then later turn logging back on, Systems Manager sends logs from the time it left off\. For any custom log files and Internet Information Services \(IIS\) logs, Systems Manager reads the log files from the beginning\. In addition, Systems Manager can also send performance counter data to CloudWatch Logs\.
 
-If you previously turned on CloudWatch integration in EC2Config, the Systems Manager settings override any settings stored locally on the instance in the `C:\Program Files\Amazon\EC2ConfigService\Settings\AWS.EC2.Windows.CloudWatch.json` file\. For more information about using EC2Config to manage performance counters and logs on single instance, see [Sending Performance Counters to CloudWatch and Logs to CloudWatch Logs](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\.
+If you previously turned on CloudWatch integration in EC2Config, the Systems Manager settings override any settings stored locally on the instance in the `C:\Program Files\Amazon\EC2ConfigService\Settings\AWS.EC2.Windows.CloudWatch.json` file\. For more information about using EC2Config to manage performance counters and logs on single instance, see [Collecting metrics and logs from Amazon EC2 instances and on\-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*\.
 
 **View the description and available parameters**
 

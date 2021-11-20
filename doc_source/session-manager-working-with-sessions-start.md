@@ -17,7 +17,7 @@ You can use the AWS Systems Manager console to start a session with an instance 
 **Note**  
 Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 
-**To start a session \( Systems Manager console\)**
+**To start a session \(Systems Manager console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -28,6 +28,8 @@ Before you start a session, make sure that you have completed the setup steps fo
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Session Manager** in the navigation pane\.
 
 1. Choose **Start session**\.
+
+1. \(Optional\) Enter a reason for the session in the **Reason for session** field\.
 
 1. For **Target instances**, choose the option button to the left of the instance you want to connect to\.
 

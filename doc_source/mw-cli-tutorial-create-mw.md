@@ -12,7 +12,7 @@ For more information about working with the `--schedule` option, see [Reference:
 
 1. Open the AWS Command Line Interface \(AWS CLI\) and run the following command on your local machine to create a maintenance window that does the following:
    + Runs every five minutes for up to two hours \(as needed\)\.
-   + Prevents new tasks from starting within one hour of the end of the maintenance window execution\.
+   + Prevents new tasks from starting within one hour of the end of the maintenance window operation\.
    + Allows unassociated targets \(instances that you haven't registered with the maintenance window\)\.
    + Indicates through the use of custom tags that its creator intends to use it in a tutorial\.
 

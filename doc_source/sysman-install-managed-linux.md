@@ -1,11 +1,11 @@
-# Step 5: Install SSM Agent for a hybrid environment \(Linux\)<a name="sysman-install-managed-linux"></a>
+# Step 4: Install SSM Agent for a hybrid environment \(Linux\)<a name="sysman-install-managed-linux"></a>
 
 This topic describes how to install AWS Systems Manager SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the next step, [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Linux, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
 
-Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation earlier in [Step 4: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
+Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation earlier in [Step 3: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
 
 The URLs in the following scripts let you download SSM Agent from *any* AWS Region\. If you want to download the agent from a *specific* Region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
 
@@ -34,6 +34,9 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 + **Intel 64\-bit \(x86\_64\)**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb`
++ **ARM 64\-bit \(arm64\)**
+
+  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb`
 + **Intel 32\-bit \(x86\)**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_386/amazon-ssm-agent.deb`
@@ -78,6 +81,7 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 Note the following important details:  
 `sudo` isn't necessary if you're a root user\.
 Each command block specifies `sudo -E amazon-ssm-agent`\. The `-E` is only necessary if you set an HTTP or HTTPS proxy environment variable\.
+Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 

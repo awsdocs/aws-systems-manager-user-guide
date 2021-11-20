@@ -19,16 +19,16 @@ A custom service role isn't required if you choose to use a Systems Manager serv
 
    ```
    {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Principal": {
-           "Service": "ssm.amazonaws.com"
-         },
-         "Action": "sts:AssumeRole"
-       }
-     ]
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Principal": {
+                   "Service": "ssm.amazonaws.com"
+               },
+               "Action": "sts:AssumeRole"
+           }
+       ]
    }
    ```
 
@@ -106,7 +106,7 @@ Make a note of the `RoleName` and the `Arn` values\. You specify these when you 
 
 ## Task 2: Configure permissions for users who are allowed to register maintenance window tasks \(AWS CLI\)<a name="sysman-mw-passrole-cli"></a>
 
-When you register a task with a maintenance window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service assumes when it runs tasks on your behalf\. Before that, to register the task itself, assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the maintenance window, the role that should be used when running tasks\. For information, see [Granting a User Permissions to Pass a Role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
+When you register a task with a maintenance window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service assumes when it runs tasks on your behalf\. Before that, to register the task itself, assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the maintenance window, the role that should be used when running tasks\. For information, see [Granting a user permissions to pass a role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 
 **To configure permissions for users who are allowed to register maintenance window tasks \(AWS CLI\)**
 
@@ -119,7 +119,7 @@ When you register a task with a maintenance window, you specify either a custom 
            {
                "Effect": "Allow",
                "Action": "iam:PassRole",
-               "Resource": "custom-role-arn"
+               "Resource": "arn:aws:iam::account-id:role/my-maintenance-window-role"
            },
            {
                "Effect": "Allow",
@@ -135,9 +135,9 @@ When you register a task with a maintenance window, you specify either a custom 
    }
    ```
 
-   Replace *custom\-role\-arn* with the Amazon Resource Name \(ARN\) of the custom maintenance window role you created earlier, such as `arn:aws:iam::123456789012:role/my-maintenance-window-role`\.
+   Replace *my\-maintenance\-window\-role* with the name of the custom maintenance window role you created earlier\.
 
-   Replace *account\-id* in the two `iam:ListRoles` permissions with the ID of your AWS account\. Adding this permission for the resource `arn:aws:iam::account-id:role/` allows users in the group to view and choose from customer roles in the console when they create a maintenance window task\. Adding this permission for `arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/` allows users in the group to choose the Systems Manager service\-linked role in the console when they create a maintenance window task\. 
+   Replace *account\-id* with the ID of your AWS account\. Adding this permission for the resource `arn:aws:iam::account-id:role/` allows users in the group to view and choose from customer roles in the console when they create a maintenance window task\. Adding this permission for `arn:aws:iam::account-id:role/aws-service-role/ssm.amazonaws.com/` allows users in the group to choose the Systems Manager service\-linked role in the console when they create a maintenance window task\. 
 
 1. Open the AWS CLI\.
 

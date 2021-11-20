@@ -3,7 +3,7 @@
 
 |  | 
 | --- |
-| Amazon EventBridge is the preferred way to manage your events\. CloudWatch Events and EventBridge are the same underlying service and API, but EventBridge provides more features\. Changes you make in either CloudWatch or EventBridge are reflected in each console\. For more information, see the [https://docs.aws.amazon.com/eventbridge/latest/userguide/](https://docs.aws.amazon.com/eventbridge/latest/userguide/)\. | 
+| Amazon EventBridge is the preferred way to manage your events\. CloudWatch Events and EventBridge are the same underlying service and API, but EventBridge provides more features\. Changes you make in either CloudWatch or EventBridge are reflected in each console\. For more information, see the [https://docs.aws.amazon.com/eventbridge/](https://docs.aws.amazon.com/eventbridge/)\. | 
 
 Using Amazon EventBridge, you can create *rules* that match incoming *events* and route them to *targets* for processing\. 
 
@@ -12,7 +12,7 @@ An event indicates a change in an environment in your own applications, software
 For information about creating EventBridge rules, see the following topics:
 + [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)
 + [Amazon EventBridge event examples for Systems Manager](monitoring-systems-manager-event-examples.md)
-+ [Getting Started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html) in the *Amazon EventBridge User Guide*
++ [Getting started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-get-started.html) in the *Amazon EventBridge User Guide*
 
 The remainder of this topic describes the types of Systems Manager events that you can include in your EventBridge rules\.
 
@@ -76,7 +76,7 @@ The remainder of this topic describes the types of Systems Manager events that y
 | Maintenance Window Target Registration Notification | The status of one or more maintenance window targets changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 | Maintenance Window Execution State\-change Notification | The overall status of a maintenance window changes while it's running\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 | Maintenance Window Task Execution State\-change Notification | The state of a task in a maintenance window changes while it's running\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
-| Maintenance Window Task Target Invocation State\-change Notification | The state of a maintenance window task on a specific target changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
+| Maintenance Window Task Target Invocation State\-change Notification |  The state of a maintenance window task on a specific target changes\. This notification is fully supported only for Run Command tasks\. For this type of task, you can add one or more of the following state changes to an event rule: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) For Automation, AWS Lambda, and AWS Step Functions tasks, EventBridge reports only the states `IN_PROGRESS` and `COMPLETE`\. `COMPLETE` is reported whether the task is successful or not\.  | 
 | Maintenance Window Task Registration Notification | The state of one or more maintenance window tasks changes\. You can add one or more of the following state changes to an event rule:[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/reference-eventbridge-events.html) | 
 
 ## Event type: Parameter Store<a name="event-type-parameter-store"></a>

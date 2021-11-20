@@ -1,6 +1,6 @@
 # Using targets and rate controls to send commands to a fleet<a name="send-commands-multiple"></a>
 
-You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Specify instance tags** option in the **Run a command** page in the console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon Elastic Compute Cloud \(Amazon EC2\) tags that you specified for your instances\. When you run the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide* \(content applies to Windows Server and Linux instances\)\. You can also send commands to instances that belong to an AWS resource group\. For more information about resource groups, see [What are Resource Groups?](https://docs.aws.amazon.com/ARG/latest/userguide/) in the *AWS Resource Groups User Guide*\. 
+You can send commands to tens, hundreds, or thousands of instances by using the `targets` parameter \(the **Specify instance tags** option in the **Run a command** page in the console\)\. The `targets` parameter accepts a `Key,Value` combination based on Amazon Elastic Compute Cloud \(Amazon EC2\) tags that you specified for your instances\. When you run the command, the system locates and attempts to run the command on all instances that match the specified tags\. For more information about Amazon EC2 tags, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances* \(content applies to Windows Server and Linux instances\)\. You can also send commands to instances that belong to an AWS resource group\. For more information about resource groups, see [What are resource groups?](https://docs.aws.amazon.com/ARG/latest/userguide/resource-groups.html) in the *AWS Resource Groups User Guide*\. 
 
 You can also use the `targets` parameter to target a list of specific instance IDs, as described in the next section\.
 
@@ -45,7 +45,7 @@ aws ssm send-command ^
 You can specify a maximum of one resource group name per command\. When you create a resource group, we recommend including `AWS::SSM:ManagedInstance` and `AWS::EC2::Instance` as resource types in your grouping criteria\. 
 
 **Note**  
-In order to send commands that target a resource group, you must have been granted AWS Identity and Access Management \(IAM\) permissions to list, or view, the resources that belong to that group\. For more information, see [Set Up Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#rg-permissions) in the *AWS Resource Groups User Guide*\. 
+In order to send commands that target a resource group, you must have been granted AWS Identity and Access Management \(IAM\) permissions to list, or view, the resources that belong to that group\. For more information, see [Set up permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#gettingstarted-prereqs-permissions) in the *AWS Resource Groups User Guide*\. 
 
 ------
 #### [ Linux & macOS ]
@@ -74,7 +74,7 @@ aws ssm send-command ^
 You can specify a maximum of five resource group types per command\. When you create a resource group, we recommend including `AWS::SSM:ManagedInstance` and `AWS::EC2::Instance` as resource types in your grouping criteria\.
 
 **Note**  
-In order to send commands that target a resource group, you must have been granted IAM permissions to list, or view, the resources that belong to that group\. For more information, see [Set Up Permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#rg-permissions) in the *AWS Resource Groups User Guide*\. 
+In order to send commands that target a resource group, you must have been granted IAM permissions to list, or view, the resources that belong to that group\. For more information, see [Set up permissions](https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-prereqs.html#gettingstarted-prereqs-permissions) in the *AWS Resource Groups User Guide*\. 
 
 ------
 #### [ Linux & macOS ]

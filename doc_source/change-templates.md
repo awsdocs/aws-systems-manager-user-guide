@@ -13,3 +13,4 @@ To create a change template, you can use the **Builder** option in the **Create 
 + [Try out the AWS managed `Hello World` change template](change-templates-aws-managed.md)
 + [Creating change templates](change-templates-create.md)
 + [Reviewing and approving or rejecting change templates](change-templates-review.md)
++ [Deleting change templates](change-templates-delete.md)

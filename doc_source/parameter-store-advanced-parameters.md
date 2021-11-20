@@ -2,7 +2,7 @@
 
 Parameter Store, a capability of AWS Systems Manager, includes *standard parameters * and *advanced parameters*\. You individually configure parameters to use either the standard\-parameter tier \(the default tier\) or the advanced\-parameter tier\. 
 
-You can change a standard parameter to an advanced parameter at any time, but you can’t revert an advanced parameter to a standard parameter\. This is because reverting an advanced parameter to a standard parameter would cause the system would truncate the size of the parameter from 8 KB to 4 KB, resulting in data loss\. Reverting would also remove any policies attached to the parameter\. Also, advanced parameters use a different form of encryption than standard parameters\. For more information, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html) in the *AWS Key Management Service Developer Guide*\.
+You can change a standard parameter to an advanced parameter at any time, but you can’t revert an advanced parameter to a standard parameter\. This is because reverting an advanced parameter to a standard parameter would cause the system would truncate the size of the parameter from 8 KB to 4 KB, resulting in data loss\. Reverting would also remove any policies attached to the parameter\. Also, advanced parameters use a different form of encryption than standard parameters\. For more information, see [How AWS Systems Manager Parameter Store uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html) in the *AWS Key Management Service Developer Guide*\.
 
 If you no longer need an advanced parameter, or if you no longer want to incur charges for an advanced parameter, delete it and recreate it as a new standard parameter\. 
 
@@ -16,7 +16,7 @@ The following table describes the differences between the tiers\.
 |  Total number of parameters allowed \(per AWS account and AWS Region\)  |  10,000  |  100,000  | 
 |  Maximum size of a parameter value  |  4 KB  |  8 KB  | 
 |  Parameter policies available  |  No  |  Yes For more information, see [Assigning parameter policies](parameter-store-policies.md)\.  | 
-|  Cost  |  No additional charge  |  Charges apply For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.  | 
+|  Cost  |  No additional charge  |  Charges apply For more information, see [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\.  | 
 
 **Topics**
 + [Specifying a default parameter tier](#ps-default-tier)
@@ -66,8 +66,8 @@ The following are reasons you might choose Intelligent\-Tiering as the default t
 **Automatic upgrade to the advanced\-parameter tier** – When you make a change to your code that requires upgrading a standard parameter to an advanced parameter, Intelligent\-Tiering handles the conversion for you\. You don't need to change your code to handle the upgrade\.
 
 Here are some examples of automatic upgrades:
-+ Your AWS CloudFormation templates provision numerous parameters when they're run\. When this process causes you to reach the 10,000 parameter limit in the standard\-parameter tier, Intelligent\-Tiering automatically upgrades you to the advanced\-parameter tier, and your AWS CloudFormation processes aren't interrupted\.
-+ You store a certificate value in a parameter, rotate the certificate value regularly, and the content is less than the 4 KB limit of the standard\-parameter tier\. If a replacement certificate value exceeds 4 KB, Intelligent\-Tiering automatically upgrades the parameter to the advanced\-parameter tier\.
++ Your AWS CloudFormation templates provision numerous parameters when they're run\. When this process causes you to reach the 10,000 parameter quota in the standard\-parameter tier, Intelligent\-Tiering automatically upgrades you to the advanced\-parameter tier, and your AWS CloudFormation processes aren't interrupted\.
++ You store a certificate value in a parameter, rotate the certificate value regularly, and the content is less than the 4 KB quota of the standard\-parameter tier\. If a replacement certificate value exceeds 4 KB, Intelligent\-Tiering automatically upgrades the parameter to the advanced\-parameter tier\.
 + You want to associate numerous existing standard parameters to a parameter policy, which requires the advanced\-parameter tier\. Instead of your having to include the option `--tier Advanced` in all the calls to update the parameters, Intelligent\-Tiering automatically upgrades the parameters to the advanced\-parameter tier\. The Intelligent\-Tiering option upgrades parameters from standard to advanced whenever criteria for the advanced\-parameter tier are introduced\.
 
 Options that require an advanced parameter include the following:
@@ -78,7 +78,7 @@ Options that require an advanced parameter include the following:
 **Default Tier Options**  
 The tier options you can specify as the default include the following\.
 + **Standard** – The standard\-parameter tier is the default tier when you begin to use Parameter Store\. Using the standard\-parameter tier, you can create 10,000 parameters for each AWS Region in an AWS account\. The content size of each parameter can equal a maximum of 4 KB\. Standard parameters don't support parameter policies\. There is no additional charge to use the standard\-parameter tier\. Choosing **Standard** as the default tier means that Parameter Store always attempts to create a standard parameter for requests that don't specify a tier\. 
-+ **Advanced** – Use the advanced\-parameter tier to create a maximum of 100,000 parameters for each AWS Region in an AWS account\. The content size of each parameter can equal a maximum of 8 KB\. Advanced parameters support parameter policies\. There is a charge to use the advanced\-parameter tier\. For more information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\. Choosing **Advanced** as the default tier means that Parameter Store always attempts to create an advanced parameter for requests that don't specify a tier\.
++ **Advanced** – Use the advanced\-parameter tier to create a maximum of 100,000 parameters for each AWS Region in an AWS account\. The content size of each parameter can equal a maximum of 8 KB\. Advanced parameters support parameter policies\. There is a charge to use the advanced\-parameter tier\. For more information, see [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\. Choosing **Advanced** as the default tier means that Parameter Store always attempts to create an advanced parameter for requests that don't specify a tier\.
 **Note**  
 When you choose the advanced\-parameter tier, explicitly authorize AWS to charge your account for any advanced parameters you create\.
 + **Intelligent\-Tiering **– With the Intelligent\-Tiering option, Parameter Store determines whether to use the standard\-parameter tier or advanced\-parameter tier based on the content of the request\. For example, if you run a command to create a parameter with content under 4 KB, and there are fewer than 10,000 parameters in the current AWS Region in your AWS account, and you don't specify a parameter policy, a standard parameter is created\. If you run a command to create a parameter with more than 4 KB of content, you already have more than 10,000 parameters in the current AWS Region in your AWS account, or you specify a parameter policy, an advanced parameter is created\. 
@@ -165,7 +165,7 @@ Administrators can specify read\-only permission by assigning the following inli
 }
 ```
 
-For more information about creating and editing IAM policies, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
+For more information about creating and editing IAM policies, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
 
 ### Specifying or changing the Parameter Store default tier \(console\)<a name="parameter-store-tier-changing"></a>
 

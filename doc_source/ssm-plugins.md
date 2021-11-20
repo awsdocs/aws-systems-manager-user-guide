@@ -33,7 +33,7 @@ The following document plugins are supported on Amazon Elastic Compute Cloud \(A
 
 ## Shared inputs<a name="shared-inputs"></a>
 
-All plugins can use the following inputs:
+With SSM Agent version 3\.0\.502 and later only, all plugins can use the following inputs:
 
 **finallyStep**  
 The last step you want the document to run\. If this input is defined for a step, it takes precedence over an `exit` value specified in the `onFailure` or `onSuccess` inputs\. In order for a step with this input to run as expected, the step must be the last one defined in the `mainSteps` of your document\.  
@@ -260,7 +260,7 @@ Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs a
 This plugin has been deprecated\. The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
 [Sending instance logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
 [Migrate Windows Server instance log collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate)
-[Collect metrics from Amazon Elastic Compute Cloud instances and on\-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*
+[Collecting metrics and logs from Amazon EC2 instances and on\-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*
 
 You can export and monitor the following data types:
 

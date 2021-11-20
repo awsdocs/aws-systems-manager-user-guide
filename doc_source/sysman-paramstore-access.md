@@ -139,7 +139,7 @@ aws kms describe-key --key-id alias/aws/ssm
 The following example allows instances to get a parameter value only for parameters that begin with `prod-`\. If the parameter is a `SecureString` parameter, then the instance decrypts the string using AWS KMS\.
 
 **Note**  
-Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
+Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting up AWS Systems Manager for EC2 instances](systems-manager-setting-up-ec2.md)\.
 
 ```
 {
@@ -218,10 +218,10 @@ You can locate the Amazon Resource Name \(ARN\) of the default key in the AWS KM
             "Effect": "Deny",
             "Action": [
                 "kms:Decrypt",
-                "kms:GenerateDataKey "
+                "kms:GenerateDataKey"
             ],
             "Resource": [
-                "default-key-ARN"
+                "arn:aws:kms:us-east-2:111122223333:key/abcd1234-ab12-cd34-ef56-abcdeEXAMPLE"
             ]
         }
     ]
@@ -231,6 +231,6 @@ You can locate the Amazon Resource Name \(ARN\) of the default key in the AWS KM
 If you require fine\-grained access control over the `SecureString` parameters in your account, you should use a customer managed key to protect and restrict access to these parameters\. We also recommend using AWS CloudTrail to monitor `SecureString` parameter activities\.
 
 For more information, see the following topics:
-+ [Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*
++ [Policy evaluation logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) in the *IAM User Guide*
 + [Using key policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*
-+ [Viewing Events with CloudTrail Event History](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*
++ [Viewing events with CloudTrail Event history](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html) in the *AWS CloudTrail User Guide*

@@ -12,7 +12,7 @@ See [Systems Manager service endpoints](https://docs.aws.amazon.com/general/late
 See [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
  **API Reference**  
-See [AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)\.
+See *[AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)*\.
 
  **AWS CLI Command Reference**  
 See [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
@@ -24,7 +24,7 @@ See [AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Referenc
 See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 
  **Ask a Question**  
-[AWS Systems Manager Developer Forum](https://forums.aws.amazon.com/forum.jspa?forumID=185)
+[AWS Systems Manager Developer Forum](http://forums.aws.amazon.com/forum.jspa?forumID=185)
 
  **AWS News Blog**  
 [Management Tools](http://aws.amazon.com/blogs/mt/)
@@ -32,5 +32,5 @@ See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 **Topics**
 + [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)
 + [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)
-+ [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)
++ [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md)
 + [Reference: Creating formatted date and time strings for Systems Manager](systems-manager-datetime-strings.md)

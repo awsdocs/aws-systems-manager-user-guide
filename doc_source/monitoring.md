@@ -12,7 +12,7 @@ After you have defined your monitoring goals and have created your monitoring pl
 
 For example, you can monitor the success or failure of operations such as Automation workflows, the application of patch baselines, maintenance window events, and configuration compliance\. Automation is a capability of AWS Systems Manager\.
 
-You can also monitor CPU utilization, disk I/O, and network utilization of your managed instances\. When performance falls outside your established baseline, you might need to reconfigure or optimize the instance to reduce CPU utilization, improve disk I/O, or reduce network traffic\. For more information about monitoring EC2 instances, see [Monitoring Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html) in the *Amazon EC2 User Guide for Linux Instances*\.
+You can also monitor CPU utilization, disk I/O, and network utilization of your managed instances\. When performance falls outside your established baseline, you might need to reconfigure or optimize the instance to reduce CPU utilization, improve disk I/O, or reduce network traffic\. For more information about monitoring EC2 instances, see [Monitor Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring_ec2.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 **Topics**
 + [Monitoring tools](#monitoring-tools)

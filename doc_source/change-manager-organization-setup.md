@@ -4,7 +4,7 @@ The tasks in this topic apply if you're using Change Manager, a capability of AW
 
 Perform the tasks in this section in an AWS account that is serving as the *management account* in Organizations\. For information about the management account and other Organizations concepts, see [AWS Organizations terminology and concepts](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html)\.
 
-If you need to turn on Organizations and specify your account as the management account before proceeding, see [Creating and managing an organization](url-ao-user;orgs_manage_org.html) in the *AWS Organizations User Guide*\. 
+If you need to turn on Organizations and specify your account as the management account before proceeding, see [Creating and managing an organization](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org.html) in the *AWS Organizations User Guide*\. 
 
 **Note**  
 This setup process can't be performed in the following AWS Regions:  
@@ -61,6 +61,10 @@ You repeat this task for each job function you want to create for your organizat
 
 1. Choose **Create**\.
 
+   \-or\-
+
+   If the **Quick Setup** start page opens first, choose **Get started**, and then choose **Create**\.
+
 1. Choose **Change Manager**, and then choose **Next**\.
 
 1. For **Delegated administrator account**, enter the ID of the AWS account you want to use for managing change templates, change requests, and runbook workflows in Change Manager\. 
@@ -94,7 +98,7 @@ Granting users full administrative permissions should be done sparingly, and onl
 We recommend that you use the IAM policy editor to construct your policy and then paste the policy JSON into the **Permissions policy** field\.
 
 **Sample policy: DynamoDB database management**  
-For example, you might begin with policy content that provides permissions for working with the Systems Manager documents \(SSM documents\) the job function needs access to\. Here is a sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account 123456789012, in the US East \(Ohio\) Region \(`us-east-2`\)\. 
+For example, you might begin with policy content that provides permissions for working with the Systems Manager documents \(SSM documents\) the job function needs access to\. Here is a sample policy content that grants access to all the AWS managed Automation runbooks related to DynamoDB databases and two change templates that have been created in the sample AWS account `123456789012`, in the US East \(Ohio\) Region \(`us-east-2`\)\. 
 
    The policy also includes permission for the [StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html) operation, which is required for creating a change request in Change Calendar\. 
 **Note**  
@@ -142,7 +146,7 @@ This example isn't comprehensive\. Additional permissions might be needed for wo
    }
    ```
 
-   For more information about IAM policies, see [Access management for AWS Config resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) and [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide\.*
+   For more information about IAM policies, see [Access management for AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html) and [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide\.*
 
 1. In the **Targets** section, choose whether to grant permissions for the job function you're creating to your entire organization or only some of your organizational units\.
 

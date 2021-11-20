@@ -31,7 +31,7 @@ The **Select a patch group** list displays only those patch groups that are atta
 Alternatively, to specify an existing patch group that isn't registered with the patch baseline, choose **Enter instance tag**, enter **Patch Group** as the tag key and the patch group's name as the tag value\.
    + **Select instances manually**: Select the check box next to the name of each instance you want to patch\.
 **Note**  
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting Amazon EC2 managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. In the **Patching schedule** section, choose one of the following:
    + **Select an existing maintenance window**: From the list, select a maintenance window you have already created, and then continue to Step 7\. 
@@ -60,4 +60,4 @@ For any target instances you selected that aren't part of a patch group, Patch M
 
 1. Choose **Configure patching**\.
 
-If you created a new maintenance window for this patching configuration, you can add to it or make patching configuration changes in the **Maintenance Windows** area of Systems Manager\. For more information, see [Update or delete a maintenance window \(console\)](sysman-maintenance-update.md)\.
+If you created a new maintenance window for this patching configuration, you can add to it or make patching configuration changes in the **Maintenance Windows** area of Systems Manager\. For more information, see [Updating or deleting maintenance window resources \(console\)](sysman-maintenance-update.md)\.

@@ -53,11 +53,11 @@ On Windows Server, SSM Agent handles setting a new password for the `ssm-user` a
 Starting with SSM Agent version 2\.3\.612\.0, the `ssm-user` account isn't created automatically on Windows Server machines that are being used as domain controllers\. To use Session Manager on a Windows Server domain controller, create the `ssm-user` account manually if it isn't already present, and assign Domain Administrator permissions to the user\.
 
 **Important**  
-In order for the ssm\-user account to be created, the instance profile attached to the instance must provide the necessary permissions\. For information, see [Verify or create an IAM instance profile with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
+In order for the ssm\-user account to be created, the instance profile attached to the instance must provide the necessary permissions\. For information, see [Verify or create an IAM role with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
 
 ## SSM Agent and the Instance Metadata Service \(IMDS\)<a name="imds"></a>
 
-Systems Manager relies on EC2 instance metadata to function correctly\. Systems Manager can access instance metadata using either version 1 or version 2 of the Instance Metadata Service \(IMDSv1 and IMDSv2\)\. For more information, see [Instance Metadata and User Data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide for Linux Instances*\.
+Systems Manager relies on EC2 instance metadata to function correctly\. Systems Manager can access instance metadata using either version 1 or version 2 of the Instance Metadata Service \(IMDSv1 and IMDSv2\)\. Your instance must be able to access IPv4 address of the instance metadata service: 169\.254\.169\.254\. For more information, see [Instance metadata and user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 ## Keeping SSM Agent up\-to\-date<a name="updating"></a>
 
@@ -134,7 +134,8 @@ SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(
 + Amazon Linux
 + Amazon Linux 2
 + Amazon Linux 2 ECS\-Optimized Base AMIs
-+ macOS 10\.14\.x \(Mojave\) and 10\.15\.x \(Catalina\)
++ macOS 10\.14\.x \(Mojave\), 10\.15\.x \(Catalina\), and 11\.x \(Big Sur\)
++ SUSE Linux Enterprise Server \(SLES\) 12 and 15
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019

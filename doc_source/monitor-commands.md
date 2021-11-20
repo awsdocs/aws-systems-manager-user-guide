@@ -2,7 +2,7 @@
 
 Run Command, a capability of AWS Systems Manager, reports detailed status information about the different states a command experiences during processing and for each instance that processed the command\. You can monitor command statuses using the following methods\.
 + Choose the **Refresh** icon on the **Run Command** page in the Amazon Elastic Compute Cloud \(Amazon EC2\) console\.
-+ Call [list\-commands](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-commands.html) or [list\-command\-invocations](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-command-invocations.html.html) using the AWS Command Line Interface \(AWS CLI\)\. Or call [Get\-SSMCommand](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMCommand.html) or [Get\-SSMCommandInvocation](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMCommandInvocation.html) using AWS Tools for Windows PowerShell\.
++ Call [list\-commands](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-commands.html) or [list\-command\-invocations](https://docs.aws.amazon.com/cli/latest/reference/ssm/list-command-invocations.html) using the AWS Command Line Interface \(AWS CLI\)\. Or call [Get\-SSMCommand](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMCommand.html) or [Get\-SSMCommandInvocation](https://docs.aws.amazon.com/powershell/latest/reference/items/Get-SSMCommandInvocation.html) using AWS Tools for Windows PowerShell\.
 + Configure Amazon EventBridge to respond to state or status changes\.
 + Configure Amazon Simple Notification Service \(Amazon SNS\) to send notifications for all status changes or specific statuses such as Failed or TimedOut\.
 
@@ -49,7 +49,7 @@ If you run commands to large numbers of instances using the `max-concurrency` or
 | Failed |  The command wasn't successful on the instance\. The value of `max-errors` or more command invocations shows a status of `Failed`\. This is a terminal state\.  | 
 | Incomplete | The command was attempted on all instances and one or more of the invocations doesn't have a value of Success\. However, not enough invocations failed for the status to be Failed\. This is a terminal state\. | 
 | Canceled | The command was canceled before it was completed\. This is a terminal state\. | 
-| Rate Exceeded | The number of instances targeted by the command exceeded the account limit for pending invocations\. The system has canceled the command before executing it on any instance\. This is a terminal state\. | 
+| Rate Exceeded | The number of instances targeted by the command exceeded the account quota for pending invocations\. The system has canceled the command before executing it on any instance\. This is a terminal state\. | 
 | Access Denied | The IAM user or role initiating the command doesn't have access to the targeted resource group\. AccessDenied doesn't count against the parent command’s max\-errors limit, but does contribute to whether the parent command status is Success or Failed\. \(For example, if all invocations in a command have the status AccessDenied, then the command status returned is Failed\. However, if a command has 5 invocations, 4 of which return the status AccessDenied and 1 of which returns the status Success, then the parent command's status is Success\.\) This is a terminal state\. | 
 | No Instances In Tag | The tag key\-pair value or resource group targeted by the command doesn't match any managed instances\. This is a terminal state\. | 
 
