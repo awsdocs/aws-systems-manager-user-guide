@@ -121,7 +121,7 @@ Fleet Manager uses Session Manager, a capability of AWS Systems Manager, to view
 
 1. In the **Tools** menu, choose **File system**\.
 
-1. To delete a file, select the **File name** of the directory that contains the file you want to delete\. To delete a directory, choose the button next to the directory that you want to delete and then proceed to step 8\.
+1. To delete a file, select the **File name** of the directory that contains the file you want to delete\. To delete a directory, choose the button next to the directory that you want to delete and then proceed to step 7\.
 
 1. Choose the button next to the file whose content you want to delete\.
 

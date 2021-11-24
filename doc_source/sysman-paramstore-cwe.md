@@ -92,7 +92,7 @@ This topic explains how to create an EventBridge rule that invokes a target base
 
 1. For **Select targets**, choose a target type and a supported resource\. For example, if you choose **SNS topic**, make a selection for **Topic**\. If you choose **CodePipeline**, make a selection for **Pipeline ARN**\.
 
-1. Expand **Configure input** and choose an option\. Then provide any other configuration details required by the target type you selected\.
+1. Expand any collapsed sections to choose additional options\. Collapsible sections vary by target type and include such groups as **Configure input**, **Retry policy and dead\-letter queue**, and **Compute options**, among others\. Then provide any other configuration details required by the target type you selected\.
 
 1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Amazon EventBridge tags](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-tagging.html) in the *Amazon EventBridge User Guide*\.
 
@@ -172,7 +172,7 @@ This topic explains how to create EventBridge rules that invoke targets based on
 
 1. For **Select targets**, choose a target type and a supported resource\. For example, if you choose **SNS topic**, make a selection for **Topic**\. If you choose **CodePipeline**, make a selection for **Pipeline ARN**\.
 
-1. Expand **Configure input** and choose an option\. Then provide any other configuration details required by the target type you selected\.
+1. Expand any collapsed sections to choose additional options\. Collapsible sections vary by target type and include such groups as **Configure input**, **Retry policy and dead\-letter queue**, and **Compute options**, among others\. Then provide any other configuration details required by the target type you selected\.
 
 1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Amazon EventBridge tags](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-tagging.html) in the *Amazon EventBridge User Guide*\.
 

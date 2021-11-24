@@ -5,6 +5,9 @@ Use the information in this topic to help you prepare to patch applications on W
 **Microsoft application patching**  
 Patching support for applications on Windows Server managed instances is limited to applications released by Microsoft\.
 
+**Note**  
+In some cases, Microsoft releases patches for applications that might not specify explicitly an updated date and time\. In these cases, an updated date and time of `01/01/1970` is supplied by default\.
+
 **Patch baselines to patch applications released by Microsoft**  
 For Windows Server, three predefined patch baselines are provided\. The patch baselines `AWS-DefaultPatchBaseline` and `AWS-WindowsPredefinedPatchBaseline-OS` support only operating system updates on the Windows operating system itself\. `AWS-DefaultPatchBaseline` is used as the default patch baseline for Windows Server instances unless you specify a different patch baseline\. The configuration settings in these two patch baselines are the same\. The newer of the two, `AWS-WindowsPredefinedPatchBaseline-OS`, was created to distinguish it from the third predefined patch baseline for Windows Server\. That patch baseline, `AWS-WindowsPredefinedPatchBaseline-OS-Applications`, can be used to apply patches to both the Windows Server operating system and supported applications released by Microsoft\.
 

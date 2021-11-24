@@ -26,7 +26,7 @@ You can use the AWS Systems Manager console to view details about the sessions i
 
 1. In the navigation pane, choose **Session Manager**\.
 
-1. Choose **Start session**\.
+1. Choose **Configure Preferences**\.
 
 1. Choose the **Session history** tab\.
 

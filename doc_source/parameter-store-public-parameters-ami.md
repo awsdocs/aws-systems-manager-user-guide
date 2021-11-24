@@ -265,7 +265,7 @@ You can view details of a specific AMI by using the [GetParameters](https://docs
 ```
 aws ssm get-parameters \
     --names /aws/service/ami-windows-latest/Windows_Server-2016-English-Core-Containers \
-    --region us-west-2
+    --region us-east-2
 ```
 
 ------
@@ -274,7 +274,7 @@ aws ssm get-parameters \
 ```
 aws ssm get-parameters ^
     --names /aws/service/ami-windows-latest/Windows_Server-2016-English-Core-Containers ^
-    --region us-west-2
+    --region us-east-2
 ```
 
 ------
@@ -287,9 +287,9 @@ The command returns the following information\.
         {
             "Name": "/aws/service/ami-windows-latest/Windows_Server-2016-English-Core-Containers",
             "Type": "String",
-            "Value": "ami-06eeda984b8f887b7",
-            "Version": 66,
-            "LastModifiedDate": "2021-09-16T17:30:55.502000-07:00",
+            "Value": "ami-0581eb234ac9bf3ec",
+            "Version": 68,
+            "LastModifiedDate": "2021-11-11T16:40:51.934000-08:00",
             "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-windows-latest/Windows_Server-2016-English-Core-Containers",
             "DataType": "text"
         }

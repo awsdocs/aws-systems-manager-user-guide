@@ -7,6 +7,7 @@ The only supported feature for macOS instances is viewing the file system\.
 
 **Topics**
 + [Managed Instances](managed_instances.md)
++ [Connect using Remote Desktop](fleet-rdp.md)
 + [Working with the file system](fleet-file-management.md)
 + [Monitoring instance performance](fleet-monitoring.md)
 + [View logs](fleet-logs.md)

@@ -223,29 +223,32 @@ The command returns information like the following\. This example has been trunc
 ```
 {
     "Parameters": [
-        {
-            "Name": "/aws/service/global-infrastructure/availability-zones/apne3-az3",
+                {
+            "Name": "/aws/service/global-infrastructure/availability-zones/afs1-az3",
             "Type": "String",
-            "Value": "apne3-az3",
+            "Value": "afs1-az3",
             "Version": 1,
-            "LastModifiedDate": "2020-04-03T14:29:28.995000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/availability-zones/apne3-az3"
+            "LastModifiedDate": "2020-04-21T09:05:35.375000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/afs1-az3",
+            "DataType": "text"
+        },
+        {
+            "Name": "/aws/service/global-infrastructure/availability-zones/apne2-az3",
+            "Type": "String",
+            "Value": "apne2-az3",
+            "Version": 1,
+            "LastModifiedDate": "2020-04-03T13:19:44.642000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/apne2-az3",
+            "DataType": "text"
         },
         {
             "Name": "/aws/service/global-infrastructure/availability-zones/aps1-az2",
             "Type": "String",
             "Value": "aps1-az2",
             "Version": 1,
-            "LastModifiedDate": "2020-04-03T14:21:02.690000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/availability-zones/aps1-az2"
-        },
-        {
-            "Name": "/aws/service/global-infrastructure/availability-zones/cnn1-az2",
-            "Type": "String",
-            "Value": "cnn1-az2",
-            "Version": 1,
-            "LastModifiedDate": "2020-04-03T14:19:57.254000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/availability-zones/cnn1-az2"
+            "LastModifiedDate": "2020-04-03T13:13:57.351000-07:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/aps1-az2",
+            "DataType": "text"
         },
 ```
 
@@ -498,7 +501,7 @@ aws ssm get-parameters-by-path \
 
 ```
 aws ssm get-parameters-by-path ^
-    --path "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/"
+    --path "/aws/service/global-infrastructure/local-zones/use1-bos1-az1"
 ```
 
 ------
@@ -509,66 +512,66 @@ The command returns information like the following\.
 {
     "Parameters": [
         {
-            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationCountry",
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/geolocationCountry",
             "Type": "String",
             "Value": "US",
-            "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:36:58.405000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationCountry",
+            "Version": 3,
+            "LastModifiedDate": "2020-12-15T14:16:17.641000-08:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-bos1-az1/geolocationCountry",
             "DataType": "text"
         },
         {
-            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion",
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/geolocationRegion",
             "Type": "String",
-            "Value": "US-CA",
-            "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:36:58.466000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion",
+            "Value": "US-MA",
+            "Version": 3,
+            "LastModifiedDate": "2020-12-15T14:16:17.794000-08:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-bos1-az1/geolocationRegion",
             "DataType": "text"
         },
         {
-            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/location",
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/location",
             "Type": "String",
-            "Value": "US West (Los Angeles)",
+            "Value": "US East (Boston)",
             "Version": 1,
-            "LastModifiedDate": "2021-01-12T11:45:21.151000-08:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/location",
+            "LastModifiedDate": "2021-01-11T10:53:24.634000-08:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-bos1-az1/location",
             "DataType": "text"
         },
         {
-            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group",
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/network-border-group",
             "Type": "String",
-            "Value": "us-west-2-lax-1",
-            "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:36:58.597000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group",
+            "Value": "us-east-1-bos-1",
+            "Version": 3,
+            "LastModifiedDate": "2020-12-15T14:16:20.641000-08:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-bos1-az1/network-border-group",
             "DataType": "text"
         },
         {
-            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone",
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/parent-availability-zone",
             "Type": "String",
-            "Value": "usw2-az2",
-            "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:36:58.783000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone",
+            "Value": "use1-az4",
+            "Version": 3,
+            "LastModifiedDate": "2020-12-15T14:16:20.834000-08:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-bos1-az1/parent-availability-zone",
             "DataType": "text"
         },
         {
-            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region",
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/parent-region",
             "Type": "String",
-            "Value": "us-west-2",
-            "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:36:58.704000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region",
+            "Value": "us-east-1",
+            "Version": 3,
+            "LastModifiedDate": "2020-12-15T14:16:20.721000-08:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-bos1-az1/parent-region",
             "DataType": "text"
         },
         {
-            "Name": "/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group",
+            "Name": "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/zone-group",
             "Type": "String",
-            "Value": "us-west-2-lax-1",
-            "Version": 1,
-            "LastModifiedDate": "2020-04-29T20:36:58.534000-07:00",
-            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group",
+            "Value": "us-east-1-bos-1",
+            "Version": 3,
+            "LastModifiedDate": "2020-12-15T14:16:17.983000-08:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/use1-bos1-az1/zone-group",
             "DataType": "text"
         }
     ]
@@ -592,7 +595,7 @@ aws ssm get-parameters-by-path \
 
 ```
 aws ssm get-parameters-by-path ^
-    --path /aws/service/global-infrastructure/local-zones/usw2-lax1-az1 ^
+    --path /aws/service/global-infrastructure/local-zones/use1-bos1-az1 ^
     --query "Parameters[].Name | sort(@)"
 ```
 
@@ -602,11 +605,12 @@ The command returns information like the following\.
 
 ```
 [
-    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationCountry",
-    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/geolocationRegion",
-    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/network-border-group",
-    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-availability-zone",
-    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/parent-region",
-    "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/local-zones/usw2-lax1-az1/zone-group"
+    "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/geolocationCountry",
+    "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/geolocationRegion",
+    "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/location",
+    "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/network-border-group",
+    "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/parent-availability-zone",
+    "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/parent-region",
+    "/aws/service/global-infrastructure/local-zones/use1-bos1-az1/zone-group"
 ]
 ```

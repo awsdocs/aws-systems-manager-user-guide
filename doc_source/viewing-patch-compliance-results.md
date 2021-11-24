@@ -20,13 +20,16 @@ CVE details are included for supported versions of the following operating syste
 
   By default, CentOS doesn't provide CVE information about updates\. You can, however, allow this support by using third\-party repositories such as the Extra Packages for Enterprise Linux \(EPEL\) repository published by Fedora\. For information, see [EPEL](https://fedoraproject.org/wiki/EPEL) on the Fedora Wiki\.
 
+You can also add CVE IDs to your lists of approved or rejected patches in your patch baselines, as the situation and your patching goals warrant\.
+
+For information about working with approved and rejected patch lists, see the following topics:
++ [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)
++ [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)
++ [How patch baseline rules work on Linux\-based systems](patch-manager-how-it-works-linux-rules.md)
++ [How patches are installed](patch-manager-how-it-works-installation.md)
+
 **Note**  
-You can also add CVE IDs to your lists of approved or rejected patches in your patch baselines, as the situation and your patching goals warrant\.  
-For information about working with approved and rejected patch lists, see the following topics:  
-[Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)
-[About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)
-[How patch baseline rules work on Linux\-based systems](patch-manager-how-it-works-linux-rules.md)
-[How patches are installed](patch-manager-how-it-works-installation.md)
+In some cases, Microsoft releases patches for applications that might not specify explicitly an updated date and time\. In these cases, an updated date and time of `01/01/1970` is supplied by default\.
 
 ## Viewing patching compliance results \(console\)<a name="viewing-patch-compliance-results-console"></a>
 

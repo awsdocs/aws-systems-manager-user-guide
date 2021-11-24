@@ -334,6 +334,7 @@ Amazon's trademarks and trade dress may not be used in
             + [Deregistering managed instances in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)
             + [Troubleshooting managed instance availability](troubleshooting-managed-instances.md)
                + [Troubleshooting Amazon EC2 managed instance availability using ssm-cli](ssm-cli.md)
+         + [Connect using Remote Desktop](fleet-rdp.md)
          + [Working with the file system](fleet-file-management.md)
          + [Monitoring instance performance](fleet-monitoring.md)
          + [View logs](fleet-logs.md)
