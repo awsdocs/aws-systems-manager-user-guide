@@ -21,7 +21,7 @@ EventBridge supports events from the following AWS Systems Manager capabilities:
 + Compliance
 + Inventory \(Events are emitted on a best effort basis\.\)
 + Maintenance Windows \(Events are emitted on a best effort basis\.\)
-+ Parameter Store
++ Parameter Store \(Events are emitted on a best effort basis\.\)
 + Run Command \(Events are emitted on a best effort basis\.\)
 + State Manager \(Events are emitted on a best effort basis\.\)
 

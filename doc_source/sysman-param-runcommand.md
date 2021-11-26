@@ -57,7 +57,7 @@ The following example command includes a Systems Manager parameter named `DNS-IP
 
 ```
 aws ssm send-command \
-    --document-name "AWS-RunPowerShellScript" \
+    --document-name "AWS-RunShellScript" \
     --document-version "1" \
     --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" \
     --parameters "commands='echo {{ssm:DNS-IP}}'" \
@@ -84,14 +84,14 @@ aws ssm send-command ^
 
 ------
 
-The next example command uses a `SecureString` parameter named **SecurePassword**\. The command `commands=['$secure = (Get-SSMParameterValue -Names SecurePassword -WithDecryption $True).Parameters[0].Value','net user administrator $secure']` retrieves and decrypts the value of the `SecureString` parameter, and then resets the local administrator password without having to pass the password in clear text\.
+The next example commands uses a `SecureString` parameter named **SecurePassword**\. The command used in the `parameters` field retrieves and decrypts the value of the `SecureString` parameter, and then resets the local administrator password without having to pass the password in clear text\.
 
 ------
 #### [ Linux ]
 
 ```
 aws ssm send-command \
-        --document-name "AWS-RunPowerShellScript" \
+        --document-name "AWS-RunShellScript" \
         --document-version "1" \
         --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" \
         --parameters '{"commands":["secure=$(aws ssm get-parameters --names SecurePassword --with-decryption --query Parameters[0].Value --output text --region us-east-2)","echo $secure | passwd myuser --stdin"]}' \
