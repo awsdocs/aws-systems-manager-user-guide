@@ -124,9 +124,9 @@ The following example shows how to deny some commands while allowing the user to
 **Note**  
 The parameter history includes all parameter versions, including the current one\. Therefore, if a user is denied permission for `GetParameter`, `GetParameters`, and `GetParameterByPath` but is allowed permission for `GetParameterHistory`, they can see the current parameter, including `SecureString` parameters, using `GetParameterHistory`\.
 
-## Allowing only specific parameters to run on instances<a name="sysman-paramstore-access-inst"></a>
+## Allowing only specific parameters to run on nodes<a name="sysman-paramstore-access-inst"></a>
 
-You can control access so that instances can run only parameters that you specify\.
+You can control access so that managed nodes can run only parameters that you specify\.
 
 If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS KMS to encrypt the parameter value\. AWS KMS encrypts the value by using either an AWS managed key or a customer managed key\. For more information about AWS KMS and AWS KMS key, see the *[AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/)*\.
 
@@ -136,7 +136,7 @@ You can view the AWS managed key by running the following command from the AWS C
 aws kms describe-key --key-id alias/aws/ssm
 ```
 
-The following example allows instances to get a parameter value only for parameters that begin with `prod-`\. If the parameter is a `SecureString` parameter, then the instance decrypts the string using AWS KMS\.
+The following example allows nodes to get a parameter value only for parameters that begin with `prod-`\. If the parameter is a `SecureString` parameter, then the node decrypts the string using AWS KMS\.
 
 **Note**  
 Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting up AWS Systems Manager for EC2 instances](systems-manager-setting-up-ec2.md)\.

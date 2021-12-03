@@ -2,6 +2,17 @@
 
 You can quickly configure DevOps Guru options by using Quick Setup\. Amazon DevOps Guru is a machine learning \(ML\) powered service that makes it easy to improve an application's operational performance and availability\. DevOps Guru detects behaviors that are different from normal operating patterns so you can identify operational issues long before they impact your customers\. DevOps Guru automatically ingests operational data from your AWS applications and provides a single dashboard to visualize issues in your operational data\. You can get started with DevOps Guru to improve application availability and reliability with no manual setup or machine learning expertise\.
 
+Configuring DevOps Guru with Quick Setup is available in the following AWS Regions:
++ US East \(N\. Virginia\)
++ US East \(Ohio\)
++ US West \(Oregon\)
++ Europe \(Frankfurt\)
++ Europe \(Ireland\)
++ Europe \(Stockholm\)
++ Asia Pacific \(Singapore\)
++ Asia Pacific \(Sydney\)
++ Asia Pacific \(Tokyo\)
+
 For pricing information, see [Amazon DevOps Guru pricing](https://aws.amazon.com/devops-guru/pricing/)\.
 
 To set up DevOps Guru, perform the following tasks in the AWS Systems Manager Quick Setup console\.
@@ -22,7 +33,7 @@ To set up DevOps Guru, perform the following tasks in the AWS Systems Manager Q
 
 1. In the **Configuration options** section, choose the AWS resource types you want to analyze and your notification preferences\.
 
-   If you don’t select the **Analyze all AWS resources in all the accounts in my organization** option, you can choose AWS resources to analyze later in the DevOps Guru console\. DevOps Guru analyzes different AWS resource types \(such as Amazon Simple Storage Service \(Amazon S3\) buckets and Amazon Elastic Compute Cloud \(Amazon EC2\) instances\), which are categorized into two pricing groups\. You pay for the AWS resource hours analyzed, for each active resource\. A resource is only active if it produces metrics, events, or log entries within an hour\. The rate you're charged for a specific AWS resource type depends on the price group\.
+   If you don't select the **Analyze all AWS resources in all the accounts in my organization** option, you can choose AWS resources to analyze later in the DevOps Guru console\. DevOps Guru analyzes different AWS resource types \(such as Amazon Simple Storage Service \(Amazon S3\) buckets and Amazon Elastic Compute Cloud \(Amazon EC2\) instances\), which are categorized into two pricing groups\. You pay for the AWS resource hours analyzed, for each active resource\. A resource is only active if it produces metrics, events, or log entries within an hour\. The rate you're charged for a specific AWS resource type depends on the price group\.
 
    If you select the **Enable SNS notifications** option, an Amazon Simple Notification Service \(Amazon SNS\) topic is created in each AWS account in the organizational units \(OUs\) you target with your configuration\. DevOps Guru uses the topic to notify you about important DevOps Guru events, such as the creation of a new insight\. If you don't enable this option, you can add a topic later in the DevOps Guru console\.
 

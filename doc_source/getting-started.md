@@ -9,6 +9,7 @@ The following is useful background information to help you get started:
 + Understanding the Systems Manager setup requirements helps you troubleshoot problems you encounter while you use Systems Manager, such as with permissions or resource availability:
   + [Setting up AWS Systems Manager](systems-manager-setting-up.md)
   + [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)
+  + [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)
 
 When you're ready, continue with the following steps\.
 

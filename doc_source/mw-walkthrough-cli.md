@@ -1,9 +1,9 @@
 # Walkthrough: Create a maintenance window to update SSM Agent \(AWS CLI\)<a name="mw-walkthrough-cli"></a>
 
-The following walkthrough shows you how to use the AWS Command Line Interface \(AWS CLI\) to create an AWS Systems Manager maintenance window\. The walkthrough also describes how to register your managed instances as targets and register a Systems Manager Run Command task to update SSM Agent\.
+The following walkthrough shows you how to use the AWS Command Line Interface \(AWS CLI\) to create an AWS Systems Manager maintenance window\. The walkthrough also describes how to register your managed nodes as targets and register a Systems Manager Run Command task to update SSM Agent\.
 
 **Before you begin**  
-Before you complete the following procedure, you must either have administrator permissions on the instances you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Linux or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
+Before you complete the following procedure, you must either have administrator permissions on the nodes you want to configure or you must have been granted the appropriate permissions in AWS Identity and Access Management \(IAM\)\. Additionally, verify that you have at least one running Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Linux or Windows Server that is configured for Systems Manager\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\. 
 
 **Topics**
 + [Step 1: Get started](#mw-walkthrough-cli-settings)
@@ -19,15 +19,15 @@ Before you complete the following procedure, you must either have administrator 
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Verify that an instance is ready to be registered as a target for a maintenance window\.
+1. Verify that a node is ready to be registered as a target for a maintenance window\.
 
-   Run the following command to view which instances are online\.
+   Run the following command to view which nodes are online\.
 
    ```
    aws ssm describe-instance-information --query "InstanceInformationList[*]"
    ```
 
-   Run the following command to view details about a particular instance\.
+   Run the following command to view details about a particular node\.
 
    ```
    aws ssm describe-instance-information --instance-information-filter-list key=InstanceIds,valueSet=instance-id
@@ -108,7 +108,7 @@ Use the following procedure to create a maintenance window and specify its basic
 
 ## Step 3: Register maintenance window targets \(AWS CLI\)<a name="mw-walkthrough-cli-targets"></a>
 
-Use the following procedure to register a target with your maintenance window created in Step 2\. By registering a target, you specify which instances to update\.
+Use the following procedure to register a target with your maintenance window created in Step 2\. By registering a target, you specify which nodes to update\.
 
 **To register maintenance window targets \(AWS CLI\)**
 
@@ -145,7 +145,7 @@ Use the following procedure to register a target with your maintenance window cr
    ```
 
 **Alternative commands**  
-Use the following command to register multiple managed instances\.
+Use the following command to register multiple managed nodes\.
 
 ------
 #### [ Linux & macOS ]
@@ -169,7 +169,7 @@ Use the following command to register multiple managed instances\.
 
 ------
 
-   Use the following command to register instances by using Amazon EC2 tags\. 
+   Use the following command to register nodes by using tags\. 
 
 ------
 #### [ Linux & macOS ]

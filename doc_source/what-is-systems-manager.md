@@ -1,12 +1,13 @@
 # What is AWS Systems Manager?<a name="what-is-systems-manager"></a>
 
-AWS Systems Manager \(formerly known as [SSM](#service-naming-history)\) is an AWS service that you can use to view and control your infrastructure on AWS\. Using the Systems Manager console, you can view operational data from multiple AWS services and automate operational tasks across your AWS resources\. Systems Manager helps you maintain security and compliance by scanning your *managed instances* and reporting on \(or taking corrective action on\) any policy violations it detects\.
+AWS Systems Manager \(formerly known as [SSM](#service-naming-history)\) is an AWS service that you can use to view and control your infrastructure on AWS\. Using the Systems Manager console, you can view operational data from multiple AWS services and automate operational tasks across your AWS resources\. Systems Manager helps you maintain security and compliance by scanning your *managed nodes* and reporting on \(or taking corrective action on\) any policy violations it detects\.
 
-A managed instance is a machine configured for use with Systems Manager\. Systems Manager also helps you configure and maintain your managed instances\. Supported machine types include Amazon Elastic Compute Cloud \(Amazon EC2\) instances, on\-premises servers, and virtual machines \(VMs\), including VMs in other cloud environments\. Supported operating system types include Windows Server, macOS, Raspberry Pi OS \(formerly Raspbian\), and multiple distributions of Linux\.
+A managed node is any machine configured for Systems Manager\. Systems Manager supports Amazon Elastic Compute Cloud \(Amazon EC2\) instances, edge devices, and on\-premises servers and virtual machines \(VMs\), including VMs in other cloud environments\. For operating systems, Systems Manager supports Windows Server, macOS, Raspberry Pi OS \(formerly Raspbian\), and multiple distributions of Linux\.
 
-Using Systems Manager, you can associate AWS resources together by applying the same identifying *resource tag* to each of them\. You can then view operational data for these resources as a *resource group*, to help monitor and troubleshoot\. 
+Using Systems Manager, you can associate AWS resources by applying the same identifying *resource tag* to each of them\. You can then view operational data for these resources as a *resource group*, to help monitor and troubleshoot\. 
 
 For example, you can assign a resource tag of "`Operation=Standard OS Patching`" to the following resources:
++ A group of AWS IoT Greengrass core devices 
 + A group of Amazon EC2 instances
 + A group of on\-premises servers in your own facility
 + A Systems Manager patch baseline that specifies which patches to apply to your managed instances
@@ -20,15 +21,15 @@ Systems Manager is comprised of individual *[capabilities](features.md)*, which 
 
 This collection of capabilities is a powerful set of tools and features that you can use to perform many operational tasks\. For example:
 + Group AWS resources together by any purpose or activity you choose, such as application, environment, Region, project, campaign, business unit, or software lifecycle\.
-+ Centrally define the configuration options and policies for your managed instances\.
++ Centrally define the configuration options and policies for your managed nodes\.
 + Centrally view, investigate, and resolve operational work items related to AWS resources\.
 + Automate or schedule a variety of maintenance and deployment tasks\.
 + Use and create runbook\-style *SSM documents* that define the actions to perform on your managed instances\.
-+ Run a command, with rate and error controls, that targets an entire fleet of managed instances\.
-+ Securely connect to a managed instance without having to open an inbound port or manage SSH keys\.
++ Run a command, with rate and error controls, that targets an entire fleet of managed nodes\.
++ Securely connect to a managed node without having to open an inbound port or manage SSH keys\.
 + Separate your secrets and configuration data from your code by using *parameters*, with or without encryption, and then reference those parameters from other AWS services\.
-+ Perform automated inventory by collecting metadata about your Amazon EC2 and on\-premises managed instances\. Metadata can include information about applications, network configurations, and more\.
-+ View consolidated inventory data from multiple AWS Regions and AWS accounts that you manage\.
++ Perform automated inventory by collecting metadata about your managed nodes\. Metadata can include information about applications, network configurations, and more\.
++ View consolidated inventory metadata from multiple AWS Regions and AWS accounts that you manage\.
 + See which resources in your account are out of compliance and take corrective action from a centralized dashboard\.
 + View active summaries of metrics and alarms for your AWS resources\.
 

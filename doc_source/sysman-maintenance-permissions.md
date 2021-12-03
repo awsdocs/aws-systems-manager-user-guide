@@ -2,8 +2,8 @@
 
 Before users in your AWS account can create and schedule maintenance window tasks using Maintenance Windows, a capability of AWS Systems Manager, they must be granted the necessary permissions\. To grant these permissions to users, an administrator must perform these two tasks:
 
-**Task 1: Configure instance permissions**  
-Provide the Maintenance Windows service with the AWS Identity and Access Management \(IAM\) permissions needed to run maintenance window tasks on your instances by doing one of the following: 
+**Task 1: Configure node permissions**  
+Provide the Maintenance Windows service with the AWS Identity and Access Management \(IAM\) permissions needed to run maintenance window tasks on your nodes by doing one of the following: 
 + Create a custom service role for maintenance window tasks
 + Create a service\-linked role for Systems Manager
 
@@ -27,7 +27,7 @@ To complete the tasks in the section, you need one or both of the following reso
 
 ## Should I use a service\-linked role or a custom service role to run maintenance window tasks?<a name="maintenance-window-tasks-service-role"></a>
 
-To run maintenance tasks on your target instances, the Maintenance Windows service must have permission to access and run tasks on your instances\. You can provide this permission by specifying either the Systems Manager service\-linked role or a custom service role as part of a task configuration\.
+To run maintenance tasks on your target nodes, the Maintenance Windows service must have permission to access and run tasks on your nodes\. You can provide this permission by specifying either the Systems Manager service\-linked role or a custom service role as part of a task configuration\.
 
 The type of role you should choose depends on the following factors:
 
@@ -35,7 +35,7 @@ The type of role you should choose depends on the following factors:
 + If you want to use Amazon SNS to send notifications related to status changes for Run Command tasks registered with your maintenance windows\. For information, see the following topics:
   + [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)
   + [Use a maintenance window to send a command that returns status notifications](monitoring-sns-mw-register.md)
-+ If you want to use a more restrictive set of permissions than those provided by the service\-linked role\. The service\-linked role supports very limited resource\-level constraints\. For example, say you want to allow maintenance window tasks to run on a limited set of instances, or you want to allow only certain Systems Manager documents \(SSM documents\) run on your target instances\. In these cases, you specify stricter permissions in a custom service role\.
++ If you want to use a more restrictive set of permissions than those provided by the service\-linked role\. The service\-linked role supports very limited resource\-level constraints\. For example, say you want to allow maintenance window tasks to run on a limited set of nodes, or you want to allow only certain Systems Manager documents \(SSM documents\) run on your target nodes\. In these cases, you specify stricter permissions in a custom service role\.
 + If you need a more permissive or expanded set of permissions than those provided by the service\-linked role\. Some actions in Automation runbooks require expanded permissions\.
 
   For example, some Automation actions work with AWS CloudFormation stacks\. Therefore, the permissions `cloudformation:CreateStack`, `cloudformation:DescribeStack`, and `cloudformation:DeleteStack` are required\. 

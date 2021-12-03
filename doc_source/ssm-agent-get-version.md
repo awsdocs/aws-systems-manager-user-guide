@@ -1,10 +1,10 @@
 # Checking the SSM Agent version number<a name="ssm-agent-get-version"></a>
 
-Certain AWS Systems Manager functionalities have prerequisites that include a minimum Systems Manager Agent \(SSM Agent\) version be installed on your managed instances\. You can get the currently installed SSM Agent version on your managed instances using the Systems Manager console, or by logging in to your instances\.
+Certain AWS Systems Manager functionalities have prerequisites that include a minimum Systems Manager Agent \(SSM Agent\) version be installed on your managed nodes\. You can get the currently installed SSM Agent version on your managed nodes using the Systems Manager console, or by logging in to your managed nodes\.
 
-The following procedures describe how to get the currently installed SSM Agent version on your managed instances\.
+The following procedures describe how to get the currently installed SSM Agent version on your managed nodes\.
 
-**To check the version number of SSM Agent installed on an instance**
+**To check the version number of SSM Agent installed on a managed node**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -24,7 +24,7 @@ Choose from the following tabs to get the currently installed SSM Agent version 
 **Note**  
 This command varies depending on the package manager for your operating system\.
 
-1. Log in to your instance\.
+1. Log in to your managed node\.
 
 1. Run the following command\.
 
@@ -45,7 +45,7 @@ This command varies depending on the package manager for your operating system\.
 ------
 #### [ CentOS ]
 
-1. Log in to your instance\.
+1. Log in to your managed node\.
 
 1. Run the following command for CentOS 6 and 7\.
 
@@ -66,7 +66,7 @@ This command varies depending on the package manager for your operating system\.
 ------
 #### [ Debian Server ]
 
-1. Log in to your instance\.
+1. Log in to your managed node\.
 
 1. Run the following command\.
 
@@ -87,7 +87,7 @@ This command varies depending on the package manager for your operating system\.
 ------
 #### [ macOS ]
 
-1. Log in to your instance\.
+1. Log in to your managed node\.
 
 1. Run the following command\.
 
@@ -98,7 +98,7 @@ This command varies depending on the package manager for your operating system\.
 ------
 #### [ RHEL ]
 
-1. Log in to your instance\.
+1. Log in to your managed node\.
 
 1. Run the following command for RHEL 6 and 7\.
 
@@ -119,7 +119,7 @@ This command varies depending on the package manager for your operating system\.
 ------
 #### [ SLES ]
 
-1. Log in to your instance\.
+1. Log in to your managed node\.
 
 1. Run the following command for SLES 12 and 15\.
 
@@ -144,7 +144,7 @@ This command varies depending on the package manager for your operating system\.
 **Note**  
 To check if your Ubuntu Server 16\.04 instance uses deb or Snap packages, see [Manually install SSM Agent on Ubuntu Server instances](agent-install-ubuntu.md)\.
 
-1. Log in to your instance\.
+1. Log in to your managed node\.
 
 1. Run the following command for Ubuntu Server 16\.04 and 14\.04 64\-bit \(with deb installer package\)\.
 
@@ -181,7 +181,7 @@ To check if your Ubuntu Server 16\.04 instance uses deb or Snap packages, see [M
 ------
 #### [ Windows ]
 
-1. Log in to your instance\.
+1. Log in to your managed node\.
 
 1. Run the following PowerShell command\.
 

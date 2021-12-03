@@ -1,8 +1,8 @@
 # Viewing SSM Agent logs<a name="sysman-agent-logs"></a>
 
-AWS Systems Manager Agent \(SSM Agent\) writes information about executions, commands, scheduled actions, errors, and health statuses to log files on each instance\. You can view log files by manually connecting to an instance, or you can automatically send logs to Amazon CloudWatch Logs\. For more information about sending logs to CloudWatch Logs, see [Monitoring AWS Systems Manager](monitoring.md)\.
+AWS Systems Manager Agent \(SSM Agent\) writes information about executions, commands, scheduled actions, errors, and health statuses to log files on each managed node\. You can view log files by manually connecting to a managed node, or you can automatically send logs to Amazon CloudWatch Logs\. For more information about sending logs to CloudWatch Logs, see [Monitoring AWS Systems Manager](monitoring.md)\.
 
-You can view SSM Agent logs on instances in the following locations\.
+You can view SSM Agent logs on managed nodes in the following locations\.
 
 ------
 #### [ Linux and macOS ]
@@ -24,7 +24,7 @@ You can view SSM Agent logs on instances in the following locations\.
 
 ------
 
-For Linux instances, the SSM Agent `stderr` and `stdout` files are written to the following directory: `/var/lib/amazon/ssm`\.
+For Linux managed nodes, the SSM Agent `stderr` and `stdout` files are written to the following directory: `/var/lib/amazon/ssm`\.
 
 For information about allowing SSM Agent debug logging, see [Allowing SSM Agent debug logging](#ssm-agent-debug-log-files)\.
 
@@ -32,20 +32,20 @@ For more information about `cihub/seelog` configuration, see the [Seelog Wiki](h
 
 ## Allowing SSM Agent debug logging<a name="ssm-agent-debug-log-files"></a>
 
-Use the following procedure to allow SSM Agent debug logging on your managed instances\.
+Use the following procedure to allow SSM Agent debug logging on your managed nodes\.
 
 ------
 #### [ Linux and macOS ]
 
-**To allow SSM Agent debug logging on Linux and macOS instances**
+**To allow SSM Agent debug logging on Linux and macOS managed nodes**
 
-1. Either use Session Manager, a capability of AWS Systems Manager, to connect to the instance where you want to allow debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
+1. Either use Session Manager, a capability of AWS Systems Manager, to connect to the managed node where you want to allow debug logging, or log on to the managed node\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 
 1. Locate the **seelog\.xml\.template** file\.
 
    **Linux**:
 
-   On most Linux instance types, the file is located in the directory `/etc/amazon/ssm/seelog.xml.template`\.
+   On most Linux managed node types, the file is located in the directory `/etc/amazon/ssm/seelog.xml.template`\.
 
    On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file is located in the directory `/snap/amazon-ssm-agent/current/seelog.xml.template`\. Copy this file from the `/snap/amazon-ssm-agent/current/` directory to the `/etc/amazon/ssm/` directory before making any changes\.
 
@@ -86,9 +86,9 @@ On Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS, the file `seelog.x
 ------
 #### [ Windows ]
 
-**To allow SSM Agent debug logging on Windows Server instances**
+**To allow SSM Agent debug logging on Windows Server managed nodes**
 
-1. Either use Session Manager to connect to the instance where you want to allow debug logging, or log on to the managed instance\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
+1. Either use Session Manager to connect to the managed node where you want to allow debug logging, or log on to the managed nodes\. For more information, see [Working with Session Manager](session-manager-working-with.md)\.
 
 1. Make a copy of the **seelog\.xml\.template** file\. Change the name of the copy to **seelog\.xml**\. The file is located in the following directory\.
 

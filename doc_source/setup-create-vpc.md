@@ -10,7 +10,7 @@ The alternative to using a VPC endpoint is to allow outbound internet access on 
 `ssmmessages.region.amazonaws.com`
 `ec2messages.region.amazonaws.com`
 SSM Agent initiates all connections to the Systems Manager service in the cloud\. For this reason, you don't need to configure your firewall to allow inbound traffic to your instances for Systems Manager\.  
-For more information about calls to these endpoints, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md)\.
+For more information about calls to these endpoints, see [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
 
 **About Amazon VPC**  
 You can use Amazon Virtual Private Cloud \(Amazon VPC\) to define a virtual network in your own logically isolated area within the AWS Cloud, known as a *virtual private cloud \(VPC\)*\. You can launch your AWS resources, such as instances, into your VPC\. Your VPC closely resembles a traditional network that you might operate in your own data center, with the benefits of using the scalable infrastructure of AWS\. You can configure your VPC; you can select its IP address range, create subnets, and configure route tables, network gateways, and security settings\. You can connect instances in your VPC to the internet\. You can connect your VPC to your own corporate data center, making the AWS Cloud an extension of your data center\. To protect the resources in each subnet, you can use multiple layers of security, including security groups and network access control lists\. For more information, see the [Amazon VPC User Guide](https://docs.aws.amazon.com/vpc/latest/userguide/)\.
@@ -87,7 +87,7 @@ In the second step, you create the required *gateway* endpoint for Systems Manag
    + **`com.amazonaws.region.ssm`**: The endpoint for the Systems Manager service\.
    + **`com.amazonaws.region.ec2messages`**: Systems Manager uses this endpoint to make calls from SSM Agent to the Systems Manager service\.
    + **`com.amazonaws.region.ec2`**: If you're using Systems Manager to create VSS\-enabled snapshots, you need to ensure that you have an endpoint to the EC2 service\. Without the EC2 endpoint defined, a call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\.
-   + **`com.amazonaws.region.ssmmessages`**: This endpoint is required only if you're connecting to your instances through a secure data channel using Session Manager\. For more information, see [AWS Systems Manager Session Manager](session-manager.md) and [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md)\.
+   + **`com.amazonaws.region.ssmmessages`**: This endpoint is required only if you're connecting to your instances through a secure data channel using Session Manager\. For more information, see [AWS Systems Manager Session Manager](session-manager.md) and [Reference: ec2messages, ssmmessages, and other API calls](systems-manager-setting-up-messageAPIs.md)\.
    + **`com.amazonaws.region.kms`**: This endpoint is optional but can be created if you want to use AWS Key Management Service \(AWS KMS\) encryption for Session Manager or Parameter Store parameters\.
    + **`com.amazonaws.region.logs`**: This endpoint is optional but can be created if you want to use Amazon CloudWatch Logs \(CloudWatch Logs\) for Session Manager, Run Command, or SSM Agent logs\.
 

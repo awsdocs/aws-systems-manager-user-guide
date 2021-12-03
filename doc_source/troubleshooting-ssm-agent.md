@@ -1,6 +1,6 @@
 # Troubleshooting SSM Agent<a name="troubleshooting-ssm-agent"></a>
 
-If you experience problems running operations on your managed instances, there might be a problem with AWS Systems Manager Agent \(SSM Agent\)\. Use the following information to help you view SSM Agent log files and troubleshoot the agent\. 
+If you experience problems running operations on your managed nodes, there might be a problem with AWS Systems Manager Agent \(SSM Agent\)\. Use the following information to help you view SSM Agent log files and troubleshoot the agent\. 
 
 **Topics**
 + [SSM Agent is out of date](#ssm-agent-out-of-date)
@@ -10,7 +10,7 @@ If you experience problems running operations on your managed instances, there m
 
 ## SSM Agent is out of date<a name="ssm-agent-out-of-date"></a>
 
-An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
+An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on a managed node, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
 
 ## View SSM Agent log files<a name="systems-manager-ssm-agent-log-files"></a>
 
@@ -27,11 +27,11 @@ If you choose to view these logs by using Windows File Explorer, be sure to allo
 + `/var/log/amazon/ssm/amazon-ssm-agent.log`
 + `/var/log/amazon/ssm/errors.log`
 
-For Linux instances, you might find more information in the `messages` file written to the following directory: `/var/log`\.
+For Linux managed nodes, you might find more information in the `messages` file written to the following directory: `/var/log`\.
 
 ## Agent log files don't rotate \(Windows\)<a name="systems-manager-ssm-agent-troubleshooting-log-rotation"></a>
 
-If you specify date\-based log file rotation in the seelog\.xml file \(on Windows Server instances\) and the logs don't rotate, specify the `fullname=true` parameter\. Here is an example of a seelog\.xml configuration file with the `fullname=true` parameter specified\.
+If you specify date\-based log file rotation in the seelog\.xml file \(on Windows Server managed nodes\) and the logs don't rotate, specify the `fullname=true` parameter\. Here is an example of a seelog\.xml configuration file with the `fullname=true` parameter specified\.
 
 ```
 <seelog type="adaptive" mininterval="2000000" maxinterval="100000000" critmsgcount="500" minlevel="debug">

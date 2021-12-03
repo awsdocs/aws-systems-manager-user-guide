@@ -35,13 +35,13 @@ OpsCenter setup is now integrated with Explorer Setup\. If you already set up Op
 OpsData is any operations data that is displayed in the Systems Manager Explorer dashboard\. Explorer retrieves OpsData from the following sources:
 + **Amazon Elastic Compute Cloud \(Amazon EC2\)**
 
-  Data displayed in Explorer includes: total number of instances, total number of managed and unmanaged instances, and a count of instances using a specific Amazon Machine Image \(AMI\)\. 
+  Data displayed in Explorer includes: total number of nodes, total number of managed and unmanaged nodes, and a count of nodes using a specific Amazon Machine Image \(AMI\)\. 
 + **Systems Manager OpsCenter**
 
   Data displayed in Explorer includes: a count of OpsItems by status, a count of OpsItems by severity, a count of open OpsItems across groups and across 30\-day time periods, and historical data of OpsItems over time\.
 + **Systems Manager Patch Manager**
 
-  Data displayed in Explorer includes a count of instances that aren't patch compliant\.
+  Data displayed in Explorer includes a count of nodes that aren't patch compliant\.
 + **AWS Trusted Advisor**
 
   Data displayed in Explorer includes: status of best practice checks for EC2 reserved instances in the areas of cost optimization, security, fault tolerance, performance, and service limits\. 

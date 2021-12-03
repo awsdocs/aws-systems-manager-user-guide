@@ -52,5 +52,5 @@ AWS Systems Manager OpsCenter automatically creates a deep link to the primary r
 |  Amazon Redshift cluster snapshot  |  <pre>arn:aws:redshift:region:account-id:snapshot:cluster-name/snapshot-name</pre>  | 
 |  Amazon Redshift subnet group  |  <pre>arn:aws:redshift:region:account-id:subnetgroup:subnet-group-name</pre>  | 
 |  Amazon Simple Storage Service \(Amazon S3\) bucket  |  <pre>arn:aws:s3:::bucket_name</pre>  | 
-|  AWS Config recording of AWS Systems Manager managed instance inventory  |  <pre>arn:aws:ssm:region:account-id:managed-instance-inventory/instance_id</pre>  | 
+|  AWS Config recording of AWS Systems Manager managed node inventory  |  <pre>arn:aws:ssm:region:account-id:managed-instance-inventory/node_id</pre>  | 
 |  Systems Manager State Manager association  |  <pre>arn:aws:ssm:region:account-id:association/association_ID</pre>  | 

@@ -102,7 +102,7 @@ For example, you might begin with policy content that provides permissions for w
 
    The policy also includes permission for the [StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html) operation, which is required for creating a change request in Change Calendar\. 
 **Note**  
-This example isn't comprehensive\. Additional permissions might be needed for working with other AWS resources, such as databases and instances\.
+This example isn't comprehensive\. Additional permissions might be needed for working with other AWS resources, such as databases and nodes\.
 
    ```
    {

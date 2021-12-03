@@ -1,6 +1,6 @@
 # Working with parameters using Run Command commands<a name="sysman-param-runcommand"></a>
 
-You can work with parameters in Run Command, a capability of AWS Systems Manager\. For more information, see [Running commands using Systems Manager Run Command](run-command.md)\.
+You can work with parameters in Run Command, a capability of AWS Systems Manager\. For more information, see [Sending commands using Systems Manager Run Command](run-command.md)\.
 
 ## Run a String parameter \(console\)<a name="param-test-console"></a>
 
@@ -22,23 +22,23 @@ The following procedure walks you through the process of running a command that 
 
 1. For **Command parameters**, enter **echo \{\{ssm:*parameter\-name*\}\}**\. For example: **echo \{\{ssm:/Test/helloWorld\}\}**\. 
 
-1. In the **Targets** section, identify the instances on which you want to run this operation by specifying tags, selecting instances manually, or specifying a resource group\.
+1. In the **Targets** section, choose the managed nodes on which you want to run this operation by specifying tags, selecting instances or edge devices manually, or specifying a resource group\.
 **Note**  
-If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
 1. For **Other parameters**:
    + For **Comment**, enter information about this command\.
    + For **Timeout \(seconds\)**, specify the number of seconds for the system to wait before failing the overall command execution\. 
 
 1. For **Rate control**:
-   + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
+   + For **Concurrency**, specify either a number or a percentage of managed nodes on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you aren't certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
-   + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
+If you selected targets by specifying tags applied to managed nodes or by specifying AWS resource groups, and you aren't certain how many managed nodes are targeted, then restrict the number of targets that can run the document at the same time by specifying a percentage\.
+   + For **Error threshold**, specify when to stop running the command on other managed nodes after it fails on either a number or a percentage of nodes\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Managed nodes still processing the command might also send errors\.
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, make sure that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile \(for EC2 instances\) or IAM service role \(on\-premises machines\) assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) or [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. In addition, if the specified S3 bucket is in a different AWS account, make sure that the instance profile or IAM service role associated with the managed node has the necessary permissions to write to that bucket\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 
@@ -46,11 +46,11 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Run**\.
 
-1. In the **Command ID** page, in the **Targets and outputs** area, select the button next to the ID of an instance where you ran the command, and then choose **View output**\. Verify that the output of the command is the value you provided for the parameter, such as **This is my first parameter**\.
+1. In the **Command ID** page, in the **Targets and outputs** area, select the button next to the ID of a node where you ran the command, and then choose **View output**\. Verify that the output of the command is the value you provided for the parameter, such as **This is my first parameter**\.
 
 ## Run a parameter \(AWS CLI\)<a name="param-test-cli"></a>
 
-The following example command includes a Systems Manager parameter named `DNS-IP`\. The value of this parameter is simply the IP address of an instance\. This example uses an AWS Command Line Interface \(AWS CLI\) command to echo the parameter value\.
+The following example command includes a Systems Manager parameter named `DNS-IP`\. The value of this parameter is simply the IP address of a node\. This example uses an AWS Command Line Interface \(AWS CLI\) command to echo the parameter value\.
 
 ------
 #### [ Linux & macOS ]

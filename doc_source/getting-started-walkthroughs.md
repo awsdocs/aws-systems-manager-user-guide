@@ -37,7 +37,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 + [Create a Systems Manager parameter \(console\)](parameter-create-console.md)
 + [Create a Systems Manager parameter \(AWS CLI\)](param-create-cli.md)
 + [Working with parameter hierarchies](sysman-paramstore-hierarchies.md)
-+ Advanced: [Create a SecureString parameter and join an instance to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)
++ Advanced: [Create a SecureString parameter and join a node to a Domain \(PowerShell\)](sysman-param-securestring-walkthrough.md)
 
 ## Change management<a name="getting-started-walkthroughs-change-management"></a>
 
@@ -71,48 +71,48 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 ## Node management<a name="getting-started-walkthroughs-node-management"></a>
 
 **Fleet Manager**  
-[Fleet Manager](fleet.md), a capability of AWS Systems Manager, is a unified user interface \(UI\) experience that helps you remotely manage your server fleet running on AWS, or on premises\. With Fleet Manager, you can view the health and performance status of your entire server fleet from one console\. 
+[Fleet Manager](fleet.md), a capability of AWS Systems Manager, is a unified user interface \(UI\) experience that helps you remotely manage your managed nodes\. With Fleet Manager, you can view the health and performance status of your entire managed\-node fleet from one console\. 
 + [Working with the file system ](fleet-file-management.md)
 
 **Compliance**  
-[Compliance](systems-manager-compliance.md), a capability of AWS Systems Manager, scans your fleet of managed instances for patch compliance and configuration inconsistencies\.
+[Compliance](systems-manager-compliance.md), a capability of AWS Systems Manager, scans your fleet of managed nodes for patch compliance and configuration inconsistencies\.
 + [Compliance walkthrough \(AWS CLI\)](sysman-compliance-walk.md)
 
 **Inventory**  
-[Inventory](systems-manager-inventory.md), a capability of AWS Systems Manager, collects information about your instances and the software installed on them, helping you to understand your system configurations and installed applications\.
-+ Advanced: [Walkthrough: Assign custom inventory metadata to an instance](sysman-inventory-walk-custom.md)
-+ Advanced: [Walkthrough: Configure your managed instances for Inventory by using the CLI](sysman-inventory-cliwalk.md)
+[Inventory](systems-manager-inventory.md), a capability of AWS Systems Manager, collects information about your managed nodes and the software installed on them, helping you to understand your system configurations and installed applications\.
++ Advanced: [Walkthrough: Assign custom inventory metadata to a managed node](sysman-inventory-walk-custom.md)
++ Advanced: [Walkthrough: Configure your managed nodes for Inventory by using the CLI](sysman-inventory-cliwalk.md)
 + Advanced: [Walkthrough: Use resource data sync to aggregate inventory data](sysman-inventory-resource-data-sync.md)
 
 **Session Manager**  
-[Session Manager](session-manager.md), a capability of AWS Systems Manager, helps you manage your Amazon EC2 instances through an interactive one\-click browser\-based shell or through the AWS CLI without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\.
+[Session Manager](session-manager.md), a capability of AWS Systems Manager, helps you manage your Amazon EC2 instances and AWS IoT Greengrass core devices through an interactive one\-click browser\-based shell or through the AWS CLI without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\.
 + [Working with Session Manager](session-manager-working-with.md)
 
 **Run Command**  
-[Run Command](execute-remote-commands.md), a capability of AWS Systems Manager, provides secure remote management of your instances at scale without logging into your servers, replacing the need for bastion hosts, SSH, or remote PowerShell\. It provides a simple way of automating common administrative tasks across groups of instances such as registry edits, user management, and software and patch installations\.
+[Run Command](execute-remote-commands.md), a capability of AWS Systems Manager, provides secure remote management of your managed nodes at scale without logging into them\. Run Command helps you manage your nodes without using bastion hosts, SSH, or remote PowerShell\. Run Command also provides a simple way of automating common administrative tasks across groups of managed nodes such as registry edits, user management, and software and patch installations\.
 + [Walkthrough: Use the AWS CLI with Run Command](walkthrough-cli.md)
 + [Walkthrough: Use the AWS Tools for Windows PowerShell with Run Command](walkthrough-powershell.md)
 
 **State Manager**  
-[State Manager](systems-manager-state.md), a capability of AWS Systems Manager, helps you maintain consistent configuration of your Amazon Elastic Compute Cloud \(Amazon EC2\) instances or on\-premises servers and VMs, in a state that you define\. Using State Manager, you can control configuration details such as server configurations, antivirus definitions, firewall settings, and more\.
+[State Manager](systems-manager-state.md), a capability of AWS Systems Manager, helps you maintain your fleet of managed nodes in a consistent configuration and state that you define\. Using State Manager, you can control configuration details such as server configurations, antivirus definitions, firewall settings, and more\.
 + [Walkthrough: Creating associations that run MOF files](systems-manager-state-manager-using-mof-file.md)
 + [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)
 + [Walkthrough: Automatically update PV drivers on EC2 instances for Windows Server \(console\)](sysman-state-pvdriver.md)
 
 **Patch Manager**  
-[Patch Manager](systems-manager-patch.md), a capability of AWS Systems Manager, helps you select and deploy operating system and software patches automatically across large groups of EC2 instances or on\-premises servers and VMs\.
+[Patch Manager](systems-manager-patch.md), a capability of AWS Systems Manager, helps you select and deploy operating system and software patches automatically across large groups of managed nodes\.
 + [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)
 + [Working with patch groups](sysman-patch-group-tagging.md)
 + [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)
 
 **Distributor**  
-[Distributor](distributor.md), a capability of AWS Systems Manager, helps you package your own software—or find AWS provided agent software packages, such as AmazonCloudWatchAgent—to install on Systems Manager managed instances\.
+[Distributor](distributor.md), a capability of AWS Systems Manager, helps you package your own software—or find AWS provided agent software packages, such as AmazonCloudWatchAgent—to install on Systems Manager managed nodes\.
 + [Create a package](distributor-working-with-packages-create.md)
 + [Add a package to Distributor](distributor-working-with-packages-create.md#distributor-working-with-packages-add)
 
 ## Shared resources<a name="getting-started-walkthroughs-shared-resources"></a>
 
 **Documents**  
-[Documents](sysman-ssm-docs.md), a capability of AWS Systems Manager, helps you create and manage *SSM documents*\. An SSM document defines the actions that Systems Manager performs on your managed instances\. Systems Manager includes more than a dozen preconfigured documents that you can use by specifying parameters at runtime\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. 
+[Documents](sysman-ssm-docs.md), a capability of AWS Systems Manager, helps you create and manage *SSM documents*\. An SSM document defines the actions that Systems Manager performs on your managed nodes\. Systems Manager includes more than a dozen preconfigured documents that you can use by specifying parameters at runtime\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. 
 + [Create an SSM document \(console\)](create-ssm-console.md)
 + [Create an SSM document \(command line\)](create-ssm-document-cli.md)

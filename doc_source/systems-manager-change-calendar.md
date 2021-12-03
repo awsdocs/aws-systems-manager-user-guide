@@ -14,7 +14,7 @@ When a calendar entry is closed by default, actions that are tracking Change Cal
 
 ## Who should use Change Calendar?<a name="systems-manager-change-calendar-who"></a>
 + Any Amazon Web Services customer who creates or runs Automation runbooks, creates change requests in Change Manager, or creates associations in State Manager\. \(Automation, Change Manager, and State Manager are all capabilities of AWS Systems Manager\.\) By integrating these capabilities with Change Calendar, you can allow or block these three action types depending on the current state of the change calendar you associate with each one\.
-+ Administrators who are responsible for keeping the configurations of Systems Manager managed instances consistent, stable, and functional\.
++ Administrators who are responsible for keeping the configurations of Systems Manager managed nodes consistent, stable, and functional\.
 
 ## Benefits of Change Calendar<a name="systems-manager-change-calendar-benefits"></a>
 

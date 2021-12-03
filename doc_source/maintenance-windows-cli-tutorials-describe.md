@@ -400,7 +400,7 @@ The system returns information like the following\.
 
 ## Examples for 'describe\-maintenance\-windows\-for\-target'<a name="mw-cli-tutorials-describe-maintenance-windows-for-target"></a>
 
-**List information about the maintenance window targets or tasks associated with a specific instance**  
+**List information about the maintenance window targets or tasks associated with a specific node**  
 Run the following command\.
 
 ------
@@ -554,7 +554,7 @@ The system returns information like the following\.
 
 ## Examples for 'describe\-maintenance\-window\-schedule'<a name="mw-cli-tutorials-describe-maintenance-window-schedule"></a>
 
-**Display the next ten scheduled maintenance window runs for a particular instance**  
+**Display the next ten scheduled maintenance window runs for a particular node**  
 Run the following command\.
 
 ------
@@ -639,7 +639,7 @@ The system returns information like the following\.
 }
 ```
 
-**Display the maintenance window schedule for instances tagged with a certain key\-value pair**  
+**Display the maintenance window schedule for nodes tagged with a certain key\-value pair**  
 Run the following command\.
 
 ------

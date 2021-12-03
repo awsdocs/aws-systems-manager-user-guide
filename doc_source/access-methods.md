@@ -5,6 +5,9 @@ You can work with AWS Systems Manager in any of the following ways:
 **Systems Manager console**  
 The [AWS Systems Manager console](https://console.aws.amazon.com/systems-manager/) is a browser\-based interface to access and use Systems Manager\.
 
+**AWS IoT Greengrass V2 console**  
+You can view and manage edge devices that are configured for AWS IoT Greengrass in the [Greengrass console](https://console.aws.amazon.com/iot)\.
+
 **AWS command line tools**  
 By using the AWS command line tools, you can issue commands at your system's command line to perform Systems Manager and other AWS tasks\. The tools are supported on Linux, macOS, and Windows\. Using the AWS Command Line Interface \(AWS CLI\) can be faster and more convenient than using the console\. The command line tools also are useful if you want to build scripts that perform AWS tasks\.   
 AWS provides two sets of command line tools: the [AWS Command Line Interface](http://aws.amazon.com/cli/) and the [AWS Tools for Windows PowerShell](http://aws.amazon.com/powershell/)\. For information about installing and using the AWS CLI, see the [AWS Command Line Interface User Guide](https://docs.aws.amazon.com/cli/latest/userguide/)\. For information about installing and using the Tools for Windows PowerShell, see the [AWS Tools for Windows PowerShell User Guide](https://docs.aws.amazon.com/powershell/latest/userguide/)\.  

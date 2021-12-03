@@ -2,7 +2,7 @@
 
 On September 21, 2020, AWS Systems Manager released AWS Systems Manager Agent \(SSM Agent\) version 3\.0\. Note the following important details about this release:
 + Version 3\.0 is backward compatible with version 2\.x\.
-+ If you configured your managed instances to automatically update SSM Agent by using target version `$LATEST` \(the default configuration for auto\-update\), then Systems Manager automatically updates the agent on your instances to version 3\.0 and removes version 2\.x\.
++ If you configured your managed nodes to automatically update SSM Agent by using target version `$LATEST` \(the default configuration for auto\-update\), then Systems Manager automatically updates the agent on your nodes to version 3\.0 and removes version 2\.x\.
 
   If you manually download SSM Agent, the system installs version 2\.x\.
 + When you update to version 3\.0, the system renames `amazon-ssm-agent` on your managed instance to `ssm-agent-worker`\. The update then installs a new binary named `amazon-ssm-agent`\. The new binary functions as a process manager for `ssm-agent-worker`\. The `ssm-agent-worker` binary communicates directly with Systems Manager to process requests\. 

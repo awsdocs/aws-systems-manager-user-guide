@@ -9,11 +9,13 @@ Use the information in this topic to help you implement AWS Systems Manager Agen
 + [Keeping SSM Agent up\-to\-date](#updating)
 + [SSM Agent rolling updates by AWS Regions](#rolling-updates)
 + [Installing SSM Agent on VMs and on\-premises instances](#agent-hybrid-installations)
-+ [Validating on\-premises servers and virtual machines using a hardware fingerprint](#fingerprint-validation)
++ [Validating on\-premises servers, edge devices, and virtual machines using a hardware fingerprint](#fingerprint-validation)
 + [AMIs with SSM Agent preinstalled](#ami-preinstalled-agent)
 + [SSM Agent on GitHub](#github)
 
 ## SSM Agent credentials precedence<a name="credentials-precedence"></a>
+
+This topic describes important information about how SSM Agent is granted permission to perform actions on your resources\. The content is primarily focused on SSM Agent running Amazon Elastic Compute Cloud \(Amazon EC2\) instances and servers or VMs in your hybrid environment\. For edge devices, you must configure your devices to use AWS IoT Greengrass Core software, configure an AWS Identity and Access Management \(IAM\) service role, and deploy SSM Agent to your devices by using AWS IoT Greengrass\. For more information, see [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\.
 
 When SSM Agent is installed on an instance, it requires permissions in order to communicate with the Systems Manager service\. On Amazon Elastic Compute Cloud \(Amazon EC2\) instances, these permissions are provided in an instance profile that is attached to the instance\. On a hybrid instance, SSM Agent normally gets the needed permissions from the shared credentials file, located at `/root/.aws/credentials` \(Linux and macOS\) or `%USERPROFILE%\.aws\credentials` \(Windows Server\)\. The needed permissions are added to this file during the hybrid activation process\.
 
@@ -61,10 +63,10 @@ Systems Manager relies on EC2 instance metadata to function correctly\. Systems 
 
 ## Keeping SSM Agent up\-to\-date<a name="updating"></a>
 
-An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
+An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on a managed node, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
 
 **Note**  
-An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on an instance, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your instances\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.  
+An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on a managed node, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.  
 Amazon Machine Images \(AMIs\) that include SSM Agent by default can take up to two weeks to be updated with the newest version of SSM Agent\. We recommend that you configure even more frequent automated updates to SSM Agent\.
 
 ## SSM Agent rolling updates by AWS Regions<a name="rolling-updates"></a>
@@ -89,19 +91,19 @@ You can also open the `VERSION` file directly in your browser without a `curl` c
 
 ## Installing SSM Agent on VMs and on\-premises instances<a name="agent-hybrid-installations"></a>
 
-For information about installing SSM Agent on VMs and on\-premises instance in a hybrid environment, see [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md) and [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
+For information about installing SSM Agent on on\-premises servers, edge devices, and virtual machines \(VMs\) in a hybrid environment, see [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md) and [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
-## Validating on\-premises servers and virtual machines using a hardware fingerprint<a name="fingerprint-validation"></a>
+## Validating on\-premises servers, edge devices, and virtual machines using a hardware fingerprint<a name="fingerprint-validation"></a>
 
-When running on\-premises servers and virtual machines \(VMs\) in a hybrid environment, SSM Agent gathers a number of system attributes \(referred to as the *hardware hash*\) and uses these attributes to compute a *fingerprint*\. The fingerprint is an opaque string that the agent passes to certain Systems Manager APIs\. This unique fingerprint associates the caller with a particular managed instance\. The agent stores the fingerprint and hardware hash on the local disk in a location called the *Vault*\.
+When running on\-premises servers, edge devices, and virtual machines \(VMs\) in a hybrid environment, SSM Agent gathers a number of system attributes \(referred to as the *hardware hash*\) and uses these attributes to compute a *fingerprint*\. The fingerprint is an opaque string that the agent passes to certain Systems Manager APIs\. This unique fingerprint associates the caller with a particular on\-premises managed node\. The agent stores the fingerprint and hardware hash on the local disk in a location called the *Vault*\.
 
-The agent computes the hardware hash and fingerprint when the on\-premises server or VM is registered for use with Systems Manager\. Then, the fingerprint is passed back to the Systems Manager service when the agent sends a `RegisterManagedInstance` command\. 
+The agent computes the hardware hash and fingerprint when the on\-premises server, edge device, or VM is registered for use with Systems Manager\. Then, the fingerprint is passed back to the Systems Manager service when the agent sends a `RegisterManagedInstance` command\. 
 
 Later, when sending a `RequestManagedInstanceRoleToken` command, the agent checks the fingerprint and hardware hash in the Vault to make sure that the current machine attributes match with the stored hardware hash\. If the current machine attributes do match the hardware hash stored in the Vault, the agent passes in the fingerprint from the Vault to `RegisterManagedInstance`, resulting in a successful call\. 
 
 If the current machine attributes don't match the stored hardware hash, SSM Agent computes a new fingerprint, stores the new hardware hash and fingerprint in the Vault, and passes the new fingerprint to `RequestManagedInstanceRoleToken`\.* This causes `RequestManagedInstanceRoleToken` to fail, and the agent won't be able to obtain a role token to connect to the Systems Manager service\.*
 
-This failure is by design and is used as a verification step to prevent multiple on\-premises servers and VMs from communicating with the Systems Manager service as the same managed instance\.
+This failure is by design and is used as a verification step to prevent multiple on\-premises managed nodes from communicating with the Systems Manager service as the same managed node\.
 
 When comparing the current machine attributes to the hardware hash stored in the Vault, the agent uses the following logic to determine whether the old and new hashes match:
 + If the SID \(system/machine ID\) is different, then no match\.
@@ -143,7 +145,7 @@ SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(
 **Note**  
 SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\.
 
-You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on VMs in your hybrid environment or on\-premises servers\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
+You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on AWS IoT Greengrass core devices and on\-premises servers, edge devices, and VMs in your hybrid environment\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 **Note**  
 SSM Agent might be pre\-installed on Community AMIs that support other operating systems\. AWS doesn't support these Community AMIs\.

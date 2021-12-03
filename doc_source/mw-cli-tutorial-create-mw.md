@@ -75,4 +75,4 @@ For more information about working with the `--schedule` option, see [Reference:
    }
    ```
 
-Continue to [Step 2: Register a target instance with the maintenance window \(AWS CLI\)](mw-cli-tutorial-targets.md)\.
+Continue to [Step 2: Register a target node with the maintenance window \(AWS CLI\)](mw-cli-tutorial-targets.md)\.

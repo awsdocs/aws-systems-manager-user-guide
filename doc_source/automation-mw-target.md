@@ -85,7 +85,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 **Before you begin**  
 Before you complete the following procedure, you must create a maintenance window and register at least one target\. For more information, see the following procedures:
 + [Step 1: Create the maintenance window \(AWS CLI\)](mw-cli-tutorial-create-mw.md)\.
-+ [Step 2: Register a target instance with the maintenance window \(AWS CLI\)](mw-cli-tutorial-targets.md)
++ [Step 2: Register a target node with the maintenance window \(AWS CLI\)](mw-cli-tutorial-targets.md)
 
 **To configure an automation as a registered task for a maintenance window**
 

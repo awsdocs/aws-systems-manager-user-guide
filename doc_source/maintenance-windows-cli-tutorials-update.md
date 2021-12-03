@@ -59,7 +59,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
    }
    ```
 
-1. Run the following command to use the `replace` option to remove the description field and add an additional target\. The description field is removed, because the update doesn't include the field \(a null value\)\. Be sure to specify an additional instance that has been configured for use with Systems Manager\.
+1. Run the following command to use the `replace` option to remove the description field and add an additional target\. The description field is removed, because the update doesn't include the field \(a null value\)\. Be sure to specify an additional node that has been configured for use with Systems Manager\.
 
 ------
 #### [ Linux & macOS ]

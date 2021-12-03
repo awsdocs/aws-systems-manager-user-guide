@@ -1,7 +1,7 @@
 # Walkthrough: Creating a maintenance window for patching \(console\)<a name="sysman-patch-mw-console"></a>
 
 **Important**  
-You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Creating a patching configuration \(console\)](create-patching-configuration.md)\. Although many patching use cases benefit from patching instances on a schedule with a maintenance window, you can also run a one\-time patching operation manually without a maintenance window\. For more information, see [Patching instances on demand \(console\)](patch-on-demand.md)\.
+You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Creating a patching configuration \(console\)](create-patching-configuration.md)\. Although many patching use cases benefit from patching nodes on a schedule with a maintenance window, you can also run a one\-time patching operation manually without a maintenance window\. For more information, see [Patching managed nodes on demand \(console\)](patch-on-demand.md)\.
 
 To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
@@ -23,7 +23,7 @@ You must configure roles and permissions for Maintenance Windows, a capability o
 
 1. For **Description**, enter a description\. 
 
-1. Choose **Allow unregistered targets** if you want to allow a maintenance window task to run on managed instances, even if you haven't registered those instances as targets\. If you choose this option, then you can choose the unregistered instances \(by instance ID\) when you register a task with the maintenance window\.
+1. Choose **Allow unregistered targets** if you want to allow a maintenance window task to run on managed nodes, even if you haven't registered those nodes as targets\. If you choose this option, then you can choose the unregistered nodes \(by node ID\) when you register a task with the maintenance window\.
 
    If you don't choose this option, then you must choose previously\-registered targets when you register a task with the maintenance window\. 
 
@@ -53,7 +53,7 @@ You must configure roles and permissions for Maintenance Windows, a capability o
 
 1. For **Targets**, choose **Specifying instance tags**\.
 
-1. For **Instance tags**, enter a tag key and a tag value to identify the instances to register with the maintenance window, and then choose **Add**\.
+1. For **Instance tags**, enter a tag key and a tag value to identify the nodes to register with the maintenance window, and then choose **Add**\.
 
 1. Choose **Register target**\. The system creates a maintenance window target\.
 
@@ -68,12 +68,12 @@ You must configure roles and permissions for Maintenance Windows, a capability o
 1. For **Targets**, under **Target by**, choose the maintenance window target you created earlier in this procedure\.
 
 1. For **Rate control**:
-   + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
+   + For **Concurrency**, specify either a number or a percentage of managed nodes on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you aren't certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
-   + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
+If you selected targets by specifying tags applied to managed nodes or by specifying AWS resource groups, and you aren't certain how many managed nodes are targeted, then restrict the number of targets that can run the document at the same time by specifying a percentage\.
+   + For **Error threshold**, specify when to stop running the command on other managed nodes after it fails on either a number or a percentage of nodes\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Managed nodes still processing the command might also send errors\.
 
-1. For ** IAM service role**, choose one of the following options to provide permissions for Systems Manager to run tasks on your target instances:
+1. For ** IAM service role**, choose one of the following options to provide permissions for Systems Manager to run tasks on your target nodes:
    +  ** Create and use a service\-linked role for Systems Manager **
 
      Service\-linked roles provide a secure way to delegate permissions to AWS services because only the linked service can assume a service\-linked role\. Additionally, AWS automatically defines and sets the permissions of service\-linked roles, depending on the actions that the linked service performs on your behalf\.
@@ -92,7 +92,7 @@ If a service\-linked role has already been created for your AWS account, choose 
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the managed node, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) or [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile or IAM service role associated with the managed node has the necessary permissions to write to that bucket\.
 
    To stream the output to an Amazon CloudWatch Logs log group, select the **CloudWatch output** box\. Enter the log group name in the box\.
 
@@ -104,7 +104,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    + For **Operation**, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
    + You don't need to enter anything in the **Snapshot Id** field\. This system automatically generates and provides this parameter\.
    + You don't need to enter anything in the **Install Override List** field unless you want Patch Manager to use a different patch set than is specified for the patch baseline\. For information, see [Parameter name: `InstallOverrideList`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist)\.
-   + For **Reboot option**, specify whether you want instances to reboot if patches are installed during the `Install` operation, or if Patch Manager detects other patches that were installed since the last instance reboot\. For information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.
+   + For **Reboot option**, specify whether you want nodes to reboot if patches are installed during the `Install` operation, or if Patch Manager detects other patches that were installed since the last node reboot\. For information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.
    + \(Optional\) For **Comment**, enter a tracking note or reminder about this command\.
    + For **Timeout \(seconds\)**, enter the number of seconds the system should wait for the operation to finish before it is considered unsuccessful\.
 
@@ -115,4 +115,4 @@ After the maintenance window task is complete, you can view patch compliance det
 **Note**  
 You can save your query by bookmarking the URL after you specify the filters\.
 
-You can also drill down on a specific instance by choosing the instance in the **Managed Instances** page, and then choosing the **Patch** tab\. You can also use the [DescribePatchGroupState](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchGroupState.html) and [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html) APIs to view compliance details\. For information about patch compliance data, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
+You can also drill down on a specific node by choosing the node in the **Managed Instances** page, and then choosing the **Patch** tab\. You can also use the [DescribePatchGroupState](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribePatchGroupState.html) and [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html) APIs to view compliance details\. For information about patch compliance data, see [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.

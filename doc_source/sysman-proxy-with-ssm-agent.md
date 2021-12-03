@@ -3,7 +3,7 @@
 You can configure AWS Systems Manager Agent \(SSM Agent\) to communicate through an HTTP proxy by creating an override configuration file and adding `http_proxy`, `https_proxy`, and `no_proxy` settings to the file\. An override file also preserves the proxy settings if you install newer or older versions of SSM Agent\. This section includes procedures for creating an override file in both *upstart* and *systemd* environments\. 
 
 **Note**  
-Instances created from an Amazon Linux AMI that are using a proxy must be running a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python requests module on Amazon Linux instances that use a proxy server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.
+Managed nodes created from an Amazon Linux AMI that use a proxy must run a current version of the Python `requests` module in order to support Patch Manager operations\. For more information, see [Upgrade the Python requests module on Amazon Linux instances that use a proxy server](sysman-proxy-with-ssm-agent-al-python-requests.md)\.
 
 **Topics**
 + [Configure SSM Agent to use a proxy \(upstart\)](#ssm-agent-proxy-upstart)

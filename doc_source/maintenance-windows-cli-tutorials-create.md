@@ -6,5 +6,5 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
 
 **Topics**
 + [Step 1: Create the maintenance window \(AWS CLI\)](mw-cli-tutorial-create-mw.md)
-+ [Step 2: Register a target instance with the maintenance window \(AWS CLI\)](mw-cli-tutorial-targets.md)
++ [Step 2: Register a target node with the maintenance window \(AWS CLI\)](mw-cli-tutorial-targets.md)
 + [Step 3: Register a task with the maintenance window \(AWS CLI\)](mw-cli-tutorial-tasks.md)

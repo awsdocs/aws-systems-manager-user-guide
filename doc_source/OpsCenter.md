@@ -115,9 +115,9 @@ For information about OpsCenter public API operations, see the following API ope
 
 Yes\. For more information, see [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\.
 
-## Does OpsCenter work with my on\-premises and hybrid managed instances?<a name="OpsCenter-learn-more-hybrid"></a>
+## Does OpsCenter work with my on\-premises and hybrid managed nodes?<a name="OpsCenter-learn-more-hybrid"></a>
 
-Yes\. You can use OpsCenter to investigate and remediate issues with your on\-premises managed instances that are configured for Systems Manager\. For more information about setting up and configuring on\-premises servers and virtual machines for Systems Manager, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
+Yes\. You can use OpsCenter to investigate and remediate issues with your on\-premises managed nodes that are configured for Systems Manager\. For more information about setting up and configuring on\-premises servers and virtual machines for Systems Manager, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 ## What are the quotas for OpsCenter?<a name="OpsCenter-learn-more-limits"></a>
 
@@ -130,7 +130,7 @@ You can view quotas for all Systems Manager capabilities in the [Systems Manager
 + [How does OpsCenter work with Amazon EventBridge? Which service should I use?](#OpsCenter-learn-more-compare-CWE)
 + [Does OpsCenter integrate with my existing case management system?](#OpsCenter-learn-more-case-management)
 + [Is there a charge to use OpsCenter?](#OpsCenter-learn-more-cost)
-+ [Does OpsCenter work with my on\-premises and hybrid managed instances?](#OpsCenter-learn-more-hybrid)
++ [Does OpsCenter work with my on\-premises and hybrid managed nodes?](#OpsCenter-learn-more-hybrid)
 + [What are the quotas for OpsCenter?](#OpsCenter-learn-more-limits)
 + [Getting started with OpsCenter](OpsCenter-getting-started.md)
 + [Creating OpsItems](OpsCenter-creating-OpsItems.md)

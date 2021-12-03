@@ -1,11 +1,11 @@
-# Create a SecureString parameter and join an instance to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
+# Create a SecureString parameter and join a node to a Domain \(PowerShell\)<a name="sysman-param-securestring-walkthrough"></a>
 
-This walkthrough shows how to join a Windows Server instance to a domain using AWS Systems Manager `SecureString` parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS managed key and passed as an encrypted string\. 
+This walkthrough shows how to join a Windows Server node to a domain using AWS Systems Manager `SecureString` parameters and Run Command\. The walkthrough uses typical domain parameters, such as the domain name and a domain user name\. These values are passed as unencrypted string values\. The domain password is encrypted using an AWS managed key and passed as an encrypted string\. 
 
 **Prerequisites**  
 This walkthrough assumes that you already specified your domain name and DNS server IP address in the DHCP option set that is associated with your Amazon VPC\. For information, see [Working with DHCP Options Sets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html#DHCPOptionSet) in the *Amazon VPC User Guide*\.
 
-**To create a `SecureString` parameter and join an instance to a domain**
+**To create a `SecureString` parameter and join a node to a domain**
 
 1. Enter parameters into the system using AWS Tools for Windows PowerShell \(Tools for Windows PowerShell\)\.
 
@@ -17,21 +17,21 @@ This walkthrough assumes that you already specified your domain name and DNS ser
 **Important**  
 Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties aren't encrypted\.
 
-1. Attach the following AWS Identity and Access Management \(IAM\) policies to the IAM role permissions for your instance: 
-   + **AmazonSSMManagedInstanceCore** – Required\. This AWS managed policy allows a managed instance to use Systems Manager service core functionality\.
-   + **AmazonSSMDirectoryServiceAccess** – Required\. This AWS managed policy allows SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed instance\.
-   + **A custom policy for S3 bucket access** – Required\. SSM Agent, which is on your instance and performs Systems Manager tasks, requires access to specific Amazon\-owned Amazon Simple Storage Service \(Amazon S3\) buckets\. In the custom S3 bucket policy that you create, you also provide access to S3 buckets of your own that are necessary for Systems Manager operations\. 
+1. Attach the following AWS Identity and Access Management \(IAM\) policies to the IAM role permissions for your node: 
+   + **AmazonSSMManagedInstanceCore** – Required\. This AWS managed policy allows a managed node to use Systems Manager service core functionality\.
+   + **AmazonSSMDirectoryServiceAccess** – Required\. This AWS managed policy allows SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed node\.
+   + **A custom policy for S3 bucket access** – Required\. SSM Agent, which is on your node and performs Systems Manager tasks, requires access to specific Amazon\-owned Amazon Simple Storage Service \(Amazon S3\) buckets\. In the custom S3 bucket policy that you create, you also provide access to S3 buckets of your own that are necessary for Systems Manager operations\. 
 
      Examples: You can write output for Run Command commands or Session Manager sessions to an S3 bucket, and then use this output later for auditing or troubleshooting\. You store access scripts or custom patch baseline lists in an S3 bucket, and then reference the script or list when you run a command, or when a patch baseline is applied\.
 
      For information about creating a custom policy for Amazon S3 bucket access, see [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)
 **Note**  
 Saving output log data in an S3 bucket is optional, but we recommend setting it up at the beginning of your Systems Manager configuration process if you have decided to use it\. For more information, see [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*\.
-   + **CloudWatchAgentServerPolicy** – Optional\. This AWS managed policy allows you to run the CloudWatch agent on managed instances\. This policy makes it possible to read information on an instance and write it to Amazon CloudWatch\. Your instance profile needs this policy only if you use services such as Amazon EventBridge or CloudWatch Logs\.
+   + **CloudWatchAgentServerPolicy** – Optional\. This AWS managed policy allows you to run the CloudWatch agent on managed nodes\. This policy makes it possible to read information on a node and write it to Amazon CloudWatch\. Your instance profile needs this policy only if you use services such as Amazon EventBridge or CloudWatch Logs\.
 **Note**  
 Using CloudWatch and EventBridge features is optional, but we recommend setting them up at the beginning of your Systems Manager configuration process if you have decided to use them\. For more information, see the *[Amazon EventBridge User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/)* and the *[Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/)*\.
 
-1. Edit the IAM role attached to the instance and add the following policy\. This policy gives the instance permissions to call the `kms:Decrypt` and the `ssm:CreateDocument` API\. 
+1. Edit the IAM role attached to the node and add the following policy\. This policy gives the node permissions to call the `kms:Decrypt` and the `ssm:CreateDocument` API\. 
 
    ```
    {
@@ -90,7 +90,7 @@ Using CloudWatch and EventBridge features is optional, but we recommend setting 
    New-SSMDocument -Name JoinInstanceToDomain -Content $json -DocumentType Command
    ```
 
-1. Run the following command in Tools for Windows PowerShell to join the instance to the domain\.
+1. Run the following command in Tools for Windows PowerShell to join the node to the domain\.
 
    ```
    Send-SSMCommand -InstanceId instance-id -DocumentName JoinInstanceToDomain 

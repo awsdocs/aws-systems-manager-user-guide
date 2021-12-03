@@ -100,14 +100,14 @@ If you're using Change Manager with a single AWS account only and not with an or
 1. In the **Deployment targets** section, do the following:
 
    1. Choose one of the following:
-      + **Single resource** – The change is to be made for just one resource\. For example, a single instance or a single Amazon Machine Image \(AMI\), depending on the operation defined in the runbooks for this change request\.
+      + **Single resource** – The change is to be made for just one resource\. For example, a single node or a single Amazon Machine Image \(AMI\), depending on the operation defined in the runbooks for this change request\.
       + **Multiple resources** – For **Parameter**, select from the available parameters from the runbooks for this change request\. This selection reflects the type of resource being updated\.
 
         For example, if the runbook for this change request is `AWS-RetartEC2Instance`, you might choose `InstanceId`, and then define which instances are updated by selecting from the following:
         + **Specify tags** – Enter a key\-value pair that all resources to be updated are tagged with\.
         + **Choose a resource group** – Choose the name of the resource group that all resources to be updated belong to\.
         + **Specify parameter values** – Identify the resources to update in the **Runbook parameters** section\.
-        + **Target all instances** – Make the change on all managed instances in the target locations\.
+        + **Target all instances** – Make the change on all managed nodes in the target locations\.
 
    1. If you chose **Multiple resources**, expand **Rate control**\. 
 

@@ -44,7 +44,7 @@ The status for tasks that are not completed when you enable this option is `TIME
    + **Selecting registered target groups**: Select one or more maintenance window targets you have registered with the current maintenance window\.
    + **Selecting unregistered targets**: Choose available resources one by one as targets for the task\.
 
-     If an Amazon EC2 instance you expect to see isn't listed, see [Troubleshooting managed instance availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+     If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
    + **Task target not required**: Targets for the task might already be specified in other functions for all but Run Command\-type tasks\.
 
      Specify one or more targets for maintenance window Run Command\-type tasks\. Depending on the task, targets are optional for other maintenance window task types \(Automation, AWS Lambda, and AWS Step Functions\)\. For more information about running tasks that don't specify targets, see [Registering maintenance window tasks without targets](maintenance-windows-targetless-tasks.md)\.
@@ -52,12 +52,12 @@ The status for tasks that are not completed when you enable this option is `TIME
 In many cases, you don't need to explicitly specify a target for an automation task\. For example, say that you're creating an Automation\-type task to update an Amazon Machine Image \(AMI\) for Linux using the `AWS-UpdateLinuxAmi` runbook\. When the task runs, the AMI is updated with the latest available Linux distribution packages and Amazon software\. New instances created from the AMI already have these updates installed\. Because the ID of the AMI to be updated is specified in the input parameters for the runbook, there is no need to specify a target again in the maintenance window task\.
 
 1. For **Rate control**:
-   + For **Concurrency**, specify either a number or a percentage of instances on which to run the command at the same time\.
+   + For **Concurrency**, specify either a number or a percentage of managed nodes on which to run the command at the same time\.
 **Note**  
-If you selected targets by specifying tags applied to managed instances or by specifying AWS resource groups, and you aren't certain how many instances are targeted, then restrict the number of instances that can run the document at the same time by specifying a percentage\.
-   + For **Error threshold**, specify when to stop running the command on other instances after it fails on either a number or a percentage of instances\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Instances still processing the command might also send errors\.
+If you selected targets by specifying tags applied to managed nodes or by specifying AWS resource groups, and you aren't certain how many managed nodes are targeted, then restrict the number of targets that can run the document at the same time by specifying a percentage\.
+   + For **Error threshold**, specify when to stop running the command on other managed nodes after it fails on either a number or a percentage of nodes\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Managed nodes still processing the command might also send errors\.
 
-1. In the ** IAM service role** area, choose one of the following options to provide permissions for Systems Manager to run tasks on your target instances:
+1. In the ** IAM service role** area, choose one of the following options to provide permissions for Systems Manager to run tasks on your target nodes:
    +  ** Create and use a service\-linked role for Systems Manager **
 
      Service\-linked roles provide a secure way to delegate permissions to AWS services because only the linked service can assume a service\-linked role\. Additionally, AWS automatically defines and sets the permissions of service\-linked roles, depending on the actions that the linked service performs on your behalf\.
@@ -77,7 +77,7 @@ If a service\-linked role has already been created for your account, choose **Us
 1. \(Optional\) For **Output options**, do one of the following:
    + Select the **Enable writing to S3** check box to save the command output to a file\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile associated with the instance has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the node, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile associated with the node has the necessary permissions to write to that bucket\.
    + Select the **CloudWatch output** check box to write complete output to Amazon CloudWatch Logs\. Enter the name of a CloudWatch Logs log group\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
