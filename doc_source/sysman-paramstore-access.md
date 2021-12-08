@@ -109,11 +109,17 @@ The following example shows how to deny some commands while allowing the user to
         {
             "Effect": "Allow",
             "Action": [
+                "ssm:DescribeParameters"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
                 "ssm:GetParametersByPath",
                 "ssm:GetParameters",
                 "ssm:GetParameter",
                 "ssm:GetParameterHistory",
-                "ssm:DescribeParameters"
             ],
             "Resource": "arn:aws:ssm:region:account-id:parameter/prod-*"
         }
