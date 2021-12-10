@@ -10,6 +10,7 @@ You can perform the following actions on this page:
 + In the **Alarms** section, choose a number to open the **Monitoring** tab where you can view more details about alarms of the chosen severity\.
 + In the **OpsItems** section, choose a severity to open the **OpsItems** tab where you can view all OpsItems of the chosen severity\.
 + In the **Runbooks** section, choose a runbook to open it in the Systems Manager **Documents** page where you can view more details about the document\.
++ If you enabled AWS Cost Explorer, the **Cost Explorer** section shows cost data for a specific application or application component\. You can enable this feature by choosing the **Go to Billing console** button and then choosing **Cost Explorer** in the Billing and Cost Management console\. By default, the data is filtered to the past three months\. For a non\-container application, if you choose the **View all** button in this section, Application Manager opens the **Resources** tab\. For container applications, the **View all** button opens the AWS Cost Explorer console\.
 + Choose a **View all** button to open the corresponding tab\. You can view all alarms, OpsItems, or runbook history entries for the application\.
 
 **To open the **Overview** tab**

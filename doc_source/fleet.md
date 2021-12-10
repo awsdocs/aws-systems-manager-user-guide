@@ -41,10 +41,9 @@ If you stopped your managed instance before July 12, 2021, it won't display the 
 
   Control access to Fleet Manager features using AWS Identity and Access Management \(IAM\) policies\. With these policies, you can control which individual users or groups in your organization can use various Fleet Manager features, and which managed nodes they can manage\.
 
-## <a name="fleet-managed-instance"></a>
-
 **Topics**
 + [Who should use Fleet Manager?](#fleet-who)
 + [How can Fleet Manager benefit my organization?](#fleet-benefits)
 + [What are the features of Fleet Manager?](#fleet-features)
-+ 
++ [Getting started with Fleet Manager](fleet-getting-started.md)
++ [Working with Fleet Manager](fleet-working.md)

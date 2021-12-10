@@ -15,10 +15,16 @@ sudo dpkg -r amazon-ssm-agent
 ```
 
 **SUSE Linux Enterprise Server \(SLES\)**
++ `zypper` command installations:
 
-```
-sudo rpm --erase amazon-ssm-agent
-```
+  ```
+  sudo zypper remove amazon-ssm-agent
+  ```
++ `rpm` command installations:
+
+  ```
+  sudo rpm --erase amazon-ssm-agent
+  ```
 
 **Ubuntu Server**
 + **deb package installations**:

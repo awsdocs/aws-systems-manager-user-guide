@@ -1,34 +1,41 @@
-# Manually install SSM Agent on SUSE Linux Enterprise Server 12 instances<a name="agent-install-sles"></a>
+# Manually install SSM Agent on SUSE Linux Enterprise Server instances<a name="agent-install-sles"></a>
 
-Connect to your SLES instance and perform the following steps to install the AWS Systems Manager Agent \(SSM Agent\)\. Perform these steps on each instance that will run commands using Systems Manager\.
+Connect to your SLES instance and perform the following steps to install the AWS Systems Manager Agent \(SSM Agent\)\. Perform these steps on each instance that will run commands using Systems Manager\. You can perform the installation using either a `zypper` command or an `rpm` command\.
 
 **To install SSM Agent on SUSE Linux Enterprise Server**
 
-1. Create a temporary directory on the instance\.
+1. **Option 1**: Use a `zypper` command:
+   + Run the following command:
 
-   ```
-   mkdir /tmp/ssm
-   ```
+     ```
+     sudo zypper install amazon-ssm-agent
+     ```
+   + Enter `y` in response to the prompt\.
 
-1. Change to the temporary directory\.
+   **Option 2**: Use an `rpm` command\.
+   + Create a temporary directory on the instance\.
 
-   ```
-   cd /tmp/ssm
-   ```
+     ```
+     mkdir /tmp/ssm
+     ```
+   + Change to the temporary directory\.
 
-1. Run the following commands one at a time to download and run the SSM Agent installer\. 
+     ```
+     cd /tmp/ssm
+     ```
+   + Run the following commands one at a time to download and run the SSM Agent installer\. 
 
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+     *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-   64\-bit instances:
+     64\-bit instances:
 
-   ```
-   wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
-   ```
+     ```
+     wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
+     ```
 
-   ```
-   sudo rpm --install amazon-ssm-agent.rpm
-   ```
+     ```
+     sudo rpm --install amazon-ssm-agent.rpm
+     ```
 
 1. Run the following command to determine if SSM Agent is running\. The command should return the message amazon\-ssm\-agent is running\.
 

@@ -223,7 +223,7 @@ The command returns information like the following\. This example has been trunc
 ```
 {
     "Parameters": [
-                {
+        {
             "Name": "/aws/service/global-infrastructure/availability-zones/afs1-az3",
             "Type": "String",
             "Value": "afs1-az3",
@@ -249,7 +249,9 @@ The command returns information like the following\. This example has been trunc
             "LastModifiedDate": "2020-04-03T13:13:57.351000-07:00",
             "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/global-infrastructure/availability-zones/aps1-az2",
             "DataType": "text"
-        },
+        }
+    ]
+}
 ```
 
 **View Availability Zone names only**  

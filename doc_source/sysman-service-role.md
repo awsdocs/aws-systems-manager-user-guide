@@ -50,18 +50,29 @@ If either of the following cases are true, you must create a custom IAM permissi
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. On your local machine, create a text file with a name such as `SSMService-Trust.json` with the following trust policy\. Make sure to save the file with the `.json` file extension\.
+1. On your local machine, create a text file with a name such as `SSMService-Trust.json` with the following trust policy\. Make sure to save the file with the `.json` file extension\. Be sure to specify your AWS account and the AWS Region in the ARN where you created your hybrid activation\.
 
    ```
    {
-       "Version": "2012-10-17",
-       "Statement": {
-           "Effect": "Allow",
-           "Principal": {
-               "Service": "ssm.amazonaws.com"
-           },
-           "Action": "sts:AssumeRole"
-       }
+      "Version":"2012-10-17",
+      "Statement":[
+         {
+            "Sid":"",
+            "Effect":"Allow",
+            "Principal":{
+               "Service":"ssm.amazonaws.com"
+            },
+            "Action":"sts:AssumeRole",
+            "Condition":{
+               "StringEquals":{
+                  "aws:SourceAccount":"123456789012"
+               },
+               "ArnEquals":{
+                  "aws:SourceArn":"arn:aws:ssm:us-east-2:123456789012:*"
+               }
+            }
+         }
+      ]
    }
    ```
 
@@ -174,18 +185,29 @@ The policies you add for a service profile for managed instances in a hybrid env
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. On your local machine, create a text file with a name such as `SSMService-Trust.json` with the following trust policy\. Make sure to save the file with the `.json` file extension\.
+1. On your local machine, create a text file with a name such as `SSMService-Trust.json` with the following trust policy\. Make sure to save the file with the `.json` file extension\. Be sure to specify your AWS account and the AWS Region in the ARN where you created your hybrid activation\.
 
    ```
    {
-       "Version": "2012-10-17",
-       "Statement": {
-           "Effect": "Allow",
-           "Principal": {
-               "Service": "ssm.amazonaws.com"
-           },
-           "Action": "sts:AssumeRole"
-       }
+      "Version":"2012-10-17",
+      "Statement":[
+         {
+            "Sid":"",
+            "Effect":"Allow",
+            "Principal":{
+               "Service":"ssm.amazonaws.com"
+            },
+            "Action":"sts:AssumeRole",
+            "Condition":{
+               "StringEquals":{
+                  "aws:SourceAccount":"123456789012"
+               },
+               "ArnEquals":{
+                  "aws:SourceArn":"arn:aws:ssm:us-east-2:123456789012:*"
+               }
+            }
+         }
+      ]
    }
    ```
 

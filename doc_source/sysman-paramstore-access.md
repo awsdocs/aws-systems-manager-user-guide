@@ -44,7 +44,6 @@ For trusted administrators, you can provide access to all Systems Manager parame
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
                 "ssm:PutParameter",
@@ -58,9 +57,8 @@ For trusted administrators, you can provide access to all Systems Manager parame
             "Resource": "arn:aws:ssm:region:account-id:parameter/dbserver-prod-*"
         },
         {
-            "Sid": "VisualEditor1",
             "Effect": "Allow",
-            "Action": "ssm:DescribeParameters",
+            "Action": "ssm:DescribeParameters"
             "Resource": "*"
         }
     ]
@@ -102,13 +100,7 @@ The following example shows how to deny some commands while allowing the user to
             "Action": [
                 "ssm:PutParameter",
                 "ssm:DeleteParameter",
-                "ssm:DeleteParameters"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
+                "ssm:DeleteParameters",
                 "ssm:DescribeParameters"
             ],
             "Resource": "*"
@@ -119,7 +111,7 @@ The following example shows how to deny some commands while allowing the user to
                 "ssm:GetParametersByPath",
                 "ssm:GetParameters",
                 "ssm:GetParameter",
-                "ssm:GetParameterHistory",
+                "ssm:GetParameterHistory"
             ],
             "Resource": "arn:aws:ssm:region:account-id:parameter/prod-*"
         }
@@ -149,27 +141,27 @@ Instance policies, like in the following example, are assigned to the instance r
 
 ```
 {
-   "Version":"2012-10-17",
-   "Statement":[
-      {
-         "Effect":"Allow",
-         "Action":[
-            "ssm:GetParameters"
-         ],
-         "Resource":[
-            "arn:aws:ssm:region:account-id:parameter/prod-*"
-         ]
-      },
-      {
-         "Effect":"Allow",
-         "Action":[
-            "kms:Decrypt"
-         ],
-         "Resource":[
-            "arn:aws:kms:region:account-id:key/KMSkey"
-         ]
-      }
-   ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetParameters"
+            ],
+            "Resource": [
+                "arn:aws:ssm:region:account-id:parameter/prod-*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "kms:Decrypt"
+            ],
+            "Resource": [
+                "arn:aws:kms:region:account-id:key/KMSkey"
+            ]
+        }
+    ]
 }
 ```
 
@@ -197,9 +189,9 @@ When using a customer managed key, the IAM policy that grants a user access to a
         {
             "Effect": "Allow",
             "Action": [
-               "kms:Decrypt",
-               "kms:Encrypt",
-               "kms:GenerateDataKey"  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+                "kms:Decrypt",
+                "kms:Encrypt",
+                "kms:GenerateDataKey"  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Resource": [
                 "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE"

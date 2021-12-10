@@ -11,17 +11,6 @@ This action supports most parameters for the Step Functions [StartExecution](htt
 + `states:StartExecution`
 + `states:StopExecution`
 
-**Note**  
-This action is only supported in the following AWS Regions:  
-us\-west\-2
-us\-east\-1
-us\-east\-2
-eu\-west\-1
-eu\-west\-2
-eu\-central\-1
-ap\-northeast\-1
-ap\-southeast\-2
-
 ------
 #### [ YAML ]
 

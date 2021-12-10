@@ -50,13 +50,11 @@ The following example policy grants users permission to call the `PutParameter` 
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": "ssm:PutParameter",
             "Resource": "*"
         },
         {
-            "Sid": "VisualEditor1",
             "Effect": "Allow",
             "Action": "ec2:DescribeImages",
             "Resource": "*"

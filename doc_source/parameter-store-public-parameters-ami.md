@@ -106,7 +106,9 @@ The command returns information like the following\. This example output has bee
             "LastModifiedDate": "2021-10-04T14:51:40.533000-07:00",
             "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-s3",
             "DataType": "text"
-        },
+        }
+    ]
+}
 ```
 
 You can view details of a specific AMI by using the [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operation with the full AMI name, including the path\. Here is an example command\.
@@ -230,31 +232,36 @@ The command returns information like the following\. This example output has bee
 
 ```
 {
+    "Parameters": [
+        {
             "Name": "/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Chinese_Simplified-64Bit-Base",
             "Type": "String",
-            "Value": "ami-0b7899820bf83a6a1",
-            "Version": 70,
-            "LastModifiedDate": "2021-09-16T17:20:07.716000-07:00",
+            "Value": "ami-085a8792434781696",
+            "Version": 72,
+            "LastModifiedDate": "2021-11-11T16:29:44.401000-08:00",
             "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Chinese_Simplified-64Bit-Base",
             "DataType": "text"
         },
         {
             "Name": "/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Chinese_Traditional-64Bit-Base",
             "Type": "String",
-            "Value": "ami-0fb7114182bd85f9f",
-            "Version": 70,
-            "LastModifiedDate": "2021-09-16T17:20:22.660000-07:00",
+            "Value": "ami-01d65ee0d6d795b37",
+            "Version": 72,
+            "LastModifiedDate": "2021-11-11T16:30:04.345000-08:00",
             "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Chinese_Traditional-64Bit-Base",
             "DataType": "text"
         },
         {
             "Name": "/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Dutch-64Bit-Base",
             "Type": "String",
-            "Value": "ami-0ae137ae6fe86b15a",
-            "Version": 70,
-            "LastModifiedDate": "2021-09-16T17:20:40.545000-07:00",
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Dutch-64Bit-Base",-- Mor            "DataType": "text"
-        },
+            "Value": "ami-0ddf2b503c5585e35",
+            "Version": 72,
+            "LastModifiedDate": "2021-11-11T16:30:16.207000-08:00",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/ami-windows-latest/Windows_Server-2012-R2_RTM-Dutch-64Bit-Base",
+            "DataType": "text"
+        }
+    ]
+}
 ```
 
 You can view details of a specific AMI by using the [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operation with the full AMI name, including the path\. Here is an example command\.

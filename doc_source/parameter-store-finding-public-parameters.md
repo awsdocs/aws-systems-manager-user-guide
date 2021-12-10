@@ -69,8 +69,8 @@ The following example output has been truncated for space\.
             "LastModifiedDate": "2021-01-29T10:25:11.901000-08:00",
             "ARN": "arn:aws:ssm:us-east-1::parameter/aws/service/list/global-infrastructure",
             "DataType": "text"
-        },
-        …
+        }
+    ]
 }
 ```
 
@@ -144,8 +144,8 @@ The command returns information like the following example\. This example output
             "Tier": "Standard",
             "Policies": [],
             "DataType": "text"
-        },
-        …
+        }
+    ]
 }
 ```
 

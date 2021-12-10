@@ -35,19 +35,19 @@ Using CloudWatch and EventBridge features is optional, but we recommend setting 
 
    ```
    {
-      "Version":"2012-10-17",
-      "Statement":[
-         {
-            "Effect":"Allow",
-            "Action":[
-               "kms:Decrypt",
-               "ssm:CreateDocument"
-            ],
-            "Resource":[
-               "arn:aws:kms:region:account-id:key/kms-key-id"
-            ]
-         }
-      ]
+       "Version": "2012-10-17",
+       "Statement": [
+           {
+               "Effect": "Allow",
+               "Action": [
+                   "kms:Decrypt",
+                   "ssm:CreateDocument"
+               ],
+               "Resource": [
+                   "arn:aws:kms:region:account-id:key/kms-key-id"
+               ]
+           }
+       ]
    }
    ```
 

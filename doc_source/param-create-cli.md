@@ -171,8 +171,7 @@ If successful, the command returns the version number of the parameter\. **Excep
                "Value": "My updated parameter value",
                "Version": 2,
                "LastModifiedDate": "2020-02-25T15:55:33.677000-08:00",
-               "ARN": "arn:aws:ssm:us-east-2:123456789012:parameter/Test/IAD/helloWorld"
-               
+               "ARN": "arn:aws:ssm:us-east-2:123456789012:parameter/Test/IAD/helloWorld"            
            }
        ]
    }
