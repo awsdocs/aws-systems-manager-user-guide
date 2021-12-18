@@ -29,11 +29,11 @@ After you [set up](https://docs.aws.amazon.com/systems-manager/latest/userguide/
 
 To help you remediate issues with components or resources, Application Manager also provides runbooks that you can associate with your applications\. 
 
-## Benefits of using Application Manager<a name="application-manager-learn-more-benefits"></a>
+## What are the benefits of using Application Manager?<a name="application-manager-learn-more-benefits"></a>
 
 Application Manager reduces the time it takes for DevOps engineers to detect and investigate issues with AWS resources\. To do this, Application Manager displays many types of operations information in the context of an application in one console\. Application Manager also reduces the time it takes to remediate issues by providing runbooks that perform common remediation tasks on AWS resources\.
 
-## Features of Application Manager<a name="application-manager-learn-more-features"></a>
+## What are the features of Application Manager?<a name="application-manager-learn-more-features"></a>
 
 Application Manager includes the following features:
 + **Import your AWS resources automatically**
@@ -78,18 +78,18 @@ Application Manager includes the following features:
 
   Application Manager includes predefined Systems Manager runbooks for remediating common issues with AWS resources\. You can choose a resource in Application Manager and then choose a runbook that performs a remediation task\.
 
-## Pricing for Application Manager<a name="application-manager-learn-more-cost"></a>
+## Is there a charge to use Application Manager?<a name="application-manager-learn-more-cost"></a>
 
 Application Manager is available at no additional charge\.
 
-## Resource quotas for Application Manager<a name="application-manager-learn-more-quotas"></a>
+## What are the resource quotas for Application Manager?<a name="application-manager-learn-more-quotas"></a>
 
 You can view quotas for all Systems Manager capabilities in the [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. Unless otherwise noted, each quota is Region specific\.
 
 **Topics**
-+ [Benefits of using Application Manager](#application-manager-learn-more-benefits)
-+ [Features of Application Manager](#application-manager-learn-more-features)
-+ [Pricing for Application Manager](#application-manager-learn-more-cost)
-+ [Resource quotas for Application Manager](#application-manager-learn-more-quotas)
++ [What are the benefits of using Application Manager?](#application-manager-learn-more-benefits)
++ [What are the features of Application Manager?](#application-manager-learn-more-features)
++ [Is there a charge to use Application Manager?](#application-manager-learn-more-cost)
++ [What are the resource quotas for Application Manager?](#application-manager-learn-more-quotas)
 + [Getting started with Systems Manager Application Manager](application-manager-getting-started.md)
 + [Working with Application Manager](application-manager-working.md)

@@ -123,7 +123,7 @@ Type: String
 Required: No \(Python\) \| Yes \(PowerShell\)
 
 Attachment  
-The name of a standalone script file or \.zip file that can be invoked by the action\. To invoke a file for Python, use the `filename.method_name` format in `Handler`\. For PowerShell, invoke the attachment using and inline script\. Gzip isn't supported\.  
+The name of a standalone script file or \.zip file that can be invoked by the action\. To invoke a file for Python, use the `filename.method_name` format in `Handler`\. For PowerShell, invoke the attachment using an inline script\. Gzip isn't supported\.  
 When including Python libraries in your attachment, we recommend adding an empty `__init__.py` file in each module directory\. This allows you to import the modules from the library in your attachment within your script content\. For example: `from library import module`  
 Type: String  
 Required: NoOutput

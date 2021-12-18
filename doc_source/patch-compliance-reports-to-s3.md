@@ -109,17 +109,17 @@ Use the following procedure to generate a patch summary report for a single mana
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
-1. Choose the **Reporting** tab\.
+1. Choose the **Compliance reporting** tab\.
 
 1. Choose the button for the row of the managed node for which you want to generate a report, and then choose **View detail**\.
 
-1. On the **Patch summary page**, choose **Export to S3**\.
+1. In the **Patch summary** section, choose **Export to S3**\.
 
 1. For **Report name**, enter a name to help you identify the report later\.
 
 1. For **Reporting frequency**, choose one of the following:
-   + **On demand** – Create a one\-time report\. Skip to Step 8\.
-   + **On a schedule** – Specify a recurring schedule for automatically generating reports\. Continue to Step 7\.
+   + **On demand** – Create a one\-time report\. Skip to Step 9\.
+   + **On a schedule** – Specify a recurring schedule for automatically generating reports\. Continue to Step 8\.
 
 1. For **Schedule type**, specify either a rate expression, such as every 3 days, or provide a cron expression to set the report frequency\.
 
@@ -129,7 +129,7 @@ Use the following procedure to generate a patch summary report for a single mana
 **Important**  
 If you're working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were turned off by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
 
-1. \(Optional\) To send notifications when the report is generated, choose an existing Amazon SNS topic from **SNS topic Amazon Resource Name \(ARN\)**\.
+1. \(Optional\) To send notifications when the report is generated, expend the **SNS topic** section, and then choose an existing Amazon SNS topic from **SNS topic Amazon Resource Name \(ARN\)**\.
 
 1. Choose **Submit**\.
 
@@ -151,9 +151,9 @@ Use the following procedure to generate a patch summary report for all managed n
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
-1. Choose the **Reporting** tab\.
+1. Choose the **Compliance reporting** tab\.
 
-1. Choose **Export to S3**\. Don't select a node ID\.
+1. Choose **Export to S3**\. \(Don't select a node ID first\.\)
 
 1. For **Report name**, enter a name to help you identify the report later\.
 
@@ -169,7 +169,7 @@ Use the following procedure to generate a patch summary report for all managed n
 **Important**  
 If you're working in an AWS Region that was launched after March 20, 2019, you must select an S3 bucket in that same Region\. Regions launched after that date were turned off by default\. For more information and a list of these Regions, see [Enabling a Region](https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable) in the *Amazon Web Services General Reference*\.
 
-1. \(Optional\) To send notifications when report the report is generated, choose an existing Amazon SNS topic from **SNS topic Amazon Resource Name \(ARN\)**\.
+1. \(Optional\) To send notifications when the report is generated, expend the **SNS topic** section, and then choose an existing Amazon SNS topic from **SNS topic Amazon Resource Name \(ARN\)**\.
 
 1. Choose **Submit**\.
 
@@ -191,7 +191,7 @@ Use the information in this topic to help you view details about the patch compl
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
-1. Choose the **Reporting** tab\.
+1. Choose the **Compliance reporting** tab\.
 
 1. Choose **View all S3 exports**, and then choose the **Export history** tab\.
 
@@ -209,9 +209,9 @@ Use the information in this topic to help you view details about the patch compl
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
-1. Choose the **Reporting** tab\.
+1. Choose the **Compliance reporting** tab\.
 
-1. Choose **View all S3 exports**, and then choose the **Scheduled report** tab\.
+1. Choose **View all S3 exports**, and then choose the **Report schedule rules** tab\.
 
 ## Troubleshooting patch compliance report generation<a name="patch-compliance-reports-troubleshooting"></a>
 

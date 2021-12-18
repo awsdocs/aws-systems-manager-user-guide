@@ -88,7 +88,7 @@ During a port forwarding session, traffic might stop forwarding if you have anti
 + **Solution B**: A blank screen might display if you accessed the console using a link that includes a mismatched endpoint and Region pair\. For example, in the following console URL, `us-west-2` is the specified endpoint, but `us-west-1` is the specified AWS Region\.
 
   ```
-  https://us-west-2.https://console.aws.amazon.com//systems-manager/session-manager/sessions?region=us-west-1
+  https://us-west-2.console.aws.amazon.com/systems-manager/session-manager/sessions?region=us-west-1
   ```
 + **Solution C**: The managed node is connecting to Systems Manager using VPC endpoints, and your Session Manager preferences write session output to an Amazon S3 bucket or Amazon CloudWatch Logs log group, but an `s3` gateway endpoint or `logs` interface endpoint doesn't exist in the VPC\. An `s3` endpoint in the format **`com.amazonaws.region.s3`** is required if your managed nodes are connecting to Systems Manager using VPC endpoints, and your Session Manager preferences write session output to an Amazon S3 bucket\. Alternatively, a `logs` endpoint in the format **`com.amazonaws.region.logs`** is required if your managed nodes are connecting to Systems Manager using VPC endpoints, and your Session Manager preferences write session output to a CloudWatch Logs log group\. For more information, see [Creating VPC endpoints for Systems Manager](setup-create-vpc.md#sysman-setting-up-vpc-create)\.
 + **Solution D**: The log group or Amazon S3 bucket you specified in your session preferences has been deleted\. To resolve this issue, update your session preferences with a valid log group or S3 bucket\.

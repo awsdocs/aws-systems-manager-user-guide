@@ -48,7 +48,7 @@ For information about generating patch compliance reports that are downloaded to
      \-or\-
 
      If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
-   + Choose the **Reporting** tab\.
+   + Choose the **Compliance reporting** tab\.
    + For **Instance patching summary**, choose the ID of the managed node for which you want to review patch compliance results\.
    + Choose **View details**\.
 

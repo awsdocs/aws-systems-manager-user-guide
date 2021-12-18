@@ -1304,7 +1304,7 @@ Required: No
 
 ## `aws:runDocument`<a name="aws-rundocument"></a>
 
-\(Schema version 2\.0 or later\) Runs SSM documents stored in Systems Manager or on a local share\. You can use this plugin with the [`aws:downloadContent`](#aws-downloadContent) plugin to download an SSM document from a remote location to a local share, and then run it\. This plugin is supported on Linux and Windows Server operating systems\.
+\(Schema version 2\.0 or later\) Runs SSM documents stored in Systems Manager or on a local share\. You can use this plugin with the [`aws:downloadContent`](#aws-downloadContent) plugin to download an SSM document from a remote location to a local share, and then run it\. This plugin is supported on Linux and Windows Server operating systems\. This plugin doesn't support running the `AWS-UpdateSSMAgent` document or any document that uses the `aws:updateSsmAgent` plugin\.
 
 ### Syntax<a name="rundocument-syntax"></a>
 

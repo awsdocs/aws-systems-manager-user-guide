@@ -35,3 +35,39 @@ The following example shows how you can use the `aws:SourceArn` and `aws:SourceA
    ]
 }
 ```
+
+## Resource data sync policy example<a name="cross-service-confused-deputy-prevention-rds"></a>
+
+Systems Manager Inventory, Explorer, and Compliance enable you to create a resource data sync to centralize storage of your operations data \(OpsData\) in a central Amazon Simple Storage Service bucket\. If you want to encrypt a resource data sync by using AWS Key Management Service \(AWS KMS\), then you must either create a new key that includes the following policy, or you must update an existing key and add this policy to it\. The `aws:SourceArn` and `aws:SourceAccount` condition keys in this policy prevent the confused deputy problem\. Here is an example policy\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Id": "ssm-access-policy",
+    "Statement": [
+        {
+            "Sid": "ssm-access-policy-statement",
+            "Action": [
+                "kms:GenerateDataKey"
+            ],
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "ssm.amazonaws.com"
+            },
+            "Resource": "arn:aws:kms:us-east-2:123456789012:key/KMS_key_id",
+            "Condition": {
+                "StringLike": {
+                    "aws:SourceAccount": "123456789012"
+                },
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:ssm:*:123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM"
+                }
+            }
+        }
+    ]
+}
+```
+
+**Note**  
+The ARN in the policy example enables the system to encrypt OpsData from all sources except AWS Security Hub\. If you need to encrypt Security Hub data, for example if you use Explorer to collect Security Hub data, then you must attach an additional policy that specifies the following ARN:  
+"aws:SourceArn":"arn:aws:ssm:\*:*123456789012*:role/aws\-service\-role/opsdatasync\.ssm\.amazonaws\.com/AWSServiceRoleForSystemsManagerOpsDataSync" 

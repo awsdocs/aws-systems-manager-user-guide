@@ -24,7 +24,7 @@ See [AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Referenc
 See [aws/amazon\-ssm\-agent](https://github.com/aws/amazon-ssm-agent)\.
 
  **Ask a Question**  
-[AWS Systems Manager Developer Forum](http://forums.aws.amazon.com/forum.jspa?forumID=185)
+Systems Manager issues in [AWS re:Post](https://repost.aws/tags/TA-UbbRGVYRWCDaCvae6itYg/aws-systems-manager)
 
  **AWS News Blog**  
 [Management Tools](http://aws.amazon.com/blogs/mt/)

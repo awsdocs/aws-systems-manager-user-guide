@@ -70,7 +70,7 @@ Systems Manager was formerly known as "Amazon Simple Systems Manager \(SSM\)" an
 **Related content**
 + The following resources can help you work directly with Systems Manager\.
   + **[AWS Blog & Podcast](http://aws.amazon.com/blogs/)** – Read blog posts about Systems Manager in the [AWS Management Tools Category](http://aws.amazon.com/blogs/aws/category/management-tools/amazon-ec2-systems-manager/), and other posts tagged with [http://aws.amazon.com/blogs/mt/tag/aws-systems-manager/](http://aws.amazon.com/blogs/mt/tag/aws-systems-manager/)\.
-  + **[Systems Manager Developer Forum](http://forums.aws.amazon.com/forum.jspa?forumID=185)** – Follow announcements, or post or answer a question in the AWS Systems Manager Forum\.
+  + **Systems Manager issues in [AWS re:Post](https://repost.aws/tags/TA-UbbRGVYRWCDaCvae6itYg/aws-systems-manager)** – Follow announcements, or post or answer a question in the re:Post Community\.
   + **[AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)** – Manage Systems Manager from a command line tool\. Available to use on Windows, Mac, and Linux/UNIX systems\.
   + **[AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)** – Manage Systems Manager with the same PowerShell tools that you use to manage your Windows, Linux, or Mac environments\. 
   + **[Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*** – Provides the default quotas for Systems Manager for an AWS account\. Unless otherwise noted, each quota is Region\-specific\.

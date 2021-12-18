@@ -358,7 +358,7 @@ The following are some common causes and their solutions\.
 
 ## Contacting AWS Support<a name="patch-manager-troubleshooting-contact-support"></a>
 
-If you can't find troubleshooting solutions in this section or in the [Systems Manager Developer Forum](http://forums.aws.amazon.com/forum.jspa?forumID=185), and you have a [Developer, Business, or Enterprise AWS Support plan](http://aws.amazon.com/premiumsupport/plans), you can create a technical support case at [AWS Support](https://aws.amazon.com/premiumsupport/)\.
+If you can't find troubleshooting solutions in this section or in the Systems Manager issues in [AWS re:Post](https://repost.aws/tags/TA-UbbRGVYRWCDaCvae6itYg/aws-systems-manager), and you have a [Developer, Business, or Enterprise AWS Support plan](http://aws.amazon.com/premiumsupport/plans), you can create a technical support case at [AWS Support](https://aws.amazon.com/premiumsupport/)\.
 
 Before you contact AWS Support, collect the following items:
 + [SSM agent logs](sysman-agent-logs.md)

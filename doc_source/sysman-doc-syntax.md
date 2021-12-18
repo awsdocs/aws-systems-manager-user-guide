@@ -12,7 +12,7 @@ Type: Version
 Required: Yes
 
 **description**  
-Information you provide to describe the purpose of the document\.  
+Information you provide to describe the purpose of the document\. You can also use this field to specify whether a parameter requires a value for a document to run, or if providing a value for the parameter is optional\. Required and optional parameters can be seen in the examples throughout this topic\.  
 Type: String  
 Required: No
 

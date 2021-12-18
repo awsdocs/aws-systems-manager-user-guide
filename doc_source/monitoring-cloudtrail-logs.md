@@ -76,3 +76,57 @@ The following example shows a CloudTrail log entry that demonstrates the `Delete
     "recipientAccountId": "123456789012"
 }
 ```
+
+The following example shows a CloudTrail log entry for a user who starts an RDP connection using Fleet Manager in the US East \(N\. Virginia\) Region \(us\-east\-1\)\.
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AKIAI44QH8DHBEXAMPLE",
+        "arn": "arn:aws:sts::123456789012:assumed-role/exampleRole",
+        "accountId": "123456789012",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AKIAI44QH8DHBEXAMPLE",
+                "arn": "arn:aws:sts::123456789012:assumed-role/exampleRole",
+                "accountId": "123456789012",
+                "userName": "exampleRole"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "creationDate": "2021-12-13T14:57:05Z",
+                "mfaAuthenticated": "false"
+            }
+        }
+    },
+    "eventTime": "2021-12-13T16:50:41Z",
+    "eventSource": "ssm-guiconnect.amazonaws.com",
+    "eventName": "StartConnection",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "34.230.45.60",
+    "userAgent": "example-user-agent-string",
+    "requestParameters": {
+        "AuthType": "Credentials",
+        "Protocol": "RDP",
+        "ConnectionType": "SessionManager",
+        "InstanceId": "i-02573cafcfEXAMPLE"
+    },
+    "responseElements": {
+        "ConnectionArn": "arn:aws:ssm-guiconnect:us-east-1:123456789012:connection/fcb810cd-241f-4aae-9ee4-02d59EXAMPLE",
+        "ConnectionKey": "71f9629f-0f9a-4b35-92f2-2d253EXAMPLE",
+        "ClientToken": "49af0f92-d637-4d47-9c54-ea51aEXAMPLE",
+        "requestId": "d466710f-2adf-4e87-9464-055b2EXAMPLE"
+    },
+    "requestID": "d466710f-2adf-4e87-9464-055b2EXAMPLE",
+    "eventID": "fc514f57-ba19-4e8b-9079-c2913EXAMPLE",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "123456789012",
+    "eventCategory": "Management"
+}
+```
