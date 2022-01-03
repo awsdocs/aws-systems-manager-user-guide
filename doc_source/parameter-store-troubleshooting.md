@@ -18,7 +18,7 @@ Use the following information to help troubleshoot problems with creating `aws:e
 
 **Problem**: You just ran a command to create an `aws:ec2:image` parameter and a version number was reported, but the parameter isn't available\.
 + **Solution**: When you run the command to create a parameter that uses the `aws:ec2:image` data type, a version number is generated for the parameter right away, but the parameter format must be validated before the parameter is available\. This process can take up to a few minutes\. To monitor the parameter creation and validation process, you can do the following:
-  + Use EventBridge to send you notifications about your create and update parameter operations\. These notifications report whether a parameter operation was successful or not\. For information about subscribing to Parameter Store events in EventBridge, see [Setting up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)\.
+  + Use EventBridge to send you notifications about your `create` and `update` parameter operations\. These notifications report whether a parameter operation was successful or not\. For information about subscribing to Parameter Store events in EventBridge, see [Setting up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)\.
   + In the Parameter Store section of the Systems Manager console, refresh the list of parameters periodically to search for the new or updated parameter details\.
   + Use the GetParameter command to check for the new or updated parameter\. For example, using the AWS Command Line Interface \(AWS CLI\):
 

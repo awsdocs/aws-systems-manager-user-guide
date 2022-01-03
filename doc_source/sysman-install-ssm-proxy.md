@@ -71,7 +71,7 @@ When configuring proxy settings for the SSM Agent on Windows Server instances, i
 
 If you configured the SSM Agent to use a proxy and are using AWS Systems Manager capabilities, such as Run Command and Patch Manager, that use PowerShell or the Windows Update client during their execution on Windows Server instances, configure additional proxy settings\. Otherwise, the operation might fail because proxy settings used by PowerShell and the Windows Update client aren't inherited from the SSM Agent proxy configuration\.
 
-For Run Command, configure `WinINet` proxy settings on your Windows Server instances\. The `[System.Net.WebRequest]` commands provided are per\-session\. To apply these configurations to subsequent network commands that are run in Run Command, these commands must precede other Powershell commands in the same `aws:runPowershellScript` plugin input\.
+For Run Command, configure `WinINet` proxy settings on your Windows Server instances\. The `[System.Net.WebRequest]` commands provided are per\-session\. To apply these configurations to subsequent network commands that are run in Run Command, these commands must precede other PowerShell commands in the same `aws:runPowershellScript` plugin input\.
 
 The following PowerShell commands return the current `WinINet` proxy settings, and apply your proxy settings to `WinINet`\.
 

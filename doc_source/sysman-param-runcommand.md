@@ -84,7 +84,7 @@ aws ssm send-command ^
 
 ------
 
-The next example commands uses a `SecureString` parameter named **SecurePassword**\. The command used in the `parameters` field retrieves and decrypts the value of the `SecureString` parameter, and then resets the local administrator password without having to pass the password in clear text\.
+The next example command uses a `SecureString` parameter named **SecurePassword**\. The command used in the `parameters` field retrieves and decrypts the value of the `SecureString` parameter, and then resets the local administrator password without having to pass the password in clear text\.
 
 ------
 #### [ Linux ]

@@ -1,6 +1,6 @@
 # Getting started with AWS Systems Manager<a name="getting-started"></a>
 
-This section helps you learn about and use AWS Systems Manager after your organization completes the setup steps in [Setting up AWS Systems Manager](systems-manager-setting-up.md) or [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\. 
+This section helps you learn about and use AWS Systems Manager after your organization completes the setup steps in [Setting up AWS Systems Manager](systems-manager-setting-up.md), [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md), or [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\. 
 
 **Before you begin**  
 The following is useful background information to help you get started:

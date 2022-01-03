@@ -11,7 +11,7 @@ Note the following details about creating an IAM instance profile:
 
 ## About policies for a Systems Manager instance profile<a name="instance-profile-policies-overview"></a>
 
-This section describes the policies you can add to your EC2 instance profile for Systems Manager\. To provide permissions for communication between instances and the Systems Manager API, we recommend creating custom policies that take into account your system needs and security requirements\. However, as a starting point, you can use one or more of the following policies to grant permission for Systems Manager to interact with your instances\. The first policy, **AmazonSSMManagedInstanceCore**, allows an instance to use AWS Systems Manager service core functionality\. Depending on your operations plan, you might need permissions represented in one or more of the other three policies\.
+This section describes the policies you can add to your EC2 instance profile for Systems Manager\. To provide permissions for communication between instances and the Systems Manager API, we recommend creating custom policies that reflect your system needs and security requirements\. However, as a starting point, you can use one or more of the following policies to grant permission for Systems Manager to interact with your instances\. The first policy, **AmazonSSMManagedInstanceCore**, allows an instance to use AWS Systems Manager service core functionality\. Depending on your operations plan, you might need permissions represented in one or more of the other three policies\.
 
 **Policy: AmazonSSMManagedInstanceCore**  
 Required permissions\.  
@@ -34,7 +34,7 @@ Required permissions in either of the following cases:
 + **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations\.
 
   Your Amazon EC2 instance profile for Systems Manager must grant access to an Amazon S3 bucket that you own for tasks like the following: 
-  + To access scripts you store in the S3 bucket to use in commands you run\.
+  + To access scripts to use in commands you run that you store in the S3 bucket\.
   + To store the full output of Run Command commands or Session Manager sessions\.
   + To access custom patch lists for use when patching your instances\.
 Saving output log data in an S3 bucket is optional, but we recommend setting it up at the beginning of your Systems Manager configuration process if you have decided to do so\. For more information, see [Create a bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) in the *Amazon Simple Storage Service User Guide*\.

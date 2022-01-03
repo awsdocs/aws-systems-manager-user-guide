@@ -3,7 +3,7 @@
 To work with AWS Systems Manager, your Amazon Elastic Compute Cloud \(Amazon EC2\) instances and on\-premises servers and virtual machines \(VMs\) must be running one of the following operating systems\.
 
 **Note**  
-If you plan to manage and configure AWS IoT Greengrass core devices by using Systems Manager, those device must meet the requirements for AWS IoT Greengrass\. For more information, see [Setting up AWS IoT Greengrass core devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html) in the *AWS IoT Greengrass Version 2 Developer Guide*\.  
+If you plan to manage and configure AWS IoT Greengrass core devices by using Systems Manager, those devices must meet the requirements for AWS IoT Greengrass\. For more information, see [Setting up AWS IoT Greengrass core devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html) in the *AWS IoT Greengrass Version 2 Developer Guide*\.  
 If you plan to manage and configure AWS IoT and non\-AWS edge devices, those devices must meet the requirements listed here and be configured as on\-premises managed nodes for Systems Manager\. For more information, see [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\.
 
 **Topics**

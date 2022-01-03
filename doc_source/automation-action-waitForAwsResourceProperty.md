@@ -3,7 +3,7 @@
 The `aws:waitForAwsResourceProperty` action allows your automation to wait for a specific resource state or event state before continuing the automation\. For more information and examples of how to use this action, see [Invoking other AWS services from a Systems Manager Automation runbook](automation-aws-apis-calling.md)\.
 
 **Note**  
-The default timeout value for this action is 3600 seconds \(one hour\)\. You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an `aws:waitForAwsResourceProperty` step\. For more information, see [Handling timeouts in runbooks](automation-handling-timeouts.md)\.
+The default timeout value for this action is 3600 seconds \(one hour\)\. You can limit or extend the timeout by specifying the `timeoutSeconds` parameter for an `aws:waitForAwsResourceProperty` step\. For more information and examples of how to use this action, see [Handling timeouts in runbooks](automation-handling-timeouts.md)\.
 
 **Input**  
 Inputs are defined by the API operation that you choose\.

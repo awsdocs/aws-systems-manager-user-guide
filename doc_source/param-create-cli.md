@@ -412,7 +412,7 @@ To use the AWS KMS key assigned to your AWS account and AWS Region, remove the `
 
    Use a command in the following format to create a `SecureString` parameter using the key you just created\.
 
-   The following example uses an obfuscated name \(`3l3vat3131`\) for a password parameter and a AWS KMS key\.
+   The following example uses an obfuscated name \(`3l3vat3131`\) for a password parameter and an AWS KMS key\.
 
 ------
 #### [ Linux & macOS ]

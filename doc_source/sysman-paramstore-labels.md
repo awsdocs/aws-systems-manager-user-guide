@@ -298,7 +298,7 @@ Run the following command to view a list of parameters in a path that are assign
 aws ssm get-parameters-by-path --path parameter-path --parameter-filters Key=Label,Values=label-name,Option=Equals --max-results a-number --with-decryption --recursive
 ```
 
-The system returns information like the following\. For this example, the user searched under the /Config path\.
+The system returns information like the following\. For this example, the user searched under the `/Config` path\.
 
 ```
 {

@@ -6,7 +6,7 @@ Because Systems Manager is a collection of multiple capabilities, no single walk
 
 Usually, you don't need to complete additional setup or configuration tasks before you start\. You can complete all of the tasks if you have necessary permissions and, where needed, access to one or more managed instances\.
 
-Sometimes, additional configuration, setup, or experience with Systems Manager are required before you try a tutorial or walkthrough\. We've identify those tutorials and walkthroughs as "Advanced"\.
+Sometimes, additional configuration, setup, or experience with Systems Manager are required before you try a tutorial or walkthrough\. We've identified those tutorials and walkthroughs as "Advanced"\.
 
 **Topics**
 + [Operations management](#getting-started-walkthroughs-operations-management)

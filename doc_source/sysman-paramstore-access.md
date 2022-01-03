@@ -58,7 +58,7 @@ For trusted administrators, you can provide access to all Systems Manager parame
         },
         {
             "Effect": "Allow",
-            "Action": "ssm:DescribeParameters"
+            "Action": "ssm:DescribeParameters",
             "Resource": "*"
         }
     ]
@@ -167,7 +167,7 @@ Instance policies, like in the following example, are assigned to the instance r
 
 ## IAM permissions for using AWS default keys and customer managed keys<a name="ps-kms-permissions"></a>
 
-Parameter Store `SecureString` parameters are encrypted and decrypted using AWS KMS keys\. You can choose to encrypt your `SecureString` parameters using either a AWS KMS key or the default KMS key provided by AWS\.
+Parameter Store `SecureString` parameters are encrypted and decrypted using AWS KMS keys\. You can choose to encrypt your `SecureString` parameters using either an AWS KMS key or the default KMS key provided by AWS\.
 
 When using a customer managed key, the IAM policy that grants a user access to a parameter or parameter path must provide explicit `kms:Encrypt` permissions for the key\. For example, the following policy allows a user to create, update, and view `SecureString` parameters that begin with `prod-` in the specified AWS Region and AWS account\.
 

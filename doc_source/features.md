@@ -77,7 +77,7 @@ Application Management is a suite of capabilities that help you manage your appl
 
 ## Change Management<a name="features-actions-and-change"></a>
 
-Systems Manager provides the following capabilities for taking action on or changing your AWS resources\. Choose the tabs to learn more\.
+Systems Manager provides the following capabilities for performing actions on or changing your AWS resources\. Choose the tabs to learn more\.
 
 ------
 #### [ Change Manager ]

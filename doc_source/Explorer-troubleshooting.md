@@ -2,7 +2,7 @@
 
 This topic includes information about how to troubleshoot common problems with AWS Systems Manager Explorer\.
 
- **Not able to filter AWS resources in Explorer after updating tags on the Settings page** 
+ **Not able to filter AWS resources in Explorer after updating tags on the **Settings** page** 
 
 If you update tags keys or other data settings in Explorer, the system can take up to six hours to synchronize data based on your changes\.
 

@@ -210,7 +210,7 @@ You can deregister a managed instance by calling the [DeregisterManagedInstance]
 
 `aws ssm deregister-managed-instance --instance-id "mi-1234567890"`
 
-You can reregister a managed instance after you deregistered it\. Use the following procedure to reregister a managed instance\. After you complete the procedure, your managed instance are displayed again in the list of managed instances\.
+You can reregister a managed instance after you deregistered it\. Use the following procedure to reregister a managed instance\. After you complete the procedure, your managed instance is displayed again in the list of managed instances\.
 
 **To reregister a managed instance on a Linux hybrid machine**
 

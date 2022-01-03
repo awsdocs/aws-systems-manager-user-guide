@@ -133,11 +133,11 @@ Before you begin, install the ASCP\. For more information, see [Installing the A
 
 **To create and mount a secret**
 
-1. Set the AWS Region and the name of your cluster as shell variables so you can use them in `bash` commands\. For *<REGION>*, enter the AWS Region where your Amazon EKS cluster runs\. For *<CLUSTERNAME>*, enter the name of your cluster\.
+1. Set the AWS Region and the name of your cluster as shell variables so you can use them in `bash` commands\. For *region*, enter the AWS Region where your Amazon EKS cluster runs\. For *clustername*, enter the name of your cluster\.
 
    ```
-   REGION=<REGION>
-   CLUSTERNAME=<CLUSTERNAME>
+   REGION=region
+   CLUSTERNAME=clustername
    ```
 
 1. Create a test parameter\.
@@ -154,7 +154,7 @@ Before you begin, install the ASCP\. For more information, see [Installing the A
        "Statement": [ {
            "Effect": "Allow",
            "Action": ["ssm:GetParameter", "ssm:GetParameters"],
-           "Resource": ["<PARAMETERARN>"]
+           "Resource": ["parameter-arn"]
        } ]
    }')
    ```
@@ -207,10 +207,10 @@ You can view most errors by describing the pod deployment\.
    kubectl get pods
    ```
 
-1. To describe the pod, in the following command, for *<PODID>* use the pod ID from the pods you found in the previous step\. If you aren't using the default namespace, use `-n <NAMESPACE>`\.
+1. To describe the pod, in the following command, for *pod\-id* use the pod ID from the pods you found in the previous step\. If you aren't using the default namespace, use `-n <NAMESPACE>`\.
 
    ```
-   kubectl describe pod/<PODID>
+   kubectl describe pod/pod-id
    ```
 
 **To see errors for the ASCP**
@@ -218,5 +218,5 @@ You can view most errors by describing the pod deployment\.
 
   ```
   kubectl -n kube-system get pods
-  kubectl -n kube-system logs pod/<PODID>
+  kubectl -n kube-system logs pod/pod-id
   ```

@@ -113,7 +113,7 @@ You can also view parameters owned by a specific service by using the `Option:Be
 aws ssm describe-parameters --parameter-filters "Key=Name, Option=BeginsWith, Values=/aws/service/ami-amazon-linux-latest"
 ```
 
-The command returns information like the following example\. This example output has been truncated for space\.
+The command returns information like the following\. This example output has been truncated for space\.
 
 ```
 {

@@ -18,7 +18,7 @@ For more information about the AWS CLI, see the *[AWS Command Line Interface Use
 For information about all Systems Manager commands you can run using the AWS CLI, see [the Systems Manager section of the *AWS CLI Command Reference*](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
 
 **Important**  
-As of January 10th, 2020, AWS CLI version 1\.17 and later no longer support Python 2\.6 or Python 3\.3\. Since that date, the installer for the AWS CLI requires Python 2\.7, Python 3\.4, or a later version\.
+Starting January 10th, 2020, AWS CLI version 1\.17 and later no longer support Python 2\.6 or Python 3\.3\. Since that date, the installer for the AWS CLI requires Python 2\.7, Python 3\.4, or a later version\.
 
 **To install or upgrade and then configure the AWS CLI**
 
@@ -37,7 +37,7 @@ The AWS CLI is frequently updated with new functionality\. Upgrade \(reinstall\)
 **Important**  
 When you configure the AWS CLI, you're prompted to specify an AWS Region\. Choose one of the supported Regions listed for Systems Manager in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. If necessary, first verify with an administrator for your AWS account which AWS Region you should choose\.
 
-   For more information about access keys, see [Managing access heys for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in the *IAM User Guide*\.
+   For more information about access keys, see [Managing access keys for IAM users](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) in the *IAM User Guide*\.
 
 1. To verify the installation or upgrade, run the following command from the AWS CLI\.
 

@@ -153,6 +153,7 @@ The following table shows the wildcard values that cron expressions support\.
 | ? | The ? \(question mark\) wildcard specifies one or another\. In the Day\-of\-month field you could enter 7 and if you didn't care what day of the week the 7th was, you could enter ? in the Day\-of\-week field\. | 
 | L | The L wildcard in the Day\-of\-month or Day\-of\-week fields specifies the last day of the month or week\. | 
 | W | The W wildcard in the Day\-of\-month field specifies a weekday\. In the Day\-of\-month field, 3W specifies the day closest to the third weekday of the month\. | 
+| \# | The \# wildcard in the day\-of\-week field followed by a number between one and five specifies a given day of the month\. 5\#3 specifies the 3rd Friday of the month\. | 
 
 **Note**  
 Cron expressions that lead to rates faster than five \(5\) minute aren't supported\. Support for specifying both a day\-of\-week and a day\-of\-month value isn't complete\. Use the question mark \(?\) character in one of these fields\. 
