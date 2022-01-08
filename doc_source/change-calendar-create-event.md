@@ -1,6 +1,8 @@
 # Creating a Change Calendar event<a name="change-calendar-create-event"></a>
 
-When you add an event to an entry in Change Calendar, a capability in AWS Systems Manager, you're specifying a period of time during which the default action of the calendar entry is suspended\. For example, if the calendar entry type is closed by default, the calendar is open to changes during events\. In this release, you can only create a Change Calendar event by using the console\. Events are added to the Change Calendar document that you create when you create a Change Calendar entry\.
+When you add an event to an entry in Change Calendar, a capability in AWS Systems Manager, you're specifying a period of time during which the default action of the calendar entry is suspended\. For example, if the calendar entry type is closed by default, the calendar is open to changes during events\. \(Alternatively, you can create an advisory event, which serves an informational role on the calendar only\.\)
+
+In this release, you can only create a Change Calendar event by using the console\. Events are added to the Change Calendar document that you create when you create a Change Calendar entry\.
 
 **To create a Change Calendar event**
 
@@ -15,6 +17,8 @@ When you add an event to an entry in Change Calendar, a capability in AWS System
 1. On the **Create scheduled event** page, in **Event details**, enter a display name for your event\. Event names can contain letters, numbers, periods, dashes, and underscores\. The name should be specific enough to identify the purpose of the event\. An example is **nighttime\-hours**\. You can't update this name after you create the event\.
 
 1. In **Description**, enter a description for your event\. For example, **The support team isn't available during these hours**\.
+
+1. \(Optional\) If you want this event to serve as a visual notification or reminder only, select the **Advisory** check box\. Advisory events play no functional role on your calendar\. They serve informational purposes only for those who view your calendar\.
 
 1. In **Event start date**, enter or choose a day in the format `MM/DD/YYYY` to start the event, and enter a time on the specified day in the format `hh:mm:ss` \(hours, minutes, and seconds\) to start the event\.
 
