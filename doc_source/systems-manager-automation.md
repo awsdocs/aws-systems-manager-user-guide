@@ -1,18 +1,54 @@
 # AWS Systems Manager Automation<a name="systems-manager-automation"></a>
 
+Automation, a capability of AWS Systems Manager, simplifies common maintenance, deployment, and remediation tasks for AWS services like Amazon Elastic Compute Cloud \(Amazon EC2\), Amazon Relational Database Service \(Amazon RDS\), Amazon Redshift, Amazon Simple Storage Service \(Amazon S3\), and many more\. 
 
-|  | 
-| --- |
-| Automation documents are now referred to as runbooks\. | 
+Automation helps you to build automated solutions to deploy, configure, and manage AWS resources at scale\. With Automation, you have granular control over the concurrency of your automations\. This means you can specify how many resources to target concurrently, and how many errors can occur before an automation is stopped\. 
 
-Automation, a capability of AWS Systems Manager, simplifies common maintenance and deployment tasks of Amazon Elastic Compute Cloud \(Amazon EC2\) instances and other AWS resources\. Automation helps you to do the following:
-+ Build automations to configure and manage instances and AWS resources\.
-+ Create custom runbooks or use pre\-defined runbooks maintained by AWS\.
-+ Receive notifications about Automation tasks and runbooks by using Amazon EventBridge\.
-+ Monitor Automation progress and details by using the Systems Manager console\. 
+To help you get started with Automation, AWS develops and maintains several pre\-defined runbooks\. Depending on your use case, you can use these pre\-defined runbooks that perform a variety of tasks, or create your own custom runbooks that might better suit your needs\. To monitor the progress and status of your automations, you can use the Systems Manager Automation console, or your preferred command line tool\. Automation also integrates with Amazon EventBridge to help you build event\-driven architecture at scale\.
 
-**Primary components**  
-Systems Manager Automation uses the following components to run *automations*\.
+## How can Automation benefit my organization?<a name="automation-benefits"></a>
+
+Automation offers these benefits:
++ **Scripting support in runbook content**
+
+  Using the `aws:executeScript` action, you can run custom Python and PowerShell functions directly from your runbooks\. This provides you greater flexibility in creating your custom runbooks because you can complete various tasks that other Automation actions don't support\. You also have greater control over the logic of the runbook\. For an example of how this action can be used and how it can help to improve an existing automated solution, see [Authoring Automation runbooks](automation-authoring-runbooks.md)\.
++  **Run automations across multiple AWS accounts and AWS Regions from a centralized location** 
+
+  Administrators can run automations on resources across multiple accounts and Regions from the Systems Manager console\.
++  **Enhanced operations security** 
+
+  Administrators have a centralized place to grant and revoke access to runbooks\. Using only AWS Identity and Access Management \(IAM\) policies, you can control which individual users or groups in your organization can use Automation and which runbooks they can access\. For an example of how to delegate access to an automation, see [Running an automation by using delegated administration](automation-walk-security-delegated.md)\.
++  **Automate common IT tasks** 
+
+  Automating common tasks can help improve operational efficiency, enforce organizational standards, and reduce operator errors\. For example, you can use the `AWS-UpdateCloudFormationStackWithApproval` runbook to update resources that were deployed by using an AWS CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more IAM users before the update begins\.
++  **Safely perform disruptive tasks in bulk** 
+
+  Automation includes features, like rate controls, that allow you to control the deployment of an automation across your fleet by specifying a concurrency value and an error threshold\. For more information about working with rate controls, see [Running automations that use targets and rate controls](automation-working-targets-and-rate-controls.md)\.
++ **Streamline complex tasks**
+
+  Automation provides pre\-defined runbooks that streamline complex and time\-consuming tasks such as creating golden Amazon Machine Images \(AMIs\)\. For example, you can use the `AWS-UpdateLinuxAmi` and `AWS-UpdateWindowsAmi` runbooks to create golden AMIs from a source AMI\. Using these runbooks, you can run custom scripts before and after updates are applied\. You can also include or exclude specific software packages from being installed\. For examples of how to use these runbooks, see [Automation walkthroughs](automation-walk.md)\.
++ **Define constraints for inputs**
+
+  You can define constraints in custom runbooks to limit the values that Automation will accept for a particular input parameter\. For example, `allowedPattern` will only accept values for an input parameter that match the regular expression you define\. If you specify `allowedValues` for an input parameter, only the values you've specified in the runbook are accepted\.
++  **Log automation action output to Amazon CloudWatch Logs** 
+
+  To meet operational or security requirements in your organization, you might need to provide a record of the scripts run during a runbook\. With CloudWatch Logs, you can monitor, store, and access log files from various AWS services\. You can send output from the `aws:executeScript` action to a CloudWatch Logs log group for debugging and troubleshooting purposes\. Log data can be sent to your log group with or without AWS KMS encryption using your KMS key\. For more information, see [Logging Automation action output with CloudWatch Logs](automation-action-logging.md)\.
++  **Amazon EventBridge integration** 
+
+  Automation is supported as a *target* type in Amazon EventBridge rules\. This means you can trigger runbooks by using events\. For more information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
++ **Share organizational best practices**
+
+  You can define best practices for resource management, operations tasks, and more in runbooks that you share across accounts and Regions\.
+
+## Who should use Automation?<a name="automation-who"></a>
++ Any AWS customer who wants to improve their operational efficiency at scale, reduce errors associated with manual intervention, and reduce time to resolution of common issues\.
++ Infrastructure experts who want to automate deployment and configuration tasks\.
++ Administrators who want to reliably resolve common issues, improve troubleshooting efficiency, and reduce repetitive operations\.
++ Users who want to automate a task they normally perform manually\.
+
+## What is an automation?<a name="what-is-an-automation"></a>
+
+An *automation* consists of all of the tasks that are defined in a runbook, and are performed by the Automation service\. Automation uses the following components to run automations\.
 
 
 ****  
@@ -26,48 +62,10 @@ Systems Manager Automation uses the following components to run *automations*\.
 |  Rate control automation quota  |  Each AWS account can run 25 rate control automations simultaneously\. If you attempt to run more rate control automations than the concurrent rate control automation limit, Systems Manager adds the subsequent rate control automations to a queue and displays a status of Pending\. For more information about running rate control automations, see [Running automations that use targets and rate controls](automation-working-targets-and-rate-controls.md)\.  | 
 |  Rate control automation queue quota  |  If you attempt to run more automations than the concurrent rate control automation limit, subsequent automations are added to a queue\. Each AWS account can queue 1,000 rate control automations\. When an automation is complete \(or reaches a terminal state\), the first automation in the queue is started\.  | 
 
-## Automation use cases<a name="automation-use-cases"></a>
-
-This section includes common uses cases for Systems Manager Automation\.
-
-**Perform common IT tasks**  
-Automation can simplify common IT tasks such as changing the state of one or more nodes \(using an approval automation\) and managing node states according to a schedule\. Here are some examples:
-+ Use the `AWS-StopEC2InstanceWithApproval` runbook to request that one or more AWS Identity and Access Management \(IAM\) users approve the instance stop action\. After the approval is received, Automation stops the instance\.
-+ Use the `AWS-StopEC2Instance` runbook to automatically stop instances on a schedule by using Amazon EventBridge or by using a maintenance window task\. For example, you can configure an automation to stop instances every Friday evening, and then restart them every Monday morning\.
-+ Use the `AWS-UpdateCloudFormationStackWithApproval` runbook to update resources that were deployed by using an AWS CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more IAM users before the update begins\.
-
-For information about how to run a runbook by using State Manager, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
-
-**Safely perform disruptive tasks in bulk**  
-Systems Manager includes features that help you target large groups of instances by using tags, and velocity controls that help you roll out changes according to the limits you define\.
-
-Use the `AWS-RestartEC2InstanceWithApproval` runbook to target an AWS resource group that includes multiple instances\. You can configure the automation to use velocity controls\. For example, you can specify the number of instances that should be restarted concurrently\. You can also specify a maximum number of errors that are allowed before the automation is canceled\.
-
-**Simplify complex tasks**  
-Automation offers one\-click automations for simplifying complex tasks such as creating golden Amazon Machine Images \(AMIs\) and recovering unreachable EC2 instances\. Here are some examples:
-+ Use the `AWS-UpdateLinuxAmi` and `AWS-UpdateWindowsAmi` runbooks to create golden AMIs from a source AMI\. You can run custom scripts before and after updates are applied\. You can also include or exclude specific packages from being installed\. For examples of how to run these automations, see [Automation walkthroughs](automation-walk.md)\.
-+ Use the `AWSSupport-ExecuteEC2Rescue` runbook to recover impaired instances\. An instance can become unreachable for a variety of reasons, including network misconfigurations, RDP issues, or firewall settings\. Troubleshooting and regaining access to the instance previously required dozens of manual steps before you could regain access\. You can use the `AWSSupport-ExecuteEC2Rescue` runbook to regain access by specifying an instance ID and clicking a button\. For an example of how to run this automation, see [Walkthrough: Run the EC2Rescue tool on unreachable instances](automation-ec2rescue.md)\.
-
-**Enhance operations security**  
-Using delegated administration, you can restrict or elevate user permissions for various types of tasks\. 
-
-Delegated administration allows you to provide permissions for certain tasks on certain resource without having to give a user direct permission to access the resources\. This improves your overall security profile\. For example, assume that User1 doesn’t have permissions to restart Amazon EC2 instances, but you would like to authorize the user to do so\. Instead of allowing User1 direct permissions, you can: 
-+ Create an IAM role with the permissions required to successfully stop and start Amazon EC2 instances\.
-+ Create a runbook and embed the role in the runbook\. \(The easiest way to do this is to customize the `AWS-RestartEC2Instance` runbook and embed the role in the runbook instead of assigning an Automation service role \[or *assume role*\]\)\.
-+ Modify IAM permissions for User1 and allow the user permission to run the runbook\. 
-
-For an example of how to delegate access to an automation, see [Running an automation by using delegated administration](automation-walk-security-delegated.md)\. 
-
-**Share best practices**  
-Using Automation, you can share best practices with the rest of your organization\.
-
-You can create best practices for resource management in runbooks and share the runbooks across AWS Regions and groups\. You can also constrain the allowed values for the parameters the runbook accepts\.
-
-**EventBridge support**  
-This Systems Manager capability is supported as a *target* type in Amazon EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
-
 **Topics**
-+ [Automation use cases](#automation-use-cases)
++ [How can Automation benefit my organization?](#automation-benefits)
++ [Who should use Automation?](#automation-who)
++ [What is an automation?](#what-is-an-automation)
 + [Setting up Automation](automation-setup.md)
 + [Working with automations](automation-working.md)
 + [Systems Manager Automation actions reference](automation-actions.md)

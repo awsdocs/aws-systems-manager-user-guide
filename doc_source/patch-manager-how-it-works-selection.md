@@ -2,6 +2,8 @@
 
 The primary focus of Patch Manager, a capability of AWS Systems Manager, is on installing operating systems security\-related updates on managed nodes\. By default, Patch Manager doesn't install all available patches, but rather a smaller set of patches focused on security\.
 
+For Linux\-based operating system types that report a severity level for patches, Patch Manager uses the severity level reported by the software publisher for the update notice or individual patch\. Patch Manager doesn't derive severity levels from third\-party sources, such as the [Common Vulnerability Scoring System](https://www.first.org/cvss/) \(CVSS\), or from metrics released by the [National Vulnerability Database](https://nvd.nist.gov/vuln) \(NVD\)\.
+
 **Note**  
 On all Linux\-based systems supported by Patch Manager, you can choose a different source repository configured for the managed node, typically to install nonsecurity updates\. For information, see [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)\.
 

@@ -481,6 +481,6 @@ If you use tags to create an association on one or more target instances, and th
 
 ## Troubleshooting State Manager automations<a name="systems-manager-state-manager-automation-documents-troubleshooting"></a>
 
-Systems Manager Automation enforces a limit of 100 concurrent automations, and 1,000 queued automations per account, per Region\. If a State Manager association that uses a runbook shows a status of **Failed** and a detailed status of **AutomationExecutionLimitExceeded**, then your automation migth have reached the limit\. As a result, Systems Manager throttles the automations\. To resolve this issue, do the following:
+Systems Manager Automation enforces a limit of 100 concurrent automations, and 1,000 queued automations per account, per Region\. If a State Manager association that uses a runbook shows a status of **Failed** and a detailed status of **AutomationExecutionLimitExceeded**, then your automation might have reached the limit\. As a result, Systems Manager throttles the automations\. To resolve this issue, do the following:
 + Use a different rate or cron expression for your association\. For example, if the association is scheduled to run every 30 minutes, then change the expression so that it runs every hour or two\.
 + Delete existing automations that have a status of **Pending**\. By deleting these automations, you clear the current queue\.

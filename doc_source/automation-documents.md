@@ -39,6 +39,7 @@ For information about creating custom runbooks that run scripts, see the followi
 + [Creating a runbook using the Editor](automation-document-editor.md)
 + [Creating runbooks that run scripts](automation-document-script.md)
 + [Creating dynamic automations with conditional branching](automation-branchdocs.md)
++ [Creating integrations for Automation](creating-integrations.md)
 + [Handling timeouts in runbooks](automation-handling-timeouts.md)
 + [Invoking other AWS services from a Systems Manager Automation runbook](automation-aws-apis-calling.md)
 + [Sample scenarios and custom runbook solutions](automation-document-samples.md)

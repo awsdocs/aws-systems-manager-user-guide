@@ -37,6 +37,7 @@ If you run an automation workflow that invokes other services by using an AWS Id
 + [`aws:executeAwsApi` – Call and run AWS API operations](automation-action-executeAwsApi.md)
 + [`aws:executeScript` – Run a script](automation-action-executeScript.md)
 + [`aws:executeStateMachine` – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md)
++ [`aws:invokeWebhook` – Invoke an Automation webhook integration](invoke-webhook.md)
 + [`aws:invokeLambdaFunction` – Invoke an AWS Lambda function](automation-action-lamb.md)
 + [`aws:pause` – Pause an automation](automation-action-pause.md)
 + [`aws:runCommand` – Run a command on a managed instance](automation-action-runcommand.md)

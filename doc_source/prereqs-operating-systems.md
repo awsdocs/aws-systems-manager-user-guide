@@ -38,7 +38,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | --- | --- | --- | --- | 
 | 6\.x¹ | ✓ | ✓ |  | 
 | 7\.1 and later 7\.x versions |  | ✓ | ✓ | 
-| 8\.0, 8\.1, and 8\.2 versions |  | ✓ | ✓ | 
+| 8\.0\-8\.5 versions |  | ✓ | ✓ | 
 
 **¹** SSM Agent no longer officially supports these versions and no longer updates the agent for these versions of CentOS\. SSM Agent version 3\.0\.1390\.0 and earlier is supported for CentOS 6\.
 
@@ -50,19 +50,15 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | Jessie \(8\) |  | ✓ |  | 
 | Stretch \(9\) |  | ✓ | ✓ | 
 | Buster \(10\) |  | ✓ | ✓ | 
+| Bullseye \(11\) |  | ✓ | ✓ | 
 
 
 **Oracle Linux**  
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
 | --- | --- | --- | --- | 
-| 7\.5 |  | ✓ |  | 
-| 7\.6 |  | ✓ |  | 
-| 7\.7 |  | ✓ |  | 
-| 7\.8 |  | ✓ |  | 
-| 8\.1 |  | ✓ |  | 
-| 8\.2 |  | ✓ |  | 
-| 8\.3 |  | ✓ |  | 
+| 7\.5\-7\.8 |  | ✓ |  | 
+| 8\.1\-8\.3 |  | ✓ |  | 
 
 
 **Red Hat Enterprise Linux \(RHEL\)**  
@@ -70,20 +66,8 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
 | --- | --- | --- | --- | 
 | 6\.x¹ | ✓ | ✓ |  | 
-| 7\.0 |  | ✓ |  | 
-| 7\.1 |  | ✓ |  | 
-| 7\.2 |  | ✓ |  | 
-| 7\.3 |  | ✓ |  | 
-| 7\.4 |  | ✓ |  | 
-| 7\.5 |  | ✓ |  | 
-| 7\.6 |  | ✓ | ✓ | 
-| 7\.7 |  | ✓ | ✓ | 
-| 7\.8 |  | ✓ | ✓ | 
-| 7\.9 |  | ✓ | ✓ | 
-| 8\.0 |  | ✓ | ✓ | 
-| 8\.1 |  | ✓ | ✓ | 
-| 8\.2 |  | ✓ | ✓ | 
-| 8\.3 |  | ✓ | ✓ | 
+| 7\.0\-7\.5 |  | ✓ |  | 
+| 7\.6\-8\.5 |  | ✓ | ✓ | 
 
 **¹** SSM Agent no longer officially supports these versions and no longer updates the agent for these versions of RHEL\. SSM Agent version 3\.0\.1390\.0 and earlier is supported for RHEL 6\.
 
