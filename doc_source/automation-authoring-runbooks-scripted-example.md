@@ -1623,4 +1623,4 @@ After Emily reviews the available automation actions, she determines that she ca
 
 ------
 
-For more information about the automation actions used in this example, see the [Systems Manager Automation actions reference](automation-actions.md)\.
+For more information about the automation actions used in this example, see the [Systems Manager Automation actions reference](automation-actions.md)\.

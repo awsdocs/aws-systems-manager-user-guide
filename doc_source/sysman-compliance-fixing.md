@@ -2,7 +2,7 @@
 
 You can quickly remediate patch and association compliance issues by using Run Command, a capability of AWS Systems Manager\. You can target instance or AWS IoT Greengrass core device IDs or tags and run the `AWS-RunPatchBaseline` document or the `AWS-RefreshAssociation` document\. If refreshing the association or re\-running the patch baseline fails to resolve the compliance issue, then you need to investigate your associations, patch baselines, or instance configurations to understand why the Run Command operations didn't resolve the problem\. 
 
-For more information about patching, see [AWS Systems Manager Patch Manager](systems-manager-patch.md) and [About the `AWS-RunPatchBaseline` SSM document](patch-manager-about-aws-runpatchbaseline.md)\.
+For more information about patching, see [AWS Systems Manager Patch Manager](systems-manager-patch.md) and [About the `AWS-RunPatchBaseline` SSM document](patch-manager-about-aws-runpatchbaseline.md)\.
 
 For more information about associations, see [Working with associations in Systems Manager](systems-manager-associations.md)\.
 

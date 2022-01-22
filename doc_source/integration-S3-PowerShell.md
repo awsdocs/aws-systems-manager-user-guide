@@ -110,3 +110,22 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    ```
 
 ------
+#### [ PowerShell ]
+
+   ```
+   Send-SSMCommand `
+   	-DocumentName "AWS-RunRemoteScript" `
+   	-Targets @{'Key'='instanceids'; 'Values'='instances-IDs'} `
+   	-Parameters @{'sourceType'='S3'; 'sourceInfo'='{\"path\":\"https://s3.amazonaws.com/path_to_script\"}'; 'commandLine'='script_name_and_arguments'}
+   ```
+
+   Here is an example\.
+
+   ```
+   Send-SSMCommand `
+   	-DocumentName "AWS-RunRemoteScript" `
+   	-Targets @{'Key'='instanceids'; 'Values'='i-02573cafcfEXAMPLE'} `
+   	-Parameters @{'sourceType'='S3'; 'sourceInfo'='{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET"}'; 'commandLine'='helloWorld.ps1 argument-1 argument-2'}
+   ```
+
+------

@@ -1,4 +1,4 @@
-# Step 2: Verify or create an IAM role with Session Manager permissions<a name="session-manager-getting-started-instance-profile"></a>
+# Step 2: Verify or create an IAM role with Session Managerpermissions<a name="session-manager-getting-started-instance-profile"></a>
 
 By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. You must grant access by using AWS Identity and Access Management \(IAM\)\. For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, permissions are provided by an instance profile\. An instance profile passes an IAM role to an Amazon EC2 instance\. You can attach an IAM instance profile to an Amazon EC2 instance as you launch it or to a previously launched instance\. For more information, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-usingrole-instanceprofile.html)\.
 

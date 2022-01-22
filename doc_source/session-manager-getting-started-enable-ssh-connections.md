@@ -59,7 +59,11 @@ The SSH configuration file is typically located at `C:\Users\username\.ssh\confi
      host i-* mi-*
          ProxyCommand C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p"
      ```
-   + Create or verify that you have a Privacy Enhanced Mail certificate \(a PEM file\), or at minimum a public key, to use when establishing connections to managed nodes\. This must be a key that is already associated with the managed node\. 
+   + Create or verify that you have a Privacy Enhanced Mail certificate \(a PEM file\), or at minimum a public key, to use when establishing connections to managed nodes\. This must be a key that is already associated with the managed node\. The permissions of your private key file must be set so that only you can read it\. You can use the following command to set the permissions of your private key file so that only you can read it\.
+
+     ```
+     chmod 400 my-key-pair.pem
+     ```
 
      For example, for an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, the key pair file you created or selected when you created the instance\. \(You specify the path to the certificate or key as part of the command to start a session\. For information about starting a session using SSH, see [Starting a session \(SSH\)](session-manager-working-with-sessions-start.md#sessions-start-ssh)\.\)
 

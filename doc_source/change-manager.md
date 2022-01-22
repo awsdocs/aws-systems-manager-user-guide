@@ -1,4 +1,4 @@
-# AWS Systems Manager Change Manager<a name="change-manager"></a>
+# AWS Systems Manager Change Manager<a name="change-manager"></a>
 
 Change Manager, a capability of AWS Systems Manager, is an enterprise change management framework for requesting, approving, implementing, and reporting on operational changes to your application configuration and infrastructure\. From a single *delegated administrator account*, if you use AWS Organizations, you can manage changes across multiple AWS accounts and across AWS Regions\. Alternatively, using a *local account*, you can manage changes for a single AWS account\. Use Change Manager for managing changes to both AWS resources and on\-premises resources\.
 
@@ -23,7 +23,7 @@ If the requested change requires manual approvals, Change Manager notifies the d
 
 For each change template, you can add up to five levels of approvers\. For example, you might require technical reviewers to approve a change request created from a change template first, and then require a second level of approvals from one or more managers\.
 
-Change Manager is integrated with [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md)\. When a requested change is approved, the system first determines whether the request conflicts with other scheduled business activities\. If a conflict is detected, Change Manager can block the change or require additional approvals before starting the runbook workflow\. For example, you might allow changes only during business hours to ensure that teams are available to manage any unexpected problems\. For any changes requested to run outside those hours, you can require higher\-level management approval in the form of *change freeze approvers*\. For emergency changes, Change Manager can skip the step of checking Change Calendar for conflicts or blocking events after a change request is approved\.
+Change Manager is integrated with [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md)\. When a requested change is approved, the system first determines whether the request conflicts with other scheduled business activities\. If a conflict is detected, Change Manager can block the change or require additional approvals before starting the runbook workflow\. For example, you might allow changes only during business hours to ensure that teams are available to manage any unexpected problems\. For any changes requested to run outside those hours, you can require higher\-level management approval in the form of *change freeze approvers*\. For emergency changes, Change Manager can skip the step of checking Change Calendar for conflicts or blocking events after a change request is approved\.
 
 When it's time to implement an approved change, Change Manager runs the Automation runbook that is specified in the associated change request\. Only the operations defined in approved change requests are permitted when runbook workflows run\. This approach helps to avoid unintentional results while changes are being implemented\. 
 
@@ -32,7 +32,7 @@ In addition to restricting the changes that can be made when a runbook workflow 
 After a runbook workflow has completed, you can review details about the changes made\. These details include the reason for a change request, which change template was used, who requested and approved the changes, and how the changes were implemented\. 
 
 **Related content**  
-[Introducing AWS Systems Manager Change Manager](http://aws.amazon.com/blogs/aws/introducing-systems-manager-change-manager/) on the *AWS News Blog*
+[Introducing AWS Systems ManagerChange Manager](http://aws.amazon.com/blogs/aws/introducing-systems-manager-change-manager/) on the *AWS News Blog*
 
 ## How can Change Manager benefit my operations?<a name="change-manager-benefits"></a>
 

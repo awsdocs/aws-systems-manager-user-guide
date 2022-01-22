@@ -3,7 +3,7 @@
 If you want to use the AWS Command Line Interface \(AWS CLI\) to start and end sessions that connect you to your managed nodes, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu Server\.
 
 **Use the latest version of the Session Manager plugin**  
-The Session Manager plugin is updated occasionally with enhanced functionality\. We recommend that you regularly ensure you're using the latest version of the plugin\. For more information, see [ Session Manager plugin latest version and release history](#plugin-version-history)\.
+The Session Manager plugin is updated occasionally with enhanced functionality\. We recommend that you regularly ensure you're using the latest version of the plugin\. For more information, see [Session Manager plugin latest version and release history](#plugin-version-history)\.
 
 **Installation prerequisite**  
 AWS CLI version 1\.16\.12 or later must be installed on your local machine in order to use the Session Manager plugin\.

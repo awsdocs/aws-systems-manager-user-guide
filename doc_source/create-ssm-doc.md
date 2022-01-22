@@ -9,7 +9,7 @@ To create your own SSM document content, it's important to understand the differ
 +  [SSM document syntax](sysman-doc-syntax.md) 
 +  [SSM document schema features and examples](document-schemas-features.md) 
 +  [Systems Manager Command document plugin reference](ssm-plugins.md) 
-+  [Systems Manager Automation actions reference](automation-actions.md) 
++  [Systems Manager Automation actions reference](automation-actions.md) 
 +  [Automation system variables](automation-variables.md) 
 +  [Sample scenarios and custom runbook solutions](automation-document-samples.md) 
 +  [Working with Systems Manager Automation runbooks](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.html) using the AWS Toolkit for Visual Studio Code 

@@ -1,8 +1,8 @@
 # Systems Manager Command document plugin reference<a name="ssm-plugins"></a>
 
-This reference describes the plugins that you can specify in an AWS Systems Manager \(SSM\) Command type document\. These plugins can't be used in SSM Automation runbooks, which use Automation actions\. For information about AWS Systems Manager Automation actions, see [Systems Manager Automation actions reference](automation-actions.md)\.
+This reference describes the plugins that you can specify in an AWS Systems Manager \(SSM\) Command type document\. These plugins can't be used in SSM Automation runbooks, which use Automation actions\. For information about AWS Systems Manager Automation actions, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
-Systems Manager determines the actions to perform on a managed instance by reading the contents of an SSM document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Systems Manager determines the actions to perform on a managed instance by reading the contents of an SSM document\. Each document includes a code\-execution section\. Depending on the schema version of your document, this code\-execution section can include one or more plugins or steps\. For the purpose of this Help topic, plugins and steps are called *plugins*\. This section includes information about each of the Systems Manager plugins\. For more information about documents, including information about creating documents and the differences between schema versions, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 **Note**  
 Some of the plugins described here run only on either Windows Server instances or Linux instances\. Platform dependencies are noted for each plugin\.   
@@ -136,7 +136,7 @@ mainSteps:
 
 ## `aws:applications`<a name="aws-applications"></a>
 
-Install, repair, or uninstall applications on an EC2 instance\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Install, repair, or uninstall applications on an EC2 instance\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="applications-syntax"></a>
 
@@ -254,7 +254,7 @@ Required: No
 
 ## `aws:cloudWatch`<a name="aws-cloudWatch"></a>
 
-Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon Elastic Compute Cloud \(Amazon EC2\), see [Sending Logs, Events, and Performance Counters to Amazon CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon Elastic Compute Cloud \(Amazon EC2\), see [Sending Logs, Events, and Performance Counters to Amazon CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 **Important**  
 This plugin has been deprecated\. The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
@@ -279,7 +279,7 @@ Sends IIS log data to CloudWatch Logs\.
 
 **PerformanceCounter**  
 Sends Windows performance counters to CloudWatch\. You can select different categories to upload to CloudWatch as metrics\. For each performance counter that you want to upload, create a **PerformanceCounter** section with a unique ID \(for example, "PerformanceCounter2", "PerformanceCounter3", and so on\) and configure its properties\.  
-If the AWS Systems Manager SSM Agent or the CloudWatch plugin is stopped, performance counter data isn't logged in CloudWatch This behavior is different than custom logs or Windows Event logs\. Custom logs and Windows Event logs preserve performance counter data and upload it to CloudWatch after SSM Agent or the CloudWatch plugin is available\.
+If the AWS Systems Manager SSM Agent or the CloudWatch plugin is stopped, performance counter data isn't logged in CloudWatch\. This behavior is different than custom logs or Windows Event logs\. Custom logs and Windows Event logs preserve performance counter data and upload it to CloudWatch after SSM Agent or the CloudWatch plugin is available\.
 
 **SecurityEventLog**  
 Sends security event log data to CloudWatch Logs\.
@@ -418,7 +418,7 @@ The destination log stream\. If you use **\{instance\_id\}**, the default, the i
 Type: String  
 Valid values: `{instance_id}` \| `{hostname}` \| `{ip_address}` *<log\_stream\_name>*  
 If you enter a log stream name that doesn't already exist, CloudWatch Logs automatically creates it for you\. You can use a literal string or predefined variables \(**\{instance\_id\}**, **\{hostname\}**, **\{ip\_address\}**, or a combination of all three to define a log stream name\.  
-The log stream name specified in this parameter is displyaed on the **Log Groups > Streams for *<YourLogStream>*** screen in the CloudWatch console\.  
+The log stream name specified in this parameter is displayed on the **Log Groups > Streams for *<YourLogStream>*** screen in the CloudWatch console\.  
 Required: Yes
 
 **MetricName**  
@@ -474,7 +474,7 @@ Required: Yes
 
 ## `aws:configureDocker`<a name="aws-configuredocker"></a>
 
-\(Schema version 2\.0 or later\) Configure an instance to work with containers and Docker\. This plugin is supported on Linux and Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\. 
+\(Schema version 2\.0 or later\) Configure an instance to work with containers and Docker\. This plugin is supported on Linux and Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\. 
 
 ### Syntax<a name="configuredocker-syntax"></a>
 
@@ -544,13 +544,13 @@ Required: Yes
 
 ## `aws:configurePackage`<a name="aws-configurepackage"></a>
 
-\(Schema version 2\.0 or later\) Install or uninstall a AWS Systems Manager Distributor package\. You can install the latest version, default version, or a version of the package you specify\. Packages provided by AWS are also supported\. This plugin runs on Windows Server and Linux operating systems, but not all the available packages are supported on Linux operating systems\.
+\(Schema version 2\.0 or later\) Install or uninstall an AWS Systems Manager Distributor package\. You can install the latest version, default version, or a version of the package you specify\. Packages provided by AWS are also supported\. This plugin runs on Windows Server and Linux operating systems, but not all the available packages are supported on Linux operating systems\.
 
 Available AWS packages for Windows Server include the following: `AWSPVDriver`, `AWSNVMe`, `AwsEnaNetworkDriver`, `AwsVssComponents`, `AmazonCloudWatchAgent`, `CodeDeployAgent`, and `AWSSupport-EC2Rescue.`
 
 Available AWS packages for Linux operating systems include the following: `AmazonCloudWatchAgent`, `CodeDeployAgent`, and `AWSSupport-EC2Rescue`\.
 
-For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="configurepackage-syntax"></a>
 
@@ -657,7 +657,7 @@ Required: No
 
 ## `aws:domainJoin`<a name="aws-domainJoin"></a>
 
-Join an EC2 instance to a domain\. This plugin runs on Linux and Windows Server operating systems\. For more information about joining EC2 instances, see [Join an EC2 Instance to Your AWS Managed Microsoft AD Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_join_instance.html) in the *AWS Directory Service Administration Guide*\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Join an EC2 instance to a domain\. This plugin runs on Linux and Windows Server operating systems\. For more information about joining EC2 instances, see [Join an EC2 Instance to Your AWS Managed Microsoft AD Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_join_instance.html) in the *AWS Directory Service Administration Guide*\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="domainJoin-syntax"></a>
 
@@ -1010,7 +1010,7 @@ Required: No
 
 ## `aws:psModule`<a name="aws-psModule"></a>
 
-Install PowerShell modules on an Amazon EC2 instance\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Install PowerShell modules on an Amazon EC2 instance\. This plugin only runs on Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="psModule-syntax"></a>
 
@@ -1131,7 +1131,7 @@ Required: No
 
 ## `aws:refreshAssociation`<a name="aws-refreshassociation"></a>
 
-\(Schema version 2\.0 or later\) Refresh \(force apply\) an association on demand\. This action will change the system state based on what is defined in the selected association or all associations bound to the targets\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+\(Schema version 2\.0 or later\) Refresh \(force apply\) an association on demand\. This action will change the system state based on what is defined in the selected association or all associations bound to the targets\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="refreshassociation-syntax"></a>
 
@@ -1195,7 +1195,7 @@ Required: No
 
 ## `aws:runDockerAction`<a name="aws-rundockeraction"></a>
 
-\(Schema version 2\.0 or later\) Run Docker actions on containers\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+\(Schema version 2\.0 or later\) Run Docker actions on containers\. This plugin runs on Linux and Microsoft Windows Server operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="rundockeraction-syntax"></a>
 
@@ -1381,7 +1381,7 @@ Required: No
 
 ## `aws:runPowerShellScript`<a name="aws-runPowerShellScript"></a>
 
-Run PowerShell scripts or specify the path to a script to run\. This plugin runs on Microsoft Windows Server and Linux operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Run PowerShell scripts or specify the path to a script to run\. This plugin runs on Microsoft Windows Server and Linux operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="runPowerShellScript-syntax"></a>
 
@@ -1497,7 +1497,7 @@ Required: No
 
 ## `aws:runShellScript`<a name="aws-runShellScript"></a>
 
-Run Linux shell scripts or specify the path to a script to run\. This plugin only runs on Linux operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Run Linux shell scripts or specify the path to a script to run\. This plugin only runs on Linux operating systems\. For more information, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="runShellScript-syntax"></a>
 
@@ -1611,13 +1611,13 @@ Required: No
 
 ## `aws:softwareInventory`<a name="aws-softwareinventory"></a>
 
-\(Schema version 2\.0 or later\) Gather metadata about applications, files, and configurations on your managed instances\. This plugin runs on Linux and Microsoft Windows Server operating systems\. When you configure inventory collection, you start by creating a AWS Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the `aws:softwareInventory` plugin the system returns the following error:
+\(Schema version 2\.0 or later\) Gather metadata about applications, files, and configurations on your managed instances\. This plugin runs on Linux and Microsoft Windows Server operating systems\. When you configure inventory collection, you start by creating an AWS Systems Manager State Manager association\. Systems Manager collects the inventory data when the association is run\. If you don't create the association first, and attempt to invoke the `aws:softwareInventory` plugin the system returns the following error:
 
 ```
 The aws:softwareInventory plugin can only be invoked via ssm-associate.
 ```
 
-An instance can have only one inventory association configured at a time\. If you configure an instance with two or more associations, the inventory association doesn't run and no inventory data is collected\. For more information about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
+An instance can have only one inventory association configured at a time\. If you configure an instance with two or more associations, the inventory association doesn't run and no inventory data is collected\. For more information about collecting inventory, see [AWS Systems Manager Inventory](systems-manager-inventory.md)\.
 
 ### Syntax<a name="softwareinventory-syntax"></a>
 
@@ -1726,7 +1726,7 @@ Required: No
 
 ## `aws:updateAgent`<a name="aws-updateagent"></a>
 
-Update the EC2Config service to the latest version or specify an older version\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about the EC2Config service, see [Configuring a Windows Instance Using the EC2Config Service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Update the EC2Config service to the latest version or specify an older version\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about the EC2Config service, see [Configuring a Windows Instance Using the EC2Config Service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="updateagent-syntax"></a>
 
@@ -1829,7 +1829,7 @@ Required: No
 
 ## `aws:updateSsmAgent`<a name="aws-updatessmagent"></a>
 
-Update the SSM Agent to the latest version or specify an older version\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Working with SSM Agent](ssm-agent.md)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Update the SSM Agent to the latest version or specify an older version\. This plugin runs on Linux and Windows Server operating systems\. For more information, see [Working with SSM Agent](ssm-agent.md)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="updateSSMagent-syntax"></a>
 

@@ -37,7 +37,7 @@ AMI:
   "default": "{{ssm:/aws/service/list/ami-windows-latest}}"
 }
 ```
-For more information about Parameter Store, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
+For more information about Parameter Store, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
 Type: Structure  
 The `parameters` structure accepts the following fields and values:  
 + `type`: \(Required\) Allowed values include the following: `String`, `StringList`, `Integer` `Boolean`, `MapList`, and `StringMap`\. To view examples of each type, see [SSM document parameter `type` examples](#top-level-properties-type) in the next section\.

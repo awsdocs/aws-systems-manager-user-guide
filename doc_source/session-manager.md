@@ -1,4 +1,4 @@
-# AWS Systems Manager Session Manager<a name="session-manager"></a>
+# AWS Systems Manager Session Manager<a name="session-manager"></a>
 
 Session Manager is a fully managed AWS Systems Manager capability\. With Session Manager, you can manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, edge devices, and on\-premises servers and virtual machines \(VMs\)\. You can use either an interactive one\-click browser\-based shell or the AWS Command Line Interface \(AWS CLI\)\. Session Manager provides secure and auditable node management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also allows you to comply with corporate policies that require controlled access to managed nodes, strict security practices, and fully auditable logs with node access details, while providing end users with simple one\-click cross\-platform access to your managed nodes\.
 

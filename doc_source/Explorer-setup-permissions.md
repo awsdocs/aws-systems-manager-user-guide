@@ -10,7 +10,7 @@ Integrated Setup automatically creates and configures AWS Identity and Access Ma
 
 Integrated Setup creates and configures the following roles for working with Explorer and OpsCenter\.
 + `AWSServiceRoleForAmazonSSM`: Provides access to AWS Resources managed or used by Systems Manager\.
-+ **OpsItem\-CWE\-Role**: Allows CloudWatch Events and EventBridge to create OpsItems in response to common events\.
++ `OpsItem-CWE-Role`: Allows CloudWatch Events and EventBridge to create OpsItems in response to common events\.
 + `AWSServiceRoleForAmazonSSM_AccountDiscovery`: Allows Systems Manager to call other AWS services to discover AWS account information when synchronizing data\. For more information about this role, see [About the `AWSServiceRoleForAmazonSSM_AccountDiscovery` role](#Explorer-service-role-details)\.
 + `AmazonSSMExplorerExport`: Allows Explorer to export OpsData to a comma\-separated value \(CSV\) file\.
 

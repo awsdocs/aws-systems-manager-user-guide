@@ -70,4 +70,4 @@ Systems Manager Inventory, Explorer, and Compliance enable you to create a resou
 
 **Note**  
 The ARN in the policy example enables the system to encrypt OpsData from all sources except AWS Security Hub\. If you need to encrypt Security Hub data, for example if you use Explorer to collect Security Hub data, then you must attach an additional policy that specifies the following ARN:  
-"aws:SourceArn":"arn:aws:ssm:\*:*123456789012*:role/aws\-service\-role/opsdatasync\.ssm\.amazonaws\.com/AWSServiceRoleForSystemsManagerOpsDataSync" 
+`"aws:SourceArn": "arn:aws:ssm:*:123456789012:role/aws-service-role/opsdatasync.ssm.amazonaws.com/AWSServiceRoleForSystemsManagerOpsDataSync"` 

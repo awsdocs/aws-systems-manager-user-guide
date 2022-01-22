@@ -87,7 +87,7 @@ In the second step, you create the required *gateway* endpoint for Systems Manag
    + **`com.amazonaws.region.ssm`**: The endpoint for the Systems Manager service\.
    + **`com.amazonaws.region.ec2messages`**: Systems Manager uses this endpoint to make calls from SSM Agent to the Systems Manager service\.
    + **`com.amazonaws.region.ec2`**: If you're using Systems Manager to create VSS\-enabled snapshots, you need to ensure that you have an endpoint to the EC2 service\. Without the EC2 endpoint defined, a call to enumerate attached EBS volumes fails, which causes the Systems Manager command to fail\.
-   + **`com.amazonaws.region.ssmmessages`**: This endpoint is required only if you're connecting to your instances through a secure data channel using Session Manager\. For more information, see [AWS Systems Manager Session Manager](session-manager.md) and [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md)\.
+   + **`com.amazonaws.region.ssmmessages`**: This endpoint is required only if you're connecting to your instances through a secure data channel using Session Manager\. For more information, see [AWS Systems Manager Session Manager](session-manager.md) and [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md)\.
    + **`com.amazonaws.region.kms`**: This endpoint is optional but can be created if you want to use AWS Key Management Service \(AWS KMS\) encryption for Session Manager or Parameter Store parameters\.
    + **`com.amazonaws.region.logs`**: This endpoint is optional but can be created if you want to use Amazon CloudWatch Logs \(CloudWatch Logs\) for Session Manager, Run Command, or SSM Agent logs\.
 

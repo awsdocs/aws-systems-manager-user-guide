@@ -28,7 +28,7 @@ If widgets about Amazon Elastic Compute Cloud \(Amazon EC2\) instances, such as 
 
  **Patch widget doesn't display data** 
 
-The **Non\-compliant instances for patching** widget only displays data about patch instances that aren't compliant\. This widget displays no data if your instances are compliant\. If you suspect that you have non\-compliant instances, then verify that you set up and configured Systems Manager patching and use AWS Systems Manager Patch Manager to check your patch compliance\. For more information, see [AWS Systems Manager Patch Manager](systems-manager-patch.md)\.
+The **Non\-compliant instances for patching** widget only displays data about patch instances that aren't compliant\. This widget displays no data if your instances are compliant\. If you suspect that you have non\-compliant instances, then verify that you set up and configured Systems Manager patching and use AWS Systems Manager Patch Manager to check your patch compliance\. For more information, see [AWS Systems Manager Patch Manager](systems-manager-patch.md)\.
 
  **Miscellaneous issues** 
 

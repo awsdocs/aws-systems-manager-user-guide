@@ -1,4 +1,4 @@
-# AWS Systems Manager Explorer<a name="Explorer"></a>
+# AWS Systems Manager Explorer<a name="Explorer"></a>
 
 AWS Systems Manager Explorer is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across AWS Regions\. In Explorer, OpsData includes metadata about your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, Systems Manager Patch Manager patch compliance details, and Systems Manager State Manager association compliance details\. OpsData also includes information from supporting AWS services like AWS Trusted Advisor, AWS Compute Optimizer, and information about your AWS Support cases\.
 

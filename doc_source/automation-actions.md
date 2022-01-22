@@ -1,4 +1,4 @@
-# Systems Manager Automation actions reference<a name="automation-actions"></a>
+# Systems Manager Automation actions reference<a name="automation-actions"></a>
 
 
 |  | 

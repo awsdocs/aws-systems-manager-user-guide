@@ -100,7 +100,7 @@ To allow change freeze reviews, you must turn on the **Check Change Calendar for
 
      To specify that Change Manager checks a calendar in Change Calendar to make sure changes aren't blocked by scheduled events, first select the **Enabled** check box, and then select the calendar to check for restricted events from the **Change Calendar** list\.
 
-     For more information about Change Calendar, see [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md)\.
+     For more information about Change Calendar, see [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md)\.
    + Option: **SNS topic for approvers for closed events**
 
      1. Choose one of the following to specify the Amazon Simple Notification Service \(Amazon SNS\) topic in your account to use for sending notifications to approvers during change freeze events\. \(Note that you must also specify approvers in the **Approvers for change freeze events** section above **Best practices**\.\)

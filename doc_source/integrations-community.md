@@ -8,12 +8,12 @@ These links are provided for informational purposes only, and shouldn't be consi
 ## Blog posts<a name="integrations-community-blogposts"></a>
 
 **Application Management**
-+ [A complete guide to using the AWS Systems Manager Parameter Store](https://seanjziegler.com/a-complete-guide-to-using-the-aws-systems-manager-parameter-store/)
++ [A complete guide to using the AWS Systems ManagerParameter Store](https://seanjziegler.com/a-complete-guide-to-using-the-aws-systems-manager-parameter-store/)
 
   Sean Ziegler offers a concise overview of Parameter Store functionality and provides a Boto3 example for interacting with Parameter Store, a capability of Systems Manager\.
 
   *Published May 2020*
-+ [Keep Your Secrets Safe with AWS Systems Manager Parameter Store and Node](https://www.codebyamir.com/blog/keep-your-secrets-safe-with-aws-systems-manager-parameter-store-and-nodejs)
++ [Keep Your Secrets Safe with AWS Systems ManagerParameter Store and Node](https://www.codebyamir.com/blog/keep-your-secrets-safe-with-aws-systems-manager-parameter-store-and-nodejs)
 
   Amir Boroumand walks through how to save and retrieve a password using the Parameter Store with Node\.
 
@@ -23,12 +23,12 @@ These links are provided for informational purposes only, and shouldn't be consi
   J Cole Morrison demonstrates how to create parameters for use in AWS CloudFormation templates and Terraform projects so you can reference values with less human error\.
 
   *Published August 2019*
-+ [Using AWS Systems Manager Parameter Store for Configuration](https://github.com/aws-samples/aws-net-guides/tree/master/Communications/ParameterStore-Example)
++ [Using AWS Systems ManagerParameter Store for Configuration](https://github.com/aws-samples/aws-net-guides/tree/master/Communications/ParameterStore-Example)
 
   Learn how to store and retrieve application configuration settings at runtime for an application instead of hard\-coding the configuration values into a sample application's code and configuration files\. The sample application, a simple \.NET Core console application, shows how to use the AWS SDK for \.NET to retrieve configuration values from Parameter Store\.
 
   *Published March 2019*
-+ [Using AWS Systems Manager Parameter Store SecureString parameters in AWS CloudFormation templates](http://aws.amazon.com/blogs/mt/using-aws-systems-manager-parameter-store-secure-string-parameters-in-aws-cloudformation-templates/)
++ [Using AWS Systems ManagerParameter Store SecureString parameters in AWS CloudFormation templates](http://aws.amazon.com/blogs/mt/using-aws-systems-manager-parameter-store-secure-string-parameters-in-aws-cloudformation-templates/)
 
   Learn how to use plaintext and `SecureString` parameters in your AWS CloudFormation templates through the use of dynamic references to fetch parameter values\.
 
@@ -38,7 +38,7 @@ These links are provided for informational purposes only, and shouldn't be consi
   Learn how to use a parameter label as an alias for a parameter version\. You can group parameter versions across hierarchies using labels, and you can deploy new updates to parameters across environments using hierarchies and labels\.
 
   *Published July 2018*
-+ [Integrating AWS CloudFormation with AWS Systems Manager Parameter Store](http://aws.amazon.com/blogs/mt/integrating-aws-cloudformation-with-aws-systems-manager-parameter-store/)
++ [Integrating AWS CloudFormation with AWS Systems ManagerParameter Store](http://aws.amazon.com/blogs/mt/integrating-aws-cloudformation-with-aws-systems-manager-parameter-store/)
 
   Learn how to use Parameter Store parameters in your AWS CloudFormation templates to simplify stack updates involving parameters and achieve consistency by using values stored in Parameter Store\. With this integration, your code remains untouched while the stack update operation automatically picks up the latest parameter value\.
 

@@ -4,12 +4,12 @@ The following are examples, in JSON format, of supported EventBridge events for 
 
 **Topics**
 + [AWS Systems Manager Automation Events](#SSM-Automation-event-types)
-+ [AWS Systems Manager Change Calendar Events](#SSM-Change-Management-event-types)
++ [AWS Systems ManagerChange Calendar Events](#SSM-Change-Management-event-types)
 + [AWS Systems Manager Compliance Events](#SSM-Configuration-Compliance-event-types)
-+ [AWS Systems Manager Maintenance Windows Events](#EC2_maintenance_windows_event_types)
-+ [AWS Systems Manager Parameter Store Events](#SSM-Parameter-Store-event-types)
-+ [AWS Systems Manager Run Command Events](#SSM-Run-Command-event-types)
-+ [AWS Systems Manager State Manager Events](#SSM-State-Manager-event-types)
++ [AWS Systems ManagerMaintenance Windows Events](#EC2_maintenance_windows_event_types)
++ [AWS Systems ManagerParameter Store Events](#SSM-Parameter-Store-event-types)
++ [AWS Systems ManagerRun Command Events](#SSM-Run-Command-event-types)
++ [AWS Systems ManagerState Manager Events](#SSM-State-Manager-event-types)
 
 ## AWS Systems Manager Automation Events<a name="SSM-Automation-event-types"></a>
 
@@ -66,7 +66,7 @@ The following are examples, in JSON format, of supported EventBridge events for 
 }
 ```
 
-## AWS Systems Manager Change Calendar Events<a name="SSM-Change-Management-event-types"></a>
+## AWS Systems ManagerChange Calendar Events<a name="SSM-Change-Management-event-types"></a>
 
 The following are examples of the events for AWS Systems Manager Change Calendar\.
 
@@ -219,7 +219,7 @@ The following are examples of the events for AWS Systems Manager Compliance\.
 }
 ```
 
-## AWS Systems Manager Maintenance Windows Events<a name="EC2_maintenance_windows_event_types"></a>
+## AWS Systems ManagerMaintenance Windows Events<a name="EC2_maintenance_windows_event_types"></a>
 
 The following are examples of the events for Systems Manager Maintenance Windows\.
 
@@ -353,7 +353,7 @@ The valid status values are `ENABLED` and `DISABLED`\.
 }
 ```
 
-## AWS Systems Manager Parameter Store Events<a name="SSM-Parameter-Store-event-types"></a>
+## AWS Systems ManagerParameter Store Events<a name="SSM-Parameter-Store-event-types"></a>
 
 The following are examples of the events for Systems Manager Parameter Store\.
 
@@ -426,7 +426,7 @@ The following are examples of the events for Systems Manager Parameter Store\.
 }
 ```
 
-## AWS Systems Manager Run Command Events<a name="SSM-Run-Command-event-types"></a>
+## AWS Systems ManagerRun Command Events<a name="SSM-Run-Command-event-types"></a>
 
 **Run Command Status\-change Notification**
 
@@ -476,7 +476,7 @@ The following are examples of the events for Systems Manager Parameter Store\.
 }
 ```
 
-## AWS Systems Manager State Manager Events<a name="SSM-State-Manager-event-types"></a>
+## AWS Systems ManagerState Manager Events<a name="SSM-State-Manager-event-types"></a>
 
 **State Manager Association State Change**
 

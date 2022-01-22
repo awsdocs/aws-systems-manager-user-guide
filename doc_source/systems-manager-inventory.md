@@ -1,4 +1,4 @@
-# AWS Systems Manager Inventory<a name="systems-manager-inventory"></a>
+# AWS Systems Manager Inventory<a name="systems-manager-inventory"></a>
 
 AWS Systems Manager Inventory provides visibility into your AWS computing environment\. You can use Inventory to collect *metadata* from your managed nodes\. You can store this metadata in a central Amazon Simple Storage Service \(Amazon S3\) bucket, and then use built\-in tools to query the data and quickly determine which nodes are running the software and configurations required by your software policy, and which nodes need to be updated\. You can configure Inventory on all of your managed nodes by using a one\-click procedure\. You can also configure and view inventory data from multiple AWS Regions and AWS accounts\.
 

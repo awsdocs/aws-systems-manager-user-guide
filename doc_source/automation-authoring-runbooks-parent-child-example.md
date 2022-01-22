@@ -1,6 +1,6 @@
 # Example 1: Creating parent\-child runbooks<a name="automation-authoring-runbooks-parent-child-example"></a>
 
-The following example demonstrates how to create two runbooks that patch tagged groups of Amazon Elastic Compute Cloud \(Amazon EC2\) instances in stages\. These runbooks are used in a parent\-child relationship with the parent runbook used to initiate a rate control automation of the child runbook\. For more information about rate control automations, see [Running automations that use targets and rate controls](automation-working-targets-and-rate-controls.md)\. For more information about the automation actions used in this example, see the [Systems Manager Automation actions reference](automation-actions.md)\.
+The following example demonstrates how to create two runbooks that patch tagged groups of Amazon Elastic Compute Cloud \(Amazon EC2\) instances in stages\. These runbooks are used in a parent\-child relationship with the parent runbook used to initiate a rate control automation of the child runbook\. For more information about rate control automations, see [Running automations that use targets and rate controls](automation-working-targets-and-rate-controls.md)\. For more information about the automation actions used in this example, see the [Systems Manager Automation actions reference](automation-actions.md)\.
 
 ## Create the child runbook<a name="automation-authoring-runbooks-child-runbook"></a>
 
@@ -723,7 +723,7 @@ To start creating her runbook content, Emily reviews the available automation ac
 
 ------
 
-For more information about the automation actions used in this example, see the [Systems Manager Automation actions reference](automation-actions.md)\.
+For more information about the automation actions used in this example, see the [Systems Manager Automation actions reference](automation-actions.md)\.
 
 ## Create the parent runbook<a name="automation-authoring-runbooks-parent-runbook"></a>
 
@@ -1002,4 +1002,4 @@ This example runbook continues the scenario described in the previous section\. 
 
 ------
 
-For more information about the automation actions used in this example, see the [Systems Manager Automation actions reference](automation-actions.md)\.
+For more information about the automation actions used in this example, see the [Systems Manager Automation actions reference](automation-actions.md)\.

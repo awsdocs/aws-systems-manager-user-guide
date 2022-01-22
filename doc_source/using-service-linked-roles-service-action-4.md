@@ -6,7 +6,7 @@ A service\-linked role makes setting up Systems Manager easier because you donâ€
 
 You can delete a service\-linked role only after first deleting their related resources\. This protects your Systems Manager resources because you can't inadvertently remove permission to access the resources\.
 
-For information about other services that support service\-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have **Yes**in the **Service\-linked role** column\. Choose a **Yes** with a link to view the service\-linked role documentation for that service\.
+For information about other services that support service\-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have **Yes** in the **Service\-linked role** column\. Choose a **Yes** with a link to view the service\-linked role documentation for that service\.
 
 ## Service\-linked role permissions for Systems Manager<a name="service-linked-role-permissions-service-action-4"></a>
 
@@ -72,7 +72,7 @@ Use the IAM console, the AWS CLI, or the AWS API to delete the AWSSSMOpsInsights
 
 ## Supported Regions for Systems Manager service\-linked roles<a name="slr-regions-service-action-4"></a>
 
-Systems Manager does not support using service\-linked roles in every region where the service is available\. You can use the AWSSSMOpsInsightsServiceRolePolicy role in the following regions\.
+Systems Manager does not support using service\-linked roles in every Region where the service is available\. You can use the AWSSSMOpsInsightsServiceRolePolicy role in the following Regions\.
 
 
 ****  

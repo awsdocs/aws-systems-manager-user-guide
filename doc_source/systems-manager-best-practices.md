@@ -19,7 +19,7 @@ The title of each section here is an active link to the corresponding section in
 
 **[Parameter Store](systems-manager-parameter-store.md)**
 + Use Parameter Store, a capability of AWS Systems Manager, to centrally manage global configuration settings\.
-+ [How AWS Systems Manager Parameter Store uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
++ [How AWS Systems ManagerParameter Store uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.
 + [Reference AWS Secrets Manager secrets from Parameter Store parameters](integration-ps-secretsmanager.md)\.
 
 **[Patch Manager](systems-manager-patch.md)**
@@ -59,3 +59,7 @@ For more information, see [Encrypting CloudTrail log files with AWS KMS–Manage
   For information about setting the time on your nodes, see the following topics: 
   +  [Set the time for your Linux instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html)
   +  [Set the time for a Windows instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/windows-set-time.html)
+
+**Related content**
+
+[Security best practices for Systems Manager](security-best-practices.md)

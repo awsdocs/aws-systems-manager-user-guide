@@ -186,15 +186,13 @@ To check if your Ubuntu Server 16\.04 instance uses deb or Snap packages, see [M
 1. Run the following PowerShell command\.
 
    ```
-   Get-WmiObject Win32_Product | Where-Object {$_.Name -eq 'Amazon SSM Agent'} | Select-Object Name,Version
+   & "C:\Program Files\Amazon\SSM\amazon-ssm-agent.exe" -version
    ```
 
    This command returns output similar to the following\.
 
    ```
-   Name             Version
-   ----             -------
-   Amazon SSM Agent 3.0.655.0
+   SSM Agent version: 3.1.804.0
    ```
 
 ------

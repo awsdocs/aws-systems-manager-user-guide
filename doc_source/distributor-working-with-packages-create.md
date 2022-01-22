@@ -63,7 +63,7 @@ Use the `In-place` update option to add new or updated files to an existing pack
 
 Wait for Distributor to finish uploading your software and creating your package\. Distributor shows upload status for each installable file\. Depending on the number and size of packages you're adding, this can take a few minutes\. Distributor automatically redirects you to the **Package details** page for the new package, but you can choose to open this page yourself after the software is uploaded\. The **Package details** page doesn't show all information about your package until Distributor finishes the package creation process\. To stop the upload and package creation process, choose **Cancel**\.
 
-If Distributor can't upload any of the software installable files, it displays an **Upload failed** message\. To retry the upload, choose **Retry upload**\. For more information about how to troubleshoot package creation failures, see [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md)\.
+If Distributor can't upload any of the software installable files, it displays an **Upload failed** message\. To retry the upload, choose **Retry upload**\. For more information about how to troubleshoot package creation failures, see [Troubleshooting AWS Systems ManagerDistributor](distributor-troubleshooting.md)\.
 
 ## Create a package \(advanced\)<a name="distributor-working-with-packages-create-adv"></a>
 

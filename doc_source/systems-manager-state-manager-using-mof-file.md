@@ -25,7 +25,7 @@ If you're using Amazon S3 to store PowerShell modules, MOF files, compliance rep
 
 ## Resolving credentials in MOF files<a name="systems-manager-state-manager-using-mof-file-credentials"></a>
 
-Credentials are resolved by using [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) or [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\. This allows you to set up automatic credential rotation\. This also allows DSC to automatically propagate credentials to your servers without redeploying MOFs\.
+Credentials are resolved by using [AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/) or [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\. This allows you to set up automatic credential rotation\. This also allows DSC to automatically propagate credentials to your servers without redeploying MOFs\.
 
 To use an AWS Secrets Manager secret in a configuration, create a PSCredential object where the Username is the SecretId or SecretARN of the secret containing the credential\. You can specify any value for the password\. The value is ignored\. Following is an example\.
 
@@ -320,7 +320,7 @@ The **View output** link displays the last 4,000 characters of the detailed stat
 
 ![\[Viewing detailed output for MOF resource compliance issue\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/state-manager-mof-detailed-status-2.png)
 
-For information about how to view compliance information, see [AWS Systems Manager Compliance](systems-manager-compliance.md)\.
+For information about how to view compliance information, see [AWS Systems Manager Compliance](systems-manager-compliance.md)\.
 
 ### Situations that affect compliance reporting<a name="systems-manager-state-manager-viewing-mof-file-compliance-reporting"></a>
 

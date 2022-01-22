@@ -1,4 +1,4 @@
-# AWS Systems Manager Patch Manager walkthroughs<a name="patch-walkthroughs"></a>
+# AWS Systems ManagerPatch Manager walkthroughs<a name="patch-walkthroughs"></a>
 
 The walkthroughs in this section demonstrate how to use Patch Manager, a capability of AWS Systems Manager, for several patching scenarios\.
 

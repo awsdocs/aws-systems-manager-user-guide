@@ -13,7 +13,7 @@ This topic provides general information for using Document Builder with any supp
 [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md) – Provides step\-by\-step guidance for creating a runbook that runs scripts to \(1\) launch an Amazon Elastic Compute Cloud \(EC2\) instance and \(2\) wait for the instance status to change to `ok`\.
 
 **Before you begin**  
-Before you create a custom runbook using Document Builder, we recommend that you read about the different actions that you can use within a runbook\. For more information, see [Systems Manager Automation actions reference](automation-actions.md)\.
+Before you create a custom runbook using Document Builder, we recommend that you read about the different actions that you can use within a runbook\. For more information, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
 **To create a runbook using Document Builder**
 
@@ -65,11 +65,11 @@ If you specify a value of '`/`', the runbook can run on all types of resources\.
    + For **Step name**, enter a descriptive name for the first step of the automation\.
    + For **Action type**, select the action type to use for this step\.
 
-     For a list and information about the available action types, see [Systems Manager Automation actions reference](automation-actions.md)\.
+     For a list and information about the available action types, see [Systems Manager Automation actions reference](automation-actions.md)\.
    + For **Description**, enter a description for the automation step\. You can use Markdown to format your text\.
    + Depending on the **Action type** selected, enter the required inputs for the action type in the **Step inputs** section\. For example, if you selected the action `aws:approve`, you must specify a value for the `Approvers` property\.
 
-     For information about the step input fields, see the entry in [Systems Manager Automation actions reference](automation-actions.md) for the action type you selected\. For example: [`aws:executeStateMachine` – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md)\.
+     For information about the step input fields, see the entry in [Systems Manager Automation actions reference](automation-actions.md) for the action type you selected\. For example: [`aws:executeStateMachine` – Run an AWS Step Functions state machine](automation-action-executeStateMachine.md)\.
    + \(Optional\) For **Additional inputs**, provide any additional input values needed for your runbook\. The available input types depend on the action type you selected for the step\. \(Note that some action types require input values\.\)
 **Note**  
 To add more inputs, choose **Add optional input**\. To remove an input, choose the **X** \(Remove\) button\.

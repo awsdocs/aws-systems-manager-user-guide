@@ -1,4 +1,4 @@
-# AWS Systems Manager Run Command<a name="execute-remote-commands"></a>
+# AWS Systems Manager Run Command<a name="execute-remote-commands"></a>
 
 Using Run Command, a capability of AWS Systems Manager, you can remotely and securely manage the configuration of your managed nodes\. A *managed node* is any Amazon Elastic Compute Cloud \(Amazon EC2\) instance, edge device, or on\-premises server or virtual machine \(VM\) in your hybrid environment that has been configured for Systems Manager\. Run Command allows you to automate common administrative tasks and perform one\-time configuration changes at scale\. You can use Run Command from the AWS Management Console, the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or the AWS SDKs\. Run Command is offered at no additional cost\.
 

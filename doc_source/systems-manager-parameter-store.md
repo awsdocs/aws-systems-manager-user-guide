@@ -1,4 +1,4 @@
-# AWS Systems Manager Parameter Store<a name="systems-manager-parameter-store"></a>
+# AWS Systems Manager Parameter Store<a name="systems-manager-parameter-store"></a>
 
 Parameter Store, a capability of AWS Systems Manager, provides secure, hierarchical storage for configuration data management and secrets management\. You can store data such as passwords, database strings, Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can reference Systems Manager parameters in your scripts, commands, SSM documents, and configuration and automation workflows by using the unique name that you specified when you created the parameter\. 
 
@@ -118,7 +118,7 @@ def lambda_handler(event, context):
 If you choose the `SecureString` parameter type when you create your parameter, Systems Manager uses AWS KMS to encrypt the parameter value\.
 Parameter Store only supports [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
 There is no charge from Parameter Store to create a `SecureString` parameter, but charges for use of AWS KMS encryption do apply\. For information, see [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing)\.  
-For more information about AWS managed and customer managed keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and AWS KMS encryption, see [How AWS Systems Manager Parameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.  
+For more information about AWS managed and customer managed keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) in the *AWS Key Management Service Developer Guide*\. For more information about Parameter Store and AWS KMS encryption, see [How AWS Systems ManagerParameter Store Uses AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/services-parameter-store.html)\.  
 To view an AWS managed key, use the AWS KMS `DescribeKey` operation\. This AWS Command Line Interface \(AWS CLI\) example uses `DescribeKey` to view and AWS managed key\.  
 
 ```

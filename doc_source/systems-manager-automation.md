@@ -1,4 +1,4 @@
-# AWS Systems Manager Automation<a name="systems-manager-automation"></a>
+# AWS Systems Manager Automation<a name="systems-manager-automation"></a>
 
 Automation, a capability of AWS Systems Manager, simplifies common maintenance, deployment, and remediation tasks for AWS services like Amazon Elastic Compute Cloud \(Amazon EC2\), Amazon Relational Database Service \(Amazon RDS\), Amazon Redshift, Amazon Simple Storage Service \(Amazon S3\), and many more\. 
 
@@ -56,7 +56,7 @@ An *automation* consists of all of the tasks that are defined in a runbook, and 
 | Concept | Details | 
 | --- | --- | 
 |  Automation runbook  |  A Systems Manager Automation runbook defines the automation \(the actions that Systems Manager performs on your managed nodes and AWS resources\)\. Automation includes several pre\-defined runbooks that you can use to perform common tasks like restarting one or more Amazon EC2 instances or creating an Amazon Machine Image \(AMI\)\. You can create your own runbooks as well\. Runbooks use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. Steps run in sequential order\. For more information, see [Working with runbooks](automation-documents.md)\. Runbooks are Systems Manager documents of type `Automation`, as opposed to `Command`, `Policy`, `Session` documents\. Runbooks support schema version 0\.3\. Command documents use schema version 1\.2, 2\.0, or 2\.2\. Policy documents use schema version 2\.0 or later\.  | 
-|  Automation action  |  The automation defined in a runbook includes one or more steps\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your runbook\. Automation supports 20 distinct action types\. For more information, see the [Systems Manager Automation actions reference](automation-actions.md)\.  | 
+|  Automation action  |  The automation defined in a runbook includes one or more steps\. Each step is associated with a particular action\. The action determines the inputs, behavior, and outputs of the step\. Steps are defined in the `mainSteps` section of your runbook\. Automation supports 20 distinct action types\. For more information, see the [Systems Manager Automation actions reference](automation-actions.md)\.  | 
 |  Automation quota  |  Each AWS account can run 100 automations simultaneously\. This includes child automations \(automations that are started by another automation\), and rate control automations\. If you attempt to run more automations than this, Systems Manager adds the additional automations to a queue and displays a status of Pending\. For more information about running automations, see [Running a simple automation](automation-working-executing.md)\.  | 
 |  Automation queue quota  |  If you attempt to run more automations than the concurrent automation limit, subsequent automations are added to a queue\. Each AWS account can queue 1,000 automations\. When an automation is complete \(or reaches a terminal state\), the first automation in the queue is started\.  | 
 |  Rate control automation quota  |  Each AWS account can run 25 rate control automations simultaneously\. If you attempt to run more rate control automations than the concurrent rate control automation limit, Systems Manager adds the subsequent rate control automations to a queue and displays a status of Pending\. For more information about running rate control automations, see [Running automations that use targets and rate controls](automation-working-targets-and-rate-controls.md)\.  | 
@@ -68,7 +68,7 @@ An *automation* consists of all of the tasks that are defined in a runbook, and 
 + [What is an automation?](#what-is-an-automation)
 + [Setting up Automation](automation-setup.md)
 + [Working with automations](automation-working.md)
-+ [Systems Manager Automation actions reference](automation-actions.md)
++ [Systems Manager Automation actions reference](automation-actions.md)
 + [Working with runbooks](automation-documents.md)
 + [Systems Manager Automation runbook reference](automation-documents-reference.md)
 + [Automation walkthroughs](automation-walk.md)

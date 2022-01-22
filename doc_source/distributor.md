@@ -1,10 +1,10 @@
-# AWS Systems Manager Distributor<a name="distributor"></a>
+# AWS Systems Manager Distributor<a name="distributor"></a>
 
 Distributor, a capability of AWS Systems Manager, helps you package and publish software to AWS Systems Manager managed nodes\. You can package and publish your own software or use Distributor to find and publish AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**, or third\-party packages such as **Trend Micro\. **Publishing a package advertises specific versions of the package's document to managed nodes that you identify using node IDs, AWS account IDs, tags, or an AWS Region\.
 
 After you create a package in Distributor, you can install the package in one of the following ways:
-+ One time by using [AWS Systems Manager Run Command](execute-remote-commands.md)
-+ On a schedule by using [AWS Systems Manager State Manager](systems-manager-state.md)
++ One time by using [AWS Systems Manager Run Command](execute-remote-commands.md)
++ On a schedule by using [AWS Systems Manager State Manager](systems-manager-state.md)
 
 **Important**  
 Distributor doesn't guarantee that the third\-party packages you install are free of any potential malware\. We encourage that you conduct your own additional due diligence to ensure compliance with your internal security controls\. Security is a shared responsibility between AWS and you\. This is described as the shared responsibility model\. To learn more, see the [shared responsibility model](http://aws.amazon.com/compliance/shared-responsibility-model/)\.
@@ -91,4 +91,4 @@ Systems Manager doesn't support all of the following operating systems for AWS I
 + [Setting up Distributor](distributor-getting-started.md)
 + [Working with Distributor](distributor-working-with.md)
 + [Auditing and logging Distributor activity](distributor-logging-auditing.md)
-+ [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md)
++ [Troubleshooting AWS Systems ManagerDistributor](distributor-troubleshooting.md)

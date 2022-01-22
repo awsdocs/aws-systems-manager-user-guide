@@ -87,7 +87,7 @@ An object that defines the parameters the document accepts\. For more informatio
 ```
 {{ssm:parameter-name}}
 ```
-For more information about Parameter Store, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
+For more information about Parameter Store, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
 Type: StringMap  
 Required: No
 

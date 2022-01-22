@@ -180,5 +180,5 @@ This topic explains how to create EventBridge rules that invoke targets based on
 
 **Related Information**
 + \(Blog post\) [Use parameter labels for easy configuration update across environments](http://aws.amazon.com/blogs/mt/use-parameter-labels-for-easy-configuration-update-across-environments/)
-+ [Tutorial: Use EventBridge to relay events to AWS Systems Manager Run Command](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-ec2-run-command.html) in the *Amazon EventBridge User Guide*
++ [Tutorial: Use EventBridge to relay events to AWS Systems ManagerRun Command](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-ec2-run-command.html) in the *Amazon EventBridge User Guide*
 + [Tutorial: Set AWS Systems Manager Automation as an EventBridge target](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-ssm-automation-as-target.html) in the *Amazon EventBridge User Guide*

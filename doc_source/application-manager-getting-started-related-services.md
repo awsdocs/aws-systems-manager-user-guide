@@ -44,7 +44,7 @@ AWS Config provides a detailed view of the resources associated with your AWS ac
 **\(Optional\) Create State Manager [associations](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state.html)**  
 You can use Systems Manager State Manager to create a configuration that you assign to your managed nodes\. The configuration, called an *association*, defines the state that you want to maintain on your nodes\. To view association compliance data in Application Manager, you must configure one or more State Manager associations\. State Manager is offered at no additional charge\.
 
-**\(Optional\) Set up and configure [OpsCenter](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)**  
+**\(Optional\) Set up and configure [https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html](https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html)**  
 You can view operational work items \(OpsItems\) about your resources in Application Manager by using OpsCenter\. You can configure Amazon CloudWatch and Amazon EventBridge to automatically send OpsItems to OpsCenter based on alarms and events\. You can also enter OpsItems manually\. For pricing information, see [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\.
 
 **\(Recommended\) Verify [runbook permissions](https://docs.aws.amazon.com/systems-manager/latest/userguide/automation-setup.html)**  

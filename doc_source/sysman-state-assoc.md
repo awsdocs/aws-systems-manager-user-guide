@@ -52,7 +52,7 @@ State Manager doesn't support running associations that use a new version of a d
 
    Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
-   The change calendar determines when the association runs\. If the calendar is closed, the association isn't applied\. If the calendar is open, the association runs accordingly\. For more information, see [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md)\.
+   The change calendar determines when the association runs\. If the calendar is closed, the association isn't applied\. If the calendar is open, the association runs accordingly\. For more information, see [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md)\.
 
 1. In the **Rate control** section, choose options to control how the association runs on multiple instances\. For more information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 

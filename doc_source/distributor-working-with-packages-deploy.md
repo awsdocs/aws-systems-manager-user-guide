@@ -19,7 +19,7 @@ You can deploy packages to your AWS Systems Manager managed nodes by using Distr
 
 ## Installing or updating a package one time \(console\)<a name="distributor-deploy-pkg-console"></a>
 
-You can use the AWS Systems Manager console to install or update a package one time\. When you configure a one\-time installation, Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md), a capability of AWS Systems Manager, to perform the installation\.
+You can use the AWS Systems Manager console to install or update a package one time\. When you configure a one\-time installation, Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md), a capability of AWS Systems Manager, to perform the installation\.
 
 **To install or update a package one time \(console\)**
 
@@ -79,7 +79,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 ## Scheduling a package installation or update \(console\)<a name="distributor-deploy-sm-pkg-console"></a>
 
-You can use the AWS Systems Manager console to schedule the installation or update of a package\. When you schedule package installation or update, Distributor uses [AWS Systems Manager State Manager](systems-manager-state.md) to install or update\.
+You can use the AWS Systems Manager console to schedule the installation or update of a package\. When you schedule package installation or update, Distributor uses [AWS Systems Manager State Manager](systems-manager-state.md) to install or update\.
 
 **To schedule a package installation \(console\)**
 

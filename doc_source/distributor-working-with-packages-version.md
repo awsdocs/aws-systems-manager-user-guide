@@ -64,7 +64,7 @@ To add a package version by using the **Simple** workflow, prepare updated insta
 
 1. Wait for Distributor to finish uploading your software and creating the new package version\. Distributor shows upload status for each installable file\. Depending on the number and size of packages you are adding, this can take a few minutes\. Distributor automatically redirects you to the **Package details** page for the package, but you can choose to open this page yourself after the software is uploaded\. The **Package details** page doesn't show all information about your package until Distributor finishes creating the new package version\. To stop the upload and package version creation, choose **Stop upload**\.
 
-1. If Distributor can't upload any of the software installable files, it displays an **Upload failed** message\. To retry the upload, choose **Retry upload**\. For more information about how to troubleshoot package version creation failures, see [Troubleshooting AWS Systems Manager Distributor](distributor-troubleshooting.md)\.
+1. If Distributor can't upload any of the software installable files, it displays an **Upload failed** message\. To retry the upload, choose **Retry upload**\. For more information about how to troubleshoot package version creation failures, see [Troubleshooting AWS Systems ManagerDistributor](distributor-troubleshooting.md)\.
 
 1. When Distributor is finished creating the new package version, on the package's **Details** page, on the **Versions** tab, view the new version in the list of available package versions\. Set a default version of the package by choosing a version, and then choosing **Set default version**\.
 

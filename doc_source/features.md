@@ -12,7 +12,7 @@ Systems Manager groups capabilities into the following capability types:
 
 ## Quick Setup<a name="features-quick-setup"></a>
 
-Use [Quick Setup](systems-manager-quick-setup.md), a capability of AWS Systems Manager, to configure frequently used AWS services and features with recommended best practices\. You can use Quick Setup in an individual AWS account or across multiple AWS accounts and AWS Regions by integrating with AWS Organizations\. Quick Setup simplifies setting up services, including Systems Manager, by automating common or recommended tasks\. These tasks include, for example, creating required AWS Identity and Access Management \(IAM\) instance profile roles and setting up operational best practices, such as periodic patch scans and inventory collection\.
+Use [Quick Setup](systems-manager-quick-setup.md) to configure frequently used AWS services and features with recommended best practices\. You can use Quick Setup in an individual AWS account or across multiple AWS accounts and AWS Regions by integrating with AWS Organizations\. Quick Setup simplifies setting up services, including Systems Manager, by automating common or recommended tasks\. These tasks include, for example, creating required AWS Identity and Access Management \(IAM\) instance profile roles and setting up operational best practices, such as periodic patch scans and inventory collection\.
 
 ## Operations Management<a name="features-operations-management"></a>
 
@@ -28,12 +28,12 @@ Incident Manager increases incident resolution by notifying responders of impact
 ------
 #### [ Explorer ]
 
-[Explorer](Explorer.md), a capability of AWS Systems Manager, is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across AWS Regions\. In Explorer, OpsData includes metadata about your Amazon EC2 instances, patch compliance details, and operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use OpsCenter, a capability of AWS Systems Manager, to run Automation runbooks and resolve those issues\. 
+[Explorer](Explorer.md) is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across AWS Regions\. In Explorer, OpsData includes metadata about your Amazon EC2 instances, patch compliance details, and operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use OpsCenter, a capability of AWS Systems Manager, to run Automation runbooks and resolve those issues\. 
 
 ------
 #### [ OpsCenter ]
 
-[OpsCenter](OpsCenter.md), a capability of AWS Systems Manager, provides a central location where operations engineers and IT professionals can view, investigate, and resolve operational work items \(OpsItems\) related to AWS resources\. OpsCenter is designed to reduce mean time to resolution for issues impacting AWS resources\. This Systems Manager capability aggregates and standardizes OpsItems across services while providing contextual investigation data about each OpsItem, related OpsItems, and related resources\. OpsCenter also provides Systems Manager Automation runbooks that you can use to resolve issues\. You can specify searchable, custom data for each OpsItem\. You can also view automatically generated summary reports about OpsItems by status and source\. 
+[OpsCenter](OpsCenter.md) provides a central location where operations engineers and IT professionals can view, investigate, and resolve operational work items \(OpsItems\) related to AWS resources\. OpsCenter is designed to reduce mean time to resolution for issues impacting AWS resources\. This Systems Manager capability aggregates and standardizes OpsItems across services while providing contextual investigation data about each OpsItem, related OpsItems, and related resources\. OpsCenter also provides Systems Manager Automation runbooks that you can use to resolve issues\. You can specify searchable, custom data for each OpsItem\. You can also view automatically generated summary reports about OpsItems by status and source\. 
 
 ------
 #### [ CloudWatch Dashboards ]
@@ -56,7 +56,7 @@ Application Management is a suite of capabilities that help you manage your appl
 ------
 #### [ Application Manager ]
 
-[Application Manager](application-manager.md), a capability of AWS Systems Manager, helps you investigate and remediate issues with your AWS resources in the context of your applications\. Application Manager aggregates operations information from multiple AWS services and Systems Manager capabilities to a single AWS Management Console\.
+[Application Manager](application-manager.md) helps you investigate and remediate issues with your AWS resources in the context of your applications\. Application Manager aggregates operations information from multiple AWS services and Systems Manager capabilities to a single AWS Management Console\.
 
 ------
 #### [ Resource Groups ]
@@ -66,12 +66,12 @@ Application Management is a suite of capabilities that help you manage your appl
 ------
 #### [ AppConfig ]
 
-[AppConfig](appconfig.md), a capability of AWS Systems Manager, helps you create, manage, and deploy application configurations\. AppConfig supports controlled deployments to applications of any size\. You can use AppConfig with applications hosted on Amazon EC2 instances, AWS Lambda containers, mobile applications, or edge devices\. To prevent errors when deploying application configurations, AppConfig includes validators\. A validator provides a syntactic or semantic check to verify that the configuration you want to deploy works as intended\. During a configuration deployment, AppConfig monitors the application to verify that the deployment is successful\. If the system encounters an error or if the deployment invokes an alarm, AppConfig rolls back the change to minimize impact for your application users\.
+[AppConfig](appconfig.md) helps you create, manage, and deploy application configurations\. AppConfig supports controlled deployments to applications of any size\. You can use AppConfig with applications hosted on Amazon EC2 instances, AWS Lambda containers, mobile applications, or edge devices\. To prevent errors when deploying application configurations, AppConfig includes validators\. A validator provides a syntactic or semantic check to verify that the configuration you want to deploy works as intended\. During a configuration deployment, AppConfig monitors the application to verify that the deployment is successful\. If the system encounters an error or if the deployment invokes an alarm, AppConfig rolls back the change to minimize impact for your application users\.
 
 ------
 #### [ Parameter Store ]
 
-[Parameter Store](systems-manager-parameter-store.md), a capability of AWS Systems Manager, provides secure, hierarchical storage for configuration data and secrets management\. You can store data such as passwords, database strings, Amazon Elastic Compute Cloud \(Amazon EC2\) instance IDs and Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name you specified when you created the parameter\.
+[Parameter Store](systems-manager-parameter-store.md) provides secure, hierarchical storage for configuration data and secrets management\. You can store data such as passwords, database strings, Amazon Elastic Compute Cloud \(Amazon EC2\) instance IDs and Amazon Machine Image \(AMI\) IDs, and license codes as parameter values\. You can store values as plain text or encrypted data\. You can then reference values by using the unique name you specified when you created the parameter\.
 
 ------
 
@@ -82,22 +82,22 @@ Systems Manager provides the following capabilities for performing actions on or
 ------
 #### [ Change Manager ]
 
-[Change Manager](change-manager.md), a capability of AWS Systems Manager, is an enterprise change management framework for requesting, approving, implementing, and reporting on operational changes to your application configuration and infrastructure\. From a single *delegated administrator account*, if you use AWS Organizations, you can manage changes across multiple AWS accounts in multiple AWS Regions\. Alternatively, using a *local account*, you can manage changes for a single AWS account\. Use Change Manager for managing changes to both AWS resources and on\-premises resources\.
+[Change Manager](change-manager.md) is an enterprise change management framework for requesting, approving, implementing, and reporting on operational changes to your application configuration and infrastructure\. From a single *delegated administrator account*, if you use AWS Organizations, you can manage changes across multiple AWS accounts in multiple AWS Regions\. Alternatively, using a *local account*, you can manage changes for a single AWS account\. Use Change Manager for managing changes to both AWS resources and on\-premises resources\.
 
 ------
 #### [ Automation ]
 
-Use [Automation](systems-manager-automation.md), a capability of AWS Systems Manager, to automate common maintenance and deployment tasks\. You can use Automation to create and update Amazon Machine Images \(AMIs\), apply driver and agent updates, reset passwords on Windows Server instance, reset SSH keys on Linux instances, and apply OS patches or application updates\. 
+Use [Automation](systems-manager-automation.md) to automate common maintenance and deployment tasks\. You can use Automation to create and update Amazon Machine Images \(AMIs\), apply driver and agent updates, reset passwords on Windows Server instance, reset SSH keys on Linux instances, and apply OS patches or application updates\. 
 
 ------
 #### [ Change Calendar ]
 
-[Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) can or can't be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you're creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\. You can add events manually in the Change Calendar interface or import events from a supported third\-party calendar using an `.ics` file\.
+[Change Calendar](systems-manager-change-calendar.md) helps you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) can or can't be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you're creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\. You can add events manually in the Change Calendar interface or import events from a supported third\-party calendar using an `.ics` file\.
 
 ------
 #### [ Maintenance Windows ]
 
-Use [Maintenance Windows](systems-manager-maintenance.md), a capability of AWS Systems Manager, to set up recurring schedules for managed instances to run administrative tasks such as installing patches and updates without interrupting business\-critical operations\. 
+Use [Maintenance Windows](systems-manager-maintenance.md) to set up recurring schedules for managed instances to run administrative tasks such as installing patches and updates without interrupting business\-critical operations\. 
 
 ------
 
@@ -108,46 +108,46 @@ Systems Manager provides the following capabilities for managing your nodes, whi
 ------
 #### [ Compliance ]
 
-Use [Compliance](systems-manager-compliance.md), a capability of AWS Systems Manager, to scan your fleet of managed nodes for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and AWS Regions, and then drill down into specific resources that aren’t compliant\. By default, Compliance displays compliance data about Patch Manager patching and State Manager associations\. You can also customize the service and create your own compliance types based on your IT or business requirements\.
+Use [Compliance](systems-manager-compliance.md) to scan your fleet of managed nodes for patch compliance and configuration inconsistencies\. You can collect and aggregate data from multiple AWS accounts and AWS Regions, and then drill down into specific resources that aren’t compliant\. By default, Compliance displays compliance data about Patch Manager patching and State Manager associations\. You can also customize the service and create your own compliance types based on your IT or business requirements\.
 
 ------
 #### [ Fleet Manager ]
 
-[Fleet Manager](fleet.md), a capability of AWS Systems Manager, is a unified user interface \(UI\) experience that helps you remotely manage your nodes\. With Fleet Manager, you can view the health and performance status of your entire fleet from one console\. You can also gather data from individual devices and instances to perform common troubleshooting and management tasks from the console\. This includes viewing directory and file contents, Windows registry management, operating system user management, and more\. 
+[Fleet Manager](fleet.md) is a unified user interface \(UI\) experience that helps you remotely manage your nodes\. With Fleet Manager, you can view the health and performance status of your entire fleet from one console\. You can also gather data from individual devices and instances to perform common troubleshooting and management tasks from the console\. This includes viewing directory and file contents, Windows registry management, operating system user management, and more\. 
 
 ------
 #### [ Inventory ]
 
-[Inventory](systems-manager-inventory.md), a capability of AWS Systems Manager, automates the process of collecting software inventory from your managed nodes\. You can use Inventory to gather metadata about applications, files, components, patches, and more\.
+[Inventory](systems-manager-inventory.md) automates the process of collecting software inventory from your managed nodes\. You can use Inventory to gather metadata about applications, files, components, patches, and more\.
 
 ------
 #### [ Session Manager ]
 
-Use [Session Manager](session-manager.md), a capability of AWS Systems Manager, to manage your edge devices and Amazon Elastic Compute Cloud \(Amazon EC2\) instances through an interactive one\-click browser\-based shell or through the AWS CLI\. Session Manager provides secure and auditable edge device and instance management without needing to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also allows you to comply with corporate policies that require controlled access to edge devices and instances, strict security practices, and fully auditable logs with edge device and instance access details, while still providing end users with simple one\-click cross\-platform access to your edge devices and EC2 instances\. To use Session Manager, you must enable the advanced\-instances tier\. For more information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
+Use [Session Manager](session-manager.md) to manage your edge devices and Amazon Elastic Compute Cloud \(Amazon EC2\) instances through an interactive one\-click browser\-based shell or through the AWS CLI\. Session Manager provides secure and auditable edge device and instance management without needing to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also allows you to comply with corporate policies that require controlled access to edge devices and instances, strict security practices, and fully auditable logs with edge device and instance access details, while still providing end users with simple one\-click cross\-platform access to your edge devices and EC2 instances\. To use Session Manager, you must enable the advanced\-instances tier\. For more information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 
 ------
 #### [ Run Command ]
 
-Use [Run Command](execute-remote-commands.md), a capability of AWS Systems Manager, to remotely and securely manage the configuration of your managed nodes at scale\. Use Run Command to perform on\-demand changes such as updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of managed nodes\. 
+Use [Run Command](execute-remote-commands.md) to remotely and securely manage the configuration of your managed nodes at scale\. Use Run Command to perform on\-demand changes such as updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of managed nodes\. 
 
 ------
 #### [ State Manager ]
 
-Use [State Manager](systems-manager-state.md), a capability of AWS Systems Manager, to automate the process of keeping your managed nodes in a defined state\. You can use State Manager to guarantee that your managed nodes are bootstrapped with specific software at startup, joined to a Windows domain \(Windows Server nodes only\), or patched with specific software updates\. 
+Use [State Manager](systems-manager-state.md) to automate the process of keeping your managed nodes in a defined state\. You can use State Manager to guarantee that your managed nodes are bootstrapped with specific software at startup, joined to a Windows domain \(Windows Server nodes only\), or patched with specific software updates\. 
 
 ------
 #### [ Patch Manager ]
 
 Use [Patch Manager](systems-manager-patch.md) to automate the process of patching your managed nodes with both security related and other types of updates\. You can use Patch Manager to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for applications released by Microsoft\.\)
 
- This capability allows you to scan managed nodes for missing patches and apply missing patches individually or to large groups of managed nodes by using tags\. Patch Manager uses *patch baselines*, which can include rules for auto\-approving patches within days of their release, and a list of approved and rejected patches\. You can install security patches on a regular basis by scheduling patching to run as a Systems Manager maintenance window task, or you can patch your managed nodes on demand at any time\.
+This capability allows you to scan managed nodes for missing patches and apply missing patches individually or to large groups of managed nodes by using tags\. Patch Manager uses *patch baselines*, which can include rules for auto\-approving patches within days of their release, and a list of approved and rejected patches\. You can install security patches on a regular basis by scheduling patching to run as a Systems Manager maintenance window task, or you can patch your managed nodes on demand at any time\.
 
 For Linux operating systems, you can define the repositories that should be used for patching operations as part of your patch baseline\. This allows you to ensure that updates are installed only from trusted repositories regardless of what repositories are configured on the managed node\. For Linux, you also have the ability to update any package on the managed node, not just those that are classified as operating system security updates\. You can also generate patch reports that are sent to an S3 bucket of your choice\. For a single managed node, reports include details of all patches for the machine\. For a report on all managed nodes, only a summary of how many patches are missing is provided\. To use Patch Manager, you must enable the advanced\-instances tier\. For more information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 
 ------
 #### [ Distributor ]
 
-Use [Distributor](distributor.md), a capability of AWS Systems Manager, to create and deploy packages to managed nodes\. With Distributor, you can package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on Systems Manager managed nodes\. After you install a package for the first time, you can use Distributor to uninstall and reinstall a new package version, or perform an in\-place update that adds new or changed files\. Distributor publishes resources, such as software packages, to Systems Manager managed nodes\.
+Use [Distributor](distributor.md) to create and deploy packages to managed nodes\. With Distributor, you can package your own software—or find AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**—to install on Systems Manager managed nodes\. After you install a package for the first time, you can use Distributor to uninstall and reinstall a new package version, or perform an in\-place update that adds new or changed files\. Distributor publishes resources, such as software packages, to Systems Manager managed nodes\.
 
 ------
 #### [ Hybrid Activations ]
@@ -160,7 +160,7 @@ You can also create an activation for edge devices if you want to manage them by
 
 ## Shared Resources<a name="features-shared"></a>
 
-Systems Manager uses the following shared resources for managing and configuring your AWS resources\. Choose the tabs to learn more\.
+Systems Manager uses the following shared resources for managing and configuring your AWS resources\.
 
 ------
 #### [ Documents ]

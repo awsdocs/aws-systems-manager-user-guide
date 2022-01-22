@@ -4,7 +4,7 @@ AWS Systems Manager \(formerly known as [SSM](#service-naming-history)\) is an A
 
 A managed node is any machine configured for Systems Manager\. Systems Manager supports Amazon Elastic Compute Cloud \(Amazon EC2\) instances, edge devices, and on\-premises servers and virtual machines \(VMs\), including VMs in other cloud environments\. For operating systems, Systems Manager supports Windows Server, macOS, Raspberry Pi OS \(formerly Raspbian\), and multiple distributions of Linux\.
 
-Using Systems Manager, you can associate AWS resources by applying the same identifying *resource tag* to each of them\. You can then view operational data for these resources as a *resource group*, to help monitor and troubleshoot\. 
+With Systems Manager, you can associate AWS resources by assigning *resource tags*\. You can then view operational data for these resources as a *resource group*\. Resource groups help you monitor and troubleshoot your resources\. 
 
 For example, you can assign a resource tag of "`Operation=Standard OS Patching`" to the following resources:
 + A group of AWS IoT Greengrass core devices 
@@ -14,7 +14,7 @@ For example, you can assign a resource tag of "`Operation=Standard OS Patching`"
 + An Amazon Simple Storage Service \(Amazon S3\) bucket to store patching operation log output
 + A Systems Manager *maintenance window* that specifies the schedule for the patching operation
 
-After tagging the resources, you can view a consolidated dashboard in Systems Manager that reports the status of all the resources that are part of the patching operation in `Standard OS Patching` operation\. If a problem arises with any of these resources, you can take corrective action immediately\. 
+After tagging your resources, you can view the patch status of those resources in a Systems Manager consolidated dashboard\. If a problem arises with any of the resources, you can take corrective action immediately\. 
 
 **Capabilities in Systems Manager**  
 Systems Manager is comprised of individual *[capabilities](features.md)*, which are grouped into five categories: *Operations Management*, *Application Management*, *Change Management*, *Node Management*, and *Shared Resources*\.

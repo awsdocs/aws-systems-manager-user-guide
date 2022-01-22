@@ -1,4 +1,4 @@
-# AWS Systems Manager Application Manager<a name="application-manager"></a>
+# AWS Systems Manager Application Manager<a name="application-manager"></a>
 
 Application Manager, a capability of AWS Systems Manager, helps DevOps engineers investigate and remediate issues with their AWS resources in the context of their applications and clusters\. Application Manager aggregates operations information from multiple AWS services and Systems Manager capabilities to a single AWS Management Console\.
 
@@ -50,10 +50,10 @@ Application Manager includes the following features:
   Application Manager integrates with [Amazon CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html) to provide log data in the context of your application without having to leave Systems Manager\.
 + **View and manage OpsItems for an application or cluster** 
 
-  Application Manager integrates with [AWS Systems Manager OpsCenter](OpsCenter.md) to provide a list of operational work items \(OpsItems\) for your applications and clusters\. The list reflects automatically generated and manually created OpsItems\. You can view details about the resource that created an OpsItem and the OpsItem status, source, and severity\. 
+  Application Manager integrates with [AWS Systems Manager OpsCenter](OpsCenter.md) to provide a list of operational work items \(OpsItems\) for your applications and clusters\. The list reflects automatically generated and manually created OpsItems\. You can view details about the resource that created an OpsItem and the OpsItem status, source, and severity\. 
 + **View resource compliance data for an application or cluster** 
 
-  Application Manager integrates with [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) to provide compliance and history details about your AWS resources according to rules you specify\. Application Manager also integrates with [AWS Systems Manager State Manager](systems-manager-state.md) to provide compliance information about the state you want to maintain for your Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. 
+  Application Manager integrates with [AWS Config](https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html) to provide compliance and history details about your AWS resources according to rules you specify\. Application Manager also integrates with [AWS Systems Manager State Manager](systems-manager-state.md) to provide compliance information about the state you want to maintain for your Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. 
 + **View Amazon ECS and Amazon EKS cluster infrastructure information**
 
   Application Manager integrates with [Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/) and [Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html) to provide information about the health of your cluster infrastructures and a component runtime view of the compute, networking, and storage resources in a cluster\.

@@ -11,7 +11,7 @@ The process of running these actions and their steps is called the *automation*\
 
 Action types supported for runbooks let you automate a wide variety of operations in your AWS environment\. For example, using the `executeScript` action type, you can embed a python or PowerShell script directly in your runbook\. \(When you create a custom runbook, you can add your script inline, or attach it from an S3 bucket or from your local machine\.\) You can automate management of your AWS CloudFormation resources by using the `createStack` and `deleteStack` action types\. In addition, using the `executeAwsApi` action type, a step can run *any *API operation in any AWS service, including creating or deleting AWS resources, starting other processes, initiating notifications, and many more\. 
 
-For a list of all 20 supported action types for Automation, see [Systems Manager Automation actions reference](automation-actions.md)\.
+For a list of all 20 supported action types for Automation, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
 AWS Systems Manager Automation provides several runbooks with pre\-defined steps that you can use to perform common tasks like restarting one or more Amazon Elastic Compute Cloud \(Amazon EC2\) instances or creating an Amazon Machine Image \(AMI\)\. You can also create your own runbooks and share them with other AWS accounts, or make them public for all Automation users\.
 
@@ -20,7 +20,7 @@ Runbooks are written using JavaScript Object Notation \(JSON\) or YAML\. Using t
 **Important**  
 If you run an automation workflow that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation runbooks \(`AWS-*` runbooks\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few\. This requirement also applies to any custom Automation runbooks you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, configure the service role with permission to invoke those services\. You can give permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation inline policy to invoke other AWS services](automation-permissions.md#automation-role-add-inline-policy)\.
 
-For information about the actions that you can specify in a runbook, see [Systems Manager Automation actions reference](automation-actions.md)\.
+For information about the actions that you can specify in a runbook, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
 For information about the AWS managed runbooks that run scripts, see [AWS managed runbooks that run scripts](runbook-scripts.md)\.
 
