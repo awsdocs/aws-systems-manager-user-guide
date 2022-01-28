@@ -1,3 +1,0 @@
-# Installing and configuring SSM Agent on edge devices<a name="install-ssm-agent-edge-devices"></a>
-
-Systems Manager supports installing and running SSM Agent on AWS IoT Greengrass core devices, AWS IoT, and non\-AWS IoT devices\. The SSM Agent installation and configuration process for AWS IoT Greengrass core devices is different than AWS IoT and non\-AWS IoT devices\. For more information, see [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\. 
