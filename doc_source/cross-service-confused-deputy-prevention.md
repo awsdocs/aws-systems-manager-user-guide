@@ -8,9 +8,9 @@ The following sections provide example policies for AWS Systems Manager capabili
 
 ## Hybrid activation policy example<a name="cross-service-confused-deputy-prevention-hybrid"></a>
 
-For service roles used in a hybrid activation, the value of `aws:SourceArn` must be the ARN of the AWS account\. Be sure to specify the AWS Region in the ARN where you created your hybrid activation\. If you don't know the full ARN of the resource or if you're specifying multiple resources, use the `aws:SourceArn` global context condition key with wildcards \(`*`\) for the unknown portions of the ARN\. For example, `arn:aws:ssm:*:AWS Region:123456789012:*`\.
+For service roles used in a hybrid activation, the value of `aws:SourceArn` must be the ARN of the AWS account\. Be sure to specify the AWS Region in the ARN where you created your hybrid activation\. If you don't know the full ARN of the resource or if you're specifying multiple resources, use the `aws:SourceArn` global context condition key with wildcards \(`*`\) for the unknown portions of the ARN\. For example, `arn:aws:ssm:*:region:123456789012:*`\.
 
-The following example shows how you can use the `aws:SourceArn` and `aws:SourceAccount` global condition context keys for Automation to prevent the confused deputy problem\.
+The following example demonstrates using the `aws:SourceArn` and `aws:SourceAccount` global condition context keys for Automation to prevent the confused deputy problem in the US East \(Ohio\) Region \(us\-east\-2\)\.
 
 ```
 {
@@ -70,4 +70,4 @@ Systems Manager Inventory, Explorer, and Compliance enable you to create a resou
 
 **Note**  
 The ARN in the policy example enables the system to encrypt OpsData from all sources except AWS Security Hub\. If you need to encrypt Security Hub data, for example if you use Explorer to collect Security Hub data, then you must attach an additional policy that specifies the following ARN:  
-`"aws:SourceArn": "arn:aws:ssm:*:123456789012:role/aws-service-role/opsdatasync.ssm.amazonaws.com/AWSServiceRoleForSystemsManagerOpsDataSync"` 
+`"aws:SourceArn": "arn:aws:ssm:*:account-id:role/aws-service-role/opsdatasync.ssm.amazonaws.com/AWSServiceRoleForSystemsManagerOpsDataSync"` 

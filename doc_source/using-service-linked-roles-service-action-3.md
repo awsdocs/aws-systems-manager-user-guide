@@ -8,7 +8,7 @@ You can delete a service\-linked role only after first deleting their related re
 
 For information about other services that support service\-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have **Yes **in the **Service\-Linked Role** column\. Choose a **Yes** with a link to view the service\-linked role documentation for that service\.
 
-## Service\-linked role permissions for Systems Manager<a name="slr-permissions-service-action-3"></a>
+## Service\-linked role permissions for Systems Manager OpsData sync<a name="slr-permissions-service-action-3"></a>
 
 Systems Manager uses the service\-linked role named **`AWSServiceRoleForSystemsManagerOpsDataSync`** – AWS Systems Manager uses this IAM service role for Systems Manager Explorer to create OpsData and OpsItems\.
 
@@ -22,7 +22,7 @@ The managed policy that is used to provide permissions for the `AWSServiceRoleFo
 
 You must configure permissions to allow an IAM entity \(such as a user, group, or role\) to create, edit, or delete a service\-linked role\. For more information, see [Service\-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
 
-## Creating a service\-linked role for Systems Manager<a name="create-slr-service-action-3"></a>
+## Creating the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role for Systems Manager<a name="create-slr-service-action-3"></a>
 
 You don't need to manually create a service\-linked role\. When you CompleteThisCreateActionInThisService in the AWS Management Console, the AWS CLI, or the AWS API, Systems Manager creates the service\-linked role for you\. 
 
@@ -33,11 +33,11 @@ If you delete this service\-linked role, and then need to create it again, you c
 
 You can also use the IAM console to create a service\-linked role with the **AWS Service Role for AWS Systems Manager** use case\. In the AWS CLI or the AWS API, create a service\-linked role with the `ssm.amazonaws.com` service name\. For more information, see [Creating a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*\. If you delete this service\-linked role, you can use this same process to create the role again\.
 
-## Editing a service\-linked role for Systems Manager<a name="edit-slr-service-action-3"></a>
+## Editing the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role for Systems Manager<a name="edit-slr-service-action-3"></a>
 
 Systems Manager doesn't allow you to edit the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role\. After you create a service\-linked role, you can't change the name of the role because various entities might reference the role\. However, you can edit the description of the role using IAM\. For more information, see [Editing a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*\.
 
-## Deleting a service\-linked role for Systems Manager<a name="delete-slr-service-action-3"></a>
+## Deleting the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role for Systems Manager<a name="delete-slr-service-action-3"></a>
 
 If you no longer need to use a feature or service that requires a service\-linked role, we recommend that you delete that role\. That way you don’t have an unused entity that isn't actively monitored or maintained\. However, you must clean up the resources for your service\-linked role before you can manually delete it\.
 
@@ -50,11 +50,11 @@ The procedure for deleting Systems Manager resources used by the `AWSServiceRole
 + To stop Explorer from creating new OpsItems for Security Hub findings, see [How to stop receiving findings](explorer-securityhub-integration.md#explorer-securityhub-integration-disable-receive)\.
 + To stop OpsCenter from creating new OpsItems for Security Hub findings, see [How to stop receiving findings](opscenter-securityhub-integration.md#opscenter-securityhub-integration-disable-receive)\.
 
-**To manually delete the service\-linked role using IAM**
+**To manually delete the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role using IAM**
 
 Use the IAM console, the AWS CLI, or the AWS API to delete the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role\. For more information, see [Deleting a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*\.
 
-## Supported Regions for Systems Manager service\-linked roles<a name="slr-regions-service-action-3"></a>
+## Supported Regions for the Systems Manager`AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role<a name="slr-regions-service-action-3"></a>
 
 Systems Manager supports using service\-linked roles in all of the Regions where the service is available\. For more information, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html)\.
 

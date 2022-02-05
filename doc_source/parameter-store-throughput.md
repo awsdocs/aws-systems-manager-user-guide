@@ -136,6 +136,8 @@ The following procedure shows how to use the AWS CLI to increase the number of t
    aws ssm get-service-setting --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled
    ```
 
+   The system returns information similar to the following:
+
    ```
    {
        "ServiceSetting": {
@@ -177,7 +179,7 @@ The following procedure shows how to use the Tools for Windows PowerShell to inc
 1. Increase Parameter Store throughput in the current AWS account and AWS Region using the AWS Tools for PowerShell \(Tools for PowerShell\)\.
 
    ```
-   Update-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled" -SettingValue "true" -Region us-east-2
+   Update-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled" -SettingValue "true" -Region region
    ```
 
    There is no output if the command succeeds\.
@@ -185,8 +187,10 @@ The following procedure shows how to use the Tools for Windows PowerShell to inc
 1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and AWS Region\.
 
    ```
-   Get-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region us-east-2
+   Get-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region region
    ```
+
+   The systems returns information similar to the following:
 
    ```
    ARN              : arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled
@@ -202,6 +206,8 @@ If you no longer need increased throughput, or if you no longer want to incur ch
 ```
 Reset-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/high-throughput-enabled" -Region region
 ```
+
+The system returns information similar to the following:
 
 ```
 ARN              : arn:aws:ssm:us-east-2:123456789012:servicesetting/ssm/parameter-store/high-throughput-enabled

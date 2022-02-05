@@ -88,7 +88,7 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Policies**, and then choose **Create policy**\. \(If a **Get Started** button is shown, choose it, and then choose **Create Policy**\.\)
+1. In the navigation pane, choose **Policies**, and then choose **Create Policy**\. \(If a **Get Started** button is shown, choose it, and then choose **Create Policy**\.\)
 
 1. Choose the **JSON** tab\.
 
@@ -119,9 +119,9 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
 
 1. Choose **Next: Tags**\.
 
-1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this policy, and then choose **Next: Review**\. 
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this policy\. 
 
-1. Choose **Review policy**\.
+1. Choose **Next: Review**\.
 
 1. On the **Review policy** page, for **Name**, enter a name for the inline policy\. For example: **my\-sns\-publish\-permissions**\.
 
@@ -149,15 +149,17 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 1. Choose **Next: Tags**\.
 
-1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role\. 
 
-1. On the **Review** page, enter a name in the **Role name** box, such as **my\-sns\-role**\. 
+1. Choose **Next: Review**\. 
 
-1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: **Triggers SNS topics on your behalf\.**
+1. On the **Review** page, for **Role name**, enter a name to identify the role, such as **my\-sns\-role**\. 
+
+1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: **Runs SNS topics on your behalf\.**
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 
-1. Copy or make a note of the **Role ARN**\. This Role Amazon Resource Name \(ARN\) is used when you send a command that is configured to return Amazon SNS notifications\.
+1. Choose the name of the role, and then copy or make a note of the **Role ARN** value\. This Amazon Resource Name \(ARN\) for the role is used when you send a command that is configured to return Amazon SNS notifications\.
 
 1. Keep the **Summary** page open\.
 
@@ -179,7 +181,7 @@ Use the following procedure to configure a user account to use Run Command and M
 
 1. Choose **Choose a service**, and then choose ** IAM**\.
 
-1. For **Actions**, in the **Filter actions** text box, enter **PassRole**, and then choose the **PassRole** option\.
+1. For **Actions**, in the **Filter actions** text box, enter **PassRole**, and then select the check box next to **PassRole**\.
 
 1. For **Resources**, verify that **Specific** is selected, and then choose **Add ARN**\.
 
@@ -189,7 +191,7 @@ Use the following procedure to configure a user account to use Run Command and M
 
 1. Choose **Review policy**\.
 
-1. On the **Review Policy** page, enter a name and then choose **Create Policy**\.
+1. On the **Review Policy** page, enter a name and then choose **Create policy**\.
 
 ### Task 5: Attach the iam:PassRole policy to your maintenance window role<a name="monitoring-sns-passpolicy-mw"></a>
 
@@ -212,9 +214,9 @@ If you need to create a custom service role, see one of the following topics:
 
 1. Copy or make a note of the **Role ARN** and return to the **Roles** section of the IAM console\.
 
-1. Select the custom Maintenance Windows service role you created \(under **Role** name\)\.
+1. Select the custom Maintenance Windows service role you created from the **Role name** list\.
 
-1. Under **Permissions**, verify that either the `AmazonSSMMaintenanceWindowRole` policy is listed or there is a comparable policy that gives maintenance windows permission to the Systems Manager API\.
+1. On the **Permissions** tab, verify that either the `AmazonSSMMaintenanceWindowRole` policy is listed or there is a comparable policy that gives maintenance windows permission to the Systems Manager API\. If it is not, choose **Attach policies** to attach it\.
 
 1. Choose **Add inline policy**\.
 
@@ -222,7 +224,7 @@ If you need to create a custom service role, see one of the following topics:
 
 1. For **Service**, choose **IAM**\.
 
-1. For **Actions**, choose **PassRole**\.
+1. For **Actions**, in the **Filter actions** text box, enter **PassRole**, and then select the check box next to **PassRole**\.
 
 1. For **Resources**, choose **Specific**, and then choose **Add ARN**\.
 

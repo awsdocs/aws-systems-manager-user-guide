@@ -4,6 +4,9 @@ You can edit a State Manager association to specify a new name, schedule, severi
 
 The following procedures describe how to edit and create a new version of an association using the Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell \(Tools for PowerShell\)\. 
 
+**Important**  
+State Manager doesn't support running associations that use a new version of a document if that document is shared from another account\. State Manager always runs the `default` version of a document if shared from another account, even though the Systems Manager console shows that a new version was processed\. If you want to run an association using a new version of a document shared form another account, you must set the document version to `default`\.
+
 ## Edit an association \(console\)<a name="sysman-state-assoc-edit-console"></a>
 
 The following procedure describes how to use the Systems Manager console to edit and create a new version of an association\.

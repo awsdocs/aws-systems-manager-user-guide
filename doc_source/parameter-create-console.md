@@ -35,7 +35,7 @@ Parameter Store only supports [symmetric KMS keys](https://docs.aws.amazon.com/k
    + When creating a `SecureString` parameter in the console by using the `key-id` parameter with either a customer managed key alias name or an alias ARN, specify the prefix `alias/` before the alias\. Following is an ARN example\.
 
      ```
-     arn:aws:kms:us-east-2:123456789012:alias/MyAliasName
+     arn:aws:kms:us-east-2:123456789012:alias/abcd1234-ab12-cd34-ef56-abcdeEXAMPLE
      ```
 
      Following is an alias name example\.

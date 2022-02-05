@@ -12,7 +12,7 @@ The terminal status values for commands for which you can track metrics include 
 
 1. In the navigation pane, choose **Metrics**\.
 
-1. Choose **SSM\-Run Command**\.
+1. In the **Alarms by AWS service** area, for **Services**, choose **SSM\-Run Command**\.
 
 **To view metrics using the AWS CLI**  
 Open a command prompt, and use the following command\.

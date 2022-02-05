@@ -130,7 +130,7 @@ Required: No
 
 **files**  
 \(Schema version 0\.3 only\) The script files \(and their checksums\) attached to the document and run during an automation execution\. Applies only to documents that include the `aws:executeScript` action and for which attachments have been specified in one or more steps\.   
-For script runtime support, Automation runbooks support scripts for Python 3\.6, Python 3\.7, and PowerShell Core 6\.0\. For more information about including scripts in Automation runbooks, see [Creating runbooks that run scripts](automation-document-script.md) and [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.  
+For script runtime support, Automation runbooks support scripts for Python 3\.6, Python 3\.7, Python 3\.8, PowerShell Core 6\.0, and PowerShell 7\.0\. For more information about including scripts in Automation runbooks, see [Creating runbooks that run scripts](automation-document-script.md) and [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.  
 When you create an Automation runbook you specify attachment files using the `--attachments` option \(for AWS CLI\) or `Attachments` \(for API and SDK\)\. You can specify the file location for both local files and files stored in Amazon Simple Storage Service \(Amazon S3\) buckets\.  
 
 ```

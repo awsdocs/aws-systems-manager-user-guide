@@ -56,12 +56,12 @@ Some Systems Manager capabilities charge a fee\. For more information, see [AWS 
 Systems Manager was formerly known as "Amazon Simple Systems Manager \(SSM\)" and "Amazon EC2 Systems Manager \(SSM\)"\. The original abbreviated name of the service, "SSM", is still reflected in various AWS resources, including a few other service consoles\. Some examples:  
 + **Systems Manager Agent**: SSM Agent
 + **Systems Manager parameters**: SSM parameters
-+ **Systems Manager service endpoints**: `ssm.us-east-2.amazonaws.com`
++ **Systems Manager service endpoints**: `ssm.region.amazonaws.com`
 + **AWS CloudFormation resource types**: `AWS::SSM::Document`
 + **AWS Config rule identifier**: `EC2_INSTANCE_MANAGED_BY_SSM`
 + **AWS Command Line Interface \(AWS CLI\) commands**: `aws ssm describe-patch-baselines`
 + **AWS Identity and Access Management \(IAM\) managed policy names**: `AmazonSSMReadOnlyAccess`
-+ **Systems Manager resource ARNs**: `arn:aws:ssm:us-east-2:111222333444:patchbaseline/pb-07d8884178EXAMPLE`
++ **Systems Manager resource ARNs**: `arn:aws:ssm:region:account-id:patchbaseline/pb-07d8884178EXAMPLE`
 
 **Related API references**
 + **[AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)** – Provides descriptions, syntax, and usage examples for each of the Systems Manager actions and data types\.

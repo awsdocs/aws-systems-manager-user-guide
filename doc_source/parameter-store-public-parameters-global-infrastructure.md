@@ -293,7 +293,7 @@ The command returns information like the following\. This example has been trunc
 ```
 
 **View names of Availability Zones in a single Region**  
-You can view the names of the Availability Zones in one Region \(`us-east-1`, in this example\) using the following command\.
+You can view the names of the Availability Zones in one Region \(`us-east-2`, in this example\) using the following command\.
 
 ------
 #### [ Linux & macOS ]

@@ -4,6 +4,8 @@ AWS Systems Manager uses AWS Identity and Access Management \(IAM\) [service\-li
 
 A service\-linked role makes setting up Systems Manager easier because you don’t have to manually add the necessary permissions\. Systems Manager defines the permissions of its service\-linked roles, and unless defined otherwise, only Systems Manager can assume its roles\. The defined permissions include the trust policy and the permissions policy, and that permissions policy can't be attached to any other IAM entity\.
 
+You can delete a service\-linked role only after first deleting their related resources\. This protects your Systems Manager resources because you can't inadvertently remove permission to access the resources\.
+
 For information about other services that support service\-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have **Yes** in the **Service\-linked roles** column\. Choose a **Yes** with a link to view the service\-linked role documentation for that service\.
 
 ## Service\-linked role permissions for Systems Manager<a name="service-linked-role-permissions-service-action-1"></a>
@@ -19,7 +21,7 @@ Three Systems Manager capabilities use the service\-linked role:
 
 The managed policy that is used to provide permissions for the `AWSServiceRoleForAmazonSSM` role is `AmazonSSMServiceRolePolicy`\. For details about the permissions it grants, see [AWS managed policy: AmazonSSMServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMServiceRolePolicy)\.
 
-## Creating a service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-1"></a>
+## Creating the `AWSServiceRoleForAmazonSSM` service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-1"></a>
 
 You can use the IAM console to create a service\-linked role with the **EC2** use case\. Using commands for IAM in the AWS Command Line Interface \(AWS CLI\) or using the IAM API, create a service\-linked role with the `ssm.amazonaws.com` service name\. For more information, see [Creating a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*\.
 
@@ -27,15 +29,15 @@ For maintenance windows only, you don't need to manually create a service\-linke
 
 If you delete this service\-linked role, and then need to create it again, you can use the same process to recreate the role in your account\. 
 
-## Editing a service\-linked role for Systems Manager<a name="edit-service-linked-role-service-action-1"></a>
+## Editing the `AWSServiceRoleForAmazonSSM` service\-linked role for Systems Manager<a name="edit-service-linked-role-service-action-1"></a>
 
 Systems Manager doesn't allow you to edit the `AWSServiceRoleForAmazonSSM` service\-linked role\. After you create a service\-linked role, you can't change the name of the role because various entities might reference the role\. However, you can edit the description of the role using IAM\. For more information, see [Editing a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*\.
 
-## Deleting a service\-linked role for Systems Manager<a name="delete-service-linked-role-service-action-1"></a>
+## Deleting the `AWSServiceRoleForAmazonSSM` service\-linked role for Systems Manager<a name="delete-service-linked-role-service-action-1"></a>
 
 If you no longer need to use any feature or service that requires a service\-linked role, then we recommend that you delete that role\. That way you don’t have an unused entity that isn't actively monitored or maintained\. You can use the IAM console, the AWS CLI, or the IAM API to manually delete the service\-linked role\. To do this, you must first manually clean up the resources for your service\-linked role, and then you can manually delete it\.
 
-Because the Systems Manager service\-linked role can be used by multiple capabilities, ensure that none are using the role before attempting to delete it\.
+Because the `AWSServiceRoleForAmazonSSM` service\-linked role can be used by multiple capabilities, ensure that none are using the role before attempting to delete it\.
 + **Inventory:** If you delete the service\-linked role used by the Inventory capability, then the Inventory data for tags and Resource Groups will no longer be synchronized\. You must clean up the resources for your service\-linked role before you can manually delete it\.
 + **Maintenance Windows:** You can't delete the service\-linked role if any maintenance window tasks rely on the role\. You must first remove the service\-linked role from the tasks before you can delete the role\. 
 + **Explorer:** If you delete the service\-linked role used by the Explorer capability, then the cross\-account and cross\-Region OpsData and OpsItems are no longer viewable\. 
@@ -49,12 +51,12 @@ If the Systems Manager service is using the role when you try to delete tags, re
 
 1. To delete resource groups, see [Delete groups from AWS Resource Groups](https://docs.aws.amazon.com/ARG/latest/userguide/deleting-resource-groups.html)\.
 
-1. For information about how to delete maintenance window tasks, see [Updating or deregistering maintenance window tasks \(console\)](sysman-maintenance-update.md#sysman-maintenance-update-tasks)\.
+1. To delete maintenance window tasks, see [Updating or deregistering maintenance window tasks \(console\)](sysman-maintenance-update.md#sysman-maintenance-update-tasks)\.
 
-**To manually delete the service\-linked role using IAM**
+**To manually delete the `AWSServiceRoleForAmazonSSM` service\-linked role using IAM**
 
 Use the IAM console, the AWS CLI, or the IAM API to delete the `AWSServiceRoleForAmazonSSM` service\-linked role\. For more information, see [Deleting a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*\.
 
-## Supported Regions for Systems Manager service\-linked roles<a name="slr-regions-service-action-1"></a>
+## Supported Regions for the Systems Manager`AWSServiceRoleForAmazonSSM` service\-linked role<a name="slr-regions-service-action-1"></a>
 
-Systems Manager supports using service\-linked roles in all of the AWS Regions where the service is available\. For more information, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html)\.
+Systems Manager supports using the `AWSServiceRoleForAmazonSSM` service\-linked role in all of the AWS Regions where the service is available\. For more information, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html)\.

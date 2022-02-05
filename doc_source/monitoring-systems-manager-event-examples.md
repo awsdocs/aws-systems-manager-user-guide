@@ -24,8 +24,8 @@ The following are examples, in JSON format, of supported EventBridge events for 
   "account": "123456789012",
   "time": "2016-11-29T19:43:35Z",
   "region": "us-east-1",
-  "resources": ["arn:aws:ssm:us-east-1:123456789012:automation-execution/333ba70b-2333-48db-b17e-a5e69c6f4d1c", 
-    "arn:aws:ssm:us-east-1:123456789012:automation-definition/runcommand1:1"],
+  "resources": ["arn:aws:ssm:us-east-2:123456789012:automation-execution/333ba70b-2333-48db-b17e-a5e69c6f4d1c", 
+    "arn:aws:ssm:us-east-2:123456789012:automation-definition/runcommand1:1"],
   "detail": {
     "ExecutionId": "333ba70b-2333-48db-b17e-a5e69c6f4d1c",
     "Definition": "runcommand1",
@@ -50,9 +50,9 @@ The following are examples, in JSON format, of supported EventBridge events for 
   "source": "aws.ssm",
   "account": "123456789012",
   "time": "2016-11-29T19:43:35Z",
-  "region": "us-east-1",
-  "resources": ["arn:aws:ssm:us-east-1:123456789012:automation-execution/333ba70b-2333-48db-b17e-a5e69c6f4d1c", 
-    "arn:aws:ssm:us-east-1:123456789012:automation-definition/runcommand1:1"],
+  "region": "us-east-2",
+  "resources": ["arn:aws:ssm:us-east-2:123456789012:automation-execution/333ba70b-2333-48db-b17e-a5e69c6f4d1c", 
+    "arn:aws:ssm:us-east-2:123456789012:automation-definition/runcommand1:1"],
   "detail": {
     "ExecutionId": "333ba70b-2333-48db-b17e-a5e69c6f4d1c",
     "Definition": "runcommand1",
@@ -81,11 +81,11 @@ State changes for calendars shared from other AWS accounts are not currently sup
     "id": "47a3f03a-f30d-1011-ac9a-du3bdEXAMPLE",
     "detail-type": "Calendar State Change",
     "source": "aws.ssm",
-    "account": "111222333444",
+    "account": "123456789012",
     "time": "2020-09-19T18:00:07Z",
     "region": "us-east-2",
     "resources": [
-        "arn:aws:ssm:us-east-2:111222333444:document/MyCalendar"
+        "arn:aws:ssm:us-east-2:123456789012:document/MyCalendar"
     ],
     "detail": {
         "state": "OPEN",
@@ -103,11 +103,11 @@ State changes for calendars shared from other AWS accounts are not currently sup
     "id": "f30df03a-1011-ac9a-47a3-f761eEXAMPLE",
     "detail-type": "Calendar State Change",
     "source": "aws.ssm",
-    "account": "111222333444",
+    "account": "123456789012",
     "time": "2020-09-17T21:40:02Z",
     "region": "us-east-2",
     "resources": [
-        "arn:aws:ssm:us-east-2:111222333444:document/MyCalendar"
+        "arn:aws:ssm:us-east-2:123456789012:document/MyCalendar"
     ],
     "detail": {
         "state": "CLOSED",
@@ -131,9 +131,9 @@ The following are examples of the events for AWS Systems Manager Compliance\.
   "source": "aws.ssm",
   "account": "123456789012",
   "time": "2017-07-17T19:03:26Z",
-  "region": "us-west-1",
+  "region": "us-east-2",
   "resources": [
-    "arn:aws:ssm:us-west-1:461348341421:managed-instance/i-01234567890abcdef"
+    "arn:aws:ssm:us-east-2:123456789012:managed-instance/i-01234567890abcdef"
   ],
   "detail": {
     "last-runtime": "2017-01-01T10:10:10Z",
@@ -155,9 +155,9 @@ The following are examples of the events for AWS Systems Manager Compliance\.
   "source": "aws.ssm",
   "account": "123456789012",
   "time": "2017-07-17T19:02:31Z",
-  "region": "us-west-1",
+  "region": "us-east-2",
   "resources": [
-    "arn:aws:ssm:us-west-1:461348341421:managed-instance/i-01234567890abcdef"
+    "arn:aws:ssm:us-east-2:123456789012:managed-instance/i-01234567890abcdef"
   ],
   "detail": {
     "last-runtime": "2017-01-01T10:10:10Z",
@@ -176,12 +176,12 @@ The following are examples of the events for AWS Systems Manager Compliance\.
   "version": "0",
   "id": "01234567-0123-0123-0123-012345678901",
   "detail-type": "Configuration Compliance State Change",
-  "source": "aws.ssm",
+  "source": "aws.123456789012",
   "account": "123456789012",
   "time": "2017-07-17T19:03:26Z",
-  "region": "us-west-1",
+  "region": "us-east-2",
   "resources": [
-    "arn:aws:ssm:us-west-1:461348341421:managed-instance/i-01234567890abcdef"
+    "arn:aws:ssm:us-east-2:123456789012:managed-instance/i-01234567890abcdef"
   ],
   "detail": {
     "resource-type": "managed-instance",
@@ -204,9 +204,9 @@ The following are examples of the events for AWS Systems Manager Compliance\.
   "source": "aws.ssm",
   "account": "123456789012",
   "time": "2017-07-17T19:02:31Z",
-  "region": "us-west-1",
+  "region": "us-east-2",
   "resources": [
-    "arn:aws:ssm:us-west-1:461348341421:managed-instance/i-01234567890abcdef"
+    "arn:aws:ssm:us-east-2:123456789012:managed-instance/i-01234567890abcdef"
   ],
   "detail": {
     "resource-type": "managed-instance",
@@ -233,12 +233,12 @@ The other valid status value is `DEREGISTERED`\.
    "id":"01234567-0123-0123-0123-0123456789ab",
    "detail-type":"Maintenance Window Target Registration Notification",
    "source":"aws.ssm",
-   "account":"012345678901",
+   "account":"123456789012",
    "time":"2016-11-16T00:58:37Z",
-   "region":"us-east-1",
+   "region":"us-east-2",
    "resources":[
-      "arn:aws:ssm:us-west-2:001312665065:maintenancewindow/mw-0ed7251d3fcf6e0c2",
-      "arn:aws:ssm:us-west-2:001312665065:windowtarget/e7265f13-3cc5-4f2f-97a9-7d3ca86c32a6"
+      "arn:aws:ssm:us-east-2:123456789012:maintenancewindow/mw-0ed7251d3fcf6e0c2",
+      "arn:aws:ssm:us-east-2:123456789012:windowtarget/e7265f13-3cc5-4f2f-97a9-7d3ca86c32a6"
    ],
    "detail":{
       "window-target-id":"e7265f13-3cc5-4f2f-97a9-7d3ca86c32a6",
@@ -258,11 +258,11 @@ The other valid status values are `PENDING`, `IN_PROGRESS`, `SUCCESS`, `FAILED`,
    "id":"01234567-0123-0123-0123-0123456789ab",
    "detail-type":"Maintenance Window Execution State-change Notification",
    "source":"aws.ssm",
-   "account":"012345678901",
+   "account":"123456789012",
    "time":"2016-11-16T01:00:57Z",
-   "region":"us-east-1",
+   "region":"us-east-2",
    "resources":[
-      "arn:aws:ssm:us-west-2:0123456789ab:maintenancewindow/mw-123456789012345678"
+      "arn:aws:ssm:us-east-2:123456789012:maintenancewindow/mw-123456789012345678"
    ],
    "detail":{
       "start-time":"2016-11-16T01:00:56.427Z",
@@ -284,11 +284,11 @@ The other valid status values are `IN_PROGRESS`, `SUCCESS`, `FAILED`, and `TIMED
    "id":"01234567-0123-0123-0123-0123456789ab",
    "detail-type":"Maintenance Window Task Execution State-change Notification",
    "source":"aws.ssm",
-   "account":"012345678901",
+   "account":"123456789012",
    "time":"2016-11-16T01:00:56Z",
-   "region":"us-east-1",
+   "region":"us-east-2",
    "resources":[
-      "arn:aws:ssm:us-west-2:0123456789ab:maintenancewindow/mw-123456789012345678"
+      "arn:aws:ssm:us-east-2:123456789012:maintenancewindow/mw-123456789012345678"
    ],
    "detail":{
       "start-time":"2016-11-16T01:00:56.759Z",
@@ -311,11 +311,11 @@ The other valid status values are `IN_PROGRESS`, `SUCCESS`, `FAILED`, and `TIMED
    "id":"01234567-0123-0123-0123-0123456789ab",
    "detail-type":"Maintenance Window Task Target Invocation State-change Notification",
    "source":"aws.ssm",
-   "account":"012345678901",
+   "account":"123456789012",
    "time":"2016-11-16T01:00:57Z",
-   "region":"us-east-1",
+   "region":"us-east-2",
    "resources":[
-      "arn:aws:ssm:us-west-2:0123456789ab:maintenancewindow/mw-123456789012345678"
+      "arn:aws:ssm:us-east-2:123456789012:maintenancewindow/mw-123456789012345678"
    ],
    "detail":{
       "start-time":"2016-11-16T01:00:56.427Z",
@@ -340,11 +340,11 @@ The valid status values are `ENABLED` and `DISABLED`\.
    "id":"01234567-0123-0123-0123-0123456789ab",
    "detail-type":"Maintenance Window State-change Notification",
    "source":"aws.ssm",
-   "account":"012345678901",
+   "account":"123456789012",
    "time":"2016-11-16T00:58:37Z",
-   "region":"us-east-1",
+   "region":"us-east-2",
    "resources":[
-      "arn:aws:ssm:us-west-2:0123456789ab:maintenancewindow/mw-123456789012345678"
+      "arn:aws:ssm:us-east-2:123456789012:maintenancewindow/mw-123456789012345678"
    ],
    "detail":{
       "window-id":"mw-123456789012",
@@ -367,13 +367,13 @@ The following are examples of the events for Systems Manager Parameter Store\.
   "source": "aws.ssm",
   "account": "123456789012",
   "time": "2017-05-22T16:43:48Z",
-  "region": "us-east-1",
+  "region": "us-east-2",
   "resources": [
-    "arn:aws:ssm:us-east-1:123456789012:parameter/foo"
+    "arn:aws:ssm:us-east-2:123456789012:parameter/MyExampleParameter"
   ],
   "detail": {
     "operation": "Create",
-    "name": "foo",
+    "name": "MyExampleParameter",
     "type": "String",
     "description": "Sample Parameter"
   }
@@ -390,13 +390,13 @@ The following are examples of the events for Systems Manager Parameter Store\.
   "source": "aws.ssm",
   "account": "123456789012",
   "time": "2017-05-22T16:44:48Z",
-  "region": "us-east-1",
+  "region": "us-east-2",
   "resources": [
-    "arn:aws:ssm:us-east-1:123456789012:parameter/foo"
+    "arn:aws:ssm:us-east-2:123456789012:parameter/MyExampleParameter"
   ],
   "detail": {
     "operation": "Update",
-    "name": "foo",
+    "name": "MyExampleParameter",
     "type": "String",
     "description": "Sample Parameter"
   }
@@ -413,13 +413,13 @@ The following are examples of the events for Systems Manager Parameter Store\.
   "source": "aws.ssm",
   "account": "123456789012",
   "time": "2017-05-22T16:45:48Z",
-  "region": "us-east-1",
+  "region": "us-east-2",
   "resources": [
-    "arn:aws:ssm:us-east-1:123456789012:parameter/foo"
+    "arn:aws:ssm:us-east-2:123456789012:parameter/MyExampleParameter"
   ],
   "detail": {
     "operation": "Delete",
-    "name": "foo",
+    "name": "MyExampleParameter",
     "type": "String",
     "description": "Sample Parameter"
   }
@@ -438,8 +438,8 @@ The following are examples of the events for Systems Manager Parameter Store\.
     "source": "aws.ssm",
     "account": "123456789012",
     "time": "2016-07-10T21:51:32Z",
-    "region": "us-east-1",
-    "resources": ["arn:aws:ec2:us-east-1:123456789012:instance/i-abcd1111"],
+    "region": "us-east-2",
+    "resources": ["arn:aws:ec2:us-east-2:123456789012:instance/i-abcd1111"],
     "detail": {
         "command-id": "e8d3c0e4-71f7-4491-898f-c9b35bee5f3b",
         "document-name": "AWS-RunPowerShellScript",
@@ -464,8 +464,8 @@ The following are examples of the events for Systems Manager Parameter Store\.
     "source": "aws.ssm",
     "account": "123456789012",
     "time": "2016-07-10T21:51:32Z",
-    "region": "us-east-1",
-    "resources": ["arn:aws:ec2:us-east-1:123456789012:instance/i-abcd1111"],
+    "region": "us-east-2",
+    "resources": ["arn:aws:ec2:us-east-2:123456789012:instance/i-abcd1111"],
     "detail": {
         "command-id": "e8d3c0e4-71f7-4491-898f-c9b35bee5f3b",
         "document-name": "AWS-RunPowerShellScript",
@@ -488,9 +488,9 @@ The following are examples of the events for Systems Manager Parameter Store\.
    "source":"aws.ssm",
    "account":"123456789012",
    "time":"2017-05-16T23:01:10Z",
-   "region":"us-west-1",
+   "region":"us-east-2",
    "resources":[
-      "arn:aws:ssm:us-west-1::document/AWS-RunPowerShellScript"
+      "arn:aws:ssm:us-east-2::document/AWS-RunPowerShellScript"
    ],
    "detail":{
       "association-id":"6e37940a-23ba-4ab0-9b96-5d0a1a05464f",
@@ -520,10 +520,10 @@ The following are examples of the events for Systems Manager Parameter Store\.
    "source":"aws.ssm",
    "account":"123456789012",
    "time":"2017-02-23T15:23:48Z",
-   "region":"us-east-1",
+   "region":"us-east-2",
    "resources":[
-      "arn:aws:ec2:us-east-1:123456789012:instance/i-12345678",
-      "arn:aws:ssm:us-east-1:123456789012:document/my-custom-document"
+      "arn:aws:ec2:us-east-2:123456789012:instance/i-12345678",
+      "arn:aws:ssm:us-east-2:123456789012:document/my-custom-document"
    ],
    "detail":{
       "association-id":"34fcb7e0-9a14-4984-9989-0e04e3f60bd8",

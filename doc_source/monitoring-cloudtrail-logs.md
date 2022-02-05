@@ -77,7 +77,7 @@ The following example shows a CloudTrail log entry that demonstrates the `Delete
 }
 ```
 
-The following example shows a CloudTrail log entry for a user who starts an RDP connection using Fleet Manager in the US East \(N\. Virginia\) Region \(us\-east\-1\)\.
+The following example shows a CloudTrail log entry for a user who starts an RDP connection using Fleet Manager in the US East \(Ohio\) Region \(us\-east\-2\)\.
 
 ```
 {
@@ -106,7 +106,7 @@ The following example shows a CloudTrail log entry for a user who starts an RDP 
     "eventTime": "2021-12-13T16:50:41Z",
     "eventSource": "ssm-guiconnect.amazonaws.com",
     "eventName": "StartConnection",
-    "awsRegion": "us-east-1",
+    "awsRegion": "us-east-2",
     "sourceIPAddress": "34.230.45.60",
     "userAgent": "example-user-agent-string",
     "requestParameters": {
@@ -116,7 +116,7 @@ The following example shows a CloudTrail log entry for a user who starts an RDP 
         "InstanceId": "i-02573cafcfEXAMPLE"
     },
     "responseElements": {
-        "ConnectionArn": "arn:aws:ssm-guiconnect:us-east-1:123456789012:connection/fcb810cd-241f-4aae-9ee4-02d59EXAMPLE",
+        "ConnectionArn": "arn:aws:ssm-guiconnect:us-east-2:123456789012:connection/fcb810cd-241f-4aae-9ee4-02d59EXAMPLE",
         "ConnectionKey": "71f9629f-0f9a-4b35-92f2-2d253EXAMPLE",
         "ClientToken": "49af0f92-d637-4d47-9c54-ea51aEXAMPLE",
         "requestId": "d466710f-2adf-4e87-9464-055b2EXAMPLE"

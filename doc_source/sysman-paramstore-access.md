@@ -54,7 +54,7 @@ For trusted administrators, you can provide access to all Systems Manager parame
                 "ssm:GetParameter",
                 "ssm:DeleteParameters"
             ],
-            "Resource": "arn:aws:ssm:region:account-id:parameter/dbserver-prod-*"
+            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/dbserver-prod-*"
         },
         {
             "Effect": "Allow",
@@ -113,7 +113,7 @@ The following example shows how to deny some commands while allowing the user to
                 "ssm:GetParameter",
                 "ssm:GetParameterHistory"
             ],
-            "Resource": "arn:aws:ssm:region:account-id:parameter/prod-*"
+            "Resource": "arn:aws:ssm:us-east-2:123456789012:parameter/prod-*"
         }
     ]
 }
@@ -149,7 +149,7 @@ Instance policies, like in the following example, are assigned to the instance r
                 "ssm:GetParameters"
             ],
             "Resource": [
-                "arn:aws:ssm:region:account-id:parameter/prod-*"
+                "arn:aws:ssm:us-east-2:123456789012:parameter/prod-*"
             ]
         },
         {
@@ -158,7 +158,7 @@ Instance policies, like in the following example, are assigned to the instance r
                 "kms:Decrypt"
             ],
             "Resource": [
-                "arn:aws:kms:region:account-id:key/KMSkey"
+                "arn:aws:kms:us-east-2:123456789012:key/4914ec06-e888-4ea5-a371-5b88eEXAMPLE"
             ]
         }
     ]

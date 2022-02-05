@@ -29,9 +29,9 @@ Use the following procedure to register a Run Command task that is configured to
 
 1. \(Optional\) In the **Description** field, enter a description\.
 
-1. From the **Command document** list, choose a Command document\.
+1. For **Command document**, choose a Command document\.
 
-1. In the **Task priority** list, specify a priority for this task\. Zero \(`0`\) is the highest priority\. Tasks in a maintenance window are scheduled in priority order\. Tasks that have the same priority are scheduled in parallel\.
+1. For **Task priority**, specify a priority for this task\. Zero \(`0`\) is the highest priority\. Tasks in a maintenance window are scheduled in priority order\. Tasks that have the same priority are scheduled in parallel\.
 
 1. In the **Targets** section, select a registered target group or select unregistered targets\.
 
@@ -79,7 +79,7 @@ To better manage your task options, this procedure uses the command option `--cl
        "Name": "Name",
        "Description": "Description",
        "WindowId": "mw-0c50858d01EXAMPLE",
-       "ServiceRoleArn": "arn:aws:iam::111122223333:role/MaintenanceWindowIAMRole",
+       "ServiceRoleArn": "arn:aws:iam::account-id:role/MaintenanceWindowIAMRole",
        "MaxConcurrency": "1",
        "MaxErrors": "1",
        "Priority": 3,
@@ -98,13 +98,13 @@ To better manage your task options, this procedure uses the command option `--cl
                "Comment": "Comment",
                "TimeoutSeconds": 3600,
                "NotificationConfig": {
-                   "NotificationArn": "arn:aws:sns:region:123456789012:SNSTopicName",
+                   "NotificationArn": "arn:aws:sns:region:account-id:SNSTopicName",
                    "NotificationEvents": [
                        "All"
                    ],
                    "NotificationType": "Command"
                },
-               "ServiceRoleArn": "arn:aws:iam::123456789012:role/SNSIAMRole"
+               "ServiceRoleArn": "arn:aws:iam::account-id:role/SNSIAMRole"
            }
        }
    }

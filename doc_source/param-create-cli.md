@@ -224,7 +224,7 @@ The system returns information like the following\.
         {
             "Name": "helloworld",
             "Type": "String",
-            "LastModifiedUser": "arn:aws:iam::123456789012:user/user-name",
+            "LastModifiedUser": "arn:aws:iam::123456789012:user/JohnDoe",
             "LastModifiedDate": 1494529763.156,
             "Version": 1,
             "Tier": "Standard",
@@ -393,10 +393,10 @@ To use the AWS KMS key assigned to your AWS account and AWS Region, remove the `
    To use a customer managed key instead of the AWS managed key assigned to your account, specify the key by using the `--key-id` parameter\. The parameter supports the following KMS parameter formats\.
    + Key Amazon Resource Name \(ARN\) example:
 
-      `arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012`
+      `arn:aws:kms:us-east-2:123456789012:key/key-id`
    + Alias ARN example:
 
-     `arn:aws:kms:us-east-2:123456789012:alias/MyAliasName`
+     `arn:aws:kms:us-east-2:123456789012:alias/alias-name`
    + Key ID example:
 
      `12345678-1234-1234-1234-123456789012`

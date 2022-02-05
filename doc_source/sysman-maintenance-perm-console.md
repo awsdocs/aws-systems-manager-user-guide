@@ -84,7 +84,7 @@ You are choosing the option **Systems Manager** instead of **Systems Manager \- 
           {
             "Effect": "Allow",
             "Action": "iam:PassRole",
-            "Resource": "arn:aws:iam::account-id:role/my-sns-access-role"
+            "Resource": "arn:aws::iam::account-id:role/my-sns-access-role"
           }
         ]
       }

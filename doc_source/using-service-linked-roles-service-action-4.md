@@ -1,4 +1,4 @@
-# Using roles to create operational insight OpsItems in Systems Manager OpsCenter: AWSSSMOpsInsightsServiceRolePolicy<a name="using-service-linked-roles-service-action-4"></a>
+# Using roles to create operational insight OpsItems in Systems Manager OpsCenter: AWSServiceRoleForAmazonSSM\_OpsInsights<a name="using-service-linked-roles-service-action-4"></a>
 
 AWS Systems Manager uses AWS Identity and Access Management \(IAM\) [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to Systems Manager\. Service\-linked roles are predefined by Systems Manager and include all the permissions that the service requires to call other AWS services on your behalf\. 
 
@@ -8,11 +8,11 @@ You can delete a service\-linked role only after first deleting their related re
 
 For information about other services that support service\-linked roles, see [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html) and look for the services that have **Yes** in the **Service\-linked role** column\. Choose a **Yes** with a link to view the service\-linked role documentation for that service\.
 
-## Service\-linked role permissions for Systems Manager<a name="service-linked-role-permissions-service-action-4"></a>
+## Service\-linked role permissions for Systems Manager operational insight OpsItems<a name="service-linked-role-permissions-service-action-4"></a>
 
-Systems Manager uses the service\-linked role named **AWSSSMOpsInsightsServiceRolePolicy**\. AWS Systems Manager uses this IAM service role to create and update operational insight OpsItems in Systems Manager OpsCenter\.
+Systems Manager uses the service\-linked role named **AWSServiceRoleForAmazonSSM\_OpsInsights**\. AWS Systems Manager uses this IAM service role to create and update operational insight OpsItems in Systems Manager OpsCenter\.
 
-The AWSSSMOpsInsightsServiceRolePolicy service\-linked role trusts the following services to assume the role:
+The AWSServiceRoleForAmazonSSM\_OpsInsights service\-linked role trusts the following services to assume the role:
 + `opsinsights.ssm.amazonaws.com`
 
 The role permissions policy allows Systems Manager to complete the following actions on the specified resources:
@@ -50,29 +50,29 @@ The role permissions policy allows Systems Manager to complete the following act
 
 You must configure permissions to allow an IAM entity \(such as a user, group, or role\) to create, edit, or delete a service\-linked role\. For more information, see [Service\-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
 
-## Creating a service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-4"></a>
+## Creating the AWSServiceRoleForAmazonSSM\_OpsInsights service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-4"></a>
 
 You must create a service\-linked role\. If you enable operational insights by using Systems Manager in the AWS Management Console, you can create the service\-linked role by choosing the **Enable** button\.
 
-## Editing a service\-linked role for Systems Manager<a name="edit-service-linked-role-service-action-4"></a>
+## Editing the AWSServiceRoleForAmazonSSM\_OpsInsights service\-linked role for Systems Manager<a name="edit-service-linked-role-service-action-4"></a>
 
-Systems Manager does not allow you to edit the AWSSSMOpsInsightsServiceRolePolicy service\-linked role\. After you create a service\-linked role, you cannot change the name of the role because various entities might reference the role\. However, you can edit the description of the role using IAM\. For more information, see [Editing a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*\.
+Systems Manager does not allow you to edit the AWSServiceRoleForAmazonSSM\_OpsInsights service\-linked role\. After you create a service\-linked role, you cannot change the name of the role because various entities might reference the role\. However, you can edit the description of the role using IAM\. For more information, see [Editing a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#edit-service-linked-role) in the *IAM User Guide*\.
 
-## Deleting a service\-linked role for Systems Manager<a name="delete-service-linked-role-service-action-4"></a>
+## Deleting the AWSServiceRoleForAmazonSSM\_OpsInsights service\-linked role for Systems Manager<a name="delete-service-linked-role-service-action-4"></a>
 
 If you no longer need to use a feature or service that requires a service\-linked role, we recommend that you delete that role\. That way you don’t have an unused entity that is not actively monitored or maintained\. However, you must clean up your service\-linked role before you can manually delete it\.
 
-### Cleaning up a service\-linked role<a name="service-linked-role-review-before-delete-service-action-4"></a>
+### Cleaning up the AWSServiceRoleForAmazonSSM\_OpsInsights service\-linked role<a name="service-linked-role-review-before-delete-service-action-4"></a>
 
-Before you can use IAM to delete a service\-linked role, you must first disable operational insights in Systems Manager OpsCenter\. For more information, see [Working with operational insights](OpsCenter-working-deduplication-insights.md)\.
+Before you can use IAM to delete the AWSServiceRoleForAmazonSSM\_OpsInsights service\-linked role, you must first disable operational insights in Systems Manager OpsCenter\. For more information, see [Working with operational insights](OpsCenter-working-deduplication-insights.md)\.
 
-### Manually delete the service\-linked role<a name="slr-manual-delete-service-action-4"></a>
+### Manually delete the AWSServiceRoleForAmazonSSM\_OpsInsights service\-linked role<a name="slr-manual-delete-service-action-4"></a>
 
-Use the IAM console, the AWS CLI, or the AWS API to delete the AWSSSMOpsInsightsServiceRolePolicy service\-linked role\. For more information, see [Deleting a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*\.
+Use the IAM console, the AWS CLI, or the AWS API to delete the AWSServiceRoleForAmazonSSM\_OpsInsights service\-linked role\. For more information, see [Deleting a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#delete-service-linked-role) in the *IAM User Guide*\.
 
-## Supported Regions for Systems Manager service\-linked roles<a name="slr-regions-service-action-4"></a>
+## Supported Regions for the Systems Manager AWSServiceRoleForAmazonSSM\_OpsInsights service\-linked role<a name="slr-regions-service-action-4"></a>
 
-Systems Manager does not support using service\-linked roles in every Region where the service is available\. You can use the AWSSSMOpsInsightsServiceRolePolicy role in the following Regions\.
+Systems Manager does not support using service\-linked roles in every Region where the service is available\. You can use the AWSServiceRoleForAmazonSSM\_OpsInsights role in the following Regions\.
 
 
 ****  

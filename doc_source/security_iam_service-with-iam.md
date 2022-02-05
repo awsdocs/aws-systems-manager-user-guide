@@ -60,7 +60,7 @@ For example, the Systems Manager maintenance window resource has the following A
 arn:aws:ssm:region:account-id:maintenancewindow/window-id
 ```
 
-To specify the mw\-0c50858d01EXAMPLE maintenance windows in your statement, use an ARN similar to the following\.
+To specify the mw\-0c50858d01EXAMPLE maintenance windows in your statement in the US East \(Ohio\) Region, you would use an ARN similar to the following\.
 
 ```
 "Resource": "arn:aws:ssm:us-east-2:123456789012:maintenancewindow/mw-0c50858d01EXAMPLE"
@@ -69,13 +69,13 @@ To specify the mw\-0c50858d01EXAMPLE maintenance windows in your statement, use 
 To specify all maintenance windows that belong to a specific account, use the wildcard \(\*\)\.
 
 ```
-"Resource": "arn:aws:ssm:us-east-2:123456789012:maintenancewindow/*"
+"Resource": "arn:aws:ssm:region:123456789012:maintenancewindow/*"
 ```
 
 For `Parameter Store` API operations, you can provide or restrict access to all parameters in one level of a hierarchy by using hierarchical names and AWS Identity and Access Management \(IAM\) policies as follows\.
 
 ```
-"Resource": "arn:aws:ssm:us-west-2:123456789012:parameter/Dev/ERP/Oracle/*"
+"Resource": "arn:aws:ssm:region:123456789012:parameter/Dev/ERP/Oracle/*"
 ```
 
 Some Systems Manager actions, such as those for creating resources, can't be performed on a specific resource\. In those cases, you must use the wildcard \(\*\)\.
@@ -232,14 +232,13 @@ The following AWS managed policies, which you can attach to users in your accoun
 + **AmazonSSMAutomationApproverAccess** – User trust policy that allows access to view automation executions and send approval decisions to automation that is waiting for approval\.
 + **AmazonSSMAutomationRole** – Service role policy that provides permissions for the Systems Manager Automation service to run activities defined within Automation runbooks\. Assign this policy to administrators and trusted power users\.
 + **AmazonSSMDirectoryServiceAccess** – Instance trust policy that allows SSM Agent to access AWS Directory Service on behalf of the user for requests to join the domain by the managed node\.
-
-  **AmazonSSMMaintenanceWindowRole** – Service role policy for Systems Manager Maintenance Windows\.
++ **AmazonSSMMaintenanceWindowRole** – Service role policy for Systems Manager Maintenance Windows\.
 + **AmazonSSMManagedInstanceCore** – Instance trust policy that allows a node to use Systems Manager service core functionality\.
 + **AmazonSSMServiceRolePolicy** – Service role policy that provides access to AWS resources managed or used by Systems Manager\.
 + **`AWSResourceAccessManagerServiceRolePolicy`** – Service role policy containing read\-only AWS Resource Access Manager access to the account's AWS Organizations structure\. It also contains IAM permissions to self\-delete the role\.
 + **`AWSSystemsManagerChangeManagementServicePolicy`** – Service policy that provides access to AWS resources managed or used by the Systems Manager change management framework and used by the service\-linked role `AWSServiceRoleForSystemsManagerChangeManagement`\.
 + **`AWSSystemsManagerOpsDataSyncServiceRolePolicy`** – Service policy that allows the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\.
-+ **AmazonEC2RoleforSSM** – This policy will be deprecated soon\. In its place, use the **AmazonSSMManagedInstanceCore** policy to allow Systems Manager service core functionality on EC2 instances\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
++ **AmazonEC2RoleforSSM** – This policy will be deprecated\. In its place, use the **AmazonSSMManagedInstanceCore** policy to allow Systems Manager service core functionality on EC2 instances\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
 **Note**  
 In a hybrid environment, you need an additional IAM role that allows servers and VMs to communicate with the Systems Manager service\. This is the IAM service role for Systems Manager\. This role grants AWS Security Token Service \(AWS STS\) *AssumeRole* trust to the Systems Manager service\. The `AssumeRole` action returns a set of temporary security credentials \(consisting of an access key ID, a secret access key, and a security token\)\. You use these temporary credentials to access AWS resources that you might not normally have access to\. For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md) and [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in the *[AWS Security Token Service API Reference](https://docs.aws.amazon.com/STS/latest/APIReference/)*\. 

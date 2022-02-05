@@ -23,7 +23,7 @@ When a service in your AWS account emits an event, it always goes to your accoun
 
 1. For **Define pattern**, choose **Event pattern**\.
 
-1. Choose **Pre\-defined pattern by service**\.
+1. For **Event matching pattern**, choose **Pre\-defined pattern by service**\.
 
 1. For **Service provider**, choose **`AWS`**\.
 

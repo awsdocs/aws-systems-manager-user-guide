@@ -97,7 +97,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm send-command ^
        --document-name "AWS-RunRemoteScript" ^
        --targets "Key=instanceids,Values=instance-IDs" ^
-       --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.amazonaws.com/path_to_script\"}',"commandLine"="script_name_and_arguments"
+       --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://https://s3.amazonaws.com/path_to_script\"}',"commandLine"="script_name_and_arguments"
    ```
 
    Here is an example\.

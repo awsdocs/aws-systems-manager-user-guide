@@ -111,9 +111,6 @@ Cron expressions for Systems Manager have six required fields\. A seventh field,
 | 15 | 12 | \* | \* | ? | \* | Run at 12:15 PM \(UTC\) every day | 
 | 0 | 18 | ? | \* | MON\-FRI | \* | Run at 6:00 PM \(UTC\) every Monday through Friday | 
 | 0 | 8 | 1 | \* | ? | \* | Run at 8:00 AM \(UTC\) every 1st day of the month | 
-| 0/15 | \* | \* | \* | ? | \* | Run every 15 minutes | 
-| 0/10 | \* | ? | \* | MON\-FRI | \* | Run every 10 minutes Monday through Friday | 
-| 0/5 | 8\-17 | ? | \* | MON\-FRI | \* | Run every 5 minutes Monday through Friday between 8:00 AM and 5:55 PM \(UTC\) | 
 
 **Supported values**  
 The following table shows supported values for required cron entries\.

@@ -145,7 +145,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
        --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" \
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
        --task-arn "AWS-RunShellScript" \
-       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" \
+       --service-role-arn "arn:aws:iam::account-id:role/MaintenanceWindowsRole" \
        --task-invocation-parameters "RunCommand={Comment=Revising my Run Command task,Parameters={commands=df}}" \
        --priority 1 --max-concurrency 10 --max-errors 4 \
        --name "My-Task-Name" --description "A description for my Run Command task"
@@ -160,7 +160,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
        --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" ^
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
        --task-arn "AWS-RunShellScript" ^
-       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" ^
+       --service-role-arn "arn:aws:iam::account-id:role/MaintenanceWindowsRole" ^
        --task-invocation-parameters "RunCommand={Comment=Revising my Run Command task,Parameters={commands=df}}" ^
        --priority 1 --max-concurrency 10 --max-errors 4 ^
        --name "My-Task-Name" --description "A description for my Run Command task"
@@ -213,8 +213,8 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
        --window-id mw-0c50858d01EXAMPLE \
        --window-task-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE \
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
-       --task-arn "arn:aws:lambda:us-east-2:111122223333:function:SSMTestLambda" \
-       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" \
+       --task-arn "arn:aws:lambda:region:111122223333:function:SSMTestLambda" \
+       --service-role-arn "arn:aws:iam:account-id:role/MaintenanceWindowsRole" \
        --task-invocation-parameters '{"Lambda":{"Payload":"{\"InstanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}"}}' \
        --priority 1 --max-concurrency 10 --max-errors 5 \
        --name "New-Lambda-Task-Name" \
@@ -229,8 +229,8 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
        --window-id mw-0c50858d01EXAMPLE ^
        --window-task-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE ^
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
-       --task-arn "arn:aws:lambda:us-east-2:111122223333:function:SSMTestLambda" ^
-       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" ^
+       --task-arn --task-arn "arn:aws:lambda:region:111122223333:function:SSMTestLambda" ^
+       --service-role-arn "arn:aws:iam:account-id:role/MaintenanceWindowsRole" ^
        --task-invocation-parameters '{"Lambda":{"Payload":"{\"InstanceId\":\"{{RESOURCE_ID}}\",\"targetType\":\"{{TARGET_TYPE}}\"}"}}' ^
        --priority 1 --max-concurrency 10 --max-errors 5 ^
        --name "New-Lambda-Task-Name" ^
@@ -277,8 +277,8 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
        --window-id "mw-0c50858d01EXAMPLE" \
        --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" \
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
-       --task-arn "arn:aws:states:us-east-2:111122223333:execution:SSMStepFunctionTest" \
-       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" \
+       --task-arn "arn:aws:states:region:execution:SSMStepFunctionTest" \
+       --service-role-arn "arn:aws:iam:account-id:role/MaintenanceWindowsRole" \
        --task-invocation-parameters '{"StepFunctions":{"Input":"{\"InstanceId\":\"{{RESOURCE_ID}}\"}"}}' \
        --priority 0 --max-concurrency 10 --max-errors 5 \
        --name "My-Step-Functions-Task" \
@@ -293,8 +293,8 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
        --window-id "mw-0c50858d01EXAMPLE" ^
        --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" ^
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
-       --task-arn "arn:aws:states:us-east-2:111122223333:execution:SSMStepFunctionTest" ^
-       --service-role-arn "arn:aws:iam::111122223333:role/MaintenanceWindowsRole" ^
+       --task-arn "arn:aws:states:region:execution:SSMStepFunctionTest" ^
+       --service-role-arn "arn:aws:iam:account-id:role/MaintenanceWindowsRole" ^
        --task-invocation-parameters '{"StepFunctions":{"Input":"{\"InstanceId\":\"{{RESOURCE_ID}}\"}"}}' ^
        --priority 0 --max-concurrency 10 --max-errors 5 ^
        --name "My-Step-Functions-Task" ^
@@ -467,7 +467,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
        --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" \
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE \
        --task-arn "AutoTestDoc" \
-       --service-role-arn arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM \
+       --service-role-arn "arn:aws:iam:account-id:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM \
        --task-invocation-parameters "Automation={Parameters={InstanceId='{{RESOURCE_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" \
        --priority 3 --max-concurrency 10 --max-errors 5
    ```
@@ -481,7 +481,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
        --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" ^
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE ^
        --task-arn "AutoTestDoc" ^
-       --service-role-arn arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM ^
+       --service-role-arn "arn:aws:iam:account-id:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM ^
        --task-invocation-parameters "Automation={Parameters={InstanceId='{{RESOURCE_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" ^
        --priority 3 --max-concurrency 10 --max-errors 5
    ```

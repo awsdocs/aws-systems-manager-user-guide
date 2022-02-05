@@ -2,7 +2,7 @@
 
 By default, AWS Identity and Access Management \(IAM\) users and roles don't have permission to create or modify AWS Systems Manager resources\. They also can't perform tasks using the Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS API\. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need\. The administrator must then attach those policies to the IAM users or groups that require those permissions\.
 
-The following is an example of a permissions policy that allows a user to delete documents with names that begin with **MyDocument\-** in the **us\-west\-2** AWS Region\.
+The following is an example of a permissions policy that allows a user to delete documents with names that begin with **MyDocument\-** in the US East \(Ohio\) \(us\-east\-2\) AWS Region\.
 
 ```
 {
@@ -14,7 +14,7 @@ The following is an example of a permissions policy that allows a user to delete
         "ssm:DeleteDocument"
       ],
       "Resource" : [
-        "arn:aws:ssm:us-west-2:aws-account-ID:document/MyDocument-*"
+        "arn:aws:ssm:us-east-2:111122223333:document/MyDocument-*"
       ]
     }
   ]
@@ -135,7 +135,7 @@ All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain ficti
 
 ### Example 1: Allow a user to perform Systems Manager operations in a single Region<a name="identity-based-policies-example-1"></a>
 
-The following example grants permissions to perform Systems Manager operations only in the **us\-west\-2** Region\.
+The following example grants permissions to perform Systems Manager operations only in the US East \(Ohio\) Region \(us\-east\-2\)\.
 
 ```
 {
@@ -147,7 +147,7 @@ The following example grants permissions to perform Systems Manager operations o
         "ssm:*"
       ],
       "Resource" : [
-        "arn:aws:ssm:us-west-2:aws-account-ID:*"
+        "arn:aws:ssm:us-east-2:aws-account-ID:*"
       ]
     }
   ]
@@ -156,7 +156,7 @@ The following example grants permissions to perform Systems Manager operations o
 
 ### Example 2: Allow a user to list documents for a single Region<a name="identity-based-policies-example-2"></a>
 
-The following example grants permissions to list all document names that begin with **Update** in the **us\-west\-2** Region\.
+The following example grants permissions to list all document names that begin with **Update** in the US East \(Ohio\) Region \(us\-east\-2\)\.
 
 ```
 {
@@ -168,7 +168,7 @@ The following example grants permissions to list all document names that begin w
         "ssm:ListDocuments"
       ],
       "Resource" : [
-        "arn:aws:ssm:us-west-2:aws-account-ID:document/Update*"
+        "arn:aws:ssm:us-east-2:aws-account-ID:document/Update*"
       ]
     }
   ]
@@ -177,7 +177,7 @@ The following example grants permissions to list all document names that begin w
 
 ### Example 3: Allow a user to use a specific SSM document to run commands on specific nodes<a name="identity-based-policies-example-3"></a>
 
-The following example IAM policy allows a user to do the following:
+The following example IAM policy allows a user to do the following in the US East \(Ohio\) Region \(us\-east\-2\):
 + List Systems Manager documents \(SSM documents\) and document versions\.
 + View details about documents\.
 + Send a command using the document specified in the policy\. The name of the document is determined by the following entry\.
@@ -188,18 +188,18 @@ The following example IAM policy allows a user to do the following:
 + Send a command to three nodes\. The nodes are determined by the following entries in the second `Resource` section\.
 
   ```
-  "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
-  "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-0471e04240EXAMPLE",
-  "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE"
+  "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
+  "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-0471e04240EXAMPLE",
+  "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE"
   ```
 + View details about a command after it has been sent\.
 + Start and stop workflows in Automation, a capability of AWS Systems Manager\.
 + Get information about Automation workflows\.
 
-If you want to give a user permission to use this document to send commands on any node for which the user has access \(as determined by their user account\), you could specify the following entry in the `Resource` section and remove the other node entries\.
+If you want to give a user permission to use this document to send commands on any node for which the user has access \(as determined by their user account\), you could specify an entry similar to the following in the `Resource` section and remove the other node entries\. The following example uses the US East \(Ohio\) Region \(us\-east\-2\)\.
 
 ```
-"arn:aws:ec2:us-east-2:*:instance/*"
+"arn:aws:ssm:us-east-2:*:instance/*"
 ```
 
 ```
@@ -223,9 +223,9 @@ If you want to give a user permission to use this document to send commands on a
             "Action": "ssm:SendCommand",
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
-                "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-0471e04240EXAMPLE",
-                "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE",
+                "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
+                "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-0471e04240EXAMPLE",
+                "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE",
                 
                 "arn:aws:ssm:us-east-2:aws-account-ID:document/Systems-Manager-document-name"
             ]

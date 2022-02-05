@@ -13,7 +13,7 @@ Similarly, suppose you're using the AWS Command Line Interface \(AWS CLI\) to re
 **Note**  
 For maintenance window tasks without a target specified, you can't supply values for `--max-errors` and `--max-concurrency`\. Instead, the system inserts a placeholder value of `1`, which might be reported in the response to commands such as [describe\-maintenance\-window\-tasks](https://docs.aws.amazon.com/cli/latest/reference/ssm/describe-maintenance-window-tasks.html) and [get\-maintenance\-window\-task](https://docs.aws.amazon.com/cli/latest/reference/ssm/get-maintenance-window-task.html)\. These values don't affect the running of your task and can be ignored\.
 
-The following example demonstrates omitting the `--targets`,`--max-errors`, and `--max-concurrency` options for a targetless maintenance window task\.
+The following example demonstrates omitting the `--targets`, `--max-errors`, and `--max-concurrency` options for a targetless maintenance window task\.
 
 ------
 #### [ Linux & macOS ]

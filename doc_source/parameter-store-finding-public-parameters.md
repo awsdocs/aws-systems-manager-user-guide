@@ -40,7 +40,7 @@ The following example output has been truncated for space\.
             "Value": "/aws/service/ami-al-latest/",
             "Version": 1,
             "LastModifiedDate": "2021-01-29T10:25:10.902000-08:00",
-            "ARN": "arn:aws:ssm:us-east-1::parameter/aws/service/list/ami-al-latest",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/list/ami-al-latest",
             "DataType": "text"
         },
         {
@@ -49,7 +49,7 @@ The following example output has been truncated for space\.
             "Value": "/aws/service/ami-windows-latest/",
             "Version": 1,
             "LastModifiedDate": "2021-01-29T10:25:12.567000-08:00",
-            "ARN": "arn:aws:ssm:us-east-1::parameter/aws/service/list/ami-windows-latest",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/list/ami-windows-latest",
             "DataType": "text"
         },
         {
@@ -58,7 +58,7 @@ The following example output has been truncated for space\.
             "Value": "/aws/service/aws-storage-gateway-latest/",
             "Version": 1,
             "LastModifiedDate": "2021-01-29T10:25:09.903000-08:00",
-            "ARN": "arn:aws:ssm:us-east-1::parameter/aws/service/list/aws-storage-gateway-latest",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/list/aws-storage-gateway-latest",
             "DataType": "text"
         },
         {
@@ -67,17 +67,17 @@ The following example output has been truncated for space\.
             "Value": "/aws/service/global-infrastructure/",
             "Version": 1,
             "LastModifiedDate": "2021-01-29T10:25:11.901000-08:00",
-            "ARN": "arn:aws:ssm:us-east-1::parameter/aws/service/list/global-infrastructure",
+            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/list/global-infrastructure",
             "DataType": "text"
         }
     ]
 }
 ```
 
-If you want to view parameters owned by a specific service, choose the service from the list that was produced after running the earlier command\. Then, make a `describe-parameters` call and filter the parameters using the name of your desired service\. For example, `/aws/service/global-infrastructure`\. The path filter might be one\-level \(only calls parameters that match the exact values given\) or recursive \(contains elements in the path beyond what you have given\)\. The path filter is recursive by default\. Specify `Option:OneLevel` if you don't want it to be recursive\.
+If you want to view parameters owned by a specific service, choose the service from the list that was produced after running the earlier command\. Then, make a `get-parameters-by-path` call using the name of your desired service\. For example, `/aws/service/global-infrastructure`\. The path might be one\-level \(only calls parameters that match the exact values given\) or recursive \(contains elements in the path beyond what you have given\)\. If no results are returned for the service you specify, add the `--recursive` flag and run the command again\.
 
 ```
-aws ssm describe-parameters --parameter-filters "Key=Path, Values=/aws/service/global-infrastructure"
+aws ssm get-parameters-by-path --path /aws/service/global-infrastructure
 ```
 
  This returns all parameters owned by `global-infrastructure`\. 

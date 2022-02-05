@@ -13,7 +13,7 @@ For target type `INSTANCE`, both the `{{TARGET_ID}}` and `{{RESOURCE_ID}}` param
 
 Suppose that your payload for an AWS Lambda task needs to reference an instance by its ID\.
 
-Whether you’re using an `INSTANCE` or a `RESOURCE_GROUP` maintenance window target, this can be achieved by using the `{{RESOURCE_ID}}` pseudo parameter:
+Whether you’re using an `INSTANCE` or a `RESOURCE_GROUP` maintenance window target, this can be achieved by using the `{{RESOURCE_ID}}` pseudo parameter\. For example:
 
 ```
 "TaskArn": "arn:aws:lambda:us-east-2:111122223333:function:SSMTestFunction",

@@ -87,7 +87,7 @@ Installs patches on your instances or scans instances to determine whether any q
 
   For more information, see the following topics:
   + [AWS Systems Manager Quick Setup](systems-manager-quick-setup.md)
-  + [About the `AWS-RunPatchBaselineAssociation` SSM document](patch-manager-about-aws-runpatchbaselineassociation.md)
+  + [About the `AWS-RunPatchBaselineAssociation` SSM document ](patch-manager-about-aws-runpatchbaselineassociation.md)
 + `AWS-RunPatchBaselineAssociation` supports the use of tags to identify which patch baseline to use with a set of targets when it runs\. 
 + For patching operations that use `AWS-RunPatchBaselineAssociation`, patch compliance data is compiled in terms of a specific State Manager association\. The patch compliance data collected when `AWS-RunPatchBaselineAssociation` runs is recorded using the `PutComplianceItems` API command instead of the `PutInventory` command\. This prevents compliance data that isn't associated with this particular association from being overwritten\.
 
@@ -96,7 +96,7 @@ Installs patches on your instances or scans instances to determine whether any q
  **Replaces legacy documents:**
 + **None**
 
-For more information about the `AWS-RunPatchBaselineAssociation` SSM document, see [About the `AWS-RunPatchBaselineAssociation` SSM document](patch-manager-about-aws-runpatchbaselineassociation.md)\.
+For more information about the `AWS-RunPatchBaselineAssociation` SSM document, see [About the `AWS-RunPatchBaselineAssociation` SSM document ](patch-manager-about-aws-runpatchbaselineassociation.md)\.
 
 ### `AWS-RunPatchBaselineWithHooks`<a name="patch-manager-ssm-documents-recommended-AWS-RunPatchBaselineAssociation"></a>
 

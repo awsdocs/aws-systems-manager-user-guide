@@ -257,7 +257,7 @@ Use the following procedure to register a Run Command task for the maintenance w
        --task-arn "AWS-UpdateSSMAgent" \
        --name "UpdateSSMAgent" \
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
-       --service-role-arn "arn:aws:iam::1122334455:role/MW-Role" \
+       --service-role-arn "arn:aws:iam:account-id:role/MW-Role" \
        --task-type "RUN_COMMAND" \
        --max-concurrency 1 --max-errors 1 --priority 10
    ```
@@ -271,7 +271,7 @@ Use the following procedure to register a Run Command task for the maintenance w
        --task-arn "AWS-UpdateSSMAgent" ^
        --name "UpdateSSMAgent" ^
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
-       --service-role-arn "arn:aws:iam::1122334455:role/MW-Role" ^
+       --service-role-arn "arn:aws:iam:account-id:role/MW-Role" ^
        --task-type "RUN_COMMAND" ^
        --max-concurrency 1 --max-errors 1 --priority 10
    ```
