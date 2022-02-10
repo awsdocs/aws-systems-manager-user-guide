@@ -38,7 +38,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Step 2: Create an IAM service role for a hybrid environment](sysman-service-role.md)
       + [Step 3: Create a managed-instance activation for a hybrid environment](sysman-managed-instance-activation.md)
       + [Step 4: Install SSM Agent for a hybrid environment (Linux)](sysman-install-managed-linux.md)
-      + [Step 6: Install SSM Agent for a hybrid environment (Windows)](sysman-install-managed-win.md)
+      + [Step 5: Install SSM Agent for a hybrid environment (Windows)](sysman-install-managed-win.md)
    + [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)
       + [Step 1: Complete general Systems Manager setup steps](systems-manager-edge-devices-setup-general.md)
       + [Step 2: Create an IAM service role for edge devices](systems-manager-setting-up-edge-devices-service-role.md)

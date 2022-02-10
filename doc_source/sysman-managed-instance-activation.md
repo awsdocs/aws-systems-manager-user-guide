@@ -181,4 +181,4 @@ For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-0
 
    If the activation is created successfully, the system immediately returns an Activation Code and ID\.
 
-Continue to [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
+Continue to [Step 5: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.

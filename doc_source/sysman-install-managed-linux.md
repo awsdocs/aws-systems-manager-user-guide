@@ -1,6 +1,6 @@
 # Step 4: Install SSM Agent for a hybrid environment \(Linux\)<a name="sysman-install-managed-linux"></a>
 
-This topic describes how to install AWS Systems Manager SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the next step, [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
+This topic describes how to install AWS Systems Manager SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the next step, [Step 5: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Linux, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
@@ -184,7 +184,7 @@ The *candidate* channel in the Snap store contains the latest version of SSM Age
 
 The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the Systems Manager service\. The server or VM is now a managed instance\. Amazon EC2 instances configured for Systems Manager are also managed instances\. In the Systems Manager console, however, your on\-premises instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\.
 
-Continue to [Step 6: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
+Continue to [Step 5: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
 ## Setting up private key auto rotation<a name="ssm-agent-hybrid-private-key-rotation-linux"></a>
 

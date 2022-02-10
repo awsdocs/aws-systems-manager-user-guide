@@ -1,4 +1,4 @@
-# Step 6: Install SSM Agent for a hybrid environment \(Windows\)<a name="sysman-install-managed-win"></a>
+# Step 5: Install SSM Agent for a hybrid environment \(Windows\)<a name="sysman-install-managed-win"></a>
 
 This topic describes how to install SSM Agent on Windows Server machines in a hybrid environment\. If you plan to use Linux machines in a hybrid environment, see the previous step, [Step 4: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.
 
