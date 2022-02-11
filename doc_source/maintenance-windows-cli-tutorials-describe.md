@@ -225,7 +225,7 @@ The system returns information like the following\.
 {
    "Tasks":[
       {
-         "ServiceRoleArn": "arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+         "ServiceRoleArn": "arn:aws:iam::111122223333:role/MyMaintenanceWindowServiceRole",
          "MaxErrors":"1",
          "TaskArn":"AWS-RunPowerShellScript",
          "MaxConcurrency":"1",
@@ -247,7 +247,7 @@ The system returns information like the following\.
          ]
       },
       {
-         "ServiceRoleArn":"arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+         "ServiceRoleArn":"arn:aws:iam::111122223333:role/MyMaintenanceWindowServiceRole",
          "MaxErrors":"1",
          "TaskArn":"AWS-RunPowerShellScript",
          "MaxConcurrency":"1",
@@ -301,7 +301,7 @@ The system returns information like the following\.
 {
    "Tasks":[
       {
-         "ServiceRoleArn":"arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+         "ServiceRoleArn":"arn:aws:iam::111122223333:role/MyMaintenanceWindowServiceRole",
          "MaxErrors":"1",
          "TaskArn":"AWS-RunPowerShellScript",
          "MaxConcurrency":"1",
@@ -369,7 +369,7 @@ The system returns information like the following\.
             ],
             "TaskParameters": {},
             "Priority": 1,
-            "ServiceRoleArn": "arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+            "ServiceRoleArn": "arn:aws:iam::111122223333:role/MyMaintenanceWindowServiceRole",
             "MaxConcurrency": "1",
             "MaxErrors": "1"
         },
@@ -388,7 +388,7 @@ The system returns information like the following\.
             ],
             "TaskParameters": {},
             "Priority": 1,
-            "ServiceRoleArn": "arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM"",
+            "ServiceRoleArn": "arn:aws:iam::111122223333:role/MyMaintenanceWindowServiceRole",
             "MaxConcurrency": "1",
             "MaxErrors": "1",
             "Name": "My-Run-Command-Task",

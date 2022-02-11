@@ -29,7 +29,7 @@ You can verify the source AMI ID creation date for an instance using either of t
 + Run the following command\.
 
   ```
-  aws ec2 describe-images --image-id ami-id
+  aws ec2 describe-images --image-ids ami-id
   ```
 
   *ami\-id* represents the ID of an AMI provided by AWS, such as `ami-07c8bc5c1ce9598c3`\.

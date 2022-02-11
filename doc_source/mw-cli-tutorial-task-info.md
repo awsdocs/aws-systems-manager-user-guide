@@ -160,7 +160,7 @@ As you follow the steps in this tutorial, replace the values in italicized *red*
        "WindowExecutionId": "14bea65d-5ccc-462d-a2f3-e99c8EXAMPLE",
        "TaskExecutionId": "c9b05aba-197f-4d8d-be34-e73fbEXAMPLE",
        "TaskArn": "AWS-RunShellScript",
-       "ServiceRole": "arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+       "ServiceRole": "arn:aws:iam::111122223333:role/MyMaintenanceWindowServiceRole",
        "Type": "RUN_COMMAND",
        "TaskParameters": [
            {

@@ -438,7 +438,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
            }
        ],
        "TaskArn": "AWS-RunShellScript",
-       "ServiceRoleArn": "arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+       "ServiceRoleArn": "arn:aws:iam::111122223333:role/MyMaintenanceWindowServiceRole",
        "TaskParameters": {},
        "TaskInvocationParameters": {
            "RunCommand": {
@@ -467,7 +467,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
        --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" \
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE \
        --task-arn "AutoTestDoc" \
-       --service-role-arn "arn:aws:iam:account-id:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM \
+       --service-role-arn "arn:aws:iam:account-id:role/MyMaintenanceWindowServiceRole \
        --task-invocation-parameters "Automation={Parameters={InstanceId='{{RESOURCE_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" \
        --priority 3 --max-concurrency 10 --max-errors 5
    ```
@@ -481,7 +481,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
        --window-task-id "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE" ^
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE ^
        --task-arn "AutoTestDoc" ^
-       --service-role-arn "arn:aws:iam:account-id:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM ^
+       --service-role-arn "arn:aws:iam:account-id:role/MyMaintenanceWindowServiceRole ^
        --task-invocation-parameters "Automation={Parameters={InstanceId='{{RESOURCE_ID}}',initiator='{{WINDOW_ID}}.Task-{{WINDOW_TASK_ID}}'}}" ^
        --priority 3 --max-concurrency 10 --max-errors 5
    ```
@@ -503,7 +503,7 @@ If your target is an Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Wi
            }
        ],
        "TaskArn": "AutoTestDoc",
-       "ServiceRoleArn": "arn:aws:iam::111122223333:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+       "ServiceRoleArn": "arn:aws:iam::111122223333:role/MyMaintenanceWindowServiceRole",
        "TaskParameters": {},
        "TaskInvocationParameters": {
            "Automation": {

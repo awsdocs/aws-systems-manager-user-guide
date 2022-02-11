@@ -90,7 +90,7 @@ When you're ready to register other task types, or use more of the available Sys
                ],
                "TaskParameters": {},
                "Priority": 10,
-               "ServiceRoleArn": "arn:aws:iam::123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM",
+               "ServiceRoleArn": "arn:aws:iam::123456789012:role/MyMaintenanceWindowServiceRole",
                "MaxConcurrency": "1",
                "MaxErrors": "1"
            }
