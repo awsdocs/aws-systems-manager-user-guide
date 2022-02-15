@@ -8,7 +8,7 @@ Use the following procedure to create the required AWS Identity and Access Manag
 
 **To create the required IAM role**
 
-1. Download and unzip the [samples/AWS-SystemsManager-AutomationServiceRole.zip](samples/AWS-SystemsManager-AutomationServiceRole.zip) file\. This file includes the `AWS-SystemsManager-AutomationServiceRole.yaml` AWS CloudFormation template file\.
+1. Download and unzip the [https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationServiceRole.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationServiceRole.zip) file\. This file includes the `AWS-SystemsManager-AutomationServiceRole.yaml` AWS CloudFormation template file\.
 
 1. Open the AWS CloudFormation console at [https://console\.aws\.amazon\.com/cloudformation](https://console.aws.amazon.com/cloudformation/)\.
 

@@ -53,7 +53,63 @@ To create an instance profile with permissions for additional Systems Manager se
 + [Verify or create an IAM role with Session Manager permissions](session-manager-getting-started-instance-profile.md)
 + [Setting up Run Command](sysman-rc-setting-up.md)
 
-## Task 1: \(Optional\) Create a custom policy for S3 bucket access<a name="instance-profile-custom-s3-policy"></a>
+## Task 1: Add permissions to a Systems Manager instance profile \(console\)<a name="instance-profile-add-permissions"></a>
+
+Depending on whether you're creating a new role for your instance profile or adding the necessary permissions to an existing role, use one of the following procedures\.<a name="setup-instance-profile-managed-policy"></a>
+
+**To create an instance profile for Systems Manager managed instances \(console\)**
+
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
+
+1. Under **Select type of trusted entity**, choose **AWS service**\.
+
+1. Immediately under **Choose the service that will use this role**, choose **EC2**, and then choose **Next: Permissions**\.  
+![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile.png)
+
+1. On the **Attach permissions policies** page, do the following: 
+   + Use the **Search** field to locate the **AmazonSSMManagedInstanceCore**\. Select the box next to its name\.   
+![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
+
+     The console retains your selection even if you search for other policies\.
+   + If you created a custom S3 bucket policy in the previous procedure, [Task 2: \(Optional\) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy), search for it and select the box next to its name\.
+   + If you plan to join instances to an Active Directory managed by AWS Directory Service, search for **AmazonSSMDirectoryServiceAccess** and select the box next to its name\.
+   + If you plan to use EventBridge or CloudWatch Logs to manage or monitor your instance, search for **CloudWatchAgentServerPolicy** and select the box next to its name\.
+
+1. Choose **Next: Tags**\.
+
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
+
+1. For **Role name**, enter a name for your new instance profile, such as **SSMInstanceProfile** or another name that you prefer\.
+**Note**  
+Make a note of the role name\. You will choose this role when you create new instances that you want to manage by using Systems Manager\.
+
+1. \(Optional\) For **Role description**, enter a description for this instance profile\.
+
+1. Choose **Create role**\. The system returns you to the **Roles** page\.<a name="setup-instance-profile-custom-policy"></a>
+
+**To add instance profile permissions for Systems Manager to an existing role \(console\)**
+
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. In the navigation pane, choose **Roles**, and then choose the existing role you want to associate with an instance profile for Systems Manager operations\.
+
+1. On the **Permissions** tab, choose **Attach policies**\.
+
+1. On the **Attach permission policies** page, do the following:
+   + Select the box next to the required **AmazonSSMManagedInstanceCore** managed policy\.
+   + If you have created a custom S3 bucket policy, select the box next to its name\. For information about custom S3 bucket policies for an instance profile, see [Task 2: \(Optional\) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy)\.
+   + If you plan to join instances to an Active Directory managed by AWS Directory Service, select the box next to **AmazonSSMDirectoryServiceAccess**\.
+   + If you plan to use EventBridge or CloudWatch Logs to manage or monitor your instance, select the box next to **CloudWatchAgentServerPolicy**\.
+
+1. Choose **Attach policy**\.
+
+For information about how to update a role to include a trusted entity or further restrict access, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *IAM User Guide*\. 
+
+Continue to [Step 5: Attach an IAM instance profile to an Amazon EC2 instance](setup-launch-managed-instance.md)\.
+
+## Task 2: \(Optional\) Create a custom policy for S3 bucket access<a name="instance-profile-custom-s3-policy"></a>
 
 Creating a custom policy for Amazon S3 access is required only if you're using a VPC endpoint or using an S3 bucket of your own in your Systems Manager operations\.
 
@@ -142,59 +198,3 @@ If you use more than one bucket, provide the ARN for each one\. For example, for
 1. For **Name**, enter a name to identify this policy, such as **SSMInstanceProfileS3Policy** or another name that you prefer\.
 
 1. Choose **Create policy**\.
-
-## Task 2: Add permissions to a Systems Manager instance profile \(console\)<a name="instance-profile-add-permissions"></a>
-
-Depending on whether you're creating a new role for your instance profile or adding the necessary permissions to an existing role, use one of the following procedures\.<a name="setup-instance-profile-managed-policy"></a>
-
-**To create an instance profile for Systems Manager managed instances \(console\)**
-
-1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
-
-1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
-
-1. Under **Select type of trusted entity**, choose **AWS service**\.
-
-1. Immediately under **Choose the service that will use this role**, choose **EC2**, and then choose **Next: Permissions**\.  
-![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile.png)
-
-1. On the **Attach permissions policies** page, do the following: 
-   + Use the **Search** field to locate the **AmazonSSMManagedInstanceCore**\. Select the box next to its name\.   
-![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
-
-     The console retains your selection even if you search for other policies\.
-   + If you created a custom S3 bucket policy in the previous procedure, [Task 1: \(Optional\) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy), search for it and select the box next to its name\.
-   + If you plan to join instances to an Active Directory managed by AWS Directory Service, search for **AmazonSSMDirectoryServiceAccess** and select the box next to its name\.
-   + If you plan to use EventBridge or CloudWatch Logs to manage or monitor your instance, search for **CloudWatchAgentServerPolicy** and select the box next to its name\.
-
-1. Choose **Next: Tags**\.
-
-1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
-
-1. For **Role name**, enter a name for your new instance profile, such as **SSMInstanceProfile** or another name that you prefer\.
-**Note**  
-Make a note of the role name\. You will choose this role when you create new instances that you want to manage by using Systems Manager\.
-
-1. \(Optional\) For **Role description**, enter a description for this instance profile\.
-
-1. Choose **Create role**\. The system returns you to the **Roles** page\.<a name="setup-instance-profile-custom-policy"></a>
-
-**To add instance profile permissions for Systems Manager to an existing role \(console\)**
-
-1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
-
-1. In the navigation pane, choose **Roles**, and then choose the existing role you want to associate with an instance profile for Systems Manager operations\.
-
-1. On the **Permissions** tab, choose **Attach policies**\.
-
-1. On the **Attach permission policies** page, do the following:
-   + Select the box next to the required **AmazonSSMManagedInstanceCore** managed policy\.
-   + If you have created a custom S3 bucket policy, select the box next to its name\. For information about custom S3 bucket policies for an instance profile, see [Task 1: \(Optional\) Create a custom policy for S3 bucket access](#instance-profile-custom-s3-policy)\.
-   + If you plan to join instances to an Active Directory managed by AWS Directory Service, select the box next to **AmazonSSMDirectoryServiceAccess**\.
-   + If you plan to use EventBridge or CloudWatch Logs to manage or monitor your instance, select the box next to **CloudWatchAgentServerPolicy**\.
-
-1. Choose **Attach policy**\.
-
-For information about how to update a role to include a trusted entity or further restrict access, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *IAM User Guide*\. 
-
-Continue to [Step 5: Attach an IAM instance profile to an Amazon EC2 instance](setup-launch-managed-instance.md)\.

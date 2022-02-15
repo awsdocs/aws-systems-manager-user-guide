@@ -30,7 +30,7 @@ This topic provides information about the types of content included in the patch
 
 A report generated for a single managed node provides both summary and detailed information\.
 
-[Download a sample report \(single node\)](samples/Sample-single-instance-patch-compliance-report.zip)
+[Download a sample report \(single node\)](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/Sample-single-instance-patch-compliance-report.zip)
 
 Summary information for a single managed node includes the following:
 + Index
@@ -74,7 +74,7 @@ Detailed information for a single managed node includes the following:
 
 A report generated for all managed nodes provides only summary information\.
 
-[Download a sample report \(all managed nodes\)](samples/Sample-all-instances-patch-compliance-report.zip)
+[Download a sample report \(all managed nodes\)](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/Sample-all-instances-patch-compliance-report.zip)
 
 Summary information for all managed nodes includes the following:
 + Index

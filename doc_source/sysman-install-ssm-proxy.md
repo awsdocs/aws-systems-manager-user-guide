@@ -1,6 +1,6 @@
 # Configure SSM Agent to use a proxy for Windows Server instances<a name="sysman-install-ssm-proxy"></a>
 
-The information in this topic applies to Windows Server instances created in or after November 2016 that do *not* use the Nano installation option\.
+The information in this topic applies to Windows Server instances created on or after November 2016 that do *not* use the Nano installation option\.
 
 If your instance is a Windows Server 2008\-2012 R2 instance created *before* November 2016, then EC2Config processes AWS Systems Manager requests on your instance\. We recommend that you upgrade your existing instances to use the latest version of EC2Config\. By using the latest EC2Config installer, you install AWS Systems Manager Agent \(SSM Agent\) side\-by\-side with EC2Config\. This side\-by\-side version of SSM Agent is compatible with your instances created from earlier Windows Amazon Machine Images \(AMIs\) and allows you to use Systems Manager features published after November 2016\. For information about how to install the latest version of the EC2Config service, see [Install the latest version of EC2Config](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_Install.html) in the *Amazon EC2 User Guide for Windows Instances*\. If you don't upgrade to the latest version of EC2Config and use EC2Config to process Systems Manager requests, configure proxy settings for EC2Config\. For information about configuring EC2Config to use a proxy, see [Configure proxy settings for the EC2Config service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2config-service.html#ec2config-proxy) in the *Amazon EC2 User Guide for Windows Instances*\. 
 
@@ -55,7 +55,12 @@ After running the preceding command, you can review the SSM Agent logs to confir
 
 ## SSM Agent proxy setting precedence<a name="ssm-agent-proxy-precedence"></a>
 
-When configuring proxy settings for the SSM Agent on Windows Server instances, it's important to understand these settings are evaluated and applied to the agent configuration when the SSM Agent is started\. How you configure your proxy settings for a Windows Server instance can determine whether other settings might supersede your desired settings\. SSM Agent proxy settings are evaluated in the following order\.
+When configuring proxy settings for the SSM Agent on Windows Server instances, it's important to understand these settings are evaluated and applied to the agent configuration when the SSM Agent is started\. How you configure your proxy settings for a Windows Server instance can determine whether other settings might supersede your desired settings\.
+
+**Important**  
+SSM Agent communicates using the HTTPS protocol\. For this reason, you must configure the `HTTPS proxy` parameter by using one of the following settings options\.
+
+SSM Agent proxy settings are evaluated in the following order\.
 
 1. AmazonSSMAgent Registry settings \(`HKLM:\SYSTEM\CurrentControlSet\Services\AmazonSSMAgent`\)
 
@@ -63,9 +68,9 @@ When configuring proxy settings for the SSM Agent on Windows Server instances, i
 
 1. LocalSystem user account environment variables \(http\_proxy, https\_proxy, no\_proxy\)
 
-1. Internet Explorer settings
+1. Internet Explorer settings \(HTTP, secure, exceptions\)
 
-1. WinHTTP proxy settings
+1. WinHTTP proxy settings \(http=, https=, bypass\-list=\)
 
 ## SSM Agent proxy settings and Systems Manager services<a name="ssm-agent-proxy-services"></a>
 

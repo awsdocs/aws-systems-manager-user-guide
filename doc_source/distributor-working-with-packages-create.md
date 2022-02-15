@@ -6,7 +6,7 @@ Different platforms might sometimes use the same file, but all files that you at
 
 When you create a package, the system creates a new [SSM document](sysman-ssm-docs.md)\. This document allows you to deploy the package to managed nodes\.
 
-For demonstration purposes only, an example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files containing installers for PowerShell v7\.0\.0\. The installation and uninstallation scripts don't contain valid commands\. Although you must zip each software installable and scripts into a \.zip file to create a package in the **Advanced** workflow, you don't zip installable assets in the **Simple** workflow\.
+For demonstration purposes only, an example package, [ExamplePackage\.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files containing installers for PowerShell v7\.0\.0\. The installation and uninstallation scripts don't contain valid commands\. Although you must zip each software installable and scripts into a \.zip file to create a package in the **Advanced** workflow, you don't zip installable assets in the **Simple** workflow\.
 
 **Topics**
 + [Create a package \(simple\)](#distributor-working-with-packages-create-simple)
@@ -71,7 +71,7 @@ In this section, learn about how advanced users can create a package in Distribu
 
 To create a package, prepare your \.zip files of installable assets, one \.zip file per operating system platform\. At least one \.zip file is required to create a package\. Next, create a JSON manifest\. The manifest includes pointers to your package code files\. When you have your required code files added to a folder or directory, and the manifest is populated with correct values, upload your package to an S3 bucket\.
 
-An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files\.
+An example package, [ExamplePackage\.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files\.
 
 **Topics**
 + [Step 1: Create the ZIP files](#packages-zip)
@@ -96,7 +96,7 @@ The following item is optional in each \.zip file:
 
 For more information about installing or updating packages, see [Install or update packages](distributor-working-with-packages-deploy.md)\.
 
-For examples of \.zip files, including sample install and uninstall scripts, download the example package, [ExamplePackage\.zip](samples/ExamplePackage.zip)\.
+For examples of \.zip files, including sample install and uninstall scripts, download the example package, [ExamplePackage\.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/ExamplePackage.zip)\.
 
 ### Step 2: Create the JSON package manifest<a name="packages-manifest"></a>
 
@@ -385,7 +385,7 @@ The following is an example of a completed manifest\. In this example, you have 
 
 #### Package example<a name="package-manifest-examples"></a>
 
-An example package, [ExamplePackage\.zip](samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files\.
+An example package, [ExamplePackage\.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files\.
 
 ### Step 3: Upload the package and manifest to an Amazon S3 bucket<a name="packages-upload-s3"></a>
 
