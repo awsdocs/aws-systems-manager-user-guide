@@ -20,11 +20,7 @@ The requirements and constraints for parameter names include the following:
 + **Fully qualified**: When you create or reference a parameter in a hierarchy, include a leading forward slash character \(/\) \. When you reference a parameter that is part of a hierarchy, specify the entire hierarchy path including the initial slash \(/\)\.
   + Fully qualified parameter names: `MyParameter1`, `/MyParameter2`, `/Dev/Production/East/Project-ABC/MyParameter`
   + Not fully qualified parameter name: `MyParameter3/L1`
-+ **Length**: The maximum length for a parameter name, *including the full content of the parameter Amazon Resource Name \(ARN\)*, is 1011 characters\. For example, the length of the following parameter is 65 characters, not 20 characters: 
-
-  ```
-  arn:aws:ssm:us-east-2:111122223333:parameter/ExampleParameterName
-  ```
++ **Length**: The maximum length for a parameter name that you create is 1011 characters\. This includes the characters in the ARN that precede the name you specify, such as `arn:aws:ssm:us-east-2:111122223333:parameter/`\.
 + **Prefixes**: A parameter name can't be prefixed with "`aws`" or "`ssm`" \(case\-insensitive\)\. For example, attempts to create parameters with the following names fail with an exception:
   + `awsTestParameter`
   + `SSM-testparameter`

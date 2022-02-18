@@ -30,6 +30,9 @@ To specify multiple actions in a single statement, separate them with commas as 
       "ssm:action2"
 ```
 
+**Note**  
+AWS AppConfig, a capability of AWS Systems Manager, uses the prefix `appconfig:` before actions\.
+
 You can specify multiple actions using wildcards \(\*\)\. For example, to specify all actions that begin with the word `Describe`, include the following action:
 
 ```

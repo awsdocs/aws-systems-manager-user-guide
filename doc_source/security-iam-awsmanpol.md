@@ -386,11 +386,11 @@ This policy provides read\-only access to Systems Manager\. No other service per
 
 You can't attach `AWSSystemsManagerOpsDataSyncServiceRolePolicy` to your IAM entities\. This policy is attached to a service\-linked role that allows Systems Manager to perform actions on your behalf\. For more information, see [Using roles to create OpsData and OpsItems for Systems Manager Explorer: `AWSServiceRoleForSystemsManagerOpsDataSync`](using-service-linked-roles-service-action-3.md)\.
 
- `AWSSystemsManagerOpsDataSyncServiceRolePolicy` allows the [`AWSServiceRoleForSystemsManagerOpsDataSync`](using-service-linked-roles-service-action-3.md) service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\. 
+ `AWSSystemsManagerOpsDataSyncServiceRolePolicy` allows the [``](using-service-linked-roles-service-action-3.md) service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\. 
 
 **Permissions details**
 
-The `AWSServiceRoleForAmazonSSM` service\-linked role permissions policy allows Systems Manager to complete the following actions on all related resources \(`"Resource": "*"`\), except where indicated:
+The `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role permissions policy allows Systems Manager to complete the following actions on all related resources \(`"Resource": "*"`\), except where indicated:
 + `ssm:GetOpsItem` \[1\]
 + `ssm:UpdateOpsItem` \[1\]
 + `ssm:CreateOpsItem`

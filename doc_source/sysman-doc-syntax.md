@@ -80,7 +80,7 @@ To use a number as a parameter value, use `String` as the parameter type\.
 ------
 + `allowedPattern`: \(Optional\) A regular expression that validates whether the user input matches the defined pattern for the parameter\. If the user input doesn't match the allowed pattern, the execution fails to start\.
 **Note**  
-In SSM documents, the `allowedPattern` field supports the [Google re2 regex syntax](https://github.com/google/re2/wiki/Syntax), which doesn't include support for lookaround\.
+Systems Manager performs two validations for `allowedPattern`\. The first validation is performed using the [Java regex library](https://docs.oracle.com/javase/8/docs/api/java/util/regex/package-summary.html) at the API level when you use a document\. The second validation is performed on SSM Agent by using the [GO regexp library](https://pkg.go.dev/regexp) before processing the document\. 
 
 ------
 #### [ YAML ]
