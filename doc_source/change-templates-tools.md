@@ -14,7 +14,9 @@ Change templates use a version of schema 0\.3 that doesn't include all the same 
 
    The following is an example\.
 **Note**  
-This example demonstrates two levels of approvals\. You can specify up to five levels of approvals, but only one level is required\.
+The parameter `minRequiredApprovals` is used to specify how many reviewers at a specified level must approve a change request that is created using this template\.  
+This example demonstrates two levels of approvals\. You can specify up to five levels of approvals, but only one level is required\.   
+In the first level, the specific user "John\-Doe" must approve each change request\. After that, any three members of the IAM role `Admin` must approve the change request\.
 
    ```
    {
@@ -61,30 +63,23 @@ This example demonstrates two levels of approvals\. You can specify up to five l
                "Message": "A sample change request has been submitted for your review in Change Manager. You can approve or reject this request.",
                "EnhancedApprovals": {
                   "NotificationArn": "{{ ApproverSnsTopicArn }}",
-                  "Approvers": [
-                     {
-                        "approver": "{{ Approver }}",
-                        "type": "{{ ApproverType }}",
-                        "minRequiredApprovals": 1
-                     }
-                  ]
-               }
-            }
-         },
-           {
-            "name": "ApproveAction2",
-            "action": "aws:approve",
-            "timeoutSeconds": 3600,
-            "inputs": {
-               "Message": "A sample change request has been submitted for your review in Change Manager. You can approve or reject this request.",
-               "EnhancedApprovals": {
-                  "NotificationArn": "{{ ApproverSnsTopicArn }}",
-                  "Approvers": [
-                     {
-                        "approver": "{{ Approver }}",
-                        "type": "{{ ApproverType }}",
-                        "minRequiredApprovals": 1
-                     
+                  Approvers:
+             - approver: John-Doe
+               type: IamUser
+               minRequiredApprovals: 1
+     - name: ApproveAction2
+       action: 'aws:approve'
+       timeoutSeconds: 3600
+       inputs:
+         Message: >-
+           A sample change request has been submitted for your review in Change
+           Manager. You can approve or reject this request.
+         EnhancedApprovals:
+           NotificationArn: '{{ ApproverSnsTopicArn }}'
+           Approvers:
+             - approver: Admin
+               type: IamRole
+               minRequiredApprovals: 3                  
                      }
                   ]
                }

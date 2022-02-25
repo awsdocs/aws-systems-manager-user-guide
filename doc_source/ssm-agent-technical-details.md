@@ -132,7 +132,7 @@ If one of the components used to calculate the fingerprint changes, this can cau
 
 ## AMIs with SSM Agent preinstalled<a name="ami-preinstalled-agent"></a>
 
-SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
+In most cases, SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
 + Amazon Linux
 + Amazon Linux 2
 + Amazon Linux 2 ECS\-Optimized Base AMIs
@@ -142,8 +142,7 @@ SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019
 
-**Note**  
-SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\.
+For information about verifying whether the agent is installed on an EC2 instance, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)\.
 
 You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on AWS IoT Greengrass core devices and on\-premises servers, edge devices, and VMs in your hybrid environment\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 

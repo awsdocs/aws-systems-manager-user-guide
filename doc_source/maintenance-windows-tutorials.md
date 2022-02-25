@@ -22,8 +22,6 @@ Before trying these tutorials, complete the following prerequisites\.
   + Ubuntu Server 16\.04, 18\.04, and 20\.04  
   + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
   + Windows Server 2016 and 2019
-**Note**  
-SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\.
 
   For information about installing SSM Agent on an instance, see the following topics:
   + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)

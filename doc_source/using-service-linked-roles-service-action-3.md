@@ -24,12 +24,12 @@ You must configure permissions to allow an IAM entity \(such as a user, group, o
 
 ## Creating the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role for Systems Manager<a name="create-slr-service-action-3"></a>
 
-You don't need to manually create a service\-linked role\. When you CompleteThisCreateActionInThisService in the AWS Management Console, the AWS CLI, or the AWS API, Systems Manager creates the service\-linked role for you\. 
+You don't need to manually create a service\-linked role\. When you enable Explorer in the AWS Management Console, Systems Manager creates the service\-linked role for you\. 
 
 **Important**  
 This service\-linked role can be displayed in your account if you completed an action in another service that uses the features supported by this role\. Also, if you were using the Systems Manager service before January 1, 2017, when it began supporting service\-linked roles, then Systems Manager created the `AWSServiceRoleForAmazonSSM` role in your account\. To learn more, see [A new role appeared in my IAM account](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_new-role-appeared)\.
 
-If you delete this service\-linked role, and then need to create it again, you can use the same process to recreate the role in your account\. When you CompleteThisCreateActionInThisService, Systems Manager creates the service\-linked role for you again\. 
+If you delete this service\-linked role, and then need to create it again, you can use the same process to recreate the role in your account\. When you enable Explorer in the AWS Management Console, Systems Manager creates the service\-linked role for you again\. 
 
 You can also use the IAM console to create a service\-linked role with the **AWS Service Role for AWS Systems Manager** use case\. In the AWS CLI or the AWS API, create a service\-linked role with the `ssm.amazonaws.com` service name\. For more information, see [Creating a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*\. If you delete this service\-linked role, you can use this same process to create the role again\.
 

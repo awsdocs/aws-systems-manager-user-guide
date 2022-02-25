@@ -17,7 +17,6 @@ SUSE Linux Enterprise Server \(SLES\) 12 and 15
 Ubuntu Server 16\.04, 18\.04, and 20\.04  
 Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 Windows Server 2016 and 2019
-SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\.
 + For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, you must attach an AWS Identity and Access Management \(IAM\) instance profile to the instance\. The instance profile enables the instance to communicate with the Systems Manager service\. If you don't assign an instance profile to the instance, you register it using a hybrid activation, which is not a common scenario\.
 + SSM Agent must be able to connect to a Systems Manager endpoint in order to register itself with the service\. Thereafter, the managed node must be available to the service, which is confirmed by the service sending a signal every five minutes to check the instance's health\. 
 

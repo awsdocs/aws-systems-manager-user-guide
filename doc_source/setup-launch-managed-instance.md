@@ -17,9 +17,6 @@ SSM Agent is installed by default on the following AMIs:
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016 and 2019
 
-**Note**  
-SSM Agent isn't installed on all AMIs based on Amazon Linux or Amazon Linux 2\.
-
 For information about manually installing SSM Agent on other Linux operating systems, see [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
 
 **TLS certificate requirement for instances**  
