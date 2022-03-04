@@ -10,7 +10,7 @@ SSM Agent must be installed on each instance you want to use with AWS Systems Ma
 + SUSE Linux Enterprise Server \(SLES\) 12 and 15
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-+ Windows Server 2016 and 2019
++ Windows Server 2016, 2019, and 2022
 
 On other AMIs; AWS IoT Greengrass core devices; and on\-premises servers, edge devices, and virtual machines in your hybrid environment, you must install the agent manually, as described in the following table\.
 

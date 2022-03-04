@@ -2,7 +2,7 @@
 
 AWS Systems Manager Agent \(SSM Agent\) is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-+ Windows Server 2016 and 2019
++ Windows Server 2016, 2019, and 2022
 
 **Important**  
 As of January 14, 2020, Windows Server 2008 is no longer supported for feature or security updates from Microsoft\. Legacy Amazon Machine Images \(AMIs\) for Windows Server 2008 and 2008 R2 still include version 2 of SSM Agent preinstalled, but Systems Manager no longer officially supports 2008 versions and no longer updates the agent for these versions of Windows Server\. In addition, [SSM Agent version 3\.0](ssm-agent-v3.md) might not be compatible with all operations on Windows Server 2008 and 2008 R2\. The final officially supported version of SSM Agent for Windows Server 2008 versions is 2\.3\.1644\.0\.

@@ -7,24 +7,18 @@ You can view SSM Agent logs on managed nodes in the following locations\.
 ------
 #### [ Linux and macOS ]
 
-`/var/log/amazon/ssm/amazon-ssm-agent.log`
-
-`/var/log/amazon/ssm/errors.log`
-
-`/var/log/amazon/ssm/audits/amazon-ssm-agent-audit-YYYY-MM-DD`
+`/var/log/amazon/ssm/`
 
 ------
 #### [ Windows ]
 
-`%PROGRAMDATA%\Amazon\SSM\Logs\amazon-ssm-agent.log`
-
-`%PROGRAMDATA%\Amazon\SSM\Logs\errors.log`
-
-`%PROGRAMDATA%\Amazon\SSM\Logs\audits\amazon-ssm-agent-audit-YYYY-MM-DD`
+`%PROGRAMDATA%\Amazon\SSM\Logs\`
 
 ------
 
-For Linux managed nodes, the SSM Agent `stderr` and `stdout` files are written to the following directory: `/var/lib/amazon/ssm`\.
+For Linux managed nodes, the SSM Agent `stderr` and `stdout` files are written to the following directory: `/var/lib/amazon/ssm/`\.
+
+For Windows managed nodes, the SSM Agent `stderr` and `stdout` files are written to the following directory: `%PROGRAMDATA%\Amazon\SSM\InstanceData\`\.
 
 For information about allowing SSM Agent debug logging, see [Allowing SSM Agent debug logging](#ssm-agent-debug-log-files)\.
 

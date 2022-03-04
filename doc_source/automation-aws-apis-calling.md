@@ -51,7 +51,7 @@ parameters:
   ImageName:
     type: String
     description: "(Optional) Image Name to launch EC2 instance with."
-    default: "Windows_Server-2016-English-Full-Base-2018.07.11"
+    default: "Windows_Server-2022-English-Full-Base*"
 mainSteps:
 - name: getImageId
   action: aws:executeAwsApi

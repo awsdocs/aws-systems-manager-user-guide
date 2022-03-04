@@ -140,7 +140,7 @@ In most cases, SSM Agent is preinstalled, by default, on the following Amazon Ma
 + SUSE Linux Enterprise Server \(SLES\) 12 and 15
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-+ Windows Server 2016 and 2019
++ Windows Server 2016, 2019, and 2022
 
 For information about verifying whether the agent is installed on an EC2 instance, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)\.
 

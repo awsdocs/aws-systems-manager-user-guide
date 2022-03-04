@@ -24,5 +24,6 @@ For a list of supported versions of each of the following operating systems, see
 + [Debian Server](agent-install-deb.md)
 + [Oracle Linux](agent-install-oracle.md)
 + [Red Hat Enterprise Linux](agent-install-rhel.md)
++ [Rocky Linux](agent-install-rocky.md)
 + [SUSE Linux Enterprise Server](agent-install-sles.md)
 + [Ubuntu Server](agent-install-ubuntu.md)

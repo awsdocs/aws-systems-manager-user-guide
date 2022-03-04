@@ -72,6 +72,13 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 **¹** SSM Agent no longer officially supports these versions and no longer updates the agent for these versions of RHEL\. SSM Agent version 3\.0\.1390\.0 and earlier is supported for RHEL 6\.
 
 
+**Rocky Linux**  
+
+| Versions | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| --- | --- | --- | 
+| 8\.4/8\.5 | ✓ | ✓ | 
+
+
 **SUSE Linux Enterprise Server \(SLES\)**  
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
@@ -136,5 +143,6 @@ SSM Agent requires Windows PowerShell 3\.0 or later to run certain AWS Systems M
 | 2012 and 2012 R2 |  | ✓ |  | 
 | 2016 |  | ✓ |  | 
 | 2019 |  | ✓ |  | 
+| 2022 |  | ✓ |  | 
 
 **¹** As of January 14, 2020, Windows Server 2008 is no longer supported for feature or security updates from Microsoft\. Legacy Amazon Machine Images \(AMIs\) for Windows Server 2008 and 2008 R2 still include version 2 of SSM Agent preinstalled, but Systems Manager no longer officially supports 2008 versions and no longer updates the agent for these versions of Windows Server\. In addition, [SSM Agent version 3\.0](ssm-agent-v3.md) might not be compatible with all operations on Windows Server 2008 and 2008 R2\. The final officially supported version of SSM Agent for Windows Server 2008 versions is 2\.3\.1644\.0\.

@@ -1882,7 +1882,7 @@ mainSteps:
   "mainSteps": [
     {
       "action": "aws:updateSsmAgent",
-      "name": "updateSSMAgent",
+      "name": "awsupdateSsmAgent",
       "inputs": {
         "agentName": "amazon-ssm-agent",
         "source": "https://s3.{Region}.amazonaws.com/amazon-ssm-{Region}/ssm-agent-manifest.json",
