@@ -140,7 +140,7 @@ arn:aws:cloudformation:*:*:type/resource/*
 arn:aws:events:*:*:rule/SSMExplorerManagedRule
 ```
 
-**Full AmazonSSMServiceRolePolicy policy**
+**Full `AmazonSSMServiceRolePolicy` policy**
 
 ```
 {
@@ -357,7 +357,7 @@ arn:aws:events:*:*:rule/SSMExplorerManagedRule
 }
 ```
 
-## AmazonSSMReadOnlyAccess<a name="security-iam-awsmanpol-AmazonSSMReadOnlyAccess"></a>
+## `AmazonSSMReadOnlyAccess`<a name="security-iam-awsmanpol-AmazonSSMReadOnlyAccess"></a>
 
 Use the `AmazonSSMReadOnlyAccess` AWS managed policy to allow read\-only access to AWS Systems Manager\. Assigning this policy to an AWS Identity and Access Management \(IAM\) user allows read\-only API operations, such as `Describe*`, `Get*`, and `List*`\. View the [policy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess) for the full list of actions supported by this policy\. 
 
@@ -535,7 +535,7 @@ View details about updates to AWS managed policies for Systems Manager since thi
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-|  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow Explorer to create a managed rule when you turn on Security Hub from Explorer or OpsCenter\. New permissions were added to check that config and the compute\-optimizer meet the necessary requirements before allowing OpsData\.  | April 27, 2021 | 
+|  `AmazonSSMServiceRolePolicy` – Update to an existing policy\.  |  Systems Manager added new permissions to allow Explorer to create a managed rule when you turn on Security Hub from Explorer or OpsCenter\. New permissions were added to check that config and the compute\-optimizer meet the necessary requirements before allowing OpsData\.  | April 27, 2021 | 
 |  [`AWSSystemsManagerOpsDataSyncServiceRolePolicy`](#security-iam-awsmanpol-AWSSystemsManagerOpsDataSyncServiceRolePolicy) – New policy\.  |  Systems Manager added a new policy to create and update OpsItems and OpsData from Security Hub findings in Explorer and OpsCenter\.  | April 27, 2021 | 
-|  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow viewing aggregate OpsData and OpsItems details from multiple accounts and AWS Regions in Explorer\.  | March 24, 2021 | 
+|  `AmazonSSMServiceRolePolicy` – Update to an existing policy\.  |  Systems Manager added new permissions to allow viewing aggregate OpsData and OpsItems details from multiple accounts and AWS Regions in Explorer\.  | March 24, 2021 | 
 |  Systems Manager started tracking changes  |  Systems Manager started tracking changes for its AWS managed policies\.  | March 12, 2021 | 

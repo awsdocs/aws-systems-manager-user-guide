@@ -30,6 +30,6 @@ Systems Manager uses the `ssmmessages` endpoint for API operations from SSM Agen
 
 `ListInstanceAssociations`: The agent runs this API operation to see if a new State Manager association is available\. This API operation is required for State Manager, a capability of AWS Systems Manager, to function\.
 
-`DescribeInstanceProperties` and `DescribeDocumentParameters`: Systems Manager runs these API operations to render specific nodes in the Amazon EC2 console\. Results of the `DescribeInstanceProperties` operation are displayed in the **Fleet Manager** node\. Results of the `DescribeDocumentParameters` operation are displayed in the **Documents** node\.
+`DescribeInstanceProperties` and `DescribeDocumentParameters`: Systems Manager runs these API operations to render specific nodes in the Amazon EC2 console\. Results of the `DescribeInstanceProperties` operation are displayed in the Fleet Manager node\. Results of the `DescribeDocumentParameters` operation are displayed in the **Documents** node\.
 
 `ssm:RegisterManagedInstance`: SSM Agent runs this API operation to register an on\-premises server or virtual machine \(VM\) with Systems Manager as a managed instance using an activation code and ID, or to register AWS IoT Greengrass Version 2 credentials\. 

@@ -10,7 +10,7 @@ For information about other services that support service\-linked roles, see [AW
 
 ## Service\-linked role permissions for Systems Manager OpsData sync<a name="slr-permissions-service-action-3"></a>
 
-Systems Manager uses the service\-linked role named **`AWSServiceRoleForSystemsManagerOpsDataSync`** – AWS Systems Manager uses this IAM service role for Systems Manager Explorer to create OpsData and OpsItems\.
+Systems Manager uses the service\-linked role named `AWSServiceRoleForSystemsManagerOpsDataSync` – AWS Systems Manager uses this IAM service role for Systems Manager Explorer to create OpsData and OpsItems\.
 
 The `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role trusts the following services to assume the role:
 + `opsdatasync.ssm.amazonaws.com`
@@ -27,7 +27,7 @@ You must configure permissions to allow an IAM entity \(such as a user, group, o
 You don't need to manually create a service\-linked role\. When you enable Explorer in the AWS Management Console, Systems Manager creates the service\-linked role for you\. 
 
 **Important**  
-This service\-linked role can be displayed in your account if you completed an action in another service that uses the features supported by this role\. Also, if you were using the Systems Manager service before January 1, 2017, when it began supporting service\-linked roles, then Systems Manager created the `AWSServiceRoleForAmazonSSM` role in your account\. To learn more, see [A new role appeared in my IAM account](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_new-role-appeared)\.
+This service\-linked role can be displayed in your account if you completed an action in another service that uses the features supported by this role\. Also, if you were using the Systems Manager service before January 1, 2017, when it began supporting service\-linked roles, then Systems Manager created the `AWSServiceRoleForSystemsManagerOpsDataSync` role in your account\. To learn more, see [A new role appeared in my IAM account](https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_roles.html#troubleshoot_roles_new-role-appeared)\.
 
 If you delete this service\-linked role, and then need to create it again, you can use the same process to recreate the role in your account\. When you enable Explorer in the AWS Management Console, Systems Manager creates the service\-linked role for you again\. 
 

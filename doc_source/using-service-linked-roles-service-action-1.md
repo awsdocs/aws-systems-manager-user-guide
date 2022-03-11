@@ -10,7 +10,7 @@ For information about other services that support service\-linked roles, see [AW
 
 ## Service\-linked role permissions for Systems Manager<a name="service-linked-role-permissions-service-action-1"></a>
 
-Systems Manager uses the service\-linked role named **`AWSServiceRoleForAmazonSSM`** – AWS Systems Manager uses this IAM service role to manage AWS resources on your behalf\.
+Systems Manager uses the service\-linked role named `AWSServiceRoleForAmazonSSM` – AWS Systems Manager uses this IAM service role to manage AWS resources on your behalf\.
 
 The `AWSServiceRoleForAmazonSSM` service\-linked role trusts only `ssm.amazonaws.com` to assume this role\. 
 

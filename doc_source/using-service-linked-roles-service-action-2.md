@@ -10,7 +10,7 @@ For information about other services that support service\-linked roles, see [AW
 
 ## Service\-linked role permissions for Systems Manager account discovery<a name="service-linked-role-permissions-service-action-2"></a>
 
-Systems Manager uses the service\-linked role named **`AWSServiceRoleForAmazonSSM_AccountDiscovery`**\. AWS Systems Manager uses this IAM service role to call other AWS services to discover AWS account information\.
+Systems Manager uses the service\-linked role named `AWSServiceRoleForAmazonSSM_AccountDiscovery`\. AWS Systems Manager uses this IAM service role to call other AWS services to discover AWS account information\.
 
 The `AWSServiceRoleForAmazonSSM_AccountDiscovery` service\-linked role trusts the following services to assume the role:
 + `accountdiscovery.ssm.amazonaws.com`

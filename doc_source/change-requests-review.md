@@ -12,9 +12,9 @@ If an Amazon SNS topic is assigned for reviewers in a change template, notificat
 
 ## Reviewing and approving or rejecting change requests \(console\)<a name="change-requests-review-console"></a>
 
-The following procedure describes how to use the Systems Manager console to review and approve or reject a change request\.
+The following procedures describe how to use the Systems Manager console to review and approve or reject change requests\.
 
-**To review and approve or reject a change request**
+**To review and approve or reject a single change request**
 
 1. Open the link in the email notification you received and sign in to the AWS Management Console, which directs you to the change request for your review\.
 
@@ -25,6 +25,30 @@ The following procedure describes how to use the Systems Manager console to revi
    \-or\-
 
    To reject the change request, choose **Reject**\. In the dialog box, provide any comments you want to add for this rejection, and then choose **Reject**\.
+
+**To review and approve or reject change requests in bulk**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Change Manager**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Change Manager**\.
+
+1. Choose the **Approvals** tab\.
+
+1. \(Optional\) Review the details of requests pending your approval by choosing the name of each request, and then return to the **Approvals** tab\.
+
+1. Select the check box of each change request that you want to approve\.
+
+   \-or\-
+
+   Select the check box of each change request that you want to reject\.
+
+1. In the dialog box, provide any comments you want to add for this approval or rejection\.
+
+1. Depending on whether you're approving or rejecting the selected change requests, choose **Approve** or **Reject**\.
 
 ## Reviewing and approving or rejecting a change request \(command line\)<a name="change-requests-review-command-line"></a>
 
@@ -117,4 +141,4 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
 ------
 
-   If an Amazon SNS topic has been specified in the change template you chose for the request, notifications are sent when the request is rejected or approved\. If you don't receive notifications for the request, you can return to Change Manager to check the status of your request\. 
+   If an Amazon SNS topic has been specified in the change template you chose for the request, notifications are sent when the request is rejected or approved\. If you don't receive notifications for the request, you can return to Change Manager to check the status of your request\. For information about other options when using this command, see [send\-automation\-signal](https://docs.aws.amazon.com/cli/latest/reference/ssm/send-automation-signal.html) in the AWS Systems Manager section of the *AWS CLI Command Reference*\.

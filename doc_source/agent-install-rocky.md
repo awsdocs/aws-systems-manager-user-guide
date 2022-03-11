@@ -7,7 +7,7 @@ If you use a `yum` command to update SSM Agent on a managed node after the agent
 
 **To install SSM Agent on Rocky Linux 8**
 
-1. Ensure that either Python 2 or Python 3 is installed on your Rocky 8\.4 or 8\.5it instance\. This is required in order for SSM Agent to work properly\.
+1. Ensure that either Python 2 or Python 3 is installed on your Rocky 8\.4 or 8\.5 instance\. This is required in order for SSM Agent to work properly\.
 
 1. Use one of the following commands to download and run the SSM Agent installer\.
 

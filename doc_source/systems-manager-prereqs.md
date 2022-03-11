@@ -31,6 +31,8 @@ This topic provides an overview of these prerequisites\.
 
 1. Install or verify installation of the SSM Agent on each of your managed nodes\.
 
+1. For Amazon EC2 instances, verify the instance can reach the Instance Metadata Service \(IMDS\)\. Systems Manager relies on EC2 instance metadata to function correctly\.
+
 **Note**  
 SSM Agent initiates all connections to the Systems Manager service in cloud\. For this reason, you don't need to configure your firewall to allow inbound traffic to your managed nodes for Systems Manager\.  
 If your managed nodes don't display in Systems Manager after you've follow these steps, see [Troubleshooting managed node availability](troubleshooting-managed-instances.md)\.
