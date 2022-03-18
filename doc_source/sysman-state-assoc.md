@@ -10,8 +10,10 @@ When you create a State Manager association, by default, the system immediately 
 + If an association doesn't run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
 
-**Note**  
+**Applying an association at a cron interval**  
 If you don't want an association to run immediately after you create it, you can choose the **Apply association only at the next specified Cron interval** option in the Systems Manager console\. 
+
+If you chose this option when you created an association and later you edit that association or you make changes to the SSM document on which that association is based \(by using the **Documents** page in the console\), State Manager applies the association at the next specified cron interval\. For example, if you chose the `Latest` version of an SSM document when you created an association and you edit the association by choosing a different document version on the **Documents** page, State Manager applies the association at the next specified cron interval if you previously selected this option\. If this option wasn't selected, State Manager immediately runs the association\.
 
 The following procedure describes how to use targets and rate controls when creating an association\. For more information about these features, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 

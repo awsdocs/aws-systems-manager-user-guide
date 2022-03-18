@@ -1,6 +1,6 @@
 # AWS Systems Manager documents<a name="sysman-ssm-docs"></a>
 
-An AWS Systems Manager document \(SSM document\) defines the actions that Systems Manager performs on your managed instances\. Systems Manager includes more than 100 pre\-configured documents that you can use by specifying parameters at runtime\. You can find pre\-configured documents in the Systems Manager Documents console by choosing the **Owned by Amazon** tab, or by specifying Amazon for the `Owner` filter when calling the `ListDocuments` API operation\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\.
+An AWS Systems Manager document \(SSM document\) defines the actions that Systems Manager performs on your managed instances\. Systems Manager includes more than 100 pre\-configured documents that you can use by specifying parameters at runtime\. You can find pre\-configured documents in the Systems Manager Documents console by choosing the **Owned by Amazon** tab, or by specifying Amazon for the `Owner` filter when calling the `ListDocuments` API operation\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. To get started with SSM documents, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/documents)\. In the navigation pane, choose **Documents**\.
 
 ## How can SSM documents benefit my organization?<a name="ssm-docs-benefits"></a>
 

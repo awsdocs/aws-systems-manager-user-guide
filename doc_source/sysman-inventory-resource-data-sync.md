@@ -33,7 +33,7 @@ Review or complete the following tasks before you begin the walkthrough in this 
                       "aws:SourceAccount": "123456789012"
                   },
                   "ArnLike": {
-                      "aws:SourceArn": "arn:aws:ssm:*:123456789012:role/aws-service-role/ssm.amazonaws.com/AWSServiceRoleForAmazonSSM"
+                      "aws:SourceArn": "arn:aws:ssm:*:123456789012:resource-data-sync/*"
                   }
               }
           }
@@ -53,48 +53,48 @@ Review or complete the following tasks before you begin the walkthrough in this 
 
    ```
    {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Sid": " SSMBucketDelivery",
-               "Effect": "Allow",
-               "Principal": {
-                   "Service": "ssm.amazonaws.com"
-               },
-               "Action": "s3:PutObject",
-               "Resource": ["arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id/*"],
-               "Condition": {
-                   "StringEquals": {
-                       "s3:x-amz-acl": "bucket-owner-full-control"
-                   }
-               }
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": " SSMBucketDelivery",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": "s3:PutObject",
+         "Resource": [
+           "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=account-id/*"
+         ],
+         "Condition": {
+           "StringEquals": {
+             "s3:x-amz-acl": "bucket-owner-full-control",
+             "aws:SourceAccount": "account-id"
+           },
+           "ArnLike": {
+             "aws:SourceArn": "arn:aws:ssm:*:account-id:resource-data-sync/*"
            }
-       ]
-   }
-   ```
-
-1. \(Optional\) If you want to encrypt the sync, then you must add the following policy to the bucket\. Repeat the previous step to add the following policy to the bucket\.
-
-   ```
-   {
-      "Version":"2012-10-17",
-      "Statement":[
-         {
-            "Effect":"Allow",
-            "Principal":{
-               "Service":"ssm.amazonaws.com"
-            },
-            "Action":"s3:PutObject",
-            "Resource":"arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=*/*",
-            "Condition":{
-               "StringEquals":{
-                  "s3:x-amz-server-side-encryption":"aws:kms",
-                  "s3:x-amz-server-side-encryption-aws-kms-key-id":"arn:aws:kms:region:account_ID:key/KMS_key_ID"
-               }
-            }
          }
-      ]
+       }
+     ]
    }
+   ```
+
+1. \(Optional\) If you want to encrypt the sync, then you must add the following conditions to the policy listed in the previous step\. Add these in the `StringEquals` section\.
+
+   ```
+   "s3:x-amz-server-side-encryption":"aws:kms",
+   "s3:x-amz-server-side-encryption-aws-kms-key-id":"arn:aws:kms:region:account_ID:key/KMS_key_ID"
+   ```
+
+   Here is an example:
+
+   ```
+   "StringEquals": {
+             "s3:x-amz-acl": "bucket-owner-full-control",
+             "aws:SourceAccount": "account-id",
+             "s3:x-amz-server-side-encryption":"aws:kms",
+             "s3:x-amz-server-side-encryption-aws-kms-key-id":"arn:aws:kms:region:account_ID:key/KMS_key_ID"
+           }
    ```
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.

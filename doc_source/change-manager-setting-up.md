@@ -12,3 +12,4 @@ If you begin using Change Manager with a single account, but that account is lat
 **Topics**
 + [Setting up Change Manager for an organization \(management account\)](change-manager-organization-setup.md)
 + [Configuring Change Manager options and best practices](change-manager-account-setup.md)
++ [Configuring roles and permissions for Change Manager](change-manager-permissions.md)

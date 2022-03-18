@@ -27,12 +27,14 @@ The URLs in this step let you download SSM Agent from *any* AWS Region\. If you 
 Run the following three PowerShell commands in order\. These commands allow you to download SSM Agent without adjusting Internet Explorer \(IE\) Enhanced Security settings, and then install the agent and remove the installation file\.  
 
    ```
+   $progressPreference = 'silentlyContinue'
    Invoke-WebRequest `
        https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_amd64/AmazonSSMAgentSetup.exe `
        -OutFile $env:USERPROFILE\Desktop\SSMAgent_latest.exe
    ```
 
    ```
+   $progressPreference = 'silentlyContinue'
    Invoke-WebRequest `
        https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/windows_386/AmazonSSMAgentSetup.exe `
        -OutFile $env:USERPROFILE\Desktop\SSMAgent_latest.exe

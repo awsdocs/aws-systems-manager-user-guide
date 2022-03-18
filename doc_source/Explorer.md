@@ -2,9 +2,9 @@
 
 AWS Systems Manager Explorer is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across AWS Regions\. In Explorer, OpsData includes metadata about your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, Systems Manager Patch Manager patch compliance details, and Systems Manager State Manager association compliance details\. OpsData also includes information from supporting AWS services like AWS Trusted Advisor, AWS Compute Optimizer, and information about your AWS Support cases\.
 
-To raise operational awareness, Explorer also displays operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use Systems Manager OpsCenter to run Automation runbooks and quickly resolve those issues\. 
+To raise operational awareness, Explorer also displays operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use Systems Manager OpsCenter to run Automation runbooks and quickly resolve those issues\. To get started with Explorer, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/explorer)\. In the navigation pane, choose **Explorer**\.
 
-The following image shows some of the individual report boxes, called *widgets*, which are available in Explorer\. 
+The following image shows some of the individual report boxes, called *widgets*, which are available in Explorer\.
 
 ![\[Explorer dashboard in AWS Systems Manager\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Explorer-1-overview.png)
 

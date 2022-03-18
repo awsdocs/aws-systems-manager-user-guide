@@ -188,6 +188,7 @@ Amazon's trademarks and trade dress may not be used in
          + [Setting up Change Manager for an organization (management account)](change-manager-organization-setup.md)
          + [Configuring Change Manager options and best practices](change-manager-account-setup.md)
             + [Configuring Amazon SNS topics for Change Manager notifications](change-manager-sns-setup.md)
+         + [Configuring roles and permissions for Change Manager](change-manager-permissions.md)
       + [Working with Change Manager](working-with-change-manager.md)
          + [Working with change templates](change-templates.md)
             + [Try out the AWS managed Hello World change template](change-templates-aws-managed.md)

@@ -1,6 +1,6 @@
 # AWS Systems Manager Automation<a name="systems-manager-automation"></a>
 
-Automation, a capability of AWS Systems Manager, simplifies common maintenance, deployment, and remediation tasks for AWS services like Amazon Elastic Compute Cloud \(Amazon EC2\), Amazon Relational Database Service \(Amazon RDS\), Amazon Redshift, Amazon Simple Storage Service \(Amazon S3\), and many more\. 
+Automation, a capability of AWS Systems Manager, simplifies common maintenance, deployment, and remediation tasks for AWS services like Amazon Elastic Compute Cloud \(Amazon EC2\), Amazon Relational Database Service \(Amazon RDS\), Amazon Redshift, Amazon Simple Storage Service \(Amazon S3\), and many more\. To get started with Automation, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/automation)\. In the navigation pane, choose **Automation**\.
 
 Automation helps you to build automated solutions to deploy, configure, and manage AWS resources at scale\. With Automation, you have granular control over the concurrency of your automations\. This means you can specify how many resources to target concurrently, and how many errors can occur before an automation is stopped\. 
 

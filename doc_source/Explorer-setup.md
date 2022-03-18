@@ -18,14 +18,14 @@ You can change setup configurations at any time on the **Settings** page\.
 
 ## Configuring OpsData sources<a name="Explorer-setup-data-sources"></a>
 
-Integrated Setup allows the following data sources that populate Explorer widgets\.
-+ AWS Support Center \(You must have either a Business or Enterprise Support plan to allow this source\.\)
-+ AWS Compute Optimizer \(You must have either a Business or Enterprise Support plan to allow this source\.\)
+Integrated Setup activates the following data sources that populate Explorer widgets\.
++ AWS Support Center \(You must have either a Business or Enterprise Support plan to activate this source\.\)
++ AWS Compute Optimizer \(You must have either a Business or Enterprise Support plan to activate this source\.\)
 + Systems Manager State Manager association compliance
 + AWS Config Compliance
 + Systems Manager OpsCenter
 + Systems Manager Patch Manager patch compliance
 + Amazon Elastic Compute Cloud \(Amazon EC2\)
 + Systems Manager Inventory
-+ AWS Trusted Advisor \(You must have either a Business or Enterprise Support plan to allow this source\.\)
++ AWS Trusted Advisor \(You must have either a Business or Enterprise Support plan to activate this source\.\)
 + AWS Security Hub

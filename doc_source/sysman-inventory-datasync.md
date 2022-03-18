@@ -56,38 +56,42 @@ For information about viewing your AWS account ID, see [Your Amazon Web Services
 
    ```
    {
-               "Version": "2012-10-17",
-               "Statement": [
-                   {
-                       "Sid": "SSMBucketPermissionsCheck",
-                       "Effect": "Allow",
-                       "Principal": {
-                           "Service": "ssm.amazonaws.com"
-                       },
-                       "Action": "s3:GetBucketAcl",
-                       "Resource": "arn:aws:s3:::S3_bucket_name"
-                   },
-                   {
-                       "Sid": " SSMBucketDelivery",
-                       "Effect": "Allow",
-                       "Principal": {
-                           "Service": "ssm.amazonaws.com"
-                       },
-                       "Action": "s3:PutObject",
-                       "Resource": [
-                           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*",
-                           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*",
-                           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*",
-                           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*"
-                       ],
-                       "Condition": {
-                           "StringEquals": {
-                               "s3:x-amz-acl": "bucket-owner-full-control"
-                           }
-                       }
-                   }
-               ]
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "SSMBucketPermissionsCheck",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": "s3:GetBucketAcl",
+         "Resource": "arn:aws:s3:::S3_bucket_name"
+       },
+       {
+         "Sid": " SSMBucketDelivery",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": "s3:PutObject",
+         "Resource": [
+           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*",
+           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*",
+           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*",
+           "arn:aws:s3:::S3_bucket_name/*/accountid=ID_number/*"
+         ],
+         "Condition": {
+           "StringEquals": {
+             "s3:x-amz-acl": "bucket-owner-full-control",
+             "aws:SourceAccount": "123456789012"
+           },
+           "ArnLike": {
+             "aws:SourceArn": "arn:aws:ssm:*:123456789012:resource-data-sync/*"
            }
+         }
+       }
+     ]
+   }
    ```
 **Note**  
 If you create a resource data sync for an AWS Region that came online since April 25, 2019 or later, you must enter a Region\-specific service principal entry in the `SSMBucketDelivery` section\. This requirement includes the following Regions:  
@@ -170,46 +174,50 @@ Use the following procedure to create a central Amazon S3 bucket to store aggreg
 
    ```
    {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Sid": "SSMBucketPermissionsCheck",
-               "Effect": "Allow",
-               "Principal": {
-                   "Service": "ssm.amazonaws.com"
-               },
-               "Action": "s3:GetBucketAcl",
-               "Resource": "arn:aws:s3:::S3_bucket_name"
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "SSMBucketPermissionsCheck",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": "s3:GetBucketAcl",
+         "Resource": "arn:aws:s3:::S3_bucket_name"
+       },
+       {
+         "Sid": " SSMBucketDelivery",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": "s3:PutObject",
+         "Resource": [
+           "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=*/*"
+         ],
+         "Condition": {
+           "StringEquals": {
+             "s3:x-amz-acl": "bucket-owner-full-control",
+             "s3:RequestObjectTag/OrgId": "organization-id",
+             "aws:SourceAccount": "123456789012"
            },
-           {
-               "Sid": " SSMBucketDelivery",
-               "Effect": "Allow",
-               "Principal": {
-                   "Service": "ssm.amazonaws.com"
-               },
-               "Action": "s3:PutObject",
-               "Resource": [
-                   "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=*/*"
-               ],
-               "Condition": {
-                   "StringEquals": {
-                       "s3:x-amz-acl": "bucket-owner-full-control",
-                       "s3:RequestObjectTag/OrgId": "organization-id"
-                   }
-               }
-           },
-           {
-               "Sid": " SSMBucketDeliveryTagging",
-               "Effect": "Allow",
-               "Principal": {
-                   "Service": "ssm.amazonaws.com"
-               },
-               "Action": "s3:PutObjectTagging",
-               "Resource": [
-                   "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=*/*"
-               ]
+           "ArnLike": {
+             "aws:SourceArn": "arn:aws:ssm:*:123456789012:resource-data-sync/*"
            }
-       ]
+         }
+       },
+       {
+         "Sid": " SSMBucketDeliveryTagging",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": "s3:PutObjectTagging",
+         "Resource": [
+           "arn:aws:s3:::DOC-EXAMPLE-BUCKET/bucket-prefix/*/accountid=*/*"
+         ]
+       }
+     ]
    }
    ```
 **Note**  

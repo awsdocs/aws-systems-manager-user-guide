@@ -27,7 +27,7 @@ After you [set up](https://docs.aws.amazon.com/systems-manager/latest/userguide/
 + Resource details provided by the AWS services that host them\.
 + Container cluster information provided by Amazon ECS\.
 
-To help you remediate issues with components or resources, Application Manager also provides runbooks that you can associate with your applications\. 
+To help you remediate issues with components or resources, Application Manager also provides runbooks that you can associate with your applications\. To get started with Application Manager, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/appmanager)\. In the navigation pane, choose **Application Manager**\.
 
 ## What are the benefits of using Application Manager?<a name="application-manager-learn-more-benefits"></a>
 
