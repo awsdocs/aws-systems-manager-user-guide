@@ -16,5 +16,6 @@ The remainder of this chapter describes how to add and remove tags from Systems 
 + [Tagging maintenance windows](tagging-maintenance-windows.md)
 + [Tagging managed nodes](tagging-managed-instances.md)
 + [Tagging OpsItems](tagging-opsitems.md)
++ [Tagging automations](tagging-automations.md)
 + [Tagging Systems Manager parameters](tagging-parameters.md)
 + [Tagging patch baselines](tagging-patch-baselines.md)

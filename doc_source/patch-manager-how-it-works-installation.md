@@ -244,7 +244,7 @@ On Red Hat Enterprise Linux managed nodes, the patch installation workflow is as
      sudo yum update --security --bugfix -y
      ```
 
-     For RHEL 8, the equivalent yum command for this workflow is:
+     For RHEL 8, the equivalent dnf command for this workflow is:
 
      ```
      sudo dnf update --security --bugfix -y
