@@ -13,6 +13,9 @@ After you group your managed nodes using tags, you add the patch group value to 
 
 For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, you can add tags by using the AWS Systems Manager console, the Amazon EC2 console, the AWS Command Line Interface \(AWS CLI\) command `create-tags`, or the API operation `CreateTags`\.
 
+**Important**  
+To apply the `Patch Group` tag to an Amazon EC2 instance, the **Allow tags in instance metadata** option must not be enabled on the instance\. Allowing tags in instance metadata prevents tag key names from containing spaces\. For information about disabling the setting if you have enabled it, see [Turn off access to tags in instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#turn-off-access-to-tags-in-IMDS) in the *Amazon EC2 User Guide for Linux Instances*\.
+
 **To add EC2 instances to a patch group \(AWS Systems Manager console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.

@@ -29,7 +29,8 @@ For more information, see the [CloudTrail userIdentity Element](https://docs.aws
 
 A trail is a configuration that allows delivery of events as log files to an S3 bucket that you specify\. CloudTrail log files contain one or more log entries\. An event represents a single request from any source and includes information about the requested operation, the date and time of the operation, request parameters, and so on\. CloudTrail log files aren't an ordered stack trace of the public API calls, so they aren't displayed in any specific order\. 
 
-The following example shows a CloudTrail log entry that demonstrates the `DeleteDocuments` operation on a document named `example-Document` in the US East \(Ohio\) Region \(us\-east\-2\)\.
+**Example 1: `DeleteDocument`**  
+The following example shows a CloudTrail log entry that demonstrates the `DeleteDocument` operation on a document named `example-Document` in the US East \(Ohio\) Region \(us\-east\-2\)\.
 
 ```
 {
@@ -77,7 +78,8 @@ The following example shows a CloudTrail log entry that demonstrates the `Delete
 }
 ```
 
-The following example shows a CloudTrail log entry for a user who starts an RDP connection using Fleet Manager in the US East \(Ohio\) Region \(us\-east\-2\)\.
+**Example 2: `StartConnection`**  
+The following example shows a CloudTrail log entry for a user who starts an RDP connection using Fleet Manager in the US East \(Ohio\) Region \(us\-east\-2\)\. The underlying API action is `StartConnection`\.
 
 ```
 {

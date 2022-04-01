@@ -2,23 +2,24 @@
 
 You can use a *patch group* to associate managed nodes with a specific patch baseline in Patch Manager, a capability of AWS Systems Manager\. Patch groups help ensure that you're deploying the appropriate patches, based on the associated patch baseline rules, to the correct set of nodes\. Patch groups can also help you avoid deploying patches before they have been adequately tested\. For example, you can create patch groups for different environments \(such as Development, Test, and Production\) and register each patch group to an appropriate patch baseline\. 
 
-**Note**  
-A patch group can be registered with only one patch baseline for each operating system type\.
-
 When you run `AWS-RunPatchBaseline`, you can target managed nodes using their ID or tags\. SSM Agent and Patch Manager then evaluate which patch baseline to use based on the patch group value that you added to the managed node\.
 
 You create a patch group by using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Unlike other tagging scenarios across Systems Manager, a patch group *must* be defined with the tag key: **Patch Group**\. The key is case\-sensitive\. You can specify any value, for example "web servers," but the key must be **Patch Group**\.
 
-**Note**  
-A managed node can only be in one patch group\.
+After you create a patch group and tag managed nodes, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the nodes within the patch group use the rules defined in the associated patch baseline\. 
 
-After you create a patch group and tag managed nodes, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the nodes within the patch group use the rules defined in the associated patch baseline\. For more information about how to create a patch group and associate the patch group to a patch baseline, see [Working with patch groups](sysman-patch-group-tagging.md) and [Add a patch group to a patch baseline](sysman-patch-group-tagging.md#sysman-patch-group-patchbaseline)\.
+For more information about how to create a patch group and associate the patch group to a patch baseline, see [Working with patch groups](sysman-patch-group-tagging.md) and [Add a patch group to a patch baseline](sysman-patch-group-tagging.md#sysman-patch-group-patchbaseline)\.
 
 To view an example of creating a patch baseline and patch groups by using the AWS Command Line Interface \(AWS CLI\), see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\. For more information about Amazon EC2 tags, see [Tag your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 ## How it works<a name="how-it-works-patch-groups"></a>
 
 When the system runs the task to apply a patch baseline to a managed node, SSM Agent verifies that a patch group value is defined for the node\. If the node is assigned to a patch group, Patch Manager then verifies which patch baseline is registered to that group\. If a patch baseline is found for that group, Patch Manager notifies SSM Agent to use the associated patch baseline\. If a node isn't configured for a patch group, Patch Manager automatically notifies SSM Agent to use the currently configured default patch baseline\.
+
+**Important**  
+A managed node can only be in one patch group\.  
+A patch group can be registered with only one patch baseline for each operating system type\.  
+To apply the `Patch Group` tag to an Amazon EC2 instance, the **Allow tags in instance metadata** option must not be enabled on the instance\. Allowing tags in instance metadata prevents tag key names from containing spaces\. For information about disabling the setting if you have enabled it, see [Turn off access to tags in instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#turn-off-access-to-tags-in-IMDS) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 The following diagram shows a general example of the processes that Systems Manager performs when sending a Run Command task to your fleet of servers to patch using Patch Manager\. A similar process is used when a maintenance window is configured to send a command to patch using Patch Manager\.
 
