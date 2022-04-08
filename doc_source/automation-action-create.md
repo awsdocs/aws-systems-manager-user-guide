@@ -1,9 +1,9 @@
 # `aws:createImage` – Create an Amazon Machine Image<a name="automation-action-create"></a>
 
-Creates an Amazon Machine Image \(AMI\) from an instance that is either running or stopped\. 
+Creates an Amazon Machine Image \(AMI\) from an instance that is either running, stopping, or stopped\. 
 
 **Input**  
-This action supports most `CreateImage` parameters\. For more information, see [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html)\.
+This action supports the following `CreateImage` parameters\. For more information, see [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html)\.
 
 ------
 #### [ YAML ]

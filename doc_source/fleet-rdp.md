@@ -4,7 +4,9 @@ You can use Fleet Manager, a capability of AWS Systems Manager, to connect to yo
 
 Alternatively, if you're authenticated to the AWS Management Console using AWS Single Sign\-On, Fleet Manager integrates with AWS SSO so you can connect to your instances without providing additional credentials\. Fleet Manager supports AWS SSO authenticated RDP connections in the same AWS Region where you enabled AWS SSO and user names can be a maximum of 16 characters\. For AWS SSO authenticated RDP connections, Fleet Manager creates a local user on the instance that persists after the connection ends\. AWS SSO authenticated RDP connections are not supported for nodes that are Microsoft Active Directory domain controllers\.
 
-**Note**  
+**Important**  
+Note the following important details\.  
+To use Fleet Manager with RDP, you must have SSM Agent version 3\.0\.222\.0 or higher running on your instances\. For information about how to determine the version number running on an instance, see [Checking the SSM Agent version number](ssm-agent-get-version.md)\. For information about manually installing or automatically updating SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
 Fleet Manager RDP connections have a maximum session duration of 60 minutes\. When that duration is reached, Fleet Manager disconnects the session\. You can reconnect to the same session by using your credentials\.
 
 Because Fleet Manager uses Session Manager to connect to Windows instances using RDP, you must complete the prerequisites for Session Manager before using this feature\. Session Manager is a capability of AWS Systems Manager\. Session preferences in the AWS account and AWS Region are applied when connecting to your instances using RDP\. For information about setting up Session Manager, see [Setting up Session Manager](session-manager-getting-started.md)\.

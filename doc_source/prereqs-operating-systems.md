@@ -43,6 +43,13 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 **¹** SSM Agent no longer officially supports these versions and no longer updates the agent for these versions of CentOS\. SSM Agent version 3\.0\.1390\.0 and earlier is supported for CentOS 6\.
 
 
+**CentOS Stream**  
+
+| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| --- | --- | --- | --- | 
+| 8 |  | ✓ | ✓ | 
+
+
 **Debian Server**  
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
@@ -72,11 +79,11 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 **¹** SSM Agent no longer officially supports these versions and no longer updates the agent for these versions of RHEL\. SSM Agent version 3\.0\.1390\.0 and earlier is supported for RHEL 6\.
 
 
-**Rocky Linux**  
+**Rocky**  
 
-| Versions | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
-| --- | --- | --- | 
-| 8\.4/8\.5 | ✓ | ✓ | 
+| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| --- | --- | --- | --- | 
+| 8\.4\-8\.5 |  | ✓ | ✓ | 
 
 
 **SUSE Linux Enterprise Server \(SLES\)**  

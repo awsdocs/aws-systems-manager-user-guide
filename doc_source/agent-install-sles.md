@@ -27,14 +27,16 @@ Connect to your SLES instance and perform the following steps to install the AWS
 
      *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-     64\-bit instances:
+     Intel 64\-bit \(x86\_64\) instances:
 
      ```
      wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
      ```
 
+     ARM 64\-bit \(arm64\) instances:
+
      ```
-     sudo rpm --install amazon-ssm-agent.rpm
+     wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_arm64/amazon-ssm-agent.rpm
      ```
 
 1. Run the following command to determine if SSM Agent is running\. The command should return the message amazon\-ssm\-agent is running\.
@@ -67,6 +69,11 @@ Intel 64\-bit \(x86\_64\)
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
+  ```
+ARM 64\-bit \(arm64\)  
+
+  ```
+  https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm
   ```
 
 **Important**  

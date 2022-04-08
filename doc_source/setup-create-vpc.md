@@ -94,6 +94,8 @@ In the second step, you create the required *gateway* endpoint for Systems Manag
 1. Follow the steps in [Create a gateway endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html#create-gateway-endpoint) to create the following gateway endpoint for Amazon S3\. 
    + **`com.amazonaws.region.s3`**: Systems Manager uses this endpoint to update SSM Agent, perform patching operations, and for tasks like uploading output logs you choose to store in S3 buckets, retrieving scripts or other files you store in buckets, and so on\. If the security group associated with your instances restricts outbound traffic, you must add a rule to allow traffic to the prefix list for Amazon S3\. For more information, see [Modify your security group](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html#vpc-endpoints-security) in the *AWS PrivateLink Guide*\.
 
+By default, private DNS is turned on for endpoints created for AWS services including Systems Manager\. This means the DNS hostnames and DNS resolution attributes for your VPC must be turned on to create the endpoints\. Turning off these default settings after you've created the required endpoints prevents instances from accessing Systems Manager\.
+
 ## Create an interface VPC endpoint policy<a name="sysman-endpoint-policies"></a>
 
 You can create policies for VPC interface endpoints for AWS Systems Manager in which you can specify:
