@@ -28,7 +28,7 @@ This Systems Manager capability is supported as both an *event* type and a *targ
   State Manager integrates with AWS CloudTrail to provide a record of all executions that you can audit, and Amazon EventBridge to track state changes\. You can also choose to store and view detailed command output in Amazon Simple Storage Service \(Amazon S3\)\. For more information, see the following topics:
   + [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
   + [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)
-  + [\(Optional\) Set Up integrations with other AWS services](setup-integrations.md)
+  + [\(Optional\) Set up integrations with other AWS services](setup-integrations.md)
 
 ## What is an association?<a name="state-manager-association-what-is"></a>
 

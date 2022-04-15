@@ -1,21 +1,21 @@
-# Step 8: \(Optional\) Enabling and controlling permissions for SSH connections through Session Manager<a name="session-manager-getting-started-enable-ssh-connections"></a>
+# Step 8: \(Optional\) Allow and controlling permissions for SSH connections through Session Manager<a name="session-manager-getting-started-enable-ssh-connections"></a>
 
 You can allow users in your AWS account to use the AWS Command Line Interface \(AWS CLI\) to establish Secure Shell \(SSH\) connections to managed nodes using AWS Systems Manager Session Manager\. Users who connect using SSH can also copy files between their local machines and managed nodes using Secure Copy Protocol \(SCP\)\. You can use this functionality to connect to managed nodes without opening inbound ports or maintaining bastion hosts\.
 
-After enabling SSH connections, you can use AWS Identity and Access Management \(IAM\) policies to explictly allow or deny users, groups, or roles to make SSH connections using Session Manager\.
+After allowing SSH connections, you can use AWS Identity and Access Management \(IAM\) policies to explicitly allow or deny users, groups, or roles to make SSH connections using Session Manager\.
 
 **Note**  
 Logging isn't available for Session Manager sessions that connect through port forwarding or SSH\. This is because SSH encrypts all session data, and Session Manager only serves as a tunnel for SSH connections\.
 
 **Topics**
-+ [Enabling SSH connections for Session Manager](#ssh-connections-enable)
++ [Allowing SSH connections for Session Manager](#ssh-connections-enable)
 + [Controlling user permissions for SSH connections through Session Manager](#ssh-connections-permissions)
 
-## Enabling SSH connections for Session Manager<a name="ssh-connections-enable"></a>
+## Allowing SSH connections for Session Manager<a name="ssh-connections-enable"></a>
 
-Use the following steps to enable SSH connections through Session Manager on a managed node\. 
+Use the following steps to allow SSH connections through Session Manager on a managed node\. 
 
-**To enable SSH connections for Session Manager**
+**To allow SSH connections for Session Manager**
 
 1. On the managed node to which you want to allow SSH connections, do the following:
    + Ensure that SSH is running on the managed node\. \(You can close inbound ports on the node\.\)
@@ -50,7 +50,7 @@ The SSH configuration file is typically located at `~/.ssh/config`\.
 
       **Windows** 
 **Tip**  
-The SSH configuration file is typically located at `C:\Users\username\.ssh\config`\.
+The SSH configuration file is typically located at `C:\Users\<username>\.ssh\config`\.
 
      Add the following to the configuration file on the local machine\.
 
@@ -62,7 +62,7 @@ The SSH configuration file is typically located at `C:\Users\username\.ssh\confi
    + Create or verify that you have a Privacy Enhanced Mail certificate \(a PEM file\), or at minimum a public key, to use when establishing connections to managed nodes\. This must be a key that is already associated with the managed node\. The permissions of your private key file must be set so that only you can read it\. You can use the following command to set the permissions of your private key file so that only you can read it\.
 
      ```
-     chmod 400 my-key-pair.pem
+     chmod 400 <my-key-pair>.pem
      ```
 
      For example, for an Amazon Elastic Compute Cloud \(Amazon EC2\) instance, the key pair file you created or selected when you created the instance\. \(You specify the path to the certificate or key as part of the command to start a session\. For information about starting a session using SSH, see [Starting a session \(SSH\)](session-manager-working-with-sessions-start.md#sessions-start-ssh)\.\)
@@ -77,7 +77,7 @@ After you enable SSH connections through Session Manager on a managed node, you 
 
     In the navigation pane, choose **Policies**, and then update the permissions policy for the user or role you want to allow to start SSH connections through Session Manager\. 
 
-    For example, add the following element to the Quickstart policy you created in [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\.\.
+    For example, add the following element to the Quickstart policy you created in [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\. Replace each *example resource placeholder* with your own information\. 
 
     ```
     {
@@ -87,7 +87,7 @@ After you enable SSH connections through Session Manager on a managed node, you 
                 "Effect": "Allow",
                 "Action": "ssm:StartSession",
                 "Resource": [
-                    "arn:aws:ec2:region:987654321098:instance/i-02573cafcfEXAMPLE",
+                    "arn:aws:ec2:region:account-id:instance/instance-id",
                     "arn:aws:ssm:*:*:document/AWS-StartSSHSession"
                 ]
             }

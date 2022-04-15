@@ -79,7 +79,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 **¹** SSM Agent no longer officially supports these versions and no longer updates the agent for these versions of RHEL\. SSM Agent version 3\.0\.1390\.0 and earlier is supported for RHEL 6\.
 
 
-**Rocky**  
+**Rocky Linux**  
 
 | Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
 | --- | --- | --- | --- | 

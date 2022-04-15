@@ -2,11 +2,11 @@
 
 This topic explains the difference between a *service role* and a *service\-linked role* for AWS Systems Manager\. It also explains when you need to create or use either type of role\.
 
-**Service role**: A service role is an AWS Identity and Access Management \(IAM\) that grants permissions to an AWS service so that the service can access AWS resources\. Only a few Systems Manager scenarios require a service role\. When you create a service role for Systems Manager, you choose the permissions to grant in order for it to access or interact with other AWS resources\.
+**Service role** –– A service role is an AWS Identity and Access Management \(IAM\) that grants permissions to an AWS service so that the service can access AWS resources\. Only a few Systems Manager scenarios require a service role\. When you create a service role for Systems Manager, you choose the permissions to grant so that it can access or interact with other AWS resources\.
 
-**Service\-linked role**: A service\-linked role is predefined by Systems Manager and includes all the permissions that the service requires to call other AWS services on your behalf\.
+**Service\-linked role** – A service\-linked role is predefined by Systems Manager and includes all the permissions that the service requires to call other AWS services on your behalf\.
 
-The Systems Manager service\-linked role can be used for the following:
+You can use the Systems Manager service\-linked role for the following:
 + The Systems Manager Inventory capability uses the service\-linked role to collect inventory metadata from tags and resource groups\.
 + The Maintenance Windows capability can use the service\-linked role in some situations\. Other situations require a custom service role that you create, as described later in this topic\.
 + The Explorer capability uses the service\-linked role to enable viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you enable Security Hub as a data source from Explorer or OpsCenter\.
@@ -41,7 +41,7 @@ For more information, see the following topics in the Maintenance Windows sectio
 +  [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role) 
 +  [\(Optional\) Create a custom service role for Maintenance Windows \(console\)](sysman-maintenance-perm-console.md#sysman-maintenance-role)\.
 
-### Service role for Amazon Simple Notification Service notifications<a name="setup-service-role-create-sns"></a>
+### Service role for Amazon SNS notifications<a name="setup-service-role-create-sns"></a>
 
 Amazon Simple Notification Service \(Amazon SNS\) is a web service that coordinates and manages the delivery or sending of messages to subscribing endpoints or clients\. In Systems Manager, you can configure Amazon SNS to send notifications about the status of commands that you send using the Run Command capability, or the status of tasks run in maintenance windows\.
 
@@ -51,7 +51,7 @@ For more information, see [Monitoring Systems Manager status changes using Amazo
 
 ### Service role for a Systems Manager hybrid environment<a name="setup-service-role-hybrid-environment"></a>
 
-If you plan to use Systems Manager to manage on\-premises servers and virtual machines \(VMs\) in what is called a *hybrid environment*, create an IAM role for those resources to communicate with the Systems Manager service\.
+If you plan to use Systems Manager to manage on\-premises servers and virtual machines \(VMs\) in a *hybrid environment*, create an AWS Identity and Access Management \(IAM role for those resources to communicate with the Systems Manager service\.
 
 For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. 
 

@@ -200,14 +200,13 @@ If the installation was successful, the following message is returned\.
 The Session Manager plugin is installed successfully. Use the AWS CLI to start a session.
 ```
 
-You can also test the installation by running the following command in the AWS CLI\.
+You can also test the installation by running the following command in the AWS CLI\. In the following command, replace *instance\-id* with your own information\.
 
-**Note**  
+```
+aws ssm start-session --target instance-id
+```
+
 This command will work only if your Session Manager administrator has granted you the necessary IAM permissions to access the target managed node using Session Manager\.
-
-```
-aws ssm start-session --target id-of-an-instance-you-have-permissions-to-access
-```
 
 ## Session Manager plugin on GitHub<a name="plugin-github"></a>
 

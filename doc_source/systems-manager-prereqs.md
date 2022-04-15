@@ -23,7 +23,7 @@ This topic provides an overview of these prerequisites\.
 
 1. \(Recommended\) Create a VPC endpoint in Amazon Virtual Private Cloud \(Amazon VPC\) to use with Systems Manager\. 
 
-   If you don't use a VPC endpoint, configure your managed instances to allow `HTTPS` \(port 443\) outbound traffic to the Systems Manager endpoints\. For information, see [\(Optional\) Create a Virtual Private Cloud endpoint](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.html)\.
+   If you don't use a VPC endpoint, configure your managed instances to allow `HTTPS` \(port 443\) outbound traffic to the Systems Manager endpoints\. For information, see [\(Optional\) Create a VPC endpoint](https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-create-vpc.html)\.
 
 1. For on\-premises servers, edge devices, VMs, and Amazon EC2 instances created from Amazon Machine Images \(AMIs\) that aren't supplied by AWS, ensure that a Transport Layer Security \(TLS\) certificate is installed\.
 

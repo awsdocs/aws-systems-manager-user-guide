@@ -20,7 +20,7 @@ Use the following procedure to create a custom IAM role with a policy that provi
 
 1. Choose the **JSON** tab\.
 
-1. Replace the default content with the following:
+1. Replace the default content with the following policy\. Replace *key\-name* with the Amazon Resource Name \(ARN\) of the KMS key you want to use\.
 
    ```
    {
@@ -55,11 +55,7 @@ Use the following procedure to create a custom IAM role with a policy that provi
    }
    ```
 
-**About 'ssmmessages'**  
-For information about `ssmmessages`, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md)\.
-
-**About 'kms:Decrypt'**  
-In this policy, the `kms:Decrypt` permission turns on customer key encryption and decryption for session data\. If you will use AWS Key Management Service \(AWS KMS\) encryption for your session data, replace *key\-name* with the Amazon Resource Name \(ARN\) of the KMS key you want to use, in the format `arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE`\. 
+   For information about using a KMS key to encrypt session data, see [Turn on KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
 
    If you won't use AWS KMS encryption for your session data, you can remove the following content from the policy\.
 
@@ -74,9 +70,11 @@ In this policy, the `kms:Decrypt` permission turns on customer key encryption an
            }
    ```
 
-   For information about using a KMS key to encrypt session data, see [Turn on KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+1. Choose **Next: Tags**\.
 
-1. Choose **Review policy**\.
+1. \(Optional\) Add tags by choosing **Add tag**, and entering the preferred tags for the policy\.
+
+1. Choose **Next: Review**\.
 
 1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **SessionManagerPermissions**\.
 
@@ -86,23 +84,30 @@ In this policy, the `kms:Decrypt` permission turns on customer key encryption an
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. On the **Create role** page, choose **AWS service**, and from the **Choose the service that will use this role** list, choose **EC2**\.
+1. On the **Create role** page, choose **AWS service**, and for **Use case**, choose **EC2**\.
 
-1. Choose **Next: Permissions**\.
+1. Choose **Next**\.
 
-1. On the **Attached permissions policy** page, select the check box to the left of name of the policy you just created, such as **SessionManagerPermissions**\.
+1. On the **Add permissions** page, select the check box to the left of name of the policy you just created, such as **SessionManagerPermissions**\.
 
-1. Choose **Next: Review**\.
+1. Choose **Next**\.
 
-1. On the **Review** page, for **Role name**, enter a name for the IAM role, such as **MySessionManagerRole**\.
+1. On the **Name, review, and create** page, for **Role name**, enter a name for the IAM role, such as **MySessionManagerRole**\.
 
 1. \(Optional\) For **Role description**, enter a description for the instance profile\. 
 
-1. Choose **Create role**\.
+1. \(Optional\) Add tags by choosing **Add tag**, and entering the preferred tags for the role\.
+
+   Choose **Create role**\.
+
+For information about `ssmmessages` actions, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md)\.
 
 ## Creating an IAM role with permissions for Session Manager and Amazon S3 and CloudWatch Logs \(console\)<a name="create-iam-instance-profile-ssn-logging"></a>
 
 Use the following procedure to create a custom IAM role with a policy that provides permissions for Session Manager actions on your instances\. The policy also provides the permissions needed for session logs to be stored in Amazon Simple Storage Service \(Amazon S3\) buckets and Amazon CloudWatch Logs log groups\.
+
+**Important**  
+To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the IAM `s3:PutObjectAcl` permission to the policy\. If this permission isn't added, the account that owns the Amazon S3 bucket can't access the session output logs\.
 
 For information about specifying preferences for storing session logs, see [Logging session activity](session-manager-logging.md)\.
 
@@ -114,7 +119,7 @@ For information about specifying preferences for storing session logs, see [Logg
 
 1. Choose the **JSON** tab\.
 
-1. Replace the default content with the following\. Be sure to replace *DOC\-EXAMPLE\-BUCKET* and *s3\-bucket\-prefix* with the names for your bucket and its prefix \(if any\)\. For information about `ssmmessages` in the following policy, see [Reference: ec2messages, ssmmessages, and other API operations](systems-manager-setting-up-messageAPIs.md)\.
+1. Replace the default content with the following policy\. Replace each *example resource placeholder* with your own information\.
 
    ```
    {
@@ -170,10 +175,12 @@ For information about specifying preferences for storing session logs, see [Logg
        ]
    }
    ```
-**Important**  
-To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the IAM `s3:PutObjectAcl` permission to this policy\. If this permission isn't added, the account that owns the Amazon S3 bucket can't access the session output logs\.
 
-1. Choose **Review policy**\.
+1. Choose **Next: Tags**\.
+
+1. \(Optional\) Add tags by choosing **Add tag**, and entering the preferred tags for the policy\.
+
+1. Choose **Next: Review**\.
 
 1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **SessionManagerPermissions**\.
 
@@ -183,16 +190,18 @@ To output session logs to an Amazon S3 bucket owned by a different AWS account, 
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. On the **Create role** page, choose **AWS service**, and from the **Choose the service that will use this role** list, choose **EC2**\.
+1. On the **Create role** page, choose **AWS service**, and for **Use case**, choose **EC2**\.
 
-1. Choose **Next: Permissions**\.
+1. Choose **Next**\.
 
-1. On the **Attached permissions policy** page, select the check box to the left of name of the policy you just created, such as **SessionManagerPermissions**\.
+1. On the **Add permissions** page, select the check box to the left of name of the policy you just created, such as **SessionManagerPermissions**\.
 
-1. Choose **Next: Review**\.
+1. Choose **Next**\.
 
-1. On the **Review** page, for **Role name**, enter a name for the IAM role, such as **MySessionManagerRole**\.
+1. On the **Name, review, and create** page, for **Role name**, enter a name for the IAM role, such as **MySessionManagerRole**\.
 
-1. \(Optional\) For **Role description**, enter a description for the instance profile\. 
+1. \(Optional\) For **Role description**, enter a description for the role\. 
+
+1. \(Optional\) Add tags by choosing **Add tag**, and entering the preferred tags for the role\.
 
 1. Choose **Create role**\.

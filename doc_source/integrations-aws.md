@@ -70,7 +70,7 @@ Systems Manager is integrated with the following AWS services\.
 
 |  |  | 
 | --- |--- |
-| AWS PrivateLink |  [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html) allows you to privately connect your virtual private cloud \(VPC\) to supported AWS services and VPC endpoint services without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection\. Systems Manager supports managed nodes connecting to Systems Manager APIs using AWS PrivateLink\. This improves the security posture of your managed nodes because AWS PrivateLink restricts all network traffic between your managed nodes, Systems Manager, and Amazon EC2 to the Amazon network\. This means that managed nodes aren't required to have access to the internet\.  Learn more [\(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)    | 
+| AWS PrivateLink |  [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html) allows you to privately connect your virtual private cloud \(VPC\) to supported AWS services and VPC endpoint services without requiring an internet gateway, NAT device, VPN connection, or AWS Direct Connect connection\. Systems Manager supports managed nodes connecting to Systems Manager APIs using AWS PrivateLink\. This improves the security posture of your managed nodes because AWS PrivateLink restricts all network traffic between your managed nodes, Systems Manager, and Amazon EC2 to the Amazon network\. This means that managed nodes aren't required to have access to the internet\.  Learn more [\(Optional\) Create a VPC endpoint](setup-create-vpc.md)    | 
 
 ## Analytics<a name="integrations-aws-analytics"></a>
 

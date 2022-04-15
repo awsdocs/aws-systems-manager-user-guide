@@ -14,8 +14,10 @@ CVE details are included for supported versions of the following operating syste
 + Amazon Linux
 + Amazon Linux 2
 + CentOS Stream
++ CentOS Stream
 + Oracle Linux
 + Red Hat Enterprise Linux \(RHEL\)
++ Rocky Linux
 + SUSE Linux Enterprise Server \(SLES\)
 
 **Note**  

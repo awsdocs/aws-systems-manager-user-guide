@@ -10,7 +10,7 @@ For Linux\-based operating system types that report a severity level for patches
 + [How patch baseline rules work on Debian Server and Raspberry Pi OS](#patch-manager-how-it-works-linux-rules-debian)
 + [How patch baseline rules work on macOS](#patch-manager-how-it-works-linux-rules-macos)
 + [How patch baseline rules work on Oracle Linux](#patch-manager-how-it-works-linux-rules-oracle)
-+ [How patch baseline rules work on RHEL and CentOS Stream](#patch-manager-how-it-works-linux-rules-rhel)
++ [How patch baseline rules work on RHEL, CentOS Stream, and Rocky Linux](#patch-manager-how-it-works-linux-rules-rhel)
 + [How patch baseline rules work on SUSE Linux Enterprise Server](#patch-manager-how-it-works-linux-rules-sles)
 + [How patch baseline rules work on Ubuntu Server](#patch-manager-how-it-works-linux-rules-ubuntu)
 
@@ -140,11 +140,11 @@ For information about accepted formats for lists of approved patches and rejecte
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
 
-## How patch baseline rules work on RHEL and CentOS Stream<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
+## How patch baseline rules work on RHEL, CentOS Stream, and Rocky Linux<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
 
-On Red Hat Enterprise Linux \(RHEL\) and CentOS Stream, the patch selection process is as follows:
+On Red Hat Enterprise Linux \(RHEL\), CentOS Stream, and Rocky Linux, the patch selection process is as follows:
 
-1. On the managed node, the YUM library \(RHEL 7\) or the DNF library \(RHEL 8 and CentOS Stream\) accesses the `updateinfo.xml` file for each configured repo\.
+1. On the managed node, the YUM library \(RHEL 7\) or the DNF library \(RHEL 8, CentOS Stream, and Rocky Linux\) accesses the `updateinfo.xml` file for each configured repo\.
 **Note**  
 The `updateinfo.xml` file might not be available if the repo isn't one managed by Red Hat\. If there is no `updateinfo.xml` found, no patch will be applied\.
 

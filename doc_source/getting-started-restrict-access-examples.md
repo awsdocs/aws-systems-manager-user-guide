@@ -55,7 +55,7 @@ You can restrict access to managed nodes based on specific tags\. In the followi
                 "ssm:StartSession"
             ],
             "Resource": [
-                "arn:aws:ec2:region:987654321098:instance/*"
+                "arn:aws:ec2:us-east-2:123456789012:instance/*"
             ],
             "Condition": {
                 "StringLike": {
@@ -250,7 +250,7 @@ You can also create IAM policies that allow a user to end sessions that are tagg
          "Condition":{
             "StringLike":{
                "ssm:resourceTag/aws:ssmmessages:target-id":[
-                  "instance-id"
+                  "i-02573cafcfEXAMPLE"
                ],
                "ssm:resourceTag/aws:ssmmessages:session-id":[
                   "${aws:username}-*"

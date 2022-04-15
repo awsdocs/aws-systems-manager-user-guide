@@ -22,8 +22,11 @@ Options you can specify for **Patch now** include choosing when, or whether, to 
 
 For **Patch now** operations, concurrency and error threshold options are handled by Patch Manager\. You don't need to specify how many managed nodes to patch at once, nor how many errors are permitted before the operation fails\. Patch Manager applies the concurrency and error threshold settings described in the following tables when you patch on demand\.
 
+**Important**  
+The following thresholds apply to `Scan and install` operations only\. For `Scan` operations, Patch Manager attempts to scan up to 1,000 nodes concurrently, and continue scanning until it has encountered up to 1,000 errors\.
 
-**Concurrency**  
+
+**Concurrency: Install operations**  
 
 | Total number of managed nodes in the **Patch now** operation | Number of managed nodes scanned or patched at a time | 
 | --- | --- | 
@@ -33,7 +36,7 @@ For **Patch now** operations, concurrency and error threshold options are handle
 | More than 1,000 | 10% | 
 
 
-**Error threshold**  
+**Error threshold: Install operations**  
 
 | Total number of managed nodes in the **Patch now** operation | Number of errors permitted before the operation fails | 
 | --- | --- | 

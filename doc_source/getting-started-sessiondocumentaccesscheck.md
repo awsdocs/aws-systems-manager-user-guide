@@ -1,6 +1,6 @@
 # Enforce a session document permission check for the AWS CLI<a name="getting-started-sessiondocumentaccesscheck"></a>
 
-When you configure Session Manager for your account, the system creates a `Session`\-type SSM document `SSM-SessionManagerRunShell`\. This SSM document stores your session preferences, such as whether session data is saved in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group, whether session data is encrypted using AWS Key Management Service \(AWS KMS\), and whether Run As support is allowed for your sessions\. The following is an example\.
+When you configure Session Manager for your account, the system creates a Session type document `SSM-SessionManagerRunShell`\. This document stores your session preferences, such as whether session data is saved in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group, whether session data is encrypted using AWS Key Management Service \(AWS KMS\), and whether Run As support is allowed for your sessions\. The following is an example\.
 
 ```
 {
@@ -8,14 +8,14 @@ When you configure Session Manager for your account, the system creates a `Sessi
   "description": "Document to hold regional settings for Session Manager",
   "sessionType": "Standard_Stream",
   "inputs": {
-    "s3BucketName": "DOC-EXAMPLE-BUCKET",
-    "s3KeyPrefix": "MyBucketPrefix",
+    "s3BucketName": "doc-example-bucket",
+    "s3KeyPrefix": "BucketPrefix",
     "s3EncryptionEnabled": true,
-    "cloudWatchLogGroupName": "MyLogGroupName",
+    "cloudWatchLogGroupName": "LogGroupName",
     "cloudWatchEncryptionEnabled": true,
-    "kmsKeyId": "MyKMSKeyID",
+    "kmsKeyId": "kms-key",
     "runAsEnabled": true,
-    "runAsDefaultUser": "MyDefaultRunAsUser"
+    "runAsDefaultUser": "RunAsUser"
   }
 }
 ```
@@ -47,7 +47,7 @@ To restrict access to the default or any Session document, you can add a conditi
 }
 ```
 
-With this condition element set to `true`, explicit access to a Session document must be granted in the IAM policy for the user to start a session\. The following is an example\.
+With this condition element set to `true`, explicit access to a Session document must be granted in the IAM policy for the user to start a session\. To ensure the condition element is enforced, it must be included in all policy statements which allow the `ssm:StartSession` action\. The following is an example\.
 
 ```
 {
@@ -56,8 +56,8 @@ With this condition element set to `true`, explicit access to a Session document
         "ssm:StartSession"
     ],
     "Resource": [
-        "arn:aws:ec2:region:account-id:instance/instance-id",
-        "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell"
+        "arn:aws:ec2:us-west-2:123456789012:instance/i-02573cafcfEXAMPLE",
+        "arn:aws:ssm:us-west-2:123456789012:document/SSM-SessionManagerRunShell"
     ] 
 }
 ```
@@ -67,9 +67,6 @@ If the `SessionDocumentAccessCheck` condition element is set to `false`, it will
 If the `SessionDocumentAccessCheck` condition element is set to `false`, and a document name is not specified in the `Resource`, you do not need to provide a document name when you start a session\. By default, the `SSM-SessionManagerRunShell` document is used in the request\.
 
 For an example of specifying a Session Manager Session document in an IAM policy, see [Quickstart end user policies for Session Manager](getting-started-restrict-access-quickstart.md#restrict-access-quickstart-end-user)\.
-
-**Note**  
-To ensure the condition element is enforced, it must be included in all policy statements which allow the `ssm:StartSession` action\.
 
 **Other scenarios**  
 Using the default `SSM-SessionManagerRunShell` session document is the only case when a document name can be omitted from the `[start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)` CLI command\. In other cases, the user must specify a value for the `--document-name` option of the `[start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html)` AWS CLI command\. The system checks whether the user has explicit access to the Session document they specify\.

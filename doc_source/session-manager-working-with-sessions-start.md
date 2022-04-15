@@ -66,18 +66,16 @@ Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't
 
 For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-To start a session using the AWS CLI, run the following command\.
+Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 
-**Note**  
-Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+
+To start a session using the AWS CLI, run the following command replacing *instance\-id* with your own information\.
 
 ```
 aws ssm start-session \
     --target instance-id
 ```
-
- *instance\-id* represents the ID of a managed node configured for Session Manager , such as `i-02573cafcfEXAMPLE`\.
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 
@@ -94,21 +92,17 @@ Take note of the following requirements and limitations for session connections 
 **Note**  
 Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 
-To start a session using SSH, run the following command\.
+To start a session using SSH, run the following command\. Replace each *example resource placeholder* with your own information\.
 
 ```
 ssh -i /path/my-key-pair.pem username@instance-id
 ```
 
- */path/my\-key\-pair\.pem* represents the path to the PEM certificate that is associated with the managed node\. For example, for an EC2 instance, the key pair file you created or selected when you created the instance\.
-
- *username@instance\-id* represents the default user name for your managed node type, and the node ID, such as `ec2-user@i-02573cafcfEXAMPLE`\.
-
 **Tip**  
 When you start a session using SSH, you can copy local files to the target managed node using the following command format\.  
 
 ```
-scp -i /path/my-key-pair.pem /path/SampleFile.txt username@instance-id:~
+scp -i /path/my-key-pair.pem /path/ExampleFile.txt username@instance-id:~
 ```
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
@@ -122,7 +116,7 @@ Before you start a session, make sure that you have completed the setup steps fo
 To use the AWS CLI to run session commands, you must install the Session Manager plugin on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.  
 Depending on your operating system and command line tool, the placement of quotation marks can differ and escape characters might be required\.
 
-To start a port forwarding session, run the following command from the CLI\.
+To start a port forwarding session, run the following command from the CLI\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -146,11 +140,9 @@ aws ssm start-session ^
 
 ------
 
- *instance\-id* represents the ID of a managed node configured for Session Manager , such as `i-02573cafcfEXAMPLE`\.
+The value you specify for `portNumber` represents the remote port on the managed node where traffic should be redirected to, such as `3389` for connecting to a Windows node using the Remote Desktop Protocol \(RDP\)\. If this parameter isn't specified, Session Manager assumes `80` as the default remote port\. 
 
-*portNumber* represents the remote port on the managed node where traffic should be redirected to, such as `3389` for connecting to a Windows node using the Remote Desktop Protocol \(RDP\)\. If this parameter isn't specified, Session Manager assumes `80` as the default remote port\. 
-
-*localPortNumber* represents the local port on the client where traffic should be redirected to, such as `56789`\. This value is what you enter when connecting to a managed node using a client\. For example, **localhost:56789**\.
+The value you specify for `localPortNumber` represents the local port on the client where traffic should be redirected to, such as `56789`\. This value is what you enter when connecting to a managed node using a client\. For example, **localhost:56789**\.
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 
@@ -158,11 +150,11 @@ For more information about port forwarding sessions, see [Port Forwarding Using 
 
 ## Starting a session \(interactive and noninteractive commands\)<a name="sessions-start-interactive-commands"></a>
 
-To start an interactive command session, run the following command\.
+Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 
-**Note**  
-Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.  
 To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+
+To start an interactive command session, run the following command\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -185,8 +177,6 @@ aws ssm start-session ^
 ```
 
 ------
-
- *instance\-id* represents the ID of a managed node configured for Session Manager , such as `i-02573cafcfEXAMPLE`\.
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 

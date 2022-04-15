@@ -20,13 +20,13 @@ Use the following procedure to create a service role for hybrid activation\. Ple
 
    1. **Choose the service that will use this role** area: **Systems Manager**
 
-1. Choose **Next: Permissions**\. 
+1. Choose **Next**\. 
 
-1. In the list of policies, select the box next to **AmazonSSMManagedInstanceCore**, and then choose **Next: Tags**\.
-
-1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
+1. In the list of policies, select the box next to **AmazonSSMManagedInstanceCore**, and then choose **Next**\.
 
 1. In **Role name**, enter a name that identifies this role as a hybrid activation service role\. For example: **my\-hybrid\-service\-role**\.
+
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
 
 1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: **Provides permissions for on\-premises machines**\.
 

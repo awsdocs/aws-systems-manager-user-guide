@@ -1,6 +1,6 @@
 # Step 5: Attach an IAM instance profile to an Amazon EC2 instance<a name="setup-launch-managed-instance"></a>
 
-The procedures in this topic describe how to attach the AWS Identity and Access Management \(IAM\) instance profile for AWS Systems Manager that you created in the previous topic, [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md), to Amazon EC2 instances\. You can attach the instance profile to new Amazon EC2 instances when you launch them, or to existing Amazon EC2 instances\. 
+This topic describes how to attach the AWS Identity and Access Management \(IAM\) instance profile for AWS Systems Manager that you created in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md) to Amazon EC2 instances\. You can attach the instance profile to new Amazon EC2 instances when you launch them, or to existing Amazon EC2 instances\. 
 
 **SSM Agent requirements for instances**  
 AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed and configured on an EC2 instance, an on\-premises server, or a virtual machine \(VM\)\. SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources\.
@@ -34,7 +34,7 @@ A Transport Layer Security \(TLS\) certificate must be installed on each managed
 
 1. On the navigation bar at the top of the screen, select the AWS Region for the instance\.
 
-1. Choose **Launch Instance**\.
+1. Choose **Launch instance, Launch instance**\.
 
 1. On the **Choose an Amazon Machine Image \(AMI\)** page, locate the AMI for the instance type you want to create, and then choose **Select**\.
 
@@ -62,10 +62,10 @@ If you create other instances that you want to configure using Systems Manager, 
 
 1. For **IAM role**, select the instance profile you created using the procedure in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
-1. Choose **Apply**\.
+1. Choose **Save**\.
 
 For more information about attaching IAM roles to instances, choose one of the following, depending on your selected operating system type:
 + [Attach an IAM role to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Linux Instances*
 + [Attach an IAM role to an instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Windows Instances*
 
-Continue to [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\.
+Continue to [Step 6: \(Optional\) Create a VPC endpoint](setup-create-vpc.md)\.

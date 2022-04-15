@@ -22,16 +22,11 @@ You can use the AWS Systems Manager console to end a session in your account\.
 
 ## Ending a session \(AWS CLI\)<a name="stop-cli"></a>
 
-To end a session using the AWS CLI, run the following command\.
-
-**Note**  
-To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+To end a session using the AWS CLI, run the following command\. Replace *session\-id* with your own information\.
 
 ```
 aws ssm terminate-session \
     --session-id session-id
 ```
-
-*session\-id* represents the ID of an active Session Manager session that you want to end permanently\.
 
 For more information about the terminate\-session command, see [terminate\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/terminate-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.

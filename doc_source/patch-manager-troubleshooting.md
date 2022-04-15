@@ -304,7 +304,7 @@ PatchWindows\_script.ps1 : An error occurred when executing PatchBaselineOperati
 failed to run commands: exit status 4294967295
 ```
 
-**Solution**: Check the managed node connectivity and permissions to Amazon Simple Storage Service \(Amazon S3\)\. The managed node's AWS Identity and Access Management \(IAM\) role must use the minimum permissions cited in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)\. The node must communicate with the Amazon S3 endpoint through the Amazon S3 gateway endpoint, NAT gateway, or internet gateway\. For more information about the VPC Endpoint requirements for AWS Systems Manager SSM Agent \(SSM Agent\), see [Step 6: \(Optional\) Create a Virtual Private Cloud endpoint](setup-create-vpc.md)\. 
+**Solution**: Check the managed node connectivity and permissions to Amazon Simple Storage Service \(Amazon S3\)\. The managed node's AWS Identity and Access Management \(IAM\) role must use the minimum permissions cited in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)\. The node must communicate with the Amazon S3 endpoint through the Amazon S3 gateway endpoint, NAT gateway, or internet gateway\. For more information about the VPC Endpoint requirements for AWS Systems Manager SSM Agent \(SSM Agent\), see [Step 6: \(Optional\) Create a VPC endpoint](setup-create-vpc.md)\. 
 
 ### Issue: missing patches<a name="patch-manager-troubleshooting-missing-patches"></a>
 

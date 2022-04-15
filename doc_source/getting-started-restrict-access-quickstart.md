@@ -17,8 +17,7 @@ You can create a policy that allows users to start sessions from only the Sessio
 
 These policies provide end users the ability to start a session to a particular managed node and the ability to end only their own sessions\. Refer to [Additional sample IAM policies for Session Manager](getting-started-restrict-access-examples.md) for examples of customizations you might want to make to the policy\.
 
-**Note**  
-In all the following sample policies, replace *instance\-id* with the ID of the managed node you want to grant access to, in the format `i-02573cafcfEXAMPLE`\. Replace *region* and *account\-id* with your AWS Region and AWS account ID, such as `us-east-2` and `111122223333`\. 
+In the following sample policies, replace each *example resource placeholder* with your own information\. 
 
 Choose from the following tabs to view the sample policy for the range of session access you want to provide\.
 
@@ -37,7 +36,7 @@ Use this sample policy to give users the ability to start and resume sessions fr
                 "ssm:StartSession"
             ],
             "Resource": [
-                "arn:aws:ec2:region:987654321098:instance/i-02573cafcfEXAMPLE",
+                "arn:aws:ec2:region:account-id:instance/instance-id",
                 "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Condition": {
@@ -93,7 +92,7 @@ Use this sample policy to give users the ability to start and resume sessions fr
                 "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
             ],
             "Resource": [
-                "arn:aws:ec2:region:987654321098:instance/i-02573cafcfEXAMPLE"
+                "arn:aws:ec2:region:account-id:instance/instance-id"
             ]
         },
         {
@@ -134,7 +133,7 @@ Use this sample policy to give users the ability to start and resume sessions fr
                 "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
             ],
             "Resource": [
-                "arn:aws:ec2:region:987654321098:instance/i-02573cafcfEXAMPLE",
+                "arn:aws:ec2:region:account-id:instance/instance-id",
                 "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Condition": {
@@ -206,8 +205,7 @@ These policies provide administrators the ability to start a session to managed 
 
 You can create a policy that allows administrators to perform these tasks from only the Session Manager console and AWS CLI, from only the Amazon EC2 console, or from all three\.
 
-**Note**  
-Replace *region* and *account\-id* with your AWS Region and AWS account ID, such as `us-east-2` and `111122223333`\.
+In the following sample policies, replace each *example resource placeholder* with your own information\. 
 
 Choose from the following tabs to view the sample policy for the access scenario you want to support\.
 
@@ -226,7 +224,7 @@ Use this sample policy to give administrators the ability to perform session\-re
                 "ssm:StartSession"
             ],
             "Resource": [
-                "arn:aws:ec2:us-west-2:987654321098:instance/*"
+                "arn:aws:ec2:region:account-id:instance/*"
             ],
             "Condition": {
                 "StringLike": {
@@ -285,7 +283,7 @@ Use this sample policy to give administrators the ability to perform session\-re
                 "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Resource": [
-                "arn:aws:ec2:us-west-2:987654321098:instance/*"
+                "arn:aws:ec2:region:account-id:instance/*"
             ],
             "Condition": {
                 "StringLike": {
@@ -333,7 +331,7 @@ Use this sample policy to give administrators the ability to perform session\-re
                 "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Resource": [
-                "arn:aws:ec2:us-west-2:987654321098:instance/*"
+                "arn:aws:ec2:region:account-id:instance/*"
             ],
             "Condition": {
                 "StringLike": {
