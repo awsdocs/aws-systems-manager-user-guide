@@ -2,7 +2,7 @@
 
 When you create an AWS Systems Manager maintenance window or a State Manager association, you specify a schedule for when the window or the association should run\. State Manager is a capability of AWS Systems Manager\. You can specify a schedule as either a time\-based entry, called a *cron expression*, or a frequency\-based entry, called a *rate expression*\. 
 
-When you create an association or a maintenance window, you can specify a timestamp in Coordinated Universal Time \(UTC\) format so that it runs once at the specified time\. Maintenance windows also support *schedule offsets* for CRON expressions only\. A schedule offset is the number of days to wait after the date and time specified by a CRON expression before running the maintenance window\. For example, the following CRON/Rate expression schedules a maintenance window to run the third Tuesday of every month at 11:30 PM\.
+When you create an association or a maintenance window, you can specify a timestamp in Coordinated Universal Time \(UTC\) format so that it runs once at the specified time\. Associations and maintenance windows also support *schedule offsets* for cron expressions only\. A schedule offset is the number of days to wait after the date and time specified by a cron expression before running the association or maintenance window\. For example, the following cron expression schedules an association or maintenance window to run the third Tuesday of every month at 11:30 PM\.
 
 ```
 cron(30 23 ? * TUE#3 *)
@@ -11,7 +11,7 @@ cron(30 23 ? * TUE#3 *)
 If the schedule offset is `2`, the maintenance window won't run until 11:30 PM two days later\.
 
 **Note**  
-If you create a maintenance window with a cron expression that targets a day that has already passed in the current period, but add a schedule offset date that falls in the future, the maintenance window won't run in the period\. It will go into effect in the following period\. For example, if you specify a cron expression that would have run a maintenance window yesterday and add a schedule offset of two days, the maintenance window won't run tomorrow\. 
+If you create an association or a maintenance window with a cron expression that targets a day that has already passed in the current period, but add a schedule offset date that falls in the future, the association or maintenance window won't run in the period\. It will go into effect in the following period\. For example, if you specify a cron expression that would have run a maintenance window yesterday and add a schedule offset of two days, the maintenance window won't run tomorrow\. 
 
 When you create either an association or maintenance window programmatically or by using a command line tool such as the AWS Command Line Interface \(AWS CLI\), specify a schedule parameter with a valid cron or rate expression \(or timestamp for maintenance windows\) in the correct format\.
 
@@ -170,10 +170,26 @@ If the value is equal to `1`, then the unit must be singular\. Similarly, for va
 
 ## Cron and rate expressions for associations<a name="reference-cron-and-rate-expressions-association"></a>
 
-This section includes examples of cron and rate expressions for State Manager associations\. Before you create one of these expressions, be aware of the following restrictions:
-+ Associations support the following cron expressions: every 1/2, 1, 2, 4, 8, or 12 hours; every day or every week at a specific time\.
+This section includes examples of cron and rate expressions for State Manager associations\. Before you create one of these expressions, be aware of the following information:
++ Associations support the following cron expressions: every 1/2, 1, 2, 4, 8, or 12 hours; every day, every week, every *n*th day, or the last *x* day of the month at a specific time\.
 + Associations support the following rate expressions: intervals of 30 minutes or greater and less than 31 days\.
 + If you specify the optional `Seconds` field, its value can be 0 \(zero\)\. For example: `cron(0 */30 * * * ? *)`
+
+Associations support cron expressions that include a day of the week and the number sign \(\#\) to designate the *n*th day of a month to run an association\. Here is an example that runs a cron schedule on the third Tuesday of every month at 23:30 UTC:
+
+`cron(30 23 ? * TUE#3 *)`
+
+Here is an example that runs on the second Thursday of every month at midnight UTC:
+
+`cron(0 0 ? * THU#2 *)`
+
+Associations also support the \(L\) sign to indicate the last *X* day of the month\. Here is an example that runs a cron schedule on the last Tuesday of every month at midnight UTC:
+
+`cron(0 0 ? * 3L *)`
+
+To further control when an association runs, for example if you want to run an association two days after patch Tuesday, you can specify an offset\. An *offset* defines how many days to wait after the scheduled day to run an association\. For example, if you specified a cron schedule of `cron(0 0 ? * THU#2 *)`, you could specify the number 3 in the **Schedule offset** field to run the association each Sunday after the second Thursday of the month\.
+
+To use offsets, you must either choose the **Apply association only at the next specified Cron interval** option in the console or you must specify the use `ApplyOnlyAtCronInterval` parameter from the command line\. This option tells State Manager not to run an association immediately after you create it\.
 
 **Note**  
 For an association that collects metadata for Inventory, a capability of AWS Systems Manager, we recommend using a rate expression\.
@@ -193,6 +209,7 @@ The following table presents cron examples for associations using the required s
 |  cron\(0 0/12 \* \* ? \*\)  |  Every 12 hours  | 
 |  cron\(15 13 ? \* \* \*\)  |  Every day at 1:15 PM  | 
 |  cron\(15 13 ? \* MON \*\)  |  Every Monday at 1:15 PM  | 
+|  cron\(30 23 ? \* TUE\#3 \*\)  |  The third Tuesday of every month at 11:30 PM  | 
 
 Here are some rate examples for associations\.
 

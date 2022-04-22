@@ -2,10 +2,10 @@
 
 You can create State Manager associations that run Chef recipes by using the `AWS-ApplyChefRecipes` SSM document\. State Manager is a capability of AWS Systems Manager\. You can target Linux\-based Systems Manager managed nodes with the `AWS-ApplyChefRecipes` SSM document\. This document offers the following benefits for running Chef recipes:
 + Supports multiple releases of Chef \(Chef 11 through Chef 14\)\.
-+ Automatically installs the Chef client software on target instances\.
-+ Optionally runs [Systems Manager compliance checks](systems-manager-compliance.md) on target instances, and stores the results of compliance checks in an Amazon Simple Storage Service \(Amazon S3\) bucket\.
++ Automatically installs the Chef client software on target nodes\.
++ Optionally runs [Systems Manager compliance checks](systems-manager-compliance.md) on target nodes, and stores the results of compliance checks in an Amazon Simple Storage Service \(Amazon S3\) bucket\.
 + Runs multiple cookbooks and recipes in a single run of the document\.
-+ Optionally runs recipes in `why-run` mode, to show which recipes change on target instances without making changes\.
++ Optionally runs recipes in `why-run` mode, to show which recipes change on target nodes without making changes\.
 + Optionally applies custom JSON attributes to `chef-client` runs\.
 
 You can use GitHub or Amazon S3 buckets as sources for Chef cookbooks and recipes that you specify in an `AWS-ApplyChefRecipes` document\.
@@ -38,7 +38,7 @@ Verify that you can reach the Chef\.io website, so that any cookbooks you specif
 **Important**  
 Before you create a State Manager association that runs Chef recipes, be aware that the document run installs the Chef client software on your Systems Manager managed nodes, unless you set the value of **Chef client version** to `None`\. This operation uses an installation script from Chef to install Chef components on your behalf\. Before you run an `AWS-ApplyChefRecipes` document, be sure your enterprise can comply with any applicable legal requirements, including license terms applicable to the use of Chef software\. For more information, see the [Chef website](https://www.chef.io/)\.
 
-Systems Manager can deliver compliance reports to an S3 bucket, the Systems Manager console, or make compliance results available in response to Systems Manager API commands\. To run Systems Manager compliance reports, the instance profile attached to Systems Manager managed instances must have permissions to write to the S3 bucket\. The instance profile must have permissions to use the Systems Manager `PutComplianceItem` API\. For more information about Systems Manager compliance, see [AWS Systems Manager Compliance](systems-manager-compliance.md)\.
+Systems Manager can deliver compliance reports to an S3 bucket, the Systems Manager console, or make compliance results available in response to Systems Manager API commands\. To run Systems Manager compliance reports, the instance profile attached to Systems Manager managed nodes must have permissions to write to the S3 bucket\. The instance profile must have permissions to use the Systems Manager `PutComplianceItem` API\. For more information about Systems Manager compliance, see [AWS Systems Manager Compliance](systems-manager-compliance.md)\.
 
 ### Logging the document run<a name="state-manager-chef-logging"></a>
 
@@ -79,7 +79,7 @@ You can also store and download Chef cookbooks in Amazon S3 as either a single `
 ```
 
 **Important**  
-If you specify Amazon S3, the AWS Identity and Access Management \(IAM\) instance profile on your managed instances must be configured with the `AmazonS3ReadOnlyAccess` policy\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+If you specify Amazon S3, the AWS Identity and Access Management \(IAM\) instance profile on your managed nodes must be configured with the `AmazonS3ReadOnlyAccess` policy\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 **Topics**
 + [Prerequisites: Set up your association, repository, and cookbooks](#state-manager-chef-prereqs)
@@ -137,7 +137,7 @@ The following procedure describes how to use the Systems Manager console to crea
    recipe[cookbook_name1::recipe_name],recipe[cookbook_name2::recipe_name]
    ```
 
-1. \(Optional\) In **JSON attributes content**, add any custom JSON that contains attributes you want the Chef client to pass to your target instances\.
+1. \(Optional\) In **JSON attributes content**, add any custom JSON that contains attributes you want the Chef client to pass to your target nodes\.
 
    The **JSON attributes content** parameter is best used for the following purposes:
    + When you want to override a small number of attributes and you don't otherwise need to use custom cookbooks\.
@@ -147,21 +147,21 @@ The following procedure describes how to use the Systems Manager console to crea
 
      For example, if your Chef cookbooks configure a third\-party application that accepts payments, you can use custom JSON to specify the payment endpoint URL\. If the third\-party software manufacturer changes the payment endpoint URL, you can use custom JSON to update the payment endpoint to the new URL\.
 
-1. For **Chef client version**, specify a Chef version\. Valid values are `11`, `12`, `13`, `14`, or `None`\. If you specify `11` through `14`, Systems Manager installs the correct Chef client version on your target instances\. If you specify `None`, Systems Manager doesn't install the Chef client on target instances before running the document's recipes\. The default value is `14`\.
+1. For **Chef client version**, specify a Chef version\. Valid values are `11`, `12`, `13`, `14`, or `None`\. If you specify `11` through `14`, Systems Manager installs the correct Chef client version on your target nodes\. If you specify `None`, Systems Manager doesn't install the Chef client on target nodes before running the document's recipes\. The default value is `14`\.
 
-1. \(Optional\) For **Chef client arguments**, specify additional arguments that are supported for the version of Chef you're using\. To learn more about supported arguments, run `chef-client -h` on an instance that is running the Chef client\.
+1. \(Optional\) For **Chef client arguments**, specify additional arguments that are supported for the version of Chef you're using\. To learn more about supported arguments, run `chef-client -h` on a node that is running the Chef client\.
 
-1. \(Optional\) Turn on **Why\-run** to show changes made to target instances if the recipes are run, without actually changing target instances\.
+1. \(Optional\) Turn on **Why\-run** to show changes made to target nodes if the recipes are run, without actually changing target nodes\.
 
 1. For **Compliance severity**, choose the severity of Systems Manager Compliance results that you want reported\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you specify\. Compliance reports are stored in an S3 bucket that you specify as the value of the **Compliance report bucket** parameter \(step 14\)\. For more information about Compliance, see [Working with Compliance](sysman-compliance-about.md) in this guide\.
 
-   Compliance scans measure drift between configuration that is specified in your Chef recipes and instance resources\. Valid values are `Critical`, `High`, `Medium`, `Low`, `Informational`, `Unspecified`, or `None`\. To skip compliance reporting, choose `None`\.
+   Compliance scans measure drift between configuration that is specified in your Chef recipes and node resources\. Valid values are `Critical`, `High`, `Medium`, `Low`, `Informational`, `Unspecified`, or `None`\. To skip compliance reporting, choose `None`\.
 
 1. For **Compliance type**, specify the compliance type for which you want results reported\. Valid values are `Association` for State Manager associations, or `Custom:`*custom\_type*\. The default value is `Custom:Chef`\.
 
 1. For **Compliance report bucket**, enter the name of an S3 bucket in which to store information about every Chef run performed by this document, including resource configuration and Compliance results\.
 
-1. In **Rate control**, configure options to run State Manager associations across a fleet of managed instances\. For information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+1. In **Rate control**, configure options to run State Manager associations across a fleet of managed nodes\. For information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
    In **Concurrency**, choose an option:
    + Choose **targets** to enter an absolute number of targets that can run the association simultaneously\.
@@ -185,7 +185,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run one of the following commands to create an association that runs Chef cookbooks by targeting instances using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Command \(A\) uses GitHub as the source type\. Command \(B\) uses Amazon S3 as the source type\.
+1. Run one of the following commands to create an association that runs Chef cookbooks by targeting nodes using tags\. Command \(A\) uses GitHub as the source type\. Command \(B\) uses Amazon S3 as the source type\.
 
    **\(A\) GitHub source**
 
@@ -285,7 +285,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 **Note**  
 State Manager associations don't support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-   The system attempts to create the association on the instances and immediately apply the state\.
+   The system attempts to create the association on the nodes and immediately apply the state\.
 
 1. Run the following command to view an updated status of the association you just created\. 
 
@@ -316,4 +316,4 @@ For information about how to view compliance information, see [AWS Systems Manag
 
 ### Association failures affect compliance reporting<a name="state-manager-chef-compliance-reporting"></a>
 
-If the State Manager association fails, no compliance data is reported\. For example, if Systems Manager attempts to download a Chef cookbook from an S3 bucket that the instance doesn't have permission to access, the association fails, and Systems Manager reports no compliance data\.
+If the State Manager association fails, no compliance data is reported\. For example, if Systems Manager attempts to download a Chef cookbook from an S3 bucket that the node doesn't have permission to access, the association fails, and Systems Manager reports no compliance data\.

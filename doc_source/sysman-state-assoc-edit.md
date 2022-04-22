@@ -28,7 +28,7 @@ This procedure requires that you have write access to an existing Amazon S3 buck
 
 1. In the **Name** field, enter a new name\.
 
-1. In the **Specify schedule** section, choose a new option\. For example, choose **CRON schedule builder**, and then choose **Every 1 hour**\.
+1. In the **Specify schedule** section, choose a new option\.
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
@@ -40,7 +40,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
-1. Choose the name of the Amazon S3 bucket you specified for storing command output, and then choose the folder named with the ID of the instance that ran the association\. \(If you chose to store output in a folder in the bucket, open it first\.\)
+1. Choose the name of the Amazon S3 bucket you specified for storing command output, and then choose the folder named with the ID of the node that ran the association\. \(If you chose to store output in a folder in the bucket, open it first\.\)
 
 1. Drill down several levels, through the `awsrunPowerShell` folder, to the `stdout` file\.
 
@@ -71,6 +71,7 @@ When you call `UpdateAssociation`, the system drops all optional parameters from
        --parameters (if any) \
        --targets target_options \
        --schedule "cron_or_rate_expression" \
+       --schedule-offset "number_between_1_and_6" \
        --output-location s3_bucket_to_store_output_details \
        --association-name association_name \
        --max-errors a_number_of_errors_or_a_percentage_of_target_set \
@@ -91,6 +92,7 @@ When you call `UpdateAssociation`, the system drops all optional parameters from
        --parameters (if any) ^
        --targets target_options ^
        --schedule "cron_or_rate_expression" ^
+       --schedule-offset "number_between_1_and_6" ^
        --output-location s3_bucket_to_store_output_details ^
        --association-name association_name ^
        --max-errors a_number_of_errors_or_a_percentage_of_target_set ^
@@ -111,6 +113,7 @@ When you call `UpdateAssociation`, the system drops all optional parameters from
        -Parameters (if any) `
        -Target target_options `
        -ScheduleExpression "cron_or_rate_expression" `
+       -ScheduleOffset "number_between_1_and_6" `
        -OutputLocation s3_bucket_to_store_output_details `
        -AssociationName association_name `
        -MaxError  a_number_of_errors_or_a_percentage_of_target_set

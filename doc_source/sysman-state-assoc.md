@@ -1,28 +1,46 @@
 # Creating associations<a name="sysman-state-assoc"></a>
 
-The following procedures describe how to create a State Manager association by using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), and AWS Tools for PowerShell\. State Manager is a capability of AWS Systems Manager\.
+State Manager, a capability of AWS Systems Manager, helps you keep your AWS resources in a state that you define and reduce configuration drift\. To do this, State Manager uses associations\. An *association* is a configuration that you assign to your AWS resources\. The configuration defines the state that you want to maintain on your resources\. For example, an association can specify that antivirus software must be installed and running on a managed node, or that certain ports must be closed\.
 
-**Important**  
-The following procedures describe how to create an association that uses either a `Command` or a `Policy` document\. For information about creating an association that uses an Automation runbook, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
+An association specifies a schedule for when to apply the configuration and the targets for the association\. For example, an association for antivirus software might run once a day on all managed nodes in an AWS account\. If the software isn't installed on a node, then the association could instruct State Manager to install it\. If the software is installed, but the service isn't running, then the association could instruct State Manager to start the service\.
 
-When you create a State Manager association, by default, the system immediately runs it on the specified instances or targets\. After the initial run, the association runs in intervals according to the schedule that you defined and according to the following rules:
-+ State Manager attempts to run the association on all specified or targeted instances during an interval\.
-+ If an association doesn't run during an interval \(because, for example, a concurrency value limited the number of instances that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
+The following procedures describe how to create an association that uses either a `Command` or a `Policy` document to target managed nodes\. For information about creating an association that uses an Automation runbook to target nodes or other types of AWS resources, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
+
+**Before you begin**  
+When you create an association, you can either specify a schedule for the association or run the association immediately\. If you specify a schedule, you must enter the schedule in the form of either a cron or rate expression\. For more information about cron and rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
+
+An association also specifies which managed nodes, or targets, should receive the association\. State Manager includes several features to help you target your managed nodes and control how the association is deployed to those targets\. For more information about targets and rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+
+## About creating associations<a name="state-manager-about-creating-associations"></a>
+
+When you create an association, by default, the system immediately runs it on the specified resources\. After the initial run, the association runs in intervals according to the schedule that you defined and according to the following rules:
++ State Manager attempts to run the association on all specified or targeted nodes during an interval\.
++ If an association doesn't run during an interval \(because, for example, a concurrency value limited the number of nodes that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
 
-**Applying an association at a cron interval**  
-If you don't want an association to run immediately after you create it, you can choose the **Apply association only at the next specified Cron interval** option in the Systems Manager console\. 
+For associations that run according to a schedule, you can specify standard cron or rate expressions that define when the association runs\. State Manager also supports cron expressions that include a day of the week and the number sign \(\#\) to designate the *n*th day of a month to run an association\. Here is an example that runs a cron schedule on the third Tuesday of every month at 23:30 UTC:
 
-If you chose this option when you created an association and later you edit that association or you make changes to the SSM document on which that association is based \(by using the **Documents** page in the console\), State Manager applies the association at the next specified cron interval\. For example, if you chose the `Latest` version of an SSM document when you created an association and you edit the association by choosing a different document version on the **Documents** page, State Manager applies the association at the next specified cron interval if you previously selected this option\. If this option wasn't selected, State Manager immediately runs the association\.
+`cron(30 23 ? * TUE#3 *)`
 
-The following procedure describes how to use targets and rate controls when creating an association\. For more information about these features, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+Here is an example that runs on the second Thursday of every month at midnight UTC:
 
-**Warning**  
-An AWS Identity and Access Management \(IAM\) user, group, or role with permission to create an association that targets a resource group of Amazon Elastic Compute Cloud \(Amazon EC2\) instances automatically has root\-level control of all instances in the group\. Only trusted administrators should be permitted to create associations\. 
+`cron(0 0 ? * THU#2 *)`
+
+State Manager also supports the \(L\) sign to indicate the last *X* day of the month\. Here is an example that runs a cron schedule on the last Tuesday of every month at midnight UTC:
+
+`cron(0 0 ? * 3L *)`
+
+To further control when an association runs, for example if you want to run an association two days after patch Tuesday, you can specify an offset\. An *offset* defines how many days to wait after the scheduled day to run an association\. For example, if you specified a cron schedule of `cron(0 0 ? * THU#2 *)`, you could specify the number 3 in the **Schedule offset** field to run the association each Sunday after the second Thursday of the month\.
+
+**Note**  
+To use offsets, you must either choose the **Apply association only at the next specified Cron interval** option in the console or you must specify the `ApplyOnlyAtCronInterval` parameter from the command line\. This option tells State Manager not to run an association immediately after you create it\.
 
 ## Create an association \(console\)<a name="sysman-state-assoc-console"></a>
 
 The following procedure describes how to use the Systems Manager console to create a State Manager association\.
+
+**Warning**  
+When you create an association, you can choose an AWS resource group of managed nodes as the target for the association\. If an AWS Identity and Access Management \(IAM\) user, group, or role has permission to create an association that targets a resource group of managed nodes, then that user, group, or role automatically has root\-level control of all nodes in the group\. Permit only trusted administrators to create associations\. 
 
 **To create a State Manager association**
 
@@ -36,7 +54,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. Choose **Create association**\.
 
-1. In the **Name** field, specify a name\. This is optional, but recommended\. A name helps you remember the purpose of the association\. For example, you could specify **Automatically\_update\_AWSPVDrivers\_on\_us\-west\-2\_instances** for an association with that purpose\. Spaces aren't allowed in the name\.
+1. In the **Name** field, specify a name\.
 
 1. In the **Document** list, choose the option next to a document name\. Note the document type\. This procedure applies to `Command` and `Policy` documents\. For information about creating an association that uses an Automation runbook, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
 **Important**  
@@ -48,7 +66,9 @@ State Manager doesn't support running associations that use a new version of a d
 
 1. In the **Specify schedule** section, choose either **On Schedule** or **No schedule**\. If you choose **On Schedule**, use the buttons provided to create a cron or rate schedule for the association\. 
 
-   If you don't want the association to run immediately after you create it, choose **Apply association only at the next specified Cron interval**\. 
+   If you don't want the association to run immediately after you create it, choose **Apply association only at the next specified Cron interval**\.
+
+1. \(Optional\) In the **Schedule offset** field, specify a number between 1 and 6\. 
 
 1. In the **Advanced options** section use **Compliance severity** to choose a severity level for the association and use **Change Calendars** to choose a change calendar for the association\.
 
@@ -56,7 +76,7 @@ State Manager doesn't support running associations that use a new version of a d
 
    The change calendar determines when the association runs\. If the calendar is closed, the association isn't applied\. If the calendar is open, the association runs accordingly\. For more information, see [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md)\.
 
-1. In the **Rate control** section, choose options to control how the association runs on multiple instances\. For more information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+1. In the **Rate control** section, choose options to control how the association runs on multiple nodes\. For more information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
    In the **Concurrency** section, choose an option: 
    + Choose **targets** to enter an absolute number of targets that can run the association simultaneously\.
@@ -98,12 +118,12 @@ If you delete the association you created, the association no longer runs on any
 
 ## Create an association \(command line\)<a name="create-state-manager-association-commandline"></a>
 
-The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or Tools for PowerShell to create a State Manager association\. This section includes several examples that show how to use targets and rate controls\. Targets and rate controls allow you to assign an association to dozens or hundreds of instances while controlling the execution of those associations\. For more information about targets and rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or Tools for PowerShell to create a State Manager association\. This section includes several examples that show how to use targets and rate controls\. Targets and rate controls allow you to assign an association to dozens or hundreds of nodes while controlling the execution of those associations\. For more information about targets and rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
 **Before you begin**  
-The `targets` parameter is an array of search criteria that targets instances using a `Key`,`Value` combination that you specify\. If you plan to create an association on dozens or hundreds of instance by using the `targets` parameter, review the following targeting options before you begin the procedure\.
+The `targets` parameter is an array of search criteria that targets nodes using a `Key`,`Value` combination that you specify\. If you plan to create an association on dozens or hundreds of node by using the `targets` parameter, review the following targeting options before you begin the procedure\.
 
-Target specific instances by specifying IDs
+Target specific nodes by specifying IDs
 
 ```
 --targets Key=InstanceIds,Values=instance-id-1,instance-id-2,instance-id-3
@@ -124,9 +144,9 @@ Target instances by using Amazon EC2 tags
 ```
 
 **Note**  
-When using Amazon EC2 tags, you can only use one tag key\. If you want to target your instances using more than one tag key, use the resource group option\.
+When using tags, you can only use one tag key\. If you want to target your nodes using more than one tag key, use the resource group option\.
 
-Target instances by using AWS Resource Groups
+Target nodes by using AWS Resource Groups
 
 ```
 --targets Key=resource-groups:Name,Values=resource-group-name
@@ -166,6 +186,8 @@ When you create an association, you specify when the schedule runs\. Specify the
        --parameters (if any) \
        --targets target_options \
        --schedule "cron_or_rate_expression" \
+       --apply-only-at-cron-interval required_parameter_for_schedule_offsets \
+       --schedule-offset number_between_1_and_6 \
        --output-location s3_bucket_to_store_output_details \
        --association-name association_name \
        --max-errors a_number_of_errors_or_a_percentage_of_target_set \
@@ -186,6 +208,8 @@ When you create an association, you specify when the schedule runs\. Specify the
        --parameters (if any) ^
        --targets target_options ^
        --schedule "cron_or_rate_expression" ^
+       --apply-only-at-cron-interval required_parameter_for_schedule_offsets ^
+       --schedule-offset number_between_1_and_6 ^
        --output-location s3_bucket_to_store_output_details ^
        --association-name association_name ^
        --max-errors a_number_of_errors_or_a_percentage_of_target_set ^
@@ -206,6 +230,8 @@ When you create an association, you specify when the schedule runs\. Specify the
        -Parameters (if any) `
        -Target target_options `
        -ScheduleExpression "cron_or_rate_expression" `
+       -ApplyOnlyAtCronInterval required_parameter_for_schedule_offsets `
+       -ScheduleOffSet number_between_1_and_6 `
        -OutputLocation s3_bucket_to_store_output_details `
        -AssociationName association_name `
        -MaxError  a_number_of_errors_or_a_percentage_of_target_set
@@ -217,7 +243,7 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
-   The following example creates an association on instances tagged with `"Environment,Linux"`\. The association uses the `AWS-UpdateSSMAgent` document to update the SSM Agent on the targeted instances at 2:00 UTC every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
+   The following example creates an association on nodes tagged with `"Environment,Linux"`\. The association uses the `AWS-UpdateSSMAgent` document to update the SSM Agent on the targeted nodes at 2:00 UTC every Sunday morning\. This association runs simultaneously on 10 nodes maximum at any given time\. Also, this association stops running on more nodes for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\.
 
 ------
 #### [ Linux & macOS ]
@@ -266,7 +292,7 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
-   The following example creates an association that scans instances for missing patch updates by using the `AWS-RunPatchBaseline` document\. This association targets all managed instances in the account in the us\-east\-2 Region\. The association specifies the Operation and RebootOption parameters\.
+   The following example creates an association that scans nodes for missing patch updates by using the `AWS-RunPatchBaseline` document\. This association targets all managed nodes in the account in the us\-east\-2 Region\. The association specifies the Operation and RebootOption parameters\.
 
 ------
 #### [ Linux & macOS ]
@@ -309,7 +335,7 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
-   The following example targets instance IDs by specifying a wildcard value \(\*\)\. This allows Systems Manager to create an association on *all* instances in the current AWS account and AWS Region\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs at the specified Cron schedule\. It doesn't run immediately after the association is created\.
+   The following example targets node IDs by specifying a wildcard value \(\*\)\. This allows Systems Manager to create an association on *all* nodes in the current AWS account and AWS Region\. This association runs simultaneously on 10 nodes maximum at any given time\. Also, this association stops running on more nodes for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association uses a schedule offset, which means it runs two days after the specified cron schedule\. It also includes the `ApplyOnlyAtCronInterval` parameter, which is required to use the schedule offset and which means the association won't run immediately after it is created\.
 
 ------
 #### [ Linux & macOS ]
@@ -320,10 +346,11 @@ When you create an association, you specify when the schedule runs\. Specify the
      --name "AWS-UpdateSSMAgent" \
      --targets "Key=instanceids,Values=*" \
      --compliance-severity "MEDIUM" \
-     --schedule "cron(0 2 ? * SUN *)" \
+     --schedule "cron(0 2 ? * SUN#2 *)" \
+     --apply-only-at-cron-interval \
+     --schedule-offset 2 \
      --max-errors "5" \
      --max-concurrency "10" \
-     --apply-only-at-cron-interval
    ```
 
 ------
@@ -335,7 +362,9 @@ When you create an association, you specify when the schedule runs\. Specify the
      --name "AWS-UpdateSSMAgent" ^
      --targets "Key=instanceids,Values=*" ^
      --compliance-severity "MEDIUM" ^
-     --schedule "cron(0 2 ? * SUN *)" ^
+     --schedule "cron(0 2 ? * SUN#2 *)" ^
+     --apply-only-at-cron-interval ^
+     --schedule-offset 2 ^
      --max-errors "5" ^
      --max-concurrency "10" ^
      --apply-only-at-cron-interval
@@ -352,7 +381,9 @@ When you create an association, you specify when the schedule runs\. Specify the
          "Key"="InstanceIds"
          "Values"="*"
        } `
-     -ScheduleExpression "cron(0 2 ? * SUN *)" `
+     -ScheduleExpression "cron(0 2 ? * SUN#2 *)" `
+     -ApplyOnlyAtCronInterval `
+     -ScheduleOffset 2 `
      -MaxConcurrency 10 `
      -MaxError 5 `
      -ComplianceSeverity MEDIUM `
@@ -361,7 +392,7 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
-   The following example creates an association on instances in Resource Groups\. The group is named "HR\-Department"\. The association uses the `AWS-UpdateSSMAgent` document to update SSM Agent on the targeted instances at 2:00 UTC every Sunday morning\. This association runs simultaneously on 10 instances maximum at any given time\. Also, this association stops running on more instances for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs at the specified Cron schedule\. It doesn't run immediately after the association is created\.
+   The following example creates an association on nodes in Resource Groups\. The group is named "HR\-Department"\. The association uses the `AWS-UpdateSSMAgent` document to update SSM Agent on the targeted nodes at 2:00 UTC every Sunday morning\. This association runs simultaneously on 10 nodes maximum at any given time\. Also, this association stops running on more nodes for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association runs at the specified cron schedule\. It doesn't run immediately after the association is created\.
 
 ------
 #### [ Linux & macOS ]
@@ -413,9 +444,9 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
-   The following example creates an association that runs on instances tagged with a specific instance id\. The association uses the SSM Agent document to update SSM Agent on the targeted instances once when the change calendar is open\. The association checks the calendar state when it runs\. If the calendar is closed at launch time and the association is only run once, it won't run again because the association run window has passed\. If the calendar is open, the association runs accordingly\.
+   The following example creates an association that runs on nodes tagged with a specific node id\. The association uses the SSM Agent document to update SSM Agent on the targeted nodes once when the change calendar is open\. The association checks the calendar state when it runs\. If the calendar is closed at launch time and the association is only run once, it won't run again because the association run window has passed\. If the calendar is open, the association runs accordingly\.
 **Note**  
-If you add new instances to the tags or resource groups that an association acts on when the change calendar is closed, the association is applied to those instances once the change calendar opens\.
+If you add new nodes to the tags or resource groups that an association acts on when the change calendar is closed, the association is applied to those nodes once the change calendar opens\.
 
 ------
 #### [ Linux & macOS ]
@@ -458,9 +489,9 @@ If you add new instances to the tags or resource groups that an association acts
 
 ------
 
-   The following example creates an association that runs on instances tagged with a specific instance id\. The association uses the SSM Agent document to update SSM Agent on the targeted instances on the targeted instances at 2:00 AM every Sunday\. This association runs only at the specified Cron schedule when the change calendar is open\. When the association is created, it checks the calendar state\. If the calendar is closed, the association isn't applied\. When the interval to apply the association starts at 2:00 AM on Sunday, the association checks to see if the calendar is open\. If the calendar is open, the association runs accordingly\.
+   The following example creates an association that runs on nodes tagged with a specific node id\. The association uses the SSM Agent document to update SSM Agent on the targeted nodes on the targeted nodes at 2:00 AM every Sunday\. This association runs only at the specified cron schedule when the change calendar is open\. When the association is created, it checks the calendar state\. If the calendar is closed, the association isn't applied\. When the interval to apply the association starts at 2:00 AM on Sunday, the association checks to see if the calendar is open\. If the calendar is open, the association runs accordingly\.
 **Note**  
-If you add new instances to the tags or resource groups that an association acts on when the change calendar is closed, the association is applied to those instances once the change calendar opens\.
+If you add new nodes to the tags or resource groups that an association acts on when the change calendar is closed, the association is applied to those nodes once the change calendar opens\.
 
 ------
 #### [ Linux & macOS ]

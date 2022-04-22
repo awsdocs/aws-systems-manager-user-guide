@@ -50,7 +50,7 @@ You can also store and download Ansible playbooks in Amazon S3 as either a singl
 ```
 
 **Important**  
-If you specify Amazon S3, then the AWS Identity and Access Management \(IAM\) instance profile on your managed instances must be configured with the `AmazonS3ReadOnlyAccess` policy\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
+If you specify Amazon S3, then the AWS Identity and Access Management \(IAM\) instance profile on your managed nodes must be configured with the `AmazonS3ReadOnlyAccess` policy\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
 **Support for compressed playbook structure**
 
@@ -66,7 +66,7 @@ The `AWS-ApplyAnsiblePlaybooks` document includes a required parameter for speci
 
 ## Installed dependencies<a name="systems-manager-state-manager-ansible-depedencies"></a>
 
-If you specify **True** for the **InstallDependencies** parameter, then Systems Manager verifies that your instances have the following dependencies installed:
+If you specify **True** for the **InstallDependencies** parameter, then Systems Manager verifies that your nodes have the following dependencies installed:
 + **Ubuntu Server/Debian Server**: Apt\-get \(Package Management\), Python 3, Ansible, Unzip
 + **Amazon Linux**: Ansible
 + **RHEL**: Python 3, Ansible, Unzip
@@ -135,7 +135,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. In the **Advanced options** section, for **Compliance severity**, choose a severity level for the association\. Compliance reporting indicates whether the association state is compliant or noncompliant, along with the severity level you indicate here\. For more information, see [About State Manager association compliance](sysman-compliance-about.md#sysman-compliance-about-association)\.
 
-1. In the **Rate control** section, configure options to run State Manager associations across a fleet of managed instances\. For information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+1. In the **Rate control** section, configure options to run State Manager associations across a fleet of managed nodes\. For information about using rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
    In the **Concurrency** section, choose an option: 
    + Choose **targets** to enter an absolute number of targets that can run the association simultaneously\.
@@ -152,7 +152,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 1. Choose **Create Association**\.
 
 **Note**  
-If you use tags to create an association on one or more target instances, and then you remove the tags from an instance, that instance no longer runs the association\. The instance is disassociated from the State Manager document\. 
+If you use tags to create an association on one or more target nodes, and then you remove the tags from a node, that node no longer runs the association\. The node is disassociated from the State Manager document\. 
 
 ## Create an association that runs Ansible playbooks \(CLI\)<a name="systems-manager-state-manager-ansible-cli"></a>
 
@@ -164,7 +164,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run one of the following commands to create an association that runs Ansible playbooks by targeting instances using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Command \(A\) specifies GitHub as the source type\. Command \(B\) specifies Amazon S3 as the source type\.
+1. Run one of the following commands to create an association that runs Ansible playbooks by targeting nodes using tags\. Command \(A\) specifies GitHub as the source type\. Command \(B\) specifies Amazon S3 as the source type\.
 
    **\(A\) GitHub source**
 
@@ -234,7 +234,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 **Note**  
 State Manager associations don't support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
-   The system attempts to create the association on the instances and immediately apply the state\. 
+   The system attempts to create the association on the nodes and immediately apply the state\. 
 
 1. Run the following command to view an updated status of the association you just created\. 
 
