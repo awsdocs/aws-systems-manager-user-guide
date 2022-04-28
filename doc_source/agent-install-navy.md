@@ -15,7 +15,7 @@ If you use a `yum` command to update SSM Agent on a managed node after the agent
 2. Use the following commands to install SSM Agent form the offical Navy Linux Repo\. 
 
   ```
-   sudo yum install amazon-ssm-agent -y
+   sudo dnf install amazon-ssm-agent -y
    
    ```
 
