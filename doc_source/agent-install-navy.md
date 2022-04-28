@@ -29,7 +29,7 @@ If you use a `yum` command to update SSM Agent on a managed node after the agent
 
    ```
    ec2_availability_zone=`curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone`
-   ec2_region="`echo \"$EC2_AVAIL_ZONE\" | sed 's/[a-z]$//'`"
+   ec2_region="`echo \"$ec2_availability_zone\" | sed 's/[a-z]$//'`"
    sudo dnf install -y https://s3.$ec2_region.amazonaws.com/amazon-ssm-$ec2_region/latest/linux_amd64/amazon-ssm-agent.rpm
    ```
    
