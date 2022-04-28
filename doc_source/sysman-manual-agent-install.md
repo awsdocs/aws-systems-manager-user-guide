@@ -7,6 +7,7 @@ Before you manually install AWS Systems Manager Agent \(SSM Agent\) on an Amazon
   + Amazon Linux 2 ECS\-Optimized Base AMIs
   + SUSE Linux Enterprise Server \(SLES\) 12 and 15
   + Ubuntu Server 16\.04, 18\.04, and 20\.04  
+  + Navy Linux Enterprise 
 
   For information about verifying whether the agent is installed on an EC2 instance, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)\.
 + The manual procedures allow you to install SSM Agent from *any* AWS Region
@@ -27,3 +28,4 @@ For a list of supported versions of each of the following operating systems, see
 + [Rocky Linux](agent-install-rocky.md)
 + [SUSE Linux Enterprise Server](agent-install-sles.md)
 + [Ubuntu Server](agent-install-ubuntu.md)
++ [Navy Linux Enterprise](agent-install-navy.md)
