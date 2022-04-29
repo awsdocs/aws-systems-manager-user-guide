@@ -10,7 +10,6 @@ The following sample shows the complete list of metadata collected by each AWS S
       { "name": "AgentType",                              "dataType" : "STRING"},
       { "name": "AgentVersion",                           "dataType" : "STRING"},
       { "name": "ComputerName",                           "dataType" : "STRING"},
-      { "name": "IamRole",                                "dataType" : "STRING"},
       { "name": "InstanceId",                             "dataType" : "STRING"},
       { "name": "IpAddress",                              "dataType" : "STRING"},
       { "name": "PlatformName",                           "dataType" : "STRING"},

@@ -1,6 +1,6 @@
 # Creating runbooks using Document Builder<a name="automation-document-builder"></a>
 
-If the AWS Systems Manager public runbooks don't support all the actions you want to perform on your AWS resources, you can create your own runbooks\. To create a custom runbook, you can manually create a local JavaScript Object Notation \(JSON\) or YAML format file with the appropriate automation actions\. Alternatively, you can use the Document Builder in the Systems Manager console to build a custom runbook\.
+If the AWS Systems Manager public runbooks don't support all the actions you want to perform on your AWS resources, you can create your own runbooks\. To create a custom runbook, you can manually create a local YAML or JSON format file with the appropriate automation actions\. Alternatively, you can use the Document Builder in the Systems Manager console to build a custom runbook\.
 
 Using the Document Builder, you can add automation actions to your custom runbook and provide the required parameters without having to use JSON or YAML syntax\. After you add steps and create the runbook, the system converts the actions you've added into the YAML format that Systems Manager can use to run automation\.
 
