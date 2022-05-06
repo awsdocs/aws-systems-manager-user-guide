@@ -26,8 +26,6 @@ The automation action `aws:executeScript` supports running Python 3\.6, Python 3
 
 Runbooks enforce a limit of five file attachments\. Scripts can either be in the form of a Python script \(\.py\), a PowerShell Core script \(\.ps1\), or attached as contents within a \.zip file\.
 
-Your account is charged for running scripts using Automation\. Automation steps that use the action `aws:executeScript` are considered *special steps*\. There is no step limit for special steps, but your account is charged based on the number of steps and duration of your script execution\. For more information, see the [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/) page\.
-
 The following topics describe how to create runbooks that run scripts\.
 
 **Topics**

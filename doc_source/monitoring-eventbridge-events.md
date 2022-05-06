@@ -16,7 +16,7 @@ Among the many types of Systems Manager events that EventBridge can detect are:
 + A parameter value being updated\.
 
 EventBridge supports events from the following AWS Systems Manager capabilities:
-+ Automation
++ Automation \(Events are emitted on a best effort basis\.\)
 + Change Calendar \(Events are emitted on a best effort basis\.\)
 + Compliance
 + Inventory \(Events are emitted on a best effort basis\.\)

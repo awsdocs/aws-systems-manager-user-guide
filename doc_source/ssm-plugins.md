@@ -875,11 +875,13 @@ Required: Yes
 + getOptions: Extra options to retrieve content from a branch other than master or from a specific commit in the repository\. getOptions can be omitted if you're using the latest commit in the master branch\. If your repository was created after October 1, 2020 the default branch might be named main instead of master\. In this case, you will need to specify values for the getOptions parameter\.
 
   This parameter uses the following format:
-  + branch:*branch\_name*
+  + branch:refs/heads/*branch\_name*
 
     The default is `master`\.
 
-    `branch` parameter is required only if your SSM document is stored in a branch other than `master`\.
+    To specify a non\-default branch use the following format:
+
+    branch:refs/remotes/origin/*branch\_name*
   + commitID:*commitID*
 
     The default is `head`\.

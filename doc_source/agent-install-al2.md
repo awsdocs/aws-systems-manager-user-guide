@@ -15,13 +15,13 @@ Use one of the following commands to download and run the SSM Agent installer\.
 
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-## Intel 64\-bit \(x86\_64\)<a name="aLinux2Intel64"></a>
+## x86\_64<a name="aLinux2Intel64"></a>
 
 ```
 sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
 
-## ARM 64\-bit \(arm64\)<a name="aLinux2Arm"></a>
+## arm64<a name="aLinux2Arm"></a>
 
 ```
 sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_arm64/amazon-ssm-agent.rpm
@@ -29,12 +29,12 @@ sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/lin
 
 **Note**  
 If you're unable to download the agent from the AWS Region you specify, use one of the following global URLs\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
-Intel 64\-bit \(x86\_64\)  
+x86\_64  
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
   ```
-ARM 64\-bit \(arm64\)  
+arm64  
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm

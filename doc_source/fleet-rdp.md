@@ -8,6 +8,7 @@ Alternatively, if you're authenticated to the AWS Management Console using AWS S
 Note the following important details\.  
 To use Fleet Manager with RDP, you must have SSM Agent version 3\.0\.222\.0 or higher running on your instances\. For information about how to determine the version number running on an instance, see [Checking the SSM Agent version number](ssm-agent-get-version.md)\. For information about manually installing or automatically updating SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
 Fleet Manager RDP connections have a maximum session duration of 60 minutes\. When that duration is reached, Fleet Manager disconnects the session\. You can reconnect to the same session by using your credentials\.
+Fleet Manager RDP connections have an idle session timeout of 10 minutes\. When that duration is reached, Fleet Manager disconnects the session\. You can reconnect to the same session by using your credentials\.
 
 Because Fleet Manager uses Session Manager to connect to Windows instances using RDP, you must complete the prerequisites for Session Manager before using this feature\. Session Manager is a capability of AWS Systems Manager\. Session preferences in the AWS account and AWS Region are applied when connecting to your instances using RDP\. For information about setting up Session Manager, see [Setting up Session Manager](session-manager-getting-started.md)\.
 

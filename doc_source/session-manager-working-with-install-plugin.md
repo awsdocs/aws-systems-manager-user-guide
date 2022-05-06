@@ -129,17 +129,17 @@ You can install the Session Manager plugin on macOS using the signed installer\.
 ## Install Session Manager plugin on Linux<a name="install-plugin-linux"></a>
 
 1. Download the Session Manager plugin RPM package\.
-   + Intel 64\-bit \(x86\_64\)
+   + x86\_64
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
      ```
-   + Intel 32\-bit \(x86\)
+   + x86
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_32bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
      ```
-   + ARM 64\-bit \(arm64\)
+   + arm64
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_arm64/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
@@ -159,17 +159,17 @@ If you ever want to uninstall the plugin, run `sudo yum erase session-manager-pl
 ## Install the Session Manager plugin on Ubuntu Server<a name="install-plugin-debian"></a>
 
 1. Download the Session Manager plugin deb package\.
-   + Intel 64\-bit \(x86\_64\)
+   + x86\_64
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
      ```
-   + Intel 32\-bit \(x86\)
+   + x86
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_32bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
      ```
-   + ARM 64\-bit \(arm64\)
+   + arm64
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"

@@ -9,9 +9,6 @@ When you run an automation across multiple Regions and accounts, you target reso
 
 ![\[Illustration showing Systems Manager Automation running in multiple Regions and multiple accounts.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-multi-region-and-multi-account.png)
 
-**Important**  
-Your account is charged for running automations in multiple Regions and accounts\. Multi\-Region and account steps are considered *special steps*\. There is no step limit for special steps, but your account is charged for each step processed by Systems Manager\. For more information, see the [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/) page\.
-
 **How It Works**  
 Running automations across multiple Regions and accounts or OUs works as follows:
 

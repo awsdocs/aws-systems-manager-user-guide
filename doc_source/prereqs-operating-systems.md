@@ -17,24 +17,24 @@ If you plan to manage and configure AWS IoT and non\-AWS edge devices, those dev
 
 **Amazon Linux**  
 
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Versions | x86 | x86\_64 | arm64 | 
 | --- | --- | --- | --- | 
 | 2012\.03 – 2018\.03 | ✓ | ✓ |  | 
 
 **Note**  
-Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86\_64\) versions\.
+Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 
 
 **Amazon Linux 2**  
 
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Versions | x86 | x86\_64 | arm64 | 
 | --- | --- | --- | --- | 
 | 2\.0 and all later versions |  | ✓ | ✓ | 
 
 
 **CentOS**  
 
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Versions | x86 | x86\_64 | arm64 | 
 | --- | --- | --- | --- | 
 | 6\.x¹ | ✓ | ✓ |  | 
 | 7\.1 and later 7\.x versions |  | ✓ | ✓ | 
@@ -45,14 +45,14 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 
 **CentOS Stream**  
 
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Versions | x86 | x86\_64 | arm64 | 
 | --- | --- | --- | --- | 
 | 8 |  | ✓ | ✓ | 
 
 
 **Debian Server**  
 
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Versions | x86 | x86\_64 | arm64 | 
 | --- | --- | --- | --- | 
 | Jessie \(8\) |  | ✓ |  | 
 | Stretch \(9\) |  | ✓ | ✓ | 
@@ -70,7 +70,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 
 **Red Hat Enterprise Linux \(RHEL\)**  
 
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Versions | x86 | x86\_64 | arm64 | 
 | --- | --- | --- | --- | 
 | 6\.x¹ | ✓ | ✓ |  | 
 | 7\.0\-7\.5 |  | ✓ |  | 
@@ -81,14 +81,14 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 
 **Rocky Linux**  
 
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Versions | x86 | x86\_64 | arm64 | 
 | --- | --- | --- | --- | 
 | 8\.4\-8\.5 |  | ✓ | ✓ | 
 
 
 **SUSE Linux Enterprise Server \(SLES\)**  
 
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Versions | x86 | x86\_64 | arm64 | 
 | --- | --- | --- | --- | 
 | 12 and later 12\.x versions |  | ✓ |  | 
 | 15 and later 15\.x versions |  | ✓ | ✓ | 
@@ -96,7 +96,7 @@ Beginning with version 2015\.03, Amazon Linux is released in Intel 64\-bit \(x86
 
 **Ubuntu Server**  
 
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Versions | x86 | x86\_64 | arm64 | 
 | --- | --- | --- | --- | 
 | 12\.04 LTS and 14\.04 LTS | ✓ | ✓ |  | 
 | 16\.04 LTS and 18\.04 LTS |  | ✓ | ✓ | 
@@ -143,7 +143,7 @@ SSM Agent requires Windows PowerShell 3\.0 or later to run certain AWS Systems M
 
 ****  
 
-| Version | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Version | x86 | x86\_64 | arm64 | 
 | --- | --- | --- | --- | 
 | 2008¹ | ✓ | ✓ |  | 
 | 2008 R2¹ |  | ✓ |  | 

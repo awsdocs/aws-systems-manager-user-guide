@@ -243,17 +243,17 @@ If SSM Agent is installed on your instance in conjunction with a Snap and you in
 
 **Note**  
 If you're unable to download the agent from the AWS Region you specify, use one of the following global URLs\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
-Intel 64\-bit \(x86\_64\)  
+x86\_64  
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
   ```
-ARM 64\-bit \(arm64\)  
+arm64  
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm64/amazon-ssm-agent.deb
   ```
-Intel 32\-bit \(x86\)  
+x86  
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_386/amazon-ssm-agent.deb

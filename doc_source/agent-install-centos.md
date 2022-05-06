@@ -16,7 +16,7 @@ If you use a `yum` command to update SSM Agent on a managed node after the agent
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-   Intel 64\-bit \(x86\_64\) instances:
+   x86\_64 instances:
 
    ```
    sudo dnf install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
@@ -55,13 +55,13 @@ If you use a `yum` command to update SSM Agent on a managed node after the agent
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-   Intel 64\-bit \(x86\_64\) instances:
+   x86\_64 instances:
 
    ```
    sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm
    ```
 
-   ARM 64\-bit \(arm64\) instances:
+   arm64 instances:
 
    ```
    sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_arm64/amazon-ssm-agent.rpm
@@ -100,13 +100,13 @@ If you use a `yum` command to update SSM Agent on a managed node after the agent
 
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-   Intel 64\-bit \(x86\_64\) instances:
+   x86\_64 instances:
 
    ```
    sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/3.0.1390.0/linux_amd64/amazon-ssm-agent.rpm
    ```
 
-   Intel 32\-bit \(x86\) instances:
+   x86 instances:
 
    ```
    sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/3.0.1390.0/linux_386/amazon-ssm-agent.rpm
@@ -136,17 +136,17 @@ If you use a `yum` command to update SSM Agent on a managed node after the agent
 
 **Note**  
 If you're unable to download the agent from the AWS Region you specify, use one of the following global URLs\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
-Intel 64\-bit \(x86\_64\)  
+x86\_64  
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm
   ```
-Intel 32\-bit \(x86\)  
+x86  
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_386/amazon-ssm-agent.rpm
   ```
-ARM 64\-bit \(arm64\)  
+arm64  
 
   ```
   https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm

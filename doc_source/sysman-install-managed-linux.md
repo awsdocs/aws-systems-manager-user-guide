@@ -19,34 +19,34 @@ https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
 
 ------
 #### [ Amazon Linux 2, Amazon Linux, RHEL, Oracle Linux, CentOS, and SLES ]
-+ **Intel 64\-bit \(x86\_64\)**
++ **x86\_64**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm `
-+ **Intel 32\-bit \(x86\)**
++ **x86**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_386/amazon-ssm-agent.rpm`
-+ **ARM 64\-bit \(arm64\)**
++ **arm64**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_arm64/amazon-ssm-agent.rpm`
 
 ------
 #### [ Ubuntu Server ]
-+ **Intel 64\-bit \(x86\_64\)**
++ **x86\_64**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb`
-+ **ARM 64\-bit \(arm64\)**
++ **arm64**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb`
-+ **Intel 32\-bit \(x86\)**
++ **x86**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_386/amazon-ssm-agent.deb`
 
 ------
 #### [ Debian Server ]
-+ **Intel 64\-bit \(x86\_64\)**
++ **x86\_64**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb`
-+ **ARM 64\-bit \(arm64\)**
++ **arm64**
 
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb`
 

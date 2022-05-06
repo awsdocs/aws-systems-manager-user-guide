@@ -80,3 +80,50 @@ The base64\-encoded logs for the Lambda function invocation\. Logs are present o
 
 Payload  
 The JSON representation of the object returned by the Lambda function\. Payload is present only if the invocation type is `RequestResponse`\. Up to 200KB is returned
+
+The following is a portion from the `AWS-PatchInstanceWithRollback` runbook demonstrating how to reference outputs from the `aws:invokeLambdaFunction` action\.
+
+------
+#### [ YAML ]
+
+```
+- name: IdentifyRootVolume
+  action: aws:invokeLambdaFunction
+  inputs:
+    FunctionName: "IdentifyRootVolumeLambda-{{automation:EXECUTION_ID}}"
+    Payload: '{"InstanceId": "{{InstanceId}}"}'
+- name: PrePatchSnapshot
+  action: aws:executeAutomation
+  inputs:
+    DocumentName: "AWS-CreateSnapshot"
+    RuntimeParameters:
+      VolumeId: "{{IdentifyRootVolume.Payload}}"
+      Description: "ApplyPatchBaseline restoration case contingency"
+```
+
+------
+#### [ JSON ]
+
+```
+{
+    "name": "IdentifyRootVolume",
+    "action": "aws:invokeLambdaFunction",
+    "inputs": {
+      "FunctionName": "IdentifyRootVolumeLambda-{{automation:EXECUTION_ID}}",
+      "Payload": "{\"InstanceId\": \"{{InstanceId}}\"}"
+    }
+  },
+  {
+    "name": "PrePatchSnapshot",
+    "action": "aws:executeAutomation",
+    "inputs": {
+      "DocumentName": "AWS-CreateSnapshot",
+      "RuntimeParameters": {
+        "VolumeId": "{{IdentifyRootVolume.Payload}}",
+        "Description": "ApplyPatchBaseline restoration case contingency"
+      }
+    }
+  }
+```
+
+------

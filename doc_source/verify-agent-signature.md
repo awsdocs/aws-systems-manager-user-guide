@@ -9,11 +9,11 @@ To find the correct signature file for your instance's architecture and operatin
 
 | Architecture | Operating system | Signature file URL | Agent download file name | 
 | --- | --- | --- | --- | 
-| Intel 64\-bit \(x86\_64\) |  Amazon Linux, Amazon Linux 2, CentOS, RHEL, Oracle Linux, SLES  |  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm.sig` `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm.sig`  |  `amazon-ssm-agent.rpm`  | 
-| Intel 64\-bit \(x86\_64\) |  Debian Server, Ubuntu Server  |  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb.sig` `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb.sig`  | amazon\-ssm\-agent\.deb | 
-| Intel 32\-bit \(x86\) |  Amazon Linux, Amazon Linux 2, CentOS, RHEL  |  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_386/amazon-ssm-agent.rpm.sig` `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_386/amazon-ssm-agent.rpm.sig`  |  `amazon-ssm-agent.rpm`  | 
-| Intel 32\-bit \(x86\) |  Ubuntu Server  |  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_386/amazon-ssm-agent.deb.sig` `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_386/amazon-ssm-agent.deb.sig`  |  `amazon-ssm-agent.deb`  | 
-| ARM 64\-bit \(arm64\) |  Amazon Linux, Amazon Linux 2, CentOS, RHEL  |  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_arm64/amazon-ssm-agent.rpm.sig` `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm.sig`  | amazon\-ssm\-agent\.rpm | 
+| x86\_64 |  Amazon Linux, Amazon Linux 2, CentOS, RHEL, Oracle Linux, SLES  |  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_amd64/amazon-ssm-agent.rpm.sig` `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm.sig`  |  `amazon-ssm-agent.rpm`  | 
+| x86\_64 |  Debian Server, Ubuntu Server  |  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb.sig` `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb.sig`  | amazon\-ssm\-agent\.deb | 
+| x86 |  Amazon Linux, Amazon Linux 2, CentOS, RHEL  |  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_386/amazon-ssm-agent.rpm.sig` `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_386/amazon-ssm-agent.rpm.sig`  |  `amazon-ssm-agent.rpm`  | 
+| x86 |  Ubuntu Server  |  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_386/amazon-ssm-agent.deb.sig` `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_386/amazon-ssm-agent.deb.sig`  |  `amazon-ssm-agent.deb`  | 
+| arm64 |  Amazon Linux, Amazon Linux 2, CentOS, RHEL  |  `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_arm64/amazon-ssm-agent.rpm.sig` `https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_arm64/amazon-ssm-agent.rpm.sig`  | amazon\-ssm\-agent\.rpm | 
 
 ------
 #### [ GPG ]

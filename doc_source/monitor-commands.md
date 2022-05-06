@@ -26,7 +26,7 @@ If you run commands to large numbers of managed nodes using the `max-concurrency
 | In Progress | Systems Manager is attempting to send the command to the managed node, or the command was received by SSM Agent and has started running on the instance\. Depending on the result of all command plugins, the status changes to Success, Failed, Delivery Timed Out, or Execution Timed Out\. Exception: If the agent isn't running or available on the node, the command status remains at In Progress until the agent is available again, or until the execution timeout limit is reached\. The status then changes to a terminal state\. | 
 | Delayed | The system attempted to send the command to the managed node but wasn't successful\. The system retries again\. | 
 | Success | The command was received by SSM Agent on the managed node and returned an exit code of zero\. This status doesn't mean the command was processed on the node\. This is a terminal state\.  To troubleshoot errors or get more information about the command execution, send a command that handles errors or exceptions by returning appropriate exit codes \(non\-zero exit codes for command failure\)\.  | 
-| Delivery Timed Out | The command wasn't delivered to the managed node before the delivery timeout expired\. Delivery timeouts don't count against the parent command’s max\-errors limit, but they do contribute to whether the parent command status is Success, Incomplete, or Delivery Timed Out\. This is a terminal state\. | 
+| Delivery Timed Out | The command wasn't delivered to the managed node before the total timeout expired\. Total timeouts don't count against the parent command’s max\-errors limit, but they do contribute to whether the parent command status is Success, Incomplete, or Delivery Timed Out\. This is a terminal state\. | 
 | Execution Timed Out | Command automation started on the managed node, but the command wasn’t completed before the execution timeout expired\. Execution timeouts count as a failure, which will send a non\-zero reply and Systems Manager will exit the attempt to run the command automation, and report a failure status\. | 
 | Failed |  The command wasn't successful on the managed node\. For a plugin, this indicates that the result code wasn't zero\. For a command invocation, this indicates that the result code for one or more plugins wasn't zero\. Invocation failures count against the max\-errors limit of the parent command\. This is a terminal state\. | 
 | Canceled | The command was canceled before it was completed\. This is a terminal state\. | 
@@ -44,7 +44,7 @@ If you run commands to large numbers of managed nodes using the `max-concurrency
 | In Progress | The command has been sent to at least one managed node but hasn't reached a final state on all nodes\.  | 
 | Delayed | The system attempted to send the command to the node but wasn't successful\. The system retries again\. | 
 | Success | The command was received by SSM Agent on all specified or targeted managed nodes and returned an exit code of zero\. All command invocations have reached a terminal state, and the value of max\-errors wasn't reached\. This status doesn't mean the command was successfully processed on all specified or targeted managed nodes\. This is a terminal state\.  To troubleshoot errors or get more information about the command execution, send a command that handles errors or exceptions by returning appropriate exit codes \(non\-zero exit codes for command failure\)\.  | 
-| Delivery Timed Out | The command wasn't delivered to the managed node before the delivery timeout expired\. The value of max\-errors or more command invocations shows a status of Delivery Timed Out\. This is a terminal state\. | 
+| Delivery Timed Out | The command wasn't delivered to the managed node before the total timeout expired\. The value of max\-errors or more command invocations shows a status of Delivery Timed Out\. This is a terminal state\. | 
 | Failed |  The command wasn't successful on the managed node\. The value of `max-errors` or more command invocations shows a status of `Failed`\. This is a terminal state\.  | 
 | Incomplete | The command was attempted on all managed nodes and one or more of the invocations doesn't have a value of Success\. However, not enough invocations failed for the status to be Failed\. This is a terminal state\. | 
 | Canceled | The command was canceled before it was completed\. This is a terminal state\. | 
@@ -56,14 +56,14 @@ If you run commands to large numbers of managed nodes using the `max-concurrency
 
 Systems Manager enforces the following timeout values when running commands\.
 
-**Delivery Timeout**  
-In the Systems Manager console, you specify the delivery timeout value in the **Timeout \(seconds\)** field\. After a command is sent, Run Command checks whether the command has expired or not\. If a command reaches the command expiration limit \(total timeout\), it changes status to `DeliveryTimedOut` for all invocations that have the status `InProgress`, `Pending` or `Delayed`\.
+**Total Timeout**  
+In the Systems Manager console, you specify the timeout value in the **Timeout \(seconds\)** field\. After a command is sent, Run Command checks whether the command has expired or not\. If a command reaches the command expiration limit \(total timeout\), it changes status to `DeliveryTimedOut` for all invocations that have the status `InProgress`, `Pending` or `Delayed`\.
 
 ![\[The Timeout (seconds) field in the Systems Manager console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/run-command-delivery-time-out-time-out-seconds.png)
 
-On a more technical level, delivery timeout \(**Timeout \(seconds\)**\) is a combination of two timeout values, as shown here: 
+On a more technical level, total timeout \(**Timeout \(seconds\)**\) is a combination of two timeout values, as shown here: 
 
-`Delivery timeout = "Timeout(seconds)" from the console + "timeoutSeconds": "{{ executionTimeout }}" from your SSM document`
+`Total timeout = "Timeout(seconds)" from the console + "timeoutSeconds": "{{ executionTimeout }}" from your SSM document`
 
 For example, the default value of **Timeout \(seconds\)** in the Systems Manager console is 600 seconds\. If you run a command by using the `AWS-RunShellScript` SSM document, the default value of **"timeoutSeconds": "\{\{ executionTimeout \}\}"** is 3600 seconds, as shown in the following document sample:
 
@@ -79,7 +79,7 @@ For example, the default value of **Timeout \(seconds\)** in the Systems Manager
           "timeoutSeconds": "{{ executionTimeout }}"
 ```
 
-This means the command runs for 4,200 seconds \(70 minutes\) before the system returns a delivery timeout\.
+This means the command runs for 4,200 seconds \(70 minutes\) before the system sets the command status to `DeliveryTimedOut`\.
 
 **Execution Timeout**  
 In the Systems Manager console, you specify the execution timeout value in the **Execution Timeout** field, if available\. Not all SSM documents require that you specify an execution timeout\. If specified, the command must complete within this time period\.
@@ -91,9 +91,6 @@ Run Command relies on the SSM Agent document terminal response to determine whet
 
 **Default Execution Timeout**  
 If a SSM document doesn't require that you explicitly specify an execution timeout value, then Systems Manager enforces the hard\-coded default execution timeout\.
-
-**Total Timeout**  
-Total timeout is equal to the value of `delivery timeout` plus `execution timeout`\. If `execution timeout` isn't required by the SSM document, then `total timeout` is equal to the value of `delivery timeout` plus `default execution timeout`\.
 
 **How Systems Manager reports timeouts**  
 If Systems Manager receives an `execution timeout` reply from SSM Agent on a target, then Systems Manager marks the command invocation as `executionTimeout`\.

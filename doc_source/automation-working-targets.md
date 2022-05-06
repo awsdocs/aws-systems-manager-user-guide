@@ -9,15 +9,15 @@ Any `input parameters` that you specify at runtime \(either in the **Input param
 
 You can target resources for an automation by using tags, Resource Groups,and parameter values\. Additionally, you can use the `TargetMaps` option to target multiple parameter values from the command line or a file\. The following section describes each of these targeting options in more detail\.
 
-## Targeting tags<a name="automation-working-targets-tags"></a>
+## Targeting a tag<a name="automation-working-targets-tags"></a>
 
-Many AWS resources support tags, including Amazon Elastic Compute Cloud \(Amazon EC2\) and Amazon Relational Database Service \(Amazon RDS\) instances, Amazon Elastic Block Store \(Amazon EBS\) volumes and snapshots, Resource Groups,and Amazon Simple Storage Service \(Amazon S3\) buckets, to name a few\. You can quickly run automation on your AWS resources by targeting tags\. A tag is a key\-value pair, such as Operating\_System\-Linux or Department\-Finance\. If you assign a specific name to a resource, then you can also use the word "Name" as a key, and the name of the resource as the value\.
+You can specify a single tag as the target of an automation\. Many AWS resources support tags, including Amazon Elastic Compute Cloud \(Amazon EC2\) and Amazon Relational Database Service \(Amazon RDS\) instances, Amazon Elastic Block Store \(Amazon EBS\) volumes and snapshots, Resource Groups,and Amazon Simple Storage Service \(Amazon S3\) buckets, to name a few\. You can quickly run automation on your AWS resources by targeting a tag\. A tag is a key\-value pair, such as Operating\_System:Linux or Department:Finance\. If you assign a specific name to a resource, then you can also use the word "Name" as a key, and the name of the resource as the value\.
 
 When you specify a tag as the target for an automation, you also specify a target parameter\. The target parameter uses the `TargetParameterName` option\. By choosing a target parameter, you define the type of resource on which the automation runs\. The target parameter you specify with the tag must be a valid parameter defined in the runbook\. For example, if you want to target dozens of EC2 instances by using tags, then choose the `InstanceId` target parameter\. By choosing this parameter, you define *instances* as the resource type for the automation\. Further, when creating a custom runbook you can specify the **Target type** as `/AWS::EC2::Instance` to ensure only instances are used\. The following screenshot uses the `AWS-DetachEBSVolume` runbook\. The logical target parameter is `VolumeId`\.
 
-![\[Using tags as targets for a Systems Manager Automation\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-tags-1.png)
+![\[Using a tag as a target for a Systems Manager Automation\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-tags-1.png)
 
-The `AWS-DetachEBSVolume` runbook also includes a special property called **Target type**, which is set to `/AWS::EC2::Volume`\. This means that if the tag\-key pair `Finance-TestEnv` returns different types of resources \(for example, EC2 instances, Amazon EBS volumes, Amazon EBS snapshots\) then only Amazon EBS volumes will be used\.
+The `AWS-DetachEBSVolume` runbook also includes a special property called **Target type**, which is set to `/AWS::EC2::Volume`\. This means that if the tag\-key pair `Finance:TestEnv` returns different types of resources \(for example, EC2 instances, Amazon EBS volumes, Amazon EBS snapshots\) then only Amazon EBS volumes will be used\.
 
 **Important**  
 Target parameter names are case sensitive\. If you run automations by using either the AWS Command Line Interface \(AWS CLI\) or AWS Tools for Windows PowerShell, then you must enter the target parameter name exactly as it's defined in the runbook\. If you don't, the system returns an `InvalidAutomationExecutionParametersException` error\. You can use the [DescribeDocument](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeDocument.html) API operation to see information about the available target parameters in a specific runbook\. Following is an example AWS CLI command that provides information about the `AWS-DeleteSnapshot` document\.  
@@ -27,9 +27,9 @@ aws ssm describe-document \
     --name AWS-DeleteSnapshot
 ```
 
-Here are some example AWS CLI commands that target resources by using tags\.
+Here are some example AWS CLI commands that target resources by using a tag\.
 
-**Example 1: Targeting tags using a key\-value pair to restart Amazon EC2 instances**
+**Example 1: Targeting a tag using a key\-value pair to restart Amazon EC2 instances**
 
 This example restarts all Amazon EC2 instances that are tagged with a key of *Department* and a value of *HumanResources*\. The target parameter uses the *InstanceId* parameter from the runbook\. The example uses an additional parameter to run the automation by using an Automation service role \(also called an *assume role*\)\.
 
@@ -41,7 +41,7 @@ aws ssm start-automation-execution \
     --parameters "AutomationAssumeRole=arn:aws:iam::111122223333:role/AutomationServiceRole"
 ```
 
-**Example 2: Targeting tags using a key\-value pair to delete Amazon EBS snapshots**
+**Example 2: Targeting a tag using a key\-value pair to delete Amazon EBS snapshots**
 
 The following example uses the `AWS-DeleteSnapshot` runbook to delete all snapshots with a key of *Name* and a value of *January2018Backups*\. The target parameter uses the *VolumeId* parameter\.
 

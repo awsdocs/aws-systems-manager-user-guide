@@ -71,7 +71,7 @@ You can view information about a runbook by choosing the runbook name\.
 
    1. \(Required\) In the **Targets** list, choose a method for targeting the resources\.
       + **Resource Group**: Choose the name of the group from the **Resource Group** list\. For more information about targeting AWS Resource Groups in runbooks, see [Targeting AWS Resource Groups](automation-working-targets.md#automation-working-targets-resource-groups)\.
-      + **Tags**: Enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\. For more information about targeting tags in runbooks, see [Targeting tags](automation-working-targets.md#automation-working-targets-tags)\.
+      + **Tags**: Enter the tag key and \(optionally\) the tag value in the fields provided\. Choose **Add**\. For more information about targeting tags in runbooks, see [Targeting a tag](automation-working-targets.md#automation-working-targets-tags)\.
       + **Parameter Values**: Enter values in the **Input parameters** section\. If you specify multiple values, Systems Manager runs a child automation on each value specified\.
 
         For example, say that your runbook includes an **InstanceID** parameter\. If you target the values of the **InstanceID** parameter when you run the automation, then Systems Manager runs a child automation for each instance ID value specified\. The parent automation is complete when the automation finishes running each specified instance, or if the automation fails\. You can target a maximum of 50 parameter values\. For more information about targeting parameter values in runbooks, see [Targeting parameter values](automation-working-targets.md#automation-working-targets-parameter-values)\.
