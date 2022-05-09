@@ -1,130 +1,145 @@
-# Manually install SSM Agent on Debian Server instances<a name="agent-install-deb"></a>
+# Manually installing SSM Agent on Debian Server instances<a name="agent-install-deb"></a>
 
-Connect to your Debian Server instance and perform the following steps to install AWS Systems Manager Agent \(SSM Agent\)\. Perform these steps on each instance that will run commands using Systems Manager\.
+The Amazon Machine Images \(AMIs\) for Debian Server that are provided by AWS do not come with AWS Systems Manager Agent \(SSM Agent\) preinstalled by default\. For a list of AWS managed AMIs on which the agent might be preinstalled, see [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)\.
 
-## Install SSM Agent on Debian Server instances<a name="agent-install-debian"></a>
+Use the information in this section to help you manually install or reinstall SSM Agent on a Debian Server instance\.
 
-------
-#### [ Debian Server 9 and 10 64\-bit \(deb\) ]
+**Before you begin**  
+Before you install SSM Agent on a Debian Server instance, note the following:
++ For important information that applies to installation of SSM Agent on all Linux\-based operating systems, see [Manually installing SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md)\.
 
-**To install SSM Agent on Debian Server 9 and 10 64\-bit instances \(with deb installer package\)**
+**Topics**
++ [Quick installation commands for SSM Agent on Debian Server](#quick-install-debian)
++ [Create custom agent installation commands for Debian Server in your Region](#custom-url-debian)
 
-1. Connect to your Debian Server instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\. 
+## Quick installation commands for SSM Agent on Debian Server<a name="quick-install-debian"></a>
 
-   Create a temporary directory on the instance\.
+Use the following steps to manually install SSM Agent on a single instance\. This procedure uses globally available installation files\. 
 
-   ```
-   mkdir /tmp/ssm
-   ```
+**To install SSM Agent on Debian Server**
 
-   Change to the temporary directory\.
+1. Connect to your Debian Server instance using your preferred method, such as SSH\. 
 
-   ```
-   cd /tmp/ssm
-   ```
-
-   Run one of the following commands, depending on your instance type\.
-
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
-   + x86\_64 instances:
-
-     ```
-     wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb
-     ```
-   + arm64 instances:
-
-     ```
-     wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb
-     ```
-
-1. Run the following command\.
-
-   ```
-   sudo dpkg -i amazon-ssm-agent.deb
-   ```
-
-1. Run following command to determine if SSM Agent is running\. 
-
-   ```
-   sudo systemctl status amazon-ssm-agent
-   ```
-
-1. Run the following command to start the service if the previous command returned amazon\-ssm\-agent is stopped, inactive, or disabled\.
-
-   ```
-   sudo systemctl enable amazon-ssm-agent
-   ```
-
-1. Run the following command to check the status of the agent\.
-
-   ```
-   sudo systemctl status amazon-ssm-agent
-   ```
-
-------
-#### [ Debian Server 8 64\-bit \(deb\) ]
-
-**To install SSM Agent on Debian Server 8 64\-bit instances \(with deb installer package\)**
-
-1. Connect to your Debian Server instance and perform the following steps to install SSM Agent\. Perform these steps on each instance that will run commands using Systems Manager\. 
-
-   Create a temporary directory on the instance\.
+1. Run the following command to create a temporary directory on the instance\.
 
    ```
    mkdir /tmp/ssm
    ```
 
-   Change to the temporary directory\.
+1. Run the following command to change to the temporary directory\.
 
    ```
    cd /tmp/ssm
    ```
 
-   Run the following commands\.
-
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+1. Copy the command for your instance’s architecture and run it on the instance\.
+**Note**  
+Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for Debian Server\.   
+For Debian Server 8, only the x86\_64 architecture is supported\.  
+x86\_64 instances  
 
    ```
-   wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb
+   wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
+   ```  
+ARM64 instances  
+
    ```
+   wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm64/amazon-ssm-agent.deb
+   ```
+
+1. Run the folowing command\.
 
    ```
    sudo dpkg -i amazon-ssm-agent.deb
    ```
 
-1. Run following command to determine if SSM Agent is running\. 
+1. \(Recommended\) Run the following command to verify that the agent is running\.
 
    ```
    sudo systemctl status amazon-ssm-agent
    ```
 
-1. Run the following command to start the service if the previous command returned amazon\-ssm\-agent is stopped, inactive, or disabled\.
+   In most cases, the command reports that the agent is running, as shown in the following example\.
+
+   ```
+   ● amazon-ssm-agent.service - amazon-ssm-agent
+      Loaded: loaded (/lib/systemd/system/amazon-ssm-agent.service; enabled; vendor
+      Active: active (running) since Tue 2022-04-19 16:25:03 UTC; 4s ago
+    Main PID: 628 (amazon-ssm-agen)
+      CGroup: /system.slice/amazon-ssm-agent.service
+              ├─628 /usr/bin/amazon-ssm-agent
+              └─650 /usr/bin/ssm-agent-worker
+               --truncated--
+   ```
+
+   In rare cases, the command reports that the agent is installed but not running, as shown in the following example\.
+
+   ```
+   ● amazon-ssm-agent.service - amazon-ssm-agent
+      Loaded: loaded (/lib/systemd/system/amazon-ssm-agent.service; enabled; vendor
+      Active: inactive (dead) since Tue 2022-04-19 16:26:30 UTC; 5s ago
+    Main PID: 628 (code=exited, status=0/SUCCESS)
+               --truncated--
+   ```
+
+   To activate the agent in these cases, run the following commands\.
 
    ```
    sudo systemctl enable amazon-ssm-agent
    ```
 
-1. Run the following command to check the status of the agent\.
-
    ```
-   sudo systemctl status amazon-ssm-agent
+   sudo systemctl start amazon-ssm-agent
    ```
 
-------
+## Create custom agent installation commands for Debian Server in your Region<a name="custom-url-debian"></a>
+
+When you install SSM Agent on multiple instances using a script or template, we recommended using installation files that are stored in the AWS Region you're working in\. 
+
+For the following commands, we provide examples that use a publicly accessible Amazon S3 bucket in the US East \(Ohio\) Region \(`us-east-2`\)\. 
+
+**Tip**  
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on Debian Server](#quick-install-debian) earlier in this topic with a custom Regional URL you construct\.
+
+*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 **Note**  
-If you're unable to download the agent from the AWS Region you specify, use one of the following global URLs\. Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.  
+For Debian Server 8, only the x86\_64 architecture is supported\.
+
 x86\_64  
 
-  ```
-  https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_amd64/amazon-ssm-agent.deb
-  ```
-arm64  
+```
+wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_amd64/amazon-ssm-agent.deb
+```
 
-  ```
-  https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm64/amazon-ssm-agent.deb
-  ```
-We don't officially support Debian Server 8 on arm64\.
+```
+sudo dpkg -i amazon-ssm-agent.deb
+```
+See the following example\.  
 
-**Important**  
-An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on a managed node, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
+```
+wget https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/debian_amd64/amazon-ssm-agent.deb
+```
+
+```
+sudo dpkg -i amazon-ssm-agent.deb
+```
+
+ARM64  
+
+```
+sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb
+```
+
+```
+sudo dpkg -i amazon-ssm-agent.deb
+```
+See the following example\.  
+
+```
+sudo yum install -y https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/debian_arm64/amazon-ssm-agent.deb
+```
+
+```
+sudo dpkg -i amazon-ssm-agent.deb
+```

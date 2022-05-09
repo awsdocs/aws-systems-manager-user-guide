@@ -6,11 +6,12 @@ If you monitor traffic, you will see that your managed nodes communicate with `e
 
 **Topics**
 + [SSM Agent technical reference](ssm-agent-technical-details.md)
++ [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)
 + [SSM Agent version 3\.0](ssm-agent-v3.md)
-+ [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
-+ [Installing and configuring SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md)
-+ [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
-+ [Installing and configuring SSM Agent on edge devices](install-ssm-agent-edge-devices.md)
++ [Working with SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
++ [Working with SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md)
++ [Working with SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
++ [Working with SSM Agent on edge devices](install-ssm-agent-edge-devices.md)
 + [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)
 + [Checking the SSM Agent version number](ssm-agent-get-version.md)
 + [Viewing SSM Agent logs](sysman-agent-logs.md)

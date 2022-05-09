@@ -1,13 +1,13 @@
-# Manually install SSM Agent on EC2 instances for Windows Server<a name="sysman-install-win"></a>
+# Manually installing SSM Agent on EC2 instances for Windows Server<a name="sysman-install-win"></a>
 
-AWS Systems Manager Agent \(SSM Agent\) is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
+AWS Systems Manager Agent \(SSM Agent\) is preinstalled, by default, on the following Amazon Machine Images \(AMIs\) for Windows Server:
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016, 2019, and 2022
 
 If your managed instance is a Windows Server 2008\-2012 R2 instance created *before* November 2016, then EC2Config processes Systems Manager requests on your instance\. We recommend that you upgrade your existing instances to use the latest version of EC2Config\. By using the latest EC2Config installer, you install SSM Agent side\-by\-side with EC2Config\. This side\-by\-side version of SSM Agent is compatible with your instances created from earlier Windows Server AMIs and allows you to use SSM features published after November 2016\. For information about how to install the latest version of the EC2Config service, see [Install the latest version of EC2Config](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_Install.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 **Important**  
-An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on a managed node, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
+An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. Failing to use the latest version of the agent can prevent your managed node from using various Systems Manager capabilities and features\. For that reason, we recommend that you automate the process of keeping SSM Agent up to date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
 
 If necessary, you can manually download and install the latest version of SSM Agent on your Amazon Elastic Compute Cloud \(Amazon EC2\) instance for Windows Server by using the following procedure\.
 

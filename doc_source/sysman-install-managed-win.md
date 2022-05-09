@@ -3,7 +3,7 @@
 This topic describes how to install SSM Agent on Windows Server machines in a hybrid environment\. If you plan to use Linux machines in a hybrid environment, see the previous step, [Step 4: Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)\.
 
 **Important**  
-This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Windows Server, see [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.
+This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Windows Server, see [Working with SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.
 
 Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation earlier in [Step 3: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
 

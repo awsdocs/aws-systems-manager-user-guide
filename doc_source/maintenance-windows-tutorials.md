@@ -13,19 +13,11 @@ Before trying these tutorials, complete the following prerequisites\.
 + **Verify maintenance window roles and permissions**: An AWS administrator in your account must grant you the AWS Identity and Access Management \(IAM\) permissions you need to manage maintenance windows using the CLI\. For information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\.
 + **Create or configure a Systems Manager\-compatible instance**: You need at least one Amazon Elastic Compute Cloud \(Amazon EC2\) instance that is configured for use with Systems Manager in order to complete the tutorials\. This means that SSM Agent is installed on the instance, and an IAM instance profile for Systems Manager is attached to the instance\. 
 
-  We recommend launching an instance from one of the following Amazon Machine Image \(AMI\) types\. SSM Agent is preinstalled on each one:
-  + Amazon Linux
-  + Amazon Linux 2
-  + Amazon Linux 2 ECS\-Optimized Base AMIs
-  + macOS 10\.14\.x \(Mojave\), 10\.15\.x \(Catalina\), and 11\.x \(Big Sur\)
-  + SUSE Linux Enterprise Server \(SLES\) 12 and 15
-  + Ubuntu Server 16\.04, 18\.04, and 20\.04  
-  + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-  + Windows Server 2016, 2019, and 2022
+  We recommend launching an instance from one AWS managed Amazon Machine Image \(AMI\) with the agent preinstalled\. For more information, see [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)\.
 
   For information about installing SSM Agent on an instance, see the following topics:
-  + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
-  + [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
+  + [Working with SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
+  + [Working with SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
 
   For information about creating and attaching an IAM instance profile for Systems Manager to your instance, see the following topics:
   + [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)

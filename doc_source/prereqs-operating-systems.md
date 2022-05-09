@@ -17,7 +17,7 @@ If you plan to manage and configure AWS IoT and non\-AWS edge devices, those dev
 
 **Amazon Linux**  
 
-| Versions | x86 | x86\_64 | arm64 | 
+| Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 2012\.03 – 2018\.03 | ✓ | ✓ |  | 
 
@@ -27,14 +27,14 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 
 **Amazon Linux 2**  
 
-| Versions | x86 | x86\_64 | arm64 | 
+| Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 2\.0 and all later versions |  | ✓ | ✓ | 
 
 
 **CentOS**  
 
-| Versions | x86 | x86\_64 | arm64 | 
+| Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 6\.x¹ | ✓ | ✓ |  | 
 | 7\.1 and later 7\.x versions |  | ✓ | ✓ | 
@@ -45,14 +45,14 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 
 **CentOS Stream**  
 
-| Versions | x86 | x86\_64 | arm64 | 
+| Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 8 |  | ✓ | ✓ | 
 
 
 **Debian Server**  
 
-| Versions | x86 | x86\_64 | arm64 | 
+| Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | Jessie \(8\) |  | ✓ |  | 
 | Stretch \(9\) |  | ✓ | ✓ | 
@@ -62,7 +62,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 
 **Oracle Linux**  
 
-| Versions | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 7\.5\-7\.8 |  | ✓ |  | 
 | 8\.1\-8\.3 |  | ✓ |  | 
@@ -70,7 +70,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 
 **Red Hat Enterprise Linux \(RHEL\)**  
 
-| Versions | x86 | x86\_64 | arm64 | 
+| Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 6\.x¹ | ✓ | ✓ |  | 
 | 7\.0\-7\.5 |  | ✓ |  | 
@@ -81,14 +81,14 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 
 **Rocky Linux**  
 
-| Versions | x86 | x86\_64 | arm64 | 
+| Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 8\.4\-8\.5 |  | ✓ | ✓ | 
 
 
 **SUSE Linux Enterprise Server \(SLES\)**  
 
-| Versions | x86 | x86\_64 | arm64 | 
+| Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 12 and later 12\.x versions |  | ✓ |  | 
 | 15 and later 15\.x versions |  | ✓ | ✓ | 
@@ -96,7 +96,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 
 **Ubuntu Server**  
 
-| Versions | x86 | x86\_64 | arm64 | 
+| Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 12\.04 LTS and 14\.04 LTS | ✓ | ✓ |  | 
 | 16\.04 LTS and 18\.04 LTS |  | ✓ | ✓ | 
@@ -107,7 +107,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 
 ****  
 
-| Version | Intel 32\-bit \(x86\) | Intel 64\-bit \(x86\_64\) | ARM 64\-bit \(arm64\) | 
+| Version | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 10\.14\.x \(Mojave\) |  | ✓ |  | 
 | 10\.15\.x \(Catalina\) |  | ✓ |  | 
@@ -127,7 +127,7 @@ For more information about Amazon EC2 support for macOS, see [Amazon EC2 Mac ins
 
 ****  
 
-| Version | ARM 32\-bit \(arm\) | 
+| Version | ARM32 | 
 | --- | --- | 
 | 8 \(Jessie\) | ✓ | 
 | 9 \(Stretch\) | ✓ | 
@@ -143,7 +143,7 @@ SSM Agent requires Windows PowerShell 3\.0 or later to run certain AWS Systems M
 
 ****  
 
-| Version | x86 | x86\_64 | arm64 | 
+| Version | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 2008¹ | ✓ | ✓ |  | 
 | 2008 R2¹ |  | ✓ |  | 

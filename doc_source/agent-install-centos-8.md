@@ -1,32 +1,26 @@
-# Manually install SSM Agent on Rocky Linux instances<a name="agent-install-rocky"></a>
+# Install SSM Agent on CentOS 8\.x<a name="agent-install-centos-8"></a>
 
-The Amazon Machine Images \(AMIs\) for Rocky Linux that are provided by AWS do not come with AWS Systems Manager Agent \(SSM Agent\) preinstalled by default\. For a list of AWS managed AMIs on which the agent might be preinstalled, see [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)\.
-
-Use the information in this section to help you manually install or reinstall SSM Agent on an Rocky Linux instance\.
+The Amazon Machine Images \(AMIs\) for CentOS 8 that are provided by AWS do not come with AWS Systems Manager Agent \(SSM Agent\) preinstalled by default\. Use the information on this page to help you install or reinstall the agent on CentOS 8 instances\.
 
 **Before you begin**  
-Before you install SSM Agent on a Rocky Linux instance, note the following:
-+ For important information that applies to installation of SSM Agent on all Linux\-based operating systems, see [Manually installing SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md)\.
+Before you install SSM Agent on a CentOS 8 instance, note the following:
++ Ensure that either Python 2 or Python 3 is installed on your CentOS 8 instance\. This is required in order for SSM Agent to work properly\.
 
 **Topics**
-+ [Quick installation commands for SSM Agent on Rocky Linux](#quick-install-rocky)
-+ [Create custom agent installation commands for Rocky Linux in your Region](#custom-url-rocky)
++ [Quick installation commands for SSM Agent on CentOS 8](#quick-install-centos-8)
++ [Create custom agent installation commands for CentOS 8 in your Region](#custom-url-centos-8)
 
-## Quick installation commands for SSM Agent on Rocky Linux<a name="quick-install-rocky"></a>
+## Quick installation commands for SSM Agent on CentOS 8<a name="quick-install-centos-8"></a>
 
 Use the following steps to manually install SSM Agent on a single instance\. This procedure uses globally available installation files\. 
 
-**Before you begin**  
-Before you install SSM Agent on a Rocky Linux instance, note the following:
-+ Ensure that either Python 2 or Python 3 is installed on your Rocky Linux instance\. This is required in order for SSM Agent to work properly\.
+**To install SSM Agent on CentOS 8\.x**
 
-**To install SSM Agent on Rocky Linux**
-
-1. Connect to your Rocky Linux instance using your preferred method, such as SSH\. 
+1. Connect to your CentOS 8 instance using your preferred method, such as SSH\. 
 
 1. Copy the command for your instance’s architecture and run it on the instance\.
 **Note**  
-Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for Rocky Linux\.   
+Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for CentOS 8\.   
 x86\_64 instances  
 
    ```
@@ -49,13 +43,7 @@ ARM64 instances
    ```
    ● amazon-ssm-agent.service - amazon-ssm-agent
       Loaded: loaded (/etc/systemd/system/amazon-ssm-agent.service; enabled; vendo>
-      Active: active (running) since Tue 2022-04-19 16:40:41 UTC; 9s ago
-    Main PID: 4898 (amazon-ssm-agen)
-       Tasks: 14 (limit: 4821)
-      Memory: 34.6M
-      CGroup: /system.slice/amazon-ssm-agent.service
-              ├─4898 /usr/bin/amazon-ssm-agent
-              └─4954 /usr/bin/ssm-agent-worker
+      Active: active (running) since Tue 2022-04-19 15:48:54 UTC; 19s ago
                --truncated--
    ```
 
@@ -63,8 +51,8 @@ ARM64 instances
 
    ```
    ● amazon-ssm-agent.service - amazon-ssm-agent
-      Loaded: loaded (/etc/systemd/system/amazon-ssm-agent.service; enabled; vendo>
-      Active: inactive (dead) since Tue 2022-04-19 16:42:05 UTC; 2s ago
+      Loaded: loaded (/etc/systemd/system/amazon-ssm-agent.service; disabled; vend>
+      Active: inactive (dead)
                --truncated--
    ```
 
@@ -78,14 +66,14 @@ ARM64 instances
    sudo systemctl start amazon-ssm-agent
    ```
 
-## Create custom agent installation commands for Rocky Linux in your Region<a name="custom-url-rocky"></a>
+## Create custom agent installation commands for CentOS 8 in your Region<a name="custom-url-centos-8"></a>
 
 When you install SSM Agent on multiple instances using a script or template, we recommended using installation files that are stored in the AWS Region you're working in\. 
 
 For the following commands, we provide examples that use a publicly accessible Amazon S3 bucket in the US East \(Ohio\) Region \(`us-east-2`\)\. 
 
 **Tip**  
-You can also replace a global URL in the procedure [](#quick-install-rocky) earlier in this topic with a custom Regional URL you construct\.
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on CentOS 8](#quick-install-centos-8) earlier in this topic with a custom Regional URL you construct\.
 
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 

@@ -142,7 +142,7 @@ This command varies depending on the package manager for your operating system\.
 ------
 #### [ Ubuntu Server ]
 **Note**  
-To check if your Ubuntu Server 16\.04 instance uses deb or Snap packages, see [Manually install SSM Agent on Ubuntu Server instances](agent-install-ubuntu.md)\.
+To check if your Ubuntu Server 16\.04 instance uses deb or Snap packages, see [Manually installing SSM Agent on Ubuntu Server instances](agent-install-ubuntu.md)\.
 
 1. Log in to your managed node\.
 

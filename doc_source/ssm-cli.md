@@ -3,17 +3,7 @@
 For an Amazon EC2 instance to be managed by AWS Systems Manager and available in lists of managed instances, it must meet three primary requirements:
 + SSM Agent must be installed and running on an instance with a supported operating system\.
 
-  Some Amazon Machine Images \(AMIs\) are configured to launch instances with [SSM Agent](ssm-agent.md) preinstalled\. \(You can also configure a custom AMI to preinstall SSM Agent\.\) 
-
-  SSM Agent is preinstalled, by default, on the following AMIs:
-  + Amazon Linux
-  + Amazon Linux 2
-  + Amazon Linux 2 ECS\-Optimized Base AMIs
-  + macOS 10\.14\.x \(Mojave\), 10\.15\.x \(Catalina\), and 11\.x \(Big Sur\)
-  + SUSE Linux Enterprise Server \(SLES\) 12 and 15
-  + Ubuntu Server 16\.04, 18\.04, and 20\.04  
-  + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-  + Windows Server 2016, 2019, and 2022
+  Some AWS managed Amazon Machine Images \(AMIs\) are configured to launch instances with [SSM Agent](ssm-agent.md) preinstalled\. \(You can also configure a custom AMI to preinstall SSM Agent\.\) For more information, see [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)\.
 + An AWS Identity and Access Management \(IAM\) instance profile that supplies the required permissions for the instance to communicate with the Systems Manager service must be attached to the instance\.
 + SSM Agent must be able to connect to a Systems Manager endpoint to register itself with the service\. Thereafter, the instance must be available to the service, which is confirmed by the service sending a signal every five minutes to check the instance's health\.
 

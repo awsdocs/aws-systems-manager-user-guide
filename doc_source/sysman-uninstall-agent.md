@@ -1,4 +1,4 @@
-# Uninstall SSM Agent from Linux instances<a name="sysman-uninstall-agent"></a>
+# Uninstalling SSM Agent from Linux instances<a name="sysman-uninstall-agent"></a>
 
 Use the following commands to uninstall AWS Systems Manager Agent \(SSM Agent\)\.
 

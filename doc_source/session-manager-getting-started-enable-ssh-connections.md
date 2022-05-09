@@ -22,9 +22,9 @@ Use the following steps to allow SSH connections through Session Manager on a ma
    + Ensure that SSM Agent version 2\.3\.672\.0 or later is installed on the managed node\.
 
      For information about installing or updating SSM Agent on a managed node, see the following topics:
-     + [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.
-     +  [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md) 
-     + [Installing and configuring SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md) 
+     + [Working with SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)\.
+     +  [Working with SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md) 
+     + [Working with SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md) 
      +  [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md) 
      + [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
 **Note**  

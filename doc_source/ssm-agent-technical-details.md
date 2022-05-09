@@ -10,7 +10,6 @@ Use the information in this topic to help you implement AWS Systems Manager Agen
 + [SSM Agent rolling updates by AWS Regions](#rolling-updates)
 + [Installing SSM Agent on VMs and on\-premises instances](#agent-hybrid-installations)
 + [Validating on\-premises servers, edge devices, and virtual machines using a hardware fingerprint](#fingerprint-validation)
-+ [AMIs with SSM Agent preinstalled](#ami-preinstalled-agent)
 + [SSM Agent on GitHub](#github)
 
 ## SSM Agent credentials precedence<a name="credentials-precedence"></a>
@@ -63,10 +62,10 @@ Systems Manager relies on EC2 instance metadata to function correctly\. Systems 
 
 ## Keeping SSM Agent up\-to\-date<a name="updating"></a>
 
-An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on a managed node, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
+An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. Failing to use the latest version of the agent can prevent your managed node from using various Systems Manager capabilities and features\. For that reason, we recommend that you automate the process of keeping SSM Agent up to date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
 
 **Note**  
-An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. If an older version of the agent is running on a managed node, some SSM Agent processes can fail\. For that reason, we recommend that you automate the process of keeping SSM Agent up\-to\-date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.  
+An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. Failing to use the latest version of the agent can prevent your managed node from using various Systems Manager capabilities and features\. For that reason, we recommend that you automate the process of keeping SSM Agent up to date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.  
 Amazon Machine Images \(AMIs\) that include SSM Agent by default can take up to two weeks to be updated with the newest version of SSM Agent\. We recommend that you configure even more frequent automated updates to SSM Agent\.
 
 ## SSM Agent rolling updates by AWS Regions<a name="rolling-updates"></a>
@@ -129,25 +128,6 @@ cd "C:\Program Files\Amazon\SSM\" `
 
 **Important**  
 If one of the components used to calculate the fingerprint changes, this can cause the agent to hibernate\. To help avoid this hibernation, set the similarity threshold to a low value, such as **1**\.
-
-## AMIs with SSM Agent preinstalled<a name="ami-preinstalled-agent"></a>
-
-In most cases, SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):
-+ Amazon Linux
-+ Amazon Linux 2
-+ Amazon Linux 2 ECS\-Optimized Base AMIs
-+ macOS 10\.14\.x \(Mojave\), 10\.15\.x \(Catalina\), and 11\.x \(Big Sur\)
-+ SUSE Linux Enterprise Server \(SLES\) 12 and 15
-+ Ubuntu Server 16\.04, 18\.04, and 20\.04  
-+ Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-+ Windows Server 2016, 2019, and 2022
-
-For information about verifying whether the agent is installed on an EC2 instance, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)\.
-
-You must manually install SSM Agent on EC2 instances created from other Linux AMIs\. You must also manually install SSM Agent on AWS IoT Greengrass core devices and on\-premises servers, edge devices, and VMs in your hybrid environment\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
-
-**Note**  
-SSM Agent might be pre\-installed on Community AMIs that support other operating systems\. AWS doesn't support these Community AMIs\.
 
 ## SSM Agent on GitHub<a name="github"></a>
 

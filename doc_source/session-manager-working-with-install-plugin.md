@@ -139,7 +139,7 @@ You can install the Session Manager plugin on macOS using the signed installer\.
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_32bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
      ```
-   + arm64
+   + ARM64
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_arm64/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
@@ -169,7 +169,7 @@ If you ever want to uninstall the plugin, run `sudo yum erase session-manager-pl
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_32bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
      ```
-   + arm64
+   + ARM64
 
      ```
      curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"

@@ -1,32 +1,32 @@
-# Manually install SSM Agent on Rocky Linux instances<a name="agent-install-rocky"></a>
+# Manually install SSM Agent on CentOS Stream instances<a name="agent-install-centos-stream"></a>
 
-The Amazon Machine Images \(AMIs\) for Rocky Linux that are provided by AWS do not come with AWS Systems Manager Agent \(SSM Agent\) preinstalled by default\. For a list of AWS managed AMIs on which the agent might be preinstalled, see [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)\.
+The Amazon Machine Images \(AMIs\) for CentOS Stream that are provided by AWS do not come with AWS Systems Manager Agent \(SSM Agent\) preinstalled by default\. For a list of AWS managed AMIs on which the agent might be preinstalled, see [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)\.
 
-Use the information in this section to help you manually install or reinstall SSM Agent on an Rocky Linux instance\.
+Use the information in this section to help you manually install or reinstall SSM Agent on a CentOS Stream instance\.
 
 **Before you begin**  
-Before you install SSM Agent on a Rocky Linux instance, note the following:
+Before you install SSM Agent on a CentOS Stream instance, note the following:
 + For important information that applies to installation of SSM Agent on all Linux\-based operating systems, see [Manually installing SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md)\.
 
 **Topics**
-+ [Quick installation commands for SSM Agent on Rocky Linux](#quick-install-rocky)
-+ [Create custom agent installation commands for Rocky Linux in your Region](#custom-url-rocky)
++ [Quick installation commands for SSM Agent on CentOS Stream](#quick-install-centos-stream)
++ [Create custom agent installation commands for CentOS Stream in your Region](#custom-url-centos-stream)
 
-## Quick installation commands for SSM Agent on Rocky Linux<a name="quick-install-rocky"></a>
+## Quick installation commands for SSM Agent on CentOS Stream<a name="quick-install-centos-stream"></a>
 
 Use the following steps to manually install SSM Agent on a single instance\. This procedure uses globally available installation files\. 
 
 **Before you begin**  
-Before you install SSM Agent on a Rocky Linux instance, note the following:
-+ Ensure that either Python 2 or Python 3 is installed on your Rocky Linux instance\. This is required in order for SSM Agent to work properly\.
+Before you install SSM Agent on a CentOS Stream instance, note the following:
++ Ensure that either Python 2 or Python 3 is installed on your CentOS Stream 8 instance\. This is required in order for SSM Agent to work properly\.
 
-**To install SSM Agent on Rocky Linux**
+**To install SSM Agent on CentOS Stream**
 
-1. Connect to your Rocky Linux instance using your preferred method, such as SSH\. 
+1. Connect to your CentOS Stream instance using your preferred method, such as SSH\. 
 
 1. Copy the command for your instance’s architecture and run it on the instance\.
 **Note**  
-Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for Rocky Linux\.   
+Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for CentOS Stream\.   
 x86\_64 instances  
 
    ```
@@ -78,14 +78,14 @@ ARM64 instances
    sudo systemctl start amazon-ssm-agent
    ```
 
-## Create custom agent installation commands for Rocky Linux in your Region<a name="custom-url-rocky"></a>
+## Create custom agent installation commands for CentOS Stream in your Region<a name="custom-url-centos-stream"></a>
 
 When you install SSM Agent on multiple instances using a script or template, we recommended using installation files that are stored in the AWS Region you're working in\. 
 
 For the following commands, we provide examples that use a publicly accessible Amazon S3 bucket in the US East \(Ohio\) Region \(`us-east-2`\)\. 
 
 **Tip**  
-You can also replace a global URL in the procedure [](#quick-install-rocky) earlier in this topic with a custom Regional URL you construct\.
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on CentOS Stream](#quick-install-centos-stream) earlier in this topic with a custom Regional URL you construct\.
 
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 

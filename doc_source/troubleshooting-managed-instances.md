@@ -7,16 +7,7 @@ This topic provides information to help you diagnose why a managed node *that yo
 In order for a node to be managed by Systems Manager and available in lists of managed nodes, it must meet three requirements:
 + SSM Agent must be installed and running on the node with a supported operating system\.
 **Note**  
-Some Amazon Machine Images \(AMIs\) are configured to launch managed nodes with [SSM Agent](ssm-agent.md) preinstalled\. \(You can also configure a custom AMI to preinstall SSM Agent\.\)   
-SSM Agent is preinstalled, by default, on the following Amazon Machine Images \(AMIs\):  
-Amazon Linux
-Amazon Linux 2
-Amazon Linux 2 ECS\-Optimized Base AMIs
-macOS 10\.14\.x \(Mojave\), 10\.15\.x \(Catalina\), and 11\.x \(Big Sur\)
-SUSE Linux Enterprise Server \(SLES\) 12 and 15
-Ubuntu Server 16\.04, 18\.04, and 20\.04  
-Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
-Windows Server 2016, 2019, and 2022
+Some AWS managed Amazon Machine Images \(AMIs\) are configured to launch instances with [SSM Agent](ssm-agent.md) preinstalled\. \(You can also configure a custom AMI to preinstall SSM Agent\.\) For more information, see [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)\.
 + For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, you must attach an AWS Identity and Access Management \(IAM\) instance profile to the instance\. The instance profile enables the instance to communicate with the Systems Manager service\. If you don't assign an instance profile to the instance, you register it using a hybrid activation, which is not a common scenario\.
 + SSM Agent must be able to connect to a Systems Manager endpoint in order to register itself with the service\. Thereafter, the managed node must be available to the service, which is confirmed by the service sending a signal every five minutes to check the instance's health\. 
 
@@ -102,9 +93,9 @@ Make sure the latest version of SSM Agent is installed and running on the manage
 To determine whether SSM Agent is installed and running on a managed node, see [Checking SSM Agent status and starting the agent](ssm-agent-status-and-restart.md)\.
 
 To install or reinstall SSM Agent on a managed node, see the following topics:
-+ [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
++ [Working with SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
 + [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
-+ [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
++ [Working with SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
 + [Install SSM Agent for a hybrid environment \(Windows\) ](sysman-install-managed-win.md)
 
 ## Solution 2: Verify that an IAM instance profile has been specified for the instance \(EC2 instances only\)<a name="instances-missing-solution-2"></a>
@@ -161,7 +152,7 @@ Amazon EC2 instances are created and available in specific AWS Regions, such as 
 
 ## Solution 6: Verify the proxy configuration you applied to the SSM Agent on your managed node<a name="instances-missing-solution-6"></a>
 
-Verify that the proxy configuration you applied to the SSM Agent on your managed node is correct\. If the proxy configuration is incorrect, the node can't connect to the required service endpoints, or Systems Manager might identify the operating system of the managed node incorrectly\. For more information, see [Configure SSM Agent to use a proxy \(Linux\)](sysman-proxy-with-ssm-agent.md) and [Configure SSM Agent to use a proxy for Windows Server instances](sysman-install-ssm-proxy.md)\.
+Verify that the proxy configuration you applied to the SSM Agent on your managed node is correct\. If the proxy configuration is incorrect, the node can't connect to the required service endpoints, or Systems Manager might identify the operating system of the managed node incorrectly\. For more information, see [Configuring SSM Agent to use a proxy \(Linux\)](sysman-proxy-with-ssm-agent.md) and [Configure SSM Agent to use a proxy for Windows Server instances](sysman-install-ssm-proxy.md)\.
 
 ## Solution 7: Install a TLS certificate on managed instances<a name="hybrid-tls-certificate"></a>
 

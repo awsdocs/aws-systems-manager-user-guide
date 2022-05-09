@@ -21,6 +21,6 @@ This topic lists the commands to check whether AWS Systems Manager Agent \(SSM A
 | Windows Server |  *Run in PowerShell:* `Get-Service AmazonSSMAgent`  |  *Run in PowerShell Administrator mode:* `Start-Service AmazonSSMAgent`  | 
 
 **Related content**
-+ [Installing and configuring SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
-+ [Installing and configuring SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
++ [Working with SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
++ [Working with SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
 + [Checking the SSM Agent version number](ssm-agent-get-version.md)

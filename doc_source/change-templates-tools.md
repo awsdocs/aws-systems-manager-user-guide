@@ -63,23 +63,29 @@ In the first level, the specific user "John\-Doe" must approve each change reque
                "Message": "A sample change request has been submitted for your review in Change Manager. You can approve or reject this request.",
                "EnhancedApprovals": {
                   "NotificationArn": "{{ ApproverSnsTopicArn }}",
-                  Approvers:
-             - approver: John-Doe
-               type: IamUser
-               minRequiredApprovals: 1
-     - name: ApproveAction2
-       action: 'aws:approve'
-       timeoutSeconds: 3600
-       inputs:
-         Message: >-
-           A sample change request has been submitted for your review in Change
-           Manager. You can approve or reject this request.
-         EnhancedApprovals:
-           NotificationArn: '{{ ApproverSnsTopicArn }}'
-           Approvers:
-             - approver: Admin
-               type: IamRole
-               minRequiredApprovals: 3                  
+                  "Approvers": [
+                     {
+                        "approver": "John-Doe",
+                        "type": "IamUser",
+                        "minRequiredApprovals": 1
+                     }
+                  ]
+               }
+            }
+         },
+           {
+            "name": "ApproveAction2",
+            "action": "aws:approve",
+            "timeoutSeconds": 3600,
+            "inputs": {
+               "Message": "A sample change request has been submitted for your review in Change Manager. You can approve or reject this request.",
+               "EnhancedApprovals": {
+                  "NotificationArn": "{{ ApproverSnsTopicArn }}",
+                  "Approvers": [
+                     {
+                        "approver": "Admin",
+                        "type": "IamRole",
+                        "minRequiredApprovals": 3                  
                      }
                   ]
                }
