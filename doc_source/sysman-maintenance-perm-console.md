@@ -120,7 +120,7 @@ Depending on whether you're assigning the `iam:Passrole` permission to an indivi
 
 1. Choose **Add inline policy**, and then choose the **JSON** tab\.
 
-1. Replace the contents of the box with the following\.
+1. Replace the default contents of the box with the following\.
 
    ```
    {
@@ -163,7 +163,7 @@ Depending on whether you're assigning the `iam:Passrole` permission to an indivi
 
 1. On the **Permissions** tab, choose **Add permissions, Create inline policy**, and then choose the **JSON** tab\.
 
-1. Replace the defaut contents of the box with the following\.
+1. Replace the default contents of the box with the following\.
 
    ```
    {

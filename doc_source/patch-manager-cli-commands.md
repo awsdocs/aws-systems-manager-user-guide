@@ -141,7 +141,7 @@ To better demonstrate this more complex command, we're using the `--cli-input-js
 
    ```
    {
-       "BaselineId": "pb-12343b962ba63wxya"
+       "BaselineId": "pb-0c10e65780EXAMPLE"
    }
    ```
 
@@ -469,7 +469,7 @@ aws ssm get-patch-baseline --baseline-id pb-0c10e65780EXAMPLE
 ```
 
 **Note**  
-For custom patch baselines, you can specify either the patch baseline ID or the full Amazon Resource Name \(ARN\)\. For an AWS\-provided patch baseline, you must specify the full ARN\. For example, `arn:aws:ssm:us-east-1:075727635805:patchbaseline/pb-03e3f588eec25344c`\.
+For custom patch baselines, you can specify either the patch baseline ID or the full Amazon Resource Name \(ARN\)\. For an AWS\-provided patch baseline, you must specify the full ARN\. For example, `arn:aws:ssm:us-east-2:075727635805:patchbaseline/pb-0c10e65780EXAMPLE`\.
 
 The system returns information like the following\.
 
@@ -579,7 +579,7 @@ The system returns information like the following\.
 ```
 aws ssm register-default-patch-baseline \
     --region us-east-2 \
-    --baseline-id "arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed"
+    --baseline-id "arn:aws:ssm:us-east-2:123456789012:patchbaseline/pb-0c10e65780EXAMPLE"
 ```
 
 ------
@@ -588,7 +588,7 @@ aws ssm register-default-patch-baseline \
 ```
 aws ssm register-default-patch-baseline ^
     --region us-east-2 ^
-    --baseline-id "arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0574b43a65ea646ed"
+    --baseline-id "arn:aws:ssm:us-east-2:123456789012:patchbaseline/pb-0c10e65780EXAMPLE"
 ```
 
 ------
@@ -732,7 +732,7 @@ Run the following command to associate a `Patch Group` tag value to the specifie
 
 ```
 aws ssm register-patch-baseline-for-patch-group \
-    --baseline-id "pb-0123456789abcdef0" \
+    --baseline-id "pb-0c10e65780EXAMPLE" \
     --patch-group "Development"
 ```
 
@@ -741,7 +741,7 @@ aws ssm register-patch-baseline-for-patch-group \
 
 ```
 aws ssm register-patch-baseline-for-patch-group ^
-    --baseline-id "pb-0123456789abcdef0" ^
+    --baseline-id "pb-0c10e65780EXAMPLE" ^
     --patch-group "Development"
 ```
 
@@ -752,7 +752,7 @@ The system returns information like the following\.
 ```
 {
   "PatchGroup": "Development",
-  "BaselineId": "pb-0123456789abcdef0"
+  "BaselineId": "pb-0c10e65780EXAMPLE"
 }
 ```
 
@@ -1184,7 +1184,7 @@ The system returns information like the following\.
       {
             "InstanceId": "i-08ee91c0b17045407",
             "PatchGroup": "",
-            "BaselineId": "pb-0e392de35e7c563b7",
+            "BaselineId": "pb-0c10e65780EXAMPLE",
             "SnapshotId": "6d03d6c5-f79d-41d0-8d0e-00a9aEXAMPLE",
             "InstalledCount": 50,
             "InstalledOtherCount": 353,
@@ -1202,7 +1202,7 @@ The system returns information like the following\.
         {
             "InstanceId": "i-09a618aec652973a9",
             "PatchGroup": "",
-            "BaselineId": "pb-07e6d4e9bc703f2e3",
+            "BaselineId": "pb-0c10e65780EXAMPLE",
             "SnapshotId": "c7e0441b-1eae-411b-8aa7-973e6EXAMPLE",
             "InstalledCount": 36,
             "InstalledOtherCount": 396,

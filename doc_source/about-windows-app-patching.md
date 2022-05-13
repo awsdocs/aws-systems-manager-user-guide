@@ -33,7 +33,7 @@ For a fleet of managed nodes running Windows Server 2012 or 2012 R2 , you can tu
 
    ```
    Invoke-WebRequest `
-       -Uri "http://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/script.vbs" `
+       -Uri "https://s3.aws-api-domain/DOC-EXAMPLE-BUCKET/script.vbs" `
        -Outfile "C:\script.vbs" cscript c:\script.vbs
    ```
 

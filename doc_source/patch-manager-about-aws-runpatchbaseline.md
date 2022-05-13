@@ -95,7 +95,7 @@ If your file is stored in a publicly available bucket, you can specify either an
 + **https URL format**:
 
   ```
-  https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/my-windows-override-list.yaml
+  https://s3.aws-api-domain/DOC-EXAMPLE-BUCKET/my-windows-override-list.yaml
   ```
 + **Amazon S3 path\-style URL**:
 

@@ -56,15 +56,15 @@ Here is an example of a typical finding from Patch Manager\.
 ```
 {
   "SchemaVersion": "2018-10-08",
-  "Id": "arn:aws:patchmanager:us-east-1:111122223333:instance/i-02573cafcfEXAMPLE/document/AWS-RunPatchBaseline/run-command/d710f5bd-04e3-47b4-82f6-df4e0b0ecb9c",
+  "Id": "arn:aws:patchmanager:us-east-2:111122223333:instance/i-02573cafcfEXAMPLE/document/AWS-RunPatchBaseline/run-command/d710f5bd-04e3-47b4-82f6-df4e0EXAMPLE",
   "ProductArn": "arn:aws:securityhub:us-east-1::product/aws/ssm-patch-manager",
-  "GeneratorId": "d710f5bd-04e3-47b4-82f6-df4e0b0ecb9c",
+  "GeneratorId": "d710f5bd-04e3-47b4-82f6-df4e0EXAMPLE",
   "AwsAccountId": "111122223333",
   "Types": [
     "Software & Configuration Checks/Patch Management/Compliance"
   ],
-  "CreatedAt": "2020-11-11T22:05:25Z",
-  "UpdatedAt": "2020-11-11T22:05:25Z",
+  "CreatedAt": "2021-11-11T22:05:25Z",
+  "UpdatedAt": "2021-11-11T22:05:25Z",
   "Severity": {
     "Label": "INFORMATIONAL",
     "Normalized": 0
@@ -77,9 +77,9 @@ Here is an example of a typical finding from Patch Manager\.
       "Url": "https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-compliance-remediation.html"
     }
   },
-  "SourceUrl": "https://us-east-1.console.aws.amazon.com/systems-manager/managed-instances/i-02573cafcfEXAMPLE/patch?region=us-east-1",
+  "SourceUrl": "https://us-east-2.console.aws.amazon.com/systems-manager/managed-instances/i-02573cafcfEXAMPLE/patch?region=us-east-2",
   "ProductFields": {
-    "aws/securityhub/FindingId": "arn:aws:securityhub:us-east-1::product/aws/ssm-patch-manager/arn:aws:patchmanager:us-east-1:111122223333:instance/i-02573cafcfEXAMPLE/document/AWS-RunPatchBaseline/run-command/d710f5bd-04e3-47b4-82f6-df4e0b0ecb9c",
+    "aws/securityhub/FindingId": "arn:aws:securityhub:us-east-2::product/aws/ssm-patch-manager/arn:aws:patchmanager:us-east-2:111122223333:instance/i-02573cafcfEXAMPLE/document/AWS-RunPatchBaseline/run-command/d710f5bd-04e3-47b4-82f6-df4e0EXAMPLE",
     "aws/securityhub/ProductName": "Systems Manager Patch Manager",
     "aws/securityhub/CompanyName": "AWS"
   },
@@ -88,7 +88,7 @@ Here is an example of a typical finding from Patch Manager\.
       "Type": "AwsEc2Instance",
       "Id": "i-02573cafcfEXAMPLE",
       "Partition": "aws",
-      "Region": "us-east-1"
+      "Region": "us-east-2"
     }
   ],
   "WorkflowState": "NEW",
@@ -97,15 +97,15 @@ Here is an example of a typical finding from Patch Manager\.
   },
   "RecordState": "ACTIVE",
   "PatchSummary": {
-    "Id": "pb-07e6d4e9bc703f2e3",
+    "Id": "pb-0c10e65780EXAMPLE",
     "InstalledCount": 45,
     "MissingCount": 2,
     "FailedCount": 0,
     "InstalledOtherCount": 396,
     "InstalledRejectedCount": 0,
     "InstalledPendingReboot": 0,
-    "OperationStartTime": "2020-11-11T22:05:06Z",
-    "OperationEndTime": "2020-11-11T22:05:25Z",
+    "OperationStartTime": "2021-11-11T22:05:06Z",
+    "OperationEndTime": "2021-11-11T22:05:25Z",
     "RebootOption": "NoReboot",
     "Operation": "SCAN"
   }

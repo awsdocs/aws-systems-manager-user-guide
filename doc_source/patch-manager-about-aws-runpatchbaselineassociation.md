@@ -185,12 +185,12 @@ Be aware that compliance reports reflect patch states according to what’s spec
 
 **Note**  
 If your file is stored in a publicly available bucket, you can specify either an https URL format or an Amazon S3 path\-style URL\. If your file is stored in a private bucket, you must specify an Amazon S3 path\-style URL\.
-+ **https URL format**:
++ **https URL format example**:
 
   ```
   https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/my-windows-override-list.yaml
   ```
-+ **Amazon S3 path\-style URL**:
++ **Amazon S3 path\-style URL example**:
 
   ```
   s3://DOC-EXAMPLE-BUCKET/my-windows-override-list.yaml

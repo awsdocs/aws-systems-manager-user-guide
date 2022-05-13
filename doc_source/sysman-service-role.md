@@ -203,7 +203,7 @@ The policies you add for a service profile for managed instances in a hybrid env
                   "aws:SourceAccount":"123456789012"
                },
                "ArnEquals":{
-                  "aws:SourceArn":"arn:aws:ssm:us-east-2:123456789012:*"
+                  "aws:SourceArn":"arn:aws:ssm:region:123456789012:*"
                }
             }
          }

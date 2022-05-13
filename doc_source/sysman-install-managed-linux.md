@@ -11,10 +11,10 @@ The URLs in the following scripts let you download SSM Agent from *any* AWS Regi
 
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
-For example, to download SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US West \(N\. California\) Region \(us\-west\-1\), use the following URL:
+For example, to download SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US East \(Ohio\) Region \(us\-east\-2\), use the following URL:
 
 ```
-https://s3.us-west-1.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm
+https://s3.us-east-2.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazon-ssm-agent.rpm
 ```
 
 ------

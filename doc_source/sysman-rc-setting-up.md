@@ -54,7 +54,7 @@ You can restrict command execution to specific managed nodes by creating an IAM 
 }
 ```
 
-You can create IAM policies that allow a user to run commands on managed nodes that are tagged with multiple tags\. The following policy alows the user to run commands on managed nodes that have two tags\. If a user sends a command to a node that isn't tagged with both of these tags, the execution results show `AccessDenied`\.
+You can create IAM policies that allow a user to run commands on managed nodes that are tagged with multiple tags\. The following policy allows the user to run commands on managed nodes that have two tags\. If a user sends a command to a node that isn't tagged with both of these tags, the execution results show `AccessDenied`\.
 
 ```
 {
@@ -101,7 +101,7 @@ You can create IAM policies that allow a user to run commands on managed nodes t
 }
 ```
 
-You can also create IAM policies that allows a user to run commands on multiple groups of tagged managed nodes\. The following policy allows the user to run commands on either group of tagged nodes, or both groups\.
+You can also create IAM policies that allows a user to run commands on multiple groups of tagged managed nodes\. The following example policy allows the user to run commands on either group of tagged nodes, or both groups\.
 
 ```
 {

@@ -139,7 +139,6 @@ Amazon's trademarks and trade dress may not be used in
       + [Receiving findings from AWS Security Hub in OpsCenter](opscenter-securityhub-integration.md)
       + [Auditing and logging OpsCenter activity](OpsCenter-logging-auditing.md)
    + [Amazon CloudWatch dashboards hosted by Systems Manager](systems-manager-cloudwatch-dashboards.md)
-   + [Trusted Advisor and Personal Health Dashboards hosted by Systems Manager](systems-manager-trusted-advisor-and-phd.md)
 + [AWS Systems Manager Application Management](systems-manager-application-management.md)
    + [AWS Systems Manager Application Manager](application-manager.md)
       + [Getting started with Systems Manager Application Manager](application-manager-getting-started.md)

@@ -259,7 +259,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
        --window-id mw-0c50858d01EXAMPLE \
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" \
        --task-arn "AWS-RunPatchBaseline" \
-       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" \
+       --service-role-arn "arn:aws:iam::123456789012:role/MW-Role" \
        --task-type "RUN_COMMAND" \
        --max-concurrency 2 \
        --max-errors 1 \
@@ -275,7 +275,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
        --window-id mw-0c50858d01EXAMPLE ^
        --targets "Key=WindowTargetIds,Values=e32eecb2-646c-4f4b-8ed1-205fbEXAMPLE" ^
        --task-arn "AWS-RunPatchBaseline" ^
-       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" ^
+       --service-role-arn "arn:aws:iam::123456789012:role/MW-Role" ^
        --task-type "RUN_COMMAND" ^
        --max-concurrency 2 ^
        --max-errors 1 ^
@@ -301,7 +301,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
        --window-id mw-9a8b7c6d5eEXAMPLE \
        --targets "Key=WindowTargetIds,Values=faa01c41-1d57-496c-ba77-ff9caEXAMPLE" \
        --task-arn "AWS-RunPatchBaseline" \
-       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" \
+       --service-role-arn "arn:aws:iam::123456789012:role/MW-Role" \
        --task-type "RUN_COMMAND" \
        --max-concurrency 2 \
        --max-errors 1 \
@@ -317,7 +317,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
        --window-id mw-9a8b7c6d5eEXAMPLE ^
        --targets "Key=WindowTargetIds,Values=faa01c41-1d57-496c-ba77-ff9caEXAMPLE" ^
        --task-arn "AWS-RunPatchBaseline" ^
-       --service-role-arn "arn:aws:iam::12345678:role/MW-Role" ^
+       --service-role-arn "arn:aws:iam::123456789012:role/MW-Role" ^
        --task-type "RUN_COMMAND" ^
        --max-concurrency 2 ^
        --max-errors 1 ^

@@ -23,7 +23,7 @@ This section includes procedures to help you run Ruby scripts from Amazon Simple
    + In the **Source Info** text box, enter the required information to access the source in the following format\.
 
      ```
-     {"path":"https://s3.amazonaws.com/path_to_script"}
+     {"path":"https://s3.aws-api-domain/path_to_script"}
      ```
 
      Following is an example\.
@@ -78,7 +78,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm send-command \
        --document-name "AWS-RunRemoteScript" \
        --targets "Key=instanceids,Values=instance-IDs" \
-       --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_script\"}"],"commandLine":["script_name_and_arguments"]}'
+       --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.aws-api-domain/path_to_script\"}"],"commandLine":["script_name_and_arguments"]}'
    ```
 
    Here is an example\.
@@ -87,7 +87,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm send-command \
        --document-name "AWS-RunRemoteScript" \
        --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" \
-       --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.amazonaws.com/doc-example-bucket/scripts/ruby/helloWorld.rb\"}"],"commandLine":["helloWorld.rb argument-1 argument-2"]}'
+       --parameters '{"sourceType":["S3"],"sourceInfo":["{\"path\":\"https://s3.aws-api-domain/doc-example-bucket/scripts/ruby/helloWorld.rb\"}"],"commandLine":["helloWorld.rb argument-1 argument-2"]}'
    ```
 
 ------
@@ -97,7 +97,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm send-command ^    
        --document-name "AWS-RunRemoteScript" ^
        --targets "Key=instanceids,Values=instance-IDs" ^
-       --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.amazonaws.com/path_to_script\"}',"commandLine"="script_name_and_arguments"
+       --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.aws-api-domain/path_to_script\"}',"commandLine"="script_name_and_arguments"
    ```
 
    Here is an example\.
@@ -106,7 +106,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    aws ssm send-command ^
        --document-name "AWS-RunRemoteScript" ^
        --targets "Key=instanceids,Values=i-02573cafcfEXAMPLE" ^
-       --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.amazonaws.com/doc-example-bucket/scripts/ruby/helloWorld.rb\"}',"commandLine"="helloWorld.rb argument-1 argument-2"
+       --parameters "sourceType"="S3",sourceInfo='{\"path\":\"https://s3.aws-api-domain/doc-example-bucket/scripts/ruby/helloWorld.rb\"}',"commandLine"="helloWorld.rb argument-1 argument-2"
    ```
 
 ------

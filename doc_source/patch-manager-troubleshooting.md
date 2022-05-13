@@ -192,7 +192,7 @@ failed to run commands: exit status 4294967295
 **Problem**: You received an error like the following\.
 
 ```
-Downloading PatchBaselineOperations PowerShell module from https://s3.amazonaws.com/path_to_module.zip to C:\Windows\TEMP\Amazon.PatchBaselineOperations-1.29.zip.
+Downloading PatchBaselineOperations PowerShell module from https://s3.aws-api-domain/path_to_module.zip to C:\Windows\TEMP\Amazon.PatchBaselineOperations-1.29.zip.
 
 Extracting PatchBaselineOperations zip file contents to temporary folder.
 
@@ -290,7 +290,7 @@ at Amazon.Patch.Baseline.Operations.PatchNow.Implementations.WindowsUpdateAgent.
 ```
 Preparing to download PatchBaselineOperations PowerShell module from S3.
                     
-Downloading PatchBaselineOperations PowerShell module from https://s3.amazonaws.com/path_to_module.zip to C:\Windows\TEMP\Amazon.PatchBaselineOperations-1.29.zip.
+Downloading PatchBaselineOperations PowerShell module from https://s3.aws-api-domain/path_to_module.zip to C:\Windows\TEMP\Amazon.PatchBaselineOperations-1.29.zip.
 ----------ERROR-------
 
 C:\ProgramData\Amazon\SSM\InstanceData\i-02573cafcfEXAMPLE\document\orchestration\aaaaaaaa-bbbb-cccc-dddd-4f6ed6bd5514\
