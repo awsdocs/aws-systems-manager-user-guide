@@ -46,15 +46,15 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to start an automation that uses an IAM service role\.
+1. Run the following command to start an automation that uses an IAM service role\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
-       --document-name RunbookName \
-       --parameters "ParametersRequiredByRunbook","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
+       --document-name runbook name \
+       --parameters "runbook parameters","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
    ```
 
 ------
@@ -62,8 +62,8 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    ```
    aws ssm start-automation-execution ^
-       --document-name RunbookName ^
-       --parameters "ParametersRequiredByRunbook","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
+       --document-name runbook name ^
+       --parameters "runbook parameters","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
    ```
 
 ------
@@ -71,9 +71,9 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    ```
    Start-SSMAutomationExecution `
-       -DocumentName RunbookName `
+       -DocumentName runbook name `
        -Parameter @{
-       "ParametersRequiredByRunbook"="ParameterValues";
+       "runbook parameters"="ParameterValues";
        "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"}
    ```
 
@@ -87,7 +87,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
    ```
    aws ssm start-automation-execution \
        --document-name "AWS-RestartEC2Instance" \
-       --parameters "InstanceId=i-1234567890abcdef0","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
+       --parameters "InstanceId=i-02573cafcfEXAMPLE","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
    ```
 
 ------
@@ -96,7 +96,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
    ```
    aws ssm start-automation-execution ^
        --document-name "AWS-RestartEC2Instance" ^
-       --parameters "InstanceId=i-1234567890abcdef0","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
+       --parameters "InstanceId=i-02573cafcfEXAMPLE","AutomationAssumeRole=arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"
    ```
 
 ------
@@ -106,8 +106,8 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
    Start-SSMAutomationExecution `
        -DocumentName "AWS-RestartEC2Instance" `
        -Parameter @{
-       "InstanceId"="i-1234567890abcdef0";
-       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole"}
+       "InstanceId"="i-02573cafcfEXAMPLE";
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AmazonSSMAutomationRole"}
    ```
 
 ------
@@ -141,14 +141,14 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
 ------
 
-1. Run the following command to retrieve the status of the automation\.
+1. Run the following command to retrieve the status of the automation\. Replace *automation execution ID* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm describe-automation-executions \
-       --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+       --filter "Key=ExecutionId,Values=automation execution ID"
    ```
 
 ------
@@ -156,7 +156,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    ```
    aws ssm describe-automation-executions ^
-       --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+       --filter "Key=ExecutionId,Values=automation execution ID"
    ```
 
 ------
@@ -164,7 +164,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    ```
    Get-SSMAutomationExecutionList | `
-       Where {$_.AutomationExecutionId -eq "4105a4fc-f944-11e6-9d32-0123456789ab"}
+       Where {$_.AutomationExecutionId -eq "automation execution ID"}
    ```
 
 ------

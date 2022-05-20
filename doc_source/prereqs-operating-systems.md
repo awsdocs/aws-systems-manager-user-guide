@@ -1,6 +1,6 @@
 # Supported operating systems<a name="prereqs-operating-systems"></a>
 
-To work with AWS Systems Manager, your Amazon Elastic Compute Cloud \(Amazon EC2\) instances and on\-premises servers and virtual machines \(VMs\) must be running one of the following operating systems\.
+You can manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances and on\-premises servers and virtual machines \(VMs\), including VMs hosted by other cloud provides, by using Systems Manager\. These nodes must be running one of the following operating systems\.
 
 **Note**  
 If you plan to manage and configure AWS IoT Greengrass core devices by using Systems Manager, those devices must meet the requirements for AWS IoT Greengrass\. For more information, see [Setting up AWS IoT Greengrass core devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html) in the *AWS IoT Greengrass Version 2 Developer Guide*\.  
@@ -65,7 +65,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 7\.5\-7\.8 |  | ✓ |  | 
-| 8\.1\-8\.3 |  | ✓ |  | 
+| 8\.1\-8\.5 |  | ✓ |  | 
 
 
 **Red Hat Enterprise Linux \(RHEL\)**  

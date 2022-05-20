@@ -30,7 +30,7 @@ Troubleshooting an instance with Automation and the `AWSSupport-ResetAccess` run
 + The system restarts your original instance, and terminates the temporary instance\. The system also terminates the temporary VPC and the Lambda functions created at the start of the automation\.
 + **Windows**: Your instance generates a new password you can decode from the Amazon EC2 console using the current key pair assigned to the instance\.
 
-  **Linux**: You can SSH to the instance by using the SSH key stored in Systems Manager Parameter Store as **/ec2rl/openssh/*instance\_id*/key**\.
+  **Linux**: You can SSH to the instance by using the SSH key stored in Systems Manager Parameter Store as **/ec2rl/openssh/*instance ID*/key**\.
 
 ## Before you begin<a name="automation-ec2reset-begin"></a>
 
@@ -54,6 +54,8 @@ If you create a new IAM managed policy, you must also attach the **AmazonSSMAuto
 
 **IAM Policy for `AWSSupport-ResetAccess`**
 
+Replace *account ID* with your own information\.
+
 ```
 {
    "Version": "2012-10-17",
@@ -64,7 +66,7 @@ If you create a new IAM managed policy, you must also attach the **AmazonSSMAuto
             "lambda:DeleteFunction",
             "lambda:GetFunction"
          ],
-         "Resource": "arn:aws:lambda:*:aws-account-id:function:AWSSupport-EC2Rescue-*",
+         "Resource": "arn:aws:lambda:*:account ID:function:AWSSupport-EC2Rescue-*",
          "Effect": "Allow"
       },
       {
@@ -95,8 +97,8 @@ If you create a new IAM managed policy, you must also attach the **AmazonSSMAuto
             "iam:DeleteInstanceProfile"
          ],
          "Resource": [
-            "arn:aws:iam::aws-account-id:role/AWSSupport-EC2Rescue-*",
-            "arn:aws:iam::aws-account-id:instance-profile/AWSSupport-EC2Rescue-*"
+            "arn:aws:iam::account ID:role/AWSSupport-EC2Rescue-*",
+            "arn:aws:iam::account ID:instance-profile/AWSSupport-EC2Rescue-*"
          ],
          "Effect": "Allow"
       },
@@ -216,9 +218,9 @@ If you don't see the option to specify a subnet ID, verify that you are using th
 1. To monitor the automation progress, choose the running automation, and then choose the **Steps** tab\. When the automation is finished, choose the **Descriptions** tab, and then choose **View output** to view the results\. To view the output of individual steps, choose the **Steps** tab, and then choose **View Outputs** next to a step\.
 
 The runbook creates a backup AMI and a password\-enabled AMI as part of the automation\. All other resources created by the automation are automatically deleted, but these AMIs remain in your account\. The AMIs are named using the following conventions:
-+ Backup AMI: `AWSSupport-EC2Rescue:InstanceId`
-+ Password\-enabled AMI: AWSSupport\-EC2Rescue: Password\-enabled AMI from *InstanceId*
++ Backup AMI: `AWSSupport-EC2Rescue:InstanceID`
++ Password\-enabled AMI: AWSSupport\-EC2Rescue: Password\-enabled AMI from *Instance ID*
 
 You can locate these AMIs by searching on the Automation execution ID\.
 
-For Linux, the new SSH private key for your instance is saved, encrypted, in Parameter Store\. The parameter name is **/ec2rl/openssh/*instance\_id*/key**\.
+For Linux, the new SSH private key for your instance is saved, encrypted, in Parameter Store\. The parameter name is **/ec2rl/openssh/*instance ID*/key**\.

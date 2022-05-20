@@ -122,7 +122,7 @@ Use the following procedure to create a Lambda function that automatically updat
 
    ```
    {
-      "newAmiID":"valid AMI ID",
+      "newAmiID":"AMI ID",
       "targetASG":"name of your Auto Scaling group"
    }
    ```

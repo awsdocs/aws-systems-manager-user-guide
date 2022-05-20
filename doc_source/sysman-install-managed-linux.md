@@ -9,7 +9,7 @@ Before you begin, locate the Activation Code and Activation ID that were sent to
 
 The URLs in the following scripts let you download SSM Agent from *any* AWS Region\. If you want to download the agent from a *specific* Region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
 
-*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+In the following command, replace *region* with your own information\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 For example, to download SSM Agent for Amazon Linux, RHEL, CentOS, and SLES 64\-bit from the US East \(Ohio\) Region \(us\-east\-2\), use the following URL:
 
@@ -83,7 +83,7 @@ Note the following important details:
 Each command block specifies `sudo -E amazon-ssm-agent`\. The `-E` is only necessary if you set an HTTP or HTTPS proxy environment variable\.
 Even though the following URLs show 'ec2\-downloads\-windows', these are the correct URLs for Linux operating systems\.
 
-   *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+   In the following command, replace *region* with your own information\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ## Amazon Linux, RHEL 6\.x, and CentOS 6\.x<a name="cent-6"></a>
 

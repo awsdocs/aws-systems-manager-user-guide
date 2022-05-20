@@ -13,17 +13,17 @@ Before you begin, ensure you have the following resources prepared\.
   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 **Attach a single file from an S3 bucket**  
-Run the following command to create a runbook using a script file stored in an S3 bucket\.
+Run the following command to create a runbook using a script file stored in an S3 bucket\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
 ```
 aws ssm create-document \
-  --name CustomAutomationScript \
-  --content file://Runbook.yaml \
+  --name runbook name \
+  --content file://content.yaml \
   --document-format YAML \
-  --attachments "Key=S3FileUrl,Name=script.py,Values=https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" \
+  --attachments "Key=S3FileUrl,Name=script.py,Values=https://doc-example-bucket.s3-aws-region.amazonaws.com/filePath" \
   --document-type Automation
 ```
 
@@ -32,10 +32,10 @@ aws ssm create-document \
 
 ```
 aws ssm create-document ^
-  --name CustomAutomationScript ^
-  --content file://AutomationDocument.yaml ^
+  --name runbook name ^
+  --content file://content.yaml ^
   --document-format YAML ^
-  --attachments Key=S3FileUrl,Name=script.py,Values="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" ^
+  --attachments "Key=S3FileUrl,Name=script.py,Values=https://doc-example-bucket.s3-aws-region.amazonaws.com/filePath" ^
   --document-type Automation
 ```
 
@@ -44,17 +44,13 @@ aws ssm create-document ^
 
 ```
 New-SSMDocument `
-  -Name CustomAutomationScript `
-  -Content file://AutomationDocument.yaml `
+  -Name runbook name `
+  -Content file://content.yaml `
   -DocumentFormat YAML `
   -Attachments @{
       "Key"="S3FileUrl";
       "Name"="script.py";
-      "Values"="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath"
-    }, @{
-      "Key"="S3FileUrl";
-      "Name"="Zip-file.zip";
-      "Values"="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath"
+      "Values"="https://doc-example-bucket.s3-aws-region.amazonaws.com/filePath"
     } `
   -DocumentType Automation
 ```
@@ -69,10 +65,10 @@ Run the following command to create a runbook using a script or multiple script 
 
 ```
 aws ssm create-document \
-  --name CustomAutomationScript \
-  --content file://Runbook.yaml \
+  --name runbook name \
+  --content file://content.yaml \
   --document-format YAML \
-  --attachments Key=SourceUrl,Values="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" \
+  --attachments Key=SourceUrl,Values="https://doc-example-bucket.s3-aws-region.amazonaws.com/filePath" \
   --document-type Automation
 ```
 
@@ -81,10 +77,10 @@ aws ssm create-document \
 
 ```
 aws ssm create-document ^
-  --name CustomAutomationScript ^
-  --content file://Runbook.yaml ^
+  --name runbook name ^
+  --content file://content.yaml ^
   --document-format YAML ^
-  --attachments Key=SourceUrl,Values="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath" ^
+  --attachments Key=SourceUrl,Values="https://doc-example-bucket.s3-aws-region.amazonaws.com/filePath" ^
   --document-type Automation
 ```
 
@@ -93,12 +89,12 @@ aws ssm create-document ^
 
 ```
 New-SSMDocument `
-  -Name CustomAutomationScript `
-  -Content file://Runbook.yaml `
+  -Name runbook name `
+  -Content file://content.yaml `
   -DocumentFormat YAML `
   -Attachments @{
       "Key"="SourceUrl";
-      "Values"="https://DOC-EXAMPLE-BUCKET.s3-aws-region.amazonaws.com/filePath"
+      "Values"="https://doc-example-bucket.s3-aws-region.amazonaws.com/filePath"
     } `
   -DocumentType Automation
 ```
@@ -106,12 +102,12 @@ New-SSMDocument `
 ------
 
 **Attach files from another runbook in your AWS account**  
-Run the following command to create a runbook using a script that is already attached to another runbook in your account\.
+Run the following command to create a runbook using a script that is already attached to another runbook in your account\. Replace each *example resource placeholder* with your own information\.
 
-The format of the key value in this command is *runbook\-name/runbook\-version\-number/file\-name*\. See the following example\.
+The format of the key value in this command is *runbook name/runbook version number/file name*\. See the following example\.
 
 ```
-"MyDocument/2/script.py"
+MyRunbook/2/script.py
 ```
 
 ------
@@ -119,10 +115,10 @@ The format of the key value in this command is *runbook\-name/runbook\-version\-
 
 ```
 aws ssm create-document \
-  --name CustomAutomationScript \
-  --content file://Runbook.yaml \
+  --name runbook name \
+  --content file://content.yaml \
   --document-format YAML \
-  --attachments Key=AttachmentReference,Values="runbook-name/runbook-version-number/file-name" \
+  --attachments Key=AttachmentReference,Values="runbook name/runbook version number/file name" \
   --document-type Automation
 ```
 
@@ -131,10 +127,10 @@ aws ssm create-document \
 
 ```
 aws ssm create-document ^
-  --name CustomAutomationScript ^
-  --content file://Runbook.yaml ^
+  --name runbook name ^
+  --content file://content.yaml ^
   --document-format YAML ^
-  --attachments Key=AttachmentReference,Values="runbook-name/runbook-version-number/file-name" ^
+  --attachments Key=AttachmentReference,Values="runbook name/runbook version number/file name" ^
   --document-type Automation
 ```
 
@@ -143,12 +139,12 @@ aws ssm create-document ^
 
 ```
 New-SSMDocument `
-  -Name CustomAutomationScript `
-  -Content file://Runbook.yaml `
+  -Name runbook name `
+  -Content file://content.yaml `
   -DocumentFormat YAML `
   -Attachments @{
       "Key"="AttachmentReference";
-      "Values"="runbook-name/runbook-version-number/file-name"
+      "Values"="runbook name/runbook version number/file name"
     } `
   -DocumentType Automation
 ```
@@ -156,12 +152,12 @@ New-SSMDocument `
 ------
 
 **Attach files from an runbook in another AWS account**  
-Run the following command to create a runbook using a script that is already attached to a runbook that has been shared with you from another AWS account\.
+Run the following command to create a runbook using a script that is already attached to a runbook that has been shared with you from another AWS account\. Replace each *example resource placeholder* with your own information\.
 
-The format of the key value in this command is *runbook\-arn/runbook\-version\-number/file\-name*\. See the following example\.
+The format of the key value in this command is *runbook arn/runbook version number/file name*\. See the following example\.
 
 ```
-"arn:aws:ssm:us-east-2:123456789012:document/OtherAccountDocument/2/script.py"
+arn:aws:ssm:us-east-2:123456789012:document/OtherAccountDocument/2/script.py
 ```
 
 ------
@@ -169,10 +165,10 @@ The format of the key value in this command is *runbook\-arn/runbook\-version\-n
 
 ```
 aws ssm create-document \
-  --name CustomAutomationScript \
-  --content file://Runbook.yaml \
+  --name runbook name \
+  --content file://content.yaml \
   --document-format YAML \
-  --attachments Key=AttachmentReference,Values="runbook-arn/runbook-version-number/file-name/file-name" \
+  --attachments Key=AttachmentReference,Values="runbook arn/runbook version number/file name" \
   --document-type Automation
 ```
 
@@ -181,10 +177,10 @@ aws ssm create-document \
 
 ```
 aws ssm create-document ^
-  --name CustomAutomationScript ^
-  --content file://Runbook.yaml ^
+  --name runbook name ^
+  --content file://content.yaml ^
   --document-format YAML ^
-  --attachments Key=AttachmentReference,Values="runbook-arn/runbook-version-number/file-name" ^
+  --attachments Key=AttachmentReference,Values="runbook arn/runbook version number/file name" ^
   --document-type Automation
 ```
 
@@ -193,12 +189,12 @@ aws ssm create-document ^
 
 ```
 New-SSMDocument `
-  -Name CustomAutomationScript `
-  -Content file://Runbook.yaml `
+  -Name runbook name `
+  -Content file://content.yaml `
   -DocumentFormat YAML `
   -Attachments @{
       "Key"="AttachmentReference";
-      "Values"="runbook-arn/runbook-version-number/file-name"
+      "Values"="runbook arn/runbook version number/file name"
     } `
   -DocumentType Automation
 ```

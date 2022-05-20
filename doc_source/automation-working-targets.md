@@ -96,12 +96,12 @@ The `TargetMaps` option expands your ability to target `ParameterValues`\. You c
 **Note**  
 The `TargetMaps` option isn't supported in the console\.
 
-Use the following format to specify multiple parameter values by using the `TargetMaps` option in a command\.
+Use the following format to specify multiple parameter values by using the `TargetMaps` option in a command\. Replace each *example resource placeholder* with your own information\.
 
 ```
 aws ssm start-automation-execution \
-    -—document-name name_of_runbook \
-    --target-maps “parameterA=parameterA1, parameterB=parameterB1, parameterC=parameterC1” “parameterA=parameterA2, parameterB=parameterB2, parameterC=parameterC2” “parameterA=parameterA3, parameterB=parameterB3, parameterC=parameterC3”
+    --document-name runbook name \
+    --target-maps “parameter=value, parameter 2=value, parameter 3=value”  “parameter 4=value, parameter 5=value, parameter 6=value”
 ```
 
 If you want to enter more than 50 parameter values for the `TargetMaps` option, then specify the values in a file by using the following JSON format\. Using a JSON file also improves readability when providing multiple parameter values\.
@@ -109,29 +109,27 @@ If you want to enter more than 50 parameter values for the `TargetMaps` option, 
 ```
 [
 
-      {“parameterA”:”parameterValueA1”, “parameterB”:”parameterValueB1”, “parameterC”:”parameterValueC1”},
+    {“parameter”: "value", “parameter 2”: "value", “parameter 3”: "value"},
 
-      {“parameterA”:”parameterValueA2”, “parameterB”:”parameterValueB2”, “parameterC”:”parameterValueC2”},
+    {“parameter 4”: "value", “parameter 5”: "value", "parameter 6": "value"}
 
-      {“parameterA”:”parameterValueA3”, “parameterB”:”parameterValueB3”, “parameterC”:”parameterValueC3”}
-
-   ]
+]
 ```
 
-Save the file with a \.json file extension\. You can call the file by using the following command\.
+Save the file with a \.json file extension\. You can call the file by using the following command\. Replace each *example resource placeholder* with your own information\.
 
 ```
 aws ssm start-automation-execution \
-    --document-name name_of_runbook \
-    –-parameters one_or_more_input_parameters \
-    --target-maps full_path_to_file/file_name.json
+    --document-name runbook name \
+    –-parameters input parameters \
+    --target-maps path to file/file name.json
 ```
 
-You can also download the file from an Amazon Simple Storage Service \(Amazon S3\) bucket, as long as you have permission to read data from the bucket\. Use the following command format\.
+You can also download the file from an Amazon Simple Storage Service \(Amazon S3\) bucket, as long as you have permission to read data from the bucket\. Use the following command format\. Replace each *example resource placeholder* with your own information\.
 
 ```
 aws ssm start-automation-execution \
-    --document-name name_of_runbook \
+    --document-name runbook name \
     --target-maps http://DOC-EXAMPLE-BUCKET.s3.amazonaws.com/file_name.json
 ```
 

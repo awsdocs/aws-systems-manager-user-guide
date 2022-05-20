@@ -56,7 +56,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Create a command to specify a new EventBridge event rule\. Here are some template commands to help\.
+1. Create a command to specify a new EventBridge event rule\. Replace each *example resource placeholder* with your own information\.
 
    *Triggers based on a schedule*
 
@@ -65,8 +65,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws events put-rule \
-       --name "rule_name" \
-       --schedule-expression "cron_or_rate_expression"
+       --name "rule name" \
+       --schedule-expression "cron or rate expression"
    ```
 
 ------
@@ -74,8 +74,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws events put-rule ^
-       --name "rule_name" ^
-       --schedule-expression "cron_or_rate_expression"
+       --name "rule name" ^
+       --schedule-expression "cron or rate expression"
    ```
 
 ------
@@ -83,8 +83,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Write-CWERule `
-       -Name "rule_name" `
-       -ScheduleExpression "cron_or_rate_expression"
+       -Name "rule name" `
+       -ScheduleExpression "cron or rate expression"
    ```
 
 ------
@@ -127,8 +127,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws events put-rule \
-       --name "rule_name" \
-       --event-pattern "{\"source\":[\"aws.service\"],\"detail-type\":[\"service_event_detail_type\"]}"
+       --name "rule name" \
+       --event-pattern "{\"source\":[\"aws.service\"],\"detail-type\":[\"service event detail type\"]}"
    ```
 
 ------
@@ -136,8 +136,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws events put-rule ^
-       --name "rule_name" ^
-       --event-pattern "{\"source\":[\"aws.service\"],\"detail-type\":[\"service_event_detail_type\"]}"
+       --name "rule name" ^
+       --event-pattern "{\"source\":[\"aws.service\"],\"detail-type\":[\"service event detail type\"]}"
    ```
 
 ------
@@ -145,8 +145,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Write-CWERule `
-       -Name "rule_name" `
-       -EventPattern '{"source":["aws.service"],"detail-type":["service_event_detail_type"]}'
+       -Name "rule name" `
+       -EventPattern '{"source":["aws.service"],"detail-type":["service event detail type"]}'
    ```
 
 ------
@@ -211,15 +211,15 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Create a command to specify a runbook as a target of the EventBridge event rule you created in step 2\. Here are some template commands to help\.
+1. Create a command to specify a runbook as a target of the EventBridge event rule you created in step 2\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws events put-targets \
-       --rule CW_Event_Rule_Name \
-       --targets '{"Arn": "arn:aws:ssm:us-east-1:123456789012:automation-definition/Runbook_Name","Input":"{\"RunbookParameter\":[\"ParameterValue\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target_Id","RoleArn": "arn:aws:iam::123456789012:role/service-role/CWE_Role_Name_To_Run_Automation"}'
+       --rule rule name \
+       --targets '{"Arn": "arn:aws:ssm:us-east-1:123456789012:automation-definition/runbook name","Input":"{\"input parameter\":[\"value\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "target ID","RoleArn": "arn:aws:iam::123456789012:role/service-role/EventBridge service role"}'
    ```
 
 ------
@@ -227,8 +227,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws events put-targets ^
-       --rule CW_Event_Rule_Name ^
-       --targets '{"Arn": "arn:aws:ssm:us-east-1:123456789012:automation-definition/Runbook_Name","Input":"{\"RunbookParameter\":[\"ParameterValue\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target_Id","RoleArn": "arn:aws:iam::123456789012:role/service-role/CWE_Role_Name_To_Run_Automation"}'
+       --rule rule name ^
+       --targets '{"Arn": "arn:aws:ssm:us-east-1:123456789012:automation-definition/runbook name","Input":"{\"input parameter\":[\"value\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "target ID","RoleArn": "arn:aws:iam::123456789012:role/service-role/EventBridge service role"}'
    ```
 
 ------
@@ -236,13 +236,13 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    $Target = New-Object Amazon.CloudWatchEvents.Model.Target
-   $Target.Id = "Target_Id"
-   $Target.Arn = "arn:aws:ssm:us-east-1:123456789012:automation-definition/Runbook_Name"
-   $Target.RoleArn = "arn:aws:iam::123456789012:role/service-role/CWE_Role_Name_To_Run_Automation"
-   $Target.Input = '{"RunbookParameter":["ParameterValue"],"AutomationAssumeRole":["arn:aws:iam::123456789012:role/AutomationServiceRole"]}'
+   $Target.Id = "target ID"
+   $Target.Arn = "arn:aws:ssm:us-east-1:123456789012:automation-definition/runbook name"
+   $Target.RoleArn = "arn:aws:iam::123456789012:role/service-role/EventBridge service role"
+   $Target.Input = '{"input parameter":["value"],"AutomationAssumeRole":["arn:aws:iam::123456789012:role/AutomationServiceRole"]}'
    
    Write-CWETarget `
-       -Rule "CW_Event_Rule_Name" `
+       -Rule "rule name" `
        -Target $Target
    ```
 

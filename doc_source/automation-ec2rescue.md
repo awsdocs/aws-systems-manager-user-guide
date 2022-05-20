@@ -41,6 +41,8 @@ If you create a new IAM managed policy, you must also attach the **AmazonSSMAuto
 
 **IAM Policy for AWSSupport\-EC2Rescue**
 
+Replace *account ID* with your own information\.
+
 ```
 {
    "Version": "2012-10-17",
@@ -51,7 +53,7 @@ If you create a new IAM managed policy, you must also attach the **AmazonSSMAuto
             "lambda:DeleteFunction",
             "lambda:GetFunction"
          ],
-         "Resource": "arn:aws:lambda:*:aws-account-id:function:AWSSupport-EC2Rescue-*",
+         "Resource": "arn:aws:lambda:*:account ID:function:AWSSupport-EC2Rescue-*",
          "Effect": "Allow"
       },
       {
@@ -82,8 +84,8 @@ If you create a new IAM managed policy, you must also attach the **AmazonSSMAuto
             "iam:DeleteInstanceProfile"
          ],
          "Resource": [
-            "arn:aws:iam::aws-account-id:role/AWSSupport-EC2Rescue-*",
-            "arn:aws:iam::aws-account-id:instance-profile/AWSSupport-EC2Rescue-*"
+            "arn:aws:iam::account ID:role/AWSSupport-EC2Rescue-*",
+            "arn:aws:iam::account ID:instance-profile/AWSSupport-EC2Rescue-*"
          ],
          "Effect": "Allow"
       },

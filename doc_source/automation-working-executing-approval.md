@@ -73,7 +73,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Use the following command to run an automation with approvers\. In the document name section, specify a runbook that includes the automation action, `aws:approve`\.
+1. Run the following command to run an automation with approvers\. Replace each *example resource placeholder* with your own information\. In the document name section, specify a runbook that includes the automation action, `aws:approve`\.
 
    For `Approvers`, specify the IAM users or user ARNs of approvers for the action\. For `SNSTopic`, specify the SNS topic ARN to use to send approval notification\. The Amazon SNS topic name must start with `Automation`\.
 **Note**  
@@ -85,7 +85,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
    ```
    aws ssm start-automation-execution \
        --document-name "AWS-StartEC2InstanceWithApproval" \
-       --parameters "InstanceId=i-1234567890abcdef0,Approvers=arn:aws:iam::123456789012:role/Administrator,SNSTopicArn=arn:aws:sns:us-east-1:123456789012:AutomationApproval"
+       --parameters "InstanceId=i-02573cafcfEXAMPLE,Approvers=arn:aws:iam::123456789012:role/Administrator,SNSTopicArn=arn:aws:sns:region:123456789012:AutomationApproval"
    ```
 
 ------
@@ -94,7 +94,7 @@ The specific names of the parameter values for approvers and the SNS topic depen
    ```
    aws ssm start-automation-execution ^
        --document-name "AWS-StartEC2InstanceWithApproval" ^
-       --parameters "InstanceId=i-1234567890abcdef0,Approvers=arn:aws:iam::123456789012:role/Administrator,SNSTopicArn=arn:aws:sns:us-east-1:123456789012:AutomationApproval"
+       --parameters "InstanceId=i-02573cafcfEXAMPLE,Approvers=arn:aws:iam::123456789012:role/Administrator,SNSTopicArn=arn:aws:sns:region:123456789012:AutomationApproval"
    ```
 
 ------
@@ -104,9 +104,9 @@ The specific names of the parameter values for approvers and the SNS topic depen
    Start-SSMAutomationExecution `
        -DocumentName AWS-StartEC2InstanceWithApproval `
        -Parameters @{
-           "InstanceId"="i-1234567890abcdef0"
+           "InstanceId"="i-02573cafcfEXAMPLE"
            "Approvers"="arn:aws:iam::123456789012:role/Administrator"
-           "SNSTopicArn"="arn:aws:sns:us-east-1:123456789012:AutomationApproval"
+           "SNSTopicArn"="arn:aws:sns:region:123456789012:AutomationApproval"
        }
    ```
 
@@ -136,22 +136,22 @@ The specific names of the parameter values for approvers and the SNS topic depen
 #### [ PowerShell ]
 
    ```
-   462fa82a-7fff-430a-8490-0123456789ab
+   df325c6d-b1b1-4aa0-8003-6cb7338213c6
    ```
 
 ------
 
 **To approve an automation**
-+ Run the following command to approve an automation\.
++ Run the following command to approve an automation\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
   ```
   aws ssm send-automation-signal \
-      --automation-execution-id "4105a4fc-f944-11e6-9d32-0123456789ab" \
+      --automation-execution-id "df325c6d-b1b1-4aa0-8003-6cb7338213c6" \
       --signal-type "Approve" \
-      --payload "Comment=Replace_This_With_Approve_Comment"
+      --payload "Comment=your comments"
   ```
 
 ------
@@ -159,9 +159,9 @@ The specific names of the parameter values for approvers and the SNS topic depen
 
   ```
   aws ssm send-automation-signal ^
-      --automation-execution-id "4105a4fc-f944-11e6-9d32-0123456789ab" ^
+      --automation-execution-id "df325c6d-b1b1-4aa0-8003-6cb7338213c6" ^
       --signal-type "Approve" ^
-      --payload "Comment=Replace_This_With_Approve_Comment"
+      --payload "Comment=your comments"
   ```
 
 ------
@@ -169,9 +169,9 @@ The specific names of the parameter values for approvers and the SNS topic depen
 
   ```
   Send-SSMAutomationSignal `
-      -AutomationExecutionId 462fa82a-7fff-430a-8490-0123456789ab `
+      -AutomationExecutionId df325c6d-b1b1-4aa0-8003-6cb7338213c6 `
       -SignalType Approve `
-      -Payload @{"Comment"="Replace_This_With_Approval_Comment"}
+      -Payload @{"Comment"="your comments"}
   ```
 
 ------
@@ -179,16 +179,16 @@ The specific names of the parameter values for approvers and the SNS topic depen
   There is no output if the command succeeds\.
 
 **To deny an automation**
-+ Run the following command to deny an automation\.
++ Run the following command to deny an automation\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
   ```
   aws ssm send-automation-signal \
-      --automation-execution-id "4105a4fc-f944-11e6-9d32-0123456789ab" \
+      --automation-execution-id "df325c6d-b1b1-4aa0-8003-6cb7338213c6" \
       --signal-type "Deny" \
-      --payload "Comment=Replace_This_With_Deny_Comment"
+      --payload "Comment=your comments"
   ```
 
 ------
@@ -196,9 +196,9 @@ The specific names of the parameter values for approvers and the SNS topic depen
 
   ```
   aws ssm send-automation-signal ^
-      --automation-execution-id "4105a4fc-f944-11e6-9d32-0123456789ab" ^
+      --automation-execution-id "df325c6d-b1b1-4aa0-8003-6cb7338213c6" ^
       --signal-type "Deny" ^
-      --payload "Comment=Replace_This_With_Deny_Comment"
+      --payload "Comment=your comments"
   ```
 
 ------
@@ -206,9 +206,9 @@ The specific names of the parameter values for approvers and the SNS topic depen
 
   ```
   Send-SSMAutomationSignal `
-      -AutomationExecutionId 462fa82a-7fff-430a-8490-0123456789ab `
+      -AutomationExecutionId df325c6d-b1b1-4aa0-8003-6cb7338213c6 `
       -SignalType Deny `
-      -Payload @{"Comment"="Replace_This_With_Deny_Comment"}
+      -Payload @{"Comment"="your comments"}
   ```
 
 ------

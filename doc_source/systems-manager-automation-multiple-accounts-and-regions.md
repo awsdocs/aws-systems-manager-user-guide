@@ -38,7 +38,7 @@ This procedure also describes how to create the `AWS-SystemsManager-AutomationAd
 
 1. Download and unzip the [https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationExecutionRole.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationExecutionRole.zip) file\. This file contains the `AWS-SystemsManager-AutomationExecutionRole.json` AWS CloudFormation template file\.
 **Note**  
-We recommend not changing the role name as specified in the template to something other than `AWS-SystemsManager-AutomationExecutionRole`\.Otherwise, your multi\-Region and multi\-Account automations might fail\.
+We recommend not changing the role name as specified in the template to something other than `AWS-SystemsManager-AutomationExecutionRole`\. Otherwise, your multi\-Region and multi\-Account automations might fail\.
 
 1. Open the AWS CloudFormation console at [https://console\.aws\.amazon\.com/cloudformation](https://console.aws.amazon.com/cloudformation/)\.
 
@@ -159,18 +159,18 @@ Before you complete the following procedure, note the following information:
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Use the following format to create a command to run an automation in multiple Regions and accounts\.
+1. Use the following format to create a command to run an automation in multiple Regions and accounts\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
-       --document-name name_of_runbook \
-       --parameters AutomationAssumeRole=arn:aws:iam::Automation_management_account_ID:role/AWS-SystemsManager-AutomationAdministrationRole \
-       --target-parameter-name parameter_name (required) \
-       --targets Key=tag_key,Values=tag_value \
-       --target-locations Accounts=account_ID_1,account_ID_2,account_ID_3,Regions=Region_1,Region_2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+       --document-name runbook name \
+       --parameters AutomationAssumeRole=arn:aws:iam::management account ID:role/AWS-SystemsManager-AutomationAdministrationRole \
+       --target-parameter-name parameter name \
+       --targets Key=tag key,Values=value \
+       --target-locations Accounts=account ID,account ID 2,Regions=Region,Region 2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
 ------
@@ -178,11 +178,11 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution ^
-       --document-name name_of_runbook ^
-       --parameters AutomationAssumeRole=arn:aws:iam::Automation_management_account_ID:role/AWS-SystemsManager-AutomationAdministrationRole ^
-       --target-parameter-name parameter_name (required) ^
-       --targets Key=tag_key,Values=tag_value ^
-       --target-locations Accounts=account_ID_1,account_ID_2,account_ID_3,Regions=Region_1,Region_2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+       --document-name runbook name ^
+       --parameters AutomationAssumeRole=arn:aws:iam::management account ID:role/AWS-SystemsManager-AutomationAdministrationRole ^
+       --target-parameter-name parameter name ^
+       --targets Key=tag key,Values=value ^
+       --target-locations Accounts=account ID,account ID 2,Regions=Region,Region 2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
 ------
@@ -190,18 +190,18 @@ Before you complete the following procedure, note the following information:
 
    ```
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
-   $Targets.Key = "target_key"
-   $Targets.Values = "target_value"
+   $Targets.Key = "tag key"
+   $Targets.Values = "value"
    
    Start-SSMAutomationExecution `
-       -DocumentName "name_of_runbook" `
+       -DocumentName "runbook name" `
        -Parameter @{
-       "AutomationAssumeRole"="arn:aws:iam::Automation_management_account_ID:role/AWS-SystemsManager-AutomationAdministrationRole" } `
-       -TargetParameterName "parameter_name (required)" `
+       "AutomationAssumeRole"="arn:aws:iam::management account ID:role/AWS-SystemsManager-AutomationAdministrationRole" } `
+       -TargetParameterName "parameter name" `
        -Target $Targets `
        -TargetLocation @{
-       "Accounts"="account_ID_1","account_ID_2","account_ID_3";
-       "Regions"="Region_1","Region_2";
+       "Accounts"="account ID","account ID 2";
+       "Regions"="Region","Region 2";
        "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
    ```
 
@@ -382,14 +382,14 @@ Before you complete the following procedure, note the following information:
 
 ------
 
-1. Run the following command to view details for the automation\.
+1. Run the following command to view details for the automation\. Replace *automation execution ID* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm describe-automation-executions \
-       --filters Key=ExecutionId,Values=4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
+       --filters Key=ExecutionId,Values=automation execution ID
    ```
 
 ------
@@ -397,7 +397,7 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm describe-automation-executions ^
-       --filters Key=ExecutionId,Values=4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
+       --filters Key=ExecutionId,Values=automation execution ID
    ```
 
 ------
@@ -405,7 +405,7 @@ Before you complete the following procedure, note the following information:
 
    ```
    Get-SSMAutomationExecutionList | `
-       Where {$_.AutomationExecutionId -eq "a4a3c0e9-7efd-462a-8594-01234EXAMPLE"}
+       Where {$_.AutomationExecutionId -eq "automation execution ID"}
    ```
 
 ------

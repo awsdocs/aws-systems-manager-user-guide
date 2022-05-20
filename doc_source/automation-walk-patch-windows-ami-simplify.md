@@ -33,7 +33,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. These
 
 1. Choose the **JSON** tab\.
 
-1. Replace the default content with the following\. Be sure to replace *us\-west\-2* and *123456789012* with the Region and account you want to use\. Replace *updateAmiFunction* with the name of your Lambda function\.
+1. Replace each *example resource placeholder* with your own information\.
 
    ```
    {
@@ -42,7 +42,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. These
            {
                "Effect": "Allow",
                "Action": "logs:CreateLogGroup",
-               "Resource": "arn:aws:logs:us-west-2:123456789012:*"
+               "Resource": "arn:aws:logs:region:123456789012:*"
            },
            {
                "Effect": "Allow",
@@ -51,7 +51,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. These
                    "logs:PutLogEvents"
                ],
                "Resource": [
-                   "arn:aws:logs:us-west-2:123456789012:log-group:/aws/lambda/updateAmiFunction:*"
+                   "arn:aws:logs:region:123456789012:log-group:/aws/lambda/function name:*"
                ]
            }
        ]
@@ -66,7 +66,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. These
 
 1. Repeat steps 2 and 3\.
 
-1. Replace the default content with the following\. Be sure to replace *us\-west\-2* and *123456789012* with the Region and account you want to use\.
+1. Replace each *example resource placeholder* with your own information\.
 
    ```
    {
@@ -75,7 +75,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. These
            {
                "Effect": "Allow",
                "Action": "ssm:PutParameter",
-               "Resource": "arn:aws:ssm:us-west-2:123456789012:parameter/latestAmi"
+               "Resource": "arn:aws:ssm:region:123456789012:parameter/latestAmi"
            },
            {
                "Effect": "Allow",
@@ -195,12 +195,12 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. For **Event name**, enter a name for the test event, such as **MyTestEvent**\.
 
-1. Replace the existing text with the following JSON, replacing *your\-ami\-id* with the ID of the new AMI to set as your `latestAmi` parameter value\.
+1. Replace the existing text with the following JSON\. Replace *AMI ID* with your own information to set your `latestAmi` parameter value\.
 
    ```
    {
       "parameterName":"latestAmi",
-      "parameterValue":"your-ami-id"
+      "parameterValue":"AMI ID"
    }
    ```
 
@@ -228,15 +228,13 @@ Use the following procedure to create and run a runbook that patches the AMI you
 
 1. Choose the **Editor** tab, and then choose **Edit**\.
 
-1. Replace the default contents in the **Document editor** field with following JSON sample runbook\.
-**Note**  
-You must change the values of *assumeRole* and *IamInstanceProfileName* in this sample with the service role ARN and instance profile role you created when [Setting up Automation](automation-setup.md)\.
+1. In the following example, replace each *example resource placeholder* with your own information\.
 
    ```
    {
       "description":"Systems Manager Automation Demo – Patch AMI and Update SSM Param",
       "schemaVersion":"0.3",
-      "assumeRole":"the role ARN you created",
+      "assumeRole":"IAM service role",
       "parameters":{
          "sourceAMIid":{
             "type":"String",
@@ -261,7 +259,7 @@ You must change the values of *assumeRole* and *IamInstanceProfileName* in this 
                "InstanceType":"m3.large",
                "MinInstanceCount":1,
                "MaxInstanceCount":1,
-               "IamInstanceProfileName":"the name of the IAM role you created"
+               "IamInstanceProfileName":"IAM instance profile"
             }
          },
          {

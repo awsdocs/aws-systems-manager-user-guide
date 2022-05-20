@@ -24,7 +24,7 @@ It's also a best practice to use tags when creating associations to run Auto Sca
 **Note**  
 When using tags, you can use one tag key maximum in the console\. If you want to target your nodes using more than one tag key, use the resource group option\. You can also specify multiple tag keys using the AWS CLI\. In this case, all tag keys are required for the nodes to be targeted\.
 
-For information about assigning tags to your nodes, see [](tagging-resources.md)\.
+For information about assigning tags to your nodes, see [Tagging Systems Manager resources](tagging-resources.md)\.
 
 **Choose nodes manually**  
 Use this option to manually select the nodes where you want to create the association\. The **Instances** pane displays all Systems Manager managed nodes in the current AWS account and AWS Region\. You can manually select as many nodes as you want\. When the system initially creates the association, it runs the association\. After this initial run, the system runs the association according to the schedule you specified\.

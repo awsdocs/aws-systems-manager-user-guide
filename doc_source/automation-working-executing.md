@@ -44,15 +44,15 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to start a simple automation\.
+1. Run the following command to start a simple automation\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
-       --document-name DocumentName \
-       --parameters ParametersRequiredByDocument
+       --document-name runbook name \
+       --parameters runbook parameters
    ```
 
 ------
@@ -60,8 +60,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-       --document-name DocumentName ^
-       --parameters ParametersRequiredByDocument
+       --document-name runbook name ^
+       --parameters runbook parameters
    ```
 
 ------
@@ -69,8 +69,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Start-SSMAutomationExecution `
-     -DocumentName DocumentName `
-     -Parameter ParametersRequiredByDocument
+     -DocumentName runbook name `
+     -Parameter runbook parameters
    ```
 
 ------
@@ -83,7 +83,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws ssm start-automation-execution \
        --document-name "AWS-RestartEC2Instance" \
-       --parameters "InstanceId=i-1234567890abcdef0"
+       --parameters "InstanceId=i-02573cafcfEXAMPLE"
    ```
 
 ------
@@ -92,7 +92,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws ssm start-automation-execution ^
        --document-name "AWS-RestartEC2Instance" ^
-       --parameters "InstanceId=i-1234567890abcdef0"
+       --parameters "InstanceId=i-02573cafcfEXAMPLE"
    ```
 
 ------
@@ -101,7 +101,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    Start-SSMAutomationExecution `
      -DocumentName AWS-RestartEC2Instance `
-     -Parameter @{"InstanceId"="i-1234567890abcdef0"}
+     -Parameter @{"InstanceId"="i-02573cafcfEXAMPLE"}
    ```
 
 ------

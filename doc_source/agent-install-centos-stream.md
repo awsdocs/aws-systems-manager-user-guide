@@ -87,7 +87,7 @@ For the following commands, we provide examples that use a publicly accessible A
 **Tip**  
 You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on CentOS Stream](#quick-install-centos-stream) earlier in this topic with a custom Regional URL you construct\.
 
-*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+In the following command, replace *region* with your own information\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 **x86\_64**  
 

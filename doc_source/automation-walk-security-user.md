@@ -41,15 +41,15 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to start an automation as the current authenticated user\.
+1. Run the following command to start an automation as the current authenticated user\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
-       --document-name RunbookName \
-       --parameters ParametersRequiredByRunbook
+       --document-name runbook name \
+       --parameters runbook parameters
    ```
 
 ------
@@ -57,8 +57,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm start-automation-execution ^
-       --document-name RunbookName ^
-       --parameters ParametersRequiredByRunbook
+       --document-name runbook name ^
+       --parameters runbook parameters
    ```
 
 ------
@@ -66,8 +66,8 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Start-SSMAutomationExecution `
-       -DocumentName RunbookName `
-       -Parameter ParametersRequiredByRunbook
+       -DocumentName runbook name `
+       -Parameter runbook parameters
    ```
 
 ------
@@ -80,7 +80,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws ssm start-automation-execution \
        --document-name "AWS-RestartEC2Instance" \
-       --parameters "InstanceId=i-1234567890abcdef0"
+       --parameters "InstanceId=i-02573cafcfEXAMPLE"
    ```
 
 ------
@@ -89,7 +89,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws ssm start-automation-execution ^
        --document-name "AWS-RestartEC2Instance" ^
-       --parameters "InstanceId=i-1234567890abcdef0"
+       --parameters "InstanceId=i-02573cafcfEXAMPLE"
    ```
 
 ------
@@ -98,7 +98,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    Start-SSMAutomationExecution `
        -DocumentName AWS-RestartEC2Instance `
-       -Parameter @{"InstanceId"="i-1234567890abcdef0"}
+       -Parameter @{"InstanceId"="i-02573cafcfEXAMPLE"}
    ```
 
 ------
@@ -132,14 +132,14 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Run the following command to retrieve the status of the automation\.
+1. Run the following command to retrieve the status of the automation\. Replace the *automation execution ID* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm describe-automation-executions \
-       --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+       --filter "Key=ExecutionId,Values=automation execution ID"
    ```
 
 ------
@@ -147,7 +147,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    aws ssm describe-automation-executions ^
-       --filter "Key=ExecutionId,Values=4105a4fc-f944-11e6-9d32-0123456789ab"
+       --filter "Key=ExecutionId,Values=automation execution ID"
    ```
 
 ------
@@ -155,7 +155,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    ```
    Get-SSMAutomationExecutionList | `
-       Where {$_.AutomationExecutionId -eq "4105a4fc-f944-11e6-9d32-0123456789ab"}
+       Where {$_.AutomationExecutionId -eq "automation execution ID"}
    ```
 
 ------

@@ -93,23 +93,23 @@ Before you complete the following procedure, you must create a maintenance windo
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Create a command to configure an automation as a registered task for a maintenance window\. Here are some template commands to help\.
+1. Create a command to configure an automation as a registered task for a maintenance window\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm register-task-with-maintenance-window \
-       --window-id window_id \
-       --name task_name \
-       --task-arn runbook_name \
-       --targets Key=targets,Values=value_1,value_2,value_3 \
-       --service-role-arn service_role_arn \
+       --window-id window ID \
+       --name task name \
+       --task-arn runbook name \
+       --targets Key=targets,Values=value \
+       --service-role-arn IAM role arn \
        --task-type AUTOMATION \
-       --task-invocation-parameters task_parameters_if_any \
-       --priority task_priority \
-       --max-concurrency a_number_of_instances_or_a_percentage_of_target_set \
-       --max-errors a_number_of_errors_or_a_percentage_of_target_set
+       --task-invocation-parameters task parameters \
+       --priority task priority \
+       --max-concurrency 10% \
+       --max-errors 5
    ```
 
 **Note**  
@@ -122,16 +122,16 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    aws ssm register-task-with-maintenance-window ^
-       --window-id window_id ^
-       --name task_name ^
-       --task-arn runbook_name ^
-       --targets Key=targets,Values=value_1,value_2,value_3 ^
-       --service-role-arn service_role_arn ^
+       --window-id window ID ^
+       --name task name ^
+       --task-arn runbook name ^
+       --targets Key=targets,Values=value ^
+       --service-role-arn IAM role arn ^
        --task-type AUTOMATION ^
-       --task-invocation-parameters task_parameters_if_any ^
-       --priority task_priority ^
-       --max-concurrency a_number_of_instances_or_a_percentage_of_target_set ^
-       --max-errors a_number_of_errors_or_a_percentage_of_target_set
+       --task-invocation-parameters task parameters ^
+       --priority task priority ^
+       --max-concurrency 10% ^
+       --max-errors 5
    ```
 
 **Note**  
@@ -144,16 +144,16 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    Register-SSMTaskWithMaintenanceWindow `
-       -WindowId window_id `
-       -Name "task_name" `
-       -TaskArn "runbook_name" `
-       -Target @{ Key="targets";Values="value_1" } `
-       -ServiceRoleArn "service_role_arn" `
+       -WindowId window ID `
+       -Name "task name" `
+       -TaskArn "runbook name" `
+       -Target @{ Key="targets";Values="value" } `
+       -ServiceRoleArn "IAM role arn" `
        -TaskType "AUTOMATION" `
-       -Automation_Parameter @{ "task_parameters_1"="task_parameter_1_value";"task_parameters_2"="task_parameter_2_value" } `
-       -Priority task_priority `
-       -MaxConcurrency a_number_of_instances_or_a_percentage_of_target_set `
-       -MaxError a_number_of_errors_or_a_percentage_of_target_set
+       -Automation_Parameter @{ "task parameter"="task parameter value"} `
+       -Priority task priority `
+       -MaxConcurrency 10% `
+       -MaxError 5
    ```
 
 **Note**  
@@ -238,14 +238,14 @@ For information about maintenance window tasks that don't require targets, see [
 
 ------
 
-1. To view the registered task, run the following command\.
+1. To view the registered task, run the following command\. Replace *maintenance windows ID* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm describe-maintenance-window-tasks \
-       --window-id mw-0c50858d01EXAMPLE
+       --window-id maintenance window ID
    ```
 
 ------
@@ -253,7 +253,7 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    aws ssm describe-maintenance-window-tasks ^
-       --window-id mw-0c50858d01EXAMPLE
+       --window-id maintenance window ID
    ```
 
 ------
@@ -261,7 +261,7 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    Get-SSMMaintenanceWindowTaskList `
-       -WindowId mw-0c50858d01EXAMPLE
+       -WindowId maintenance window ID
    ```
 
 ------

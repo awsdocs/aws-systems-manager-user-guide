@@ -66,14 +66,14 @@ To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` runbook 
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to run the `AWS-UpdateLinuxAmi` runbook\. In the parameters section, specify an AMI source ID, an EC2 instance profile role, and your Automation service role\.
+1. Run the following command to run the `AWS-UpdateLinuxAmi` runbook\. Replace each *example resource placeholder* with your own information\.
 
    ```
    aws ssm start-automation-execution \
        --document-name "AWS-UpdateLinuxAmi" \
        --parameters \
-       SourceAmiId=ami-0080e4c5bc078760e, \
-       IamInstanceProfileName=ManagedInstanceRole, \
+       SourceAmiId=AMI ID, \
+       IamInstanceProfileName=IAM instance profile, \
        AutomationAssumeRole='arn:aws:iam::{{global:ACCOUNT_ID}}:role/AutomationServiceRole'
    ```
 
@@ -81,7 +81,7 @@ To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` runbook 
 
    ```
    {
-       "AutomationExecutionId": "ID"
+       "AutomationExecutionId": "automation execution ID"
    }
    ```
 
@@ -91,10 +91,10 @@ To solve this problem, you must make a copy of the `AWS-UpdateLinuxAmi` runbook 
    aws ssm describe-automation-executions
    ```
 
-1. To view details about the automation progress, run the following command\.
+1. To view details about the automation progress, run the following command\. Replace *automation execution ID* with your own information\.
 
    ```
-   aws ssm get-automation-execution --automation-execution-id ID
+   aws ssm get-automation-execution --automation-execution-id automation execution ID
    ```
 
    The update process can take 30 minutes or more to complete\.

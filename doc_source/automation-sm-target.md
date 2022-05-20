@@ -144,14 +144,14 @@ Before you complete the following procedure, make sure you have created an IAM s
 
    Note the name of the runbook that you want to use for the association\.
 
-1. Run the following command to view details about the runbook\.
+1. Run the following command to view details about the runbook\. In the following command, replace *runbook name* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm describe-document \
-       --name runbook_name
+       --name runbook name
    ```
 
    Note a parameter name \(for example, `InstanceId`\) that you want to use for the `--automation-target-parameter-name` option\. This parameter determines the type of resource on which the automation runs\.
@@ -161,7 +161,7 @@ Before you complete the following procedure, make sure you have created an IAM s
 
    ```
    aws ssm describe-document ^
-       --name document_name
+       --name runbook name
    ```
 
    Note a parameter name \(for example, `InstanceId`\) that you want to use for the `--automation-target-parameter-name` option\. This parameter determines the type of resource on which the automation runs\.
@@ -171,14 +171,14 @@ Before you complete the following procedure, make sure you have created an IAM s
 
    ```
    Get-SSMDocumentDescription `
-       -Name document_name
+       -Name runbook name
    ```
 
    Note a parameter name \(for example, `InstanceId`\) that you want to use for the `AutomationTargetParameterName` option\. This parameter determines the type of resource on which the automation runs\.
 
 ------
 
-1. Create a command that runs an automation using a State Manager association\. Here are some template commands to help\.
+1. Create a command that runs an automation using a State Manager association\. Replace each *example resource placeholder* with your own information\.
 
    *Targeting using tags*
 
@@ -187,12 +187,12 @@ Before you complete the following procedure, make sure you have created an IAM s
 
    ```
    aws ssm create-association \
-       --association-name AssociationName \
-       --targets Key=tag:TagKey,Values=TagValue \
-       --name RunbookName \
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole,(Additional parameters, if any) \
-       --automation-target-parameter-name (parameter to target) \
-       --schedule "cron_or_rate_expression"
+       --association-name association name \
+       --targets Key=tag:key name,Values=value \
+       --name runbook name \
+       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole \
+       --automation-target-parameter-name target parameter \
+       --schedule "cron or rate expression"
    ```
 
 **Note**  
@@ -203,12 +203,12 @@ If you create an association by using the AWS CLI, use the `--targets` parameter
 
    ```
    aws ssm create-association ^
-       --association-name AssociationName ^
-       --targets Key=tag:TagKey,Values=TagValue ^
-       --name RunbookName ^
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole,(Additional parameters, if any) ^
-       --automation-target-parameter-name (parameter to target) ^
-       --schedule "cron_or_rate_expression"
+       --association-name association name ^
+       --targets Key=tag:key name,Values=value ^
+       --name runbook name ^
+       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole ^
+       --automation-target-parameter-name target parameter ^
+       --schedule "cron or rate expression"
    ```
 
 **Note**  
@@ -219,18 +219,17 @@ If you create an association by using the AWS CLI, use the `--targets` parameter
 
    ```
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
-   $Targets.Key = "tag:TagKey"
-   $Targets.Values = "TagValue"
+   $Targets.Key = "tag:key name"
+   $Targets.Values = "value"
    
    New-SSMAssociation `
-       -AssociationName "AssociationName" `
+       -AssociationName "association name" `
        -Target $Targets `
-       -Name "RunbookName" `
+       -Name "runbook name" `
        -Parameters @{
-       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/RunbookAssumeRole;
-       (Additional parameters, if any)" } `
-       -AutomationTargetParameterName "parameter_to_target" `
-       -ScheduleExpression "cron_or_rate_expression"
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/RunbookAssumeRole" } `
+       -AutomationTargetParameterName "target parameter" `
+       -ScheduleExpression "cron or rate expression"
    ```
 
 **Note**  
@@ -245,12 +244,12 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
 
    ```
    aws ssm create-association \
-       --association-name AssociationName \
-       --targets Key=ParameterValues,Values=value_1,value_2,value_3 \
-       --name RunbookName \
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole,(Additional parameters, if any) \
-       --automation-target-parameter-name (parameter to target) \
-       --schedule "cron_or_rate_expression"
+       --association-name association name \
+       --targets Key=ParameterValues,Values=value,value 2,value 3 \
+       --name runbook name \
+       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole \
+       --automation-target-parameter-name target parameter \
+       --schedule "cron or rate expression"
    ```
 
 ------
@@ -258,12 +257,12 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
 
    ```
    aws ssm create-association ^
-       --association-name AssociationName ^
-       --targets Key=ParameterValues,Values=value_1,value_2,value_3 ^
-       --name RunbookName ^
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole,(Additional parameters, if any) ^
-       --automation-target-parameter-name (parameter to target) ^
-       --schedule "cron_or_rate_expression"
+       --association-name association name ^
+       --targets Key=ParameterValues,Values=value,value 2,value 3 ^
+       --name runbook name ^
+       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole ^
+       --automation-target-parameter-name target parameter ^
+       --schedule "cron or rate expression"
    ```
 
 ------
@@ -272,17 +271,16 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
    ```
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
    $Targets.Key = "ParameterValues"
-   $Targets.Values = "value_1","value_2","value_3"
+   $Targets.Values = "value","value 2","value 3"
    
    New-SSMAssociation `
-       -AssociationName "AssociationName" `
+       -AssociationName "association name" `
        -Target $Targets `
-       -Name "RunbookName" `
+       -Name "runbook name" `
        -Parameters @{
-       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/RunbookAssumeRole;
-       (Additional parameters, if any)"} `
-       -AutomationTargetParameterName "parameter_to_target" `
-       -ScheduleExpression "cron_or_rate_expression"
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/RunbookAssumeRole"} `
+       -AutomationTargetParameterName "target parameter" `
+       -ScheduleExpression "cron or rate expression"
    ```
 
 ------
@@ -294,12 +292,12 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
 
    ```
    aws ssm create-association \
-       --association-name AssociationName \
-       --targets Key=ResourceGroup,Values=Resource_Group_name \
-       --name RunbookName \
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole,(Additional parameters, if any) \
-       --automation-target-parameter-name (parameter to target) \
-       --schedule "cron_or_rate_expression"
+       --association-name association name \
+       --targets Key=ResourceGroup,Values=resource group name \
+       --name runbook name \
+       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole \
+       --automation-target-parameter-name target parameter \
+       --schedule "cron or rate expression"
    ```
 
 ------
@@ -307,12 +305,12 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
 
    ```
    aws ssm create-association ^
-       --association-name AssociationName ^
-       --targets Key=ResourceGroup,Values=Resource_Group_name ^
-       --name RunbookName ^
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole,(Additional parameters, if any) ^
-       --automation-target-parameter-name (parameter to target) ^
-       --schedule "cron_or_rate_expression"
+       --association-name association name ^
+       --targets Key=ResourceGroup,Values=resource group name ^
+       --name runbook name ^
+       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole ^
+       --automation-target-parameter-name target parameter ^
+       --schedule "cron or rate expression"
    ```
 
 ------
@@ -321,17 +319,16 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
    ```
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
    $Targets.Key = "ResourceGroup"
-   $Targets.Values = "Resource_Group_Name"
+   $Targets.Values = "resource group name"
    
    New-SSMAssociation `
-       -AssociationName "AssociationName" `
+       -AssociationName "association name" `
        -Target $Targets `
-       -Name "RunbookName" `
+       -Name "runbook name" `
        -Parameters @{
-       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/RunbookAssumeRole;
-       (Additional parameters, if any)"} `
-       -AutomationTargetParameterName "parameter_to_target" `
-       -ScheduleExpression "cron_or_rate_expression"
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/RunbookAssumeRole"} `
+       -AutomationTargetParameterName "target parameter" `
+       -ScheduleExpression "cron or rate expression"
    ```
 
 ------
@@ -343,13 +340,13 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
 
    ```
    aws ssm create-association \
-       --association-name AssociationName \
-       --targets Key=ResourceGroup,Values=Resource_Group_name \
-       --name RunbookName \
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole,(Additional parameters, if any) \
-       --automation-target-parameter-name (parameter to target) \
-       --schedule "cron_or_rate_expression" \ 
-       --target-locations Accounts=111122223333,444455556666,444455556666,Regions=us-east-1,us-east-2
+       --association-name association name \
+       --targets Key=ResourceGroup,Values=resource group name \
+       --name runbook name \
+       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole \
+       --automation-target-parameter-name target parameter \
+       --schedule "cron or rate expression" \ 
+       --target-locations Accounts=111122223333,444455556666,444455556666,Regions=region,region
    ```
 
 ------
@@ -357,13 +354,13 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
 
    ```
    aws ssm create-association ^
-       --association-name AssociationName ^
-       --targets Key=ResourceGroup,Values=Resource_Group_name ^
-       --name RunbookName ^
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole,(Additional parameters, if any) ^
-       --automation-target-parameter-name (parameter to target) ^
-       --schedule "cron_or_rate_expression" ^ 
-       --target-locations Accounts=111122223333,444455556666,444455556666,Regions=us-east-1,us-east-2
+       --association-name association name ^
+       --targets Key=ResourceGroup,Values=resource group name ^
+       --name runbook name ^
+       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/RunbookAssumeRole ^
+       --automation-target-parameter-name target parameter ^
+       --schedule "cron or rate expression" ^ 
+       --target-locations Accounts=111122223333,444455556666,444455556666,Regions=region,region
    ```
 
 ------
@@ -372,20 +369,19 @@ If you create an association by using the AWS Tools for PowerShell, use the `Tar
    ```
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
    $Targets.Key = "ResourceGroup"
-   $Targets.Values = "Resource_Group_Name"
+   $Targets.Values = "resource group name"
    
    New-SSMAssociation `
-       -AssociationName "AssociationName" `
+       -AssociationName "association name" `
        -Target $Targets `
-       -Name "RunbookName" `
+       -Name "runbook name" `
        -Parameters @{
-       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/RunbookAssumeRole;
-       (Additional parameters, if any)"} `
-       -AutomationTargetParameterName "parameter_to_target" `
-       -ScheduleExpression "cron_or_rate_expression" `
+       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/RunbookAssumeRole"} `
+       -AutomationTargetParameterName "target parameter" `
+       -ScheduleExpression "cron or rate expression" `
        -TargetLocations @{
            "Accounts"=["111122223333,444455556666,444455556666"],
-           "Regions"=["us-east-1,us-east-2"]
+           "Regions"=["region,region"]
    ```
 
 ------

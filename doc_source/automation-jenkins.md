@@ -21,7 +21,7 @@ Complete the following tasks before you configure Automation with Jenkins:
 
 1. Choose the **JSON** tab\.
 
-1. Replace the default content with the following\. Be sure to replace *us\-west\-2* and *123456789012* with the Region and account you want to use\.
+1. Replace each *example resource placeholder* with your own information\.
 
    ```
    {
@@ -31,8 +31,8 @@ Complete the following tasks before you configure Automation with Jenkins:
                "Effect": "Allow",
                "Action": "ssm:StartAutomationExecution",
                "Resource": [
-                   "arn:aws:ssm:us-west-2:123456789012:document/UpdateMyLatestWindowsAmi",
-                   "arn:aws:ssm:us-west-2:123456789012:automation-definition/UpdateMyLatestWindowsAmi:$DEFAULT"
+                   "arn:aws:ssm:region:account ID:document/UpdateMyLatestWindowsAmi",
+                   "arn:aws:ssm:region:account ID:automation-definition/UpdateMyLatestWindowsAmi:$DEFAULT"
                ]
            }
        ]
@@ -109,19 +109,23 @@ Use the following procedure to configure your Jenkins project to invoke Automati
 
 1. Choose **Execute shell** or **Execute Windows batch command** \(depending on your operating system\)\.
 
-1. In the **Command** box, run an AWS CLI command like the following\.
+1. In the **Command** field, run an AWS CLI command like the following\. Replace each *example resource placeholder* with your own information\.
 
    ```
-   aws --region the AWS Region of your source AMI ssm start-automation-execution --document-name your runbook name --parameters parameters for the runbook
+   aws ssm start-automation-execution \
+       --document-name runbook name \
+       --region AWS Region of your source AMI \
+       --parameters runbook parameters
    ```
 
    The following example command uses the **UpdateMyLatestWindowsAmi** runbook and the Systems Manager Parameter `latestAmi` created in [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md)\.
 
    ```
-   aws --region region-id ssm start-automation-execution \
+   aws ssm start-automation-execution \
        --document-name UpdateMyLatestWindowsAmi \
        --parameters \
            "sourceAMIid='{{ssm:latestAmi}}'"
+       --region region
    ```
 
    In Jenkins, the command looks like the example in the following screenshot\.  

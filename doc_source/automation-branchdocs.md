@@ -78,11 +78,11 @@ When you create an `aws:branch` step in a runbook, you define the `Choices` the 
 
   Specify parameter variables by using the following form\.
 
-  `Variable: "{{name_of_parameter}}"`
+  `Variable: "{{parameter name}}"`
 
   Specify output object variables by using the following form\.
 
-  `Variable: "{{previousStepName.outputFieldName}}"`
+  `Variable: "{{previousStepName.outputName}}"`
 **Note**  
 Creating the output variable is described in more detail in the next section, [About creating the output variable](#automation-branchdocs-awsbranch-creating-output)\.
 + **Operation**: The criteria used to evaluate the choice, such as `StringEquals: Linux`\. The `aws:branch` action supports the following operations:
@@ -110,21 +110,21 @@ When you create a runbook, the system validates each operation in the runbook\. 
 **Note**  
 If you don't want to specify a `Default` value, then you can specify the `isEnd` option\. If none of the `Choices` are `true` and no `Default` value is specified, then the automation stops at the end of the step\.
 
-Use the following templates to help you construct the `aws:branch` step in your runbook\.
+Use the following templates to help you construct the `aws:branch` step in your runbook\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ YAML ]
 
 ```
 mainSteps:
-- name: a name for the step
+- name: step name
   action: aws:branch
   inputs:
     Choices:
     - NextStep: step to jump to if evaluation for this choice is true
       Variable: "{{parameter name or output from previous step}}"
       Operation type: Operation value
-    - NextStep: step to jump to if evaluation = true
+    - NextStep: step to jump to if evaluation for this choice is true
       Variable: "{{parameter name or output from previous step}}"
       Operation type: Operation value
     Default:
@@ -148,7 +148,7 @@ mainSteps:
                   "Operation type":"Operation value"
                },
                {
-                  "NextStep":"step to jump to if evaluation = true",
+                  "NextStep":"step to jump to if evaluation for this choice is true",
                   "Variable":"{{parameter name or output from previous step}}",
                   "Operation type":"Operation value"
                }
@@ -166,7 +166,7 @@ mainSteps:
 
 To create an `aws:branch` choice that references the output from a previous step, you need to identify the name of the previous step and the name of the output field\. You then combine the names of the step and the field by using the following format\.
 
-`Variable: "{{previousStepName.outputFieldName}}"`
+`Variable: "{{previousStepName.outputName}}"`
 
 For example, the first step in the following example is named `GetInstance`\. And then, under `outputs`, there is a field called `platform`\. In the second step \(`ChooseOSforCommands`\), the author wants to reference the output from the platform field as a variable\. To create the variable, simply combine the step name \(GetInstance\) and the output field name \(platform\) to create `Variable: "{{GetInstance.platform}}"`\.
 
@@ -201,43 +201,30 @@ mainSteps:
       Sleep
 ```
 
-Here is a JSON example that shows how * "Variable": "\{\{ describeInstance\.Platform \}\}"* is created from the previous step \(*"describeInstance"*\) and the output field \(*"Platform"*\)\.
+Here is an example that shows how *"Variable": "\{\{ describeInstance\.Platform \}\}"* is created from the previous step and the output\.
 
 ```
-{
-      "name": "describeInstance",
-      "action": "aws:executeAwsApi",
-      "onFailure": "Abort",
-      "inputs": {
-        "Service": "ec2",
-        "Api": "DescribeInstances",
-        "InstanceIds": [
-          "{{ InstanceId }}"
-        ]
-      },
-      "outputs": [
-        {
-          "Name": "Platform",
-          "Selector": "$.Reservations[0].Instances[0].Platform",
-          "Type": "String"
-        }
-      ],
-      "nextStep": "branchOnInstancePlatform"
-    },
-    {
-      "name": "branchOnInstancePlatform",
-      "action": "aws:branch",
-      "inputs": {
-        "Choices": [
-          {
-            "NextStep": "runEC2RescueForWindows",
-            "Variable": "{{ describeInstance.Platform }}",
-            "StringEquals": "windows"
-          }
-        ],
-        "Default": "runEC2RescueForLinux"
-      }
-    }
+- name: describeInstance
+  action: aws:executeAwsApi
+  onFailure: Abort
+  inputs:
+    Service: ec2
+    Api: DescribeInstances
+    InstanceIds:
+    - "{{ InstanceId }}"
+  outputs:
+  - Name: Platform
+    Selector: "$.Reservations[0].Instances[0].Platform"
+    Type: String
+  nextStep: branchOnInstancePlatform
+- name: branchOnInstancePlatform
+  action: aws:branch
+  inputs:
+    Choices:
+    - NextStep: runEC2RescueForWindows
+      Variable: "{{ describeInstance.Platform }}"
+      StringEquals: windows
+    Default: runEC2RescueForLinux
 ```
 
 ### Example `aws:branch` runbooks<a name="automation-branchdocs-awsbranch-examples-docs"></a>
@@ -478,7 +465,7 @@ mainSteps:
 
 **Creating a dynamic automation that jumps to different steps by using the `onFailure` option**
 
-The following example uses the `onFailure: step:step_name`, `nextStep`, and `isEnd` options to create a dynamic automation\. With this example, if the `InstallMsiPackage` action fails, then the automation jumps to an action called *PostFailure* \(`onFailure: step:PostFailure`\) to run an AWS Lambda function to perform some action in the event the install failed\. If the install succeeds, then the automation jumps to the TestInstall action \(`nextStep: TestInstall`\)\. Both the `TestInstall` and the `PostFailure` steps use the `isEnd` option \(`isEnd: true`\) so that the automation finishes when either of those steps is completed\.
+The following example uses the `onFailure: step:step name`, `nextStep`, and `isEnd` options to create a dynamic automation\. With this example, if the `InstallMsiPackage` action fails, then the automation jumps to an action called *PostFailure* \(`onFailure: step:PostFailure`\) to run an AWS Lambda function to perform some action in the event the install failed\. If the install succeeds, then the automation jumps to the TestInstall action \(`nextStep: TestInstall`\)\. Both the `TestInstall` and the `PostFailure` steps use the `isEnd` option \(`isEnd: true`\) so that the automation finishes when either of those steps is completed\.
 
 **Note**  
 Using the `isEnd` option in the last step of the `mainSteps` section is optional\. If the last step doesn't jump to other steps, then the automation stops after running the action in the last step\.

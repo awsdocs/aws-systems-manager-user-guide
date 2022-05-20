@@ -83,17 +83,19 @@ To solve this problem, you must make a copy of the `AWS-UpdateWindowsAmi` runboo
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to run the `AWS-UpdateWindowsAmi` runbook\. In the parameters section, specify an AMI source ID, an EC2 instance profile role, and your Automation service role\. The example command below uses a recent Amazon EC2 AMI to minimize the number of patches that need to be applied\. If you run this command more than once, you must specify a unique value for `targetAMIname`\. AMI names must be unique\.
+1. Run the following command to run the `AWS-UpdateWindowsAmi` runbook\. Replace each *example resource placeholder* with your own information\. The example command below uses a recent Amazon EC2 AMI to minimize the number of patches that need to be applied\. If you run this command more than once, you must specify a unique value for `targetAMIname`\. AMI names must be unique\.
 
    ```
-   aws ssm start-automation-execution --document-name="AWS-UpdateWindowsAmi" --parameters SourceAmiId='ami-0246f4914689c475f',IamInstanceProfileName='ManagedInstanceProfile',AutomationAssumeRole='arn:aws:iam::{{global:ACCOUNT_ID}}:role/AutomationServiceRole'
+   aws ssm start-automation-execution \
+       --document-name="AWS-UpdateWindowsAmi" \
+       --parameters SourceAmiId='AMI ID',IamInstanceProfileName='IAM instance profile',AutomationAssumeRole='arn:aws:iam::{{global:ACCOUNT_ID}}:role/AutomationServiceRole'
    ```
 
    The command returns an execution ID\. Copy this ID to the clipboard\. You will use this ID to view the status of the automation\.
 
    ```
    {
-       "AutomationExecutionId": "ID"
+       "AutomationExecutionId": "automation execution ID"
    }
    ```
 
@@ -106,7 +108,8 @@ To solve this problem, you must make a copy of the `AWS-UpdateWindowsAmi` runboo
 1. To view details about the automation progress, run the following command\.
 
    ```
-   aws ssm get-automation-execution --automation-execution-id ID
+   aws ssm get-automation-execution 
+       --automation-execution-id automation execution ID
    ```
 
 **Note**  

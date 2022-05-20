@@ -87,7 +87,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
 1. Run the following command to create an activation\.
 **Note**  
-*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+In the following command, replace *region* with your own information\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 The role you specify for the *iam\-role* parameter must have a trust relationship policy that specifies `"Service": "ssm.amazonaws.com"`\. If your AWS Identity and Access Management \(IAM\) role doesn't specify this principle in a trust relationship policy, you receive the following error:  
 
      ```

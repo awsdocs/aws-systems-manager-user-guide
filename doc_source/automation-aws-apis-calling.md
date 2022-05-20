@@ -328,15 +328,15 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
 
 **To invoke an Amazon RDS API operation from a runbook**
 
-1. Open a text editor and paste the following runbook content into the file\. Specify an Automation role and the instance ID to check\. You will add the mainSteps actions later\.
+1. Open a text editor and paste the following runbook content into the file\. Replace each *example resource placeholder* with your own information\. You will add the `mainSteps` actions later\.
 
    ```
    ---
    description: Start RDS instance
    schemaVersion: "0.3"
-   assumeRole: "The_Automation_role_to_use_when_running_the_runbook"
+   assumeRole: "IAM service role"
    parameters:
-     InstanceId: The_instance_ID_to_start
+     InstanceId: db instance ID
        type: String
        description: (Required) RDS instance ID to start
      AutomationAssumeRole:
@@ -368,9 +368,9 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
    ---
    description: Start RDS instance
    schemaVersion: "0.3"
-   assumeRole: "The_Automation_role_to_use_when_running_the_runbook"
+   assumeRole: "IAM service role"
    parameters:
-     InstanceId: The_instance_ID_to_start
+     InstanceId: db instance ID
        type: String
        description: (Required) RDS Instance Id to stop
      AutomationAssumeRole:
@@ -404,7 +404,7 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
    ---
    description: Start RDS instance
    schemaVersion: "0.3"
-   assumeRole: "{{ The_Automation_role_to_use_when_running_the_runbook }}"
+   assumeRole: "{{ IAM service role }}"
    parameters:
      InstanceId:
        type: String
@@ -451,7 +451,7 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
    ---
    description: Start RDS instance
    schemaVersion: "0.3"
-   assumeRole: "{{ The_Automation_role_to_use_when_running_the_runbook }}"
+   assumeRole: "{{ IAM service role }}"
    parameters:
      InstanceId:
        type: String
@@ -498,53 +498,23 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
 
 1. Save the file as sample\.yaml\.
 
-1. Run the following command in the AWS CLI to add the runbook to your AWS account\.
+1. Run the following command in the AWS CLI to add the runbook to your AWS account\. Replace each *example resource placeholder* with your own information\.
 
    ```
-   aws ssm create-document --name sampleRunbook --document-type Automation --document-format YAML --content file://sample.yaml
+   aws ssm create-document \
+       --name runbook name --document-type Automation --document-format YAML --content file://sample.yaml
    ```
 
 1. Run the following command to start the automation by using the runbook you just created\. Make a note of the execution ID returned by Systems Manager after you start the automation\.
 
    ```
-   aws ssm start-automation-execution --document-name sampleRunbook 
+   aws ssm start-automation-execution \
+       --document-name runbook name
    ```
 
 1. Run the following command to view the execution status\.
 
    ```
-   aws ssm get-automation-execution --automation-execution-id automation_execution_id
+   aws ssm get-automation-execution \
+       --automation-execution-id automation execution ID
    ```
-
-## Predefined runbooks that invoke AWS APIs<a name="automation-aws-apis-calling-docs"></a>
-
-Systems Manager Automation includes the following predefined runbooks that invoke AWS APIs\. 
-
-
-****  
-
-| Runbook name | Purpose | 
-| --- | --- | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description](https://console.aws.amazon.com/systems-manager/documents/AWS-StartRdsInstance/description)  |  Start an Amazon RDS instance\.  | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-StopRdsInstance/description](https://console.aws.amazon.com/systems-manager/documents/AWS-StopRdsInstance/description)  |  Stop an Amazon RDS instance\.  | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description](https://console.aws.amazon.com/systems-manager/documents/AWS-RebootRdsInstance/description)  |  Reboot an Amazon RDS instance\.  | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description](https://console.aws.amazon.com/systems-manager/documents/AWS-CreateSnapshot/description)  |  Create an Amazon Elastic Block Store \(Amazon EBS\) volume snapshot\.  | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteSnapshot/description](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteSnapshot/description)  |  Delete an Amazon EBS volume snapshot\.  | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketLogging/description)  |  Allow logging on an Amazon Simple Storage Service \(Amazon S3\) bucket\.   | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description](https://console.aws.amazon.com/systems-manager/documents/AWS-DisableS3BucketPublicReadWrite/description)  |  Turn off read and write permissions on an S3 bucket by using a private ACL\.  | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureS3BucketVersioning/description)  |  Allow or suspend versioning on an S3 bucket\.   | 
-|  [https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteDynamoDbBackup/description](https://console.aws.amazon.com/systems-manager/documents/AWS-DeleteDynamoDbBackup/description)  |  Delete a Amazon DynamoDB table backup\.   | 
-
-Either choose the links in the preceding table, or use the following procedure to view more details about these runbooks in the Systems Manager console\.
-
-1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
-
-1. In the navigation pane, choose **Documents**\.
-
-   \-or\-
-
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
-
-1. Choose a runbook, and then choose **View details**\.
-
-1. Choose the **Content** tab\.

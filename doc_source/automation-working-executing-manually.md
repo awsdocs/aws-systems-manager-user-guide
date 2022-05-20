@@ -50,16 +50,16 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to start a manual automation\.
+1. Run the following command to start a manual automation\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm start-automation-execution \
-       --document-name DocumentName \
+       --document-name runbook name \
        --mode Interactive \
-       --parameters ParametersRequiredByDocument
+       --parameters runbook parameters
    ```
 
 ------
@@ -67,9 +67,9 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    ```
    aws ssm start-automation-execution ^
-       --document-name DocumentName ^
+       --document-name runbook name ^
        --mode Interactive ^
-       --parameters ParametersRequiredByDocument
+       --parameters runbook parameters
    ```
 
 ------
@@ -77,9 +77,9 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    ```
    Start-SSMAutomationExecution `
-       -DocumentName DocumentName `
+       -DocumentName runbook name `
        -Mode Interactive `
-       -Parameter ParametersRequiredByDocument
+       -Parameter runbook parameters
    ```
 
 ------
@@ -93,7 +93,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
    aws ssm start-automation-execution \
        --document-name "AWS-RestartEC2Instance" \
        --mode Interactive \
-       --parameters "InstanceId=i-1234567890abcdef0"
+       --parameters "InstanceId=i-02573cafcfEXAMPLE"
    ```
 
 ------
@@ -103,7 +103,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
    aws ssm start-automation-execution ^
        --document-name "AWS-RestartEC2Instance" ^
        --mode Interactive ^
-       --parameters "InstanceId=i-1234567890abcdef0"
+       --parameters "InstanceId=i-02573cafcfEXAMPLE"
    ```
 
 ------
@@ -113,7 +113,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
    Start-SSMAutomationExecution `
        -DocumentName AWS-RestartEC2Instance `
        -Mode Interactive 
-       -Parameter @{"InstanceId"="i-1234567890abcdef0"}
+       -Parameter @{"InstanceId"="i-02573cafcfEXAMPLE"}
    ```
 
 ------
@@ -142,12 +142,12 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 #### [ PowerShell ]
 
    ```
-   27ba8174-59ae-4e13-8626-0123456789ab
+   ba9cd881-1b36-4d31-a698-0123456789ab
    ```
 
 ------
 
-1. Run the following command when you're ready to start the first step of the automation\. The automation proceeds with step one and pauses before running any subsequent steps specified in the runbook you chose in step 1 of this procedure\. If the runbook has multiple steps, you must run the following command for each step for the automation to proceed\.
+1. Run the following command when you're ready to start the first step of the automation\. Replace each *example resource placeholder* with your own information\. The automation proceeds with step one and pauses before running any subsequent steps specified in the runbook you chose in step 1 of this procedure\. If the runbook has multiple steps, you must run the following command for each step for the automation to proceed\.
 
 ------
 #### [ Linux & macOS ]
@@ -174,7 +174,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    ```
    Send-SSMAutomationSignal `
-       -AutomationExecutionId 27ba8174-59ae-4e13-8626-0123456789ab `
+       -AutomationExecutionId ba9cd881-1b36-4d31-a698-0123456789ab `
        -SignalType StartStep 
        -Payload @{"StepName"="stopInstances"}
    ```
@@ -206,7 +206,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    ```
    Get-SSMAutomationStepExecution `
-       -AutomationExecutionId 27ba8174-59ae-4e13-8626-e177cdc11686
+       -AutomationExecutionId ba9cd881-1b36-4d31-a698-0123456789ab
    ```
 
 ------
@@ -227,7 +227,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
                "StepStatus": "Success",
                "Inputs": {
                    "DesiredState": "\"stopped\"",
-                   "InstanceIds": "[\"i-1234567890abcdef0\"]"
+                   "InstanceIds": "[\"i-02573cafcfEXAMPLE\"]"
                },
                "Outputs": {
                    "InstanceStates": [
@@ -248,7 +248,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
                "StepStatus": "Success",
                "Inputs": {
                    "DesiredState": "\"running\"",
-                   "InstanceIds": "[\"i-1234567890abcdef0\"]"
+                   "InstanceIds": "[\"i-02573cafcfEXAMPLE\"]"
                },
                "Outputs": {
                    "InstanceStates": [
@@ -276,7 +276,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
                "StepStatus": "Success",
                "Inputs": {
                    "DesiredState": "\"stopped\"",
-                   "InstanceIds": "[\"i-1234567890abcdef0\"]"
+                   "InstanceIds": "[\"i-02573cafcfEXAMPLE\"]"
                },
                "Outputs": {
                    "InstanceStates": [
@@ -297,7 +297,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
                "StepStatus": "Success",
                "Inputs": {
                    "DesiredState": "\"running\"",
-                   "InstanceIds": "[\"i-1234567890abcdef0\"]"
+                   "InstanceIds": "[\"i-02573cafcfEXAMPLE\"]"
                },
                "Outputs": {
                    "InstanceStates": [
@@ -320,7 +320,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
    ExecutionStartTime   : 5/6/2019 19:45:03
    FailureDetails       : 
    FailureMessage       : 
-   Inputs               : {[DesiredState, "stopped"], [InstanceIds, ["i-1234567890abcdef0"]]}
+   Inputs               : {[DesiredState, "stopped"], [InstanceIds, ["i-02573cafcfEXAMPLE"]]}
    IsCritical           : False
    IsEnd                : False
    MaxAttempts          : 0
@@ -339,7 +339,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
 ------
 
-1. Run the following command to complete the automation after all steps specified within the chosen runbook have finished\.
+1. Run the following command to complete the automation after all steps specified within the chosen runbook have finished\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -364,7 +364,7 @@ The following procedure describes how to use the AWS CLI \(on Linux, macOS, or W
 
    ```
    Stop-SSMAutomationExecution `
-       -AutomationExecutionId 27ba8174-59ae-4e13-8626-0123456789ab `
+       -AutomationExecutionId ba9cd881-1b36-4d31-a698-0123456789ab `
        -Type Complete
    ```
 
