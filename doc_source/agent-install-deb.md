@@ -47,7 +47,7 @@ ARM64 instances
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_arm64/amazon-ssm-agent.deb
    ```
 
-1. Run the folowing command\.
+1. Run the following command\.
 
    ```
    sudo dpkg -i amazon-ssm-agent.deb
