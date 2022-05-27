@@ -16,7 +16,7 @@ You can perform the following actions on this page:
   + Choose **Create association** to open Systems Manager State Manager where you can create an association\.
   + Choose the option button beside an association name and choose **Apply association** to immediately start all actions specified in the association\.
 
-**To open the **Configurations** tab**
+**To open the **Compliance** tab**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -26,4 +26,4 @@ You can perform the following actions on this page:
 
 1. Choose the application in the list\. Application Manager opens the **Overview** tab\.
 
-1. Choose the **Configurations** tab\.
+1. Choose the **Compliance** tab\.

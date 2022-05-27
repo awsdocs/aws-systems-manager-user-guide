@@ -26,6 +26,8 @@ The following procedure requires that you specify an AWS Region for your command
 
 1. Open the AWS CLI or AWS Tools for Windows PowerShell on your local computer and run the following command to specify your credentials\. 
 
+   In the following command, replace *region* with your own information\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+
 ------
 #### [ Linux & macOS ]
 
@@ -59,8 +61,6 @@ The following procedure requires that you specify an AWS Region for your command
    ```
 
 ------
-
-   In the following command, replace *region* with your own information\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 1. Use the following command to list all of the SSM documents that are available for you\. The list includes documents that you created and documents that were shared with you\.
 

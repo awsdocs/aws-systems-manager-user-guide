@@ -4,7 +4,7 @@ The AWS Systems Manager Agent \(SSM Agent\) deb and rpm installer packages for L
 
 To find the correct signature file for your instance's architecture and operating system, see the following table\.
 
-In the following command, replace *region* with your own information\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+*region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 
 | Architecture | Operating system | Signature file URL | Agent download file name | 

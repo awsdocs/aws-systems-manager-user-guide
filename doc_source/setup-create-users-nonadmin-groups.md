@@ -14,7 +14,7 @@ Use the following procedure to create a user group for your Systems Manager user
 
 1. In the navigation pane of the IAM console, choose **User groups**, and then choose **Create group**\. 
 
-1. On the **Create user group** page, for **User group name**, enter a name for the group, such as **SSMUserGroup**r\.
+1. On the **Create user group** page, for **User group name**, enter a name for the group, such as **SSMUserGroup**\.
 
 1. For **Add users to the group**, check the box next to any existing user you want to add to the group\.
 

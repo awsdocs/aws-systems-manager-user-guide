@@ -30,7 +30,7 @@ Keep in mind the following points as you plan your patching strategy using alter
 **Only specified repositories are used for patching**  
 Specifying alternative repositories doesn't mean specifying *additional* repositories\. You can choose to specify repositories other than those configured as defaults on a managed node\. However, you must also specify the default repositories as part of the alternative patch source configuration if you want their updates to be applied\.
 
-For example, on Amazon Linux 2 managed nodes, the default repositories are `amzn-main` and `amzn-update`\. If you want to include the Extra Packages for Enterprise Linux \(EPEL\) repository in your patching operations, you must specify all three repositories as alternative repositories\.
+For example, on Amazon Linux 2 managed nodes, the default repositories are `amzn2-core` and `amzn2extra-docker`\. If you want to include the Extra Packages for Enterprise Linux \(EPEL\) repository in your patching operations, you must specify all three repositories as alternative repositories\.
 
 **Note**  
 Running a custom patch baseline that specifies alternative patch repositories for a managed node doesn't make them the new default repositories on the operating system\. After the patching operation is complete, the repositories previously configured as the defaults for the node's operating system remain the defaults\.

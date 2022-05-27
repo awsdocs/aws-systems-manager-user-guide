@@ -24,12 +24,12 @@ We recommend that you choose **Input transformer**\. This option allows you to s
 
    ```
    {
-           "end-time": "$.detail.EndTime",
-           "failure-cause": "$.detail.cause",
-           "resources": "$.resources",
-           "source": "$.detail.source",
-           "start-time": "$.detail.StartTime"
-       }
+       "end-time": "$.detail.EndTime",
+       "failure-cause": "$.detail.cause",
+       "resources": "$.resources",
+       "source": "$.detail.source",
+       "start-time": "$.detail.StartTime"
+   }
    ```
 
    Here's an example of how to enter the input template\.

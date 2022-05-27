@@ -27,7 +27,7 @@ A structure that defines the parameters the document accepts\. For parameters th
 AMI:
   type: String
   description: "(Optional) The AMI to use when launching the instance."
-  default: {{ssm:/aws/service/list/ami-windows-latest}}
+  default: "{{ssm:/aws/service/list/ami-windows-latest}}"
 ```
 
 ```

@@ -8,6 +8,7 @@ You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud \(
 + [Starting a session \(AWS CLI\)](#sessions-start-cli)
 + [Starting a session \(SSH\)](#sessions-start-ssh)
 + [Starting a session \(port forwarding\)](#sessions-start-port-forwarding)
++ [Starting a session \(port forwarding to remote host\)](#sessions-remote-port-forwarding)
 + [Starting a session \(interactive and noninteractive commands\)](#sessions-start-interactive-commands)
 
 ## Starting a session \(Systems Manager console\)<a name="start-sys-console"></a>
@@ -147,6 +148,47 @@ The value you specify for `localPortNumber` represents the local port on the cli
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 
 For more information about port forwarding sessions, see [Port Forwarding Using AWS Systems ManagerSession Manager](http://aws.amazon.com/blogs/aws/new-port-forwarding-using-aws-system-manager-sessions-manager/) in the *AWS News Blog*\.
+
+## Starting a session \(port forwarding to remote host\)<a name="sessions-remote-port-forwarding"></a>
+
+To start a Session Manager port forwarding session to a remote host, version 3\.x or later of SSM Agent must be installed on the managed node\. The remote host isn't required to be managed by Systems Manager\.
+
+**Note**  
+Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.  
+To use the AWS CLI to run session commands, you must install the Session Manager plugin on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.  
+Depending on your operating system and command line tool, the placement of quotation marks can differ and escape characters might be required\.
+
+To start a port forwarding session, run the following command from the CLI\. Replace each *example resource placeholder* with your own information\.
+
+------
+#### [ Linux & macOS ]
+
+```
+aws ssm start-session \
+    --target instance-id \
+    --document-name AWS-StartPortForwardingSessionToRemoteHost \
+    --parameters '{"host":["mydb.example.us-east-2.rds.amazonaws.com"],"portNumber":["3306"], "localPortNumber":["3306"]}'
+```
+
+------
+#### [ Windows ]
+
+```
+aws ssm start-session ^
+    --target instance-id ^
+    --document-name SSM-StartPortForwardingSessionToRemoteHost ^
+    --parameters host="mydb.example.us-east-2.rds.amazonaws.com",portNumber="3306",localPortNumber="3306"
+```
+
+------
+
+The value you specify for `host` represents the hostname or IP address of the remote host you want to connect to\. General connectivity and name resolution requirements between the managed node and the remote host still apply\.
+
+The value you specify for `portNumber` represents the remote port on the managed node where traffic should be redirected to, such as `3306` for connecting to a MySQL database\. If this parameter isn't specified, Session Manager assumes `80` as the default remote port\. 
+
+The value you specify for `localPortNumber` represents the local port on the client where traffic should be redirected to, such as `56789`\. This value is what you enter when connecting to a managed node using a client\. For example, **localhost:56789**\.
+
+For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 
 ## Starting a session \(interactive and noninteractive commands\)<a name="sessions-start-interactive-commands"></a>
 
