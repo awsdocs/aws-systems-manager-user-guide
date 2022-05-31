@@ -176,7 +176,7 @@ aws ssm start-session \
 ```
 aws ssm start-session ^
     --target instance-id ^
-    --document-name SSM-StartPortForwardingSessionToRemoteHost ^
+    --document-name AWS-StartPortForwardingSessionToRemoteHost ^
     --parameters host="mydb.example.us-east-2.rds.amazonaws.com",portNumber="3306",localPortNumber="3306"
 ```
 
