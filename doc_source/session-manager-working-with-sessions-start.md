@@ -151,7 +151,7 @@ For more information about port forwarding sessions, see [Port Forwarding Using 
 
 ## Starting a session \(port forwarding to remote host\)<a name="sessions-remote-port-forwarding"></a>
 
-To start a Session Manager port forwarding session to a remote host, version 3\.x or later of SSM Agent must be installed on the managed node\. The remote host isn't required to be managed by Systems Manager\.
+To start a Session Manager port forwarding session to a remote host, version 3\.1\.1374\.0 or later of SSM Agent must be installed on the managed node\. The remote host isn't required to be managed by Systems Manager\.
 
 **Note**  
 Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.  

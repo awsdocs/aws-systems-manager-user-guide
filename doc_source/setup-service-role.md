@@ -2,7 +2,7 @@
 
 This topic explains the difference between a *service role* and a *service\-linked role* for AWS Systems Manager\. It also explains when you need to create or use either type of role\.
 
-**Service role** –– A service role is an AWS Identity and Access Management \(IAM\) that grants permissions to an AWS service so that the service can access AWS resources\. Only a few Systems Manager scenarios require a service role\. When you create a service role for Systems Manager, you choose the permissions to grant so that it can access or interact with other AWS resources\.
+**Service role** –– A service role is a type of AWS Identity and Access Management \(IAM\) role that grants permissions to an AWS service so that the service can access AWS resources\. Only a few Systems Manager scenarios require a service role\. When you create a service role for Systems Manager, you choose the permissions to grant so that it can access or interact with other AWS resources\.
 
 **Service\-linked role** – A service\-linked role is predefined by Systems Manager and includes all the permissions that the service requires to call other AWS services on your behalf\.
 
