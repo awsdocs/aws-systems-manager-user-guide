@@ -256,7 +256,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws events put-targets \
        --rule DailyAutomationRule \
-       --targets '{"Arn": "arn:aws:ssm:us-east-1:123456789012:automation-definition/AWS-StartEC2Instance","Input":"{\"InstanceId\":[\"i-02573cafcfEXAMPLE\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target1","RoleArn": "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"}'
+       --targets '{"Arn": "arn:aws:ssm:us-east-1::automation-definition/AWS-StartEC2Instance","Input":"{\"InstanceId\":[\"i-02573cafcfEXAMPLE\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target1","RoleArn": "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"}'
    ```
 
 ------
@@ -265,7 +265,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    aws events put-targets ^
        --rule DailyAutomationRule ^
-       --targets '{"Arn": "arn:aws:ssm:us-east-1:123456789012:automation-definition/AWS-StartEC2Instance","Input":"{\"InstanceId\":[\"i-02573cafcfEXAMPLE\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target1","RoleArn": "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"}'
+       --targets '{"Arn": "arn:aws:ssm:us-east-1::automation-definition/AWS-StartEC2Instance","Input":"{\"InstanceId\":[\"i-02573cafcfEXAMPLE\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationServiceRole\"]}","Id": "Target1","RoleArn": "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"}'
    ```
 
 ------
@@ -274,7 +274,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
    ```
    $Target = New-Object Amazon.CloudWatchEvents.Model.Target
    $Target.Id = "Target1"
-   $Target.Arn = "arn:aws:ssm:us-east-1:123456789012:automation-definition/AWS-StartEC2Instance"
+   $Target.Arn = "arn:aws:ssm:us-east-1::automation-definition/AWS-StartEC2Instance"
    $Target.RoleArn = "arn:aws:iam::123456789012:role/service-role/AWS_Events_Invoke_Start_Automation_Execution_1213609520"
    $Target.Input = '{"InstanceId":["i-02573cafcfEXAMPLE"],"AutomationAssumeRole":["arn:aws:iam::123456789012:role/AutomationServiceRole"]}'
    
