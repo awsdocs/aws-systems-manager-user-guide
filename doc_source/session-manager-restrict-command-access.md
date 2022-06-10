@@ -238,7 +238,7 @@ aws ssm start-session ^
 
 ------
 
-Parameters can also be stored in a JSON file and provided to the AWS CLI as shown in the following example\. For more information about using AWS CLI parameters from a file, see [Loading AWS CLI parameters from a file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-file.html) in the *AWS Command Line Interface User Guide*\.
+Parameters can also be stored in a JSON file and provided to the AWS CLI as shown in the following example\. For more information about using AWS CLI parameters from a file, see [Loading AWS CLI parameters from a file](https://docs.aws.amazon.com/cli/latest/userguide/;cli-usage-parameters-file.html) in the *AWS Command Line Interface User Guide*\.
 
 ```
 {
@@ -270,7 +270,7 @@ aws ssm start-session ^
 
 ------
 
-You can also generate an AWS CLI skeleton from a JSON input file as shown in the following example\. For more information about generating AWS CLI skeletons from JSON input files, see [Generating AWS CLI skeleton and input parameters from a JSON or YAML input file](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-skeleton.html) in the *AWS Command Line Interface User Guide*\.
+You can also generate an AWS CLI skeleton from a JSON input file as shown in the following example\. For more information about generating AWS CLI skeletons from JSON input files, see [Generating AWS CLI skeleton and input parameters from a JSON or YAML input file](https://docs.aws.amazon.com/cli/latest/userguide/;cli-usage-skeleton.html) in the *AWS Command Line Interface User Guide*\.
 
 ```
 {
@@ -326,7 +326,7 @@ aws ssm start-session ^
 
 ------
 
-For information about using quotation marks with command parameters in the AWS CLI, see [Using quotation marks with strings in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html) in the *AWS Command Line Interface User Guide*\.
+For information about using quotation marks with command parameters in the AWS CLI, see [Using quotation marks with strings in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/;cli-usage-parameters-quoting-strings.html) in the *AWS Command Line Interface User Guide*\.
 
 ## IAM policy examples for interactive commands<a name="interactive-command-policy-examples"></a>
 

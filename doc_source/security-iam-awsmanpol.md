@@ -20,12 +20,14 @@ Additionally, AWS supports managed policies for job functions that span multiple
 
 ## AWS managed policy: AmazonSSMServiceRolePolicy<a name="security-iam-awsmanpol-AmazonSSMServiceRolePolicy"></a>
 
-You can't attach `AmazonSSMServiceRolePolicy` to your AWS Identity and Access Management \(IAM\) entities\. This policy is attached to a service\-linked role that allows AWS Systems Manager to perform actions on your behalf\. For more information, see [Using roles to collect inventory, run maintenance window tasks, and view OpsData: `AWSServiceRoleForAmazonSSM`](using-service-linked-roles-service-action-1.md)\.
+You can't attach `AmazonSSMServiceRolePolicy` to your AWS Identity and Access Management \(IAM\) entities\. This policy is attached to a service\-linked role that allows AWS Systems Manager to perform actions on your behalf\. For more information, see [Using roles to collect inventory and view OpsData: `AWSServiceRoleForAmazonSSM`](using-service-linked-roles-service-action-1.md)\.
 
-Three Systems Manager capabilities use the service\-linked role: 
+Two Systems Manager capabilities use the service\-linked role: 
 + The Inventory capability requires a service\-linked role\. The role allows the system to collect Inventory metadata from tags and resource groups\.
-+ The Maintenance Windows capability can optionally use the service\-linked role\. The role allows the Maintenance Windows service to run maintenance tasks on target managed nodes\. Note that the service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 + The Explorer capability uses the service\-linked role to allow viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you turn on Security Hub as a data source from Explorer or OpsCenter\.
+**Important**  
+Previously, the Systems Manager console provided you with the ability to choose the AWS managed IAM service\-linked role `AWSServiceRoleForAmazonSSM` to use as the maintenance role for your tasks\. Using this role and its associated policy, `AmazonSSMServiceRolePolicy`, for maintenance window tasks is no longer recommended\. If you're using this role for maintenance window tasks now, we encourage you to stop using it\. Instead, create your own IAM role that enables communication between Systems Manager and other AWS services when your maintenance window tasks run\.  
+For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\.
 
 **Permissions details**
 

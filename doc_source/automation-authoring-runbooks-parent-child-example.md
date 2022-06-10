@@ -172,15 +172,15 @@ To start creating her runbook content, Emily reviews the available automation ac
        onFailure: Abort
        inputs:
          Choices:
-         - NextStep: startInstance
-           Variable: '{{getInstanceState.instanceState}}'
-           StringEquals: stopped
-         - NextStep: verifyInstanceStopped
-           Variable: '{{getInstanceState.instanceState}}'
-           StringEquals: stopping
-         - NextStep: patchInstance
-           Variable: '{{getInstanceState.instanceState}}'
-           StringEquals: running
+           - NextStep: startInstance
+              Variable: '{{getInstanceState.instanceState}}'
+              StringEquals: stopped
+            - NextStep: verifyInstanceStopped
+              Variable: '{{getInstanceState.instanceState}}'
+              StringEquals: stopping
+            - NextStep: patchInstance
+              Variable: '{{getInstanceState.instanceState}}'
+              StringEquals: running
        isEnd: true
      - name: startInstance
        action: 'aws:executeAwsApi'
@@ -454,15 +454,16 @@ To start creating her runbook content, Emily reviews the available automation ac
        onFailure: Abort
        inputs:
          Choices:
-         - NextStep: startInstance
-           Variable: '{{getInstanceState.instanceState}}'
-           StringEquals: stopped
-         - NextStep: verifyInstanceStopped
-           Variable: '{{getInstanceState.instanceState}}'
-           StringEquals: stopping
-         - NextStep: patchInstance
-           Variable: '{{getInstanceState.instanceState}}'
-           StringEquals: running
+           - NextStep: startInstance
+             Variable: '{{getInstanceState.instanceState}}'
+             StringEquals: stopped
+           - Or:
+               - Variable: '{{getInstanceState.instanceState}}'
+                 StringEquals: stopping
+             NextStep: verifyInstanceStopped
+           - NextStep: patchInstance
+             Variable: '{{getInstanceState.instanceState}}'
+             StringEquals: running
        isEnd: true
      - name: startInstance
        action: 'aws:executeAwsApi'

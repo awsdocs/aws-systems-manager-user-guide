@@ -17,11 +17,9 @@ The option `--task-arn` is used to specify the resource that the task operates o
 |  **`STEP_FUNCTIONS`**  |  `TaskArn` is the state machine ARN\. For example:  `arn:aws:states:us-east-2:111122223333:stateMachine:SSMMyStateMachine`\.  The IAM policy for maintenance windows requires that you prefix Step Functions state machine names with `SSM`\. Before you register this type of task, you must update its name in AWS Step Functions to include `SSM`\. For example, if your state machine name is `MyStateMachine`, change it to `SSMMyStateMachine`\.   | 
 
 **About the `--service-role-arn` option**  
-The role for AWS Systems Manager to assume when running the maintenance window task\.
+The role for AWS Systems Manager to assume when running the maintenance window task\. 
 
-Specifying a service role ARN is optional\. If you don't specify a service role ARN, Systems Manager creates a service\-linked role or uses your account's service\-linked role\. 
-
-The service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
+For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)
 
 **About the `--task-invocation-parameters` option**  
 The `--task-invocation-parameters` option is used to specify the parameters that are unique to each of the four task types\. The supported parameters for each of the four task types are described in the following table\.

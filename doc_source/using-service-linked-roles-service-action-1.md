@@ -1,4 +1,4 @@
-# Using roles to collect inventory, run maintenance window tasks, and view OpsData: `AWSServiceRoleForAmazonSSM`<a name="using-service-linked-roles-service-action-1"></a>
+# Using roles to collect inventory and view OpsData: `AWSServiceRoleForAmazonSSM`<a name="using-service-linked-roles-service-action-1"></a>
 
 AWS Systems Manager uses AWS Identity and Access Management \(IAM\) [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to Systems Manager\. Service\-linked roles are predefined by Systems Manager and include all the permissions that the service requires to call other AWS services on your behalf\. 
 
@@ -14,18 +14,18 @@ Systems Manager uses the service\-linked role named `AWSServiceRoleForAmazonSSM`
 
 The `AWSServiceRoleForAmazonSSM` service\-linked role trusts only `ssm.amazonaws.com` to assume this role\. 
 
-Three Systems Manager capabilities use the service\-linked role:
+Two Systems Manager capabilities use the service\-linked role:
 + The Inventory capability requires a service\-linked role\. The role allows the system to collect Inventory metadata from tags and resource groups\.
-+ Systems Manager Maintenance Windows can optionally use the service\-linked role\. The role allows the Maintenance Windows service to run maintenance tasks on target nodes\. The service\-linked role for Systems Manager doesn't provide the permissions needed for all scenarios\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
 + The Explorer capability uses the service\-linked role to allow viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you allow Security Hub as a data source from Explorer or OpsCenter\.
+**Important**  
+Previously, the Systems Manager console provided you with the ability to choose the AWS managed IAM service\-linked role `AWSServiceRoleForAmazonSSM` to use as the maintenance role for your tasks\. Using this role and its associated policy, `AmazonSSMServiceRolePolicy`, for maintenance window tasks is no longer recommended\. If you're using this role for maintenance window tasks now, we encourage you to stop using it\. Instead, create your own IAM role that enables communication between Systems Manager and other AWS services when your maintenance window tasks run\.  
+For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\.
 
 The managed policy that is used to provide permissions for the `AWSServiceRoleForAmazonSSM` role is `AmazonSSMServiceRolePolicy`\. For details about the permissions it grants, see [AWS managed policy: AmazonSSMServiceRolePolicy](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMServiceRolePolicy)\.
 
 ## Creating the `AWSServiceRoleForAmazonSSM` service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-1"></a>
 
 You can use the IAM console to create a service\-linked role with the **EC2** use case\. Using commands for IAM in the AWS Command Line Interface \(AWS CLI\) or using the IAM API, create a service\-linked role with the `ssm.amazonaws.com` service name\. For more information, see [Creating a service\-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#create-service-linked-role) in the *IAM User Guide*\.
-
-For maintenance windows only, you don't need to manually create a service\-linked role\. When you create a maintenance window task in the AWS Management Console, the AWS CLI, or the Systems Manager API, Systems Manager creates the service\-linked role for you if you choose not to provide a custom service role\.
 
 If you delete this service\-linked role, and then need to create it again, you can use the same process to recreate the role in your account\. 
 
@@ -39,11 +39,10 @@ If you no longer need to use any feature or service that requires a service\-lin
 
 Because the `AWSServiceRoleForAmazonSSM` service\-linked role can be used by multiple capabilities, ensure that none are using the role before attempting to delete it\.
 + **Inventory:** If you delete the service\-linked role used by the Inventory capability, then the Inventory data for tags and Resource Groups will no longer be synchronized\. You must clean up the resources for your service\-linked role before you can manually delete it\.
-+ **Maintenance Windows:** You can't delete the service\-linked role if any maintenance window tasks rely on the role\. You must first remove the service\-linked role from the tasks before you can delete the role\. 
 + **Explorer:** If you delete the service\-linked role used by the Explorer capability, then the cross\-account and cross\-Region OpsData and OpsItems are no longer viewable\. 
 
 **Note**  
-If the Systems Manager service is using the role when you try to delete tags, resource groups, or maintenance window tasks, then the deletion might fail\. If that happens, wait for a few minutes and try the operation again\.
+If the Systems Manager service is using the role when you try to delete tags or resource groups, then the deletion might fail\. If that happens, wait for a few minutes and try the operation again\.
 
 **To delete Systems Manager resources used by the `AWSServiceRoleForAmazonSSM`**
 

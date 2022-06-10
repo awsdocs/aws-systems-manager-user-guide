@@ -10,7 +10,7 @@ The following diagram describes how some Systems Manager capabilities perform ac
 
 ![\[Diagram showing how Systems Manager capabilities use a similar process of set up, launching, processing, and reporting.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/how-it-works.png)
 
-1. **Access Systems Manager** – Use one of the available options for [accessing Systems Manager]()\.
+1. **Access Systems Manager** – Use one of the available options for [accessing Systems Manager](#access-methods)\.
 
 1. **Choose a Systems Manager capability** – Determine which capability can help you perform the action you want to perform on your resources\. The diagram shows only a few of the capabilities that IT administrators and DevOps personnel use to manage their applications and resources\.
 

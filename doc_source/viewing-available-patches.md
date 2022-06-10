@@ -17,6 +17,10 @@ To generate a list of available patches and save them to a file, you can use the
 
 1. Choose the **Patches** tab\.
 
+   \-or\-
+
+   If you are accessing Patch Manager for the first time in the current AWS Region, choose **View predefined patch baselines**, and then choose the **Patches** tab\.
+
 1. For **Operating system**, choose the operating system for which you want to view available patches, such as `Windows` or `Amazon Linux`\.
 
 1. \(Optional\) For **Product**, choose an OS version, such as `WindowsServer2019` or `AmazonLinux2018.03`\.

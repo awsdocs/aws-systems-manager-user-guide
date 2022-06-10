@@ -200,11 +200,8 @@ When you register a Run Command task with a maintenance window, you specify a se
 The `iam:PassRole` policy allows the Maintenance Windows service role to pass the Amazon SNS IAM role created in Task 3 to the Amazon SNS service\. The following procedure shows how to attach the `iam:PassRole` policy to the Maintenance Windows service role\.
 
 **Note**  
-Use a custom service role for your maintenance window to send notifications related to the Run Command tasks registered\. For information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.  
-If you need to create a custom service role, see one of the following topics:  
-[Control access to maintenance windows \(console\)](sysman-maintenance-perm-console.md)
-[Control access to maintenance windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
-[Control access to maintenance windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
+Use a custom service role for your maintenance window to send notifications related to the Run Command tasks registered\. For information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\.  
+If you need to create a custom service role for maintenance window tasks, see [Use the console to configure permissions for maintenance windows](sysman-maintenance-perm-console.md)\.
 
 **To attach the` iam:PassRole` policy to your Maintenance Windows role**
 

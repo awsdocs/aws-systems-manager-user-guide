@@ -360,7 +360,7 @@ This sample walkthrough shows you how to create and run a Systems Manager Automa
 
       `PropertySelector: "$.DBInstances[0].DBInstanceStatus"`\.
 
-   1. Specify one or more DesiredValues\. If you don't know the values you want to specify, then run the [DescribeDBInstances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) API operation to determine possible values\. For this walkthrough, specify *available* and *starting*\. 
+   1. Specify one or more DesiredValues\. If you don't know the values you want to specify, then run the [DescribeDBInstances](AmazonRDS/latest/APIReference/API_DescribeDBInstances.html) API operation to determine possible values\. For this walkthrough, specify *available* and *starting*\. 
 
    1. Enter the information you collected into the runbook as shown in the following example\.
 

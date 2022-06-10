@@ -99,7 +99,11 @@ To associate a specific patch baseline with your managed nodes, you must add the
 
 1. In the navigation pane, choose **Patch Manager**\.
 
-1. In the **Patch Baselines** list, choose the patch baseline you want to configure for your patch group\.
+1. In the **Patch baselines** list, choose the patch baseline you want to configure for your patch group\.
+
+   \-or\-
+
+   If you are accessing Patch Manager for the first time in the current AWS Region, choose **View predefined patch baselines**, and then choose the patch baseline you want to configure for your patch group\.
 
 1. Choose **Actions**, then **Modify patch groups**\.
 

@@ -13,7 +13,7 @@ As you begin working with SSM documents, be aware of the following limitations\.
 + You can publicly share a maximum of five SSM documents\. You can request an increase to this limit in the [AWS Support Center](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase)\. For **Limit type**, choose *EC2 Systems Manager* and describe your reason for the request\.
 + Documents can be shared with other accounts in the same AWS Region only\. Cross\-Region sharing isn't supported\.
 
-For more information about Systems Manager service quotas, see [AWS Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm)\.
+For more information about Systems Manager service quotas, see [AWS Systems Manager Service Quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm)\.
 
 **Topics**
 + [Best practices for shared SSM documents](ssm-before-you-share.md)

@@ -38,8 +38,8 @@ You create a custom service role in the following cases:
 + If you need a more permissive or expanded set of permissions than those provided by the service\-linked role\. For example, some actions in Automation runbooks require permissions for actions in other AWS services\.
 
 For more information, see the following topics in the Maintenance Windows section of this user guide:
-+  [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role) 
-+  [\(Optional\) Create a custom service role for Maintenance Windows \(console\)](sysman-maintenance-perm-console.md#sysman-maintenance-role)\.
++  [Setting up Maintenance Windows](sysman-maintenance-permissions.md) 
++  [Create a custom service role for Maintenance Windows \(console\)](sysman-maintenance-perm-console.md#sysman-maintenance-role)\.
 
 ### Service role for Amazon SNS notifications<a name="setup-service-role-create-sns"></a>
 

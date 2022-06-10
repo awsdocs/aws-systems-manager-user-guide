@@ -2,7 +2,7 @@
 
 [AWS Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html) provides you with a comprehensive view of your security state in AWS\. Security Hub collects security data from across AWS accounts, AWS services, and supported third\-party partner products\. With Security Hub, you can check your environment against security industry standards and best practices\. Security Hub helps you to analyze your security trends and identify the highest priority security issues\.
 
-By using the integration between Patch Manager, a capability of AWS Systems Manager, and Security Hub, you can send findings from Patch Manager to Security Hub\. A finding is the observable record of a security check or security\-related detection\. Security Hub can then include those findings in its analysis of your security posture\.
+By using the integration between Patch Manager, a capability of AWS Systems Manager, and Security Hub, you can send findings about out\-of\-compliance nodes from Patch Manager to Security Hub\. A finding is the observable record of a security check or security\-related detection\. Security Hub can then include those patch\-related findings in its analysis of your security posture\.
 
 **Contents**
 + [How Patch Manager sends findings to Security Hub](#securityhub-integration-sending-findings)
@@ -43,9 +43,7 @@ If Security Hub isn't available, Patch Manager retries sending the findings unti
 
 ### Updating existing findings in Security Hub<a name="securityhub-integration-finding-updates"></a>
 
-Patch Manager doesn't update a finding after it sends the finding to Security Hub\.
-
-Any additional patching operations on `AwsEc2Instance` resource types before the managed node has been brought to compliance standards result in new findings being sent to Security Hub\.
+Patch Manager doesn't update a finding after it sends the finding to Security Hub\. If a patching operation runs on an `AwsEc2Instance` resource type for which patch noncompliance was already reported, and the resource is again found to be noncompliant, new findings are sent to Security Hub\. No findings are sent for resources that are compliant, even if they were previously noncompliant\.
 
 ## Typical finding from Patch Manager<a name="securityhub-integration-finding-example"></a>
 
@@ -127,6 +125,10 @@ The following procedure describes how to integrate Patch Manager and Security Hu
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
 1. Choose the **Settings** tab\.
+
+   \-or\-
+
+   If you are accessing Patch Manager for the first time in the current AWS Region, choose **View predefined patch baselines**, and then choose the **Settings** tab\.
 
 1. Under the **Export to Security Hub** section, to the right of **Patch compliance findings aren't being exported to Security Hub**, choose **Enable**\.
 

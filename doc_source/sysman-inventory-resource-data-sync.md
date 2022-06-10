@@ -259,7 +259,7 @@ The following section describes how to view and query the data in Amazon Athena\
 If you create resource data syncs from additional AWS Regions or AWS accounts, then you must run this command again to update the partitions\. You might also need to update your Amazon S3 bucket policy\.
 
 1. To preview your data, choose the view icon next to the `AWS_Application` table\.  
-![\[alt-text\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-inventory-resource-data-sync-walk.png)
+![\[The preview data icon in Amazon Athena.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/sysman-inventory-resource-data-sync-walk.png)
 
 1. Copy and paste the following statement into the query editor and then choose **Run Query**\.
 

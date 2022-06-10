@@ -209,7 +209,7 @@ The following example demonstrates a policy for cases where the caller type is `
 ```
 The following example demonstrates a policy for cases where the caller type is `AssumedRole`\. You can use the `{aws:userid}` variable for the value you supply for `aws:ssmmessages:session-id`\. Alternatively, you can hardcode a role ID for the value you supply for `aws:ssmmessages:session-id`\. If you hardcode a role ID, you must provide the value in the format `role-id:caller-specified-role-name`\. For example, `AIDIODR4TAW7CSEXAMPLE:MyRole`\.  
 In order for system tags to be applied, the role ID you supply can contain the following characters only: Unicode letters, 0\-9, space, `_`, `.`, `:`, `/`, `=`, `+`, `-`, `@`, and `\`\.
-To retrieve the role ID for a role in your AWS account, use the `get-caller-identity` command\. For information, see [get\-caller\-identity](https://docs.aws.amazon.com/cli/latest/reference//sts/get-caller-identity.html) in the AWS CLI Command Reference\.   
+To retrieve the role ID for a role in your AWS account, use the `get-caller-identity` command\. For information, see [get\-caller\-identity](https://docs.aws.amazon.com/cli/latest/reference/sts/get-caller-identity.html) in the AWS CLI Command Reference\.   
 
 ```
 {

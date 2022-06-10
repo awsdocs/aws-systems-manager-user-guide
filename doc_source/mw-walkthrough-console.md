@@ -106,12 +106,9 @@ If the targets you registered in the preceding step are Windows Server 2012 R2 o
 If you selected targets by specifying tags applied to managed nodes or by specifying AWS resource groups, and you aren't certain how many managed nodes are targeted, then restrict the number of targets that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other managed nodes after it fails on either a number or a percentage of nodes\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Managed nodes still processing the command might also send errors\.
 
-1. For **IAM service role**, choose a role\. If you need to create a custom service role, see one of the following topics:
-   + [Control access to maintenance windows \(console\)](sysman-maintenance-perm-console.md)
-   + [Control access to maintenance windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
-   + [Control access to maintenance windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
+1. For **IAM service role**, choose a role choose a role to provide permissions for Systems Manager to run maintenance window tasks\.
 
-   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)
+   If you need to create a custom service role for maintenance window tasks, see [Use the console to configure permissions for maintenance windows](sysman-maintenance-perm-console.md)\.
 
 1. \(Optional\) For **Output options**, do one of the following:
    + Select the **Enable writing to S3** check box to save the command output to a file\. Enter the bucket and prefix \(folder\) names in the boxes\.

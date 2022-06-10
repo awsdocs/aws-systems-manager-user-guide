@@ -54,27 +54,14 @@ If the task you're running doesn't specify targets, you don;t need to specify ra
      When the maintenance window runs, a new automation is initiated per target\. There is a limit of 100 concurrent automations per AWS account\. If you specify a concurrency rate greater than 100, concurrent automations greater than 100 are automatically added to the automation queue\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\. 
    + For **Error threshold**, specify when to stop running the automation on other targets after it fails on either a number or a percentage of targets\. For example, if you specify three errors, then Systems Manager stops running automations when the fourth error is received\. Targets still processing the automation might also send errors\.
 
-1. In the ** IAM service role** area, choose one of the following options to provide permissions for Systems Manager to start the automation:
-   +  ** Create and use a service\-linked role for Systems Manager **
-
-     Service\-linked roles provide a secure way to delegate permissions to AWS services because only the linked service can assume a service\-linked role\. Additionally, AWS automatically defines and sets the permissions of service\-linked roles, depending on the actions that the linked service performs on your behalf\.
-**Note**  
-If a service\-linked role has already been created for your account, choose **Use the service\-linked role for Systems Manager**\.
-   + **Use a custom service role**
-
-     If you want to use stricter permissions than those provided by the service\-linked role, you can create a custom service role for maintenance window tasks\.
-
-     To create a custom service role, see one of the following topics:
-     + [Control access to maintenance windows \(console\)](sysman-maintenance-perm-console.md)
-     + [Control access to maintenance windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
-     + [Control access to maintenance windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
-
-   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
-
 1. In the **Input Parameters** section, specify parameters for the runbook\. For runbooks, the system auto\-populates some of the values\. You can keep or replace these values\.
 **Important**  
 For runbooks, you can optionally specify an Automation Assume Role\. If you don't specify a role for this parameter, then the automation assumes the maintenance window service role you choose in step 11\. As such, you must ensure that the maintenance window service role you choose has the appropriate AWS Identity and Access Management \(IAM\) permissions to perform the actions defined within the runbook\.   
 For example, the service\-linked role for Systems Manager doesn't have the IAM permission `ec2:CreateSnapshot`, which is required to use the runbook `AWS-CopySnapshot`\. In this scenario, you must either use a custom maintenance window service role or specify an Automation Assume Role that has `ec2:CreateSnapshot` permissions\. For information, see [Setting up Automation](automation-setup.md)\.
+
+1. In the ** IAM service role** area, choose a role to provide permissions for Systems Manager to start the automation\.
+
+   To create a service role for maintenance window tasks, see [Use the console to configure permissions for maintenance windows](sysman-maintenance-perm-console.md)\.
 
 1. Choose **Register Automation task**\.
 

@@ -13,7 +13,7 @@ Configuring DevOps Guru with Quick Setup is available in the following AWS Regi
 + Asia Pacific \(Sydney\)
 + Asia Pacific \(Tokyo\)
 
-For pricing information, see [Amazon DevOps Guru pricing](https://aws.amazon.com/devops-guru/pricing/)\.
+For pricing information, see [Amazon DevOps Guru pricing](http://aws.amazon.com/devops-guru/pricing/)\.
 
 To set up DevOps Guru, perform the following tasks in the AWS Systems Manager Quick Setup console\.
 

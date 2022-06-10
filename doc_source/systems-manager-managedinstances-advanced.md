@@ -10,7 +10,7 @@ To patch applications released by Microsoft on virtual machines \(VMs\) and on\-
 This section describes how to configure your hybrid environment to use the advanced\-instances tier\.
 
 **Before you begin**  
-Review pricing details for advanced instances\. Advanced instances are an account\-level feature\. Advanced instances are available on a per\-use\-basis\. For more information see, [AWS Systems Manager Pricing](https://aws.amazon.com/systems-manager/pricing/)\. 
+Review pricing details for advanced instances\. Advanced instances are an account\-level feature\. Advanced instances are available on a per\-use\-basis\. For more information see, [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\. 
 
 ## Configuring permissions to turn on the advanced\-instances tier<a name="systems-manager-managedinstances-advanced-permissions"></a>
 

@@ -63,22 +63,9 @@ In many cases, you don't need to explicitly specify a target for an automation t
 If you selected targets by specifying tags applied to managed nodes or by specifying AWS resource groups, and you aren't certain how many managed nodes are targeted, then restrict the number of targets that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other managed nodes after it fails on either a number or a percentage of nodes\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Managed nodes still processing the command might also send errors\.
 
-1. In the ** IAM service role** area, choose one of the following options to provide permissions for Systems Manager to run tasks on your target nodes:
-   +  ** Create and use a service\-linked role for Systems Manager **
+1. In the ** IAM service role** area, choose a role to provide permissions for Systems Manager to run tasks on your target nodes\.
 
-     Service\-linked roles provide a secure way to delegate permissions to AWS services because only the linked service can assume a service\-linked role\. Additionally, AWS automatically defines and sets the permissions of service\-linked roles, depending on the actions that the linked service performs on your behalf\.
-**Note**  
-If a service\-linked role has already been created for your account, choose **Use the service\-linked role for Systems Manager**\.
-   + **Use a custom service role**
-
-     You can create a custom service role for maintenance window tasks if you want to use stricter permissions than those provided by the service\-linked role\. 
-
-     If you need to create a custom service role, see one of the following topics:
-     + [Control access to maintenance windows \(console\)](sysman-maintenance-perm-console.md)
-     + [Control access to maintenance windows \(AWS CLI\)](sysman-maintenance-perm-cli.md)
-     + [Control access to maintenance windows \(Tools for Windows PowerShell\)](sysman-maintenance-perm-ps.md)
-
-   To help you decide whether to use a custom service role or the Systems Manager service\-linked role with a maintenance window task, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+   If you need to create a custom service role for maintenance window tasks, see [Use the console to configure permissions for maintenance windows](sysman-maintenance-perm-console.md)\.
 
 1. Run Command tasks only:
 

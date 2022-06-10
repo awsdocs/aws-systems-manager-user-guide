@@ -254,7 +254,7 @@ Required: No
 
 ## `aws:cloudWatch`<a name="aws-cloudWatch"></a>
 
-Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon Elastic Compute Cloud \(Amazon EC2\), see [Sending Logs, Events, and Performance Counters to Amazon CloudWatch](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/send_logs_to_cwl.html)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon Elastic Compute Cloud \(Amazon EC2\), see [Collecting metrics and logs from Amazon EC2 instances and on\-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 **Important**  
 This plugin has been deprecated\. The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
@@ -441,7 +441,7 @@ Required: Yes
 **Region**  
 The AWS Region where you want to send log data\. Although you can send performance counters to a different Region from where you send your log data, we recommend that you set this parameter to the same Region where your instance is running\.  
 Type: String  
-Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [Amazon CloudWatch Logs Service Endpoints](url-aws-gen;cwl_region.html#cwl_region) and [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.   
+Valid values: Regions IDs of the AWS Regions supported by both Systems Manager and CloudWatch Logs, such as `us-east-2`, `eu-west-1`, and `ap-southeast-1`\. For lists of AWS Regions supported by each service, see [Amazon CloudWatch Logs Service Endpoints](https://docs.aws.amazon.com/general/latest/gr/cwl_region.html#cwl_region) and [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.   
 Required: Yes
 
 **SecretKey**  
@@ -792,7 +792,7 @@ Example: "dnsIpAddresses": \["198\.51\.100\.1","198\.51\.100\.2"\]
 
 ### Examples<a name="domainJoin-examples"></a>
 
-For examples, see [Joining a Windows Server Instance to an AWS Directory Service Domain](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-join-aws-domain.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+For examples, see [Join an Amazon EC2 Instance to your AWS Managed Microsoft AD](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ec2-join-aws-domain.html) in the *AWS Directory Service Administration Guide*\.
 
 ## `aws:downloadContent`<a name="aws-downloadContent"></a>
 
@@ -1728,7 +1728,7 @@ Required: No
 
 ## `aws:updateAgent`<a name="aws-updateagent"></a>
 
-Update the EC2Config service to the latest version or specify an older version\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about the EC2Config service, see [Configuring a Windows Instance Using the EC2Config Service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Update the EC2Config service to the latest version or specify an older version\. This plugin only runs on Microsoft Windows Server operating systems\. For more information about the EC2Config service, see [Configuring a Windows Instance using the EC2Config service](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html)\. For more information about documents, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="updateagent-syntax"></a>
 

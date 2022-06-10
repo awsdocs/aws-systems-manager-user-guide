@@ -14,9 +14,11 @@ For information about creating a patch baseline for macOS managed nodes, see [Cr
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
 
-1. Choose the **Patch baselines** tab\.
-
 1. Choose **Create patch baseline**\.
+
+   \-or\-
+
+   If you are accessing Patch Manager for the first time in the current AWS Region, choose **View predefined patch baselines**, and then choose **Create patch baseline**\.
 
 1. For **Name**, enter a name for your new patch baseline, for example, **MyRHELPatchBaseline**\.
 

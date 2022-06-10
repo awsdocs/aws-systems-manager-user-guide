@@ -108,7 +108,7 @@ aws ssm register-target-with-maintenance-window ^
 
 ## Example 4: Register targets using a resource group name<a name="mw-target-example-4"></a>
 
-Run the following command on your local machine to register a specified resource group, regardless of the type of resources it contains\. If the tasks you assign to the maintenance window don't act on a type of resource included in this resource group, the system might report an error\. Tasks for which a supported resource type is found continue to run despite these errors\.
+*LocalPortNumber* Run the following command on your local machine to register a specified resource group, regardless of the type of resources it contains\. If the tasks you assign to the maintenance window don't act on a type of resource included in this resource group, the system might report an error\. Tasks for which a supported resource type is found continue to run despite these errors\.
 
 ------
 #### [ Linux & macOS ]

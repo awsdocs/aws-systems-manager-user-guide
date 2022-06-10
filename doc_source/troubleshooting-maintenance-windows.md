@@ -12,11 +12,11 @@ Use the following information to help you troubleshoot problems with maintenance
 
 **Problem 1**: The AWS Identity and Access Management \(IAM\) maintenance window role you originally specified was deleted after you created the task\.
 
-**Possible fixes**: \(1\) Select a different IAM maintenance window role, if one exists in your account, or create a new one and select it for the task\. \(2\) Create or select an AWS Systems Manager service\-linked role\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+**Possible fix**: 1\) Select a different IAM maintenance window role, if one exists in your account, or create a new one and select it for the task\. 
 
 **Problem 2**: If the task was created using the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or an AWS SDK, a non\-existent IAM maintenance window role name could have been specified\. For example, the IAM maintenance window role could have been deleted before you created the task, or the role name could have been typed incorrectly, such as **myrole** instead of **my\-role**\.
 
-**Possible fixes**: \(1\) Select the correct name of the IAM maintenance window role you want to use, or create a new one to specify for the task\. \(2\) Create or select a Systems Manager service\-linked role\. For more information, see [Should I use a service\-linked role or a custom service role to run maintenance window tasks?](sysman-maintenance-permissions.md#maintenance-window-tasks-service-role)\.
+**Possible fix**: Select the correct name of the IAM maintenance window role you want to use, or create a new one to specify for the task\. 
 
 ## Not all maintenance window targets are updated<a name="targets-not-updated"></a>
 

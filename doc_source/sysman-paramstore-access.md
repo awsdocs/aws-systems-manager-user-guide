@@ -35,7 +35,7 @@ When using IAM policies to restrict access to Systems Manager parameters, we rec
 ```
 
 **Important**  
-If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path `/a`, then the user can also access `/a/b`\. Even if a user has explicitly been denied access in IAM for parameter `/a/b`, they can still call the GetParametersByPath API operation recursively for `/a` and view `/a/b`\.
+If a user has access to a path, then the user can access all levels of that path\. For example, if a user has permission to access path `/a`, then the user can also access `/a/b`\. Even if a user has explicitly been denied access in IAM for parameter `/a/b`, they can still call the `GetParametersByPath` API operation recursively for `/a` and view `/a/b`\.
 
 For trusted administrators, you can provide access to all Systems Manager parameter API operations by using a policy similar to the following example\. This policy gives the user full access to all production parameters that begin with `dbserver-prod-*`\.
 
