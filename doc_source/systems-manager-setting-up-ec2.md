@@ -13,6 +13,6 @@ If you already use other AWS services, you have completed some of these steps\. 
 + [Step 3: Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)
 + [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
 + [Step 5: Attach an IAM instance profile to an Amazon EC2 instance](setup-launch-managed-instance.md)
-+ [Step 6: \(Optional\) Create a VPC endpoint](setup-create-vpc.md)
++ [Step 6: \(Recommended\) Create a VPC endpoint](setup-create-vpc.md)
 + [Step 7: \(Optional\) Create Systems Manager service roles](setup-service-role.md)
 + [Step 8: \(Optional\) Set up integrations with other AWS services](setup-integrations.md)

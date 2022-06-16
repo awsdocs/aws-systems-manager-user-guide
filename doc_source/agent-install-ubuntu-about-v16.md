@@ -14,7 +14,7 @@ You can verify the source AMI ID creation date for an instance using either of t
 
 1. Select an instance\.
 
-1. On the **Description** tab, check for a `YYYYMMDD` identifier in the value in the **AMI ID** field\. For example: `ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20180627`\.
+1. On the **Details** tab, check for a `YYYYMMDD` identifier in the value under **AMI name** field\. For example: `ubuntu/images/hvm-ssd/ubuntu-xenial-16.04-amd64-server-20180627`\.
 
 **Verify a source AMI ID creation date \(AWS CLI\)**
 + Run the following command\.

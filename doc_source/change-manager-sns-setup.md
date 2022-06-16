@@ -62,8 +62,6 @@ If you turned on AWS Key Management Service \(AWS KMS\) server\-side encryption 
 
 1. Open the AWS KMS console at [https://console\.aws\.amazon\.com/kms](https://console.aws.amazon.com/kms)\.
 
-1. To change the AWS Region, use the Region selector in the upper\-right corner of the page\.
-
 1. In the navigation pane, choose **Customer managed keys**\.
 
 1. Choose the ID of the customer managed key you chose when you created the topic\.

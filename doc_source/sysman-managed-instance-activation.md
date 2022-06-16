@@ -50,28 +50,30 @@ If you no longer want to manage an on\-premises server or virtual machine \(VM\)
 
 1. Choose **Create activation**\.
 
-1. \(Optional\) In the **Activation description** field, enter a description for this activation\. The description is optional, be we recommend that you enter a description if you plan to activate large numbers of servers and VMs\.
+   \-or\-
 
-1. In the **Instance limit** field, specify the total number of on\-premises servers or VMs that you want to register with AWS as part of this activation\. The default value is 1 instance\.
+   If you are accessing **Hybrid Activations** for the first time in the current AWS Region, choose **Create an Activation**\. 
 
-1. In the ** IAM role name** section, choose a service role option that allows your servers and VMs to communicate with AWS Systems Manager in the cloud:
+1. \(Optional\) For **Activation description**, enter a description for this activation\. We recommend entering a description if you plan to activate large numbers of servers and VMs\.
 
-   1. Choose **Use the system created default command execution role** to use a role and managed policy created by AWS\. 
+1. For **Instance limit**, specify the total number of on\-premises servers or VMs that you want to register with AWS as part of this activation\. The default value is 1 instance\.
 
-   1. Choose **Select an existing custom IAM role that has the required permissions** to use the optional custom role you created earlier\. This role must have a trust relationship policy that specifies `"Service": "ssm.amazonaws.com"`\. If your IAM role doesn't specify this principle in a trust relationship policy, you receive the following error:
+1. For ** IAM role**, choose a service role option that allows your servers and VMs to communicate with AWS Systems Manager in the cloud:
+   + **Option 1**: Choose **Use the default role created by the system** to use a role and managed policy provided by AWS\. 
+   + **Option 2**: Choose **Select an existing custom IAM role that has the required permissions** to use the optional custom role you created earlier\. This role must have a trust relationship policy that specifies `"Service": "ssm.amazonaws.com"`\. If your IAM role doesn't specify this principle in a trust relationship policy, you receive the following error:
 
-      ```
-      An error occurred (ValidationException) when calling the CreateActivation
-                                          operation: Not existing role: arn:aws:iam::<accountid>:role/SSMRole
-      ```
+     ```
+     An error occurred (ValidationException) when calling the CreateActivation
+                                         operation: Not existing role: arn:aws:iam::<accountid>:role/SSMRole
+     ```
 
-      For more information about creating this role, see [Step 2: Create an IAM service role for a hybrid environment](sysman-service-role.md)\. 
+     For more information about creating this role, see [Step 2: Create an IAM service role for a hybrid environment](sysman-service-role.md)\. 
 
-1. In the **Activation expiry date** field, specify an expiration date for the activation\. The expiry date must be in the future, and not more than 30 days into the future\. The default value is 24 hours\.
+1. For **Activation expiry date**, specify an expiration date for the activation\. The expiry date must be in the future, and not more than 30 days into the future\. The default value is 24 hours\.
 **Note**  
 If you want to register additional managed instances after the expiry date, you must create a new activation\. The expiry date has no impact on registered and running instances\.
 
-1. \(Optional\) In the **Default instance name** field, specify a name\. 
+1. \(Optional\) For **Default instance name** field, specify an identifying name value to be displayed for all managed instances associated with this activation\. 
 
 1. Choose **Create activation**\. Systems Manager immediately returns the Activation Code and ID to the console\. 
 

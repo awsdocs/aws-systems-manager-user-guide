@@ -6,12 +6,11 @@ This topic explains the difference between a *service role* and a *service\-link
 
 **Service\-linked role** – A service\-linked role is predefined by Systems Manager and includes all the permissions that the service requires to call other AWS services on your behalf\.
 
-You can use the Systems Manager service\-linked role for the following:
-+ The Systems Manager Inventory capability uses the service\-linked role to collect inventory metadata from tags and resource groups\.
-+ The Maintenance Windows capability can use the service\-linked role in some situations\. Other situations require a custom service role that you create, as described later in this topic\.
-+ The Explorer capability uses the service\-linked role to enable viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you enable Security Hub as a data source from Explorer or OpsCenter\.
+You can use the Systems Manager service\-linked role `AWSServiceRoleforAmazonSSM` for the following:
++ The Systems Manager Inventory capability uses the service\-linked role `AWSServiceRoleforAmazonSSM` to collect inventory metadata from tags and resource groups\.
++ The Explorer capability uses the service\-linked role `AWSServiceRoleforAmazonSSM` to enable viewing OpsData and OpsItems from multiple accounts\. This service\-linked role also allows Explorer to create a managed rule when you enable Security Hub as a data source from Explorer or OpsCenter\.
 
-For more information about the service\-linked role, see [Using service\-linked roles for Systems Manager](using-service-linked-roles.md)\.
+For more information about this and other service\-linked roles, see [Using service\-linked roles for Systems Manager](using-service-linked-roles.md)\.
 
 ## Create a service role<a name="setup-service-role-create"></a>
 
@@ -31,11 +30,7 @@ If you need to create a service role and an instance profile role for Automation
 
 ### Service role for maintenance window tasks<a name="setup-service-role-create-mw-tasks"></a>
 
-To run tasks on your managed instances, the Maintenance Windows service must have permission to access those resources\. This permission can be granted using either a service\-linked role for Systems Manager or a custom service role that you create\.
-
-You create a custom service role in the following cases: 
-+ If you want to use a more restrictive set of permissions than those provided by the service\-linked role\.
-+ If you need a more permissive or expanded set of permissions than those provided by the service\-linked role\. For example, some actions in Automation runbooks require permissions for actions in other AWS services\.
+To run tasks on your managed instances, the Maintenance Windows service must have permission to access those resources\. This permission should be granted using a custom service role that you create\.
 
 For more information, see the following topics in the Maintenance Windows section of this user guide:
 +  [Setting up Maintenance Windows](sysman-maintenance-permissions.md) 

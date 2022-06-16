@@ -53,7 +53,7 @@ Parameter Store offers these benefits:
   Configure integration with the following AWS services for encryption, notification, monitoring, and auditing:
   + AWS Key Management Service \(AWS KMS\)
   + Amazon Simple Notification Service \(Amazon SNS\)
-  + Amazon CloudWatch: For more information, see [Configuring EventBridge for parameters](sysman-paramstore-cwe.md#cwe-parameter-changes)\. 
+  + Amazon CloudWatch: For more information, see [Configuring EventBridge rules for parameters and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes)\. 
   + Amazon EventBridge: For more information, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\. 
   + AWS CloudTrail: For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
 

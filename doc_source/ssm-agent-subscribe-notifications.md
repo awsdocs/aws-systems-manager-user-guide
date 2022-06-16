@@ -23,7 +23,7 @@ You can also subscribe to notifications by watching the [SSM Agent Release Notes
 
    1. For **Protocol**, choose `Email` or `SMS`\.
 
-   1. For **Endpoint**, enter an email address that you can use to receive the notifications\. If you choose `SMS`, enter an area code and number\. 
+   1. For **Endpoint**, depending on whether you chose `Email` or `SMS` in the previous step, enter an email address or an area code and number to receive notifications\. 
 
    1. Choose **Create subscription**\.
 
@@ -37,4 +37,4 @@ Whenever a new version of SSM Agent is released, we send notifications to subscr
 
 1. In the navigation pane, choose **Subscriptions**\.
 
-1. Select the subscription and then choose **Actions**, **Delete subscriptions**\. When prompted for confirmation, choose **Delete**\.
+1. Select the subscription, and then choose **Delete**\. When prompted for confirmation, choose **Delete**\.

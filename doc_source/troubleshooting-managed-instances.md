@@ -140,7 +140,7 @@ Verify that the instance has connectivity to the Systems Manager service endpoin
 
 For Amazon EC2 instances, the Systems Manager service endpoint for the AWS Region the instance is used to register the instance if your virtual private cloud \(VPC\) configuration allows outbound traffic\. However, if the VPC configuration the instance was launched in does not allow outbound traffic and you can't change this configuration to allow connectivity to the public service endpoints, you must configure interface endpoints for your VPC instead\.
 
-For more information, see [\(Optional\) Create a VPC endpoint](setup-create-vpc.md)\.
+For more information, see [\(Recommended\) Create a VPC endpoint](setup-create-vpc.md)\.
 
 ## Solution 4: Verify target operating system support<a name="instances-missing-solution-4"></a>
 

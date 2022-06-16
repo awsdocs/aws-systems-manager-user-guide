@@ -6,7 +6,7 @@ Using AWS Identity and Access Management \(IAM\) policies, you can control who c
 User\-defined packages are associated with document Amazon Resource Names \(ARNs\) and have the following format\.
 
 ```
-arn:aws:ssm:region-id:account-id:document/document-name
+arn:aws:ssm:region:account-id:document/document-name
 ```
 
 The following is an example\.

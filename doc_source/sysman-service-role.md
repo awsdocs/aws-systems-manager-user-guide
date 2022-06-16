@@ -6,7 +6,7 @@ The following procedures describe how to create the required service role using 
 
 ## Create an IAM service role \(console\)<a name="sysman-service-role-console"></a>
 
-Use the following procedure to create a service role for hybrid activation\. Please note that this procedure uses the **AmazonSSMManagedInstanceCore** policy for Systems Manager core functionality\. Depending on your use case, you might need to add additional policies to your service role for your on\-premises machines to be able to access other capabilities or AWS services\. For example, without access to the required AWS managed Amazon Simple Storage Service \(Amazon S3\) buckets, Patch Manager patching operations fail\.
+Use the following procedure to create a service role for hybrid activation\. Please note that this procedure uses the `AmazonSSMManagedInstanceCore` policy for Systems Manager core functionality\. Depending on your use case, you might need to add additional policies to your service role for your on\-premises machines to be able to access other capabilities or AWS services\. For example, without access to the required AWS managed Amazon Simple Storage Service \(Amazon S3\) buckets, Patch Manager patching operations fail\.
 
 **To create a service role \(console\)**
 
@@ -14,21 +14,34 @@ Use the following procedure to create a service role for hybrid activation\. Ple
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. Mark the following selections:
+1. For **Select trusted entity**, make the following choices:
 
-   1. ** Select type of trusted entity** area: **AWS service**
+   1. For **Trusted entity type**, choose **AWS service**
 
-   1. **Choose the service that will use this role** area: **Systems Manager**
+   1. For **Use cases for other AWS services**, choose **Systems Manager**
+
+   1. Choose **Systems Manager**, as shown in the following image\.  
+![\[Screenshot illustrating the Systems Manager option selected as a use case.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/iam_use_cases_for_MWs.png)
 
 1. Choose **Next**\. 
 
-1. In the list of policies, select the box next to **AmazonSSMManagedInstanceCore**, and then choose **Next**\.
+1. On the **Add permissions** page, do the following: 
+   + Use the **Search** field to locate the **AmazonSSMManagedInstanceCore** policy\. Select the check box next to its name\.   
+![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
+   + The console retains your selection even if you search for other policies\.
+   + If you created a custom S3 bucket policy in the procedure [Task 1: \(Optional\) Create a custom policy for S3 bucket access](setup-instance-profile.md#instance-profile-custom-s3-policy), search for it and select the check box next to its name\.
+   + If you plan to join instances to an Active Directory managed by AWS Directory Service, search for **AmazonSSMDirectoryServiceAccess** and select the check box next to its name\.
+   + If you plan to use EventBridge or CloudWatch Logs to manage or monitor your instance, search for **CloudWatchAgentServerPolicy** and select the check box next to its name\.
 
-1. In **Role name**, enter a name that identifies this role as a hybrid activation service role\. For example: **my\-hybrid\-service\-role**\.
+1. Choose **Next**\.
 
-1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
+1. For **Role name**, enter a name for your new instance profile, such as **SSMInstanceProfile**\.
+**Note**  
+Make a note of the role name\. You will choose this role when you create new instances that you want to manage by using Systems Manager\.
 
-1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: **Provides permissions for on\-premises machines**\.
+1. \(Optional\) For **Description**, update the description for this instance profile\.
+
+1. \(Optional\) For **Tags**, add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Create role**\. The system returns you to the **Roles** page\.
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 

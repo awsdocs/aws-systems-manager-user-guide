@@ -98,7 +98,7 @@ Some Systems Manager API operations accept multiple resources\. To specify multi
 **Note**  
 Most AWS services treat a colon \(:\) or a forward slash \(/\) as the same character in ARNs\. However, Systems Manager requires an exact match in resource patterns and rules\. When creating event patterns, be sure to use the correct ARN characters so that they match the resource's ARN\.
 
-The following table describes the ARN formats for the resource types supported by Systems Manager\.
+The following table describes the ARN formats for the resource types supported by Systems Manager\. 
 
 
 | Resource type | ARN format | 
@@ -144,7 +144,7 @@ For more information about the format of ARNs, see [Amazon Resource Names \(ARNs
 
 For a list of Systems Manager resource types and their ARNs, see [Resources Defined by AWS Systems Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-resources-for-iam-policies) in the *Service Authorization Reference*\. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by AWS Systems Manager](https://docs.aws.amazon.com/service-authorization/latest/reference/list_awssystemsmanager.html#awssystemsmanager-actions-as-permissions)\.<a name="policy-conditions"></a>
 
-### Condition keys<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
+### Condition keys for Systems Manager<a name="security_iam_service-with-iam-id-based-policies-conditionkeys"></a>
 
 Administrators can use AWS JSON policies to specify who has access to what\. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**\.
 

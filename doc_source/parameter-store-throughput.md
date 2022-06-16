@@ -58,6 +58,8 @@ Use the following procedure to add an inline IAM policy to a user account\. This
    }
    ```
 
+1. For `Resource`, replace *region* and *account\-id* with your own information\.
+
 1. Choose **Review policy**\.
 
 1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **Parameter\-Store\-Throughput** or another name you prefer\.

@@ -77,5 +77,4 @@ For Systems Manager actions that aren't supported by EventBridge, you can choose
 + [Remediating compliance issues using EventBridge](sysman-compliance-fixing.md)
 + [Viewing inventory delete actions in EventBridge](sysman-inventory-custom.md#sysman-inventory-delete-cwe)
 + [Configuring EventBridge to automatically create OpsItems for specific events](OpsCenter-automatically-create-OpsItems-2.md)
-+ [Configuring EventBridge for parameters](sysman-paramstore-cwe.md#cwe-parameter-changes)
-+ [Configuring EventBridge for parameter policies](sysman-paramstore-cwe.md#cwe-parameter-policy-status)
++ [Configuring EventBridge rules for parameters and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes)

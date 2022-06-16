@@ -25,7 +25,7 @@ Use the following procedure to create the policy that you will attach to your Ch
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Policies**, and then choose **Create policy**\.
+1. In the navigation pane, choose **Policies**, and then choose **Create Policy**\.
 
 1. On the **Create policy** page, choose the **JSON** tab and replace the default content with the following, which you will modify for your own Change Manager operations in following steps\.
 **Note**  
@@ -79,7 +79,9 @@ If you're creating a policy to use with a single AWS account, and not an organiz
 
 1. Choose **Next: Tags**\.
 
-1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this policy, and then choose **Next: Review**\. 
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this policy\. 
+
+1. Choose **Next: Review**\.
 
 1. On the **Review policy** page, enter a name in the **Name** box, such as **MyChangeManagerAssumeRole**, and then enter an optional description\.
 
@@ -95,17 +97,30 @@ Use the following procedure to create a Change Manager assume role, a type of se
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. Under **Select type of trusted entity**, ensure that **AWS service** is selected by default\.
+1. For **Select trusted entity**, make the following choices:
 
-1. In the **Choose a use case** section, choose **Systems Manager**, and then, in the **Select use case** section, choose **Systems Manager**, and then choose **Next: Permissions**\.
+   1. For **Trusted entity type**, choose **AWS service**
+
+   1. For **Use cases for other AWS services**, choose **Systems Manager**
+
+   1. Choose **Systems Manager**, as shown in the following image\.  
+![\[Screenshot illustrating the Systems Manager option selected as a use case.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/iam_use_cases_for_MWs.png)
+
+1. Choose **Next**\.
 
 1. On the **Attached permissions policy** page, search for the assume role policy you created in [Task 1: Creating an assume role policy for Change Manager](#change-manager-role-policy), such as **MyChangeManagerAssumeRole**\. 
 
 1. Select the check box next to the assume role policy name, and then choose **Next: Tags**\.
 
-1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
+1. For **Role name**, enter a name for your new instance profile, such as **MyChangeManagerAssumeRole**\.
 
-1. On the **Review** page, type a name in the **Role name** box, such as **MyChangeManagerAssumeRole**, and then type an optional description\.
+1. \(Optional\) For **Description**, update the description for this instance role\.
+
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role\. 
+
+1. Choose **Next: Review**\.
+
+1. \(Optional\) For **Tags**, add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Create role**\. The system returns you to the **Roles** page\.
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 
@@ -127,7 +142,7 @@ By attaching the `iam:PassRole` policy, the Change Manager service can pass assu
 
 1. In the **Summary** page for the assume role, choose the **Permissions** tab\.
 
-1. Choose **Add inline policy**\.
+1. Choose **Add permissions, Create inline policy**\.
 
 1. On the **Create policy** page, choose the **Visual editor** tab\.
 
@@ -143,7 +158,7 @@ By attaching the `iam:PassRole` policy, the Change Manager service can pass assu
 
 1. Choose **Review policy**\.
 
-1. On the **Review policy** page, enter a name and then choose **Create policy**\.
+1. For **Name**, enter a name to identify this policy, and then choose **Create policy**\.
 
 **Related content**
 + [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
@@ -163,7 +178,7 @@ When a change request invokes other AWS services by using the Change Manager ass
 
 1. Choose the **Permissions** tab\.
 
-1. Choose **Add inline policy**\.
+1. Choose **Add permissions, Create inline policy**\.
 
 1. Choose the **JSON** tab\.
 
@@ -211,7 +226,7 @@ When a change request invokes other AWS services by using the Change Manager ass
 
 1. When you're finished, choose **Review policy**\. The [Policy Validator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_policy-validator.html) reports any syntax errors\.
 
-1. On the **Review policy** page, enter a **Name** for the policy that you're creating\. Review the policy **Summary** to see the permissions that are granted by your policy\. Then choose **Create policy** to save your work\.
+1. For **Name**, enter a name to identify the policy that you're creating\. Review the policy **Summary** to see the permissions that are granted by your policy\. Then choose **Create policy** to save your work\.
 
 1. After you create an inline policy, it's automatically embedded in your role\.
 
@@ -229,16 +244,16 @@ Use the following procedure to configure a user account to use Change Manager\. 
 
 1. Choose **Add inline policy**\.
 
-1. On the **Create policy** page, choose **Visual Editor**, and then choose **Choose a service**\.
+1. On the **Create policy** page, on the **Visual editor** tab, choose **Choose a service**\.
 
-1. From **AWS Services**, choose **AWS Identity and Access Management**\.
+1. From **AWS Services**, choose **IAM**\.
 
-1. For **Actions**, enter **PassRole** in the **Filter actions** prompt, and choose **PassRole**\.
+1. For **Actions**, enter **PassRole** for the **Filter actions** prompt, and choose **PassRole**\.
 
-1. In the **Resources** section, choose **Add ARN**, paste the ARN for the Change Manager assume role you copied at the end of [Task 2: Creating an assume role for Change Manager](#change-manager-role), and then choose **Add**\.
+1. Expand the **Resources** section, choose **Add ARN**, paste the ARN for the Change Manager assume role you copied at the end of [Task 2: Creating an assume role for Change Manager](#change-manager-role), and then choose **Add**\.
 
 1. Choose **Review policy**\.
 
-1. On the **Review Policy** page, provide a **Name** for the policy and then choose **Create policy**\.
+1. For **Name**, enter a name to identify the policy, and then choose **Create policy**\.
 
 You have finished configuring the required roles for Change Manager\. You can now use the Change Manager assume role ARN in your Change Manager operations\.

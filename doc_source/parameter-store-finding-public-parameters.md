@@ -3,19 +3,22 @@
 You can search for public parameters using the Parameter Store console or the AWS Command Line Interface\. A public parameter name begins with `aws/service/list`\. The next part of the name corresponds to the service that owns that parameter\. 
 
 The following is a list of some services which provide public parameters:
-+ `ami-al-latest`
 + `ami-amazon-linux-latest`
 + `ami-windows-latest`
-+ `aws-storage-gateway-latest`
++ `ami-macos-latest`
++ `appmesh`
++ `aws-for-fluent-bit`
 + `bottlerocket`
 + `canonical`
++ `cloud9`
 + `datasync`
 + `debian`
 + `ecs`
++ `eks`
++ `freebsd`
 + `global-infrastructure`
-+ `redhat`
++ `marketplace`
 + `storagegateway`
-+ `suse`
 
 All public parameters aren't published to all AWS Regions\.
 

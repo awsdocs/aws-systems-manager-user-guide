@@ -10,15 +10,13 @@ The topics in this section also explain how to initiate other actions on a targe
 **Before You Begin**  
 Create any resources you need to specify the target action for the rule you create\. For example, if the rule you create is for sending a notification, first create an Amazon SNS topic\. For more information, see [Getting started with Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.htmlGettingStarted.html) in the *Amazon Simple Notification Service Developer Guide*\.
 
-**Topics**
-+ [Configuring EventBridge for parameters](#cwe-parameter-changes)
-+ [Configuring EventBridge for parameter policies](#cwe-parameter-policy-status)
+## Configuring EventBridge rules for parameters and parameter policies<a name="cwe-parameter-changes"></a>
 
-## Configuring EventBridge for parameters<a name="cwe-parameter-changes"></a>
+This topic explains the following:
++ How to create an EventBridge rule that invokes a target based on events that happen to one or more parameters in your AWS account\.
++ How to create EventBridge rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed\. You set up notification for these events using the following procedure\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
 
-This topic explains how to create an EventBridge rule that invokes a target based on events that happen to one or more parameters in your AWS account\.
-
-**To configure EventBridge for Systems Manager parameters**
+**To configure an EventBridge rule for a Systems Manager parameter or parameter policy**
 
 1. Open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
 
@@ -32,151 +30,138 @@ This topic explains how to create an EventBridge rule that invokes a target base
 
    A rule can't have the same name as another rule in the same Region and on the same event bus\.
 
-1. For **Define pattern**, choose **Event pattern**\.
+1. For **Event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to initiate on matching events that come from your own AWS account, select **default **\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
 
-1. For **Event matching pattern**, choose **Custom pattern**\.
+1. For **Rule type**, leave the default **Rule with an event pattern** selected\.
 
-1. For **Event pattern**, paste the following content in the box:
+1. Choose **Next**\.
 
-   ```
-   {
-       "source": [
-           "aws.ssm"
-       ],
-       "detail-type": [
-           "Parameter Store Change"
-       ],
-       "detail": {
-           "name": [
-               "parameter-1-name",
-               "/parameter-2-name/level-2",
-               "/parameter-3-name/level-2/level-3"
-           ],
-           "operation": [
-               "Create",
-               "Update",
-               "Delete",
-               "LabelParameterVersion"
-           ]
-       }
-   }
-   ```
+1. For **Event source**, leave the default **AWS events or EventBridge partner events** selected\. You can skip the **Sample event** section\.
 
-1. Modify the contents for the parameters and the operations you want to act on\. 
+1. For **Event pattern**, do the following:
+   + Choose **Custom patterns \(JSON editor\)**\.
+   + For **Event pattern**, paste one of the following content in the box, depending on whether you are creating a rule for a parameter or a parameter policy:
 
-   For example, the following content means an action is taken when either of the parameters named /`Oncall` and `/Project/Teamlead` are updated:
+------
+#### [ Parameter ]
 
-   ```
-   {
-       "source": [
-           "aws.ssm"
-       ],
-       "detail-type": [
-           "Parameter Store Change"
-       ],
-       "detail": {
-           "name": [
-               "/Oncall",
-               "/Project/Teamlead"
-           ],
-           "operation": [
-               "Update"
-           ]
-       }
-   }
-   ```
+     ```
+     {
+         "source": [
+             "aws.ssm"
+         ],
+         "detail-type": [
+             "Parameter Store Change"
+         ],
+         "detail": {
+             "name": [
+                 "parameter-1-name",
+                 "/parameter-2-name/level-2",
+                 "/parameter-3-name/level-2/level-3"
+             ],
+             "operation": [
+                 "Create",
+                 "Update",
+                 "Delete",
+                 "LabelParameterVersion"
+             ]
+         }
+     }
+     ```
 
-1. Choose **Save**\.
+------
+#### [ Parameter policy ]
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to initiate on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+     ```
+     {
+         "source": [
+             "aws.ssm"
+         ],
+         "detail-type": [
+             "Parameter Store Policy Action"
+         ],
+         "detail": {
+             "parameter-name": [
+                 "parameter-1-name",
+                 "/parameter-2-name/level-2",
+                 "/parameter-3-name/level-2/level-3"
+             ],
+             "policy-type": [
+                 "Expiration",
+                 "ExpirationNotification",
+                 "NoChangeNotification"
+             ]
+         }
+     }
+     ```
 
-1. For **Select targets**, choose a target type and a supported resource\. For example, if you choose **SNS topic**, make a selection for **Topic**\. If you choose **CodePipeline**, make a selection for **Pipeline ARN**\.
+------
+   + Modify the contents for the parameters and the operations you want to act on, as shown in the following samples\. 
 
-1. Expand any collapsed sections to choose additional options\. Collapsible sections vary by target type and include such groups as **Configure input**, **Retry policy and dead\-letter queue**, and **Compute options**, among others\. Then provide any other configuration details required by the target type you selected\.
+------
+#### [ Parameter ]
 
-1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Amazon EventBridge tags](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-tagging.html) in the *Amazon EventBridge User Guide*\.
+     With this example, an action is taken when either of the parameters named /`Oncall` and `/Project/Teamlead` are updated:
 
-1. Choose **Create**\.
+     ```
+     {
+         "source": [
+             "aws.ssm"
+         ],
+         "detail-type": [
+             "Parameter Store Change"
+         ],
+         "detail": {
+             "name": [
+                 "/Oncall",
+                 "/Project/Teamlead"
+             ],
+             "operation": [
+                 "Update"
+             ]
+         }
+     }
+     ```
 
-## Configuring EventBridge for parameter policies<a name="cwe-parameter-policy-status"></a>
+------
+#### [ Parameter policy ]
 
-This topic explains how to create EventBridge rules that invoke targets based on events that happen to one or more parameter policies in your AWS account\. When you create an advanced parameter, you specify when a parameter expires, when to receive notification before a parameter expires, and how long to wait before notification should be sent that a parameter hasn't changed\. You set up notification for these events using the following procedure\. For more information, see [Assigning parameter policies](parameter-store-policies.md) and [Managing parameter tiers](parameter-store-advanced-parameters.md)\.
+     With this example, an action is taken whenever the parameter named /`OncallDuties` expires and is deleted:
 
-**To configure EventBridge for Systems Manager parameter policies**
+     ```
+     {
+         "source": [
+             "aws.ssm"
+         ],
+         "detail-type": [
+             "Parameter Store Policy Action"
+         ],
+         "detail": {
+             "parameter-name": [
+                 "/OncallDuties"
+             ],
+             "policy-type": [
+                 "Expiration"
+             ]
+         }
+     }
+     ```
 
-1. Open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
+------
 
-1. In the navigation pane, choose **Rules**, and then choose **Create rule**\.
+1. Choose **Next**\.
 
-   \-or\-
+1. For **Target 1**, choose a target type and a supported resource\. For example, if you choose **SNS topic**, make a selection for **Topic**\. If you choose **CodePipeline**, enter a pipeline ARN for **Pipeline ARN**\. Provide additional configuration values as required\.
+**Tip**  
+Choose **Add another target** if you require additional targets for the rule\.
 
-   If the Amazon EventBridge home page opens first, choose **Create rule**\.
-
-1. Enter a name and description for the rule\.
-
-   A rule can't have the same name as another rule in the same Region and on the same event bus\.
-
-1. For **Define pattern**, choose **Event pattern**\.
-
-1. For **Event matching pattern**, choose **Custom pattern**\.
-
-1. For **Event pattern**, paste the following content in the box:
-
-   ```
-   {
-       "source": [
-           "aws.ssm"
-       ],
-       "detail-type": [
-           "Parameter Store Policy Action"
-       ],
-       "detail": {
-           "parameter-name": [
-               "parameter-1-name",
-               "/parameter-2-name/level-2",
-               "/parameter-3-name/level-2/level-3"
-           ],
-           "policy-type": [
-               "Expiration",
-               "ExpirationNotification",
-               "NoChangeNotification"
-           ]
-       }
-   }
-   ```
-
-1. Modify the contents for the parameters and the policy types you want to act on\. For example, the following content means an action is taken whenever the parameter named /`OncallDuties` expires and is deleted:
-
-   ```
-   {
-       "source": [
-           "aws.ssm"
-       ],
-       "detail-type": [
-           "Parameter Store Policy Action"
-       ],
-       "detail": {
-           "parameter-name": [
-               "/OncallDuties"
-           ],
-           "policy-type": [
-               "Expiration"
-           ]
-       }
-   }
-   ```
-
-1. Choose **Save**\.
-
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to initiate on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
-
-1. For **Select targets**, choose a target type and a supported resource\. For example, if you choose **SNS topic**, make a selection for **Topic**\. If you choose **CodePipeline**, make a selection for **Pipeline ARN**\.
-
-1. Expand any collapsed sections to choose additional options\. Collapsible sections vary by target type and include such groups as **Configure input**, **Retry policy and dead\-letter queue**, and **Compute options**, among others\. Then provide any other configuration details required by the target type you selected\.
+1. Choose **Next**\.
 
 1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Amazon EventBridge tags](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-tagging.html) in the *Amazon EventBridge User Guide*\.
 
-1. Choose **Create**\.
+1. Choose **Next**\.
+
+1. Choose **Create rule**\.
 
 **Related Information**
 + \(Blog post\) [Use parameter labels for easy configuration update across environments](http://aws.amazon.com/blogs/mt/use-parameter-labels-for-easy-configuration-update-across-environments/)

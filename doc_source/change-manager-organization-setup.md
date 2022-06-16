@@ -122,14 +122,14 @@ This example isn't comprehensive\. Additional permissions might be needed for wo
                    "ssm:UpdateDocumentDefaultVersion"
                ],
                "Resource": [
-                   "arn:aws:ssm:us-east-2:123456789012:document/AWS-CreateDynamoDbBackup",
-                   "arn:aws:ssm:us-east-2:123456789012:document/AWS-AWS-DeleteDynamoDbBackup",
-                   "arn:aws:ssm:us-east-2:123456789012:document/AWS-DeleteDynamoDbTableBackups",
-                   "arn:aws:ssm:us-east-2:123456789012:document/AWS-AWSConfigRemediation-DeleteDynamoDbTable",
-                   "arn:aws:ssm:us-east-2:123456789012:document/AWS-AWSConfigRemediation-EnableEncryptionOnDynamoDbTable",
-                   "arn:aws:ssm:us-east-2:123456789012:document/AWS-AWSConfigRemediation-EnablePITRForDynamoDbTable",
-                   "arn:aws:ssm:us-east-2:123456789012:document/MyFirstDBChangeTemplate",
-                   "arn:aws:ssm:us-east-2:123456789012:document/MySecondDBChangeTemplate"
+                   "arn:aws:ssm:region:*:document/AWS-CreateDynamoDbBackup",
+                   "arn:aws:ssm:region:*:document/AWS-AWS-DeleteDynamoDbBackup",
+                   "arn:aws:ssm:region:*:document/AWS-DeleteDynamoDbTableBackups",
+                   "arn:aws:ssm:region:*:document/AWSConfigRemediation-DeleteDynamoDbTable",
+                   "arn:aws:ssm:region:*:document/AWSConfigRemediation-EnableEncryptionOnDynamoDbTable",
+                   "arn:aws:ssm:region:*:document/AWSConfigRemediation-EnablePITRForDynamoDbTable",
+                   "arn:aws:ssm:region:123456789012:document/MyFirstDBChangeTemplate",
+                   "arn:aws:ssm:region:123456789012:document/MySecondDBChangeTemplate"
                ]
            },
            {
