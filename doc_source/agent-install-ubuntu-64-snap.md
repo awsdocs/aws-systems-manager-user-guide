@@ -18,7 +18,7 @@ sudo snap switch --channel=candidate amazon-ssm-agent
 ```
 
 Snaps recommended on versions 18\.04 and later  
-On Ubuntu Server 20\.10 STR & 20\.04 and 18\.04 LTS, we recommend you only use Snaps\. Also verify that only one instance of the agent is installed and running on your instances\. If you want to use SSM Agent without Snaps, uninstall the SSM Agent\. Then install the SSM Agent as a debian package and ensure you don't have any Snaps installed that overlap with the list of packages you want managed as debian packages\.
+On Ubuntu Server 20\.10 STR & 20\.04 and 18\.04 LTS, we recommend you only use Snaps\. Also verify that only one instance of the agent is installed and running on your instances\. If you want to use SSM Agent without Snaps, uninstall the SSM Agent\. Then [install the SSM Agent as a debian package](agent-install-ubuntu-64-deb.md) using the instructions for installing SSM Agent on Ubuntu Server 16\.04 and 14\.04 64\-bit \(deb\)\. Before installing, ensure you don't have any Snaps installed that overlap with the list of packages you want managed as debian packages\.
 
 `Maximum timeout exceeded` error message  
 Because of a known issue with Snap, you might see a `Maximum timeout exceeded` error with `snap` commands\. If you get this error, run the following commands one at a time to start the agent, stop it, and check its status:   

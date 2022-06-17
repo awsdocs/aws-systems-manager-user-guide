@@ -98,7 +98,7 @@ Some Systems Manager API operations accept multiple resources\. To specify multi
 **Note**  
 Most AWS services treat a colon \(:\) or a forward slash \(/\) as the same character in ARNs\. However, Systems Manager requires an exact match in resource patterns and rules\. When creating event patterns, be sure to use the correct ARN characters so that they match the resource's ARN\.
 
-The following table describes the ARN formats for the resource types supported by Systems Manager\. 
+The following table describes the ARN formats for the resource types supported by Systems Manager\. Documents and automation definition resources that are owned by Amazon do not support *account\-id* in their ARN format\.
 
 
 | Resource type | ARN format | 

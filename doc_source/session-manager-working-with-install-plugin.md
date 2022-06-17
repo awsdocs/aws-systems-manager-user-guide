@@ -296,6 +296,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.2\.339\.0 |  June 16, 2022  | Bug fix: Fix idle session timeout for port sessions\. | 
 | 1\.2\.331\.0 |  May 27, 2022  | Bug fix: Fix port sessions closing prematurely when the local server doesn't connect before timeout\. | 
 | 1\.2\.323\.0 |  May 19, 2022  | Bug fix: Disable smux keep alive to use idle session timeout feature\. | 
 | 1\.2\.312\.0 |  March 31, 2022  | Enhancement: Supports more output message payload types\. | 

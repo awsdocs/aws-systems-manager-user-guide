@@ -9,7 +9,9 @@ Depending on whether the user accounts for this group were already created, use 
 
 **To create users and assign permissions**
 
-1. In the navigation pane of the IAM console, choose **Users**, and then choose **Add users**\.
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. In the navigation pane, choose **Users**, and then choose **Add users**\.
 
 1. For **User name**, enter the name that the user will use to sign in to AWS Systems Manager\.
 
@@ -25,9 +27,9 @@ Depending on whether the user accounts for this group were already created, use 
 
 1. Choose **Next: Permissions**\.
 
-1. On the **Set permissions** page, choose **Add user to group**\.
+1. For **Set permissions**, ensure the default **Add user to group** is selected\.
 
-1. In the group list, choose the user groups to add the user to, and then choose **Next: Tags**\.
+1. For **Add user to group**, select the boxes of the user groups to add the user to, and then choose **Next: Tags**\.
 
 1. \(Optional\) Add one or more tag key\-value pairs to organize, track, or control access for this user\. Then choose **Next: Review** to see the list of group memberships that the new user is joining\. 
 
@@ -51,9 +53,13 @@ The user's password isn't included in the generated email message\. Provide the 
 
 **To add permissions for an existing user**
 
-1. In the IAM console navigation pane, choose **Users**\.
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. In the navigation pane, choose **Users**\.
 
 1. Select the name of the user to add to a group\. On the **Summary** page, choose **Add permissions**\.
+
+1. For **Grant permissions**, ensure the default **Add user to group** is selected\.
 
 1. For **Add user to group**, select the check box next to the group to add the user to, such as **SSMUserGroup**, or the name of a different user group that you created\.
 

@@ -12,7 +12,9 @@ For comprehensive information about using IAM policies for Systems Manager acces
 
 Use the following procedure to create a user group for your Systems Manager users\. You can repeat this procedure to create additional user groups with different sets of permissions\.
 
-1. In the navigation pane of the IAM console, choose **User groups**, and then choose **Create group**\. 
+1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+
+1. In the navigation pane, choose **User groups**, and then choose **Create group**\. 
 
 1. On the **Create user group** page, for **User group name**, enter a name for the group, such as **SSMUserGroup**\.
 

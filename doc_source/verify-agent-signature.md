@@ -2,6 +2,9 @@
 
 The AWS Systems Manager Agent \(SSM Agent\) deb and rpm installer packages for Linux instances are cryptographically signed\. You can use a public key to verify that the agent package is original and unmodified\. If there is any damage or alteration to the files, the verification fails\. You can verify the signature of the installer package using either RPM or GPG\. The following information is for SSM Agent versions 3\.1\.1141\.0 or later\.
 
+**Important**  
+The public key shown later in this topic expires on 2023\-09\-05 \(September 5, 2023\)\. Systems Manager will publish a new public key in this topic before the old one expires\. We encourage you to subscribe to the RSS feed for this topic to get a notification when the new key is available\.
+
 To find the correct signature file for your instance's architecture and operating system, see the following table\.
 
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
