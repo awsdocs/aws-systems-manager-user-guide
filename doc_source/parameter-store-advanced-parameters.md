@@ -219,7 +219,7 @@ The following procedure shows how to use the AWS CLI to change the default param
 
    There is no output if the command succeeds\.
 
-1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and AWS Region\.
+1. Run the following command to view the current default parameter tier service settings for Parameter Store in the current AWS account and AWS Region\.
 
    ```
    aws ssm get-service-setting --setting-id arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier
@@ -260,7 +260,7 @@ The following procedure shows how to use the Tools for Windows PowerShell to cha
 
    There is no output if the command succeeds\.
 
-1. Run the following command to view the current throughput service settings for Parameter Store in the current AWS account and AWS Region\.
+1. Run the following command to view the current default parameter tier service settings for Parameter Store in the current AWS account and AWS Region\.
 
    ```
    Get-SSMServiceSetting -SettingId "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier" -Region region

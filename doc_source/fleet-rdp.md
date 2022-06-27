@@ -17,6 +17,248 @@ In addition to the required AWS Identity and Access Management \(IAM\) permissio
 + `ssm-guiconnect:GetConnection`
 + `ssm-guiconnect:StartConnection`
 
+The following are example IAM policies for connecting to instances using RDP with Fleet Manager\. Replace each *example resource placeholder* with your own information\.
+
+**Standard policy**
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "EC2",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:GetPasswordData"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SSM",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeInstanceProperties",
+                "ssm:GetCommandInvocation",
+                "ssm:GetInventorySchema"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "TerminateSession",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "ssm:resourceTag/aws:ssmmessages:session-id": [
+                        "${aws:userid}"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "SSMStartSession",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:account-id:instance/*",
+                "arn:aws:ssm:*:account-id:managed-instance/*",
+                "arn:aws:ssm:*::document/AWS-StartPortForwardingSession"
+            ],
+            "Condition": {
+                "BoolIfExists": {
+                    "ssm:SessionDocumentAccessCheck": "true"
+                }
+            }
+        },
+        {
+            "Sid": "GuiConnect",
+            "Effect": "Allow",
+            "Action": [
+                "ssm-guiconnect:CancelConnection",
+                "ssm-guiconnect:GetConnection",
+                "ssm-guiconnect:StartConnection"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+**Policy for connecting to instances with specific tags**
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "EC2",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:GetPasswordData"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SSM",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeInstanceProperties",
+                "ssm:GetCommandInvocation",
+                "ssm:GetInventorySchema"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SSMStartSession",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession"
+            ],
+            "Resource": [
+                "arn:aws:ssm:*::document/AWS-StartPortForwardingSession"
+            ],
+            "Condition": {
+                "BoolIfExists": {
+                    "ssm:SessionDocumentAccessCheck": "true"
+                }
+            }
+        },
+        {
+            "Sid": "AccessTaggedInstances",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:account-id:instance/*",
+                "arn:aws:ssm:*:account-id:managed-instance/*"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "ssm:resourceTag/tag key": [
+                        "tag value"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "GuiConnect",
+            "Effect": "Allow",
+            "Action": [
+                "ssm-guiconnect:CancelConnection",
+                "ssm-guiconnect:GetConnection",
+                "ssm-guiconnect:StartConnection"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+**Policy for AWS Single Sign\-On users**
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "SSO",
+            "Effect": "Allow",
+            "Action": [
+                "sso:ListDirectoryAssociations*",
+                "identitystore:DescribeUser"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "EC2",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:GetPasswordData"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SSM",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeInstanceProperties",
+                "ssm:GetCommandInvocation",
+                "ssm:GetInventorySchema"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "TerminateSession",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "ssm:resourceTag/aws:ssmmessages:session-id": [
+                        "${aws:userName}"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "SSMStartSession",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/*",
+                "arn:aws:ssm:*:*:managed-instance/*",
+                "arn:aws:ssm:*:*:document/AWS-StartPortForwardingSession"
+            ],
+            "Condition": {
+                "BoolIfExists": {
+                    "ssm:SessionDocumentAccessCheck": "true"
+                }
+            }
+        },
+        {
+            "Sid": "SSMSendCommand",
+            "Effect": "Allow",
+            "Action": [
+                "ssm:SendCommand"
+            ],
+            "Resource": [
+                "arn:aws:ec2:*:*:instance/*",
+                "arn:aws:ssm:*:*:managed-instance/*",
+                "arn:aws:ssm:*:*:document/AWSSSO-CreateSSOUser"
+            ],
+            "Condition": {
+                "BoolIfExists": {
+                    "ssm:SessionDocumentAccessCheck": "true"
+                }
+            }
+        },
+        {
+            "Sid": "GuiConnect",
+            "Effect": "Allow",
+            "Action": [
+                "ssm-guiconnect:CancelConnection",
+                "ssm-guiconnect:GetConnection",
+                "ssm-guiconnect:StartConnection"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 **To connect to instances using RDP with Fleet Manager**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.

@@ -73,7 +73,7 @@ For Systems Manager actions that aren't supported by EventBridge, you can choose
 
 **Related content**
 + [Creating an EventBridge event that uses a runbook \(console\)](automation-cwe-target.md#automation-cwe-target-console)
-+ [Walkthrough: Using input transformers with Automation](automation-transformers.md)
++ [Using input transformers with Automation](automation-transformers.md)
 + [Remediating compliance issues using EventBridge](sysman-compliance-fixing.md)
 + [Viewing inventory delete actions in EventBridge](sysman-inventory-custom.md#sysman-inventory-delete-cwe)
 + [Configuring EventBridge to automatically create OpsItems for specific events](OpsCenter-automatically-create-OpsItems-2.md)

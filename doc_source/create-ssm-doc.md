@@ -13,7 +13,7 @@ To create your own SSM document content, it's important to understand the differ
 +  [Automation system variables](automation-variables.md) 
 +  [Sample scenarios and custom runbook solutions](automation-document-samples.md) 
 +  [Working with Systems Manager Automation runbooks](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.html) using the AWS Toolkit for Visual Studio Code 
-+  [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md) 
++  [Using Document Builder to create a custom runbook](automation-walk-document-builder.md) 
 +  [Creating runbooks that run scripts](automation-document-script.md) 
 
 AWS pre\-defined SSM documents might perform some of the actions you require\. You can call these documents by using the `aws:runDocument`, `aws:runCommand`, or `aws:executeAutomation` plugins within your custom SSM document, depending on the document type\. You can also copy portions of those documents into a custom SSM document, and edit the content to meet your requirements\.

@@ -12,5 +12,5 @@ Additionally, AWS Enterprise and Business Support customers also have access to 
 To learn more about AWS Support, see [Getting started with AWS Support](https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html)\.
 
 **Topics**
-+ [Walkthrough: Run the EC2Rescue tool on unreachable instances](automation-ec2rescue.md)
-+ [Walkthrough: Reset passwords and SSH keys on EC2 instances](automation-ec2reset.md)
++ [Run the EC2Rescue tool on unreachable instances](automation-ec2rescue.md)
++ [Reset passwords and SSH keys on EC2 instances](automation-ec2reset.md)

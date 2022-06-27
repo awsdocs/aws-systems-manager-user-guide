@@ -1,4 +1,4 @@
-# Walkthrough: Using Automation with Jenkins<a name="automation-jenkins"></a>
+# Using Automation with Jenkins<a name="automation-jenkins"></a>
 
 If your organization uses Jenkins software in a CI/CD pipeline, you can add Automation as a post\-build step to pre\-install application releases into Amazon Machine Images \(AMIs\)\. Automation is a capability of AWS Systems Manager\. You can also use the Jenkins scheduling feature to call Automation and create your own operating system \(OS\) patching cadence\.
 
@@ -9,7 +9,7 @@ Be sure to follow Jenkins security best practices when configuring your instance
 
 **Before you begin**  
 Complete the following tasks before you configure Automation with Jenkins:
-+ Complete the [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** runbook created in that example\.
++ Complete the [Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** runbook created in that example\.
 + Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process automations\. For more information, see [Setting up Automation](automation-setup.md)\.
 + After you configure IAM roles for Automation, use the following procedure to create an IAM user account for your Jenkins server\. The automation uses the IAM user account's Access key and Secret key to authenticate the Jenkins server during the automation\.
 
@@ -118,7 +118,7 @@ Use the following procedure to configure your Jenkins project to invoke Automati
        --parameters runbook parameters
    ```
 
-   The following example command uses the **UpdateMyLatestWindowsAmi** runbook and the Systems Manager Parameter `latestAmi` created in [Walkthrough: Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md)\.
+   The following example command uses the **UpdateMyLatestWindowsAmi** runbook and the Systems Manager Parameter `latestAmi` created in [Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md)\.
 
    ```
    aws ssm start-automation-execution \

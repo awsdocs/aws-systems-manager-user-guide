@@ -4,7 +4,7 @@ Each runbook in Automation, a capability of AWS Systems Manager, defines an auto
 
 Automation includes several pre\-defined runbooks that you can use to perform common tasks like restarting one or more Amazon Elastic Compute Cloud \(Amazon EC2\) instances or creating an Amazon Machine Image \(AMI\)\. However, your use cases might extend beyond the capabilities of the pre\-defined runbooks\. If this is the case, you can create your own runbooks and modify them to your needs\.
 
-A runbook consists of automation actions, parameters for those actions, and input parameters that you specify\. A runbook's content is written in either YAML or JSON\. If you're not familiar with either YAML or JSON, we recommend using Document Builder, or learning more about either markup language before attempting to author your own runbook\. For more information about Document Builder, see [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.
+A runbook consists of automation actions, parameters for those actions, and input parameters that you specify\. A runbook's content is written in either YAML or JSON\. If you're not familiar with either YAML or JSON, we recommend using Document Builder, or learning more about either markup language before attempting to author your own runbook\. For more information about Document Builder, see [Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.
 
 The following sections will help you author your first runbook\.
 

@@ -4,6 +4,8 @@ Runs the Python or PowerShell script provided using the specified runtime and ha
 
 Use return statements in your function to add outputs to your output payload\. For examples of defining outputs for your `aws:executeScript` action, see [Example 2: Scripted runbook](automation-authoring-runbooks-scripted-example.md)\. You can also send the output from `aws:executeScript` actions in your runbooks to the Amazon CloudWatch Logs log group you specify\. For more information, see [Logging Automation action output with CloudWatch Logs](automation-action-logging.md)\.
 
+If you want to send output from `aws:executeScript` actions to CloudWatch Logs, or if the scripts you specify for `aws:executeScript` actions call AWS API operations, an AWS Identity and Access Management \(IAM\) service role \(or assume role\) is always required to run the runbook\.
+
 The `aws:executeScript` action contains the following preinstalled PowerShell Core modules:
 + Microsoft\.PowerShell\.Host
 + Microsoft\.PowerShell\.Management
@@ -51,7 +53,7 @@ $tag.Value = "TagValue"
 New-EC2Tag -Resource i-02573cafcfEXAMPLE -Tag $tag
 ```
 
-For examples of installing and importing `AWS.Tools` modules, and using PowerShell Core cmdlets in runbooks, see [ Walkthrough: Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.
+For examples of installing and importing `AWS.Tools` modules, and using PowerShell Core cmdlets in runbooks, see [Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.
 
 **Input**  
 Provide the information required to run your script\. Replace each *example resource placeholder* with your own information\.

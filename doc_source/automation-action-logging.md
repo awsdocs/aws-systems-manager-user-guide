@@ -2,12 +2,14 @@
 
 Automation, a capability of AWS Systems Manager, integrates with Amazon CloudWatch Logs\. You can send the output from `aws:executeScript` actions in your runbooks to the log group you specify\. Systems Manager doesn't create a log group or any log streams for documents that don't use `aws:executeScript` actions\. If the document does use `aws:executeScript`, the output sent to CloudWatch Logs only pertains to those actions\. You can use the `aws:executeScript` action output stored in your CloudWatch Logs log group for debugging and troubleshooting purposes\. If you choose a log group that is encrypted, the `aws:executeScript` action output is also encrypted\. Logging output from `aws:executeScript` actions is an account\-level setting\.
 
-To send action output to CloudWatch Logs, the IAM user or role that runs the automation must have permissions for the following operations:
+To send action output to CloudWatch Logs for Amazon owned runbooks, the IAM user or role that runs the automation must have permissions for the following operations:
 + logs:CreateLogGroup
 + logs:CreateLogStream
 + logs:DescribeLogGroups
 + logs:DescribeLogStreams
 + logs:PutLogEvents
+
+For runbooks that you own, the same permissions must be added to the IAM service role \(or assume role\) you use to run the runbook\.
 
 **To send action output to CloudWatch Logs \(console\)**
 

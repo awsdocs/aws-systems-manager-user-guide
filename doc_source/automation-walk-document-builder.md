@@ -1,4 +1,4 @@
-# Walkthrough: Using Document Builder to create a custom runbook<a name="automation-walk-document-builder"></a>
+# Using Document Builder to create a custom runbook<a name="automation-walk-document-builder"></a>
 
 The following walkthrough shows how to use Document Builder in the AWS Systems Manager Automation console to create a custom runbook and then run the custom runbook\. Automation is a capability of AWS Systems Manager\.
 
