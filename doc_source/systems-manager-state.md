@@ -83,7 +83,7 @@ Complete the following tasks to get started with State Manager\.
 |  Learn more about State Manager  |  [About State Manager](sysman-state-about.md)  | 
 |  Create and assign a State Manager association to your nodes  |  [Creating associations](sysman-state-assoc.md)  | 
 
-**Related content**
+**More info**  
 + [Combating Configuration Drift Using Amazon EC2 Systems Manager and Windows PowerShell DSC](http://aws.amazon.com/blogs/mt/combating-configuration-drift-using-amazon-ec2-systems-manager-and-windows-powershell-dsc/)
 + [Configure Amazon EC2 Instances in an Auto Scaling Group Using State Manager](http://aws.amazon.com/blogs/mt/configure-amazon-ec2-instances-in-an-auto-scaling-group-using-state-manager/)
 

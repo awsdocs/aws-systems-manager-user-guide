@@ -4,7 +4,7 @@ Some AWS services publish information about common artifacts as AWS Systems Mana
 
 You can call this information from your scripts and code by using the [DescribeParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html), [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html), [GetParameter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameter.html), and [GetParameters](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParameters.html) API operations\.
 
-**Related blog posts**
+**More info**  
 + [Query for AWS Regions, Endpoints, and More Using AWS Systems ManagerParameter Store](http://aws.amazon.com/blogs/aws/new-query-for-aws-regions-endpoints-and-more-using-aws-systems-manager-parameter-store/)
 + [Query for the latest Amazon Linux AMI IDs using AWS Systems ManagerParameter Store](http://aws.amazon.com/blogs/compute/query-for-the-latest-amazon-linux-ami-ids-using-aws-systems-manager-parameter-store/)
 + [Query for the Latest Windows AMI Using AWS Systems ManagerParameter Store](http://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)

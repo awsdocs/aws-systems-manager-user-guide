@@ -163,7 +163,7 @@ Choose **Add another target** if you require additional targets for the rule\.
 
 1. Choose **Create rule**\.
 
-**Related Information**
-+ \(Blog post\) [Use parameter labels for easy configuration update across environments](http://aws.amazon.com/blogs/mt/use-parameter-labels-for-easy-configuration-update-across-environments/)
+**More info**  
++ [Use parameter labels for easy configuration update across environments](http://aws.amazon.com/blogs/mt/use-parameter-labels-for-easy-configuration-update-across-environments/)
 + [Tutorial: Use EventBridge to relay events to AWS Systems ManagerRun Command](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-ec2-run-command.html) in the *Amazon EventBridge User Guide*
 + [Tutorial: Set AWS Systems Manager Automation as an EventBridge target](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-ssm-automation-as-target.html) in the *Amazon EventBridge User Guide*

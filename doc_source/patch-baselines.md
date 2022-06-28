@@ -7,6 +7,5 @@ A patch baseline in Patch Manager, a capability of AWS Systems Manager, defines 
 + [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)
 + [Setting an existing patch baseline as the default \(console\)](set-default-patch-baseline.md)
 
-**Related content**
-
-[About patch baselines](about-patch-baselines.md)
+**More info**  
++ [About patch baselines](about-patch-baselines.md)

@@ -48,6 +48,5 @@ aws ssm register-task-with-maintenance-window ^
 **Note**  
 For maintenance window tasks registered before December 23, 2020: If you specified targets for the task and one is no longer required, you can update that task to remove the targets using the Systems Manager console or the [update\-maintenance\-window\-task](https://docs.aws.amazon.com/cli/latest/reference/ssm/update-maintenance-window-task.html) AWS CLI command\.
 
-**Related content**
-
-[Error messages: "Maintenance window tasks without targets don't support MaxConcurrency values" and "Maintenance window tasks without targets don't support MaxErrors values"](troubleshooting-maintenance-windows.md#maxconcurrency-maxerrors-not-supported)
+**More info**  
++ [Error messages: "Maintenance window tasks without targets don't support MaxConcurrency values" and "Maintenance window tasks without targets don't support MaxErrors values"](troubleshooting-maintenance-windows.md#maxconcurrency-maxerrors-not-supported)

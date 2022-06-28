@@ -69,7 +69,7 @@ You should regularly check security advisories posted in Trusted Advisor for you
 Further, actively monitor the primary email address registered to each of your AWS accounts\. AWS will contact you, using this email address, about emerging security issues that might affect you\.  
 AWS operational issues with broad impact are posted on the [AWS Service Health Dashboard](https://status.aws.amazon.com/)\. Operational issues are also posted to individual accounts through the Personal Health Dashboard\. For more information, see the [AWS Health Documentation](https://docs.aws.amazon.com/health/)\.
 
-**Related content**
+**More info**  
 + [Best Practices for Security, Identity, & Compliance](http://aws.amazon.com/architecture/security-identity-compliance/)
 + [Getting Started: Follow Security Best Practices as You Configure Your AWS Resources](http://aws.amazon.com/blogs/security/getting-started-follow-security-best-practices-as-you-configure-your-aws-resources/) \(AWS Security Blog\)
 + [Security best practices in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)

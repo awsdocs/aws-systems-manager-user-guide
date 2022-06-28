@@ -440,6 +440,5 @@ Before you complete the following procedure, note the following information:
 **Note**  
 You can also monitor the status of the automation in the console\. In the **Automation executions** list, choose the automation you just ran and then choose the **Execution steps** tab\. This tab shows the status of the automation actions\.
 
-## Related content<a name="systems-manager-automation-multiple-accounts-and-regions-executing-related"></a>
-
+**More info**  
 [Centralized multi\-account and multi\-Region patching with AWS Systems Manager Automation](http://aws.amazon.com/blogs/mt/centralized-multi-account-and-multi-region-patching-with-aws-systems-manager-automation/)

@@ -222,5 +222,5 @@ aws ssm start-session ^
 
 For information about other options you can use with the start\-session command, see [start\-session](https://docs.aws.amazon.com/cli/latest/reference/ssm/start-session.html) in the AWS Systems Manager section of the AWS CLI Command Reference\.
 
-**Related content**  
-[Port Forwarding Using AWS Systems ManagerSession Manager](http://aws.amazon.com/blogs/aws/new-port-forwarding-using-aws-system-manager-sessions-manager/) on the *AWS News Blog*\.
+**More info**  
++ [Port Forwarding Using AWS Systems ManagerSession Manager](http://aws.amazon.com/blogs/aws/new-port-forwarding-using-aws-system-manager-sessions-manager/) on the *AWS News Blog*\.

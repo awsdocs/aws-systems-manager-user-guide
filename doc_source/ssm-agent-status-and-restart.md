@@ -20,7 +20,7 @@ This topic lists the commands to check whether AWS Systems Manager Agent \(SSM A
 | Ubuntu Server 16\.04, 18\.04, and 20\.04 LTS & and 20\.10 STR 64\-bit \(Snap package installation\) |  `sudo systemctl status snap.amazon-ssm-agent.amazon-ssm-agent.service`  |  `sudo snap start amazon-ssm-agent`  | 
 | Windows Server |  *Run in PowerShell:* `Get-Service AmazonSSMAgent`  |  *Run in PowerShell Administrator mode:* `Start-Service AmazonSSMAgent`  | 
 
-**Related content**
+**More info**  
 + [Working with SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
 + [Working with SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
 + [Checking the SSM Agent version number](ssm-agent-get-version.md)

@@ -160,7 +160,7 @@ By attaching the `iam:PassRole` policy, the Change Manager service can pass assu
 
 1. For **Name**, enter a name to identify this policy, and then choose **Create policy**\.
 
-**Related content**
+**More info**  
 + [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
 + [Create an IAM service role for a hybrid environment](sysman-service-role.md)
 

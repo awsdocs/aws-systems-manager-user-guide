@@ -184,7 +184,7 @@ However, including `--schedule-offset 2` means that the maintenance window won't
 
 Schedule offsets are supported for CRON expressions only\. 
 
-**Related content**
+**More info**  
 + [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)
 + [Create a maintenance window \(console\)](sysman-maintenance-create-mw.md)
 + [Tutorial: Create and configure a maintenance window \(AWS CLI\)](maintenance-windows-cli-tutorials-create.md)

@@ -3,7 +3,7 @@
 You can deploy packages to your AWS Systems Manager managed nodes by using Distributor, a capability of AWS Systems Manager\. To deploy the packages, use either the AWS Management Console or AWS Command Line Interface \(AWS CLI\)\. You can deploy one version of one package per command\. You can install new packages or update existing installations in place\. You can choose to deploy a specific version or choose to always deploy the latest version of a package for deployment\. We recommend using State Manager, a capability of AWS Systems Manager, to install packages\. Using State Manager helps ensure that your managed nodes are always running the most up\-to\-date version of your package\.
 
 
-| Preference | AWS Systems Manager action | More information | 
+| Preference | AWS Systems Manager action | More info | 
 | --- | --- | --- | 
 |  Install or update a package immediately\.  |  Run Command  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/distributor-working-with-packages-deploy.html)  | 
 |  Install or update a package on a schedule, so that the installation always includes the default version\.  |  State Manager  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/distributor-working-with-packages-deploy.html)  | 

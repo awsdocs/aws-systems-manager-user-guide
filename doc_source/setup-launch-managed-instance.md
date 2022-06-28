@@ -43,7 +43,7 @@ This procedure applies to the new Amazon EC2 launch instance wizard\. For inform
 
 1. Choose **Launch instance, Launch instance** to open the **Launch an instance** page\.
 
-1. Under **Name and tags**, for **Name**, enter a name to use the the value for the `Name` key\. Next, choose **Add additional tags** if you want to specify more tags for the instance\.
+1. Under **Name and tags**, for **Name**, enter a name to use the value for the `Name` key\. Next, choose **Add additional tags** if you want to specify more tags for the instance\.
 
 1. Under **Application and OS Images \(Amazon Machine Image\)**, locate and select the AMI for the instance type you want to create\.
 

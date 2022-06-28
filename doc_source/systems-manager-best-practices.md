@@ -60,6 +60,5 @@ For more information, see [Encrypting CloudTrail log files with AWS KMS–Manage
   +  [Set the time for your Linux instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-time.html)
   +  [Set the time for a Windows instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/windows-set-time.html)
 
-**Related content**
-
-[Security best practices for Systems Manager](security-best-practices.md)
+**More info**  
++ [Security best practices for Systems Manager](security-best-practices.md)

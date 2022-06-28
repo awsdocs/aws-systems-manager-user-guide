@@ -132,9 +132,8 @@ For more information about Amazon EC2 support for macOS, see [Amazon EC2 Mac ins
 | 8 \(Jessie\) | ✓ | 
 | 9 \(Stretch\) | ✓ | 
 
-**Related content**
-
-[Manage Raspberry Pi devices using AWS Systems Manager](http://aws.amazon.com/blogs/mt/manage-raspberry-pi-devices-using-aws-systems-manager/)
+**More info**  
++ [Manage Raspberry Pi devices using AWS Systems Manager](http://aws.amazon.com/blogs/mt/manage-raspberry-pi-devices-using-aws-systems-manager/)
 
 ## Windows Server<a name="prereqs-os-windows-server"></a>
 

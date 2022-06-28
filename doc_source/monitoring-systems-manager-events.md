@@ -2,7 +2,7 @@
 
 You can use Amazon EventBridge to perform a target event when supported AWS Systems Manager status changes, state changes, or other conditions occur\. You can create a rule that runs whenever there is a state or status transition, or when there is a transition to one or more states that are of interest\. 
 
-The following procedure provides general steps for creating an EventBridge rule that engages when a specified event is emitted by Systems Manager\. For a list of procedures in this user guide that address specific scenarios, see **Related content** at the end of this topic\.
+The following procedure provides general steps for creating an EventBridge rule that engages when a specified event is emitted by Systems Manager\. For a list of procedures in this user guide that address specific scenarios, see **More info** at the end of this topic\.
 
 **Note**  
 When a service in your AWS account emits an event, it always goes to your account’s default event bus\. To write a rule that responds to events from AWS services in your account, associate it with the default event bus\. You can create a rule on a custom event bus that looks for events from AWS services, but this rule only engages when you receive such an event from another account through cross\-account event delivery\. For more information, see [Sending and receiving Amazon EventBridge events between AWS accounts](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html) in the *Amazon EventBridge User Guide*\.
@@ -71,7 +71,7 @@ For Systems Manager actions that aren't supported by EventBridge, you can choose
 
 1. Choose **Create**\.
 
-**Related content**
+**More info**  
 + [Creating an EventBridge event that uses a runbook \(console\)](automation-cwe-target.md#automation-cwe-target-console)
 + [Using input transformers with Automation](automation-transformers.md)
 + [Remediating compliance issues using EventBridge](sysman-compliance-fixing.md)

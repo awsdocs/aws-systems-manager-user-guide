@@ -73,7 +73,7 @@ You must configure roles and permissions for Maintenance Windows, a capability o
 If you selected targets by specifying tags applied to managed nodes or by specifying AWS resource groups, and you aren't certain how many managed nodes are targeted, then restrict the number of targets that can run the document at the same time by specifying a percentage\.
    + For **Error threshold**, specify when to stop running the command on other managed nodes after it fails on either a number or a percentage of nodes\. For example, if you specify three errors, then Systems Manager stops sending the command when the fourth error is received\. Managed nodes still processing the command might also send errors\.
 
-1. For ** IAM service role**, choose a role choose a role to provide permissions for Systems Manager to run maintenance window tasks\. 
+1. For ** IAM service role**, choose a role to provide permissions for Systems Manager to run maintenance window tasks\. 
 
    If you need to create a custom service role for maintenance window tasks, see [Use the console to configure permissions for maintenance windows](sysman-maintenance-perm-console.md)\.
 

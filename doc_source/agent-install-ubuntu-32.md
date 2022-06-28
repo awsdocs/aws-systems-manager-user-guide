@@ -4,7 +4,7 @@ In most cases, the Amazon Machine Images \(AMIs\) Ubuntu Server 16\.04 that are 
 
 In the event that SSM Agent isn’t preinstalled on a new Ubuntu Server 16\.04 instance, you are installing on Ubuntu Server 14\.04, or you need to manually reinstall the agent, use the information on this page to help you\.
 
-## Quick installation commands for SSM Agent on Ubuntu Server 16\.04 and 14\.04 34\-bit \(deb\)<a name="quick-install-ub-16-14-32-bit"></a>
+## Quick installation commands for SSM Agent on Ubuntu Server 16\.04 and 14\.04 32\-bit \(deb\)<a name="quick-install-ub-16-14-32-bit"></a>
 
 Use the following steps to manually install SSM Agent on a single instance\. This procedure uses globally available installation files\. 
 
@@ -26,7 +26,7 @@ Use the following steps to manually install SSM Agent on a single instance\. Thi
 
 1. Run the following commands\.
 **Note**  
-Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for Ubuntu Server 16\.04 and 14\.04 34\-bit\. 
+Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for Ubuntu Server 16\.04 and 14\.04 32\-bit\. 
 
    ```
    wget https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/debian_386/amazon-ssm-agent.deb
@@ -73,7 +73,7 @@ When you install SSM Agent on multiple instances using a script or template, we 
 For the following commands, we provide examples that use a publicly accessible Amazon S3 bucket in the US East \(Ohio\) Region \(`us-east-2`\)\. 
 
 **Tip**  
-You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on Ubuntu Server 16\.04 and 14\.04 34\-bit \(deb\)](#quick-install-ub-16-14-32-bit) earlier in this topic with a custom Regional URL you construct\.
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on Ubuntu Server 16\.04 and 14\.04 32\-bit \(deb\)](#quick-install-ub-16-14-32-bit) earlier in this topic with a custom Regional URL you construct\.
 
 In the following command, replace *region* with your own information\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
