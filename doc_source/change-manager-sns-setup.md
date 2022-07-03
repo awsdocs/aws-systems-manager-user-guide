@@ -70,7 +70,7 @@ If you turned on AWS Key Management Service \(AWS KMS\) server\-side encryption 
 
 1. Choose **Edit**\.
 
-1. Add the following `Sid` block to the existing policy and replace each *user input placeholder* with your own information \.
+1. Enter the following `Sid` block after one of the existing `Sid` blocks in the existing policy\. Replace each *user input placeholder* with your own information\.
 
    ```
    {
@@ -94,6 +94,37 @@ If you turned on AWS Key Management Service \(AWS KMS\) server\-side encryption 
    }
    ```
 
-   Enter this block after one of the existing `Sid` blocks\. 
+1. Now enter the following `Sid` block after one of the existing `Sid` blocks in the resource policy to help prevent the [cross\-service confused deputy problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html)\. 
+
+   This block uses the [https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourcearn) and [https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceaccount) global condition context keys to limit the permissions that Systems Manager gives another service to the resource\.
+
+   Replace each *user input placeholder* with your own information\.
+
+   ```
+   {
+     "Version": "2008-10-17",
+     "Statement": [
+       {
+         "Sid": "Configure confused deputy protection for AWS KMS keys used in Amazon SNS topic when called from Systems Manager",
+         "Effect": "Allow",
+         "Principal": {
+           "Service": "ssm.amazonaws.com"
+         },
+         "Action": [
+           "sns:Publish"
+         ],
+         "Resource": "arn:aws:sns:region:account-id:topic-name",
+         "Condition": {
+           "ArnLike": {
+             "aws:SourceArn": "arn:aws:ssm:region:account-id:*"
+           },
+           "StringEquals": {
+             "aws:SourceAccount": "account-id"
+           }
+         }
+       }
+     ]
+   }
+   ```
 
 1. Choose **Save changes**\.
