@@ -33,7 +33,7 @@ On Amazon Linux and Amazon Linux 2 managed nodes, the patch installation workflo
      The equivalent yum command for this workflow is:
 
      ```
-     sudo yum update-minimal --sec-severity=critical,important --bugfix -y
+     sudo yum update-minimal --sec-severity=Critical,Important --bugfix -y
      ```
    + For custom patch baselines where the **Approved patches include non\-security updates** check box *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and nonsecurity updates\)\.
 
@@ -170,7 +170,7 @@ On Oracle Linux managed nodes, the patch installation workflow is as follows:
      The equivalent yum command for this workflow is:
 
      ```
-     sudo yum update-minimal --sec-severity=important,moderate --bugfix -y
+     sudo yum update-minimal --sec-severity=Important,Moderate --bugfix -y
      ```
    + For custom patch baselines where the **Approved patches include non\-security updates** check box *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and nonsecurity updates\)\.
 
@@ -227,7 +227,7 @@ On Red Hat Enterprise Linux, CentOS Stream, and Rocky Linux managed nodes, the p
      For RHEL 7, the equivalent yum command for this workflow is:
 
      ```
-     sudo yum update-minimal --sec-severity=critical,important --bugfix -y
+     sudo yum update-minimal --sec-severity=Critical,Important --bugfix -y
      ```
 
      For RHEL 8, CentOS Stream, and Rocky Linux , the equivalent dnf commands for this workflow are:

@@ -5,6 +5,7 @@ Use the following information to help you troubleshoot problems with maintenance
 **Topics**
 + [Edit task error: On the page for editing a maintenance window task, the IAM role list returns an error message: "We couldn't find the IAM maintenance window role specified for this task\. It might have been deleted, or it might not have been created yet\."](#maintenance-window-role-troubleshooting)
 + [Not all maintenance window targets are updated](#targets-not-updated)
++ [Task fails with task invocation status: "The provided role does not contain the correct SSM permissions\."](#incorrect-ssm-permissions)
 + [Task fails with error message: "Step fails when it is validating and resolving the step inputs"](#step-fails)
 + [Error messages: "Maintenance window tasks without targets don't support MaxConcurrency values" and "Maintenance window tasks without targets don't support MaxErrors values"](#maxconcurrency-maxerrors-not-supported)
 
@@ -27,6 +28,21 @@ Use the following information to help you troubleshoot problems with maintenance
 + The resource was offline or stopped during the maintenance window operation\.
 
 You can wait for the next scheduled maintenance window time to run tasks on the resources\. You can manually run the maintenance window tasks on the resources that weren't available or were offline\.
+
+## Task fails with task invocation status: "The provided role does not contain the correct SSM permissions\."<a name="incorrect-ssm-permissions"></a>
+
+**Problem**: You have specified a maintenance window service role for a task, but the task fails to run successfully and the task invocation status reports that "The provided role does not contain the correct SSM permissions\." 
++ **Solution**: In [Task 1: Create a policy for your custom maintenance window service role](sysman-maintenance-perm-console.md#sysman-maintenance-role-policy), we provide a basic policy you can attach to your [custom maintenance window service role](sysman-maintenance-perm-console.md#sysman-maintenance-role)\. The policy includes the permissions needed for many task scenarios\. However, due to the wide variety of tasks you can run, you might need to provide additional permissions in the policy for your maintenance window role\.
+
+  For example, some Automation actions work with AWS CloudFormation stacks\. Therefore, you might need to add the additional permissions `cloudformation:CreateStack`, `cloudformation:DescribeStacks`, and `cloudformation:DeleteStack` to the policy for your maintenance window service role\. 
+
+  For another example, the Automation runbook `AWS-CopySnapshot` requires permissions to create an Amazon Elastic Block Store \(Amazon EBS\) snapshot\. Therefore, you might need to add the permission `ec2:CreateSnapshot`\.
+
+  For information about the role permissions needed by an AWS managed Automation runbook, see the runbook descriptions in the [AWS Systems Manager Automation runbook reference](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html)\.
+
+  For information about the role permissions needed by an AWS managed SSM document, review the content of the document in the [Documents](https://console.aws.amazon.com/systems-manager/documents) section Systems Manager console\.
+
+  For information about the role permissions needed for Step Functions tasks, Lambda tasks, and custom Automation runbooks and SSM documents, verify permission requirements with the author of those resources\.
 
 ## Task fails with error message: "Step fails when it is validating and resolving the step inputs"<a name="step-fails"></a>
 

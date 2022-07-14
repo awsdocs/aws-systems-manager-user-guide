@@ -574,6 +574,10 @@ parameters:
     allowedValues:
     - Install
     - Uninstall
+  ssmParameter:
+    description: "(Required) Argument stored in Parameter Store."
+    type: String
+    default: "{{ ssm:parameter_store_arg }}"
 mainSteps:
 - action: aws:configurePackage
   name: configurePackage
@@ -581,7 +585,7 @@ mainSteps:
     name: "{{ name }}"
     action: "{{ action }}"
     additionalArguments: 
-      SSM_parameter_store_arg: "{{ ssm:parameter_store_arg }}"
+      SSM_parameter_store_arg: "{{ ssmParameter }}"
       SSM_custom_arg: "myValue"
 ```
 
@@ -590,37 +594,42 @@ mainSteps:
 
 ```
 {
-  "schemaVersion": "2.2",
-  "description": "aws:configurePackage",
-  "parameters": {
-    "name": {
-      "description": "(Required) The name of the AWS package to install or uninstall.",
-      "type": "String"
-    },
-    "action": {
-      "description": "(Required) The type of action to perform.",
-      "type": "String",
-      "default": "Install",
-      "allowedValues": [
-        "Install",
-        "Uninstall"
-      ]
-    }
-  },
-  "mainSteps": [
-    {
-      "action": "aws:configurePackage",
-      "name": "configurePackage",
-      "inputs": {
-        "name": "{{ name }}",
-        "action": "{{ action }}",
-        "additionalArguments": {
-          "SSM_parameter_store_arg": "{{ ssm:parameter_store_arg }}",
-          "SSM_custom_arg": "myValue"
-        }
+   "schemaVersion": "2.2",
+   "description": "aws:configurePackage",
+   "parameters": {
+      "name": {
+         "description": "(Required) The name of the AWS package to install or uninstall.",
+         "type": "String"
+      },
+      "action": {
+         "description": "(Required) The type of action to perform.",
+         "type": "String",
+         "default": "Install",
+         "allowedValues": [
+            "Install",
+            "Uninstall"
+         ]
+      },
+      "ssmParameter": {
+         "description": "(Required) Argument stored in Parameter Store.",
+         "type": "String",
+         "default": "{{ ssm:parameter_store_arg }}"
       }
-    }
-  ]
+   },
+   "mainSteps": [
+      {
+         "action": "aws:configurePackage",
+         "name": "configurePackage",
+         "inputs": {
+            "name": "{{ name }}",
+            "action": "{{ action }}",
+            "additionalArguments": {
+               "SSM_parameter_store_arg": "{{ ssmParameter }}",
+               "SSM_custom_arg": "myValue"
+            }
+         }
+      }
+   ]
 }
 ```
 

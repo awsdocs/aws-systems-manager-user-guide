@@ -108,9 +108,9 @@ Depending on the tasks and types of tasks your maintenance windows run, you migh
    + If you don't plan to run Automation tasks, you can remove the `ssm:GetAutomationExecution` and `ssm:StartAutomationExecution` permissions\.
    + Add additional permissions that might be needed for the tasks to run\. For example, some Automation actions work with AWS CloudFormation stacks\. Therefore, the permissions `cloudformation:CreateStack`, `cloudformation:DescribeStacks`, and `cloudformation:DeleteStack` are required\. 
 
-     For another example, the Automation runbook `AWS-CopySnapshot` requires permissions to create an Amazon Elastic Block Store \(Amazon EBS\) snapshot\. Therefore, the service role needs the permissions `ec2:CreateSnapshot`\. 
+     For another example, the Automation runbook `AWS-CopySnapshot` requires permissions to create an Amazon Elastic Block Store \(Amazon EBS\) snapshot\. Therefore, the service role needs the permission `ec2:CreateSnapshot`\. 
 
-     For information about the role permissions needed by Automation runbooks, see the document descriptions in the *[AWS Systems Manager Automation runbook reference](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html)*\.
+     For information about the role permissions needed by Automation runbooks, see the runbook descriptions in the [AWS Systems Manager Automation runbook reference](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html)\.
 
 1. After completing the policy revisions, choose **Next: Tags**\.
 

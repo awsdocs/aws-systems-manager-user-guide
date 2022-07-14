@@ -128,7 +128,7 @@ sudo dpkg -i amazon-ssm-agent.deb
 ARM64  
 
 ```
-sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb
+wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/debian_arm64/amazon-ssm-agent.deb
 ```
 
 ```
@@ -137,7 +137,7 @@ sudo dpkg -i amazon-ssm-agent.deb
 See the following example\.  
 
 ```
-sudo yum install -y https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/debian_arm64/amazon-ssm-agent.deb
+wget https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/latest/debian_arm64/amazon-ssm-agent.deb
 ```
 
 ```

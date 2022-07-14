@@ -49,7 +49,7 @@ Configuration MyConfig
 
 Compile your MOF using the PsAllowPlaintextPassword setting in configuration data\. This is OK because the credential only contains a label\. 
 
-In Secrets Manager, ensure that the node has GetSecretValue access in an IAM Managed Policy, and optionally in the Secret Resource Policy if one exists\. Toork with DSC, the secret must be in the following format\.
+In Secrets Manager, ensure that the node has GetSecretValue access in an IAM Managed Policy, and optionally in the Secret Resource Policy if one exists\. To work with DSC, the secret must be in the following format\.
 
 ```
 { 'Username': 'a_name', 'Password': 'a_password' }

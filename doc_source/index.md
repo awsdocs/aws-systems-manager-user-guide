@@ -369,6 +369,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Getting started with Compliance](sysman-compliance-prereqs.md)
       + [Creating a resource data sync for Compliance](sysman-compliance-datasync-create.md)
       + [Working with Compliance](sysman-compliance-about.md)
+      + [Deleting a resource data sync for Compliance](systems-manager-compliance-delete-RDS.md)
       + [Remediating compliance issues using EventBridge](sysman-compliance-fixing.md)
       + [Compliance walkthrough (AWS CLI)](sysman-compliance-walk.md)
    + [AWS Systems Manager Inventory](systems-manager-inventory.md)
