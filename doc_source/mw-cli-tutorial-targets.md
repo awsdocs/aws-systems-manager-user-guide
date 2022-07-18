@@ -9,7 +9,7 @@ You should already have created an Amazon Elastic Compute Cloud \(Amazon EC2\) i
 
 **To register a target node with a maintenance window \(AWS CLI\)**
 
-1. Run the following command on your local machine:
+1. Run the following command on your local machine\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -41,7 +41,7 @@ You should already have created an Amazon Elastic Compute Cloud \(Amazon EC2\) i
    }
    ```
 
-1. Now run the following command on your local machine to view details about your maintenance window target:
+1. Now run the following command on your local machine to view details about your maintenance window target\.
 
 ------
 #### [ Linux & macOS ]

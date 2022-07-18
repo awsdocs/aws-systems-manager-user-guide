@@ -24,14 +24,14 @@ Run the following procedure to run a command using the document version paramete
    aws ssm list-documents
    ```
 
-1. Run the following command to view the different versions of a document\.
+1. Run the following command to view the different versions of a document\. Replace *document name* with your own information\.
 
    ```
    aws ssm list-document-versions \
-       --name "document-name"
+       --name "document name"
    ```
 
-1. Run the following command to run a command that uses an SSM document version\.
+1. Run the following command to run a command that uses an SSM document version\. Replace each *example resource placeholder* with your own information\.
 
    ```
    aws ssm send-command \
@@ -58,14 +58,14 @@ Run the following procedure to run a command using the document version paramete
    aws ssm list-documents
    ```
 
-1. Run the following command to view the different versions of a document\.
+1. Run the following command to view the different versions of a document\. Replace *document name* with your own information\.
 
    ```
    aws ssm list-document-versions ^
-       --name "document-name"
+       --name "document name"
    ```
 
-1. Run the following command to run a command that uses an SSM document version\.
+1. Run the following command to run a command that uses an SSM document version\. Replace each *example resource placeholder* with your own information\.
 
    ```
    aws ssm send-command ^
@@ -92,14 +92,14 @@ Run the following procedure to run a command using the document version paramete
    Get-SSMDocumentList
    ```
 
-1. Run the following command to view the different versions of a document\.
+1. Run the following command to view the different versions of a document\. Replace *document name* with your own information\.
 
    ```
    Get-SSMDocumentVersionList `
-       -Name "document-name"
+       -Name "document name"
    ```
 
-1. Run the following command to run a command that uses an SSM document version\.
+1. Run the following command to run a command that uses an SSM document version\. Replace each *example resource placeholder* with your own information\.
 
    ```
    Send-SSMCommand `

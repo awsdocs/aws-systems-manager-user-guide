@@ -126,7 +126,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-1. Create a command that uses the targets and rate control options you want to run\. Replace each *example resource placeholder* with your own information\.\.
+1. Create a command that uses the targets and rate control options you want to run\. Replace each *example resource placeholder* with your own information\.
 
    *Targeting using tags*
 

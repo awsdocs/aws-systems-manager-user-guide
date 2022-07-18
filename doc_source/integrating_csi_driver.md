@@ -214,7 +214,7 @@ You can view most errors by describing the pod deployment\.
    ```
 
 **To see errors for the ASCP**
-+ To find more information in the provider logs, in the following command, for *<PODID>* use the ID of the *csi\-secrets\-store\-provider\-aws* pod\.
++ To find more information in the provider logs, in the following command, for *pod\-id* use the ID of the *csi\-secrets\-store\-provider\-aws* pod\.
 
   ```
   kubectl -n kube-system get pods

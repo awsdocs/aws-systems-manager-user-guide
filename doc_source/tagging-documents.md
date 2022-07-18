@@ -72,7 +72,7 @@ You can add tags to custom SSM documents that you own by using the Systems Manag
 
    Note the name of a document that you want to tag\.
 
-1. Run the following command to tag a document\.
+1. Run the following command to tag a document\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -118,12 +118,6 @@ You can add tags to custom SSM documents that you own by using the Systems Manag
    ```
 
 ------
-
-   *tag\-key* is the name of a custom key you supply\. For example, *Region* or *Quarter*\.
-
-   *tag\-value* is the custom content for the value you want to supply for that key\. For example, *West* or *Q321*\.
-
-   *document\-name* is the name of the SSM document you want to tag\.
 
    If successful, the command has no output\.
 
@@ -213,7 +207,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 
    Note the name of a document from which you want to remove tags\.
 
-1. Run the following command to remove tags from a document\.
+1. Run the following command to remove tags from a document\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -247,10 +241,6 @@ You can use the Systems Manager console or the command line to remove tags from 
    ```
 
 ------
-
-   *document\-name* is the name of the SSM document from which you want to remove tags\.
-
-   *tag\-key* is the name of a key assigned to the document\. For example, *Environment* or *Quarter*\.
 
    If successful, the command has no output\.
 

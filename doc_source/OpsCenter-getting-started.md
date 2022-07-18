@@ -34,7 +34,7 @@ Use the following procedure to update the Amazon SNS access policy so that Syste
 
 1. Expand **Access policy**\.
 
-1. Add the following Sid block to the existing policy\.
+1. Add the following Sid block to the existing policy\. Replace each *example resource placeholder* with your own information\.
 
    ```
    {
@@ -44,7 +44,7 @@ Use the following procedure to update the Amazon SNS access policy so that Syste
            "Service": "ssm.amazonaws.com"
          },
          "Action": "SNS:Publish",
-          "Resource": "arn:aws:sns:Region:account_ID:topic_name"
+          "Resource": "arn:aws:sns:region:account ID:topic name"
        }
    ```
 
@@ -76,7 +76,7 @@ OpsCenter doesn't support publishing OpsItems to an Amazon SNS topic configured 
 
 1. Choose **Edit**\.
 
-1. Add the following Sid block to the existing policy\.
+1. Add the following Sid block to the existing policy\. Replace each *example resource placeholder* with your own information\.
 
    ```
    {
@@ -86,7 +86,7 @@ OpsCenter doesn't support publishing OpsItems to an Amazon SNS topic configured 
            "Service": "ssm.amazonaws.com"
          },
          "Action": ["kms:Decrypt", "kms:GenerateDataKey*"],
-          "Resource": "arn:aws:kms:Region:account_ID:key/key_ID"
+          "Resource": "arn:aws:kms:region:account ID:key/key ID"
        }
    ```
 
@@ -121,7 +121,7 @@ Default OpsItems rules in Amazon EventBridge aren't configured with an ARN for A
 1. Enter a `notifications` block in the following format:
 
    ```
-   "notifications":[{"arn":"arn:aws:sns:region:account_ID:topic_name"}],
+   "notifications":[{"arn":"arn:aws:sns:region:account ID:topic name"}],
    ```
 
    Here's an example\.

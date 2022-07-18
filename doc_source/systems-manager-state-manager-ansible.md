@@ -164,7 +164,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run one of the following commands to create an association that runs Ansible playbooks by targeting nodes using tags\. Command \(A\) specifies GitHub as the source type\. Command \(B\) specifies Amazon S3 as the source type\.
+1. Run one of the following commands to create an association that runs Ansible playbooks by targeting nodes using tags\. Replace each *example resource placeholder* with your own information\. Command \(A\) specifies GitHub as the source type\. Command \(B\) specifies Amazon S3 as the source type\.
 
    **\(A\) GitHub source**
 
@@ -173,9 +173,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" \
-   --targets Key=tag:TagKey,Values=TagValue \
-   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"getOptions\": \"branch:master\"}"],"InstallDependencies":["True_or_False"],"PlaybookFile":["file_name.yml"],"ExtraVariables":["key/value_pairs_separated_by_a_space"],"Check":["True_or_False"],"Verbose":["-v,-vv,-vvv, or -vvvv"]}' \
-   --association-name "name" --schedule-expression "cron_or_rate_expression"
+       --targets Key=tag:TagKey,Values=TagValue \
+       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"getOptions\": \"branch:master\"}"],"InstallDependencies":["True_or_False"],"PlaybookFile":["file_name.yml"],"ExtraVariables":["key/value_pairs_separated_by_a_space"],"Check":["True_or_False"],"Verbose":["-v,-vv,-vvv, or -vvvv"]}' \
+       --association-name "name" \
+       --schedule-expression "cron_or_rate_expression"
    ```
 
 ------
@@ -183,9 +184,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" ^
-   --targets Key=tag:TagKey,Values=TagValue ^
-   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"getOptions\": \"branch:master\"}"],"InstallDependencies":["True_or_False"],"PlaybookFile":["file_name.yml"],"ExtraVariables":["key/value_pairs_separated_by_a_space"],"Check":["True_or_False"],"Verbose":["-v,-vv,-vvv, or -vvvv"]}' ^
-   --association-name "name" --schedule-expression "cron_or_rate_expression"
+       --targets Key=tag:TagKey,Values=TagValue ^
+       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"getOptions\": \"branch:master\"}"],"InstallDependencies":["True_or_False"],"PlaybookFile":["file_name.yml"],"ExtraVariables":["key/value_pairs_separated_by_a_space"],"Check":["True_or_False"],"Verbose":["-v,-vv,-vvv, or -vvvv"]}' ^
+       --association-name "name" ^
+       --schedule-expression "cron_or_rate_expression"
    ```
 
 ------
@@ -194,9 +196,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" \
-   --targets "Key=tag:OS,Values=Linux" \
-   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ansibleDocumentTest\", \"repository\": \"Ansible\", \"getOptions\": \"branch:master\"}"],"InstallDependencies":["True"],"PlaybookFile":["hello-world-playbook.yml"],"ExtraVariables":["SSM=True"],"Check":["False"],"Verbose":["-v"]}' \
-   --association-name "AnsibleAssociation" --schedule-expression "cron(0 2 ? * SUN *)"
+       --targets "Key=tag:OS,Values=Linux" \
+       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ansibleDocumentTest\", \"repository\": \"Ansible\", \"getOptions\": \"branch:master\"}"],"InstallDependencies":["True"],"PlaybookFile":["hello-world-playbook.yml"],"ExtraVariables":["SSM=True"],"Check":["False"],"Verbose":["-v"]}' \
+       --association-name "AnsibleAssociation" \
+       --schedule-expression "cron(0 2 ? * SUN *)"
    ```
 
    **\(B\) S3 source**
@@ -206,9 +209,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" \
-   --targets Key=tag:TagKey,Values=TagValue \
-   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_playbook_to_download\"}"],"InstallDependencies":["True_or_False"],"PlaybookFile":["file_name.yml"],"ExtraVariables":["key/value_pairs_separated_by_a_space"],"Check":["True_or_False"],"Verbose":["-v,-vv,-vvv, or -vvvv"]}' \
-   --association-name "name" --schedule-expression "cron_or_rate_expression"
+       --targets Key=tag:TagKey,Values=TagValue \
+       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_playbook_to_download\"}"],"InstallDependencies":["True_or_False"],"PlaybookFile":["file_name.yml"],"ExtraVariables":["key/value_pairs_separated_by_a_space"],"Check":["True_or_False"],"Verbose":["-v,-vv,-vvv, or -vvvv"]}' \
+       --association-name "name" \
+       --schedule-expression "cron_or_rate_expression"
    ```
 
 ------
@@ -216,9 +220,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" ^
-   --targets Key=tag:TagKey,Values=TagValue ^
-   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_playbook_to_download\"}"],"InstallDependencies":["True_or_False"],"PlaybookFile":["file_name.yml"],"ExtraVariables":["key/value_pairs_separated_by_a_space"],"Check":["True_or_False"],"Verbose":["-v,-vv,-vvv, or -vvvv"]}' ^
-   --association-name "name" --schedule-expression "cron_or_rate_expression"
+       --targets Key=tag:TagKey,Values=TagValue ^
+       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_playbook_to_download\"}"],"InstallDependencies":["True_or_False"],"PlaybookFile":["file_name.yml"],"ExtraVariables":["key/value_pairs_separated_by_a_space"],"Check":["True_or_False"],"Verbose":["-v,-vv,-vvv, or -vvvv"]}' ^
+       --association-name "name" ^
+       --schedule-expression "cron_or_rate_expression"
    ```
 
 ------
@@ -227,9 +232,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyAnsiblePlaybooks" \
-   --targets "Key=tag:OS,Values=Linux" \
-   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/playbook.yml\"}"],"InstallDependencies":["True"],"PlaybookFile":["playbook.yml"],"ExtraVariables":["SSM=True"],"Check":["False"],"Verbose":["-v"]}' \
-   --association-name "AnsibleAssociation" --schedule-expression "cron(0 2 ? * SUN *)"
+       --targets "Key=tag:OS,Values=Linux" \
+       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/playbook.yml\"}"],"InstallDependencies":["True"],"PlaybookFile":["playbook.yml"],"ExtraVariables":["SSM=True"],"Check":["False"],"Verbose":["-v"]}' \
+       --association-name "AnsibleAssociation" \
+       --schedule-expression "cron(0 2 ? * SUN *)"
    ```
 **Note**  
 State Manager associations don't support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.

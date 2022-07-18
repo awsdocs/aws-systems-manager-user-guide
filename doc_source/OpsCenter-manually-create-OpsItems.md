@@ -3,7 +3,7 @@
 This section includes information about how to manually create OpsItems in AWS Systems Manager OpsCenter\.
 
 **Before You Begin**  
-When you manually create an OpsItem, you can specify an Amazon Resource Name \(ARN\) for an impacted resource\. If you specify an ARN, then OpsCenter automatically creates a deep link to detailed information about the resource\. For example, if you specify the ARN of an impacted Amazon EC2 instance, then OpsCenter creates a deep link to the details about that instance\. For information about how to create an ARN, see the [Amazon Resource Names \(ARNs\) and AWS Service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
+When you manually create an OpsItem, you can specify an Amazon Resource Name \(ARN\) for an impacted resource\. If you specify an ARN, then OpsCenter automatically creates a deep link to detailed information about the resource\. For example, if you specify the ARN of an impacted Amazon EC2 instance, then OpsCenter creates a deep link to the details about that instance\. For information about how to create an ARN, see the [Amazon Resource Names \(ARNs\) and AWS service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
 **Note**  
 OpsCenter doesn't support creating deep links for all ARN types\. To view a list of resources the support deep links based on ARNs, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
@@ -59,10 +59,17 @@ The following procedure describes how to create an OpsItem by using the AWS Comm
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Open the AWS Command Line Interface \(AWS CLI\) and run the following command to create an OpsItem\.
+1. Open the AWS Command Line Interface \(AWS CLI\) and run the following command to create an OpsItem\. Replace each *example resource placeholder* with your own information\.
 
    ```
-   aws ssm create-ops-item --title "Descriptive_title" --description "Information_about_the_issue" --priority Number_between_1_and_5 --source Source_of_the_issue --operational-data Up_to_20_KB_of_data_or_path_to_JSON_file --notifications Arn="SNS_ARN_in_same_Region" --tags "Key=key_name,Value=a_value"
+   aws ssm create-ops-item \
+       --title "Descriptive_title" \
+       --description "Information_about_the_issue" \
+       --priority Number_between_1_and_5 \
+       --source Source_of_the_issue \
+       --operational-data Up_to_20_KB_of_data_or_path_to_JSON_file \
+       --notifications Arn="SNS_ARN_in_same_Region" \
+       --tags "Key=key_name,Value=a_value"
    ```
 
    Here are some examples\.
@@ -70,37 +77,73 @@ The following procedure describes how to create an OpsItem by using the AWS Comm
    **Linux management portal macOS**
 
    ```
-   aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data '{"EC2":{"Value":"12345","Type":"SearchableString"}}' --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser1" --tags "Key=EC2,Value=ProductionServers"
+   aws ssm create-ops-item \
+       --title "EC2 instance disk full" \
+       --description "Log clean up may have failed which caused the disk to be full" \
+       --priority 2 \
+       --source ec2 \
+       --operational-data '{"EC2":{"Value":"12345","Type":"SearchableString"}}' \
+       --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser1" \
+       --tags "Key=EC2,Value=ProductionServers"
    ```
 
    The following command uses the `/aws/resources` key in OperationalData to create an OpsItem with an Amazon DynamoDB related resource\.
 
    ```
-   aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data '{"/aws/resources":{"Value":"[{\"arn\": \"arn:aws:dynamodb:us-west-2:12345678:table/OpsItems\"}]","Type":"SearchableString"}}' --notifications Arn="arn:aws:sns:us-west-2:12345678:TestUser"
+   aws ssm create-ops-item \
+       --title "EC2 instance disk full" \
+       --description "Log clean up may have failed which caused the disk to be full" \
+       --priority 2 \
+       --source ec2 \
+       --operational-data '{"/aws/resources":{"Value":"[{\"arn\": \"arn:aws:dynamodb:us-west-2:12345678:table/OpsItems\"}]","Type":"SearchableString"}}' \
+       --notifications Arn="arn:aws:sns:us-west-2:12345678:TestUser"
    ```
 
    The following command uses the `/aws/automations` key in OperationalData to create an OpsItem that specifies the `AWS-ASGEnterStandby` document as an associated Automation runbook\.
 
    ```
-   aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data '{"/aws/automations":{"Value":"[{\"automationId\": \"AWS-ASGEnterStandby\", \"automationType\": \"AWS::SSM::Automation\"}]","Type":"SearchableString"}}' --notifications Arn="arn:aws:sns:us-west-2:12345678:TestUser"
+   aws ssm create-ops-item \
+       --title "EC2 instance disk full" \
+       --description "Log clean up may have failed which caused the disk to be full" \
+       --priority 2 \
+       --source ec2 \
+       --operational-data '{"/aws/automations":{"Value":"[{\"automationId\": \"AWS-ASGEnterStandby\", \"automationType\": \"AWS::SSM::Automation\"}]","Type":"SearchableString"}}' \
+       --notifications Arn="arn:aws:sns:us-west-2:12345678:TestUser"
    ```
 
    **Windows**
 
    ```
-   aws ssm create-ops-item --title "RDS instance not responding" --description "RDS instance not responding to ping" --priority 1 --source RDS --operational-data={\"RDS\":{\"Value\":\"abcd\",\"Type\":\"SearchableString\"}} --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser1" --tags "Key=RDS,Value=ProductionServers"
+   aws ssm create-ops-item ^
+       --title "RDS instance not responding" ^
+       --description "RDS instance not responding to ping" ^
+       --priority 1 ^
+       --source RDS ^
+       --operational-data={\"RDS\":{\"Value\":\"abcd\",\"Type\":\"SearchableString\"}} ^
+       --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser1" ^
+       --tags "Key=RDS,Value=ProductionServers"
    ```
 
    The following command uses the `/aws/resources` key in OperationalData to create an OpsItem with an EC2 instance related resource\.
 
    ```
-   aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data={\"/aws/resources\":{\"Value\":\"[{\\"""arn\\""":\\"""arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0\\"""}]\",\"Type\":\"SearchableString\"}}
+   aws ssm create-ops-item ^
+       --title "EC2 instance disk full" ^
+       --description "Log clean up may have failed which caused the disk to be full" ^
+       --priority 2 ^
+       --source ec2 ^
+       --operational-data={\"/aws/resources\":{\"Value\":\"[{\\"""arn\\""":\\"""arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0\\"""}]\",\"Type\":\"SearchableString\"}}
    ```
 
-   The following command uses the `/aws/automations` key in OperationalData to create an OpsItem that specifies the AWS `-RestartEC2Instance` document as an associated Automation runbook\.
+   The following command uses the `/aws/automations` key in OperationalData to create an OpsItem that specifies the `AWS-RestartEC2Instance` runbook as an associated Automation runbook\.
 
    ```
-   aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data={\"/aws/automations\":{\"Value\":\"[{\\"""automationId\\""":\\"""AWS-RestartEC2Instance\\”"",\\"""automationType\\""":\\"""AWS::SSM::Automation\\"""}]\",\"Type\":\"SearchableString\"}}
+   aws ssm create-ops-item ^
+       --title "EC2 instance disk full" ^
+       --description "Log clean up may have failed which caused the disk to be full" ^
+       --priority 2 ^
+       --source ec2 ^
+       --operational-data={\"/aws/automations\":{\"Value\":\"[{\\"""automationId\\""":\\"""AWS-RestartEC2Instance\\”"",\\"""automationType\\""":\\"""AWS::SSM::Automation\\"""}]\",\"Type\":\"SearchableString\"}}
    ```
 
    **Specify operational data from a file**
@@ -119,7 +162,14 @@ The following procedure describes how to create an OpsItem by using the AWS Comm
    Here is an example\.
 
    ```
-   aws ssm create-ops-item --title "EC2 instance disk full" --description "Log clean up may have failed which caused the disk to be full" --priority 2 --source ec2 --operational-data file:///Users/TestUser1/Desktop/OpsItems/opsData.json --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser1" --tags "Key=EC2,Value=Production"
+   aws ssm create-ops-item ^
+       --title "EC2 instance disk full" ^
+       --description "Log clean up may have failed which caused the disk to be full" ^
+       --priority 2 ^
+       --source ec2 ^
+       --operational-data file:///Users/TestUser1/Desktop/OpsItems/opsData.json ^
+       --notifications Arn="arn:aws:sns:us-west-1:12345678:TestUser1" ^
+       --tags "Key=EC2,Value=Production"
    ```
 **Note**  
 For information about how to enter JSON\-formatted parameters on the command line on different local operating systems, see [Using quotation marks with strings in the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html) in the *AWS Command Line Interface User Guide*\.
@@ -199,14 +249,20 @@ For information about how to enter JSON\-formatted parameters on the command lin
    Set-DefaultAWSRegion -Region Region
    ```
 
-1. Run the following command to create a new OpsItem\. This command specifies a Systems Manager Automation runbook for remediating this OpsItem\. 
+1. Run the following command to create a new OpsItem\. Replace each *example resource placeholder* with your own information\. This command specifies a Systems Manager Automation runbook for remediating this OpsItem\. 
 
    ```
    $opsItem = New-Object Amazon.SimpleSystemsManagement.Model.OpsItemDataValue
    $opsItem.Type = [Amazon.SimpleSystemsManagement.OpsItemDataType]::SearchableString 
    $opsItem.Value = '[{\"automationId\":\"runbook_name\",\"automationType\":\"AWS::SSM::Automation\"}]'
    $newHash = @{" /aws/automations"=[Amazon.SimpleSystemsManagement.Model.OpsItemDataValue]$opsItem}
-   New-SSMOpsItem -Title "title" -Description "description" -Priority priority_number -Source AWS_service -OperationalData $newHash
+   
+   New-SSMOpsItem `
+       -Title "title" `
+       -Description "description" `
+       -Priority priority_number `
+       -Source AWS_service `
+       -OperationalData $newHash
    ```
 
    If successful, the command outputs the ID of the new OpsItem\.

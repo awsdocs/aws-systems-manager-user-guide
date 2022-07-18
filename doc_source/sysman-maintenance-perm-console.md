@@ -144,7 +144,7 @@ Previously, the Systems Manager console provided you with the ability to choose 
 
 1. Choose **Next**\. 
 
-1. In the search box, enter the name of the policy you created in [Task 1: Create a policy for your custom maintenance window service role](#sysman-maintenance-role-policy), select the box next to it sname, and then choose **Next**\.
+1. In the search box, enter the name of the policy you created in [Task 1: Create a policy for your custom maintenance window service role](#sysman-maintenance-role-policy), select the box next to its name, and then choose **Next**\.
 
 1. For **Role name**, enter a name that identifies this role as a Maintenance Windows role\. For example: **my\-maintenance\-window\-role**\.
 
@@ -178,7 +178,7 @@ Previously, the Systems Manager console provided you with the ability to choose 
 
 ## Task 3: Configure permissions for users who are allowed to register maintenance window tasks \(console\)<a name="sysman-maintenance-passrole"></a>
 
-When you register a task with a maintenance window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service assumes when it runs tasks on your behalf\. Before that, to register the task itself, assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the maintenance window, the role that should be used when running tasks\. For information, see [Granting a user permissions to pass a role to an AWS Service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
+When you register a task with a maintenance window, you specify either a custom service role or a Systems Manager service\-linked role to run the actual task operations\. This is the role that the service assumes when it runs tasks on your behalf\. Before that, to register the task itself, assign the IAM PassRole policy to an IAM user account or an IAM group\. This allows the IAM user or IAM group to specify, as part of registering those tasks with the maintenance window, the role that should be used when running tasks\. For information, see [Granting a user permissions to pass a role to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the *IAM User Guide*\.
 
 Depending on whether you're assigning the `iam:Passrole` permission to an individual user or a group, use one of the following procedures to provide the minimum permissions required to register tasks with a maintenance window\.
 

@@ -292,10 +292,14 @@ Parameters are only available in the Region where they were created\. If you don
 
 You can use the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API operation to view a list of all parameters in a path that are assigned a specific label\. 
 
-Run the following command to view a list of parameters in a path that are assigned a specific label\.
+Run the following command to view a list of parameters in a path that are assigned a specific label\. Replace each *example resource placeholder* with your own information\.
 
 ```
-aws ssm get-parameters-by-path --path parameter-path --parameter-filters Key=Label,Values=label-name,Option=Equals --max-results a-number --with-decryption --recursive
+aws ssm get-parameters-by-path \
+    --path parameter-path \
+    --parameter-filters Key=Label,Values=label-name,Option=Equals \
+    --max-results a-number \
+    --with-decryption --recursive
 ```
 
 The system returns information like the following\. For this example, the user searched under the `/Config` path\.
@@ -331,18 +335,22 @@ The following procedure describes how to move a parameter label to a different v
 
 **To move a parameter label**
 
-1. Run the following command to view all versions of the parameter\.
+1. Run the following command to view all versions of the parameter\. Replace *parameter name* with your own information\.
 
    ```
-   aws ssm get-parameter-history --name "parameter-name"
+   aws ssm get-parameter-history \
+       --name "parameter name"
    ```
 
    Note the parameter versions you want to move the label to and from\.
 
-1. Run the following command to assign an existing label to a different version of a parameter\.
+1. Run the following command to assign an existing label to a different version of a parameter\. Replace each *example resource placeholder* with your own information\.
 
    ```
-   aws ssm label-parameter-version --name parameter-name --parameter-version version-number --labels name-of-existing-label
+   aws ssm label-parameter-version \
+       --name parameter name \
+       --parameter-version version number \
+       --labels name-of-existing-label
    ```
 **Note**  
 If you want to move an existing label to the latest version of a parameter, then remove `--parameter-version` from the command\.
@@ -353,10 +361,11 @@ The following procedure describes how to delete parameter labels by using the AW
 
 **To delete a parameter label**
 
-1. Run the following command to view all versions of the parameter\.
+1. Run the following command to view all versions of the parameter\. Replace *parameter name* with your own information\.
 
    ```
-   aws ssm get-parameter-history --name "parameter-name"
+   aws ssm get-parameter-history \
+       --name "parameter name"
    ```
 
    The system returns information like the following\.
@@ -399,10 +408,13 @@ The following procedure describes how to delete parameter labels by using the AW
 
    Note the parameter version for which you want to delete a label or labels\.
 
-1. Run the following command to delete the labels you choose from that parameter\.
+1. Run the following command to delete the labels you choose from that parameter\. Replace each *example resource placeholder* with your own information\.
 
    ```
-   aws ssm unlabel-parameter-version --name parameterName --parameter-version version --labels label1,label2,label3
+   aws ssm unlabel-parameter-version \
+       --name parameter name \
+       --parameter-version version \
+       --labels label 1,label 2,label 3
    ```
 
    The system returns information like the following\.

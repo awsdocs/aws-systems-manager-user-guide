@@ -5,7 +5,7 @@ You can get the overall state of a calendar or the state of a calendar at a spec
 You can do this task only by using the `GetCalendarState` API operation\. The procedure in this section uses the AWS Command Line Interface \(AWS CLI\)\.
 
 **To get the state of a change calendar**
-+ Run the following command to show the state of one or more calendars at a specific time\. The `--calendar-names` parameter is required, but `--at-time` is optional\.
++ Run the following command to show the state of one or more calendars at a specific time\. The `--calendar-names` parameter is required, but `--at-time` is optional\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]

@@ -6,6 +6,8 @@ Connect to your macOS instance and perform the following steps to install AWS Sy
 
 1. Download the agent installer file using the following command\.
 
+   In the following command, replace *region* with your own information\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
+
    ```
    sudo wget https://s3.region.amazonaws.com/amazon-ssm-region/latest/darwin_amd64/amazon-ssm-agent.pkg
    ```

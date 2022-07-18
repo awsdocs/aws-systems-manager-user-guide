@@ -16,7 +16,7 @@ OpsCenter includes the following options for configuring deduplication strings\.
 
 After the system creates an OpsItem, it populates the **Deduplication string** field, if a string was specified\. Here's an example\.
 
-![\[Viewing an OpsItem deduplication entry in the AWS AWS Management Console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_dedup_1.png)
+![\[Viewing an OpsItem deduplication entry in the AWS Management Console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_dedup_1.png)
 
 After you create an OpsItem, you *can't* edit or change the deduplication strings in that OpsItem\.
 

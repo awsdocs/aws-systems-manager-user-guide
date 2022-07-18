@@ -185,7 +185,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run one of the following commands to create an association that runs Chef cookbooks by targeting nodes using tags\. Command \(A\) uses GitHub as the source type\. Command \(B\) uses Amazon S3 as the source type\.
+1. Run one of the following commands to create an association that runs Chef cookbooks by targeting nodes using tags\. Replace each *example resource placeholder* with your own information\. Command \(A\) uses GitHub as the source type\. Command \(B\) uses Amazon S3 as the source type\.
 
    **\(A\) GitHub source**
 
@@ -194,9 +194,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" \
-   --targets Key=tag:TagKey,Values=TagValue \
-   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"path\": \"path_to_directory_or_cookbook_to_download\", \"getOptions\": \"branch:branch_name\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' \
-   --association-name "name" --schedule-expression "cron_or_rate_expression"
+       --targets Key=tag:TagKey,Values=TagValue \
+       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"path\": \"path_to_directory_or_cookbook_to_download\", \"getOptions\": \"branch:branch_name\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' \
+       --association-name "name" \
+       --schedule-expression "cron_or_rate_expression"
    ```
 
 ------
@@ -204,9 +205,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" ^
-   --targets Key=tag:TagKey,Values=TagValue ^
-   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"path\": \"path_to_directory_or_cookbook_to_download\", \"getOptions\": \"branch:branch_name\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' ^
-   --association-name "name" --schedule-expression "cron_or_rate_expression"
+       --targets Key=tag:TagKey,Values=TagValue ^
+       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"owner_name\", \"repository\": \"name\", \"path\": \"path_to_directory_or_cookbook_to_download\", \"getOptions\": \"branch:branch_name\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' ^
+       --association-name "name" ^
+       --schedule-expression "cron_or_rate_expression"
    ```
 
 ------
@@ -218,9 +220,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" \
-   --targets Key=tag:OS,Values=Linux \
-   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ChefRecipeTest\", \"repository\": \"ChefCookbooks\", \"path\": \"cookbooks/HelloWorld\", \"getOptions\": \"branch:master\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' \
-   --association-name "MyChefAssociation" --schedule-expression "cron(0 2 ? * SUN *)"
+       --targets Key=tag:OS,Values=Linux \
+       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ChefRecipeTest\", \"repository\": \"ChefCookbooks\", \"path\": \"cookbooks/HelloWorld\", \"getOptions\": \"branch:master\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' \
+       --association-name "MyChefAssociation" \
+       --schedule-expression "cron(0 2 ? * SUN *)"
    ```
 
 ------
@@ -228,9 +231,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" ^
-   --targets Key=tag:OS,Values=Linux ^
-   --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ChefRecipeTest\", \"repository\": \"ChefCookbooks\", \"path\": \"cookbooks/HelloWorld\", \"getOptions\": \"branch:master\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' ^
-   --association-name "MyChefAssociation" --schedule-expression "cron(0 2 ? * SUN *)"
+       --targets Key=tag:OS,Values=Linux ^
+       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ChefRecipeTest\", \"repository\": \"ChefCookbooks\", \"path\": \"cookbooks/HelloWorld\", \"getOptions\": \"branch:master\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' ^
+       --association-name "MyChefAssociation" ^
+       --schedule-expression "cron(0 2 ? * SUN *)"
    ```
 
 ------
@@ -242,9 +246,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" \
-   --targets Key=tag:TagKey,Values=TagValue \
-   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_cookbook_to_download\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' \
-   --association-name "name" --schedule-expression "cron_or_rate_expression"
+       --targets Key=tag:TagKey,Values=TagValue \
+       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_cookbook_to_download\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' \
+       --association-name "name" \
+       --schedule-expression "cron_or_rate_expression"
    ```
 
 ------
@@ -252,9 +257,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" ^
-   --targets Key=tag:TagKey,Values=TagValue ^
-   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_cookbook_to_download\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' ^
-   --association-name "name" --schedule-expression "cron_or_rate_expression"
+       --targets Key=tag:TagKey,Values=TagValue ^
+       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/path_to_Zip_file,_directory,_or_cookbook_to_download\"}"], "RunList":["{\"recipe[cookbook_name1::recipe_name]\", \"recipe[cookbook_name2::recipe_name]\"}"], "JsonAttributesContent": ["{Custom_JSON}"], "ChefClientVersion": ["version_number"], "ChefClientArguments":["{chef_client_arguments}"], "WhyRun": true_or_false, "ComplianceSeverity": ["severity_value"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["DOC-EXAMPLE-BUCKET"]}' ^
+       --association-name "name" ^
+       --schedule-expression "cron_or_rate_expression"
    ```
 
 ------
@@ -266,9 +272,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" \
-   --targets "Key=tag:OS,Values= Linux" \
-   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/HelloWorld\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' \
-   --association-name "name" --schedule-expression "cron(0 2 ? * SUN *)"
+       --targets "Key=tag:OS,Values= Linux" \
+       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/HelloWorld\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' \
+       --association-name "name" \
+       --schedule-expression "cron(0 2 ? * SUN *)"
    ```
 
 ------
@@ -276,9 +283,10 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" ^
-   --targets "Key=tag:OS,Values= Linux" ^
-   --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/HelloWorld\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' ^
-   --association-name "name" --schedule-expression "cron(0 2 ? * SUN *)"
+       --targets "Key=tag:OS,Values= Linux" ^
+       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/HelloWorld\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' ^
+       --association-name "name" ^
+       --schedule-expression "cron(0 2 ? * SUN *)"
    ```
 
 ------

@@ -40,7 +40,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | 7\.1 and later 7\.x versions |  | ✓ | ✓ | 
 | 8\.0\-8\.5 versions |  | ✓ | ✓ | 
 
-**¹** SSM Agent no longer officially supports these versions and no longer updates the agent for these versions of CentOS\. SSM Agent version 3\.0\.1390\.0 and earlier is supported for CentOS 6\.
+**¹** To use these versions, you must use a 3\.0\.x version of the SSM Agent\. We recommend using the latest available 3\.0\.x version of the SSM Agent\. Later SSM Agent versions \(3\.1 or later\) are not supported\.
 
 
 **CentOS Stream**  
@@ -76,7 +76,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | 7\.0\-7\.5 |  | ✓ |  | 
 | 7\.6\-8\.5 |  | ✓ | ✓ | 
 
-**¹** SSM Agent no longer officially supports these versions and no longer updates the agent for these versions of RHEL\. SSM Agent version 3\.0\.1390\.0 and earlier is supported for RHEL 6\.
+**¹** To use these versions, you must use a 3\.0\.x version of the SSM Agent\. We recommend using the latest available 3\.0\.x version of the SSM Agent\. Later SSM Agent versions \(3\.1 or later\) are not supported\.
 
 
 **Rocky Linux**  

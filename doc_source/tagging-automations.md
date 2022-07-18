@@ -22,7 +22,7 @@ The topics in this section describe how to work with tags on automations\. You c
 
 ## Adding tags to automations \(command line\)<a name="tagging-automations-add-cli"></a>
 
-Using your preferred command line tool, run the following command to add tags to an automation when it starts\.
+Using your preferred command line tool, run the following command to add tags to an automation when it starts\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -60,7 +60,7 @@ Start-SSMAutomationExecution `
 
 ------
 
-1. You can also tag automations after they run by using your preferred command line tool\. Run the following command to add tags to an automation\.
+1. You can also tag automations after they run by using your preferred command line tool\. Run the following command to add tags to an automation\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -98,12 +98,6 @@ Start-SSMAutomationExecution `
    ```
 
 ------
-
-   *ExampleKey* is the name of a custom key you specify\. For example, *Region* or *Quarter*\.
-
-   *ExampleValue* is the custom content for the value you want to associate with that key\. For example, *West* or *Q321*\.
-
-   *automation\-execution\-id* is the ID of the automation you want to tag\.
 
    If successful, the command has no output\.
 
@@ -144,7 +138,7 @@ You can use a command line tool to remove tags from an automation\.
 
 ### Removing tags from automations \(command line\)<a name="tagging-automations-remove-cli"></a>
 
-1. Using your preferred command line tool, run the following command to remove a tag from an automation\.
+1. Using your preferred command line tool, run the following command to remove a tag from an automation\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]

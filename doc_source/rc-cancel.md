@@ -17,7 +17,7 @@ You can attempt to cancel a command as long as the service shows that it's in ei
 1. Choose **Cancel command**\.
 
 **To cancel a command using the AWS CLI**  
-Run the following command\.
+Run the following command\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]

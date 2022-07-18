@@ -30,6 +30,15 @@ https://s3.us-east-2.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
   `https://s3.region.amazonaws.com/amazon-ssm-region/latest/linux_arm64/amazon-ssm-agent.rpm`
 
 ------
+#### [ RHEL 6\.x, CentOS 6\.x ]
++ **x86\_64**
+
+  `https://s3.region.amazonaws.com/amazon-ssm-region/3.0.1479.0/linux_amd64/amazon-ssm-agent.rpm `
++ **x86**
+
+  `https://s3.region.amazonaws.com/amazon-ssm-region/3.0.1479.0/linux_386/amazon-ssm-agent.rpm`
+
+------
 #### [ Ubuntu Server ]
 + **x86\_64**
 
@@ -86,6 +95,17 @@ Even though the following URLs show 'ec2\-downloads\-windows', these are the cor
    *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 
 ## Amazon Linux, RHEL 6\.x, and CentOS 6\.x<a name="cent-6"></a>
+
+```
+mkdir /tmp/ssm
+curl https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/3.0.1479.0/linux_amd64/amazon-ssm-agent.rpm -o /tmp/ssm/amazon-ssm-agent.rpm
+sudo yum install -y /tmp/ssm/amazon-ssm-agent.rpm
+sudo stop amazon-ssm-agent
+sudo -E amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region"
+sudo start amazon-ssm-agent
+```
+
+## Amazon Linux<a name="al"></a>
 
 ```
 mkdir /tmp/ssm

@@ -107,20 +107,20 @@ Use the following command to configure an existing alarm to create OpsItems by u
 1. Run the following command to collect information about the alarm that you want to configure\.
 
    ```
-   aws cloudwatch describe-alarms --alarm-names "alarm_name"
+   aws cloudwatch describe-alarms --alarm-names "alarm name"
    ```
 
-1. Run the following command to update an alarm\.
+1. Run the following command to update an alarm\. Replace each *example resource placeholder* with your own information\.
 
    ```
    aws cloudwatch put-metric-alarm --alarm-name name \
-   --alarm-description "description" \
-   --metric-name name --namespace namespace \
-   --statistic statistic --period value --threshold value \
-   --comparison-operator value \
-   --dimensions "dimensions" --evaluation-periods value \
-   --alarm-actions arn:aws:ssm:Region:account_ID:opsitem:severity#CATEGORY=category_name \
-   --unit unit
+       --alarm-description "description" \
+       --metric-name name --namespace namespace \
+       --statistic statistic --period value --threshold value \
+       --comparison-operator value \
+       --dimensions "dimensions" --evaluation-periods value \
+       --alarm-actions arn:aws:ssm:Region:account_ID:opsitem:severity#CATEGORY=category_name \
+       --unit unit
    ```
 
    Here's an example\.

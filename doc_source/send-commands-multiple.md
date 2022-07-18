@@ -14,7 +14,7 @@ To control how commands run across hundreds or thousands of managed nodes, Run C
 
 You can run a command and target managed nodes by specifying tags, AWS resource group names, or managed node IDs\. 
 
-The following examples show the command format when using Run Command from the AWS Command Line Interface \(AWS CLI \) \. Sample commands in this section are truncated using `[...]`\.
+The following examples show the command format when using Run Command from the AWS Command Line Interface \(AWS CLI \)\. Replace each *example resource placeholder* with your own information\. Sample commands in this section are truncated using `[...]`\.
 
 **Example 1: Targeting tags**
 

@@ -8,7 +8,7 @@ The following procedure walks you through the process of using the AWS Command L
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to assign custom compliance metadata to a managed node\. The `ResourceType` parameter only supports a value of `ManagedInstance`\. Specify this value even if you are assigning custom compliance metadata to a managed AWS IoT Greengrass core device\.
+1. Run the following command to assign custom compliance metadata to a managed node\. Replace each *example resource placeholder* with your own information\. The `ResourceType` parameter only supports a value of `ManagedInstance`\. Specify this value even if you are assigning custom compliance metadata to a managed AWS IoT Greengrass core device\.
 
 ------
 #### [ Linux & macOS ]

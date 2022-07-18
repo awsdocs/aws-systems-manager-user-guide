@@ -10,7 +10,7 @@ When you're ready to register other task types, or use more of the available Sys
 
 **To register a task with a maintenance window**
 
-1. Run the following command on your local machine\. The version to run from a local Windows machine includes the escape characters \("/"\) that you need to run the command from your command line tool\.
+1. Run the following command on your local machine\. Replace each *example resource placeholder* with your own information\. The version to run from a local Windows machine includes the escape characters \("/"\) that you need to run the command from your command line tool\.
 
 ------
 #### [ Linux & macOS ]
@@ -135,7 +135,7 @@ When you're ready to register other task types, or use more of the available Sys
    ```
 
 **Tip**  
-After the task runs successfully, you can decrease the rate at which the maintenance window runs\. For example, run the following command to decrease the frequency to once a week\.  
+After the task runs successfully, you can decrease the rate at which the maintenance window runs\. For example, run the following command to decrease the frequency to once a week\. Replace *mw\-0c50858d01EXAMPLE* with your own information\.  
 
 ```
 aws ssm update-maintenance-window \

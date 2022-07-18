@@ -39,7 +39,7 @@ Make a note of the name\. You will specify it when you deploy SSM Agent to your 
    }
    ```
 
-1. Open the AWS CLI, and in the directory where you created the JSON file, run the [create\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html) command to create the service role\.
+1. Open the AWS CLI, and in the directory where you created the JSON file, run the [create\-role](https://docs.aws.amazon.com/cli/latest/reference/iam/create-role.html) command to create the service role\. Replace each *example resource placeholder* with your own information\.
 
    **Linux & macOS**
 

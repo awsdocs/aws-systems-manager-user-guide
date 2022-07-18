@@ -63,13 +63,13 @@ Tools for PowerShell is frequently updated with new functionality\. Upgrade \(re
 
 1. To configure Tools for PowerShell, see [Using AWS Credentials](https://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html) in the *AWS Tools for Windows PowerShell User Guide*\.
 
-   In this step, you specify credentials that an AWS administrator in your organization has given you, using the following command\.
+   In this step, you specify credentials that an AWS administrator in your organization has given you, using the following command\. Replace each *example resource placeholder* with your own information\.
 
    ```
    Set-AWSCredential `
-   -AccessKey AKIAIOSFODNN7EXAMPLE `
-   -SecretKey wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY `
-   -StoreAs MyProfileName
+       -AccessKey AKIAIOSFODNN7EXAMPLE `
+       -SecretKey wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY `
+       -StoreAs MyProfileName
    ```
 **Important**  
 When you configure Tools for PowerShell, you can run `Set-DefaultAWSRegion` to specify an AWS Region\. Choose one of the supported Regions listed for Systems Manager in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\. If necessary, first verify with an administrator for your AWS account which Region you should choose\.

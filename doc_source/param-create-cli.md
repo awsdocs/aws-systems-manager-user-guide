@@ -19,7 +19,7 @@ Parameters are only available in the AWS Region where they were created\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create a `String`\-type parameter\.
+1. Run the following command to create a `String`\-type parameter\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -240,7 +240,7 @@ The system returns information like the following\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create a parameter\.
+1. Run the following command to create a parameter\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -304,7 +304,7 @@ Items in a `StringList` must be separated by a comma \(,\)\. You can't use other
 
 ## Create a SecureString parameter \(AWS CLI\)<a name="param-create-cli-securestring"></a>
 
-Use the following procedure to create a `SecureString` parameter\.
+Use the following procedure to create a `SecureString` parameter\. Replace each *example resource placeholder* with your own information\.
 
 **Important**  
 Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, descriptions, and other properties aren't encrypted\.
@@ -321,7 +321,7 @@ Parameter Store only supports [symmetric encryption KMS keys](https://docs.aws.a
 ------
 #### [ Linux & macOS ]
 
-   **Create a `SecureString` parameter using the default AWS managed key**
+   **Create a `SecureString` parameter using the default AWS managed key **
 
    ```
    aws ssm put-parameter \
@@ -386,7 +386,7 @@ Parameter Store only supports [symmetric encryption KMS keys](https://docs.aws.a
 
 ------
 
-   If you create a `SecureString` parameter by using the AWS\-managed AWS Key Management Service \(AWS KMS\) key in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
+   If you create a `SecureString` parameter by using the AWS managed key key in your account and Region, then you *don't* have to provide a value for the `--key-id` parameter\.
 **Note**  
 To use the AWS KMS key assigned to your AWS account and AWS Region, remove the `key-id` parameter from the command\. For more information about AWS KMS keys, see [AWS Key Management Service Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) in the *AWS Key Management Service Developer Guide*\.
 

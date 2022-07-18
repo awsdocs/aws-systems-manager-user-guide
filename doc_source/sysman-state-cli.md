@@ -15,7 +15,7 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create an association by targeting instances using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
+1. Run the following command to create an association by targeting instances using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Replace each *example resource placeholder* with your own information\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
 
    State Manager associations don't support all cron and rate expressions\. For more information about creating cron and rate expressions for associations, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 

@@ -56,7 +56,7 @@ Use the following procedure to manually configure AWS Systems Manager Inventory 
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create a State Manager association that runs Systems Manager Inventory on the node\. This command configures the service to run every six hours and to collect network configuration, Windows Update, and application metadata from a node\.
+1. Run the following command to create a State Manager association that runs Systems Manager Inventory on the node\. Replace each *example resource placeholder* with your own information\. This command configures the service to run every six hours and to collect network configuration, Windows Update, and application metadata from a node\.
 
 ------
 #### [ Linux & macOS ]

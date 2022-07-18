@@ -14,7 +14,7 @@ If you no longer want to use a custom SSM document, you can delete it by using e
 
    There is no output if the command succeeds\.
 
-1. Run the following command\.
+1. Run the following command\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux ]

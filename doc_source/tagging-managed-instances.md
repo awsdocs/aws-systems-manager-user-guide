@@ -78,7 +78,7 @@ If a managed node you expect to see isn't listed, see [Troubleshooting managed n
 **Note**  
 Machines that have been registered for use with Systems Manager in a hybrid environment begin with `mi-`, such as `mi-0471e04240EXAMPLE`\. EC2 instances have IDs that begin with `i-`, such as `i-02573cafcfEXAMPLE`\.
 
-1. Run the following command to tag a managed node\.
+1. Run the following command to tag a managed node\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -124,12 +124,6 @@ Machines that have been registered for use with Systems Manager in a hybrid envi
    ```
 
 ------
-
-   *tag\-key* is the name of a custom key you supply\. For example, *Region* or *Quarter*\.
-
-   *tag\-value* is the custom content for the value you want to supply for that key\. For example, *West* or *Q321*\.
-
-   *instance\-id* is the ID of the managed node you want to tag\.
 
    If successful, the command has no output\.
 
@@ -217,7 +211,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 
    Note the name of a managed node from which you want to remove tags\.
 
-1. Run the following command to remove tags from a managed node\.
+1. Run the following command to remove tags from a managed node\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -251,10 +245,6 @@ You can use the Systems Manager console or the command line to remove tags from 
    ```
 
 ------
-
-   *instance\-id* is the name of the managed node from which you want to remove tags\.
-
-   *tag\-key* is the name of a key assigned to the managed node\. For example, *Environment* or *Quarter*\.
 
    If successful, the command has no output\.
 

@@ -56,7 +56,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Use the following format to create a command to edit and create a new version of an existing State Manager association\.
+1. Use the following format to create a command to edit and create a new version of an existing State Manager association\. Replace each *example resource placeholder* with your own information\.
 **Important**  
 When you call `UpdateAssociation`, the system drops all optional parameters from the request and overwrites the association with null values for those parameters\. This is by design\. You must specify all optional parameters in the call, even if you are not changing the parameters\. This includes the `Name` parameter\. Before calling this API action, we recommend that you call the [DescribeAssociation](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeAssociation.html) API operation and make a note of all optional parameters required for your `UpdateAssociation` call\.
 

@@ -52,7 +52,7 @@ The following examples demonstrate various options you can use to view informati
 #### [ Windows ]
 
    ```
-   aws ssm describe-parameters \
+   aws ssm describe-parameters ^
        --parameter-filters "Key=Name,Values=MyParameterName"
    ```
 
@@ -61,27 +61,33 @@ The following examples demonstrate various options you can use to view informati
 For `describe-parameters`, the default search type for Name is `Equals`\. In your parameter filters, specifying `"Key=Name,Values=MyParameterName"` is the same as specifying `"Key=Name,Option=Equals,Values=MyParameterName"`\.
 
    ```
-   aws ssm describe-parameters --parameter-filters "Key=Name,Option=Contains,Values=Product"
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Name,Option=Contains,Values=Product"
    ```
 
    ```
-   aws ssm describe-parameters --parameter-filters "Key=Type,Values=String"
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Type,Values=String"
    ```
 
    ```
-   aws ssm describe-parameters --parameter-filters "Key=Path,Values=/Production/West"
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Path,Values=/Production/West"
    ```
 
    ```
-   aws ssm describe-parameters --parameter-filters "Key=Tier,Values=Standard"
+   aws ssm describe-parameters \
+       --parameter-filters "Key=Tier,Values=Standard"
    ```
 
    ```
-   aws ssm describe-parameters --parameter-filters "Key=tag:tag-key,Values=tag-value"
+   aws ssm describe-parameters \
+       --parameter-filters "Key=tag:tag-key,Values=tag-value"
    ```
 
    ```
-   aws ssm describe-parameters --parameter-filters "Key=KeyId,Values=key-id"
+   aws ssm describe-parameters \
+       --parameter-filters "Key=KeyId,Values=key-id"
    ```
 **Note**  
 In the last example, *key\-id* represents the ID of an AWS Key Management Service \(AWS KMS\) key used to encrypt a `SecureString` parameter created in your account\. Alternatively, you can enter **alias/aws/ssm** to use the default AWS KMS key for your account\. For more information, see [Create a SecureString parameter \(AWS CLI\)](param-create-cli.md#param-create-cli-securestring)\.

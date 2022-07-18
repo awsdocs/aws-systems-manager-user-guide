@@ -5,6 +5,8 @@ After you create the content for your custom AWS Systems Manager \(SSM\) documen
 **Before you begin**  
 Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\. For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
+Run the following command\. Replace each *example resource placeholder* with your own information\.
+
 ------
 #### [ Linux & macOS ]
 
@@ -40,12 +42,6 @@ New-SSMDocument `
 ```
 
 ------
-
-*document\-name* is the name of the SSM document you want to tag\.
-
-*tag\-key* is the name of a custom key you supply\. For example, *Region* or *Quarter*\.
-
-*tag\-value* is the custom content for the value you want to supply for that key\. For example, *West* or *Q321*\.
 
 If successful, the command returns a response similar to the following\.
 

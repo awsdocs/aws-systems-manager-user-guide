@@ -137,7 +137,7 @@ The following procedure describes how to change an account\-level setting\. This
 
 **To turn on the advanced\-instances tier using the AWS CLI**
 
-1. Open the AWS CLI and run the following command\.
+1. Open the AWS CLI and run the following command\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -205,7 +205,7 @@ The following procedure describes how to change an account\-level setting\. This
 
 **To turn on the advanced\-instances tier using PowerShell**
 
-1. Open AWS Tools for Windows PowerShell and run the following command\.
+1. Open AWS Tools for Windows PowerShell and run the following command\. Replace each *example resource placeholder* with your own information\.
 
    ```
    Update-SSMServiceSetting `

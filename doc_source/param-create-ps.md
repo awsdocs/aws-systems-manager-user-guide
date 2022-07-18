@@ -18,7 +18,7 @@ Parameters are only available in the AWS Region where they were created\.
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create a parameter that contains a plain text value\.
+1. Run the following command to create a parameter that contains a plain text value\. Replace each *example resource placeholder* with your own information\.
 
    ```
    Write-SSMParameter `
@@ -72,7 +72,7 @@ To create a parameter with a tag, create the service\.model\.tag before hand as 
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create a StringList parameter\.
+1. Run the following command to create a StringList parameter\. Replace each *example resource placeholder* with your own information\.
 **Note**  
 To create a parameter with a tag, create the service\.model\.tag before hand as a variable\. Here is an example\.   
 
@@ -124,7 +124,7 @@ Parameter Store only supports [symmetric encryption KMS keys](https://docs.aws.a
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to create a parameter\.
+1. Run the following command to create a parameter\. Replace each *example resource placeholder* with your own information\.
 **Note**  
 To create a parameter with a tag, first create the service\.model\.tag as a variable\. Here is an example\.   
 
@@ -145,9 +145,9 @@ To create a parameter with a tag, first create the service\.model\.tag as a vari
 
    If successful, the command returns the version number of the parameter\.
 **Note**  
-To use the AWS managed AWS KMS key assigned to your account, remove the `-KeyId` parameter from the command\.
+To use the AWS managed key assigned to your account, remove the `-KeyId` parameter from the command\.
 
-   Here is an example that uses an obfuscated name \(3l3vat3131\) for a password parameter and an AWS managed AWS KMS key\.
+   Here is an example that uses an obfuscated name \(3l3vat3131\) for a password parameter and an AWS managed key\.
 
    ```
    Write-SSMParameter `

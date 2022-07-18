@@ -112,16 +112,16 @@ Use the following procedure to add policies to an existing parameter by using th
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Run the following command to add policies to an existing parameter\.
+1. Run the following command to add policies to an existing parameter\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm put-parameter   
-       --name "parameter-name" \
-       --value 'parameter-value' \
-       --type parameter-type \
+       --name "parameter name" \
+       --value 'parameter value' \
+       --type parameter type \
        --overwrite \
        --policies "[{policies-enclosed-in-brackets-and-curly-braces}]"
    ```
@@ -131,9 +131,9 @@ Use the following procedure to add policies to an existing parameter by using th
 
    ```
    aws ssm put-parameter   
-       --name "parameter-name" ^
-       --value 'parameter-value' ^
-       --type parameter-type ^
+       --name "parameter name" ^
+       --value 'parameter value' ^
+       --type parameter type ^
        --overwrite ^
        --policies "[{policies-enclosed-in-brackets-and-curly-braces}]"
    ```
@@ -168,14 +168,14 @@ Use the following procedure to add policies to an existing parameter by using th
 
 ------
 
-1. Run the following command to verify the details of the parameter\.
+1. Run the following command to verify the details of the parameter\. Replace *parameter name* with your own information\.
 
 ------
 #### [ Linux & macOS ]
 
    ```
    aws ssm describe-parameters  \
-       --parameter-filters "Key=Name,Values=parameter-name"
+       --parameter-filters "Key=Name,Values=parameter name"
    ```
 
 ------
@@ -183,66 +183,79 @@ Use the following procedure to add policies to an existing parameter by using th
 
    ```
    aws ssm describe-parameters  ^
-       --parameter-filters "Key=Name,Values=parameter-name"
+       --parameter-filters "Key=Name,Values=parameter name"
    ```
 
 ------
 
 **Important**  
 Parameter Store retains policies for a parameter until you either overwrite the policies with new policies or remove the policies\. 
-To remove all policies from an existing parameter, edit the parameter and apply an empty policy of brackets and curly braces\. For example:  
+To remove all policies from an existing parameter, edit the parameter and apply an empty policy of brackets and curly braces\. Replace each *example resource placeholder* with your own information\. For example:  
 
   ```
   aws ssm put-parameter \
-      --name parameter-name \
-      --type parameter-type  \
-      --value 'parameter-value' \
+      --name parameter name \
+      --type parameter type  \
+      --value 'parameter value' \
       --policies "[{}]"
   ```
 
   ```
   aws ssm put-parameter ^
-      --name parameter-name ^
-      --type parameter-type  ^
-      --value 'parameter-value' ^
+      --name parameter name ^
+      --type parameter type  ^
+      --value 'parameter value' ^
       --policies "[{}]"
   ```
 If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, copy and paste the original policies, type the new policy, and then save your changes\.
 
 ### Add policies to an existing parameter \(Tools for Windows PowerShell\)<a name="sysman-paramstore-policy-create-ps"></a>
 
-Use the following procedure to add policies to an existing parameter by using Tools for Windows PowerShell\.
+Use the following procedure to add policies to an existing parameter by using Tools for Windows PowerShell\. Replace each *example resource placeholder* with your own information\.
 
 **To add policies to an existing parameter**
 
 1. Open Tools for Windows PowerShell and run the following command to specify your credentials\. You must either have administrator permissions in Amazon Elastic Compute Cloud \(Amazon EC2\), or you must have been granted the appropriate permission in AWS Identity and Access Management \(IAM\)\. For more information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
    ```
-   Set-AWSCredentials –AccessKey access-key-name –SecretKey secret-key-name
+   Set-AWSCredentials `
+       –AccessKey access-key-name `
+       –SecretKey secret-key-name
    ```
 
 1. Run the following command to set the Region for your PowerShell session\. The example uses the US East \(Ohio\) Region \(us\-east\-2\)\.
 
    ```
-   Set-DefaultAWSRegion -Region us-east-2
+   Set-DefaultAWSRegion `
+       -Region us-east-2
    ```
 
-1. Run the following command to add policies to an existing parameter\.
+1. Run the following command to add policies to an existing parameter\. Replace each *example resource placeholder* with your own information\.
 
    ```
-   Write-SSMParameter -Name "parameter-name" -Value "parameter-value" -Type "parameter-type" -Policies "[{policies-enclosed-in-brackets-and-curly-braces}]" -Overwrite
+   Write-SSMParameter `
+       -Name "parameter name" `
+       -Value "parameter value" `
+       -Type "parameter type" `
+       -Policies "[{policies-enclosed-in-brackets-and-curly-braces}]" `
+       -Overwrite
    ```
 
    Here is an example that includes an expiration policy that deletes the parameter at midnight \(GMT\) on May 13, 2020\. The example also includes a notification policy that generates an EventBridge event five \(5\) days before the parameter is deleted\. Last, it includes a `NoChangeNotification` policy if no changes are made to this parameter after 60 days\. The example uses an obfuscated name \(`3l3vat3131`\) for a password and an AWS managed key\.
 
    ```
-   Write-SSMParameter -Name "/Finance/Payroll/3l3vat3131" -Value "P@sSwW)rd" -Type "SecureString" -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" -Overwrite
+   Write-SSMParameter `
+       -Name "/Finance/Payroll/3l3vat3131" `
+       -Value "P@sSwW)rd" `
+       -Type "SecureString" `
+       -Policies "[{\"Type\":\"Expiration\",\"Version\":\"1.0\",\"Attributes\":{\"Timestamp\":\"2018-05-13T00:00:00.000Z\"}},{\"Type\":\"ExpirationNotification\",\"Version\":\"1.0\",\"Attributes\":{\"Before\":\"5\",\"Unit\":\"Days\"}},{\"Type\":\"NoChangeNotification\",\"Version\":\"1.0\",\"Attributes\":{\"After\":\"60\",\"Unit\":\"Days\"}}]" `
+       -Overwrite
    ```
 
-1. Run the following command to verify the details of the parameter\.
+1. Run the following command to verify the details of the parameter\. Replace *parameter name* with your own information\.
 
    ```
-   (Get-SSMParameterValue -Name "parameter-name-you-specified").Parameters
+   (Get-SSMParameterValue -Name "parameter name").Parameters
    ```
 
 **Important**  
@@ -250,6 +263,10 @@ Parameter Store preserves policies on a parameter until you either overwrite the
 To remove all policies from an existing parameter, edit the parameter and apply an empty policy of brackets and curly braces\. For example:  
 
   ```
-  Write-SSMParameter -Name "parameter-name" -Value "parameter-value" -Type "parameter-type" -Policies "[{}]"
+  Write-SSMParameter `
+      -Name "parameter name" `
+      -Value "parameter value" `
+      -Type "parameter type" `
+      -Policies "[{}]"
   ```
 If you add a new policy to a parameter that already has policies, then Systems Manager overwrites the policies attached to the parameter\. The existing policies are deleted\. If you want to add a new policy to a parameter that already has one or more policies, copy and paste the original policies, type the new policy, and then save your changes\.

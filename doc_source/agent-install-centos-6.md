@@ -17,16 +17,16 @@ Use the following steps to manually install SSM Agent on a single instance\. Thi
 1. Copy the command for your instance’s architecture and run it on the instance\.
 **Note**  
 Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for CentOS 6\.   
-The following commands specify the version directory `3.0.1390.0` instead of a `latest` directory\. This is because SSM Agent version 3\.1 and later are not supported for CentOS 6\.  
+The following commands specify the version directory `3.0.1479.0` instead of a `latest` directory\. This is because SSM Agent version 3\.1 and later are not supported for CentOS 6\.  
 x86\_64 instances  
 
    ```
-   sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/3.0.1390.0/linux_amd64/amazon-ssm-agent.rpm
+   sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/3.0.1479.0/linux_amd64/amazon-ssm-agent.rpm
    ```  
-ARM64 instances  
+x86 instances  
 
    ```
-   sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/3.0.1390.0/linux_386/amazon-ssm-agent.rpm
+   sudo yum install -y https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/3.0.1479.0/linux_386/amazon-ssm-agent.rpm
    ```
 
 1. \(Recommended\) Run the following command to verify that the agent is running\.
@@ -70,21 +70,21 @@ The following commands specify the version directory `3.0.1390.0` instead of a `
 x86\_64  
 
 ```
-sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/3.0.1390.0/linux_amd64/amazon-ssm-agent.rpm
+sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/3.0.1479.0/linux_amd64/amazon-ssm-agent.rpm
 ```
 See the following example\.  
 
 ```
-sudo yum install -y https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/3.0.1390.0/linux_amd64/amazon-ssm-agent.rpm
+sudo yum install -y https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/3.0.1479.0/linux_amd64/amazon-ssm-agent.rpm
 ```
 
 x86  
 
 ```
-sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/3.0.1390.0/linux_386/amazon-ssm-agent.rpm
+sudo yum install -y https://s3.region.amazonaws.com/amazon-ssm-region/3.0.1479.0/linux_386/amazon-ssm-agent.rpm
 ```
 See the following example\.  
 
 ```
-sudo yum install -y https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/3.0.1390.0/linux_386/amazon-ssm-agent.rpm
+sudo yum install -y https://s3.us-east-2.amazonaws.com/amazon-ssm-us-east-2/3.0.1479.0/linux_386/amazon-ssm-agent.rpm
 ```

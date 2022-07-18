@@ -54,7 +54,7 @@ You can add tags to maintenance windows that you own by using the AWS Systems Ma
 
    Note the ID of a maintenance window that you want to tag\.
 
-1. Run the following command to tag a maintenance window\.
+1. Run the following command to tag a maintenance window\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -79,12 +79,6 @@ You can add tags to maintenance windows that you own by using the AWS Systems Ma
 ------
 
    If successful, the command has no output\.
-
-   *windows\-id* is the ID of the maintenance window you want to tag, such as mw\-0c50858d01EXAMPLE\.
-
-   *tag\-key* is the name of a custom key you supply\. For example, *Environment* or *Project*\.
-
-   *tag\-value* is the custom content for the value you want to supply for that key\. For example, *Production* or *Q321*\.
 
 1. Run the following command to verify the maintenance window tags\.
 
@@ -204,7 +198,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 
    Note the ID of a maintenance window from which you want to remove tags\.
 
-1. Run the following command to remove tags from a maintenance window\.
+1. Run the following command to remove tags from a maintenance window\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -237,10 +231,6 @@ You can use the Systems Manager console or the command line to remove tags from 
    ```
 
 ------
-
-   *windows\-id* is the ID of the maintenance window from which you want to remove a tag, such as mw\-0c50858d01EXAMPLE\.
-
-   *tag\-key* is the name of a key assigned to the maintenance window\. For example, *Environment* or *Quarter*\.
 
    If successful, the command has no output\.
 

@@ -51,7 +51,6 @@ We recommend that you avoid using wildcard characters \(\*\) in place of specifi
     "Statement": [
         {
             "Effect": "Allow",
-            "Principal": "*",
             "Action": "s3:GetObject",
             "Resource": [
                 "arn:aws:s3:::aws-windows-downloads-us-east-2/*",

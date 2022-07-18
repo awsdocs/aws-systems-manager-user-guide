@@ -173,7 +173,7 @@ When you create an association, you specify when the schedule runs\. Specify the
 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
-1. Use the following format to create a command that creates a State Manager association\.
+1. Use the following format to create a command that creates a State Manager association\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]

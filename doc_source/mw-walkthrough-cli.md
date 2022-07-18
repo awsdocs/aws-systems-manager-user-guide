@@ -112,7 +112,7 @@ Use the following procedure to register a target with your maintenance window cr
 
 **To register maintenance window targets \(AWS CLI\)**
 
-1. Run the following command\.
+1. Run the following command\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -246,7 +246,7 @@ Use the following procedure to register a Run Command task for the maintenance w
 
 **To register a Run Command task for a maintenance window to update SSM Agent \(AWS CLI\)**
 
-1. Run the following command to register a Run Command task for the maintenance window using the `WindowTargetId` value in Step 3\. The task updates SSM Agent by using the `AWS-UpdateSSMAgent` document\.
+1. Run the following command to register a Run Command task for the maintenance window using the `WindowTargetId` value in Step 3\. Replace each *example resource placeholder* with your own information\. The task updates SSM Agent by using the `AWS-UpdateSSMAgent` document\.
 
 ------
 #### [ Linux & macOS ]

@@ -52,7 +52,7 @@ You can add tags to OpsItems by using a command line tool\.
 
    Note the ID of an OpsItem that you want to tag\.
 
-1. Run the following command to tag an OpsItem\.
+1. Run the following command to tag an OpsItem\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -98,12 +98,6 @@ You can add tags to OpsItems by using a command line tool\.
    ```
 
 ------
-
-   *tag\-key* is the name of a custom key you supply\. For example, *Region* or *Quarter*\.
-
-   *tag\-value* is the custom content for the value you want to supply for that key\. For example, *West* or *Q321*\.
-
-   *ops\-item\-id* is the ID of the OpsItem you want to tag\.
 
    If successful, the command has no output\.
 
@@ -174,7 +168,7 @@ You can use a command line tool to remove tags from Systems Manager OpsItems\.
 
    Note the name of an OpsItem from which you want to remove tags\.
 
-1. Run the following command to remove tags from an OpsItem\.
+1. Run the following command to remove tags from an OpsItem\.Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -208,10 +202,6 @@ You can use a command line tool to remove tags from Systems Manager OpsItems\.
    ```
 
 ------
-
-   *ops\-item\-id* is the ID of the OpsItem from which you want to remove tags\.
-
-   *tag\-key* is the name of a key assigned to the OpsItem\. For example, *Environment* or *Quarter*\.
 
    If successful, the command has no output\.
 

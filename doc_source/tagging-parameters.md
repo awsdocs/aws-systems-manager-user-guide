@@ -53,19 +53,16 @@ You can add tags to custom SSM parameters that you own by using the Systems Mana
 
    Note the name of a parameter that you want to tag\.
 
-1. Run the following command to tag a parameter\.
+1. Run the following command to tag a parameter\. Replace each *example resource placeholder* with your own information\.
 
    ```
-   aws ssm add-tags-to-resource --resource-type "Parameter" --resource-id "parameter-name" --tags "Key=tag-key,Value=tag-value"
+   aws ssm add-tags-to-resource \
+       --resource-type "Parameter" \
+       --resource-id "parameter-name" \
+       --tags "Key=tag-key,Value=tag-value"
    ```
 
    If successful, the command has no output\.
-
-   *parameter\-name* is the name of the SSM parameter you want to tag\.
-
-   *tag\-key* is the name of a custom key you supply\. For example, *Environment* or *Project*\.
-
-   *tag\-value* is the custom content for the value you want to supply for that key\. For example, *Production* or *Q321*\.
 
 1. Run the following command to verify the parameter tags\.
 
@@ -81,7 +78,7 @@ You can add tags to custom SSM parameters that you own by using the Systems Mana
    Get-SSMParameterList
    ```
 
-1. Run the following commands to tag a parameter\.
+1. Run the following commands to tag a parameter\. Replace each *example resource placeholder* with your own information\.
 
    ```
    $tag = New-Object Amazon.SimpleSystemsManagement.Model.Tag
@@ -102,12 +99,6 @@ You can add tags to custom SSM parameters that you own by using the Systems Mana
        -Tag $tag `
        -Force
    ```
-
-   *parameter\-name* the name of the SSM parameter you want to tag\.
-
-   *tag\-key* is the name of a custom key you supply\. For example, *Environment* or *Project*\.
-
-   *tag\-value* is the custom content for the value you want to supply for that key\. For example, *Production* or *Q321*\.
 
 1. Run the following command to verify the parameter tags\.
 
@@ -170,7 +161,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 
    Note the name of a parameter from which you want to remove tags\.
 
-1. Run the following command to remove tags from a parameter\.
+1. Run the following command to remove tags from a parameter\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -203,10 +194,6 @@ You can use the Systems Manager console or the command line to remove tags from 
    ```
 
 ------
-
-   *parameter\-name* is the name of the SSM parameter from which you want to remove a tag\.
-
-   *tag\-key* is the name of a key assigned to the parameter\. For example, *Environment* or *Quarter*\.
 
    If successful, the command has no output\.
 

@@ -39,7 +39,7 @@ The following procedure shows you how to use the AWS Command Line Interface to c
 
 **To revert to the standard\-instances tier using the AWS CLI**
 
-1. Open the AWS CLI and run the following command\.
+1. Open the AWS CLI and run the following command\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]

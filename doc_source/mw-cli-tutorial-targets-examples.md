@@ -15,7 +15,7 @@ For information about quotas for Maintenance Windows, a capability of AWS System
 
 ## Example 1: Register multiple targets using node IDs<a name="mw-target-example-1"></a>
 
-Run the following command on your local machine format to register multiple nodes as targets using their node IDs\.
+Run the following command on your local machine format to register multiple nodes as targets using their node IDs\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -45,7 +45,7 @@ aws ssm register-target-with-maintenance-window ^
 
 ## Example 2: Register targets using resource tags applied to nodes<a name="mw-target-example-2"></a>
 
-Run the following command on your local machine to register nodes that are all already tagged with a key\-value pair you have assigned\.
+Run the following command on your local machine to register nodes that are all already tagged with a key\-value pair you have assigned\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -78,7 +78,7 @@ You can tag a group of nodes with the tag\-key **Patch Group** and assign the no
 
 ## Example 3: Register targets using a group of tag keys \(without tag values\)<a name="mw-target-example-3"></a>
 
-Run the following command on your local machine to register nodes that all have one or more tag keys assigned to them, regardless of their key values\.
+Run the following command on your local machine to register nodes that all have one or more tag keys assigned to them, regardless of their key values\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -108,7 +108,7 @@ aws ssm register-target-with-maintenance-window ^
 
 ## Example 4: Register targets using a resource group name<a name="mw-target-example-4"></a>
 
-*LocalPortNumber* Run the following command on your local machine to register a specified resource group, regardless of the type of resources it contains\. If the tasks you assign to the maintenance window don't act on a type of resource included in this resource group, the system might report an error\. Tasks for which a supported resource type is found continue to run despite these errors\.
+Run the following command on your local machine to register a specified resource group, regardless of the type of resources it contains\. Replace *mw\-0c50858d01EXAMPLE* with your own information\. If the tasks you assign to the maintenance window don't act on a type of resource included in this resource group, the system might report an error\. Tasks for which a supported resource type is found continue to run despite these errors\.
 
 ------
 #### [ Linux & macOS ]
@@ -138,7 +138,7 @@ aws ssm register-target-with-maintenance-window ^
 
 ## Example 5: Register targets by filtering resource types in a resource group<a name="mw-target-example-5"></a>
 
-Run the following command on your local machine to register only certain resource types that belong to a resource group that you specify\. With this option, even if you add a task for a resource type that belongs to the resource group, the task won’t run if you haven’t explicitly added the resource type to the filter\.
+Run the following command on your local machine to register only certain resource types that belong to a resource group that you specify\. Replace *mw\-0c50858d01EXAMPLE* with your own information\. With this option, even if you add a task for a resource type that belongs to the resource group, the task won’t run if you haven’t explicitly added the resource type to the filter\.
 
 ------
 #### [ Linux & macOS ]

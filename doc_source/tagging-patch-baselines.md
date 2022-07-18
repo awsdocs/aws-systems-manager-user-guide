@@ -55,7 +55,7 @@ You can add tags to patch baselines that you own by using the Systems Manager co
 
    Note the ID of a patch baseline that you want to tag\.
 
-1. Run the following command to tag a patch baseline\.
+1. Run the following command to tag a patch baseline\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -80,12 +80,6 @@ You can add tags to patch baselines that you own by using the Systems Manager co
 ------
 
    If successful, the command has no output\.
-
-   *baseline\-id* is the ID of the patch baseline you want to tag, such as pb\-0c10e65780EXAMPLE\.
-
-   *tag\-key* is the name of a custom key you supply\. For example, *Environment* or *Project*\.
-
-   *tag\-value* is the custom content for the value you want to supply for that key\. For example, *Production* or *Q321*\.
 
 1. Run the following command to verify the patch baseline tags\.
 
@@ -117,7 +111,7 @@ You can add tags to patch baselines that you own by using the Systems Manager co
    Get-SSMPatchBaseline
    ```
 
-1. Run the following commands to tag a patch baseline\.
+1. Run the following commands to tag a patch baseline\. Replace each *example resource placeholder* with your own information\.
 
    ```
    $tag = New-Object Amazon.SimpleSystemsManagement.Model.Tag
@@ -138,12 +132,6 @@ You can add tags to patch baselines that you own by using the Systems Manager co
        -Tag $tag `
        -Force
    ```
-
-   *patch\-baseline\-name* the name of the patch baseline you want to tag\.
-
-   *tag\-key* is the name of a custom key you supply\. For example, *Environment* or *Project*\.
-
-   *tag\-value* is the custom content for the value you want to supply for that key\. For example, *Production* or *Q321*\.
 
 1. Run the following command to verify the patch baseline tags\.
 
@@ -206,7 +194,7 @@ You can use the Systems Manager console or the command line to remove tags from 
 
    Note the ID of a patch baseline from which you want to remove tags\.
 
-1. Run the following command to remove tags from a patch baseline\.
+1. Run the following command to remove tags from a patch baseline\. Replace each *example resource placeholder* with your own information\.
 
 ------
 #### [ Linux & macOS ]
@@ -239,10 +227,6 @@ You can use the Systems Manager console or the command line to remove tags from 
    ```
 
 ------
-
-   *baseline\-id* is the ID of the patch baseline you want to tag, such as pb\-0c10e65780EXAMPLE\.
-
-   *tag\-key* is the name of a key assigned to the patch baseline\. For example, *Environment* or *Quarter*\.
 
    If successful, the command has no output\.
 
