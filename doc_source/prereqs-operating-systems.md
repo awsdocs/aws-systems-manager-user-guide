@@ -112,6 +112,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | 10\.14\.x \(Mojave\) |  | ✓ |  | 
 | 10\.15\.x \(Catalina\) |  | ✓ |  | 
 | 11\.x \(BigSur\) |  | ✓ |  | 
+| 12\.x \(Monterey\) |  | ✓ |  | 
 
 **Note**  
 macOS support is limited to the following AWS Regions:  
