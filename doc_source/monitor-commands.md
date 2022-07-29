@@ -82,7 +82,7 @@ For example, the default value of **Timeout \(seconds\)** in the Systems Manager
 This means the command runs for 4,200 seconds \(70 minutes\) before the system sets the command status to `DeliveryTimedOut`\.
 
 **Execution Timeout**  
-In the Systems Manager console, you specify the execution timeout value in the **Execution Timeout** field, if available\. Not all SSM documents require that you specify an execution timeout\. If specified, the command must complete within this time period\.
+In the Systems Manager console, you specify the execution timeout value in the **Execution Timeout** field, if available\. Not all SSM documents require that you specify an execution timeout\. The **Execution Timeout** field is only displayed when a corresponding input parameter has been defined in the SSM document\. If specified, the command must complete within this time period\.
 
 **Note**  
 Run Command relies on the SSM Agent document terminal response to determine whether or not the command was delivered to the agent\. SSM Agent must send an `ExecutionTimedOut` signal for an invocation or command to be marked as `ExecutionTimedOut`\.

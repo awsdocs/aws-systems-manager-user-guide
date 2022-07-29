@@ -39,7 +39,11 @@ Use the following procedure to specify a deduplication string for an EventBridge
 
 1. Choose a rule, and then choose **Edit**\.
 
-1. In the **Select targets** section, expand **Configure input**\. In the lower **Input transformer** field, locate the `"operationalData": { "/aws/dedup"` JSON entry and the deduplication strings that you want to edit\.
+1. Go to the **Select target\(s\)** page\.
+
+1. In the **Additional settings** section, choose **Configure input transformer**\.
+
+1. In the **Template** box, locate the `"operationalData": { "/aws/dedup"` JSON entry and the deduplication strings that you want to edit\.
 
    The deduplication string entry in EventBridge rules uses the following JSON format\.
 
@@ -53,7 +57,13 @@ Use the following procedure to specify a deduplication string for an EventBridge
    "operationalData": { "/aws/dedup": {"type": "SearchableString","value": "{\"dedupString\":\"SSMOpsCenter-EBS-volume-performance-issue\"}"}}
    ```
 
-1. Edit the deduplications strings, and then choose **Update** to finish updating the rule\.
+1. Edit the deduplications strings, and then choose **Confirm**\.
+
+1. Choose **Next**\.
+
+1. Choose **Next**\.
+
+1. Choose **Update rule**\.
 
 ### Specifying a deduplication string by using the AWS CLI<a name="OpsCenter-working-deduplication-configuring-manual-cli"></a>
 

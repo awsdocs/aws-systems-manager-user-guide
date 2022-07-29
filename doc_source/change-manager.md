@@ -11,7 +11,7 @@ With Change Manager, you can use pre\-approved *change templates* to help automa
 + The tags to apply to the change template for use in categorizing and filtering your change templates\.
 + Whether change requests created from the change template can be run without an approval step \(auto\-approved requests\)\.
 
-Through its integration with Change Calendar, which is another capability of Systems Manager, Change Manager also helps you safely implement changes while avoiding schedule conflicts with important business events\. Change Manager integration with AWS Organizations and AWS Single Sign\-On helps you manage changes across your organization from a single account using your existing identity management system\. You can monitor change progress from Change Manager and audit operational changes across your organization, providing improved visibility and accountability\.
+Through its integration with Change Calendar, which is another capability of Systems Manager, Change Manager also helps you safely implement changes while avoiding schedule conflicts with important business events\. Change Manager integration with AWS Organizations and AWS IAM Identity Center \(successor to AWS Single Sign\-On\) helps you manage changes across your organization from a single account using your existing identity management system\. You can monitor change progress from Change Manager and audit operational changes across your organization, providing improved visibility and accountability\.
 
 Change Manager complements the safety controls of your [continuous integration](http://aws.amazon.com/devops/continuous-integration) \(CI\) practices and [continuous delivery](http://aws.amazon.com/devops/continuous-delivery) \(CD\) methodology\. Change Manager isn't intended for changes made as part of an automated release process, such as a CI/CD pipeline, unless there is an exception or approval required\. 
 
@@ -83,9 +83,9 @@ Primary features of Change Manager include the following:
 + **Integration with AWS Systems Manager Change Calendar**
 
   Change Manager allows administrators to restrict scheduling changes during specified time periods\. For instance, you can create a policy that allows changes only during business hours to ensure that the team is available to handle any issues\. You can also restrict changes during important business events\. For example, retail businesses might restrict changes during large sales events\. You can also require additional approvals during restricted periods\. 
-+ **Integration with AWS Single Sign\-On and Active Directory support**
++ **Integration with AWS IAM Identity Center \(successor to AWS Single Sign\-On\) and Active Directory support**
 
-  With AWS SSO integration, members of your organization can access AWS accounts and manage their resources using Systems Manager based on a common user identity\. Using AWS SSO, you can assign your users access to accounts across AWS\. 
+  With IAM Identity Center integration, members of your organization can access AWS accounts and manage their resources using Systems Manager based on a common user identity\. Using IAM Identity Center, you can assign your users access to accounts across AWS\. 
 
   Integration with Active Directory makes it possible to assign users in your Active Directory account as approvers for change templates created for your Change Manager operations\.
 + **Integration with Amazon CloudWatch alarms**

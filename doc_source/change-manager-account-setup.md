@@ -37,7 +37,7 @@ Perform the task in this procedure the first time you access Change Manager\. Yo
 
 1. For **User identity management**, choose one of the following\.
    + **AWS Identity and Access Management \(IAM\)** – Identify the users who make and approve requests and perform other action in Change Manager by using your existing IAM user accounts, groups, and roles\.
-   + **AWS Single Sign\-On \(AWS SSO\)** – Allow [AWS SSO](https://docs.aws.amazon.com/singlesignon/latest/userguide/) to create and manage identities, or connect to your existing identity source to identify the users who perform actions in Change Manager\.
+   + **AWS Single Sign\-On \(IAM Identity Center\)** – Allow [IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/) to create and manage identities, or connect to your existing identity source to identify the users who perform actions in Change Manager\.
 
 1. In the **Template reviewer notification** section, specify the Amazon Simple Notification Service \(Amazon SNS\) topics to use to notify template reviewers that a new change template or change template version is ready for review\. Ensure that the Amazon SNS topic you choose is configured to send notifications to your template reviewers\. 
 

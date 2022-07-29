@@ -13,7 +13,7 @@ After you set up and configure Incident Manager, the system integrates with OpsC
 
    OpsItems that include incidents have two additional tabs beyond the **Overview** and **Related resource details** tabs displayed for standard OpsItems\. OpsItems that include incidents display related incidents, OpsItems, analyses, and action items on the **Associated items** tab\. The **Timeline** tab displays a chronological history of related incidents and analyses for the parent OpsItem\.
 
-1. If an incident grows in scale and scope, you can add additional incidents to it\.
+1. If an incident grows in scale and scope, you can add additional incidents to the parent OpsItem\.
 
 1. After an incident is closed, you can create an analysis from the incident in Incident Manager\. An analysis can help you define improvement processes for mitigating similar issues in the future\. The system automatically updates the incident in OpsCenter with an analysis\. If an analysis includes action items, the system creates additional OpsItems beneath the analysis\. These additional OpsItems are of type **Action Item**\. 
 

@@ -8,19 +8,31 @@ Use the following procedure to configure **Systems Manager OpsItems** as the tar
 
 1. In the navigation pane, choose **Rules**\.
 
-1. On the **Rules** page, either choose an existing rule and then choose **Edit**, or choose **Create rule**\.
+1. On the **Rules** page, for **Event bus**, choose **default**\.
 
-1. On the **Rules** page, choose an existing rule and then choose **Edit**\. 
+1. Choose a rule\.
 
-1. In the **Select event bus** section, verify that **AWS default event bus** is selected and **Enable the rule on the selected event bus** option is toggled on\.
+1. In the **Rule details** section, verify that **Status** is set to **Enabled**\.
 
-1. In the **Select targets** section, use the **Target** list to choose **Systems Manager OpsItem**\. 
+   To update the status, choose **Edit** in the upper\-right corner of the page, and then turn on **Enable the rule on the selected event bus**\.
 
-1. Expand **Configure input** and choose either **Matched events** or **Input transformer**\.
-**Note**  
-We recommend that you choose **Input transformer**\. This option allows you to specify a deduplication string and other important information for OpsItems such as a title and a severity\.
+1. On the **Targets** tab, choose **Edit**\.
 
-   If you choose **Input transformer**, enter information in the **Input Path** and **Input Template** boxes\. Here's an example of how to enter the input path\.
+1. For **Select a target**, choose **Systems Manager OpsItem**\.
+
+1. For many target types, EventBridge needs permissions to send events to the target\. In these cases, EventBridge can create the AWS Identity and Access Management \(IAM\) role needed for your rule to run: 
+   + To create an IAM role automatically, choose **Create a new role for this specific resource**\.
+   + To use an IAM role that you created to give EventBridge permission to create OpsItems in OpsCenter, choose **Use existing role**\.
+
+   For more information about the required role and permissions, see [Getting started with OpsCenter](OpsCenter-getting-started.md)\.
+
+1. In the **Additional settings** section, for **Configure target input**, choose **Input Transformer**\.
+
+   You can use the **Input transformer** option to specify a deduplication string and other important information for OpsItems such as a title and a severity\.
+
+1. Choose **Configure input transformer**\.
+
+1. In the **Target input transformer** section, for **Input path**, specify the values to parse from the triggering event\. For example, to parse the start time, end time, and other details from the event that triggers the rule, use the following JSON\.
 
    ```
    {
@@ -32,7 +44,7 @@ We recommend that you choose **Input transformer**\. This option allows you to s
    }
    ```
 
-   Here's an example of how to enter the input template\.
+1. For **Template**, specify the information to send to the target\. For example, use the following JSON to pass information to OpsCenter\. The information is used to create an OpsItem\.
 
    ```
    {
@@ -41,7 +53,7 @@ We recommend that you choose **Input transformer**\. This option allows you to s
        "category": "Availability",
        "severity": "2",
        "source": "EC2",
-       "resources": "resources",
+       "resources": "<resources>",
        "operationalData": {
            "/aws/dedup": {
                "type": "SearchableString",
@@ -51,16 +63,16 @@ We recommend that you choose **Input transformer**\. This option allows you to s
                "value": "[ { \"automationType\": \"AWS:SSM:Automation\", \"automationId\": \"AWS-CopySnapshot\" } ]"
            },
            "failure-cause": {
-               "value": "failure-cause"
+               "value": "<failure-cause>"
            },
            "source": {
-               "value": "source"
+               "value": "<source>"
            },
            "start-time": {
-               "value": "start-time"
+               "value": "<start-time>"
            },
            "end-time": {
-               "value": "end-time"
+               "value": "<end-time>"
            }
        }
    }
@@ -68,11 +80,13 @@ We recommend that you choose **Input transformer**\. This option allows you to s
 
    For more information about these fields, see [Transforming target input](https://docs.aws.amazon.com/eventbridge/latest/userguide/transform-input.html) in the *Amazon EventBridge User Guide*\.
 
-1. Choose **Create a new role for this specific resource** to create a new role with the required permissions\. Or, choose **Use existing role** and choose the IAM role you created that gives EventBridge permission to create OpsItems in OpsCenter\. For more information about the required role and permissions, see [Getting started with OpsCenter](OpsCenter-getting-started.md)\.
+1. Choose **Confirm**\.
 
-1. Choose **Update**\.
+1. Choose **Next**\.
 
-1. In the navigation pane, choose **Rules**\. If you created a new rule, verify that the list includes the new rule\.
+1. Choose **Next**\.
+
+1. Choose **Update rule**\.
 
 After an OpsItem is created from an event, you can view the event details by opening the OpsItem and scrolling down to the **Private operational data** section\.
 

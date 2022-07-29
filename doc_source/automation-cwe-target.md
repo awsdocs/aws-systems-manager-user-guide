@@ -12,39 +12,44 @@ Use the following procedure to configure a runbook as the target of a EventBridg
 
 1. Open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
 
-1. In the navigation pane, choose **Rules**, and then choose **Create rule**\.
+1. In the navigation pane, choose **Rules**\.
 
-   \-or\-
-
-   If the Amazon EventBridge home page opens first, choose **Create rule**\.
+1. Choose **Create rule**\.
 
 1. Enter a name and description for the rule\.
 
    A rule can't have the same name as another rule in the same Region and on the same event bus\.
 
-1. For **Define pattern**, choose either **Event pattern** or **Schedule**\. Use **Event pattern** to build a rule that generates events for specific actions in AWS services\. Use **Schedule** to build a rule that generates events according to a schedule that you specify by using the cron format\.
+1. For **Event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to respond to matching events that come from your own AWS account, select **default**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\.
 
-1. Choose the remaining options for the rule you want to create, and then choose **Add target**\.
+1. Choose how the rule is triggered\.    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/automation-cwe-target.html)
 
-   For information about creating EventBridge rules, see [Getting Started with Amazon EventBridge](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-getting-set-up.html) in the *Amazon EventBridge User Guide*\.
+1. Choose **Next**\.
 
-1. For **Select event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to initiate on matching events that come from your own AWS account, select **AWS default event bus**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\. 
+1. For **Target types**, choose **AWS service**\.
 
-1. For **Target**, choose **Systems Manager Automation**\. 
+1. For **Select a target**, choose **Systems Manager Automation**\. 
 
 1. For **Document**, choose a runbook to use when your target is invoked\.
 
-1. Expand **Configure document version**, and choose a version\. $DEFAULT was explicitly set as the default runbook version in Systems Manager\. You can choose a specific version, or use the latest version\.
+1. In the **Configure document version** section, choose a version\. $DEFAULT was explicitly set as the default runbook version in Systems Manager\. You can choose a specific version, or use the latest version\.
 
-1. Expand **Configure automation parameter\(s\)**, and either keep the default parameter values \(if available\) or enter your own values\. 
+1. In the **Configure automation parameter\(s\)** section, either keep the default parameter values \(if available\) or enter your own values\. 
 **Note**  
-Required parameters have an asterisk \(\*\) next to the parameter name\. To create a target, you must specify a value for each required parameter\. If you don't, the system creates the rule, but it won't run\.
+To create a target, you must specify a value for each required parameter\. If you don't, the system creates the rule, but the rule won't run\.
 
-1. At the bottom of the **Select targets** area, choose a role to grant EventBridge permission to start the automation with the specified runbook and parameters\. EventBridge uses the role to start the automation\. You can let EventBridge create a new role or use a role that already has the needed permissions\.
+1. For many target types, EventBridge needs permissions to send events to the target\. In these cases, EventBridge can create the IAM role needed for your rule to run\. Do one of the following:
+   + To create an IAM role automatically, choose **Create a new role for this specific resource**\.
+   + To use an IAM role that you created earlier, choose **Use existing role** and select the existing role from the dropdown\.
+
+1. Choose **Next**\.
 
 1. \(Optional\) Enter one or more tags for the rule\. For more information, see [Tagging Your Amazon EventBridge Resources](https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-tagging.html) in the *Amazon EventBridge User Guide*\.
 
-1. Choose **Create** and complete the wizard\.
+1. Choose **Next**\.
+
+1. Review the details of the rule and choose **Create rule**\.
 
 ## Create an EventBridge event that uses a runbook \(command line\)<a name="automation-cwe-target-commandline"></a>
 

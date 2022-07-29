@@ -85,7 +85,7 @@ When you install SSM Agent on multiple instances using a script or template, we 
 For the following commands, we provide examples that use a publicly accessible Amazon S3 bucket in the US East \(Ohio\) Region \(`us-east-2`\)\. 
 
 **Tip**  
-You can also replace a global URL in the procedure [](#quick-install-rocky) earlier in this topic with a custom Regional URL you construct\.
+You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on Rocky Linux](#quick-install-rocky) earlier in this topic with a custom Regional URL you construct\.
 
 In the following command, replace *region* with your own information\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
 

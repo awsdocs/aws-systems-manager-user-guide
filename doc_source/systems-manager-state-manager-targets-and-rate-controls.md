@@ -17,6 +17,9 @@ Use this option to specify a tag key and \(optionally\) a tag value assigned to 
 
 If you create new nodes and assign the specified tag key and value to those nodes, the system automatically applies the association, runs it immediately, and then runs it according to the schedule\. This applies when the association uses a Command or Policy document and doesn't apply if the association uses an Automation runbook\. If you delete the specified tags from a node, the system no longer runs the association on those nodes\.
 
+**Note**  
+If you use Automation runbooks with State Manager and the tagging limitation prevents you from achieving a specific goal, consider using Automation runbooks with Amazon EventBridge\. For more information, see [Running automations with triggers using EventBridge](automation-cwe-target.md)\. For more information about using runbooks with State Manager, see [Running automations with triggers using State Manager](automation-sm-target.md)\. 
+
 It's a best practice to use tags when creating associations that use a Command or Policy document; this doesn't apply if the association uses an Automation runbook\. If you delete the specified tags from a node, the system no longer runs the association on those nodes\.
 
 It's also a best practice to use tags when creating associations to run Auto Scaling groups\. For more information, see [Running Auto Scaling groups with associations](systems-manager-state-manager-asg.md)\.

@@ -114,13 +114,13 @@ Use the following command to configure an existing alarm to create OpsItems by u
 
    ```
    aws cloudwatch put-metric-alarm --alarm-name name \
-       --alarm-description "description" \
-       --metric-name name --namespace namespace \
-       --statistic statistic --period value --threshold value \
-       --comparison-operator value \
-       --dimensions "dimensions" --evaluation-periods value \
+   --alarm-description "description" \
+   --metric-name name --namespace namespace \
+   --statistic statistic --period value --threshold value \
+   --comparison-operator value \
+   --dimensions "dimensions" --evaluation-periods value \
        --alarm-actions arn:aws:ssm:Region:account_ID:opsitem:severity#CATEGORY=category_name \
-       --unit unit
+   --unit unit
    ```
 
    Here's an example\.

@@ -112,13 +112,11 @@ Default OpsItems rules in Amazon EventBridge aren't configured with an ARN for A
 
    The rule opens in Amazon EventBridge\.
 
-1. On the rule details page, choose **Edit**\.  
-![\[Choosing the edit button\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_3.png)
+1. On the rule details page, on the **Targets** tab, choose **Edit**\.
 
-1. Scroll to the **Select targets** section\.  
-![\[Locating the Select targets section.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup_4.png)
+1. In the **Additional settings** section, choose **Configure input transformer**\.
 
-1. Enter a `notifications` block in the following format:
+1. In the **Template** box, add a `notifications` block in the following format:
 
    ```
    "notifications":[{"arn":"arn:aws:sns:region:account ID:topic name"}],
@@ -130,10 +128,50 @@ Default OpsItems rules in Amazon EventBridge aren't configured with an ARN for A
    "notifications":[{"arn":"arn:aws:sns:us-west-2:1234567890:MySNSTopic"}],
    ```
 
-   Enter the notifications block before the `resources` block, as shown here\.  
-![\[Adding a notifications block\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_Setup.png)
+   Enter the notifications block before the `resources` block, as shown here\.
 
-1. Scroll to the bottom of the rule details page and choose **Update**\.
+   ```
+   {
+       "title": "EBS snapshot copy failed",
+       "description": "CloudWatch Event Rule SSMOpsItems-EBS-snapshot-copy-failed was triggered. Your EBS snapshot copy has failed. See below for more details.",
+       "category": "Availability",
+       "severity": "2",
+       "source": "EC2",
+       "notifications": [{
+           "arn": "arn:aws:sns:us-west-2:1234567890:MySNSTopic"
+       }],
+       "resources": <resources>,
+       "operationalData": {
+           "/aws/dedup": {
+               "type": "SearchableString",
+               "value": "{\"dedupString\":\"SSMOpsItems-EBS-snapshot-copy-failed\"}"
+           },
+           "/aws/automations": {
+               "value": "[ { \"automationType\": \"AWS:SSM:Automation\", \"automationId\": \"AWS-CopySnapshot\" } ]"
+           },
+           "failure-cause": {
+               "value": <failure - cause>
+           },
+           "source": {
+               "value": <source>
+           },
+           "start-time": {
+               "value": <start - time>
+           },
+           "end-time": {
+               "value": <end - time>
+           }
+       }
+   }
+   ```
+
+1. Choose **Confirm**\.
+
+1. Choose **Next**\.
+
+1. Choose **Next**\.
+
+1. Choose **Update rule**\.
 
 The next time the systems creates an OpsItem for the default rule, it publishes a notification to the Amazon SNS topic\.
 
