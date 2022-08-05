@@ -39,7 +39,7 @@ Fleet Manager uses Session Manager, a capability of AWS Systems Manager, to view
 
 1. Choose the button next to the file whose content you want to preview\.
 
-1. In the **Actions** menu, choose **View text preview**\.
+1. In the **Actions** menu, choose **Preview as text**\.
 
 **To tail files with Fleet Manager**
 
@@ -59,7 +59,7 @@ Fleet Manager uses Session Manager, a capability of AWS Systems Manager, to view
 
 1. Choose the button next to the file whose content you want to tail\.
 
-1. In the **Actions** menu, choose **View with tail**\.
+1. In the **Actions** menu, choose **Tail file**\.
 
 **To copy or cut and paste files or directories with Fleet Manager**
 

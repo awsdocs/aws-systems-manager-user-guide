@@ -49,9 +49,13 @@ Key features of State Manager include the following:
     You can instruct State Manager not to run an association immediately by using the **Apply association only at the next specified Cron interval** option in the console or the `ApplyOnlyAtCronInterval` parameter from the command line\.
   + **Cron and rate expressions**
 
-    When you create an association, you specify a schedule for when State Manager applies the configuration\. State Manager supports standard cron and rate expressions for scheduling when an association runs\. State Manager also supports cron expressions that include a day of the week and the number sign \(\#\) to designate the *n*th day of a month to run an association and the \(L\) sign to indicate the last *X* day of the month\.
+    When you create an association, you specify a schedule for when State Manager applies the configuration\. State Manager supports most standard cron and rate expressions for scheduling when an association runs\. State Manager also supports cron expressions that include a day of the week and the number sign \(\#\) to designate the *n*th day of a month to run an association and the \(L\) sign to indicate the last *X* day of the month\.
+**Note**  
+State Manager doesn't currently support specifying months in cron expressions for associations\.
 
     To further control when an association runs, for example if you want to run an association two days after patch Tuesday, you can specify an offset\. An *offset* defines how many days to wait after the scheduled day to run an association\.
+
+    For information about building cron and rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 + **Multiple targeting options**
 
   An association also specifies the targets for the association\. State Manager supports targeting AWS resources by using tags, AWS Resource Groups, individual node IDs, or all managed nodes in the current AWS Region and AWS account\.

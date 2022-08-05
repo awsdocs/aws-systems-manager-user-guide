@@ -94,9 +94,9 @@ An unsupported package manager and python version combination was found. Apt req
 failed to run commands: exit status 1
 ```
 
-**Cause**: python3 isn't installed on the Debian Server, Raspberry Pi OS, or Ubuntu Server instance\.
+**Cause**: A supported version of python3 isn't installed on the Debian Server, Raspberry Pi OS, or Ubuntu Server instance\.
 
-**Solution**: Install python3 on the server, which is required for Debian Server, Raspberry Pi OS, and Ubuntu Server managed nodes\.
+**Solution**: Install a supported version of python3 \(3\.0 \- 3\.9\) on the server, which is required for Debian Server, Raspberry Pi OS, and Ubuntu Server managed nodes\.
 
 ### Issue: Patch Manager isn't applying rules specified to exclude certain packages<a name="patch-manager-troubleshooting-linux-6"></a>
 

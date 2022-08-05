@@ -122,6 +122,7 @@ mainSteps:
   - action: "aws:runPowerShellScript"
     name: "example"
     inputs:
+      timeoutSeconds: '60'
       runCommand:
       - "Write-Output {{Message}}"
 ```
@@ -145,6 +146,7 @@ mainSteps:
          "action": "aws:runPowerShellScript",
          "name": "example",
          "inputs": {
+            "timeoutSeconds": "60",
             "runCommand": [
                "Write-Output {{Message}}"
             ]

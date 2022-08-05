@@ -18,15 +18,15 @@ On Windows Server managed nodes, the `AWS-RunPatchBaseline` document downloads a
 #### [ Linux ]
 
 On Linux managed nodes, the `AWS-RunPatchBaseline` document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the managed node\. This patch baseline snapshot uses the defined rules and lists of approved and blocked patches to drive the appropriate package manager for each node type: 
-+ Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL 7 managed nodes use YUM\. For YUM operations, Patch Manager requires `Python 2.6` or later\. 
-+ RHEL 8 managed nodes use DNF\. For DNF operations, Patch Manager requires `Python 2` or `Python 3`\. \(Neither version is installed by default on RHEL 8\. You must install one or the other manually\.\)
-+ Debian Server, Raspberry Pi OS, and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires `Python 3`\.
-+ SUSE Linux Enterprise Server managed nodes use Zypper\. For Zypper operations, Patch Manager requires `Python 2.6` or later\.
++ Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and RHEL 7 managed nodes use YUM\. For YUM operations, Patch Manager requires `Python 2.6` or a later supported version \(2\.6 \- 3\.9\)\. 
++ RHEL 8 managed nodes use DNF\. For DNF operations, Patch Manager requires a supported version of `Python 2` or `Python 3` \(2\.6 \- 3\.9\)\. \(Neither version is installed by default on RHEL 8\. You must install one or the other manually\.\)
++ Debian Server, Raspberry Pi OS, and Ubuntu Server instances use APT\. For APT operations, Patch Manager requires a supported version of `Python 3` \(3\.0 \- 3\.9\)\.
++ SUSE Linux Enterprise Server managed nodes use Zypper\. For Zypper operations, Patch Manager requires `Python 2.6` or a later supported version \(2\.6 \- 3\.9\)\.
 
 ------
 #### [ macOS ]
 
-On macOSmanaged nodes, the `AWS-RunPatchBaseline` document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the managed node\. Next, a Python subprocess invokes the AWS Command Line Interface \(AWS CLI\) on the node to retrieve the installation and update information for the specified package managers and to drive the appropriate package manager for each update package\.
+On macOS managed nodes, the `AWS-RunPatchBaseline` document invokes a Python module, which in turn downloads a snapshot of the patch baseline that applies to the managed node\. Next, a Python subprocess invokes the AWS Command Line Interface \(AWS CLI\) on the node to retrieve the installation and update information for the specified package managers and to drive the appropriate package manager for each update package\.
 
 ------
 

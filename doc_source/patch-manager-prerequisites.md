@@ -8,6 +8,9 @@ Version 2\.0\.834\.0 or later of SSM Agent is running on the managed node you wa
 **Note**  
 An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. Failing to use the latest version of the agent can prevent your managed node from using various Systems Manager capabilities and features\. For that reason, we recommend that you automate the process of keeping SSM Agent up to date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
 
+**Python version**  
+For macOS and most Linux operating systems \(OSs\), Patch Manager currently supports Python versions 2\.6 \- 3\.9\. The Debian Server, Raspberry Pi OS, and Ubuntu Server OSs require a supported version of Python 3 \(3\.0 \- 3\.9\)\.
+
 **Connectivity to the patch source**  
 If your managed nodes don't have a direct connection to the Internet and you're using an Amazon Virtual Private Cloud \(Amazon VPC\) with a VPC endpoint, you must ensure that the nodes have access to the source patch repositories \(repos\)\. On Linux nodes, patch updates are typically downloaded from the remote repos configured on the node\. Therefore, the node must be able to connect to the repos so the patching can be performed\. For more information, see [How security patches are selected](patch-manager-how-it-works-selection.md)\.
 

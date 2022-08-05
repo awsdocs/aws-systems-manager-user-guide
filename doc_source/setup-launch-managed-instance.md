@@ -33,7 +33,7 @@ A Transport Layer Security \(TLS\) certificate must be installed on each managed
 **Note**  
 This procedure applies to the new Amazon EC2 launch instance wizard\. For information about using the old instance launch wizard, see one of the following topics, depending on your operating system type:  
 [Launch an instance using the old launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) in the *Amazon EC2 User Guide for Linux Instances*\.
-[Launch an instance using the old launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/launching-instance.html) in the *Amazon EC2 User Guide for Linux Instances*\.
+[Launch an instance using the old launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/launching-instance.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 **To launch an instance that uses the Systems Manager instance profile \(console\)**
 

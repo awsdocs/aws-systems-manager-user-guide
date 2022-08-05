@@ -2,6 +2,9 @@
 
 You can use Fleet Manager, a capability of AWS Systems Manager, to work with processes on your managed instances\. Using Fleet Manager, you can view information about processes\. For example, you can see the CPU utilization and memory usage of processes in addition to their handles and threads\. With Fleet Manager, you can start and terminate processes from the console\.
 
+**Note**  
+Fleet Manager uses Session Manager, a capability of AWS Systems Manager, to retrieve process data\. For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, the instance profile attached to your managed instances must provide permissions for Session Manager to use this feature\. For more information about adding Session Manager permissions to an instance profile, see [Adding Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md)\. Also, AWS Key Management Service \(AWS KMS\) encryption must be turned on in your session preferences to use Fleet Manager features\. For more information about turning on AWS KMS encryption for Session Manager, see [Turn on KMS key encryption of session data \(console\)](session-preferences-enable-encryption.md)\.
+
 **To view details about processes with Fleet Manager**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
