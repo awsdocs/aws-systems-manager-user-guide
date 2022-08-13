@@ -83,4 +83,4 @@ For more information about attaching IAM roles to instances, choose one of the f
 + [Attach an IAM role to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Linux Instances*
 + [Attach an IAM role to an instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Windows Instances*
 
-Continue to [Step 6: \(Recommended\) Create a VPC endpoint](setup-create-vpc.md)\.
+Continue to [Step 6: Create VPC endpoints](setup-create-vpc.md)\.

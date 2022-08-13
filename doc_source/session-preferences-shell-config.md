@@ -24,7 +24,7 @@ The following are some example commands that can be added to your shell profile\
 Change to the bash shell and change to the /usr directory on Linux instances\.
 
 ```
-/bin/bash
+exec /bin/bash
 cd /usr
 ```
 

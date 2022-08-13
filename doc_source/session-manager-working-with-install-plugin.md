@@ -302,7 +302,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 | 1\.2\.312\.0 |  March 31, 2022  | Enhancement: Supports more output message payload types\. | 
 | 1\.2\.295\.0 |  January 12, 2022  | Bug fix: Hung sessions caused by client resending stream data when agent becomes inactive, and incorrect logs for start\_publication and pause\_publication messages\. | 
 | 1\.2\.279\.0 |  October 27, 2021  | Enhancement: Zip packaging for Windows platform\. | 
-| 1\.2\.245\.0 |  August 19, 2021  | Enhancement: Upgrade aws\-sdk\-go to latest version \(v1\.40\.17\) to support single sign\-on \(SSO\)\. | 
+| 1\.2\.245\.0 |  August 19, 2021  | Enhancement: Upgrade aws\-sdk\-go to latest version \(v1\.40\.17\) to support AWS IAM Identity Center \(successor to AWS Single Sign\-On\)\. | 
 | 1\.2\.234\.0 |  July 26, 2021  | Bug fix: Handle session abruptly terminated scenario in interactive session type\. | 
 | 1\.2\.205\.0 |  June 10, 2021  | Enhancement: Added support for signed macOS installer\. | 
 | 1\.2\.54\.0 |  January 29, 2021  | Enhancement: Added support for running sessions in NonInteractiveCommands execution mode\. | 

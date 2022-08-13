@@ -1,6 +1,6 @@
 # Supported operating systems<a name="prereqs-operating-systems"></a>
 
-You can manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances and on\-premises servers and virtual machines \(VMs\), including VMs hosted by other cloud provides, by using Systems Manager\. These nodes must be running one of the following operating systems\.
+You can manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances and on\-premises servers and virtual machines \(VMs\), including VMs hosted by other cloud providers, by using Systems Manager\. These nodes must be running one of the following operating systems\.
 
 **Note**  
 If you plan to manage and configure AWS IoT Greengrass core devices by using Systems Manager, those devices must meet the requirements for AWS IoT Greengrass\. For more information, see [Setting up AWS IoT Greengrass core devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html) in the *AWS IoT Greengrass Version 2 Developer Guide*\.  

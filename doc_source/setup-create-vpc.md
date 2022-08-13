@@ -1,4 +1,4 @@
-# Step 6: \(Recommended\) Create a VPC endpoint<a name="setup-create-vpc"></a>
+# Step 6: Create VPC endpoints<a name="setup-create-vpc"></a>
 
 You can improve the security posture of your managed instances \(including managed instances in your hybrid environment\) by configuring AWS Systems Manager to use an interface VPC endpoint in Amazon Virtual Private Cloud \(Amazon VPC\)\. By using an interface VPC endpoint \(interface endpoint\), you can connect to services powered by AWS PrivateLink\. AWS PrivateLink is a technology that allows you to privately access Amazon Elastic Compute Cloud \(Amazon EC2\) and Systems Manager APIs by using private IP addresses\. 
 
@@ -124,5 +124,3 @@ Example: Allow users to only get and list command invocations
    ]
 }
 ```
-
-Continue to [Step 7: \(Optional\) Create Systems Manager service roles](setup-service-role.md)\.
