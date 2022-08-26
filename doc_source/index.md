@@ -4,13 +4,13 @@
 *****Copyright &copy; Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
-Amazon's trademarks and trade dress may not be used in 
-     connection with any product or service that is not Amazon's, 
-     in any manner that is likely to cause confusion among customers, 
-     or in any manner that disparages or discredits Amazon. All other 
-     trademarks not owned by Amazon are the property of their respective
-     owners, who may or may not be affiliated with, connected to, or 
-     sponsored by Amazon.
+Amazon's trademarks and trade dress may not be used in
+connection with any product or service that is not Amazon's,
+in any manner that is likely to cause confusion among customers,
+or in any manner that disparages or discredits Amazon. All other
+trademarks not owned by Amazon are the property of their respective
+owners, who may or may not be affiliated with, connected to, or
+sponsored by Amazon.
 
 -----
 ## Contents
@@ -351,6 +351,7 @@ Amazon's trademarks and trade dress may not be used in
             + [Configuring instance tiers](systems-manager-managed-instances-tiers.md)
                + [Turning on the advanced-instances tier](systems-manager-managedinstances-advanced.md)
                + [Reverting from the advanced-instances tier to the standard-instances tier](systems-manager-managed-instances-advanced-reverting.md)
+            + [Default Host Management Configuration](managed-instances-default-host-management.md)
             + [Resetting passwords on managed nodes](managed-instances-password-reset.md)
             + [Deregistering managed nodes in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)
             + [Troubleshooting managed node availability](troubleshooting-managed-instances.md)
@@ -459,6 +460,7 @@ Amazon's trademarks and trade dress may not be used in
    + [AWS Systems Manager Patch Manager](systems-manager-patch.md)
       + [Patch Manager prerequisites](patch-manager-prerequisites.md)
       + [How Patch Manager operations work](patch-manager-how-it-works.md)
+         + [How package release dates and update dates are calculated](patch-manager-how-it-works-release-dates.md)
          + [How security patches are selected](patch-manager-how-it-works-selection.md)
          + [How to specify an alternative patch source repository (Linux)](patch-manager-how-it-works-alt-source-repository.md)
          + [How patches are installed](patch-manager-how-it-works-installation.md)

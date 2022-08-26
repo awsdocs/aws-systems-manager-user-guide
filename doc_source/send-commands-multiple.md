@@ -336,7 +336,7 @@ You can control the rate at which commands are sent to managed nodes in a group 
 
 ### Using concurrency controls<a name="send-commands-velocity"></a>
 
-You can control the number of managed nodes that run a command simultaneously by using the `max-concurrency` parameter \(the **Concurrecy** options in the **Run a command** page\)\. You can specify either an absolute number of managed nodes, for example **10**, or a percentage of the target set, for example **10%**\. The queueing system delivers the command to a single node and waits until the system acknowledges the initial invocation before sending the command to two more nodes\. The system exponentially sends commands to more nodes until the system meets the value of `max-concurrency`\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter\.
+You can control the number of managed nodes that run a command simultaneously by using the `max-concurrency` parameter \(the **Concurrency** options in the **Run a command** page\)\. You can specify either an absolute number of managed nodes, for example **10**, or a percentage of the target set, for example **10%**\. The queueing system delivers the command to a single node and waits until the system acknowledges the initial invocation before sending the command to two more nodes\. The system exponentially sends commands to more nodes until the system meets the value of `max-concurrency`\. The default for value `max-concurrency` is 50\. The following examples show you how to specify values for the `max-concurrency` parameter\.
 
 ------
 #### [ Linux & macOS ]

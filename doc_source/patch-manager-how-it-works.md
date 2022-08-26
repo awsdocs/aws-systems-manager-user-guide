@@ -5,6 +5,7 @@ This section provides technical details that explain how Patch Manager, a capabi
 The information in the following topics applies both when you're patching managed nodes on a schedule and patching nodes on demand\.
 
 **Topics**
++ [How package release dates and update dates are calculated](patch-manager-how-it-works-release-dates.md)
 + [How security patches are selected](patch-manager-how-it-works-selection.md)
 + [How to specify an alternative patch source repository \(Linux\)](patch-manager-how-it-works-alt-source-repository.md)
 + [How patches are installed](patch-manager-how-it-works-installation.md)

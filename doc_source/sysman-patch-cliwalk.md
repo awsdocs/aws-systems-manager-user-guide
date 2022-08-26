@@ -11,7 +11,7 @@ The following procedure describes how to patch a server environment by using a c
 
 **To configure Patch Manager and patch managed nodes \(command line\)**
 
-1. Run the following command to create a patch baseline for Windows named `Production-Baseline`\. This patch baseline approves patches for a production environment seven days after they're released\. That is, we have tagged the patch baseline to indicate that it's for a production environment\.
+1. Run the following command to create a patch baseline for Windows named `Production-Baseline`\. This patch baseline approves patches for a production environment 7 days after they're released or last updated\. That is, we have tagged the patch baseline to indicate that it's for a production environment\.
 **Note**  
 The `OperatingSystem` parameter and `PatchFilters` vary depending on the operating system of the target managed nodes the patch baseline applies to\. For more information, see [OperatingSystem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreatePatchBaseline.html#systemsmanager-CreatePatchBaseline-request-OperatingSystem) and [PatchFilter](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html)\.
 

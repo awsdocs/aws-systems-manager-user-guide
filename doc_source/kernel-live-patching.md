@@ -45,7 +45,7 @@ AWS releases two types of kernel live patches for Amazon Linux 2: security updat
 You can create a custom patch baseline that targets only these patches, or use the predefined `AWS-AmazonLinux2DefaultPatchBaseline` patch baseline\. In other words, you can use `AWS-AmazonLinux2DefaultPatchBaseline` with Amazon Linux 2 managed nodes on which Kernel Live Patching is turned on, and kernel live updates will be applied\.
 
 **Note**  
-The `AWS-AmazonLinux2DefaultPatchBaseline` configuration specifies a seven\-day waiting period after a patch is released before it's installed automatically\. If you don't want to wait seven days for kernel live patches to be auto\-approved, you can create and use a custom patch baseline\. In your patch baseline, you can specify no auto\-approval waiting period, or specify a shorter or longer one\. For more information, see [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)\.
+The `AWS-AmazonLinux2DefaultPatchBaseline` configuration specifies a 7\-day waiting period after a patch is released or last updated before it's installed automatically\. If you don't want to wait 7 days for kernel live patches to be auto\-approved, you can create and use a custom patch baseline\. In your patch baseline, you can specify no auto\-approval waiting period, or specify a shorter or longer one\. For more information, see [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)\.
 
 We recommend the following strategy to patch your managed nodes with kernel live updates:
 

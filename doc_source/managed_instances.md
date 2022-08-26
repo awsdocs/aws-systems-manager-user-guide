@@ -38,6 +38,7 @@ You can deregister managed nodes at any time\. For example, if you're managing m
 
 **Topics**
 + [Configuring instance tiers](systems-manager-managed-instances-tiers.md)
++ [Default Host Management Configuration](managed-instances-default-host-management.md)
 + [Resetting passwords on managed nodes](managed-instances-password-reset.md)
 + [Deregistering managed nodes in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)
 + [Troubleshooting managed node availability](troubleshooting-managed-instances.md)

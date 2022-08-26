@@ -55,7 +55,7 @@ Unable to load and extract the content of payload, abort.failed to run commands:
 12/20/2019 21:41:48 root [INFO]: another process has acquired yum lock, waiting 2 s and retry.
 ```
 
-**Cause**: The `AWS-RunPatchBaseline` document has started running on a managed node where it's already running in another operation and and has acquired the package manager `yum` process\.
+**Cause**: The `AWS-RunPatchBaseline` document has started running on a managed node where it's already running in another operation and has acquired the package manager `yum` process\.
 
 **Solution**: Ensure that no State Manager association, maintenance window tasks, or other configurations that run `AWS-RunPatchBaseline` on a schedule\) are targeting the same managed node around the same time\.
 
@@ -71,7 +71,7 @@ failed to run commands: exit status 126
 
 **Cause**: `/var/lib/amazon/` might be mounted with `noexec` permissions\. This is an issue because SSM Agent downloads payload scripts to `/var/lib/amazon/ssm` and runs them from that location\.
 
-**Solution**: Ensure that you have have configured exclusive partitions to `/var/log/amazon` and `/var/lib/amazon`, and that they're mounted with `exec` permissions\.
+**Solution**: Ensure that you have configured exclusive partitions to `/var/log/amazon` and `/var/lib/amazon`, and that they're mounted with `exec` permissions\.
 
 ### Issue: 'Unable to download payload' error<a name="patch-manager-troubleshooting-linux-4"></a>
 
