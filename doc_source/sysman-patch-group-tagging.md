@@ -35,7 +35,7 @@ If a managed node you expect to see isn't listed, see [Troubleshooting managed n
 
 1. In the left column, enter **Patch Group**\.
 
-1. In the right column, enter a value that helps you understand which instances will be patched\.
+1. In the right column, enter the name of the Patch Group\.
 
 1. Choose **Save**\.
 
@@ -53,7 +53,7 @@ If a managed node you expect to see isn't listed, see [Troubleshooting managed n
 
 1. For **Key**, enter **Patch Group**\.
 
-1. For **Value**, enter a value that helps you understand which instances will be patched\.
+1. For **Value**, enter the name of the Patch Group\.
 
 1. Choose **Save**\.
 
@@ -83,7 +83,7 @@ If a managed node you expect to see isn't listed, see [Troubleshooting managed n
 
 1. In the left column, enter **Patch Group**\.
 
-1. In the right column, enter a value that helps you understand which managed nodes will be patched\.
+1. In the right column, enter the name of the Patch Group\.
 
 1. Choose **Save**\.
 
