@@ -4,7 +4,7 @@ After you configure a patch baseline \(and optionally a patch group\), you can a
 
 1. Create a maintenance window with a schedule for your patching operations\.
 
-1. Choose the targets for the maintenance window by specifying the **Patch Group** tag for the tag name, and any value for which you have defined Amazon Elastic Compute Cloud \(Amazon EC2\) tags, for example, "production servers"\.
+1. Choose the targets for the maintenance window by specifying the `Patch Group` or `PatchGroup` tag for the tag name, and any value for which you have defined Amazon Elastic Compute Cloud \(Amazon EC2\) tags, for example, "web servers" or "US\-EAST\-PROD\. \(You must use `PatchGroup`, without a space, if you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS)\.
 
 1. Create a new maintenance window task, and specify the `AWS-RunPatchBaseline` document\. 
 

@@ -151,9 +151,9 @@ For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usag
 ### Issue: mismatched product family/product pairs<a name="patch-manager-troubleshooting-product-family-mismatch"></a>
 
 **Problem**: When you create a patch baseline in the Systems Manager console, you specify a product family and a product\. For example, you might choose:
-+ **Product family**: **Office**
++ **Product family**: `Office`
 
-  **Product**: **Office 2016**
+  **Product**: `Office 2016`
 
 **Cause**: If you attempt to create a patch baseline with a mismatched product family/product pair, an error message is displayed\. The following are reasons this can occur:
 + You selected a valid product family and product pair but then removed the product family selection\.

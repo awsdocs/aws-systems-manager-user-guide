@@ -20,7 +20,7 @@ Use the following procedure to create a custom patch baseline to be used exclusi
 
 1. Choose **Create patch baseline**\. 
 
-1. For **Name**, enter a name for your new patch baseline, for example, **MyWindowsServicePackPatchBaseline**\.
+1. For **Name**, enter a name for your new patch baseline, for example, `MyWindowsServicePackPatchBaseline`\.
 
 1. \(Optional\) For **Description**, enter a description for this patch baseline\.
 

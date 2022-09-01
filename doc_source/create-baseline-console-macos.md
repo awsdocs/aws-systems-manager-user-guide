@@ -20,7 +20,7 @@ For information about creating a patch baseline for Windows Server managed nodes
 
    If you are accessing Patch Manager for the first time in the current AWS Region, choose **View predefined patch baselines**, and then choose **Create patch baseline**\.
 
-1. For **Name**, enter a name for your new patch baseline, for example, **MymacOSPatchBaseline**\.
+1. For **Name**, enter a name for your new patch baseline, for example, `MymacOSPatchBaseline`\.
 
 1. \(Optional\) For **Description**, enter a description for this patch baseline\.
 

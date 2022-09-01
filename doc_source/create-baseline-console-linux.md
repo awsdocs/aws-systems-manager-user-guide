@@ -20,7 +20,7 @@ For information about creating a patch baseline for macOS managed nodes, see [Cr
 
    If you are accessing Patch Manager for the first time in the current AWS Region, choose **View predefined patch baselines**, and then choose **Create patch baseline**\.
 
-1. For **Name**, enter a name for your new patch baseline, for example, **MyRHELPatchBaseline**\.
+1. For **Name**, enter a name for your new patch baseline, for example, `MyRHELPatchBaseline`\.
 
 1. \(Optional\) For **Description**, enter a description for this patch baseline\.
 
@@ -36,7 +36,7 @@ For information about creating a patch baseline for macOS managed nodes, see [Cr
 **Tip**  
 You can configure a patch baseline to control whether minor version upgrades for Linux are installed, such as RHEL 7\.8\. Minor version upgrades can be installed automatically by Patch Manager provided that the update is available in the appropriate repository\.  
 For Linux operating systems, minor version upgrades aren't classified consistently\. They can be classified as bug fixes or security updates, or not classified, even within the same kernel version\. Here are a few options for controlling whether a patch baseline installs them\.   
-**Option 1**: The broadest approval rule to ensure minor version upgrades are installed when available is to specify **Classification** as **All** \(\*\) and choose the **Include nonsecurity updates** option\.
+**Option 1**: The broadest approval rule to ensure minor version upgrades are installed when available is to specify **Classification** as `All` \(\*\) and choose the **Include nonsecurity updates** option\.
 **Option 2**: To ensure patches for an operating system version are installed, you can use a wildcard \(\*\) to specify its kernel format in the **Patch exceptions** section of the baseline\. For example, the kernel format for RHEL 7\.\* is `kernel-3.10.0-*.el7.x86_64`\.  
 Enter `kernel-3.10.0-*.el7.x86_64` in the **Approved patches** list in your patch baseline to ensure all patches, including minor version upgrades, are applied to your RHEL 7\.\* managed nodes\. \(If you know the exact package name of a minor version patch, you can enter that instead\.\)
 **Option 3**: You can have the most control over which patches are applied to your managed nodes, including minor version upgrades, by using the [InstallOverrideList](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist) parameter in the `AWS-RunPatchBaseline` document\. For more information, see [About the `AWS-RunPatchBaseline` SSM document](patch-manager-about-aws-runpatchbaseline.md)\.

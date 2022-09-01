@@ -4,7 +4,7 @@ You can use a *patch group* to associate managed nodes with a specific patch bas
 
 When you run `AWS-RunPatchBaseline`, you can target managed nodes using their ID or tags\. SSM Agent and Patch Manager then evaluate which patch baseline to use based on the patch group value that you added to the managed node\.
 
-You create a patch group by using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Unlike other tagging scenarios across Systems Manager, a patch group *must* be defined with the tag key: **Patch Group**\. The key is case\-sensitive\. You can specify any value, for example "web servers," but the key must be **Patch Group**\.
+You create a patch group by using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Unlike other tagging scenarios across Systems Manager, a patch group *must* be defined with the either the tag key `Patch Group` or `PatchGroup`\. The key is case\-sensitive\. You can specify any value to help you identify and target the resources in that group, for example "web servers" or "US\-EAST\-PROD", but the key must be `Patch Group` or `PatchGroup`\.
 
 After you create a patch group and tag managed nodes, you can register the patch group with a patch baseline\. Registering the patch group with a patch baseline ensures that the nodes within the patch group use the rules defined in the associated patch baseline\. 
 
@@ -19,7 +19,7 @@ When the system runs the task to apply a patch baseline to a managed node, SSM A
 **Important**  
 A managed node can only be in one patch group\.  
 A patch group can be registered with only one patch baseline for each operating system type\.  
-To apply the `Patch Group` tag to an Amazon EC2 instance, the **Allow tags in instance metadata** option must not be enabled on the instance\. Allowing tags in instance metadata prevents tag key names from containing spaces\. For information about disabling the setting if you have enabled it, see [Turn off access to tags in instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#turn-off-access-to-tags-in-IMDS) in the *Amazon EC2 User Guide for Linux Instances*\.
+You can't apply the `Patch Group` tag \(with a space\) to an Amazon EC2 instance if the **Allow tags in instance metadata** option is enabled on the instance\. Allowing tags in instance metadata prevents tag key names from containing spaces\. If you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS), you must use the tag key `PatchGroup` \(without a space\)\.
 
 The following diagram shows a general example of the processes that Systems Manager performs when sending a Run Command task to your fleet of servers to patch using Patch Manager\. A similar process is used when a maintenance window is configured to send a command to patch using Patch Manager\.
 
@@ -30,9 +30,9 @@ In this example, we have three groups of EC2 instances for Windows Server with t
 
 | EC2 instances group | Tags | 
 | --- | --- | 
-|  Group 1  |  `key=OS,value=Windows` `key=Patch Group,value=DEV`  | 
+|  Group 1  |  `key=OS,value=Windows` `key=PatchGroup,value=DEV`  | 
 |  Group 2  |  `key=OS,value=Windows`  | 
-|  Group 3  |  `key=OS,value=Windows` `key=Patch Group,value=QA`  | 
+|  Group 3  |  `key=OS,value=Windows` `key=PatchGroup,value=QA`  | 
 
 For this example, we also have these two Windows Server patch baselines:
 
@@ -62,7 +62,7 @@ The general process to scan or install patches using Run Command, a capability o
      1. SSM Agent retrieves a patch baseline snapshot from Patch Manager based on the approval rules and exceptions configured in `pb-9876543210abcdef0` and proceeds to the next step\.
    + **No patch group tag added to instance:**
 
-     1. SSM Agent, which is installed on EC2 instances in group two, receives the command issued in Step 1 to begin a patching operation\. SSM Agent validates that the EC2 instances don't have a `Patch Group` tag applied and as a result, SSM Agent queries Patch Manager for the default Windows patch baseline\.
+     1. SSM Agent, which is installed on EC2 instances in group two, receives the command issued in Step 1 to begin a patching operation\. SSM Agent validates that the EC2 instances don't have a `Patch Group` or `PatchGroup` tag applied and as a result, SSM Agent queries Patch Manager for the default Windows patch baseline\.
 
      1. Patch Manager verifies that the default Windows Server patch baseline is `pb-0123456789abcdef0` and notifies SSM Agent\.
 

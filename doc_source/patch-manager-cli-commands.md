@@ -682,24 +682,24 @@ aws ssm remove-tags-from-resource ^
 
 ### Create a patch group<a name="patch-manager-cli-commands-create-patch-group"></a>
 
-To help you organize your patching efforts, we recommend that you add managed nodes to patch groups by using tags\. Patch groups require use of the tag key **Patch Group**\. You can specify any tag value, but the tag key must be **Patch Group**\. For more information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\.
+To help you organize your patching efforts, we recommend that you add managed nodes to patch groups by using tags\. Patch groups require use of the tag key `Patch Group` or `PatchGroup`\. If you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS), you must use `PatchGroup` \(without a space\)\. You can specify any tag value, but the tag key must be `Patch Group` or `PatchGroup`\. For more information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\.
 
 After you group your managed nodes using tags, you add the patch group value to a patch baseline\. By registering the patch group with a patch baseline, you ensure that the correct patches are installed during the patching operation\.
 
 #### Task 1: Add EC2 instances to a patch group using tags<a name="create-patch-group-cli-1"></a>
 
 **Note**  
-When using the Amazon Elastic Compute Cloud \(Amazon EC2\) console and AWS CLI, it's possible to apply `Key = Patch Group` tags to instances that aren't yet configured for use with Systems Manager\. If an EC2 instance you expect to see in Patch Manager isn't listed after applying the `Patch Group` tag, see [Troubleshooting managed node availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
+When using the Amazon Elastic Compute Cloud \(Amazon EC2\) console and AWS CLI, it's possible to apply `Key = Patch Group` or `Key = PatchGroup` tags to instances that aren't yet configured for use with Systems Manager\. If an EC2 instance you expect to see in Patch Manager isn't listed after applying the `Patch Group` or `Key = PatchGroup` tag, see [Troubleshooting managed node availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
-Run the following command to add the `Patch Group` tag to an EC2 instance\.
+Run the following command to add the `PatchGroup` tag to an EC2 instance\.
 
 ```
-aws ec2 create-tags --resources "i-1234567890abcdef0" --tags "Key=Patch Group,Value=GroupValue"
+aws ec2 create-tags --resources "i-1234567890abcdef0" --tags "Key=PatchGroup,Value=GroupValue"
 ```
 
 #### Task 2: Add managed nodes to a patch group using tags<a name="create-patch-group-cli-2"></a>
 
-Run the following command to add the `Patch Group` tag to a managed node\.
+Run the following command to add the `PatchGroup` tag to a managed node\.
 
 ------
 #### [ Linux & macOS ]
@@ -708,7 +708,7 @@ Run the following command to add the `Patch Group` tag to a managed node\.
 aws ssm add-tags-to-resource \
     --resource-type "ManagedInstance" \
     --resource-id "mi-0123456789abcdefg" \
-    --tags "Key=Patch Group,Value=GroupValue"
+    --tags "Key=PatchGroup,Value=GroupValue"
 ```
 
 ------
@@ -718,14 +718,14 @@ aws ssm add-tags-to-resource \
 aws ssm add-tags-to-resource ^
     --resource-type "ManagedInstance" ^
     --resource-id "mi-0123456789abcdefg" ^
-    --tags "Key=Patch Group,Value=GroupValue"
+    --tags "Key=PatchGroup,Value=GroupValue"
 ```
 
 ------
 
 #### Task 3: Add a patch group to a patch baseline<a name="create-patch-group-cli-3"></a>
 
-Run the following command to associate a `Patch Group` tag value to the specified patch baseline\.
+Run the following command to associate a `PatchGroup` tag value to the specified patch baseline\.
 
 ------
 #### [ Linux & macOS ]
@@ -1269,7 +1269,7 @@ Run the following command in the AWS Command Line Interface \(AWS CLI\) to view 
 aws ssm describe-instance-patch-states --instance-id instance-id
 ```
 
-Replace *instance\-id* with the ID of the managed node for which you want to view results, in the format **i\-02573cafcfEXAMPLE** or **mi\-0282f7c436EXAMPLE**\.
+Replace *instance\-id* with the ID of the managed node for which you want to view results, in the format `i-02573cafcfEXAMPLE` or `mi-0282f7c436EXAMPLE`\.
 
 The systems returns information like the following\.
 
@@ -1435,7 +1435,7 @@ Run the following command\.
 ```
 aws ssm send-command \
     --document-name 'AWS-RunPatchBaseline' \
-    --targets Key='tag:Patch Group',Values='Web servers' \
+    --targets Key='tag:PatchGroup',Values='Web servers' \
     --parameters 'Operation=Scan' \
     --timeout-seconds 600
 ```
@@ -1446,7 +1446,7 @@ aws ssm send-command \
 ```
 aws ssm send-command ^
     --document-name "AWS-RunPatchBaseline" ^
-    --targets Key="tag:Patch Group",Values="Web servers" ^
+    --targets Key="tag:PatchGroup",Values="Web servers" ^
     --parameters "Operation=Scan" ^
     --timeout-seconds 600
 ```
@@ -1471,7 +1471,7 @@ The system returns information like the following\.
         "InstanceIds": [],
         "Targets": [
             {
-                "Key": "tag:Patch Group",
+                "Key": "tag:PatchGroup",
                 "Values": [
                     "Web servers"
                 ]
@@ -1567,7 +1567,7 @@ Run the following command\.
 ```
 aws ssm send-command \
     --document-name 'AWS-RunPatchBaseline' \
-    --targets Key='tag:Patch Group',Values='Web servers' \
+    --targets Key='tag:PatchGroup',Values='Web servers' \
     -parameters 'Operation=Install' \
     --timeout-seconds 600
 ```
@@ -1578,7 +1578,7 @@ aws ssm send-command \
 ```
 aws ssm send-command ^
     --document-name "AWS-RunPatchBaseline" ^
-    --targets Key="tag:Patch Group",Values="Web servers" ^
+    --targets Key="tag:PatchGroup",Values="Web servers" ^
     --parameters "Operation=Install" ^
     --timeout-seconds 600
 ```
@@ -1603,7 +1603,7 @@ The system returns information like the following\.
         "InstanceIds": [],
         "Targets": [
             {
-                "Key": "tag:Patch Group",
+                "Key": "tag:PatchGroup",
                 "Values": [
                     "Web servers"
                 ]

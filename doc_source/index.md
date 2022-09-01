@@ -351,7 +351,6 @@ sponsored by Amazon.
             + [Configuring instance tiers](systems-manager-managed-instances-tiers.md)
                + [Turning on the advanced-instances tier](systems-manager-managedinstances-advanced.md)
                + [Reverting from the advanced-instances tier to the standard-instances tier](systems-manager-managed-instances-advanced-reverting.md)
-            + [Default Host Management Configuration](managed-instances-default-host-management.md)
             + [Resetting passwords on managed nodes](managed-instances-password-reset.md)
             + [Deregistering managed nodes in a hybrid environment](systems-manager-managed-instances-advanced-deregister.md)
             + [Troubleshooting managed node availability](troubleshooting-managed-instances.md)

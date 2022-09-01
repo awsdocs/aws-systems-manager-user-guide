@@ -191,7 +191,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
    aws ssm register-target-with-maintenance-window \
        --window-id mw-0c50858d01EXAMPLE \
-       --targets "Key=tag:Patch Group,Values=Database Servers" \
+       --targets "Key=tag:PatchGroup,Values=Database Servers" \
        --owner-information "Database Servers" \
        --resource-type "INSTANCE"
    ```
@@ -202,7 +202,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
    aws ssm register-target-with-maintenance-window ^
        --window-id mw-0c50858d01EXAMPLE ^
-       --targets "Key=tag:Patch Group,Values=Database Servers" ^
+       --targets "Key=tag:PatchGroup,Values=Database Servers" ^
        --owner-information "Database Servers" ^
        --resource-type "INSTANCE"
    ```
@@ -223,7 +223,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
    aws ssm register-target-with-maintenance-window \
    --window-id mw-9a8b7c6d5eEXAMPLE \
-   --targets "Key=tag:Patch Group,Values=Front-End Servers" \
+   --targets "Key=tag:PatchGroup,Values=Front-End Servers" \
    --owner-information "Front-End Servers" \
    --resource-type "INSTANCE"
    ```
@@ -234,7 +234,7 @@ The `OperatingSystem` parameter and `PatchFilters` vary depending on the operati
    ```
    aws ssm register-target-with-maintenance-window ^
        --window-id mw-9a8b7c6d5eEXAMPLE ^
-       --targets "Key=tag:Patch Group,Values=Front-End Servers" ^
+       --targets "Key=tag:PatchGroup,Values=Front-End Servers" ^
        --owner-information "Front-End Servers" ^
        --resource-type "INSTANCE"
    ```

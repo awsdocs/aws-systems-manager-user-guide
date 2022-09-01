@@ -17,7 +17,7 @@ You can also create a custom patch baseline to update applications released by M
 To patch applications released by Microsoft on virtual machines \(VMs\) and managed nodes, you must turn on the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 
 **Windows update option for "other Microsoft products"**  
-In order for Patch Manager to be able to patch applications released by Microsoft on your Windows Server managed nodes, the Windows Update option **Give me updates for other Microsoft products when I update Windows** must be activated on the managed node\.
+In order for Patch Manager to be able to patch applications released by Microsoft on your Windows Server managed nodes, the Windows Update option **Give me updates for other Microsoft products when I update Windows** must be activated on the managed node\. 
 
 For information about allowing this option on a single managed node, see [Update Office with Microsoft Update](https://support.microsoft.com/en-us/office/update-office-with-microsoft-update-f59d3f9d-bd5d-4d3b-a08e-1dd659cf5282) on the Microsoft Support website\.
 

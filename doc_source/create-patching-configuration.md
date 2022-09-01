@@ -28,7 +28,7 @@ If you plan to add the patching configuration to a maintenance window, you must 
    + **Select a patch group**: Choose the name of an existing patch group that includes the managed nodes you want to patch\.
 **Note**  
 The **Select a patch group** list displays only those patch groups that are attached to, or registered with, a patch baseline\. You can register a patch group with a patch baseline in one of two ways\. You can use the [register\-patch\-baseline\-for\-patch\-group](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-patch-baseline-for-patch-group.html) AWS Command Line Interface \(AWS CLI\) command, or you can view a patch baseline in the Systems Manager console and select **Modify patch groups** from the **Actions** menu\.  
-Alternatively, to specify an existing patch group that isn't registered with the patch baseline, choose **Enter instance tag**, enter **Patch Group** as the tag key and the patch group's name as the tag value\.
+Alternatively, to specify an existing patch group that isn't registered with the patch baseline, choose **Enter instance tag**, enter `Patch Group` or `PatchGroup`as the tag key and the patch group's name as the tag value\. \(You must use `PatchGroup`, without a space, if you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS)\. 
    + **Select instances manually**: Select the check box next to the name of each managed node you want to patch\.
 **Note**  
 If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](troubleshooting-managed-instances.md) for troubleshooting tips\.

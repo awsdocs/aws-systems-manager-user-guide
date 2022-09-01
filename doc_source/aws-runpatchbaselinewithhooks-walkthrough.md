@@ -84,13 +84,13 @@ The examples in this walkthrough are for demonstration purposes only and not mea
 
    1. For **Operation**, choose **Install**\.
 
-   1. \(Optional\) For **Snapshot Id**, provide a GUID that you generate to help speed up the operation and ensure consistency\. The GUID value can be as simple as **00000000\-0000\-0000\-0000\-111122223333**\.
+   1. \(Optional\) For **Snapshot Id**, provide a GUID that you generate to help speed up the operation and ensure consistency\. The GUID value can be as simple as `00000000-0000-0000-0000-111122223333`\.
 
-   1. For **Pre Install Hook Doc Name**, enter **NodeJSAppPrePatch**\. 
+   1. For **Pre Install Hook Doc Name**, enter `NodeJSAppPrePatch`\. 
 
-   1. For **Post Install Hook Doc Name**, enter **NodeJSAppPostPatch**\. 
+   1. For **Post Install Hook Doc Name**, enter `NodeJSAppPostPatch`\. 
 
-   1. For **On ExitHook Doc Name**,enter **NodeJSAppOnExitPatch**\. 
+   1. For **On ExitHook Doc Name**,enter `NodeJSAppOnExitPatch`\. 
 
 1. For **Targets**, identify your managed nodes by specifying tags, choosing nodes manually, choosing a resource group, or choosing all managed nodes\.
 

@@ -522,100 +522,6 @@ arn:aws:ssm:*:*:servicesetting/ssm/opsdata/*
 }
 ```
 
-## AWS managed policy: `AmazonSSMManagedEC2InstanceDefaultPolicy`<a name="security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy"></a>
-
-You shouldn't attach `AmazonSSMManagedEC2InstanceDefaultPolicy` to your IAM entities\. This policy should be attached to a role that grants permissions to your Amazon EC2 instances to allow Systems Manager functionality\. For more information, see [Default Host Management Configuration](managed-instances-default-host-management.md)\.
-
-This policy grants permissions that allow the SSM Agent on your Amazon EC2 instance to retrieve Documents, execute commands using Run Command, establish sessions using Session Manager, collect an inventory of the instance, and scan for patches and patch compliance using Patch Manager\.
-
-Systems Manager uses a personalized authorization token for each instance to ensure that the SSM agent performs the API operations on the correct instance\. Systems Manager validates the personalized authorization token against the ARN of the instance, provided in the API operation\.
-
-**Permissions details**
-
-The `AmazonSSMManagedEC2InstanceDefaultPolicy` role permissions policy allows Systems Manager to complete the following actions on all related resources:
-+ `ssm:DescribeAssociation`
-+ `ssm:GetDeployablePatchSnapshotForInstance`
-+ `ssm:GetDocument`
-+ `ssm:DescribeDocument`
-+ `ssm:GetManifest`
-+ `ssm:ListAssociations`
-+ `ssm:ListInstanceAssociations`
-+ `ssm:PutInventory`
-+ `ssm:PutComplianceItems`
-+ `ssm:PutConfigurePackageResult`
-+ `ssm:UpdateAssociationStatus`
-+ `ssm:UpdateInstanceAssociationStatus`
-+ `ssm:UpdateInstanceInformation`
-+ `ssmmessages:CreateControlChannel`
-+ `ssmmessages:CreateDataChannel`
-+ `ssmmessages:OpenControlChannel`
-+ `ssmmessages:OpenDataChannel`
-+ `ec2messages:AcknowledgeMessage`
-+ `ec2messages:DeleteMessage`
-+ `ec2messages:FailMessage`
-+ `ec2messages:GetEndpoint`
-+ `ec2messages:GetMessages`
-+ `ec2messages:SendReply`
-
-The following API operations do not allow the SSM Agent to make calls for other instances:
-+ `ec2messages:GetMessages`
-+ `ec2messages:SendReply`
-+ `ssm:PutComplianceItems`
-+ `ssm:UpdateAssociationStatus`
-+ `ssm:UpdateInstanceAssociationStatus`
-+ `ssmmessages:CreateControlChannel`
-
-**Full `AmazonSSMManagedEC2InstanceDefaultPolicy` policy**
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssm:DescribeAssociation",
-                "ssm:GetDeployablePatchSnapshotForInstance",
-                "ssm:GetDocument",
-                "ssm:DescribeDocument",
-                "ssm:GetManifest",
-                "ssm:ListAssociations",
-                "ssm:ListInstanceAssociations",
-                "ssm:PutInventory",
-                "ssm:PutComplianceItems",
-                "ssm:PutConfigurePackageResult",
-                "ssm:UpdateAssociationStatus",
-                "ssm:UpdateInstanceAssociationStatus",
-                "ssm:UpdateInstanceInformation"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ssmmessages:CreateControlChannel",
-                "ssmmessages:CreateDataChannel",
-                "ssmmessages:OpenControlChannel",
-                "ssmmessages:OpenDataChannel"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ec2messages:AcknowledgeMessage",
-                "ec2messages:DeleteMessage",
-                "ec2messages:FailMessage",
-                "ec2messages:GetEndpoint",
-                "ec2messages:GetMessages",
-                "ec2messages:SendReply"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
-
 
 
 
@@ -631,8 +537,7 @@ View details about updates to AWS managed policies for Systems Manager since thi
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-|  [`AmazonSSMManagedEC2InstanceDefaultPolicy`](#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy) – New policy  |  Systems Manager added a new policy to allow Systems Manager functionality on Amazon EC2 instances without the use of an IAM instance profile\.  | August 18, 2022 | 
-|  [AmazonSSMServiceRolePolicy](#security-iam-awsmanpol-AmazonSSMServiceRolePolicy) – Update to an existing policy\.  |  Systems Manager added new permissions to allow Explorer to create a managed rule when you turn on Security Hub from Explorer or OpsCenter\. New permissions were added to check that config and the compute\-optimizer meet the necessary requirements before allowing OpsData\.  | April 27, 2021 | 
+|  `AmazonSSMServiceRolePolicy` – Update to an existing policy\.  |  Systems Manager added new permissions to allow Explorer to create a managed rule when you turn on Security Hub from Explorer or OpsCenter\. New permissions were added to check that config and the compute\-optimizer meet the necessary requirements before allowing OpsData\.  | April 27, 2021 | 
 |  [`AWSSystemsManagerOpsDataSyncServiceRolePolicy`](#security-iam-awsmanpol-AWSSystemsManagerOpsDataSyncServiceRolePolicy) – New policy\.  |  Systems Manager added a new policy to create and update OpsItems and OpsData from Security Hub findings in Explorer and OpsCenter\.  | April 27, 2021 | 
 |  `AmazonSSMServiceRolePolicy` – Update to an existing policy\.  |  Systems Manager added new permissions to allow viewing aggregate OpsData and OpsItems details from multiple accounts and AWS Regions in Explorer\.  | March 24, 2021 | 
 |  Systems Manager started tracking changes  |  Systems Manager started tracking changes for its AWS managed policies\.  | March 12, 2021 | 
