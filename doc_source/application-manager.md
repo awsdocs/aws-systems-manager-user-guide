@@ -61,7 +61,7 @@ Application Manager includes the following features:
   However, you can't manage or view operations information about your Amazon EKS pods or containers in Application Manager\. You can only manage and view operations information about the infrastructure that is hosting your Amazon EKS resources\.
 + **View resource cost details for an application**
 
-  Application Manager is integrated with AWS Billing and Cost Management through the **Cost Explorer** widget\. After you enable Cost Explorer in the Billing and Cost Management console, the Cost Explorer widget in Application Manager shows cost data for a specific non\-container application or application component\. You can use filters in the widget to view cost data according to different time periods, granularities, and cost types in either a bar or line chart\. 
+  Application Manager is integrated with AWS Cost Explorer, a feature of AWS Billing and Cost Management, through the **Cost** widget\. After you enable Cost Explorer in the Billing and Cost Management console, the **Cost** widget in Application Manager shows cost data for a specific non\-container application or application component\. You can use filters in the widget to view cost data according to different time periods, granularities, and cost types in either a bar or line chart\. 
 + **View detailed resource information in one console**
 
   Choose a resource name listed in Application Manager and view contextual information and operations information about that resource without having to leave Systems Manager\.

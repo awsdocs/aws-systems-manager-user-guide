@@ -1,6 +1,6 @@
 # Integration with AWS services<a name="integrations-aws"></a>
 
-Through the use of Systems Manager Command documents \(SSM documents\) and Automation runbooks, you can use AWS Systems Manager to integrate with AWS services\. For more information about these resources, see [AWS Systems Manager documents](sysman-ssm-docs.md)\.
+Through the use of Systems Manager Command documents \(SSM documents\) and Automation runbooks, you can use AWS Systems Manager to integrate with AWS services\. For more information about these resources, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 Systems Manager is integrated with the following AWS services\.
 

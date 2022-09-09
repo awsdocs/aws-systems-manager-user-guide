@@ -1,6 +1,6 @@
-# About targets<a name="automation-working-targets"></a>
+# Mapping targets for an automation<a name="automation-working-targets"></a>
 
-Use the `Targets` parameter to quickly define which resources in your fleet can run an automation\. For example, if you want to run an automation that restarts your managed instances, then instead of manually selecting dozens of instance IDs in the console or typing them in a command, you can target instances by specifying Amazon Elastic Compute Cloud \(Amazon EC2\) tags with the `Targets` parameter\.
+Use the `Targets` parameter to quickly define which resources are targeted by an automation\. For example, if you want to run an automation that restarts your managed instances, then instead of manually selecting dozens of instance IDs in the console or typing them in a command, you can target instances by specifying Amazon Elastic Compute Cloud \(Amazon EC2\) tags with the `Targets` parameter\.
 
 When you run an automation that uses a target, AWS Systems Manager creates a child automation for each target\. For example, if you target Amazon Elastic Block Store \(Amazon EBS\) volumes by specifying tags, and those tags resolve to 100 Amazon EBS volumes, then Systems Manager creates 100 child automations\. The parent automation is complete when all child automations reach a final state\.
 

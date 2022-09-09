@@ -1,9 +1,6 @@
-# Running an automation with approvers<a name="automation-working-executing-approval"></a>
+# Run an automation with approvers<a name="automation-working-executing-approval"></a>
 
 The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\) to run an automation with approvals using simple execution\. The automation uses the automation action `aws:approve`, which temporarily pauses the automation until the designated principals either approve or deny the action\. The automation runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to use the runbook, and any actions called by the runbook\. If you have administrator permissions in IAM, then you already have permission to use this runbook\.
-
-**Note**  
-For information about how to run an automation that uses an IAM service role or more advanced forms of delegated administration, see [Running automations by using different security models](automation-walk-security.md)\. 
 
 **Before you begin**  
 In addition to the standard inputs required by the runbook, the `aws:approve` action requires the following two parameters: 

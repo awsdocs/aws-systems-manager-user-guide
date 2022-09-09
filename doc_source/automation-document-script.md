@@ -14,8 +14,6 @@ When a step in a runbook includes the `aws:executeScript` action, however, an IA
 + The permissions of an IAM service role, or Assume role, that is specified in the runbook or passed in as a parameter\.
 + If no role is found, Automation attempts to run the Python or PowerShell script specified for `aws:executeScript` without any permissions\. If the script is calling an AWS API operation \(for example the Amazon EC2 `CreateImage` operation\), or attempting to act on an AWS resource \(such as an EC2 instance\), the step containing the script fails, and Systems Manager returns an error message reporting the failure\. 
 
-For more information about how to use a runbook that uses an IAM service role or more advanced forms of delegated administration instead, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\.
-
 ## Adding scripts to runbooks<a name="adding-scripts"></a>
 
 You can add scripts to your runbooks by including the script inline as part of a step in the runbook\. You can also attach scripts to the runbook by uploading the scripts from your local machine or by specifying an Amazon Simple Storage Service \(Amazon S3\) bucket where the scripts are located\. After a step that runs a script is complete, the output of the script is available as a JSON object, which you can then use as input for subsequent steps in your runbook\.

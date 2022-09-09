@@ -1,4 +1,4 @@
-# About concurrency and error thresholds<a name="automation-working-rate-controls"></a>
+# Control automations at scale<a name="automation-working-rate-controls"></a>
 
 You can control the deployment of an automation across a fleet of AWS resources by specifying a concurrency value and an error threshold\. Concurrency and error threshold are collectively called *rate controls*\.
 

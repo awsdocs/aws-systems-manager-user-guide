@@ -11,11 +11,12 @@ Going further, you can create *resource groups* by specifying the same tags for 
 The remainder of this chapter describes how to add and remove tags from Systems Manager resources\.
 
 **Topics**
-+ [Taggable Systems Manager resources](taggable-resources.md)
++ [Systems Manager resources you can tag](taggable-resources.md)
++ [Tagging Systems Manager associations](tagging-associations.md)
++ [Tagging automations](tagging-automations.md)
 + [Tagging Systems Manager documents](tagging-documents.md)
 + [Tagging maintenance windows](tagging-maintenance-windows.md)
 + [Tagging managed nodes](tagging-managed-instances.md)
 + [Tagging OpsItems](tagging-opsitems.md)
-+ [Tagging automations](tagging-automations.md)
 + [Tagging Systems Manager parameters](tagging-parameters.md)
 + [Tagging patch baselines](tagging-patch-baselines.md)

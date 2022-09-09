@@ -4,7 +4,10 @@ State Manager, a capability of AWS Systems Manager, helps you keep your AWS reso
 
 An association specifies a schedule for when to apply the configuration and the targets for the association\. For example, an association for antivirus software might run once a day on all managed nodes in an AWS account\. If the software isn't installed on a node, then the association could instruct State Manager to install it\. If the software is installed, but the service isn't running, then the association could instruct State Manager to start the service\.
 
-The following procedures describe how to create an association that uses either a `Command` or a `Policy` document to target managed nodes\. For information about creating an association that uses an Automation runbook to target nodes or other types of AWS resources, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
+**Note**  
+You can assign tags to an association when you create it by using a command line tool such as the AWS CLI or AWS Tools for PowerShell\. Adding tags to an association by using the Systems Manager console isn't supported\. For more information about tags, see [Tagging Systems Manager resources](tagging-resources.md)\. 
+
+The following procedures describe how to create an association that uses either a `Command` or a `Policy` document to target managed nodes\. For information about creating an association that uses an Automation runbook to target nodes or other types of AWS resources, see [Run automations with State Manager associations](automation-sm-target.md)\.
 
 **Before you begin**  
 When you create an association, you can either specify a schedule for the association or run the association immediately\. If you specify a schedule, you must enter the schedule in the form of either a cron or rate expression\. For more information about cron and rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
@@ -56,7 +59,7 @@ When you create an association, you can choose an AWS resource group of managed 
 
 1. In the **Name** field, specify a name\.
 
-1. In the **Document** list, choose the option next to a document name\. Note the document type\. This procedure applies to `Command` and `Policy` documents\. For information about creating an association that uses an Automation runbook, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
+1. In the **Document** list, choose the option next to a document name\. Note the document type\. This procedure applies to `Command` and `Policy` documents\. For information about creating an association that uses an Automation runbook, see [Run automations with State Manager associations](automation-sm-target.md)\.
 **Important**  
 State Manager doesn't support running associations that use a new version of a document if that document is shared from another account\. State Manager always runs the `default` version of a document if shared from another account, even though the Systems Manager console shows that a new version was processed\. If you want to run an association using a new version of a document shared form another account, you must set the document version to `default`\.
 
@@ -133,7 +136,7 @@ Target specific nodes by specifying IDs
 --targets Key=InstanceIds,Values=i-02573cafcfEXAMPLE,i-0471e04240EXAMPLE,i-07782c72faEXAMPLE
 ```
 
-Target instances by using Amazon EC2 tags
+Target instances by using tags
 
 ```
 --targets Key=tag:tag-key,Values=tag-value-1,tag-value-2,tag-value-3
@@ -194,7 +197,8 @@ When you create an association, you specify when the schedule runs\. Specify the
        --max-concurrency a_number_of_instances_or_a_percentage_of_target_set \
        --compliance-severity severity_level \
        --calendar-names change_calendar_names \
-       --target-locations aws_region_or_account
+       --target-locations aws_region_or_account \
+       --tags "Key=tag_key,Value=tag_value"
    ```
 
 ------
@@ -216,7 +220,8 @@ When you create an association, you specify when the schedule runs\. Specify the
        --max-concurrency a_number_of_instances_or_a_percentage_of_target_set ^
        --compliance-severity severity_level ^
        --calendar-names change_calendar_names ^
-       --target-locations aws_region_or_account
+       --target-locations aws_region_or_account ^
+       --tags "Key=tag_key,Value=tag_value"
    ```
 
 ------
@@ -238,7 +243,8 @@ When you create an association, you specify when the schedule runs\. Specify the
        -MaxConcurrency a_number_of_instances_or_a_percentage_of_target_set `
        -ComplianceSeverity severity_level `
        -CalendarNames change_calendar_names `
-       -TargetLocations aws_region_or_account
+       -TargetLocations aws_region_or_account `
+       -Tags "Key=tag_key,Value=tag_value"
    ```
 
 ------

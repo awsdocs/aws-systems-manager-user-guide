@@ -1,11 +1,8 @@
-# Running an automation manually<a name="automation-working-executing-manually"></a>
+# Run an automation manually<a name="automation-working-executing-manually"></a>
 
 The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\) to run an automation using the manual execution mode\. By using the manual execution mode, the automation starts in a *Waiting* status and pauses in the *Waiting* status between each step\. This allows you to control when the automation proceeds, which is useful if you need to review the result of a step before continuing\.
 
 The automation runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to use the runbook, and any actions called by the runbook\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
-
-**Note**  
-For information about how to run an automation that uses an IAM service role or more advanced forms of delegated administration, see [Running automations by using different security models](automation-walk-security.md)\. 
 
 ## Running an automation step by step \(console\)<a name="automation-working-executing-manually-console"></a>
 

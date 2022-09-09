@@ -5,12 +5,17 @@ In Application Manager, a component of AWS Systems Manager, the **Overview** tab
 **About Application Insights**  
 CloudWatch Application Insights identifies and sets up key metrics, logs, and alarms across your application resources and technology stack\. Application Insights continuously monitors metrics and logs to detect and correlate anomalies and errors\. When the system detects errors or anomalies, Application Insights generates CloudWatch Events that you can use to set up notifications or take actions\. If you choose the **Edit configuration** button on the **Monitoring** tab, the system opens the CloudWatch Application Insights console\. For more information about Application Insights, see [What is Amazon CloudWatch Application Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-what-is.html) in the *Amazon CloudWatch User Guide*\.
 
+**About Cost Explorer**  
+Application Manager is integrated with AWS Cost Explorer, a feature of [AWS Cost Management](https://docs.aws.amazon.com/account-billing/index.html), through the **Cost** widget\. After you enable Cost Explorer in the Cost Management console, the **Cost** widget in Application Manager shows cost data for a specific non\-container application or application component\. You can use filters in the widget to view cost data according to different time periods, granularities, and cost types in either a bar or line chart\. 
+
+You can enable this feature by choosing the **Go to AWS Cost Management console** button\. By default, the data is filtered to the past three months\. For a non\-container application, if you choose the **View all** button, Application Manager opens the **Resources** tab\. For container applications, the **View all** button opens the AWS Cost Explorer console\.
+
 **Actions you can perform on this page**  
 You can perform the following actions on this page:
 + In the **Alarms** section, choose a number to open the **Monitoring** tab where you can view more details about alarms of the chosen severity\.
 + In the **OpsItems** section, choose a severity to open the **OpsItems** tab where you can view all OpsItems of the chosen severity\.
 + In the **Runbooks** section, choose a runbook to open it in the Systems Manager **Documents** page where you can view more details about the document\.
-+ If you enabled AWS Cost Explorer, the **Cost Explorer** section shows cost data for a specific application or application component\. You can enable this feature by choosing the **Go to Billing console** button and then choosing **Cost Explorer** in the Billing and Cost Management console\. By default, the data is filtered to the past three months\. For a non\-container application, if you choose the **View all** button in this section, Application Manager opens the **Resources** tab\. For container applications, the **View all** button opens the AWS Cost Explorer console\.
++ If you enabled AWS Cost Explorer, the **Cost Explorer** section shows cost data for a specific application or application component\. 
 + Choose a **View all** button to open the corresponding tab\. You can view all alarms, OpsItems, or runbook history entries for the application\.
 
 **To open the **Overview** tab**

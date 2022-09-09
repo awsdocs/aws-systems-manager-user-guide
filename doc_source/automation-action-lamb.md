@@ -65,8 +65,14 @@ ClientContext
 The client\-specific information\.  
 Required: No
 
+InputPayload  
+A YAML or JSON object that is passed to the first parameter of the handler\. You can use this input to pass data to the function\. This input provides more flexibility and support than the legacy `Payload` input\. If you define both `InputPayload` and `Payload` for the action, `InputPayload` takes precedence and the `Payload` value is not used\.  
+Type: StringMap  
+Required: No
+
 Payload  
-The JSON input for your Lambda function\.  
+A JSON string that's passed to the first parameter of the handler\. This can be used to pass input data to the function\. We recommend using `InputPayload` input for added functionality\.  
+Type: String  
 Required: NoOutput
 
 StatusCode  

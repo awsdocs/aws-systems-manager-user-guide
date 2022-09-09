@@ -166,11 +166,11 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution \
-       --document-name runbook name \
-       --parameters AutomationAssumeRole=arn:aws:iam::management account ID:role/AWS-SystemsManager-AutomationAdministrationRole \
-       --target-parameter-name parameter name \
-       --targets Key=tag key,Values=value \
-       --target-locations Accounts=account ID,account ID 2,Regions=Region,Region 2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+           --document-name runbook name \
+           --parameters AutomationAssumeRole=arn:aws:iam::management account ID:role/AWS-SystemsManager-AutomationAdministrationRole \
+           --target-parameter-name parameter name \
+           --targets Key=tag key,Values=value \
+           --target-locations Accounts=account ID,account ID 2,Regions=Region,Region 2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
 ------
@@ -178,11 +178,11 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution ^
-       --document-name runbook name ^
-       --parameters AutomationAssumeRole=arn:aws:iam::management account ID:role/AWS-SystemsManager-AutomationAdministrationRole ^
-       --target-parameter-name parameter name ^
-       --targets Key=tag key,Values=value ^
-       --target-locations Accounts=account ID,account ID 2,Regions=Region,Region 2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+           --document-name runbook name ^
+           --parameters AutomationAssumeRole=arn:aws:iam::management account ID:role/AWS-SystemsManager-AutomationAdministrationRole ^
+           --target-parameter-name parameter name ^
+           --targets Key=tag key,Values=value ^
+           --target-locations Accounts=account ID,account ID 2,Regions=Region,Region 2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
 ------
@@ -190,19 +190,19 @@ Before you complete the following procedure, note the following information:
 
    ```
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
-   $Targets.Key = "tag key"
-   $Targets.Values = "value"
-   
-   Start-SSMAutomationExecution `
-       -DocumentName "runbook name" `
-       -Parameter @{
-       "AutomationAssumeRole"="arn:aws:iam::management account ID:role/AWS-SystemsManager-AutomationAdministrationRole" } `
-       -TargetParameterName "parameter name" `
-       -Target $Targets `
-       -TargetLocation @{
-       "Accounts"="account ID","account ID 2";
-       "Regions"="Region","Region 2";
-       "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
+       $Targets.Key = "tag key"
+       $Targets.Values = "value"
+       
+       Start-SSMAutomationExecution `
+           -DocumentName "runbook name" `
+           -Parameter @{
+           "AutomationAssumeRole"="arn:aws:iam::management account ID:role/AWS-SystemsManager-AutomationAdministrationRole" } `
+           -TargetParameterName "parameter name" `
+           -Target $Targets `
+           -TargetLocation @{
+           "Accounts"="account ID","account ID 2";
+           "Regions"="Region","Region 2";
+           "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
    ```
 
 ------
@@ -216,11 +216,11 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution \
-       --document-name AWS-RestartEC2Instance \
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
-       --target-parameter-name InstanceId \
-       --targets Key=tag:Env,Values=PROD \
-       --target-locations Accounts=123456789012,987654321098,Regions=us-east-2,us-west-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+           --document-name AWS-RestartEC2Instance \
+           --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
+           --target-parameter-name InstanceId \
+           --targets Key=tag:Env,Values=PROD \
+           --target-locations Accounts=123456789012,987654321098,Regions=us-east-2,us-west-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
 ------
@@ -228,11 +228,11 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution ^
-       --document-name AWS-RestartEC2Instance ^
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
-       --target-parameter-name InstanceId ^
-       --targets Key=tag:Env,Values=PROD ^
-       --target-locations Accounts=123456789012,987654321098,Regions=us-east-2,us-west-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+           --document-name AWS-RestartEC2Instance ^
+           --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
+           --target-parameter-name InstanceId ^
+           --targets Key=tag:Env,Values=PROD ^
+           --target-locations Accounts=123456789012,987654321098,Regions=us-east-2,us-west-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
 ------
@@ -240,19 +240,19 @@ Before you complete the following procedure, note the following information:
 
    ```
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
-   $Targets.Key = "tag:Env"
-   $Targets.Values = "PROD"
-   
-   Start-SSMAutomationExecution `
-       -DocumentName "AWS-RestartEC2Instance" `
-       -Parameter @{
-       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole" } `
-       -TargetParameterName "InstanceId" `
-       -Target $Targets `
-       -TargetLocation @{
-       "Accounts"="123456789012","987654321098";
-       "Regions"="us-east-2","us-west-1";
-       "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
+       $Targets.Key = "tag:Env"
+       $Targets.Values = "PROD"
+       
+       Start-SSMAutomationExecution `
+           -DocumentName "AWS-RestartEC2Instance" `
+           -Parameter @{
+           "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole" } `
+           -TargetParameterName "InstanceId" `
+           -Target $Targets `
+           -TargetLocation @{
+           "Accounts"="123456789012","987654321098";
+           "Regions"="us-east-2","us-west-1";
+           "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
    ```
 
 ------
@@ -264,11 +264,11 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution \
-       --document-name AWS-RestartEC2Instance \
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
-       --target-parameter-name InstanceId \
-       --targets Key=ResourceGroup,Values=prod-instances \
-       --target-locations Accounts=123456789012,987654321098,Regions=eu-central-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+           --document-name AWS-RestartEC2Instance \
+           --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
+           --target-parameter-name InstanceId \
+           --targets Key=ResourceGroup,Values=prod-instances \
+           --target-locations Accounts=123456789012,987654321098,Regions=eu-central-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
 ------
@@ -276,11 +276,11 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution ^
-       --document-name AWS-RestartEC2Instance ^
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
-       --target-parameter-name InstanceId ^
-       --targets Key=ResourceGroup,Values=prod-instances ^
-       --target-locations Accounts=123456789012,987654321098,Regions=eu-central-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+           --document-name AWS-RestartEC2Instance ^
+           --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
+           --target-parameter-name InstanceId ^
+           --targets Key=ResourceGroup,Values=prod-instances ^
+           --target-locations Accounts=123456789012,987654321098,Regions=eu-central-1,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
 ------
@@ -288,19 +288,19 @@ Before you complete the following procedure, note the following information:
 
    ```
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
-   $Targets.Key = "ResourceGroup"
-   $Targets.Values = "prod-instances"
-   
-   Start-SSMAutomationExecution `
-       -DocumentName "AWS-RestartEC2Instance" `
-       -Parameter @{
-       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole" } `
-       -TargetParameterName "InstanceId" `
-       -Target $Targets `
-       -TargetLocation @{
-       "Accounts"="123456789012","987654321098";
-       "Regions"="eu-central-1";
-       "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
+       $Targets.Key = "ResourceGroup"
+       $Targets.Values = "prod-instances"
+       
+       Start-SSMAutomationExecution `
+           -DocumentName "AWS-RestartEC2Instance" `
+           -Parameter @{
+           "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole" } `
+           -TargetParameterName "InstanceId" `
+           -Target $Targets `
+           -TargetLocation @{
+           "Accounts"="123456789012","987654321098";
+           "Regions"="eu-central-1";
+           "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
    ```
 
 ------
@@ -312,11 +312,11 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution \
-       --document-name AWS-RestartEC2Instance \
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
-       --target-parameter-name InstanceId \
-       --targets Key=ResourceGroup,Values=WebServices \
-       --target-locations Accounts=ou-1a2b3c-4d5e6c,Regions=us-west-1,us-west-2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+           --document-name AWS-RestartEC2Instance \
+           --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole \
+           --target-parameter-name InstanceId \
+           --targets Key=ResourceGroup,Values=WebServices \
+           --target-locations Accounts=ou-1a2b3c-4d5e6c,Regions=us-west-1,us-west-2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
 ------
@@ -324,11 +324,11 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm start-automation-execution ^
-       --document-name AWS-RestartEC2Instance ^
-       --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
-       --target-parameter-name InstanceId ^
-       --targets Key=ResourceGroup,Values=WebServices ^
-       --target-locations Accounts=ou-1a2b3c-4d5e6c,Regions=us-west-1,us-west-2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
+           --document-name AWS-RestartEC2Instance ^
+           --parameters AutomationAssumeRole=arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole ^
+           --target-parameter-name InstanceId ^
+           --targets Key=ResourceGroup,Values=WebServices ^
+           --target-locations Accounts=ou-1a2b3c-4d5e6c,Regions=us-west-1,us-west-2,ExecutionRoleName=AWS-SystemsManager-AutomationExecutionRole
    ```
 
 ------
@@ -336,19 +336,19 @@ Before you complete the following procedure, note the following information:
 
    ```
    $Targets = New-Object Amazon.SimpleSystemsManagement.Model.Target
-   $Targets.Key = "ResourceGroup"
-   $Targets.Values = "WebServices"
-   
-   Start-SSMAutomationExecution `
-       -DocumentName "AWS-RestartEC2Instance" `
-       -Parameter @{
-       "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole" } `
-       -TargetParameterName "InstanceId" `
-       -Target $Targets `
-       -TargetLocation @{
-       "Accounts"="ou-1a2b3c-4d5e6c";
-       "Regions"="us-west-1";
-       "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
+       $Targets.Key = "ResourceGroup"
+       $Targets.Values = "WebServices"
+       
+       Start-SSMAutomationExecution `
+           -DocumentName "AWS-RestartEC2Instance" `
+           -Parameter @{
+           "AutomationAssumeRole"="arn:aws:iam::123456789012:role/AWS-SystemsManager-AutomationAdministrationRole" } `
+           -TargetParameterName "InstanceId" `
+           -Target $Targets `
+           -TargetLocation @{
+           "Accounts"="ou-1a2b3c-4d5e6c";
+           "Regions"="us-west-1";
+           "ExecutionRoleName"="AWS-SystemsManager-AutomationExecutionRole" }
    ```
 
 ------
@@ -360,8 +360,8 @@ Before you complete the following procedure, note the following information:
 
    ```
    {
-       "AutomationExecutionId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
-   }
+           "AutomationExecutionId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
+       }
    ```
 
 ------
@@ -369,8 +369,8 @@ Before you complete the following procedure, note the following information:
 
    ```
    {
-       "AutomationExecutionId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
-   }
+           "AutomationExecutionId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
+       }
    ```
 
 ------
@@ -389,7 +389,7 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm describe-automation-executions \
-       --filters Key=ExecutionId,Values=automation execution ID
+           --filters Key=ExecutionId,Values=automation execution ID
    ```
 
 ------
@@ -397,7 +397,7 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm describe-automation-executions ^
-       --filters Key=ExecutionId,Values=automation execution ID
+           --filters Key=ExecutionId,Values=automation execution ID
    ```
 
 ------
@@ -405,7 +405,7 @@ Before you complete the following procedure, note the following information:
 
    ```
    Get-SSMAutomationExecutionList | `
-       Where {$_.AutomationExecutionId -eq "automation execution ID"}
+           Where {$_.AutomationExecutionId -eq "automation execution ID"}
    ```
 
 ------
@@ -417,7 +417,7 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm get-automation-execution \
-       --automation-execution-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
+           --automation-execution-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
    ```
 
 ------
@@ -425,7 +425,7 @@ Before you complete the following procedure, note the following information:
 
    ```
    aws ssm get-automation-execution ^
-       --automation-execution-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
+           --automation-execution-id 4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE
    ```
 
 ------
@@ -433,7 +433,7 @@ Before you complete the following procedure, note the following information:
 
    ```
    Get-SSMAutomationExecution `
-       -AutomationExecutionId a4a3c0e9-7efd-462a-8594-01234EXAMPLE
+           -AutomationExecutionId a4a3c0e9-7efd-462a-8594-01234EXAMPLE
    ```
 
 ------

@@ -6,7 +6,7 @@ In Application Manager, a component of AWS Systems Manager, the **Resources** ta
 You can perform the following actions on this page:
 + Choose a resource name to view information about it, including details provided by the console where it was created, tags, Amazon CloudWatch alarms, AWS Config details, and AWS CloudTrail log information\.
 + Choose the option button beside a resource name\. Then, choose the **Resource timeline** button to open the AWS Config console where you can view compliance information about a selected resource\. 
-+ If you enabled AWS Cost Explorer, the **Cost Explorer** section shows cost data for a specific non\-container application or application component\. You can enable this feature by choosing the **Go to Billing console** button and then choosing **Cost Explorer** in the Billing and Cost Management console\. Use the filters in this section to view cost information about your application\.
++ If you enabled AWS Cost Explorer, the **Cost Explorer** section shows cost data for a specific non\-container application or application component\. You can enable this feature by choosing the **Go to AWS Cost Management console** button\. Use the filters in this section to view cost information about your application\.
 
 **To open the **Resources** tab**
 

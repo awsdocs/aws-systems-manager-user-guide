@@ -13,7 +13,7 @@ The Application Manager template library provides tools to help you view, create
 
 **Before you begin**  
 We recommend that you read the following topics to learn more about SSM documents before you start working with CloudFormation templates in Application Manager\.
-+ [AWS Systems Manager documents](sysman-ssm-docs.md)
++ [AWS Systems Manager Documents](sysman-ssm-docs.md)
 + [Sharing SSM documents](ssm-sharing.md)
 + [Best practices for shared SSM documents](ssm-before-you-share.md)
 

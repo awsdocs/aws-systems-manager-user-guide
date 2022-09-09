@@ -25,7 +25,7 @@ To manage configuration drift across other AWS resources, you can use Automation
 + Start, restart, or stop managed nodes and Amazon Relational Database Service \(Amazon RDS\) instances\.
 + Apply patches to Linux, macOS, and Window AMIs\.
 
-For information about using State Manager with Automation runbooks, see [Running automations with triggers using State Manager](automation-sm-target.md)\.
+For information about using State Manager with Automation runbooks, see [Run automations with State Manager associations](automation-sm-target.md)\.
 
 ## Who should use State Manager?<a name="state-manager-who"></a>
 

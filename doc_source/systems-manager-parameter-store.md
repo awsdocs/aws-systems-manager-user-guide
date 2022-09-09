@@ -25,9 +25,9 @@ Parameter Store offers these benefits:
 + **Change notification**
 
   You can configure change notifications and invoke automated actions for both parameters and parameter policies\. For more information, see [Setting up notifications or trigger actions based on Parameter Store events](sysman-paramstore-cwe.md)\.
-+ **Organize and control access**
++ **Organize  parameters**
 
-  You can tag your parameters individually to help you identify one or more parameters based on the tags you've assigned to them\. For example, you can tag parameters for specific environments, departments, users, groups, or periods\. You can also restrict access to parameters by creating an AWS Identity and Access Management \(IAM\) policy that specifies the tags that a user or group can access\. For more information, see [Tagging Systems Manager parameters](tagging-parameters.md)\.
+  You can tag your parameters individually to help you identify one or more parameters based on the tags you've assigned to them\. For example, you can tag parameters for specific environments or departments\.  For more information, see [Tagging Systems Manager parameters](tagging-parameters.md)\.
 + **Label versions**
 
   You can associate an alias for versions of your parameter by creating labels\. Labels can help you remember the purpose of a parameter version when there are multiple versions\. 

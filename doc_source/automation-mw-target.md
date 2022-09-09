@@ -1,4 +1,4 @@
-# Running automations with triggers using a maintenance window<a name="automation-mw-target"></a>
+# Schedule automations with maintenance windows<a name="automation-mw-target"></a>
 
 You can start an automation by configuring a runbook as a registered task for a maintenance window\. By registering the runbook as a registered task, the maintenance window runs the automation during the scheduled maintenance period\. 
 

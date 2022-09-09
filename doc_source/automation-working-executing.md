@@ -1,9 +1,20 @@
-# Running a simple automation<a name="automation-working-executing"></a>
+# Run an automation<a name="automation-working-executing"></a>
 
-The following procedures describe how to run a simple AWS Systems Manager automation using the Systems Manager console and AWS Command Line Interface \(AWS CLI\)\. The automation runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to run the runbook, and any actions called by the runbook\. If you have administrator permissions in IAM, then you already have permission to run this automation\.
+When you run an automation, by default, the automation runs in the context of the AWS Identity and Access Management \(IAM\) user who initiated the automation\. This means, for example, if your IAM user account has administrator permissions, then the automation runs with administrator permissions and full access to the resources being configured by the automation\. As a security best practice, we recommend that you run automation by using an IAM service role that is known in this case as an *assume* role that is configured with the AmazonSSMAutomationRole managed policy\. You might need to add additional IAM policies to your assume role to use various runbooks\. Using an IAM service role to run automation is called *delegated administration*\.
+
+When you use a service role, the automation is allowed to run against the AWS resources, but the user who ran the automation has restricted access \(or no access\) to those resources\. For example, you can configure a service role and use it with Automation to restart one or more Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. Automation is a capability of AWS Systems Manager\. The automation restarts the instances, but the service role doesn't give the user permission to access those instances\.
+
+You can specify a service role at runtime when you run an automation, or you can create custom runbooks and specify the service role directly in the runbook\. If you specify a service role, either at runtime or in a runbook, then the service runs in the context of the specified service role\. If you don't specify a service role, then the system creates a temporary session in the context of the user and runs the automation\.
 
 **Note**  
-For information about how to run an automation that uses an IAM service role or more advanced forms of delegated administration, see [Running automations by using different security models](automation-walk-security.md)\. 
+You must specify a service role for automation that you expect to run longer than 12 hours\. If you start a long\-running automation in the context of a user, the user's temporary session expires after 12 hours\.
+
+Delegated administration ensures elevated security and control of your AWS resources\. It also allows an enhanced auditing experience because actions are being performed against your resources by a central service role instead of multiple IAM accounts\.
+
+**Before you begin**  
+Before you complete the following procedures, you must create the IAM service role and configure a trust relationship for Automation, a capability of AWS Systems Manager\. For more information, see [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
+
+The following procedures describe how to use the Systems Manager console or your preferred command line tool to run a simple automation\.
 
 ## Running a simple automation \(console\)<a name="automation-working-executing-console"></a>
 

@@ -1,4 +1,4 @@
-# Running automations with triggers using State Manager<a name="automation-sm-target"></a>
+# Run automations with State Manager associations<a name="automation-sm-target"></a>
 
 You can start an automation by creating a State Manager association with a runbook\. State Manager is a capability of AWS Systems Manager\. By creating a State Manager association with a runbook, you can target different types of AWS resources\. For example, you can create associations that enforce a desired state on an AWS resource, including the following:
 + Attach a Systems Manager role to Amazon Elastic Compute Cloud \(Amazon EC2\) instances to make them *managed instances*\.
@@ -80,7 +80,7 @@ You can view information about a runbook by choosing the runbook name\.
 
    If you chose to target resources by using tags or a resource group, then you might not need to choose some of the options in the **Input parameters** section\. For example, if you chose the `AWS-RestartEC2Instance` runbook, and you chose to target instances by using tags, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The automation locates the instances to restart by using the tags you specified\. 
 **Important**  
-You must specify a role ARN in the **AutomationAssumeRole** field\. State Manager uses the assume role to call AWS services specified in the runbook and run Automation associations on your behalf\. For more information, see [Running an automation by using an IAM service role](automation-walk-security-assume.md)\. 
+You must specify a role ARN in the **AutomationAssumeRole** field\. State Manager uses the assume role to call AWS services specified in the runbook and run Automation associations on your behalf\.
 
 1. In the **Specify schedule** section, choose **On Schedule** if you want to run the association at regular intervals\. If you choose this option, then use the options provided to create the schedule using Cron or Rate expressions\. For more information about Cron and Rate expressions for State Manager, see [Cron and rate expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association)\. 
 **Note**  
@@ -98,7 +98,7 @@ Rate expressions are the preferred scheduling mechanism for State Manager associ
       + Choose **errors** to enter an absolute number of errors allowed before Automation stops sending the automation to other resources\.
       + Choose **percentage** to enter a percentage of errors allowed before Automation stops sending the automation to other resources\.
 
-   For more information about using targets and rate controls with Automation, see [Running automations that use targets and rate controls](automation-working-targets-and-rate-controls.md)\.
+   For more information about using targets and rate controls with Automation, see [Run automations at scale](automation-working-targets-and-rate-controls.md)\.
 
 1. Choose **Create Association**\. 
 **Important**  

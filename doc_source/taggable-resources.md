@@ -1,6 +1,7 @@
-# Taggable Systems Manager resources<a name="taggable-resources"></a>
+# Systems Manager resources you can tag<a name="taggable-resources"></a>
 
-You can apply tags to the following AWS Systems Manager resource types:
+You can apply tags to the following AWS Systems Manager resources:
++ Associations
 + Automations
 + Documents
 + Maintenance windows
