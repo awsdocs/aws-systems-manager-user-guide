@@ -77,7 +77,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | --- | --- | --- | --- | 
 | 6\.x¹ | ✓ | ✓ |  | 
 | 7\.0\-7\.5 |  | ✓ |  | 
-| 7\.6\-8\.5 |  | ✓ | ✓ | 
+| 7\.6\-8\.6 |  | ✓ | ✓ | 
 
 **¹** To use these versions, you must use a 3\.0\.x version of the SSM Agent\. We recommend using the latest available 3\.0\.x version of the SSM Agent\. Later SSM Agent versions \(3\.1 or later\) are not supported\.
 

@@ -20,7 +20,7 @@ When you create an entry in Change Calendar, a capability of AWS Systems Manager
 
 1. \(Optional\) In the **Import calendar** area, choose **Choose file** to select an iCalendar \(`.ics`\) file that you have exported from a third\-party calendar provider\. Importing the file will add its events to your calendar\.
 
-   Supported providers include Google Calendar, Microsoft Outlook, and iCloud Calendar\. 
+   Supported providers include Google Calendar, Microsoft Outlook, and iCloud Calendar\.
 
    For more information, see [Importing events from third\-party calendar providers](change-calendar-import.md)\.
 

@@ -53,6 +53,7 @@ Common properties are parameters or options that are found in all actions\. Some
 [name](#nameProp)  
 An identifier that must be unique across all step names in the runbook\.  
 Type: String  
+Allowed pattern: \[a\-zA\-Z0\-9\_\]\+$  
 Required: Yes
 
 [action](#actProp)  

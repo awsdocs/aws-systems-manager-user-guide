@@ -98,4 +98,4 @@ Complete the following tasks to get started with State Manager\.
 + [How do I get started with State Manager?](#state-manager-getting-started)
 + [About State Manager](sysman-state-about.md)
 + [Working with associations in Systems Manager](systems-manager-associations.md)
-+ [AWS Systems ManagerState Manager walkthroughs](sysman-state-walk.md)
++ [AWS Systems Manager State Manager walkthroughs](sysman-state-walk.md)

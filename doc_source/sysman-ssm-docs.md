@@ -2,9 +2,9 @@
 
 An AWS Systems Manager document \(SSM document\) defines the actions that Systems Manager performs on your managed instances\. Systems Manager includes more than 100 pre\-configured documents that you can use by specifying parameters at runtime\. You can find pre\-configured documents in the Systems Manager Documents console by choosing the **Owned by Amazon** tab, or by specifying Amazon for the `Owner` filter when calling the `ListDocuments` API operation\. Documents use JavaScript Object Notation \(JSON\) or YAML, and they include steps and parameters that you specify\. To get started with SSM documents, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/documents)\. In the navigation pane, choose **Documents**\.
 
-## How can SSM documents benefit my organization?<a name="ssm-docs-benefits"></a>
+## How can the Documents capability benefit my organization?<a name="ssm-docs-benefits"></a>
 
-SSM documents offers these benefits:
+Documents, a capability of AWS Systems Manager, offers these benefits:
 + **Document categories**
 
   To help you find the documents you need, choose a category depending on the type of document you're searching for\. To broaden your search, you can choose multiple categories of the same document type\. Choosing categories of different document types is not supported\. Categories are only supported for documents owned by Amazon\.
@@ -21,7 +21,7 @@ SSM documents offers these benefits:
 
   You can make your documents public or share them with specific AWS accounts in the same AWS Region\. Sharing documents between accounts can be useful if, for example, you want all of the Amazon Elastic Compute Cloud \(Amazon EC2\) instances that you supply to customers or employees to have the same configuration\. In addition to keeping applications or patches on the instances up to date, you might want to restrict customer instances from certain activities\. Or you might want to ensure that the instances used by employee accounts throughout your organization are granted access to specific internal resources\. For more information, see [Sharing SSM documents](ssm-sharing.md)\.
 
-## Who should use SSM documents?<a name="documents-who"></a>
+## Who should use Documents?<a name="documents-who"></a>
 + Any AWS customer who wants to use Systems Manager capabilities to improve their operational efficiency at scale, reduce errors associated with manual intervention, and reduce time to resolution of common issues\.
 + Infrastructure experts who want to automate deployment and configuration tasks\.
 + Administrators who want to reliably resolve common issues, improve troubleshooting efficiency, and reduce repetitive operations\.
@@ -51,8 +51,8 @@ The following table describes the different types of SSM documents and their use
 For information about SSM document quotas, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
 
 **Topics**
-+ [How can SSM documents benefit my organization?](#ssm-docs-benefits)
-+ [Who should use SSM documents?](#documents-who)
++ [How can the Documents capability benefit my organization?](#ssm-docs-benefits)
++ [Who should use Documents?](#documents-who)
 + [What are the types of SSM documents?](#what-are-document-types)
 + [SSM document schema features and examples](document-schemas-features.md)
 + [SSM document syntax](sysman-doc-syntax.md)

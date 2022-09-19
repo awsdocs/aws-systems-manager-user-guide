@@ -1,6 +1,9 @@
 # AWS Systems Manager Quick Setup<a name="systems-manager-quick-setup"></a>
 
-Use Quick Setup, a capability of AWS Systems Manager, to quickly configure frequently used Amazon Web Services services and features with recommended best practices\. Quick Setup simplifies setting up services, including Systems Manager, by automating common or recommended tasks\. These tasks include, for example, creating required AWS Identity and Access Management \(IAM\) instance profile roles and setting up operational best practices, such as periodic patch scans and inventory collection\. To get started with Quick Setup, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/quick-setup)\. In the navigation pane, choose **Quick Setup**\.
+Use Quick Setup, a capability of AWS Systems Manager, to quickly configure frequently used Amazon Web Services services and features with recommended best practices\. Quick Setup simplifies setting up services, including Systems Manager, by automating common or recommended tasks\. These tasks include, for example, creating required AWS Identity and Access Management \(IAM\) instance profile roles and setting up operational best practices, such as periodic patch scans and inventory collection\. There is no cost to use Quick Setup\. However, costs can be incurred based on the type of services you set up and the usage limits with no fees for the services used to set up your service\. To get started with Quick Setup, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/quick-setup)\. In the navigation pane, choose **Quick Setup**\.
+
+**Note**  
+If you were directed to Quick Setup to help you configure your instances to be managed by Systems Manager, complete the procedure in [Quick Setup Host Management](quick-setup-host-management.md)\.
 
 ## What are the benefits of Quick Setup?<a name="quick-setup-features"></a>
 

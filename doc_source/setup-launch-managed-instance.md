@@ -11,6 +11,7 @@ In most cases, SSM Agent is preinstalled on AMIs provided by AWS for the followi
 + Amazon Linux Base AMIs dated 2017\.09 and later
 + Amazon Linux 2
 + Amazon Linux 2 ECS\-Optimized Base AMIs
++ Amazon EKS\-Optimized Amazon Linux AMIs
 + macOS 10\.14\.x \(Mojave\), 10\.15\.x \(Catalina\), and 11\.x \(Big Sur\)
 + SUSE Linux Enterprise Server \(SLES\) 12 and 15
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  
@@ -30,40 +31,49 @@ A Transport Layer Security \(TLS\) certificate must be installed on each managed
 
 ## Launch an instance that uses the Systems Manager instance profile \(console\)<a name="setup-launch-managed-instance-new"></a>
 
-**Note**  
-This procedure applies to the new Amazon EC2 launch instance wizard\. For information about using the old instance launch wizard, see one of the following topics, depending on your operating system type:  
-[Launch an instance using the old launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) in the *Amazon EC2 User Guide for Linux Instances*\.
-[Launch an instance using the old launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/launching-instance.html) in the *Amazon EC2 User Guide for Windows Instances*\.
+Depending on whether you are using the new EC2 launch wizard experience or the old one, choose one of the following procedures\.
+
+------
+#### [ New EC2 launch wizard ]
 
 **To launch an instance that uses the Systems Manager instance profile \(console\)**
 
-1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/)\.
+1. Depending on the type of operating system \(OS\) you want for your EC2 instance, use the procedure in one of the following topics:
+   + Windows Server: [Launch an instance using the new launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-launch-instance-wizard.html) in the *Amazon EC2 User Guide for Windows Instances*
+   + Linux or macOS: [Launch an instance using the new launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) in the *Amazon EC2 User Guide for Linux Instances*
 
-1. On the navigation bar at the top of the screen, select the AWS Region for the instance\.
-
-1. Choose **Launch instance, Launch instance** to open the **Launch an instance** page\.
-
-1. Under **Name and tags**, for **Name**, enter a name to use the value for the `Name` key\. Next, choose **Add additional tags** if you want to specify more tags for the instance\.
-
-1. Under **Application and OS Images \(Amazon Machine Image\)**, locate and select the AMI for the instance type you want to create\.
-
-1. Under **Instance type**, from the **Instance type** list, choose the type of instance to launch, such as **t2\.micro**\.
-
-1. Under **Key pair \(login\)**, for **Key pair name**, choose the key pair that you created when getting set up\.
+1. As you follow the steps in your chosen topic, be sure to include the following selections:
+   + In the **Key pair \(login\)** section, for **Key pair name**, choose the key pair that you created when getting set up\.
 **Warning**  
 Do not choose **Proceed without a key pair \(Not recommended\)**\. If you launch your instance without a key pair, then you can't connect to it\.
 
-1. Under **Network settings** and **Configure storage**, make any changes from the defaults you want to specify for your instance\.
+1. In the **Advanced details** section, for **IAM instance profile**, select the instance profile you created using the procedure in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
-   For information about these and other settings in the new launch wizard, see one of the following topics, depending on your operating system type:
-   + **Linux**: [Launch an instance using the new instance launch wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) in the *Amazon EC2 User Guide for Linux Instances*
-   + **Windows Server**: [Launch an instance using the new instance launch wizard](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-launch-instance-wizard.html) in the *Amazon EC2 User Guide for Windows Instances*
+1. In the **Summary** panel, review the instance configuration, and then choose **Launch instance**\.
 
-1. Expand the Advanced details section, and from the **IAM instance profile** list, select the instance profile you created using the procedure in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+------
+#### [ Old EC2 launch wizard ]
 
-1. Complete the wizard\.
+**To launch an instance that uses the Systems Manager instance profile \(console\)**
 
-If you create other instances that you want to configure using Systems Manager, specify the instance profile for each instance\.
+1. Depending on the type of operating system \(OS\) you want for your EC2 instance, use the procedure in one of the following topics:
+   + Windows Server: [Launch an instance using the old launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/launching-instance.html) in the *Amazon EC2 User Guide for Windows Instances*
+   + Linux or macOS: [Launch an instance using the old launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) in the *Amazon EC2 User Guide for Linux Instances*
+
+1. As you follow the steps in your chosen topic, be sure to include the following selection:
+   + On the **Step 3: Configure Instance Details** page, for **IAM role** role, select the instance profile you created using the procedure in [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+
+1. At the end of the wizard, choose **Launch**\.
+
+1. In the **Select an existing key pair or create a new key pair** dialog, for the first field, select **Choose an existing key pair**\.
+**Warning**  
+Do not choose **Proceed without a key pair**\. If you launch your instance without a key pair, then you can't connect to it\.
+
+1. For **Select a key pair**, choose the key pair that you created when getting set up, and then select the acknowlegment box\.
+
+1. Choose **Launch instance**\.
+
+------
 
 ## Attach the Systems Manager instance profile to an existing instance \(console\)<a name="setup-launch-managed-instance-existing"></a>
 

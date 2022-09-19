@@ -20,7 +20,7 @@ You can add scripts to your runbooks by including the script inline as part of a
 
 ## Script constraints for runbooks<a name="script-constraints"></a>
 
-The automation action `aws:executeScript` supports running Python 3\.6, Python 3\.7, and PowerShell Core 6\.0 scripts\.
+The automation action `aws:executeScript` supports running Python 3\.6, Python 3\.7, Python 3\.8, and PowerShell Core 6\.0 scripts\.
 
 Runbooks enforce a limit of five file attachments\. Scripts can either be in the form of a Python script \(\.py\), a PowerShell Core script \(\.ps1\), or attached as contents within a \.zip file\.
 

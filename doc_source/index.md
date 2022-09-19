@@ -446,7 +446,7 @@ sponsored by Amazon.
          + [Running Auto Scaling groups with associations](systems-manager-state-manager-asg.md)
          + [Viewing association histories](sysman-state-assoc-history.md)
          + [Working with associations using IAM](systems-manager-state-manager-iam.md)
-      + [AWS Systems ManagerState Manager walkthroughs](sysman-state-walk.md)
+      + [AWS Systems Manager State Manager walkthroughs](sysman-state-walk.md)
          + [Walkthrough: Creating associations that run MOF files](systems-manager-state-manager-using-mof-file.md)
          + [Walkthrough: Creating associations that run Ansible playbooks](systems-manager-state-manager-ansible.md)
          + [Walkthrough: Creating associations that run Chef recipes](systems-manager-state-manager-chef.md)

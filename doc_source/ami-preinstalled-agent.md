@@ -6,6 +6,7 @@ In most cases, SSM Agent is preinstalled on AMIs provided by AWS for the followi
 + Amazon Linux Base AMIs dated 2017\.09 and later
 + Amazon Linux 2
 + Amazon Linux 2 ECS\-Optimized Base AMIs
++ Amazon EKS\-Optimized Amazon Linux AMIs
 + macOS 10\.14\.x \(Mojave\), 10\.15\.x \(Catalina\), and 11\.x \(Big Sur\)
 + SUSE Linux Enterprise Server \(SLES\) 12 and 15
 + Ubuntu Server 16\.04, 18\.04, and 20\.04  

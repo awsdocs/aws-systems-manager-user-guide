@@ -58,6 +58,9 @@ For examples of installing and importing `AWS.Tools` modules, and using PowerShe
 **Input**  
 Provide the information required to run your script\. Replace each *example resource placeholder* with your own information\.
 
+**Note**  
+The attachment for a Python script can be a \.py file or a \.zip file that contains the script\. PowerShell scripts must be stored in \.zip files\.
+
 ------
 #### [ YAML ]
 
@@ -115,8 +118,9 @@ Type: String
 Required: No \(Python\) \| Yes \(PowerShell\)
 
 Attachment  
-The name of a standalone script file or \.zip file that can be invoked by the action\. Specify the same value as the `Name` of the document attachment file you specify in the `Attachments` request parameter\. For more information, see [Attachments](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-Attachments) in the AWS Systems Manager API Reference\. If you're providing a script using an attachment, you must also define a `files` section in the top\-level elements your runbook\. For more information, see [Schema version 0\.3](document-schemas-features.md#automation-doc-syntax-examples)\.  
-To invoke a file for Python, use the `filename.method_name` format in `Handler`\. For PowerShell, invoke the attachment using an inline script\. Gzip isn't supported\.  
+The name of a standalone script file or \.zip file that can be invoked by the action\. Specify the same value as the `Name` of the document attachment file you specify in the `Attachments` request parameter\. For more information, see [Attachments](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateDocument.html#systemsmanager-CreateDocument-request-Attachments) in the *AWS Systems Manager API Reference*\. If you're providing a script using an attachment, you must also define a `files` section in the top\-level elements of your runbook\. For more information, see [Schema version 0\.3](document-schemas-features.md#automation-doc-syntax-examples)\.  
+To invoke a file for Python, use the `filename.method_name` format in `Handler`\.   
+The attachment for a Python script can be a \.py file or a \.zip file that contains the script\. PowerShell scripts must be stored in \.zip files\.
 When including Python libraries in your attachment, we recommend adding an empty `__init__.py` file in each module directory\. This allows you to import the modules from the library in your attachment within your script content\. For example: `from library import module`  
 Type: String  
 Required: NoOutput

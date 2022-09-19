@@ -13,7 +13,7 @@ With Change Manager, you can use pre\-approved *change templates* to help automa
 
 Through its integration with Change Calendar, which is another capability of Systems Manager, Change Manager also helps you safely implement changes while avoiding schedule conflicts with important business events\. Change Manager integration with AWS Organizations and AWS IAM Identity Center \(successor to AWS Single Sign\-On\) helps you manage changes across your organization from a single account using your existing identity management system\. You can monitor change progress from Change Manager and audit operational changes across your organization, providing improved visibility and accountability\.
 
-Change Manager complements the safety controls of your [continuous integration](http://aws.amazon.com/devops/continuous-integration) \(CI\) practices and [continuous delivery](http://aws.amazon.com/devops/continuous-delivery) \(CD\) methodology\. Change Manager isn't intended for changes made as part of an automated release process, such as a CI/CD pipeline, unless there is an exception or approval required\. 
+Change Manager complements the safety controls of your [continuous integration](http://aws.amazon.com/devops/continuous-integration) \(CI\) practices and [continuous delivery](http://aws.amazon.com/devops/continuous-delivery) \(CD\) methodology\. Change Manager isn't intended for changes made as part of an automated release process, such as a CI/CD pipeline, unless there is an exception or approval required\.
 
 ## How Change Manager works<a name="how-change-manager-works"></a>
 
@@ -25,11 +25,11 @@ For each change template, you can add up to five levels of approvers\. For examp
 
 Change Manager is integrated with [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md)\. When a requested change is approved, the system first determines whether the request conflicts with other scheduled business activities\. If a conflict is detected, Change Manager can block the change or require additional approvals before starting the runbook workflow\. For example, you might allow changes only during business hours to ensure that teams are available to manage any unexpected problems\. For any changes requested to run outside those hours, you can require higher\-level management approval in the form of *change freeze approvers*\. For emergency changes, Change Manager can skip the step of checking Change Calendar for conflicts or blocking events after a change request is approved\.
 
-When it's time to implement an approved change, Change Manager runs the Automation runbook that is specified in the associated change request\. Only the operations defined in approved change requests are permitted when runbook workflows run\. This approach helps to avoid unintentional results while changes are being implemented\. 
+When it's time to implement an approved change, Change Manager runs the Automation runbook that is specified in the associated change request\. Only the operations defined in approved change requests are permitted when runbook workflows run\. This approach helps you avoid unintentional results while changes are being implemented\.
 
 In addition to restricting the changes that can be made when a runbook workflow runs, Change Manager also helps you control concurrency and error thresholds\. You choose how many resources a runbook workflow can run on at once, how many accounts the change can run in at once, and how many failures to allow before the process is stopped and \(if the runbook includes a rollback script\) rolled back\. You can also monitor the progress of changes being made by using CloudWatch alarms\.
 
-After a runbook workflow has completed, you can review details about the changes made\. These details include the reason for a change request, which change template was used, who requested and approved the changes, and how the changes were implemented\. 
+After a runbook workflow has completed, you can review details about the changes made\. These details include the reason for a change request, which change template was used, who requested and approved the changes, and how the changes were implemented\.
 
 **More info**  
 [Introducing AWS Systems ManagerChange Manager](http://aws.amazon.com/blogs/aws/introducing-systems-manager-change-manager/) on the *AWS News Blog*
@@ -45,7 +45,7 @@ Benefits of Change Manager include the following:
   Change Manager provides accountability with a consistent way to report and audit changes made across your organization, the intent of the changes, and details about who approved and implemented them\.
 + **Avoid schedule conflicts or violations**
 
-  Change Manager can detect schedule conflicts such as holiday events or new product launches, based on the active change calendar for your organization\. You can allow runbook workflows to run only during business hours, or allow them only with additional approvals\. 
+  Change Manager can detect schedule conflicts such as holiday events or new product launches, based on the active change calendar for your organization\. You can allow runbook workflows to run only during business hours, or allow them only with additional approvals\.
 + **Adapt change requirements to your changing business**
 
   During different business periods, you can implement different change management requirements\. For example, during end\-of\-month reporting, tax season, or other critical business periods, you can block changes or require director\-level approval for changes that could introduce unnecessary operational risks\.
@@ -79,18 +79,18 @@ Primary features of Change Manager include the following:
   Runbook workflows can be started according to a schedule, or as soon as approvals are complete \(subject to calendar restriction rules\)\.
 + **Built\-in notification support**
 
-  Specify who in your organization should review and approve change templates and change requests\.  Assign an Amazon SNS topic to a change template to send notifications to the topic's subscribers about status changes for change requests created with that change template\. 
+  Specify who in your organization should review and approve change templates and change requests\.  Assign an Amazon SNS topic to a change template to send notifications to the topic's subscribers about status changes for change requests created with that change template\.
 + **Integration with AWS Systems Manager Change Calendar**
 
   Change Manager allows administrators to restrict scheduling changes during specified time periods\. For instance, you can create a policy that allows changes only during business hours to ensure that the team is available to handle any issues\. You can also restrict changes during important business events\. For example, retail businesses might restrict changes during large sales events\. You can also require additional approvals during restricted periods\. 
 + **Integration with AWS IAM Identity Center \(successor to AWS Single Sign\-On\) and Active Directory support**
 
-  With IAM Identity Center integration, members of your organization can access AWS accounts and manage their resources using Systems Manager based on a common user identity\. Using IAM Identity Center, you can assign your users access to accounts across AWS\. 
+  With IAM Identity Center integration, members of your organization can access AWS accounts and manage their resources using Systems Manager based on a common user identity\. Using IAM Identity Center, you can assign your users access to accounts across AWS\.
 
   Integration with Active Directory makes it possible to assign users in your Active Directory account as approvers for change templates created for your Change Manager operations\.
 + **Integration with Amazon CloudWatch alarms**
 
-  Change Manager is integrated with CloudWatch alarms\. Change Manager listens for CloudWatch alarms during the runbook workflow and takes any actions, including sending notifications, that are defined for the alarm\. 
+  Change Manager is integrated with CloudWatch alarms\. Change Manager listens for CloudWatch alarms during the runbook workflow and takes any actions, including sending notifications, that are defined for the alarm\.
 + **Integration with AWS Organizations**
 
   Using the cross\-account capabilities provided by Organizations, you can use a delegated administrator account for managing Change Manager operations in OUs in your organization\. In your Organizations management account, you can specify which account is to be the delegated administrator account\. You can also control which of your OUs Change Manager can be used in\.
@@ -116,7 +116,7 @@ A change template is a collection of configuration settings in Change Manager th
 
 You can require that the change templates created by users in your organization or account go through an approval process before they can be used\.
 
-Change Manager supports two types of change templates\. For an approved change request that is based on an *emergency change template*, the requested change can be made even if there are blocking events in Change Calendar\. For an approved change request that is based on a *standard change template*, the requested change can't be made if there are blocking events in Change Calendar unless additional approvals are received from designated *change freeze event * approvers\. 
+Change Manager supports two types of change templates\. For an approved change request that is based on an *emergency change template*, the requested change can be made even if there are blocking events in Change Calendar\. For an approved change request that is based on a *standard change template*, the requested change can't be made if there are blocking events in Change Calendar unless additional approvals are received from designated *change freeze event * approvers\.
 
 ### Change request<a name="change-manager-what-is-change-request"></a>
 
