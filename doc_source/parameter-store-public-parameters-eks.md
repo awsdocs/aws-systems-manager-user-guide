@@ -9,7 +9,7 @@ Use the following command to view the name of the latest Amazon EKS optimized AM
 
 ```
 aws ssm get-parameters \
-    --names /aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended
+    --names /aws/service/eks/optimized-ami/1.23/amazon-linux-2/recommended
 ```
 
 ------
@@ -17,7 +17,7 @@ aws ssm get-parameters \
 
 ```
 aws ssm get-parameters ^
-    --names /aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended
+    --names /aws/service/eks/optimized-ami/1.23/amazon-linux-2/recommended
 ```
 
 ------
@@ -28,12 +28,12 @@ The command returns information like the following\.
 {
     "Parameters": [
         {
-            "Name": "/aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended",
+            "Name": "/aws/service/eks/optimized-ami/1.23/amazon-linux-2/recommended",
             "Type": "String",
-            "Value": "{\"schema_version\":\"2\",\"image_id\":\"ami-08984d8491de17ca0\",\"image_name\":\"amazon-eks-node-1.14-v20201007\",\"release_version\":\"1.14.9-20201007\"}",
-            "Version": 24,
-            "LastModifiedDate": "2020-11-17T10:16:09.971000-08:00",
-            "ARN": "arn:aws:ssm:us-east-2::parameter/aws/service/eks/optimized-ami/1.14/amazon-linux-2/recommended",
+            "Value": "{\"schema_version\":\"2\",\"image_id\":\"ami-012dc0c062c4c0e02\",\"image_name\":\"amazon-eks-node-1.23-v20220914\",\"release_version\":\"1.23.9-20220914\"}",
+            "Version": 4,
+            "LastModifiedDate": "2022-09-16T22:00:39.710000+00:00",
+            "ARN": "arn:aws:ssm:us-west-2::parameter/aws/service/eks/optimized-ami/1.23/amazon-linux-2/recommended",
             "DataType": "text"
         }
     ],
