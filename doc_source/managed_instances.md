@@ -26,7 +26,6 @@ Note the following information\.
 Systems Manager requires accurate time references in order to perform operations on your machines\. If the date and time aren't set correctly on your managed nodes, the machines might not match the signature date of your API requests\. For more information, see [Use cases and best practices](systems-manager-best-practices.md)\.
 When you create or edit tags, the system can take up to one hour to display changes in the table filter\.
 
-
 **Verify Systems Manager support on a managed node**  
 AWS Config provides AWS Managed Rules, which are predefined, customizable rules that AWS Config uses to evaluate whether your AWS resource configurations comply with common best practices\. AWS Config Managed Rules include the [ec2\-instance\-managed\-by\-systems\-manager](https://docs.aws.amazon.com/config/latest/developerguide/ec2-instance-managed-by-systems-manager.html) rule\. This rule checks whether the Amazon EC2 instances in your account are managed by Systems Manager\. For more information, see [AWS Config Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html)\. 
 

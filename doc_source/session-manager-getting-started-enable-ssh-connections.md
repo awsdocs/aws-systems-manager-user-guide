@@ -28,7 +28,7 @@ Use the following steps to allow SSH connections through Session Manager on a ma
      +  [Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md) 
      + [Install SSM Agent for a hybrid environment \(Linux\)](sysman-install-managed-linux.md)
 **Note**  
-To use Session Manager with on\-premises servers, edge devices, and virtual machines \(VMs\) that you activated as managed nodes, you must use the Advanced\-Instances Tier\. For more information about advanced instances, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
+To use Session Manager with on\-premises servers, edge devices, and virtual machines \(VMs\) that you activated as managed nodes, you must use the advanced\-instances tier\. For more information about advanced instances, see [Configuring instance tiers](systems-manager-managed-instances-tiers.md)\.
 
 1. On the local machine from which you want to connect to a managed node using SSH, do the following:
    + Ensure that version 1\.1\.23\.0 or later of the Session Manager plugin is installed\.
