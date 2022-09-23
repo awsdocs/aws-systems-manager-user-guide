@@ -41,7 +41,7 @@ To create a target, you must specify a value for each required parameter\. If yo
 
 1. For many target types, EventBridge needs permissions to send events to the target\. In these cases, EventBridge can create the IAM role needed for your rule to run\. Do one of the following:
    + To create an IAM role automatically, choose **Create a new role for this specific resource**\.
-   + To use an IAM role that you created earlier, choose **Use existing role** and select the existing role from the dropdown\. Note that you might need to update the trust policy for your IAM to include EventBridge\. The following is an example:
+   + To use an IAM role that you created earlier, choose **Use existing role** and select the existing role from the dropdown\. Note that you might need to update the trust policy for your IAM role to include EventBridge\. The following is an example:
 
    ```
    {

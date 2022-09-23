@@ -367,4 +367,4 @@ Before you contact AWS Support, collect the following items:
   + `%PROGRAMDATA%\Amazon\PatchBaselineOperations\Logs` as described on the **Windows** tab of [How patches are installed](patch-manager-how-it-works-installation.md)
   + Windows update logs: For Windows Server 2012 R2 and older, use `%windir%/WindowsUpdate.log`\. For Windows Server 2016 and newer, first run the PowerShell command [https://docs.microsoft.com/en-us/powershell/module/windowsupdate/get-windowsupdatelog?view=win10-ps](https://docs.microsoft.com/en-us/powershell/module/windowsupdate/get-windowsupdatelog?view=win10-ps) before using `%windir%/WindowsUpdate.log`
 + For Linux managed nodes, also collect the following:
-  + The contents of the file `/var/lib/amazon/ssm/instance-id/document/orchestration/Run-Command-execution-id/awsrunShellScript/PatchLinux`
+  + The contents of the directory `/var/lib/amazon/ssm/instance-id/document/orchestration/Run-Command-execution-id/awsrunShellScript/PatchLinux`
