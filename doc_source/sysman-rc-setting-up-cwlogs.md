@@ -39,10 +39,10 @@ If you run commands by using the AWS CLI, specify the `cloud-watch-output-config
 
 ```
 aws ssm send-command \
-    --document-name "AWS-RunPowerShellScript" \
-    --parameters commands=["echo helloWorld"] \
-    --targets "Key=instanceids,Values=an instance ID” \
-    --cloud-watch-output-config '{"CloudWatchLogGroupName":"log group name","CloudWatchOutputEnabled":true}'
+    --instance-ids "<Instance-ID>" \
+    --document-name "AWS-RunShellScript" \
+    --parameters "commands=echo helloWorld" \
+    --cloud-watch-output-config "CloudWatchOutputEnabled=true,CloudWatchLogGroupName=<LogGroupName>"
 ```
 
 ------
@@ -52,7 +52,7 @@ aws ssm send-command \
 aws ssm send-command ^
     --document-name "AWS-RunPowerShellScript" ^
     --parameters commands=["echo helloWorld"] ^
-    --targets "Key=instanceids,Values=an instance ID” ^
+    --targets "Key=instanceids,Values=an instance ID" ^
     --cloud-watch-output-config '{"CloudWatchLogGroupName":"log group name","CloudWatchOutputEnabled":true}'
 ```
 
