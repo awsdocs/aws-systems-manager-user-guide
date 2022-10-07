@@ -10,6 +10,7 @@ This topic includes information about how to troubleshoot common errors or probl
 + [UnsupportedAgent](#sysman-inventory-troubleshooting-unsupported-agent)
 + [Skipped](#sysman-inventory-troubleshooting-skipped)
 + [Failed](#sysman-inventory-troubleshooting-failed)
++ [Inventory compliance failed for an Amazon EC2 instance](#sysman-inventory-troubleshooting-ec2-compliance)
 
 ## Multiple apply all associations with document '`AWS-GatherSoftwareInventory`' are not supported<a name="systems-manager-inventory-troubleshooting-multiple"></a>
 
@@ -78,3 +79,16 @@ If the status of the inventory association for a node shows **Failed**, this cou
 ```
 aws ssm describe-instance-associations-status --instance-id instance ID
 ```
+
+## Inventory compliance failed for an Amazon EC2 instance<a name="sysman-inventory-troubleshooting-ec2-compliance"></a>
+
+Inventory compliance for an Amazon Elastic Compute Cloud \(Amazon EC2\) instance can fail if you assign multiple inventory associations to the instance\. 
+
+ To resolve this issue, delete one or more inventory associations assigned to the instance\. For more information, see [Deleting an association](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-delete-association.html)\. 
+
+**Note**  
+Be aware of the following behavior if you create multiple inventory associations for a managed node:  
+Each node can be assigned an inventory association that targets *all* nodes \(\-\-targets "Key=InstanceIds,Values=\*"\)\.
+Each node can also be assigned a specific association that uses either tag key\-value pairs or an AWS resource group\.
+If a node is assigned multiple inventory associations, the status shows *Skipped* for the association that hasn't run\. The association that ran most recently displays the actual status of the inventory association\. 
+If a node is assigned multiple inventory associations and each uses a tag key\-value pair, then those inventory associations fail to run on the node because of the tag conflict\. The association still runs on nodes that don't have the tag key\-value conflict\. 

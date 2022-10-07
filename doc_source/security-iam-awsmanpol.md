@@ -40,6 +40,7 @@ The `AWSServiceRoleForAmazonSSM` service\-linked role permissions policy allows 
 + `ssm:GetAutomationExecution`
 + `ssm:GetParameters`
 + `ssm:StartAutomationExecution`
++ `ssm:StopAutomationExecution`
 + `ssm:ListTagsForResource`
 + `ssm:GetCalendarState`
 + `ssm:UpdateServiceSetting` \[1\]
@@ -59,6 +60,7 @@ The `AWSServiceRoleForAmazonSSM` service\-linked role permissions policy allows 
 + `config:DescribeComplianceByResource`
 + `config:DescribeRemediationConfigurations`
 + `config:DescribeConfigurationRecorders`
++ `cloudwatch:DescribeAlarms`
 + `compute-optimizer:GetEC2InstanceRecommendations`
 + `compute-optimizer:GetEnrollmentStatus`
 + `support:DescribeTrustedAdvisorChecks`
@@ -159,6 +161,7 @@ arn:aws:events:*:*:rule/SSMExplorerManagedRule
                 "ssm:GetAutomationExecution",
                 "ssm:GetParameters",
                 "ssm:StartAutomationExecution",
+                "ssm:StopAutomationExecution",
                 "ssm:ListTagsForResource",
                 "ssm:GetCalendarState"
             ],
@@ -281,6 +284,11 @@ arn:aws:events:*:*:rule/SSMExplorerManagedRule
             "Resource": [
                 "*"
             ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "cloudwatch:DescribeAlarms",
+            "Resource": "*"
         },
         {
             "Effect": "Allow",

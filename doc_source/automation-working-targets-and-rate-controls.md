@@ -57,6 +57,8 @@ You might not need to choose some of the options in the **Input parameters** sec
    + Choose **errors** to enter an absolute number of errors allowed before Automation stops sending the workflow to other resources\.
    + Choose **percentage** to enter a percentage of errors allowed before Automation stops sending the workflow to other resources\.
 
+1. \(Optional\) Choose a CloudWatch alarm to apply to your automation for monitoring\. To attach a CloudWatch alarm to your automation, the IAM principal that starts the automation must have permission for the `iam:createServiceLinkedRole` action\. For more information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)\. Note that if your alarm activates, the automation is stopped\. If you use AWS CloudTrail, you will see the API call in your trail\.
+
 1. Choose **Execute**\. 
 
 To view automations started by your rate control automation, in the navigation pane, choose Automation, and then select **Show child automations**\.

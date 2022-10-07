@@ -40,6 +40,8 @@ The status for tasks that are not completed when you enable this option is `TIME
    + For a Lambda task: In the **Lambda parameters** area, choose a Lambda function from the list\. \(Optional\) Provide any content for **Payload**, **Client Context**, or **Qualifier** that you want to include\.
    + For a Step Functions task: In the **Step Functions parameters** area, choose a state machine from the list\. \(Optional\) Provide a name for the state machine execution and any content for **Input** that you want to include\.
 
+1. \(Optional\) For Run Command and Automation tasks, choose a CloudWatch alarm to apply to your task for monitoring\. To attach a CloudWatch alarm to your task, the IAM principal that runs the task must have permission for the `iam:createServiceLinkedRole` action\. For more information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)\. Note that if your alarm activates, the task is stopped\.
+
 1. For **Task priority**, specify a priority for this task\. Zero \(`0`\) is the highest priority\. Tasks in a maintenance window are scheduled in priority order with tasks that have the same priority scheduled in parallel\.
 
 1. In the **Targets** area, choose one of the following:

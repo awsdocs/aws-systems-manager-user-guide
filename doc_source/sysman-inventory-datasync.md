@@ -93,23 +93,6 @@ For information about viewing your AWS account ID, see [Your Amazon Web Services
      ]
    }
    ```
-**Note**  
-If you create a resource data sync for an AWS Region that came online since April 25, 2019 or later, you must enter a Region\-specific service principal entry in the `SSMBucketDelivery` section\. This requirement includes the following Regions:  
-Asia Pacific \(Hong Kong\) Region \(ap\-east\-1\)
-Asia Pacific \(Jakarta\) Region \(ap\-southeast\-3\)
-Africa \(Cape Town\) Region \(af\-south\-1\)
-Europe \(Milan\) Region \(eu\-south\-1\)
-EU \(Zaragoza\) Region \(eu\-south\-2\)
-The following example includes a Region\-specific service principal entry for `ssm.ap-east-1.amazonaws.com`\.   
-
-   ```
-   {
-            "Sid":" SSMBucketDelivery",
-            "Effect":"Allow",
-            "Principal":{
-               "Service":["ssm.amazonaws.com","ssm.ap-east-1.amazonaws.com"]
-            },
-   ```
 
 ## Create a resource data sync for Inventory<a name="sysman-inventory-datasync-create"></a>
 
@@ -219,35 +202,6 @@ Use the following procedure to create a central Amazon S3 bucket to store aggreg
        }
      ]
    }
-   ```
-**Note**  
-If you create a resource data sync for an AWS Region that came online since April 25, 2019 or later, you must enter a Region\-specific service principal entry in the `SSMBucketDelivery` and `SSMBucketDeliveryTagging` sections\. This requirement includes the following Regions:  
-Asia Pacific \(Hong Kong\) Region \(ap\-east\-1\)
-Asia Pacific \(Jakarta\) Region \(ap\-southeast\-3\)
-Africa \(Cape Town\) Region \(af\-south\-1\)
-Europe \(Milan\) Region \(eu\-south\-1\)
-EU \(Zaragoza\) Region \(eu\-south\-2\)
-The following example includes a Region\-specific service principal entry for `ssm.ap-east-1.amazonaws.com`\.   
-
-   ```
-   {
-       "Sid": " SSMBucketDelivery",
-       "Effect": "Allow",
-       "Principal": {
-           "Service": [
-               "ssm.amazonaws.com",
-               "ssm.ap-east-1.amazonaws.com"
-           ]
-       },
-       ...
-       "Sid": " SSMBucketDeliveryTagging",
-       "Effect": "Allow",
-       "Principal": {
-           "Service": [
-               "ssm.amazonaws.com",
-               "ssm.ap-east-1.amazonaws.com"
-           ]
-       },
    ```
 
 ### Create an inventory resource data sync for accounts defined in AWS Organizations<a name="systems-manager-inventory-resource-data-sync-AWS-Organizations-create"></a>

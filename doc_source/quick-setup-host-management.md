@@ -4,8 +4,16 @@ Use Quick Setup, a capability of AWS Systems Manager, to quickly configure requi
 
 If you're unfamiliar with Systems Manager services and features, we recommend that you review the *AWS Systems Manager User Guide* before creating a configuration with Quick Setup\. For more information about Systems Manager, see [What is AWS Systems Manager?](what-is-systems-manager.md)\.
 
-**Note**  
-You can't create multiple Quick Setup Host Management configurations that target the same AWS Region\.
+**Important**  
+Quick Setup might not be the right tool to use for EC2 management if either of the following applies to you:  
+You’re trying to create an EC2 instance for the first time to try out AWS capabilities\.
+You’re still new to EC2 instance management\.
+Instead, we recommend that you explore the following content:   
+[Getting Started with Amazon EC2](http://aws.amazon.com/ec2/getting-started)
+[Launch an instance using the new launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html) in the *Amazon EC2 User Guide for Linux Instances*
+[Launch an instance using the new launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-launch-instance-wizard.html) in the *Amazon EC2 User Guide for Windows Instances*
+[Tutorial: Get started with Amazon EC2 Linux instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html) in the *Amazon EC2 User Guide for Linux Instances*
+If you’re already familiar with EC2 instance management and want to streamline configuration and management for multiple EC2 instances, use Quick Setup\. Whether your organization has dozens, thousands, or millions of EC2 instances, use the following Quick Setup procedure to configure multiple options for them, all at once\.
 
 To set up host management, perform the following tasks in the AWS Systems Manager Quick Setup console\.
 
@@ -46,6 +54,8 @@ The **Inventory collection** option can take up to 10 minutes to complete, even 
    + **Update the CloudWatch agent once every 30 days** – Enables Systems Manager to check every 30 days for a new version of the CloudWatch agent\. If there is a new version, Systems Manager updates the agent on your instance\. We encourage you to choose this option to ensure that your instances are always running the most up\-to\-date version of the CloudWatch agent\.
 
 1. In the **Targets** section, choose whether to set up host management for your **Entire organization**, **Custom** organizational units \(OUs\), or the **Current account** you're signed in to:
+**Note**  
+You can't create multiple Quick Setup Host Management configurations that target the same AWS Region\.
    + **Entire organization** – In the **Instance profile options** section, choose whether you want to add the required IAM policies to the existing instance profiles attached to your instances, or to allow Quick Setup to create the IAM policies and instance profiles with the permissions needed for the configuration you choose\.
 **Note**  
  The **Entire organization** option is only available if you're configuring host management from your organization's management account\.

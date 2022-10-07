@@ -55,7 +55,7 @@ For information about SSM document quotas, see [Systems Manager service quotas](
 + [Who should use Documents?](#documents-who)
 + [What are the types of SSM documents?](#what-are-document-types)
 + [SSM document schema features and examples](document-schemas-features.md)
-+ [SSM document syntax](sysman-doc-syntax.md)
++ [SSM document data elements](sysman-doc-syntax.md)
 + [Systems Manager Command document plugin reference](ssm-plugins.md)
 + [Viewing SSM Command document content](viewing-ssm-document-content.md)
 + [Creating SSM documents](create-ssm-doc.md)

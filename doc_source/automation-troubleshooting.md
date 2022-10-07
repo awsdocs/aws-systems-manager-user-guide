@@ -104,4 +104,4 @@ A problem with the Automation service is preventing the specified runbook from r
 
 **Error message**: `Step timed out while step is verifying launched instance(s) are ready to be used. Please refer to Automation Service Troubleshooting Guide for more diagnosis details.`
 
-A step in the `aws:runInstances` action timed out\. This can happen if the step action takes longer to run than the value specified for `timeoutSeconds` in the step\. To resolve this issue, specify a longer value for the `timeoutSeconds` parameter in the `aws:runInstances` action\. If that doesn't solve the problem, investigate why the step takes longer to run than expected\.
+A step in the `aws:runInstances` action timed out\. This can happen if the step action takes longer to run than the value specified for `timeoutSeconds` in the step\. To resolve this issue, specify a longer value for the `timeoutSeconds` parameter in the `aws:runInstances` action\. If that doesn't solve the problem, investigate why the step takes longer to run than expected

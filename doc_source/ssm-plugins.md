@@ -257,10 +257,10 @@ Required: No
 Export data from Windows Server to Amazon CloudWatch or Amazon CloudWatch Logs and monitor the data using CloudWatch metrics\. This plugin only runs on Windows Server operating systems\. For more information about configuring CloudWatch integration with Amazon Elastic Compute Cloud \(Amazon EC2\), see [Collecting metrics and logs from Amazon EC2 instances and on\-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html)\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 **Important**  
-This plugin has been deprecated\. The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
-[Sending node logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
+The unified CloudWatch agent has replaced SSM Agent as the tool for sending log data to Amazon CloudWatch Logs\. The SSM Agent aws:cloudWatch plugin is not supported\. We recommend using only the unified CloudWatch agent for your log collection processes\. For more information, see the following topics:  
+[Sending node logs to unified CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
 [Migrate Windows Server node log collection to the CloudWatch agent](monitoring-cloudwatch-agent.md#monitoring-cloudwatch-agent-migrate)
-[Collecting metrics and logs from Amazon EC2 instances and on\-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*
+[Collecting metrics and logs from Amazon EC2 instances and on\-premises servers with the CloudWatch agent](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.html) in the *Amazon CloudWatch User Guide*\.
 
 You can export and monitor the following data types:
 

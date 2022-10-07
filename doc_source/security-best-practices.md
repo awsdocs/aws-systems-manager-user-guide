@@ -22,7 +22,7 @@ For more information, see [Restricting access to Systems Manager parameters usin
 
 **Define allowedValues and allowedPattern for document parameters**  
 You can validate user input for parameters in Systems Manager documents \(SSM documents\) by defining `allowedValues` and `allowedPattern`\. For `allowedValues`, you define an array of values allowed for the parameter\. If a user inputs a value that isn't allowed, the execution fails to start\. For `allowedPattern`, you define a regular expression that validates whether the user input matches the defined pattern for the parameter\. If the user input doesn't match the allowed pattern, the execution fails to start\.  
-For more information about `allowedValues` and `allowedPattern`, see [SSM document syntax](sysman-doc-syntax.md)\.
+For more information about `allowedValues` and `allowedPattern`, see [SSM document data elements](sysman-doc-syntax.md)\.
 
 **Block public sharing for documents**  
 Unless your use case requires public sharing to be allowed, we recommend turning on the block public sharing setting for your SSM documents in the **Preferences** section of the Systems Manager Documents console\.
@@ -56,7 +56,7 @@ Use Tag Editor to identify security\-sensitive or audit\-sensitive resources, th
 Create resource groups for your Systems Manager resources\. For more information, see [What are resource groups?](https://docs.aws.amazon.com/ARG/latest/userguide/resource-groups.html) 
 
 **Implement monitoring using Amazon CloudWatch monitoring tools**  
-Monitoring is an important part of maintaining the reliability, security, availability, and performance of Systems Manager and your AWS solutions\. Amazon CloudWatch provides several tools and services to help you monitor Systems Manager and your other AWS services\. For more information, see [Sending node logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md) and [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)\.
+Monitoring is an important part of maintaining the reliability, security, availability, and performance of Systems Manager and your AWS solutions\. Amazon CloudWatch provides several tools and services to help you monitor Systems Manager and your other AWS services\. For more information, see [Sending node logs to unified CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md) and [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)\.
 
 **Use CloudTrail**  
 AWS CloudTrail provides a record of actions taken by a user, role, or an AWS service in Systems Manager\. Using the information collected by CloudTrail, you can determine the request that was made to Systems Manager, the IP address from which the request was made, who made the request, when it was made, and additional details\. For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.

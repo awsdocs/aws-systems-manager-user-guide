@@ -112,4 +112,4 @@ public class createDocumentApiExample {
 
 ------
 
-For more information about creating custom document content, see [SSM document syntax](sysman-doc-syntax.md)\.
+For more information about creating custom document content, see [SSM document data elements](sysman-doc-syntax.md)\.

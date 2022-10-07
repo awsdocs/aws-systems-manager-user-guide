@@ -16,9 +16,9 @@ You can also monitor CPU utilization, disk I/O, and network utilization of your 
 
 **Topics**
 + [Monitoring tools](#monitoring-tools)
-+ [Sending node logs to CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
++ [Sending node logs to unified CloudWatch Logs \(CloudWatch agent\)](monitoring-cloudwatch-agent.md)
 + [Sending SSM Agent logs to CloudWatch Logs](monitoring-ssm-agent.md)
-+ [Monitoring Automation metrics using Amazon CloudWatch](monitoring-automation-metrics.md)
++ [Monitoring your automations](monitoring-automation-metrics.md)
 + [Monitoring Run Command metrics using Amazon CloudWatch](monitoring-cloudwatch-metrics.md)
 + [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
 + [Logging Automation action output with CloudWatch Logs](automation-action-logging.md)

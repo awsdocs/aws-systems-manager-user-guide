@@ -1,10 +1,12 @@
-# SSM document syntax<a name="sysman-doc-syntax"></a>
+# SSM document data elements<a name="sysman-doc-syntax"></a>
 
-The syntax of your document is defined by the schema version used to create it\. We recommended that you use schema version 2\.2 or later for Command documents\. Automation runbooks use schema version 0\.3\. Additionally, Automation runbooks support the use of Markdown, a markup language, which allows you to add wiki\-style descriptions to documents and individual steps within the document\. For more information about using Markdown, see [Using Markdown in AWS](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html)\.
+This topic describes the data elements used in Command and Automation SSM documents\.
 
-The top\-level elements provide the structure of the SSM document\. The information in this topic pertains to `Command` and `Automation` SSM documents\.
+The schema version used to create a document defines the syntax and data elements that the document accepts\. We recommend that you use schema version 2\.2 or later for Command documents\. Automation runbooks use schema version 0\.3\. Additionally, Automation runbooks support the use of Markdown, a markup language, which allows you to add wiki\-style descriptions to documents and individual steps within the document\. For more information about using Markdown, see [Using Markdown in the Console](https://docs.aws.amazon.com/general/latest/gr/aws-markdown.html) in the *AWS Management Console Getting Started Guide*\.
 
-## Top\-level elements<a name="top-level"></a>
+The following section describes the data elements that you can include in a SSM document\.
+
+## Top\-level data elements<a name="top-level"></a>
 
 **schemaVersion**  
 The schema version to use\.  
@@ -17,26 +19,57 @@ Type: String
 Required: No
 
 **parameters**  
-A structure that defines the parameters the document accepts\. For parameters that you reference often, we recommend that you store those parameters in Parameter Store, a capability of AWS Systems Manager, and then reference them\. You can reference `String` and `StringList` Parameter Store parameters in this section of a document\. You can't reference `SecureString` Parameter Store parameters in this section of a document\. You can reference a Parameter Store parameter using the following format:  
+A structure that defines the parameters the document accepts\.   
+For parameters that you use often, we recommend that you store those parameters in Parameter Store, a capability of AWS Systems Manager\. Then, you can define parameters in your document that reference Parameter Store parameters as their default value\. To reference a Parameter Store parameter, use the following syntax\.   
 
 ```
 {{ssm:parameter-name}}
 ```
+You can use a parameter that references a Parameter Store parameter the same way as any other document parameters\. In the following example, the default value for the `commands` parameter is the Parameter Store parameter `myShellCommands`\. By specifying the `commands` parameter as a `runCommand` string, the document runs the commands stored in the `myShellCommands` parameter\.  
 
 ```
-AMI:
-  type: String
-  description: "(Optional) The AMI to use when launching the instance."
-  default: "{{ssm:/aws/service/list/ami-windows-latest}}"
+---
+schemaVersion: '2.2'
+description: runShellScript with command strings stored as Parameter Store parameter
+parameters:
+  commands:
+    type: StringList
+    description: "(Required) The commands to run on the instance."
+    default: "{{ ssm:myShellCommands }}"
+mainSteps:
+- action: aws:runShellScript
+  name: runShellScriptDefaultParams
+  inputs:
+    runCommand:
+    - "{{ commands }}"
 ```
 
 ```
-"AMI": {
-  "type": "String",
-  "description": "(Optional) The AMI to use when launching the instance.",
-  "default": "{{ssm:/aws/service/list/ami-windows-latest}}"
+{
+    "schemaVersion": "2.2",
+    "description": "runShellScript with command strings stored as Parameter Store parameter",
+    "parameters": {
+      "commands": {
+        "type": "StringList",
+        "description": "(Required) The commands to run on the instance.",
+        "default": "{{ ssm:myShellCommands }}"
+      }
+    },
+    "mainSteps": [
+      {
+        "action": "aws:runShellScript",
+        "name": "runShellScriptDefaultParams",
+        "inputs": {
+            "runCommand": [
+              "{{ commands }}"
+          ]
+        }
+      }
+    ]
+  }
 }
 ```
+You can reference `String` and `StringList` Parameter Store parameters in the `parameters` section of your document\. You can't reference `SecureString` Parameter Store parameters\.
 For more information about Parameter Store, see [AWS Systems Manager Parameter Store](systems-manager-parameter-store.md)\.  
 Type: Structure  
 The `parameters` structure accepts the following fields and values:  

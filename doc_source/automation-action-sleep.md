@@ -58,7 +58,7 @@ inputs:
 ------
 
 **Note**  
-Automation supports a maximum delay of 604800 seconds \(7 days\)\.
+Automation supports a maximum delay of 604799 seconds \(7 days\)\.
 
 Duration  
 An ISO 8601 duration\. You can't specify a negative duration\.   

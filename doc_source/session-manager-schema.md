@@ -82,7 +82,7 @@ Type: String
 Required: No
 
 [parameters](#param)  
-An object that defines the parameters the document accepts\. For more information about defining document parameters, see **parameters** in the [Top\-level elements](sysman-doc-syntax.md#top-level)\. For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Parameter Store parameters in this section of a document\. You can't reference `SecureString` Parameter Store parameters in this section of a document\. You can reference a Parameter Store parameter using the following format\.  
+An object that defines the parameters the document accepts\. For more information about defining document parameters, see **parameters** in the [Top\-level data elements](sysman-doc-syntax.md#top-level)\. For parameters that you reference often, we recommend that you store those parameters in Systems Manager Parameter Store and then reference them\. You can reference `String` and `StringList` Parameter Store parameters in this section of a document\. You can't reference `SecureString` Parameter Store parameters in this section of a document\. You can reference a Parameter Store parameter using the following format\.  
 
 ```
 {{ssm:parameter-name}}
