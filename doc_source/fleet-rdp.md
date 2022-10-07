@@ -10,6 +10,7 @@ To use Fleet Manager with RDP, you must have SSM Agent version 3\.0\.222\.0 or h
 Fleet Manager RDP connections have a maximum session duration of 60 minutes\. When that duration is reached, Fleet Manager disconnects the session\. You can reconnect to the same session by using your credentials\. Alternatively, you can select **Renew session** before the session ends to restart the duration timer\.
 Fleet Manager RDP connections have an idle session timeout of 10 minutes\. When that duration is reached, Fleet Manager disconnects the session\. You can reconnect to the same session by using your credentials\.
 By default, you can have a maximum of 5 concurrent Fleet Manager RDP connections in the same AWS account and AWS Region\. You can request a service quota increase using the Service Quotas console for up to 25 concurrent RDP connections\. For more information, see [Requesting a quota increase ](https://docs.aws.amazon.com/servicequotas/latest/userguide/request-quota-increase.html) in the *Service Quotas User Guide*\.
+If you're connecting to an instance in Fleet Manager using AWS IAM Identity Center \(successor to AWS Single Sign\-On\) identities, there is a maximum limit of 16 characters on SSO username length\.
 If you're connecting to a Windows Server 2022 instance, you might need to install version 2\.2\.2 or later of the `PSReadLine` module to ensure keyboard functionality while using PowerShell\. The following is an example command\.  
 
   ```
