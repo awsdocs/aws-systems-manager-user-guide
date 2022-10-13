@@ -29,9 +29,9 @@ Amazon Linux and Amazon Linux 2 managed nodes use Yum as the package manager, an
 If you select the **Approved patches include non\-security updates** check box in the **Create patch baseline** page, then packages that aren't classified in an `updateinfo.xml` file \(or a package that contains a file without properly formatted Classification, Severity, and Date values\) can be included in the prefiltered list of patches\. However, in order for a patch to be applied, the patch must still meet the user\-specified patch baseline rules\.
 
 ------
-#### [ CentOS ]
+#### [ CentOS and CentOS Stream ]
 
-On CentOS, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the managed node\. The following list provides examples for a fictitious CentOS 8\.2 Amazon Machine Image \(AMI\):
+On CentOS and CentOS Stream, the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the managed node\. The following list provides examples for a fictitious CentOS 8\.2 Amazon Machine Image \(AMI\):
 + **Repo ID**: `example-centos-8.2-base`
 
   **Repo name**: `Example CentOS-8.2 - Base`
@@ -48,12 +48,12 @@ On CentOS, the Systems Manager patch baseline service uses preconfigured reposit
 **Note**  
 All updates are downloaded from the remote repos configured on the managed node\. Therefore, the node must be able to connect to the repos so the patching can be performed\.
 
-CentOS 6 and 7 managed nodes use Yum as the package manager\. CentOS 8 nodes use DNF as the package manager\. Both package managers use the concept of an update notice\. An update notice is simply a collection of packages that fix specific problems\. 
+CentOS 6 and 7 managed nodes use Yum as the package manager\. CentOS 8 and CentOS Stream nodes use DNF as the package manager\. Both package managers use the concept of an update notice\. An update notice is simply a collection of packages that fix specific problems\. 
 
-However, CentOS default repos aren't configured with an update notice\. This means that Patch Manager doesn't detect packages on a default CentOS repo\. To allow Patch Manager to process packages that aren't contained in an update notice, you must turn on the `EnableNonSecurity` flag in the patch baseline rules\.
+However, CentOS and CentOS Stream default repos aren't configured with an update notice\. This means that Patch Manager doesn't detect packages on default CentOS and CentOS Stream repos\. To allow Patch Manager to process packages that aren't contained in an update notice, you must turn on the `EnableNonSecurity` flag in the patch baseline rules\.
 
 **Note**  
-CentOS update notices are supported\. Repos with update notices can be downloaded after launch\.
+CentOS and CentOS Stream update notices are supported\. Repos with update notices can be downloaded after launch\.
 
 ------
 #### [ Debian Server and Raspberry Pi OS ]
@@ -98,18 +98,18 @@ Oracle Linux managed nodes use Yum as the package manager, and Yum uses the conc
 If you select the **Approved patches include non\-security updates** check box in the **Create patch baseline** page, then packages that aren't classified in an `updateinfo.xml` file \(or a package that contains a file without properly formatted Classification, Severity, and Date values\) can be included in the prefiltered list of patches\. However, in order for a patch to be applied, the patch must still meet the user\-specified patch baseline rules\.
 
 ------
-#### [ RHEL, CentOS Stream, and Rocky Linux  ]
+#### [ RHEL and Rocky Linux  ]
 
-On Red Hat Enterprise Linux, CentOS Stream, and Rocky Linux the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the managed node\. There are usually three preconfigured repos on a node\.
+On Red Hat Enterprise Linux and Rocky Linux the Systems Manager patch baseline service uses preconfigured repositories \(repos\) on the managed node\. There are usually three preconfigured repos on a node\.
 
 All updates are downloaded from the remote repos configured on the managed node\. Therefore, the node must be able to connect to the repos so the patching can be performed\.
 
 **Note**  
 If you select the **Approved patches include non\-security updates** check box in the **Create patch baseline** page, then packages that aren't classified in an `updateinfo.xml` file \(or a package that contains a file without properly formatted Classification, Severity, and Date values\) can be included in the prefiltered list of patches\. However, in order for a patch to be applied, the patch must still meet the user\-specified patch baseline rules\.
 
-Red Hat Enterprise Linux 7 managed nodes use Yum as the package manager\. Red Hat Enterprise Linux 8, CentOS Stream, and Rocky Linux managed nodes use DNF as the package manager\. Both package managers use the concept of an update notice as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. Individual packages aren't assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages and installs packages based on the Classification filters specified in the patch baseline\.
+Red Hat Enterprise Linux 7 managed nodes use Yum as the package manager\. Red Hat Enterprise Linux 8 and Rocky Linux managed nodes use DNF as the package manager\. Both package managers use the concept of an update notice as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. Individual packages aren't assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages and installs packages based on the Classification filters specified in the patch baseline\.
 
-Repo locations differ between RHEL 7 and the RHEL 8, CentOS Stream, and Rocky Linux systems:
+Repo locations differ between RHEL 7 and the RHEL 8 and Rocky Linux systems:
 
 RHEL 7  
 The following repo IDs are associated with RHUI 2\. RHUI 3 launched in December 2019 and introduced a different naming scheme for Yum repository IDs\. Depending on the RHEL\-7 AMI you create your managed nodes from, you might need to update your commands\. For more information, see [Repository IDs for RHEL 7 in AWS Have Changed](https://access.redhat.com/articles/4599971) on the *Red Hat Customer Portal*\.
@@ -123,7 +123,7 @@ The following repo IDs are associated with RHUI 2\. RHUI 3 launched in December 
 
   **Repo name**: `Red Hat Enterprise Linux Server 7 RH Common (RPMs)`
 
-RHEL 8, CentOS Stream, and Rocky Linux  
+RHEL 8 and Rocky Linux  
 + **Repo ID**: `rhel-8-appstream-rhui-rpms`
 
   **Repo name**: `Red Hat Enterprise Linux 8 for x86_64 - AppStream from RHUI (RPMs)`

@@ -13,14 +13,13 @@ For many Linux\-based operating systems, patch compliance results indicate which
 CVE details are included for supported versions of the following operating system types:
 + Amazon Linux
 + Amazon Linux 2
-+ CentOS Stream
 + Oracle Linux
 + Red Hat Enterprise Linux \(RHEL\)
 + Rocky Linux
 + SUSE Linux Enterprise Server \(SLES\)
 
 **Note**  
-By default, CentOS doesn't provide CVE information about updates\. You can, however, allow this support by using third\-party repositories such as the Extra Packages for Enterprise Linux \(EPEL\) repository published by Fedora\. For information, see [EPEL](https://fedoraproject.org/wiki/EPEL) on the Fedora Wiki\.
+By default, CentOS and CentOS Stream don't provide CVE information about updates\. You can, however, allow this support by using third\-party repositories such as the Extra Packages for Enterprise Linux \(EPEL\) repository published by Fedora\. For information, see [EPEL](https://fedoraproject.org/wiki/EPEL) on the Fedora Wiki\.
 
 You can also add CVE IDs to your lists of approved or rejected patches in your patch baselines, as the situation and your patching goals warrant\.
 

@@ -6,11 +6,11 @@ For Linux\-based operating system types that report a severity level for patches
 
 **Topics**
 + [How patch baseline rules work on Amazon Linux and Amazon Linux 2](#patch-manager-how-it-works-linux-rules-amazon-linux)
-+ [How patch baseline rules work on CentOS](#patch-manager-how-it-works-linux-rules-centos)
++ [How patch baseline rules work on CentOS and CentOS Stream](#patch-manager-how-it-works-linux-rules-centos)
 + [How patch baseline rules work on Debian Server and Raspberry Pi OS](#patch-manager-how-it-works-linux-rules-debian)
 + [How patch baseline rules work on macOS](#patch-manager-how-it-works-linux-rules-macos)
 + [How patch baseline rules work on Oracle Linux](#patch-manager-how-it-works-linux-rules-oracle)
-+ [How patch baseline rules work on RHEL, CentOS Stream, and Rocky Linux](#patch-manager-how-it-works-linux-rules-rhel)
++ [How patch baseline rules work on RHEL and Rocky Linux](#patch-manager-how-it-works-linux-rules-rhel)
 + [How patch baseline rules work on SUSE Linux Enterprise Server](#patch-manager-how-it-works-linux-rules-sles)
 + [How patch baseline rules work on Ubuntu Server](#patch-manager-how-it-works-linux-rules-ubuntu)
 
@@ -35,11 +35,11 @@ For information about accepted formats for lists of approved patches and rejecte
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
 
-## How patch baseline rules work on CentOS<a name="patch-manager-how-it-works-linux-rules-centos"></a>
+## How patch baseline rules work on CentOS and CentOS Stream<a name="patch-manager-how-it-works-linux-rules-centos"></a>
 
-On CentOS, the patch selection process is as follows:
+On CentOS and CentOS Stream, the patch selection process is as follows:
 
-1. On the managed node, the YUM library \(on CentOS 6\.x and 7\.x versions\) or the DNF library \(on CentOS 8\.x\) accesses the `updateinfo.xml` file for each configured repo\.
+1. On the managed node, the YUM library \(on CentOS 6\.x and 7\.x versions\) or the DNF library \(on CentOS 8\.x and CentOS Stream\) accesses the `updateinfo.xml` file for each configured repo\.
 **Note**  
 If there is no `updateinfo.xml` found, whether patches are installed depend on settings for **Approved patches include non\-security updates** and **Auto\-approval**\. For example, if non\-security updates are permitted, they're installed when the auto\-approval time arrives\.
 
@@ -140,11 +140,11 @@ For information about accepted formats for lists of approved patches and rejecte
 
 For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
 
-## How patch baseline rules work on RHEL, CentOS Stream, and Rocky Linux<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
+## How patch baseline rules work on RHEL and Rocky Linux<a name="patch-manager-how-it-works-linux-rules-rhel"></a>
 
-On Red Hat Enterprise Linux \(RHEL\), CentOS Stream, and Rocky Linux, the patch selection process is as follows:
+On Red Hat Enterprise Linux \(RHEL\) and Rocky Linux, the patch selection process is as follows:
 
-1. On the managed node, the YUM library \(RHEL 7\) or the DNF library \(RHEL 8, CentOS Stream, and Rocky Linux\) accesses the `updateinfo.xml` file for each configured repo\.
+1. On the managed node, the YUM library \(RHEL 7\) or the DNF library \(RHEL 8 and Rocky Linux\) accesses the `updateinfo.xml` file for each configured repo\.
 **Note**  
 The `updateinfo.xml` file might not be available if the repo isn't one managed by Red Hat\. If there is no `updateinfo.xml` found, no patch will be applied\.
 

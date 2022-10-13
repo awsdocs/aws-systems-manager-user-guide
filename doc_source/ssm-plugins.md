@@ -931,9 +931,10 @@ Additionally, you can specify the following optional parameters:
 
     The default is `master`\.
 
-    `"branch"` is required only if your SSM document is stored in a branch other than `master`\.
+    `"branch"` is required only if your SSM document is stored in a branch other than `master`\. For example:
+
     ```
-    "getOptions": "branch:refs/head/main",
+    "getOptions": "branch:refs/head/main"
     ```
   + commitID:*commitID*
 

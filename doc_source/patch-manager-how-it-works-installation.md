@@ -46,9 +46,9 @@ On Amazon Linux and Amazon Linux 2 managed nodes, the patch installation workflo
 1. The managed node is rebooted if any updates were installed\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\)
 
 ------
-#### [ CentOS ]
+#### [ CentOS and CentOS Stream ]
 
-On CentOS managed nodes, the patch installation workflow is as follows:
+On CentOS and CentOS Stream managed nodes, the patch installation workflow is as follows:
 
 1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
 
@@ -68,7 +68,7 @@ On CentOS managed nodes, the patch installation workflow is as follows:
 
 1. If multiple versions of a patch are approved, the latest version is applied\.
 
-1. The YUM update API \(on CentOS 6\.x and 7\.x versions\) or the DNF update \(on CentOS 8\) is applied to approved patches\.
+1. The YUM update API \(on CentOS 6\.x and 7\.x versions\) or the DNF update \(on CentOS 8 and CentOS Stream\) is applied to approved patches\.
 
 1. The managed node is rebooted if any updates were installed\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\)
 
@@ -199,9 +199,9 @@ On Oracle Linux managed nodes, the patch installation workflow is as follows:
 1. The managed node is rebooted if any updates were installed\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\)
 
 ------
-#### [ RHEL, CentOS Stream, and Rocky Linux  ]
+#### [ RHEL and Rocky Linux  ]
 
-On Red Hat Enterprise Linux, CentOS Stream, and Rocky Linux managed nodes, the patch installation workflow is as follows:
+On Red Hat Enterprise Linux and Rocky Linux managed nodes, the patch installation workflow is as follows:
 
 1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
 
@@ -221,7 +221,7 @@ On Red Hat Enterprise Linux, CentOS Stream, and Rocky Linux managed nodes, the p
 
 1. If multiple versions of a patch are approved, the latest version is applied\.
 
-1. The YUM update API \(on RHEL 7\) or the DNF update API \(on RHEL 8, CentOS Stream, and Rocky Linux\) is applied to approved patches as follows:
+1. The YUM update API \(on RHEL 7\) or the DNF update API \(on RHEL 8 and Rocky Linux\) is applied to approved patches as follows:
    + For predefined default patch baselines provided by AWS, and for custom patch baselines where the **Approved patches include non\-security updates** check box is *not* selected, only patches specified in `updateinfo.xml` are applied \(security updates only\)\.
 
      For RHEL 7, the equivalent yum command for this workflow is:
@@ -230,7 +230,7 @@ On Red Hat Enterprise Linux, CentOS Stream, and Rocky Linux managed nodes, the p
      sudo yum update-minimal --sec-severity=Critical,Important --bugfix -y
      ```
 
-     For RHEL 8, CentOS Stream, and Rocky Linux , the equivalent dnf commands for this workflow are:
+     For RHEL 8 and Rocky Linux , the equivalent dnf commands for this workflow are:
 
      ```
      sudo dnf update-minimal --sec-severity=Critical --bugfix -y ; \
@@ -244,7 +244,7 @@ On Red Hat Enterprise Linux, CentOS Stream, and Rocky Linux managed nodes, the p
      sudo yum update --security --bugfix -y
      ```
 
-     For RHEL 8, CentOS Stream, and Rocky Linux, the equivalent dnf command for this workflow is:
+     For RHEL 8 and Rocky Linux, the equivalent dnf command for this workflow is:
 
      ```
      sudo dnf update --security --bugfix -y

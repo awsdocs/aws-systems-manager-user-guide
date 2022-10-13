@@ -62,7 +62,7 @@ With this condition element set to `true`, explicit access to a Session document
 }
 ```
 
-If the `SessionDocumentAccessCheck` condition element is set to `false`, it will not affect the evaluation of the IAM policy\. If the `SessionDocumentAccessCheck` condition element is set to `true`, and you specify a document name in the `Resource`, you must provide the specified document name when starting a session\. If you provide a different document name when starting a session, the request fails\.
+If the `SessionDocumentAccessCheck` condition element is set to `false`, it will not affect the evaluation of the IAM policy\. That means if the `SessionDocumentAccessCheck` condition element is set to `true`, and you specify a document name in the `Resource`, you must provide the specified document name when starting a session\. If you provide a different document name when starting a session, the request fails\.
 
 If the `SessionDocumentAccessCheck` condition element is set to `false`, and a document name is not specified in the `Resource`, you do not need to provide a document name when you start a session\. By default, the `SSM-SessionManagerRunShell` document is used in the request\.
 

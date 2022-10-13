@@ -32,6 +32,8 @@ This following information includes procedures to help you run scripts from Amaz
 1. In **Command parameters**, do the following:
    + In **Source Type**, select **S3**\. 
    + In the **Source Info** text box, enter the required information to access the source in the following format\. Replace each *example resource placeholder* with your own information\.
+**Note**  
+Replace https://s3\.*aws\-api\-domain* with the URL for your bucket\. You can copy your bucket URL in Amazon S3 on the **Objects** tab\.
 
      ```
      {"path":"https://s3.aws-api-domain/path to script"}
@@ -40,7 +42,7 @@ This following information includes procedures to help you run scripts from Amaz
      The following is an example\.
 
      ```
-     {"path":"https://s3.aws-api-domain/doc-example-bucket/scripts/shell/helloWorld.sh"}
+     {"path":"https://mytestbucket.s3.us-west-2.amazonaws.com/scripts/shell/helloWorld.sh"}
      ```
    + In the **Command Line** field, enter parameters for the script execution\. Here is an example\.
 
@@ -81,6 +83,8 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
 
 1. Run the following command\. Replace each *example resource placeholder* with your own information\.
+**Note**  
+Replace https://s3\.*aws\-api\-domain* with the URL for your bucket\. You can copy your bucket URL in Amazon S3 on the **Objects** tab\.
 
 ------
 #### [ Linux & macOS ]
