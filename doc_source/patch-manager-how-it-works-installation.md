@@ -5,9 +5,9 @@ Patch Manager, a capability of AWS Systems Manager, uses the appropriate built\-
 Choose from the following tabs to learn how Patch Manager installs patches on an operating system\.
 
 ------
-#### [ Amazon Linux and Amazon Linux 2 ]
+#### [ Amazon Linux, Amazon Linux 2, and Amazon Linux 2022 ]
 
-On Amazon Linux and Amazon Linux 2 managed nodes, the patch installation workflow is as follows:
+On Amazon Linux, Amazon Linux 2, and Amazon Linux 2022 managed nodes, the patch installation workflow is as follows:
 
 1. If a list of patches is specified using an https URL or an Amazon Simple Storage Service \(Amazon S3\) path\-style URL using the `InstallOverrideList` parameter for the `AWS-RunPatchBaseline` or `AWS-RunPatchBaselineAssociation` documents, the listed patches are installed and steps 2\-7 are skipped\.
 
@@ -27,14 +27,24 @@ On Amazon Linux and Amazon Linux 2 managed nodes, the patch installation workflo
 
 1. If multiple versions of a patch are approved, the latest version is applied\.
 
-1. The YUM update API is applied to approved patches as follows:
+1. The YUM update API \(Amazon Linux, Amazon Linux 2\) or the DNF update API \(Amazon Linux 2022\) is applied to approved patches as follows:
    + For predefined default patch baselines provided by AWS, and for custom patch baselines where the **Approved patches include non\-security updates** check box is *not* selected, only patches specified in `updateinfo.xml` are applied \(security updates only\)\.
 
-     The equivalent yum command for this workflow is:
+     For Amazon Linux and Amazon Linux 2, the equivalent yum command for this workflow is:
 
      ```
      sudo yum update-minimal --sec-severity=Critical,Important --bugfix -y
      ```
+
+     For Amazon Linux 2022, the equivalent dnf command for this workflow is as follows\.
+
+     ```
+     sudo dnf update --security --bugfix -y
+     ```
+**Note**  
+For Amazon Linux 2022, a patch severity level of `Medium` is equivalent to a severity of `Moderate` that might be defined in some external repositories\. If you include `Medium` severity patches in the patch baseline, `Moderate` severity patches from external patches are also installed on the instances\.  
+When you query for compliance data using the API action [DescribeInstancePatches](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatches.html), filtering for the severity level `Medium` reports patches with severity levels of both `Medium` and `Moderate`\.  
+Amazon Linux 2022 also supports the patch severity level `None`, which is recognized by the DNF package manager\. 
    + For custom patch baselines where the **Approved patches include non\-security updates** check box *is* selected, both patches in `updateinfo.xml` and those not in `updateinfo.xml` are applied \(security and nonsecurity updates\)\.
 
      The equivalent yum command for this workflow is:

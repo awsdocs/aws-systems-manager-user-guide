@@ -7,13 +7,13 @@ The formats of package names you can add to lists of approved patches and reject
 The formats you can specify for approved and rejected patches in your patch baseline vary by Linux type\. More specifically, the formats that are supported depend on the package manager used by the type of Linux operating system\.
 
 **Topics**
-+ [Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and Red Hat Enterprise Linux \(RHEL\)](#patch-manager-approved-rejected-package-name-formats-standard)
++ [Amazon Linux, Amazon Linux 2, Amazon Linux 2022, CentOS, Oracle Linux, and Red Hat Enterprise Linux \(RHEL\)](#patch-manager-approved-rejected-package-name-formats-standard)
 + [Debian Server, Raspberry Pi OS \(formerly Raspbian\), and Ubuntu Server](#patch-manager-approved-rejected-package-name-formats-ubuntu)
 + [SUSE Linux Enterprise Server \(SLES\)](#patch-manager-approved-rejected-package-name-formats-sles)
 
-### Amazon Linux, Amazon Linux 2, CentOS, Oracle Linux, and Red Hat Enterprise Linux \(RHEL\)<a name="patch-manager-approved-rejected-package-name-formats-standard"></a>
+### Amazon Linux, Amazon Linux 2, Amazon Linux 2022, CentOS, Oracle Linux, and Red Hat Enterprise Linux \(RHEL\)<a name="patch-manager-approved-rejected-package-name-formats-standard"></a>
 
-**Package manager**: YUM, except for RHEL 8 and CentOS 8, which use DNF as the package manager
+**Package manager**: YUM, except for Amazon Linux 2022, RHEL 8, and CentOS 8, which use DNF as the package manager
 
 **Approved patches**: For approved patches, you can specify any of the following:
 + Bugzilla IDs, in the format `1234567` \(The system processes numbers\-only strings as Bugzilla IDs\.\)

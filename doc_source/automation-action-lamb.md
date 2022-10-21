@@ -79,7 +79,7 @@ StatusCode
 The HTTP status code\.
 
 FunctionError  
-Indicates whether an error occurred while running the Lambda function\. If an error occurred, this field will show either `Handled` or `Unhandled`\. `Handled` errors are reported by the function\. `Unhandled` errors are detected and reported by Lambda\.
+If present, it indicates that an error occurred while executing the function\. Error details are included in the response payload\.
 
 LogResult  
 The base64\-encoded logs for the Lambda function invocation\. Logs are present only if the invocation type is `RequestResponse`, and the logs were requested\.

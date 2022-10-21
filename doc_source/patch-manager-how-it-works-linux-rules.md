@@ -5,7 +5,7 @@ The rules in a patch baseline for Linux distributions operate differently based 
 For Linux\-based operating system types that report a severity level for patches, Patch Manager uses the severity level reported by the software publisher for the update notice or individual patch\. Patch Manager doesn't derive severity levels from third\-party sources, such as the [Common Vulnerability Scoring System](https://www.first.org/cvss/) \(CVSS\), or from metrics released by the [National Vulnerability Database](https://nvd.nist.gov/vuln) \(NVD\)\.
 
 **Topics**
-+ [How patch baseline rules work on Amazon Linux and Amazon Linux 2](#patch-manager-how-it-works-linux-rules-amazon-linux)
++ [How patch baseline rules work on Amazon Linux, Amazon Linux 2, and Amazon Linux 2022](#patch-manager-how-it-works-linux-rules-amazon-linux)
 + [How patch baseline rules work on CentOS and CentOS Stream](#patch-manager-how-it-works-linux-rules-centos)
 + [How patch baseline rules work on Debian Server and Raspberry Pi OS](#patch-manager-how-it-works-linux-rules-debian)
 + [How patch baseline rules work on macOS](#patch-manager-how-it-works-linux-rules-macos)
@@ -14,11 +14,11 @@ For Linux\-based operating system types that report a severity level for patches
 + [How patch baseline rules work on SUSE Linux Enterprise Server](#patch-manager-how-it-works-linux-rules-sles)
 + [How patch baseline rules work on Ubuntu Server](#patch-manager-how-it-works-linux-rules-ubuntu)
 
-## How patch baseline rules work on Amazon Linux and Amazon Linux 2<a name="patch-manager-how-it-works-linux-rules-amazon-linux"></a>
+## How patch baseline rules work on Amazon Linux, Amazon Linux 2, and Amazon Linux 2022<a name="patch-manager-how-it-works-linux-rules-amazon-linux"></a>
 
-On Amazon Linux and Amazon Linux 2, the patch selection process is as follows:
+On Amazon Linux, Amazon Linux 2, and Amazon Linux 2022, the patch selection process is as follows:
 
-1. On the managed node, the YUM library accesses the `updateinfo.xml` file for each configured repo\. 
+1. On the managed node, the YUM library \(Amazon Linux, Amazon Linux 2\) or the DNF library \(Amazon Linux 2022\) accesses the `updateinfo.xml` file for each configured repo\. 
 **Note**  
 If no `updateinfo.xml` file is found, whether patches are installed depend on settings for **Approved patches include non\-security updates** and **Auto\-approval**\. For example, if non\-security updates are permitted, they're installed when the auto\-approval time arrives\.
 

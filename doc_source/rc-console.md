@@ -73,6 +73,9 @@ Systems Manager includes two options to help you rerun a command from the **Run 
 
 The following procedure describes how to update the SSM Agent running on your managed nodes\. You can update to either the latest version of SSM Agent or downgrade to an older version\. When you run the command, the system downloads the version from AWS, installs it, and then uninstalls the version that existed before the command was run\. If an error occurs during this process, the system rolls back to the version on the server before the command was run and the command status shows that the command failed\.
 
+**Note**  
+If an instance is running macOS version 11\.0 \(Big Sur\) or later, the instance must have the SSM Agent version 3\.1\.941\.0 or higher to run the AWS\-UpdateSSMAgent document\. If the instance is running a version of SSM Agent released before 3\.1\.941\.0, you can update your SSM Agent to run the AWS\-UpdateSSMAgent document by running `brew update` and `brew upgrade amazon-ssm-agent` commands\.
+
 To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub\.
 
 **To update SSM Agent using Run Command**

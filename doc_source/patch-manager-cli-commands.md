@@ -33,7 +33,7 @@ For more information about using the AWS CLI for AWS Systems Manager tasks, see 
 
 ### Create a patch baseline<a name="patch-manager-cli-commands-create-patch-baseline"></a>
 
-The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 days after they're released\. Patches have also been specified for the Approved and Rejected patch lists\. In addition, the patch baseline has been tagged to indicate that it's for a production environment\.
+The following command creates a patch baseline that approves all critical and important security updates for Windows Server 2012 R2 5 days after they're released\. Patches have also been specified for the Approved and Rejected patch lists\. In addition, the patch baseline has been tagged to indicate that it's for a production environment\.
 
 ------
 #### [ Linux & macOS ]

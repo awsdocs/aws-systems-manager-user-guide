@@ -10,7 +10,9 @@ On all Linux\-based systems supported by Patch Manager, you can choose a differe
 Choose from the following tabs to learn how Patch Manager selects security patches for your operating system\.
 
 ------
-#### [ Amazon Linux and Amazon Linux 2 ]
+#### [ Amazon Linux, Amazon Linux 2, and Amazon Linux 2022 ]
+
+Preconfigured repositories are handled differently on Amazon Linux and Amazon Linux 2 than on Amazon Linux 2022\.
 
 On Amazon Linux and Amazon Linux 2, the Systems Manager patch baseline service uses preconfigured repositories on the managed node\. There are usually two preconfigured repositories \(repos\) on a node:
 + **Repo ID**: `amzn-main/latest`
@@ -20,10 +22,17 @@ On Amazon Linux and Amazon Linux 2, the Systems Manager patch baseline service u
 
   **Repo name**: `amzn-updates-Base`
 
+On Amazon Linux 2022, the preconfigured repositories are tied to *locked versions* of package updates\. When new Amazon Machine Images \(AMIs\) for Amazon Linux 2022 are released, they are locked to a specific version\. For patch updates, Patch Manager retrieves the latest locked version of the patch update repository and then updates packages on the managed node based on the content of that locked version\. For more information about version locking, see [Version locking](https://docs.aws.amazon.com/linux/al2022/ug/version-locking.html) in the *Amazon Linux 2022 User Guide*\.
+
+On Amazon Linux 2022, the preconfigured repository is the following:
++ **Repo ID**: `amazonlinux`
+
+  **Repo name**: Amazon Linux 2022 repository
+
 **Note**  
 All updates are downloaded from the remote repos configured on the managed node\. Therefore, the node must be able to connect to the repos so the patching can be performed\.
 
-Amazon Linux and Amazon Linux 2 managed nodes use Yum as the package manager, and Yum uses the concept of an update notice as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. All packages that are in an update notice are considered Security by Patch Manager\. Individual packages aren't assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages\.
+Amazon Linux and Amazon Linux 2 managed nodes use Yum as the package manager\. Amazon Linux 2022 uses DNF as the package manager\. Both package managers use the concept of an *update notice* as a file named `updateinfo.xml`\. An update notice is simply a collection of packages that fix specific problems\. All packages that are in an update notice are considered Security by Patch Manager\. Individual packages aren't assigned classifications or severity levels\. For this reason, Patch Manager assigns the attributes of an update notice to the related packages\.
 
 **Note**  
 If you select the **Approved patches include non\-security updates** check box in the **Create patch baseline** page, then packages that aren't classified in an `updateinfo.xml` file \(or a package that contains a file without properly formatted Classification, Severity, and Date values\) can be included in the prefiltered list of patches\. However, in order for a patch to be applied, the patch must still meet the user\-specified patch baseline rules\.

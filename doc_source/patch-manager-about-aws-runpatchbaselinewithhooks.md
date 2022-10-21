@@ -72,11 +72,13 @@ When the `AWS-RunPatchBaselineWithHooks` runs, the following steps are performed
 
    1. If the selected reboot option is `NoReboot`, the operation proceeds directly to the final step \(Step 8\), which includes a hook you have provided\. Any steps in between are skipped\. 
 
-   1. If the selected reboot option is `RebootIfNeeded`, Patch Manager checks whether there are any pending reboots required from the inventory collected in Step 4\. 
+   1. If the selected reboot option is `RebootIfNeeded`, Patch Manager checks whether there are any pending reboots required from the inventory collected in Step 4\. This means that the operation continues to Step 7 and the managed node is rebooted in either of the following cases:
 
-      1. If no patches requiring a reboot are found, the managed node patching operation is complete, and the operation proceeds directly to the final step \(Step 8\), which includes a hook you have provided\. Any steps in between are skipped\. 
+      1. Patch Manager installed one or more patches\. \(Patch Manager doesn't evaluate whether a reboot is required by the patch\. The system is rebooted even if the patch doesn't require a reboot\.\)
 
-      1. If patches requiring a reboot are found, the operation continues to the next step\. 
+      1. Patch Manager detects one or more patches with a status of `INSTALLED_PENDING_REBOOT` during the Install operation\. The `INSTALLED_PENDING_REBOOT` status can mean that the option `NoReboot` was selected the last time the Install operation was run\." 
+
+      If no patches meeting these criteria are found, the managed node patching operation is complete, and the operation proceeds directly to the final step \(Step 8\), which includes a hook you have provided\. Any steps in between are skipped\.
 
 1. **Reboot and report** \- An installation operation with the reboot option of `RebootIfNeeded` runs on the managed node using `AWS-RunPatchBaseline`, and a compliance report is generated and uploaded\. 
 
