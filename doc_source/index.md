@@ -579,7 +579,7 @@ sponsored by Amazon.
    + [Integration with AWS services](integrations-aws.md)
       + [Running scripts from Amazon S3](integration-s3.md)
       + [Referencing AWS Secrets Manager secrets from Parameter Store parameters](integration-ps-secretsmanager.md)
-      + [Using Parameter Store parameters in Lambda functions](ps-integration-lambda-extensions.md)
+      + [Using Parameter Store parameters in AWS Lambda functions](ps-integration-lambda-extensions.md)
    + [Integration with other products and services](integrations-partners.md)
       + [Running scripts from GitHub](integration-remote-scripts.md)
          + [Run Ansible Playbooks from GitHub](integration-github-ansible.md)
