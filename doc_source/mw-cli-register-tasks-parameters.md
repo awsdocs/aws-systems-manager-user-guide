@@ -46,7 +46,7 @@ The same syntax works for targeting instances or other resource types\. When mul
 **Important**  
 Not all resource types that might be included in a resource group yield a value for the `{{RESOURCE_ID}}` parameter\. For a list of supported resource types, see [Supported pseudo parameters](#pseudo-parameters)\.
 
-As another example, to run an Automation task that stops your EC2 instances, you specify the `AWS-StopEC2Instance` Systems Manager document \(SSM document\) as the `TaskArn` value and use the `{{RESOURCE_ID}` pseudo parameter:
+As another example, to run an Automation task that stops your EC2 instances, you specify the `AWS-StopEC2Instance` Systems Manager document \(SSM document\) as the `TaskArn` value and use the `{{RESOURCE_ID}}` pseudo parameter:
 
 ```
 "TaskArn": "AWS-StopEC2Instance",
@@ -63,7 +63,7 @@ As another example, to run an Automation task that stops your EC2 instances, you
     }
 ```
 
-To run an Automation task that copies a snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume, you specify the `AWS-CopySnapshot` SSM document as the `TaskArn` value and use the `{{RESOURCE_ID}` pseudo parameter\.
+To run an Automation task that copies a snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume, you specify the `AWS-CopySnapshot` SSM document as the `TaskArn` value and use the ` {{RESOURCE_ID}}` pseudo parameter\.
 
 ```
 "TaskArn": "AWS-CopySnapshot",

@@ -14,7 +14,6 @@ CVE details are included for supported versions of the following operating syste
 + Amazon Linux
 + Amazon Linux 2
 + Amazon Linux 2022
-+ CentOS Stream
 + Oracle Linux
 + Red Hat Enterprise Linux \(RHEL\)
 + Rocky Linux
