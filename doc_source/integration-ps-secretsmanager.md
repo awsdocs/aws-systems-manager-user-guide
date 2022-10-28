@@ -28,7 +28,7 @@ Parameter Store functions as a pass\-through service for references to Secrets M
 
 **To reference a Secrets Manager secret by using Parameter Store**
 
-1. Create a secret in Secrets Manager\. For more information, see [Create and manage secrets with with AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managing-secrets.html)\.
+1. Create a secret in Secrets Manager\. For more information, see [Create and manage secrets with AWS Secrets Manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/managing-secrets.html)\.
 
 1. Reference a secret by using the AWS CLI, AWS Tools for Windows PowerShell, or the SDK\. When you reference a Secrets Manager secret, the name must begin with the following reserved path: `/aws/reference/secretsmanager/`\. By specifying this path, Systems Manager knows to retrieve the secret from Secrets Manager instead of Parameter Store\. Here are some example names that correctly reference the Secrets Manager secrets, `CFCreds1` and `DBPass`, using Parameter Store\.
    + `/aws/reference/secretsmanager/CFCreds1`

@@ -110,7 +110,73 @@ Required: Yes \(Python\) \| Not supported \(PowerShell\)
 InputPayload  
 A JSON or YAML object that will be passed to the first parameter of the handler\. This can be used to pass input data to the script\.  
 Type: String  
-Required: No
+Required: No  
+
+```
+description: Tag an instance
+schemaVersion: '0.3'
+assumeRole: '{{AutomationAssumeRole}}'
+parameters:
+    AutomationAssumeRole:
+    type: String
+    description: '(Required) The Amazon Resource Name (ARN) of the IAM role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to operate this runbook.'
+    InstanceId:
+    type: String
+    description: (Required) The ID of the EC2 instance you want to tag.
+mainSteps:
+    - name: tagInstance
+    action: 'aws:executeScript'
+    inputs:
+        Runtime: python3.8
+        Handler: tagInstance
+        InputPayload:
+          instanceId: '{{InstanceId}}'
+        Script: |-
+          def getInstanceStates(events,context):
+          import boto3
+
+          #Initialize client
+          ec2 = boto3.client('ec2')
+          instanceId = events['instanceId']
+          tag = {
+              "Env": "Example"
+          }
+          ec2.create_tags(
+              Resources=[instanceId],
+              Tags=[tag]
+          )
+```
+
+```
+description: Tag an instance
+schemaVersion: '0.3'
+assumeRole: '{{AutomationAssumeRole}}'
+parameters:
+    AutomationAssumeRole:
+    type: String
+    description: '(Required) The Amazon Resource Name (ARN) of the IAM role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to operate this runbook.'
+    InstanceId:
+    type: String
+    description: (Required) The ID of the EC2 instance you want to tag.
+mainSteps:
+    - name: tagInstance
+    action: 'aws:executeScript'
+    inputs:
+        Runtime: PowerShell 7.0
+        InputPayload:
+          instanceId: '{{InstanceId}}'
+        Script: |-
+          Install-Module AWS.Tools.EC2 -Force
+          Import-Module AWS.Tools.EC2
+
+          $input = $env:InputPayload | ConvertFrom-Json
+
+          $tag = New-Object Amazon.EC2.Model.Tag
+          $tag.Key = "Env"
+          $tag.Value = "Example"
+
+          New-EC2Tag -Resource $input.instanceId -Tag $tag
+```
 
 Script  
 An embedded script that you want to run during the automation\. This parameter is not supported for JSON runbooks\. JSON runbooks must provide script content using the `Attachment` input parameter\.  

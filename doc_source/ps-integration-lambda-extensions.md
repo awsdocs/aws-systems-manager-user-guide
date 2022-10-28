@@ -23,20 +23,20 @@ Also, the system detects parameter values that are used frequently and maintains
 Use the following details to help you configure the AWS Parameters and Secrets Lambda Extension\.
 
 Authentication  
-To authorize and authenticate Parameter Store requests, the extension uses the same credentials as those used to run the Lambda function itself\. Therefore, the AWS Identity and Access Management \(IAM\) role used to run the function must have the following permissions to interact with Parameter Store\.  
-+ `ssm:GetParameter` – Required to retrieve parameters from Parameter Store\.
-+ `kms:Decrypt` – Required if you are retrieving `SecureString` parameters from Parameter Store\.
+To authorize and authenticate Parameter Store requests, the extension uses the same credentials as those used to run the Lambda function itself\. Therefore, the AWS Identity and Access Management \(IAM\) role used to run the function must have the following permissions to interact with Parameter Store:  
++ `ssm:GetParameter` – Required to retrieve parameters from Parameter Store
++ `kms:Decrypt` – Required if you are retrieving `SecureString` parameters from Parameter Store
 For more information, see [AWS Lambda execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html) in the *AWS Lambda Developer Guide*\.
 
 Instantiation  
-Lambda instantiates separate instances corresponding to the concurrency level that your function requires\. Each instance is isolated and maintains its own local cache of your configuration data\. For more information about Lambda instances and concurrency, see [Managing concurrency for a Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) in the *AWS Lambda Developer Guide*\.
+Lambda instantiates separate instances corresponding to the concurrency level that your function requires\. Each instance is isolated and maintains its own local cache of your configuration data\. For more information about Lambda instances and concurrency, see [Managing Lambda reserved currency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html) in the *AWS Lambda Developer Guide*\.
 
 No SDK dependence  
 The AWS Parameters and Secrets Lambda Extension works independently of any AWS SDK language library\. An AWS SDK is not required to make GET requests to Parameter Store\.
 
 Localhost port  
 Use `localhost` in your GET requests\. The extension makes requests to localhost port 2773\. You do not need to specify an external or internal endpoint to use the extension\. You can configure the port by setting the [environment variable](#ps-integration-lambda-extensions-config) `PARAMETERS_SECRETS_EXTENSION_HTTP_PORT`\.   
-For example, in Python, your GET URL might look something like the following:  
+For example, in Python, your GET URL might look something like the following example\.  
 
 ```
 parameter_url = ('http://localhost:' + port + '/systemsmanager/parameters/get/?name=' + ssm_parameter_path)
@@ -68,16 +68,16 @@ def lambda_handler(event, context):
 ```
 
 ARM support  
-Currently, the extension supports the ARM architecture in the following AWS Regions only\.  
-+ US East \(N\. Virginia\) Region \(us\-east\-1\)
+Currently, the extension supports the ARM architecture in the following AWS Regions only:  
 + US East \(Ohio\) Region \(us\-east\-2\)
++ US East \(N\. Virginia\) Region \(us\-east\-1\)
++ Asia Pacific \(Mumbai\) Region \(ap\-south\-1\)
++ Asia Pacific \(Singapore\) Region \(ap\-southeast\-1\)
++ Asia Pacific \(Sydney\) Region \(ap\-southeast\-2\)
++ Asia Pacific \(Tokyo\) Region \(ap\-northeast\-1\)
 + Europe \(Frankfurt\) Region \(eu\-central\-1\)
 + Europe \(Ireland\) Region \(eu\-west\-1\)
 + Europe \(London\) Region \(eu\-west\-2\)
-+ Asia Pacific \(Singapore\) Region \(ap\-southeast\-1\)
-+ Asia Pacific \(Tokyo\) Region \(ap\-northeast\-1\)
-+ Asia Pacific \(Sydney\) Region \(ap\-southeast\-2\)
-+ Asia Pacific \(Mumbai\) Region \(ap\-south\-1\)
 For complete lists of extension ARNs, see [AWS Parameters and Secrets Lambda Extension ARNs](#ps-integration-lambda-extensions-add)\.
 
 Logging  
@@ -89,7 +89,7 @@ To use the AWS Parameters and Secrets Lambda Extension, you add the extension to
 
 Use one of the following methods to add the extension to your function\.
 
-AWS Management Console \(method 1\)  
+AWS Management Console \(Add layer option\)  
 
 1. Open the AWS Lambda console at [https://console\.aws\.amazon\.com/lambda/](https://console.aws.amazon.com/lambda/)\.
 
@@ -99,7 +99,7 @@ AWS Management Console \(method 1\)
 
 1. For **AWS layers**, choose **AWS\-Parameters\-and\-Secrets\-Lambda\-Extension**, choose a version, and then choose **Add**\.
 
-AWS Management Console \(method 2\)  
+AWS Management Console \(Specify ARN option\)  
 
 1. Open the AWS Lambda console at [https://console\.aws\.amazon\.com/lambda/](https://console.aws.amazon.com/lambda/)\.
 
@@ -118,7 +118,7 @@ aws lambda update-function-configuration \
     --layers layer-ARN
 ```
 
-**Related info**
+**Related information**
 
 [Using layers with your Lambda function](https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html)
 
@@ -144,7 +144,7 @@ AWS Lambda records operation details about the Lambda extension and Lambda funct
 | PARAMETERS\_SECRETS\_EXTENSION\_CACHE\_SIZE |  The maximum size of the cache in terms of number of items\. A value of 0 \(zero\) indicates that the cache is bypassed\. This variable is ignored if both cache TTL values are 0 \(zero\)\.  | No | 0 \(zero\) to 1000 |  1000  | 
 | PARAMETERS\_SECRETS\_EXTENSION\_HTTP\_PORT | The port for the local HTTP server\. | No | 1 \- 65535 |  2773  | 
 | PARAMETERS\_SECRETS\_EXTENSION\_MAX\_CONNECTIONS |  Maximum number of connections for the HTTP clients that the extension uses to make requests to Parameter Store or Secrets Manager\. This is a per\-client configuration for the number of connections that both the Secrets Manager client and Parameter Store client make to the backend services\.  | No | Minimum of 1; No maximum limit\. |  3  | 
-| PARAMETERS\_SECRETS\_EXTENSION\_LOG\_LEVEL |  The level of detail reported in logs for the extension\. We recommend using `DEBUG` for the most detail about your cache configuration as you set up and test the extension\.  Note that logs for Lambda operations are automatically pushed to an associated CloudWatch Logs log group\.  | No |  `DEBUG \| WARN \| ERROR \| NONE \| INFO`  | INFO | 
+| PARAMETERS\_SECRETS\_EXTENSION\_LOG\_LEVEL |  The level of detail reported in logs for the extension\. We recommend using `DEBUG` for the most detail about your cache configuration as you set up and test the extension\.  Logs for Lambda operations are automatically pushed to an associated CloudWatch Logs log group\.  | No |  `DEBUG \| WARN \| ERROR \| NONE \| INFO`  | INFO | 
 
 ## Sample commands for using the AWS Systems Manager Parameter Store and AWS Secrets Manager Extension<a name="ps-integration-lambda-extensions-sample-commands"></a>
 
@@ -216,31 +216,31 @@ The following tables provide extension ARNs for supported architectures and Regi
 
 | Region | ARN | 
 | --- | --- | 
-|  US East \(N\. Virginia\)  |  `arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 |  US East \(Ohio\)  |  `arn:aws:lambda:us-east-2:590474943231:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  US East \(N\. Virginia\)  |  `arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 |  US West \(N\. California\)  |  `arn:aws:lambda:us-west-1:997803712105:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 |  US West \(Oregon\)  |  `arn:aws:lambda:us-west-2:345057560386:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Canada \(Central\)  |  `arn:aws:lambda:ca-central-1:200266452380:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(Frankfurt\)  |  `arn:aws:lambda:eu-central-1:187925254637:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(Ireland\)  |  `arn:aws:lambda:eu-west-1:015030872274:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(London\)  |  `arn:aws:lambda:eu-west-2:133256977650:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(Paris\)  |  `arn:aws:lambda:eu-west-3:780235371811:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(Stockholm\)  |  `arn:aws:lambda:eu-north-1:427196147048:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(Milan\)  |  `arn:aws:lambda:eu-south-1:325218067255:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-| China \(Beijing\) |  `arn:aws-cn:lambda:cn-north-1:287114880934:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-| China \(Ningxia\) |  `arn:aws-cn:lambda:cn-northwest-1:287310001119:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  Africa \(Cape Town\)  |  `arn:aws:lambda:af-south-1:317013901791:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 |  Asia Pacific \(Hong Kong\)  |  `arn:aws:lambda:ap-east-1:768336418462:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Asia Pacific \(Tokyo\)  |  `arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  Asia Pacific \(Jakarta\)  |  `arn:aws:lambda:ap-southeast-3:490737872127:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  Asia Pacific \(Mumbai\)  |  `arn:aws:lambda:ap-south-1:176022468876:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 | Asia Pacific \(Osaka\) |  `arn:aws:lambda:ap-northeast-3:576959938190:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 |  Asia Pacific \(Seoul\)  |  `arn:aws:lambda:ap-northeast-2:738900069198:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 |  Asia Pacific \(Singapore\)  |  `arn:aws:lambda:ap-southeast-1:044395824272:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 |  Asia Pacific \(Sydney\)  |  `arn:aws:lambda:ap-southeast-2:665172237481:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Asia Pacific \(Jakarta\)  |  `arn:aws:lambda:ap-southeast-3:490737872127:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Asia Pacific \(Mumbai\)  |  `arn:aws:lambda:ap-south-1:176022468876:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  South America \(São Paulo\)  |  `arn:aws:lambda:sa-east-1:933737806257:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Africa \(Cape Town\)  |  `arn:aws:lambda:af-south-1:317013901791:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-| Middle East \(UAE\) | arn:aws:lambda:me\-central\-1:858974508948:layer:AWS\-Parameters\-and\-Secrets\-Lambda\-Extension:2 | 
+|  Asia Pacific \(Tokyo\)  |  `arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  Canada \(Central\)  |  `arn:aws:lambda:ca-central-1:200266452380:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+| China \(Beijing\) |  `arn:aws-cn:lambda:cn-north-1:287114880934:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+| China \(Ningxia\) |  `arn:aws-cn:lambda:cn-northwest-1:287310001119:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  Europe \(Frankfurt\)  |  `arn:aws:lambda:eu-central-1:187925254637:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  Europe \(Ireland\)  |  `arn:aws:lambda:eu-west-1:015030872274:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  Europe \(London\)  |  `arn:aws:lambda:eu-west-2:133256977650:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  Europe \(Milan\)  |  `arn:aws:lambda:eu-south-1:325218067255:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  Europe \(Paris\)  |  `arn:aws:lambda:eu-west-3:780235371811:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  Europe \(Stockholm\)  |  `arn:aws:lambda:eu-north-1:427196147048:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 |  Middle East \(Bahrain\)  |  `arn:aws:lambda:me-south-1:832021897121:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+| Middle East \(UAE\) | arn:aws:lambda:me\-central\-1:858974508948:layer:AWS\-Parameters\-and\-Secrets\-Lambda\-Extension:2 | 
+|  South America \(São Paulo\)  |  `arn:aws:lambda:sa-east-1:933737806257:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 | AWS GovCloud \(US\-East\) |  `arn:aws-us-gov:lambda:us-gov-east-1:129776340158:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 | AWS GovCloud \(US\-West\) |  `arn:aws-us-gov:lambda:us-gov-west-1:127562683043:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
 
@@ -251,13 +251,13 @@ The following tables provide extension ARNs for supported architectures and Regi
 
 | Region | ARN | 
 | --- | --- | 
-|  US East \(N\. Virginia\)  |  `arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
 |  US East \(Ohio\)  |  `arn:aws:lambda:us-east-2:590474943231:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
+|  US East \(N\. Virginia\)  |  `arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
 |  US West \(Oregon\)  |  `arn:aws:lambda:us-west-2:345057560386:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
+|  Asia Pacific \(Mumbai\)  |  `arn:aws:lambda:ap-south-1:176022468876:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
+|  Asia Pacific \(Singapore\)  |  `arn:aws:lambda:ap-southeast-1:044395824272:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
+|  Asia Pacific \(Sydney\)  |  `arn:aws:lambda:ap-southeast-2:665172237481:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
+|  Asia Pacific \(Tokyo\)  |  `arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
 |  Europe \(Frankfurt\)  |  `arn:aws:lambda:eu-central-1:187925254637:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
 |  Europe \(Ireland\)  |  `arn:aws:lambda:eu-west-1:015030872274:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
 |  Europe \(London\)  |  `arn:aws:lambda:eu-west-2:133256977650:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Asia Pacific \(Tokyo\)  |  `arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Asia Pacific \(Singapore\)  |  `arn:aws:lambda:ap-southeast-1:044395824272:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Asia Pacific \(Sydney\)  |  `arn:aws:lambda:ap-southeast-2:665172237481:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Asia Pacific \(Mumbai\)  |  `arn:aws:lambda:ap-south-1:176022468876:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 

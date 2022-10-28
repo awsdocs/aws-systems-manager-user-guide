@@ -191,9 +191,9 @@ The following example IAM policy allows a user to do the following in the US Eas
 + Send a command to three nodes\. The nodes are determined by the following entries in the second `Resource` section\.
 
   ```
-  "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
-  "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-0471e04240EXAMPLE",
-  "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE"
+  "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
+  "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-0471e04240EXAMPLE",
+  "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE"
   ```
 + View details about a command after it has been sent\.
 + Start and stop workflows in Automation, a capability of AWS Systems Manager\.
@@ -202,7 +202,7 @@ The following example IAM policy allows a user to do the following in the US Eas
 If you want to give a user permission to use this document to send commands on any node for which the user has access \(as determined by their user account\), you could specify an entry similar to the following in the `Resource` section and remove the other node entries\. The following example uses the US East \(Ohio\) Region \(us\-east\-2\)\.
 
 ```
-"arn:aws:ssm:us-east-2:*:instance/*"
+"arn:aws:ec2:us-east-2:*:instance/*"
 ```
 
 ```
@@ -226,9 +226,9 @@ If you want to give a user permission to use this document to send commands on a
             "Action": "ssm:SendCommand",
             "Effect": "Allow",
             "Resource": [
-                "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
-                "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-0471e04240EXAMPLE",
-                "arn:aws:ssm:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE",
+                "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-02573cafcfEXAMPLE",
+                "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-0471e04240EXAMPLE",
+                "arn:aws:ec2:us-east-2:aws-account-ID:instance/i-07782c72faEXAMPLE",
                 
                 "arn:aws:ssm:us-east-2:aws-account-ID:document/Systems-Manager-document-name"
             ]

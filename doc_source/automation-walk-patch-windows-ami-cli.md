@@ -1,4 +1,4 @@
-# Patch a Windows Server AMI<a name="automation-walk-patch-windows-ami-cli"></a>
+# Patch a Windows ServerAMI<a name="automation-walk-patch-windows-ami-cli"></a>
 
 The `AWS-UpdateWindowsAmi` runbook enables you to automate image maintenance tasks on your Amazon Windows Amazon Machine Image \(AMI\) without having to author the runbook in JSON or YAML\. This runbook is supported for Windows Server 2008 R2 or later\. You can use the `AWS-UpdateWindowsAmi` runbook to perform the following types of tasks\.
 + Install all Windows updates and upgrade Amazon software \(default behavior\)\.
@@ -19,7 +19,7 @@ The `AWS-UpdateWindowsAmi` runbook accepts the following input parameters\.
 | Parameter | Type | Description | 
 | --- | --- | --- | 
 |  SourceAmiId  |  String  |  \(Required\) The source AMI ID\. You can automatically reference the latest Windows Server AMI ID by using a Systems Manager Parameter Store *public* parameter\. For more information, see [Query for the latest Windows AMI IDs using AWS Systems ManagerParameter Store](http://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/)\.  | 
-|  SubnetId  |  String  |  \(Optional\) The subnet you want to launch the temporary instance into\.  | 
+|  SubnetId  |  String  |  \(Optional\) The subnet you want to launch the temporary instance into\. You must specify a value for this parameter if you've deleted your default VPC\.  | 
 |  IamInstanceProfileName  |  String  |  \(Required\) The name of the IAM instance profile role you created in [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The runbook uses only the name of the instance profile role\.  | 
 |  AutomationAssumeRole  |  String  |  \(Required\) The name of the IAM service role you created in [Setting up Automation](automation-setup.md)\. The service role \(also called an assume role\) gives Automation permission to assume your IAM role and perform actions on your behalf\. For example, the service role allows Automation to create a new AMI when running the `aws:createImage` action in a runbook\. For this parameter, the complete ARN must be specified\.  | 
 |  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it is created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
