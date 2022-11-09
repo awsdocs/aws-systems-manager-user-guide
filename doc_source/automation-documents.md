@@ -1,10 +1,5 @@
 # Working with runbooks<a name="automation-documents"></a>
 
-
-|  | 
-| --- |
-| Automation documents are now referred to as runbooks\. | 
-
 An Automation runbook defines the *actions* that Systems Manager performs on your managed instances and other AWS resources when an automation runs\. Automation is a capability of AWS Systems Manager\. A runbook contains one or more steps that run in sequential order\. Each step is built around a single action\. Output from one step can be used as input in a later step\. 
 
 The process of running these actions and their steps is called the *automation*\.
@@ -18,7 +13,7 @@ AWS Systems Manager Automation provides several runbooks with pre\-defined steps
 Runbooks are written using YAML or JSON\. Using the **Document Builder** in the Systems Manager Automation console, however, you can create a runbook without having to author in native JSON or YAML\.
 
 **Important**  
-If you run an automation workflow that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation runbooks \(`AWS-*` runbooks\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few\. This requirement also applies to any custom Automation runbooks you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, configure the service role with permission to invoke those services\. You can give permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation inline policy to invoke other AWS services](automation-permissions.md#automation-role-add-inline-policy)\.
+If you run an automation workflow that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation runbooks \(`AWS-*` runbooks\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few\. This requirement also applies to any custom Automation runbooks you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, configure the service role with permission to invoke those services\. You can give permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation inline policy to invoke other AWS services](automation-setup-iam.md#add-inline-policy)\.
 
 For information about the actions that you can specify in a runbook, see [Systems Manager Automation actions reference](automation-actions.md)\.
 

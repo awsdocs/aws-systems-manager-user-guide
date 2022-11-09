@@ -1,4 +1,4 @@
-# Mapping targets for an automation<a name="automation-working-targets"></a>
+# Mapping targets for an automation<a name="running-automations-map-targets"></a>
 
 Use the `Targets` parameter to quickly define which resources are targeted by an automation\. For example, if you want to run an automation that restarts your managed instances, then instead of manually selecting dozens of instance IDs in the console or typing them in a command, you can target instances by specifying Amazon Elastic Compute Cloud \(Amazon EC2\) tags with the `Targets` parameter\.
 
@@ -9,7 +9,7 @@ Any `input parameters` that you specify at runtime \(either in the **Input param
 
 You can target resources for an automation by using tags, Resource Groups,and parameter values\. Additionally, you can use the `TargetMaps` option to target multiple parameter values from the command line or a file\. The following section describes each of these targeting options in more detail\.
 
-## Targeting a tag<a name="automation-working-targets-tags"></a>
+## Targeting a tag<a name="target-tags"></a>
 
 You can specify a single tag as the target of an automation\. Many AWS resources support tags, including Amazon Elastic Compute Cloud \(Amazon EC2\) and Amazon Relational Database Service \(Amazon RDS\) instances, Amazon Elastic Block Store \(Amazon EBS\) volumes and snapshots, Resource Groups,and Amazon Simple Storage Service \(Amazon S3\) buckets, to name a few\. You can quickly run automation on your AWS resources by targeting a tag\. A tag is a key\-value pair, such as Operating\_System:Linux or Department:Finance\. If you assign a specific name to a resource, then you can also use the word "Name" as a key, and the name of the resource as the value\.
 
@@ -54,7 +54,7 @@ aws ssm start-automation-execution \
     --target-parameter-name VolumeId
 ```
 
-## Targeting AWS Resource Groups<a name="automation-working-targets-resource-groups"></a>
+## Targeting AWS Resource Groups<a name="target-resource-groups"></a>
 
 You can specify a single AWS resource group as the target of an automation\. Systems Manager creates a child automation for every object in the target Resource Group\.
 
@@ -73,7 +73,7 @@ The following console example uses a Resource Group called t2\-micro\-instances\
 
 ![\[Targeting an AWS resource group with a Systems Manager automation\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-rate-control-resource-groups-new.png)
 
-## Targeting parameter values<a name="automation-working-targets-parameter-values"></a>
+## Targeting parameter values<a name="target-parameter-values"></a>
 
 You can also target a parameter value\. You enter `ParameterValues` as the key and then enter the specific resource value where you want the automation to run\. If you specify multiple values, Systems Manager runs a child automation on each value specified\.
 
@@ -91,7 +91,7 @@ aws ssm start-automation-execution
 **Note**  
 `AutomationAssumeRole` isn't a valid parameter\. Don’t choose this item when running automation that target a parameter value\.
 
-### Targeting parameter value maps<a name="automation-working-targets-maps"></a>
+### Targeting parameter value maps<a name="target-maps"></a>
 
 The `TargetMaps` option expands your ability to target `ParameterValues`\. You can enter an array of parameter values by using `TargetMaps` at the command line\. You can specify a maximum of 50 parameter values at the command line\. If you want to run commands that specify more than 50 parameter values, then you can enter the values in a JSON file\. You can then call the file from the command line\.
 
@@ -213,7 +213,7 @@ aws ssm start-automation-execution \
     --target-maps file:///home/TestUser/workspace/runinstances/AMI_instance_types.json
 ```
 
-## Targeting all instances<a name="automation-working-targets-all-instances"></a>
+## Targeting all instances<a name="target-all-instances"></a>
 
 You can run an automation on all managed instances in the current AWS account and AWS Region by choosing **All instances** in the **Targets** list\. For example, if you want to restart all managed instances your AWS account and the current AWS Region, you can choose the `AWS-RestartEC2Instance` runbook and then choose **All instances** from the **Targets** list\.
 

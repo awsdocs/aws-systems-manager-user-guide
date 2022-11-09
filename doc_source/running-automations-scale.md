@@ -1,12 +1,12 @@
-# Run automations at scale<a name="automation-working-targets-and-rate-controls"></a>
+# Run automations at scale<a name="running-automations-scale"></a>
 
 With AWS Systems Manager Automation, you can run automations on a fleet of AWS resources by using *targets*\. Additionally, you can control the deployment of the automation across your fleet by specifying a concurrency value and an error threshold\. The concurrency and error threshold features are collectively called *rate controls*\. The concurrency value determines how many resources are allowed to run the automation simultaneously\. Automation also provides an adaptive concurrency mode you can opt in to\. Adaptive concurrency automatically scales your automation quota from 100 concurrently running automations up to 500\. An error threshold determines how many automations are allowed to fail before Systems Manager stops sending the automation to other resources\.
 
-For more information about concurrency and error thresholds, see [Control automations at scale](automation-working-rate-controls.md)\. For more information about targets, see [Mapping targets for an automation](automation-working-targets.md)\.
+For more information about concurrency and error thresholds, see [Control automations at scale](running-automations-scale-controls.md)\. For more information about targets, see [Mapping targets for an automation](running-automations-map-targets.md)\.
 
 The following procedures show you how to turn on adaptive concurrency, and how to run an automation with targets and rate controls by using the Systems Manager console and AWS Command Line Interface \(AWS CLI\)\.
 
-## Running an automation with targets and rate controls \(console\)<a name="automation-working-targets-and-rate-controls-console"></a>
+## Running an automation with targets and rate controls \(console\)<a name="scale-console"></a>
 
 The following procedure describes how to use the Systems Manager console to run an automation with targets and rate controls\.
 
@@ -63,7 +63,7 @@ You might not need to choose some of the options in the **Input parameters** sec
 
 To view automations started by your rate control automation, in the navigation pane, choose Automation, and then select **Show child automations**\.
 
-## Running an automation with targets and rate controls \(command line\)<a name="automation-working-targets-and-rate-controls-commandline"></a>
+## Running an automation with targets and rate controls \(command line\)<a name="scale-cli"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an automation with targets and rate controls\.
 

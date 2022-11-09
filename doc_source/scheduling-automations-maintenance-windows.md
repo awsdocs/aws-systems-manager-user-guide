@@ -1,4 +1,4 @@
-# Schedule automations with maintenance windows<a name="automation-mw-target"></a>
+# Schedule automations with maintenance windows<a name="scheduling-automations-maintenance-windows"></a>
 
 You can start an automation by configuring a runbook as a registered task for a maintenance window\. By registering the runbook as a registered task, the maintenance window runs the automation during the scheduled maintenance period\. 
 
@@ -8,7 +8,7 @@ For information about creating Automation runbooks, see [Working with runbooks](
 
 Use the following procedures to configure an automation as a registered task for a maintenance window using the AWS Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS Tools for Windows PowerShell\.
 
-## Registering an automation task to a maintenance window \(console\)<a name="automation-mw-target-console"></a>
+## Registering an automation task to a maintenance window \(console\)<a name="register-automation-task-maintenance-window-console"></a>
 
 The following procedure describes how to use the Systems Manager console to configure an automation as a registered task for a maintenance window\.
 
@@ -65,7 +65,7 @@ For example, the service\-linked role for Systems Manager doesn't have the IAM p
 
 1. Choose **Register Automation task**\.
 
-## Registering an Automation task to a maintenance window \(command line\)<a name="automation-mw-target-commandline"></a>
+## Registering an Automation task to a maintenance window \(command line\)<a name="register-automation-task-maintenance-window-cli"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to configure an automation as a registered task for a maintenance window\.
 
@@ -87,16 +87,16 @@ Before you complete the following procedure, you must create a maintenance windo
 
    ```
    aws ssm register-task-with-maintenance-window \
-       --window-id window ID \
-       --name task name \
-       --task-arn runbook name \
-       --targets Key=targets,Values=value \
-       --service-role-arn IAM role arn \
-       --task-type AUTOMATION \
-       --task-invocation-parameters task parameters \
-       --priority task priority \
-       --max-concurrency 10% \
-       --max-errors 5
+   --window-id window ID \
+   --name task name \
+   --task-arn runbook name \
+   --targets Key=targets,Values=value \
+   --service-role-arn IAM role arn \
+   --task-type AUTOMATION \
+   --task-invocation-parameters task parameters \
+   --priority task priority \
+   --max-concurrency 10% \
+   --max-errors 5
    ```
 
 **Note**  
@@ -109,16 +109,16 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    aws ssm register-task-with-maintenance-window ^
-       --window-id window ID ^
-       --name task name ^
-       --task-arn runbook name ^
-       --targets Key=targets,Values=value ^
-       --service-role-arn IAM role arn ^
-       --task-type AUTOMATION ^
-       --task-invocation-parameters task parameters ^
-       --priority task priority ^
-       --max-concurrency 10% ^
-       --max-errors 5
+   --window-id window ID ^
+   --name task name ^
+   --task-arn runbook name ^
+   --targets Key=targets,Values=value ^
+   --service-role-arn IAM role arn ^
+   --task-type AUTOMATION ^
+   --task-invocation-parameters task parameters ^
+   --priority task priority ^
+   --max-concurrency 10% ^
+   --max-errors 5
    ```
 
 **Note**  
@@ -131,16 +131,16 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    Register-SSMTaskWithMaintenanceWindow `
-       -WindowId window ID `
-       -Name "task name" `
-       -TaskArn "runbook name" `
-       -Target @{ Key="targets";Values="value" } `
-       -ServiceRoleArn "IAM role arn" `
-       -TaskType "AUTOMATION" `
-       -Automation_Parameter @{ "task parameter"="task parameter value"} `
-       -Priority task priority `
-       -MaxConcurrency 10% `
-       -MaxError 5
+   -WindowId window ID `
+   -Name "task name" `
+   -TaskArn "runbook name" `
+   -Target @{ Key="targets";Values="value" } `
+   -ServiceRoleArn "IAM role arn" `
+   -TaskType "AUTOMATION" `
+   -Automation_Parameter @{ "task parameter"="task parameter value"} `
+   -Priority task priority `
+   -MaxConcurrency 10% `
+   -MaxError 5
    ```
 
 **Note**  
@@ -157,13 +157,13 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    aws ssm register-task-with-maintenance-window \
-       --window-id mw-0c50858d01EXAMPLE \
-       --name StartEC2Instances \
-       --task-arn AWS-StartEC2Instance \
-       --service-role-arn arn:aws:iam::123456789012:role/MaintenanceWindowRole \
-       --task-type AUTOMATION \
-       --task-invocation-parameters "{\"Automation\":{\"Parameters\":{\"InstanceId\":[\"{{TARGET_ID}}\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationAssumeRole\"]}}}" \
-       --priority 1
+   --window-id mw-0c50858d01EXAMPLE \
+   --name StartEC2Instances \
+   --task-arn AWS-StartEC2Instance \
+   --service-role-arn arn:aws:iam::123456789012:role/MaintenanceWindowRole \
+   --task-type AUTOMATION \
+   --task-invocation-parameters "{\"Automation\":{\"Parameters\":{\"InstanceId\":[\"{{TARGET_ID}}\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationAssumeRole\"]}}}" \
+   --priority 1
    ```
 
 ------
@@ -171,13 +171,13 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    aws ssm register-task-with-maintenance-window ^
-       --window-id mw-0c50858d01EXAMPLE ^
-       --name StartEC2Instances ^
-       --task-arn AWS-StartEC2Instance ^
-       --service-role-arn arn:aws:iam::123456789012:role/MaintenanceWindowRole ^
-       --task-type AUTOMATION ^
-       --task-invocation-parameters "{\"Automation\":{\"Parameters\":{\"InstanceId\":[\"{{TARGET_ID}}\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationAssumeRole\"]}}}" ^
-       --priority 1
+   --window-id mw-0c50858d01EXAMPLE ^
+   --name StartEC2Instances ^
+   --task-arn AWS-StartEC2Instance ^
+   --service-role-arn arn:aws:iam::123456789012:role/MaintenanceWindowRole ^
+   --task-type AUTOMATION ^
+   --task-invocation-parameters "{\"Automation\":{\"Parameters\":{\"InstanceId\":[\"{{TARGET_ID}}\"],\"AutomationAssumeRole\":[\"arn:aws:iam::123456789012:role/AutomationAssumeRole\"]}}}" ^
+   --priority 1
    ```
 
 ------
@@ -185,13 +185,13 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    Register-SSMTaskWithMaintenanceWindow `
-       -WindowId mw-0c50858d01EXAMPLE `
-       -Name "StartEC2" `
-       -TaskArn "AWS-StartEC2Instance" `
-       -ServiceRoleArn "arn:aws:iam::123456789012:role/MaintenanceWindowRole" `
-       -TaskType "AUTOMATION" `
-       -Automation_Parameter @{ "InstanceId"="{{TARGET_ID}}";"AutomationAssumeRole"="arn:aws:iam::123456789012:role/AutomationAssumeRole" } `
-       -Priority 1
+   -WindowId mw-0c50858d01EXAMPLE `
+   -Name "StartEC2" `
+   -TaskArn "AWS-StartEC2Instance" `
+   -ServiceRoleArn "arn:aws:iam::123456789012:role/MaintenanceWindowRole" `
+   -TaskType "AUTOMATION" `
+   -Automation_Parameter @{ "InstanceId"="{{TARGET_ID}}";"AutomationAssumeRole"="arn:aws:iam::123456789012:role/AutomationAssumeRole" } `
+   -Priority 1
    ```
 
 ------
@@ -203,7 +203,7 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    {
-       "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
+   "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
    }
    ```
 
@@ -212,7 +212,7 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    {
-       "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
+   "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE"
    }
    ```
 
@@ -232,7 +232,7 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    aws ssm describe-maintenance-window-tasks \
-       --window-id maintenance window ID
+   --window-id maintenance window ID
    ```
 
 ------
@@ -240,7 +240,7 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    aws ssm describe-maintenance-window-tasks ^
-       --window-id maintenance window ID
+   --window-id maintenance window ID
    ```
 
 ------
@@ -248,7 +248,7 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    Get-SSMMaintenanceWindowTaskList `
-       -WindowId maintenance window ID
+   -WindowId maintenance window ID
    ```
 
 ------
@@ -260,22 +260,22 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    {
-       "Tasks": [
-           {
-               "ServiceRoleArn": "arn:aws:iam::123456789012:role/MaintenanceWindowRole",
-               "MaxErrors": "1",
-               "TaskArn": "AWS-StartEC2Instance",
-               "MaxConcurrency": "1",
-               "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
-               "TaskParameters": {},
-               "Priority": 1,
-               "WindowId": "mw-0c50858d01EXAMPLE",
-               "Type": "AUTOMATION",
-               "Targets": [
-               ],
-               "Name": "StartEC2"
-           }
-       ]
+   "Tasks": [
+       {
+           "ServiceRoleArn": "arn:aws:iam::123456789012:role/MaintenanceWindowRole",
+           "MaxErrors": "1",
+           "TaskArn": "AWS-StartEC2Instance",
+           "MaxConcurrency": "1",
+           "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
+           "TaskParameters": {},
+           "Priority": 1,
+           "WindowId": "mw-0c50858d01EXAMPLE",
+           "Type": "AUTOMATION",
+           "Targets": [
+           ],
+           "Name": "StartEC2"
+       }
+   ]
    }
    ```
 
@@ -284,22 +284,22 @@ For information about maintenance window tasks that don't require targets, see [
 
    ```
    {
-       "Tasks": [
-           {
-               "ServiceRoleArn": "arn:aws:iam::123456789012:role/MaintenanceWindowRole",
-               "MaxErrors": "1",
-               "TaskArn": "AWS-StartEC2Instance",
-               "MaxConcurrency": "1",
-               "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
-               "TaskParameters": {},
-               "Priority": 1,
-               "WindowId": "mw-0c50858d01EXAMPLE",
-               "Type": "AUTOMATION",
-               "Targets": [
-               ],
-               "Name": "StartEC2"
-           }
-       ]
+   "Tasks": [
+       {
+           "ServiceRoleArn": "arn:aws:iam::123456789012:role/MaintenanceWindowRole",
+           "MaxErrors": "1",
+           "TaskArn": "AWS-StartEC2Instance",
+           "MaxConcurrency": "1",
+           "WindowTaskId": "4f7ca192-7e9a-40fe-9192-5cb15EXAMPLE",
+           "TaskParameters": {},
+           "Priority": 1,
+           "WindowId": "mw-0c50858d01EXAMPLE",
+           "Type": "AUTOMATION",
+           "Targets": [
+           ],
+           "Name": "StartEC2"
+       }
+   ]
    }
    ```
 

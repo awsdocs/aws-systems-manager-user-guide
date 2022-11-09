@@ -7,7 +7,7 @@ An association specifies a schedule for when to apply the configuration and the 
 **Note**  
 You can assign tags to an association when you create it by using a command line tool such as the AWS CLI or AWS Tools for PowerShell\. Adding tags to an association by using the Systems Manager console isn't supported\. For more information about tags, see [Tagging Systems Manager resources](tagging-resources.md)\. 
 
-The following procedures describe how to create an association that uses either a `Command` or a `Policy` document to target managed nodes\. For information about creating an association that uses an Automation runbook to target nodes or other types of AWS resources, see [Run automations with State Manager associations](automation-sm-target.md)\.
+The following procedures describe how to create an association that uses either a `Command` or a `Policy` document to target managed nodes\. For information about creating an association that uses an Automation runbook to target nodes or other types of AWS resources, see [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md)\.
 
 **Before you begin**  
 When you create an association, you can either specify a schedule for the association or run the association immediately\. If you specify a schedule, you must enter the schedule in the form of either a cron or rate expression\. For more information about cron and rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
@@ -59,7 +59,7 @@ When you create an association, you can choose an AWS resource group of managed 
 
 1. In the **Name** field, specify a name\.
 
-1. In the **Document** list, choose the option next to a document name\. Note the document type\. This procedure applies to `Command` and `Policy` documents\. For information about creating an association that uses an Automation runbook, see [Run automations with State Manager associations](automation-sm-target.md)\.
+1. In the **Document** list, choose the option next to a document name\. Note the document type\. This procedure applies to `Command` and `Policy` documents\. For information about creating an association that uses an Automation runbook, see [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md)\.
 **Important**  
 State Manager doesn't support running associations that use a new version of a document if that document is shared from another account\. State Manager always runs the `default` version of a document if shared from another account, even though the Systems Manager console shows that a new version was processed\. If you want to run an association using a new version of a document shared form another account, you must set the document version to `default`\.
 

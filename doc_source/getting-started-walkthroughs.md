@@ -49,7 +49,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 [Automation](systems-manager-automation.md), a capability of AWS Systems Manager, allows you to safely automate operations and management tasks across AWS resources\. You can automate common IT tasks, safely perform disruptive tasks in bulk, simplify complex tasks, enhance operations security, and use stored configuration scripts to share best practices with the rest of your organization\.
 + Advanced: [Walkthrough: Patch a Linux AMI \(console\)](automation-walk-patch-linux-ami-console.md)
 + Advanced: [Patch a Linux AMI \(AWS CLI\)](automation-walk-patch-linux-ami-cli.md)
-+ Advanced: [Patch a Windows ServerAMI](automation-walk-patch-windows-ami-cli.md)
++ Advanced: [Patch a Windows Server   AMI](automation-walk-patch-windows-ami-cli.md)
 + Advanced: [Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md)
 + Advanced: [Patch an AMI and update an Auto Scaling group](automation-walk-patch-windows-ami-autoscaling.md)
 + Advanced: [Run the EC2Rescue tool on unreachable instances](automation-ec2rescue.md)

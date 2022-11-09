@@ -35,6 +35,13 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | 2\.0 and all later versions |  | ✓ | ✓ | 
 
 
+**Bottlerocket**  
+
+| Versions | x86 | ARM64 | 
+| --- | --- | --- | 
+| 1\.0\.0 and all later versions | ✓ | ✓ | 
+
+
 **CentOS**  
 
 | Versions | x86 | x86\_64 | ARM64 | 

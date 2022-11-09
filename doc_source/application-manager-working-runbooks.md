@@ -11,7 +11,7 @@ Application Manager includes the following enhancements for working with runbook
 **Before you begin**  
 Before you start a runbook from Application Manager, do the following:
 + Verify that you have the correct permissions for starting runbooks\. For more information, see [Setting up Automation](automation-setup.md)\. 
-+ Review the Automation procedure documentation about starting runbooks\. For more information, see [Working with automations](automation-working.md)\.
++ Review the Automation procedure documentation about starting runbooks\. For more information, see [Running automations](running-automations.md)\.
 
 **To start a runbook from Application Manager**
 
@@ -23,4 +23,4 @@ Before you start a runbook from Application Manager, do the following:
 
 1. Choose the application in the list\. Application Manager opens the **Overview** tab\.
 
-1. Choose **Start runbook**\. Application Manager opens the **Execute automation document** page in a new tab\. For information about the options in the **Execute automation document** page, see [Working with automations](automation-working.md)\.
+1. Choose **Start runbook**\. Application Manager opens the **Execute automation document** page in a new tab\. For information about the options in the **Execute automation document** page, see [Running automations](running-automations.md)\.

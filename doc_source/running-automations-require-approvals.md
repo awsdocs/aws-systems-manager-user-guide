@@ -1,4 +1,4 @@
-# Run an automation with approvers<a name="automation-working-executing-approval"></a>
+# Run an automation with approvers<a name="running-automations-require-approvals"></a>
 
 The following procedures describe how to use the AWS Systems Manager console and AWS Command Line Interface \(AWS CLI\) to run an automation with approvals using simple execution\. The automation uses the automation action `aws:approve`, which temporarily pauses the automation until the designated principals either approve or deny the action\. The automation runs in the context of the current AWS Identity and Access Management \(IAM\) user\. This means that you don't need to configure additional IAM permissions as long as you have permission to use the runbook, and any actions called by the runbook\. If you have administrator permissions in IAM, then you already have permission to use this runbook\.
 
@@ -9,7 +9,7 @@ In addition to the standard inputs required by the runbook, the `aws:approve` ac
 
 This procedure assumes that you have already created an Amazon SNS topic, which is required to deliver the approval request\. For information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html#CreateTopic) in the *Amazon Simple Notification Service Developer Guide*\.
 
-## Running an automation with approvers \(console\)<a name="automation-working-executing-approval-console"></a>
+## Running an automation with approvers \(console\)<a name="approval-console"></a>
 
 **To run an automation with approvers**
 
@@ -60,7 +60,7 @@ If you chose to approve the automation, the automation continues to run the step
 
 1. Choose **Submit**\.
 
-## Running an automation with approvers \(command line\)<a name="automation-working-executing-approval-commandline"></a>
+## Running an automation with approvers \(command line\)<a name="approval-cli"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run an automation with approvers\.
 

@@ -1,4 +1,4 @@
-# Run an automation<a name="automation-working-executing"></a>
+# Run an automation<a name="running-simple-automations"></a>
 
 When you run an automation, by default, the automation runs in the context of the AWS Identity and Access Management \(IAM\) user who initiated the automation\. This means, for example, if your IAM user account has administrator permissions, then the automation runs with administrator permissions and full access to the resources being configured by the automation\. As a security best practice, we recommend that you run automation by using an IAM service role that is known in this case as an *assume* role that is configured with the AmazonSSMAutomationRole managed policy\. You might need to add additional IAM policies to your assume role to use various runbooks\. Using an IAM service role to run automation is called *delegated administration*\.
 
@@ -12,11 +12,11 @@ You must specify a service role for automation that you expect to run longer tha
 Delegated administration ensures elevated security and control of your AWS resources\. It also allows an enhanced auditing experience because actions are being performed against your resources by a central service role instead of multiple IAM accounts\.
 
 **Before you begin**  
-Before you complete the following procedures, you must create the IAM service role and configure a trust relationship for Automation, a capability of AWS Systems Manager\. For more information, see [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\.
+Before you complete the following procedures, you must create the IAM service role and configure a trust relationship for Automation, a capability of AWS Systems Manager\. For more information, see [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role)\.
 
 The following procedures describe how to use the Systems Manager console or your preferred command line tool to run a simple automation\.
 
-## Running a simple automation \(console\)<a name="automation-working-executing-console"></a>
+## Running a simple automation \(console\)<a name="simple-console"></a>
 
 The following procedure describes how to use the Systems Manager console to run a simple automation\.
 
@@ -47,7 +47,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 The console displays the status of the automation\. If the automation fails to run, see [Troubleshooting Systems Manager Automation](automation-troubleshooting.md)\.
 
-## Running a simple automation \(command line\)<a name="automation-working-executing-commandline"></a>
+## Running a simple automation \(command line\)<a name="simple-cli"></a>
 
 The following procedure describes how to use the AWS CLI \(on Linux or Windows\) or AWS Tools for PowerShell to run a simple automation\.
 

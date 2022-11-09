@@ -1,8 +1,8 @@
-# Method 1: Use AWS CloudFormation to configure a service role for Automation<a name="automation-cf"></a>
+# Method 1: Use AWS CloudFormation to configure a service role for Automation<a name="automation-setup-cloudformation"></a>
 
 You can create a service role for Automation, a capability of AWS Systems Manager, from an AWS CloudFormation template\. After you create the service role, you can specify the service role in runbooks using the parameter `AutomationAssumeRole`\.
 
-## Create the service role using AWS CloudFormation<a name="automation-cf-create"></a>
+## Create the service role using AWS CloudFormation<a name="create-iam-service-role"></a>
 
 Use the following procedure to create the required AWS Identity and Access Management \(IAM\) role for Systems Manager Automation by using AWS CloudFormation\.
 
@@ -31,9 +31,9 @@ Use the following procedure to create the required AWS Identity and Access Manag
 CloudFormation shows the **CREATE\_IN\_PROGRESS** status for approximately three minutes\. The status changes to **CREATE\_COMPLETE** after the stack is created and your roles are ready to use\.
 
 **Important**  
-If you run an automation workflow that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation runbooks \(`AWS-*` runbooks\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few\. This requirement also applies to any custom Automation runbooks you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, configure the service role with permission to invoke those services\. You can give permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation inline policy to invoke other AWS services](automation-permissions.md#automation-role-add-inline-policy)\.
+If you run an automation workflow that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation runbooks \(`AWS-*` runbooks\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few\. This requirement also applies to any custom Automation runbooks you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, configure the service role with permission to invoke those services\. You can give permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation inline policy to invoke other AWS services](automation-setup-iam.md#add-inline-policy)\.
 
-## Copy role information for Automation<a name="automation-cf-copy"></a>
+## Copy role information for Automation<a name="copy-iam-role-info"></a>
 
 Use the following procedure to copy information about the Automation service role from the AWS CloudFormation console\. You must specify these roles when you use a runbook\.
 

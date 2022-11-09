@@ -5,8 +5,8 @@ You can remediate issues with AWS resources from Application Manager, a capabili
 **Before you begin**  
 Before you start a runbook from Application Manager, do the following:
 + Verify that you have the correct permissions for starting runbooks\. For more information, see [Setting up Automation](automation-setup.md)\. 
-+ Review the Automation procedure documentation about starting runbooks\. For more information, see [Working with automations](automation-working.md)\.
-+ If you intend to start runbooks on multiple resources at one time, review the documentation about using targets and rate controls\. For more information, see [Run automations at scale](automation-working-targets-and-rate-controls.md)\.
++ Review the Automation procedure documentation about starting runbooks\. For more information, see [Running automations](running-automations.md)\.
++ If you intend to start runbooks on multiple resources at one time, review the documentation about using targets and rate controls\. For more information, see [Run automations at scale](running-automations-scale.md)\.
 
 **To start a runbook for clusters from Application Manager**
 
@@ -18,4 +18,4 @@ Before you start a runbook from Application Manager, do the following:
 
 1. Choose the cluster in the list\. Application Manager opens the **Overview** tab\.
 
-1. On the **Runbooks** tab, choose **Start runbook**\. Application Manager opens the **Execute automation document** page in a new tab\. For information about the options in the **Execute automation document** page, see [Working with automations](automation-working.md)\.
+1. On the **Runbooks** tab, choose **Start runbook**\. Application Manager opens the **Execute automation document** page in a new tab\. For information about the options in the **Execute automation document** page, see [Running automations](running-automations.md)\.

@@ -216,7 +216,7 @@ For more information, see [CreateStack](https://docs.aws.amazon.com/AWSCloudForm
 
 ## Security considerations<a name="automation-action-createstack-security"></a>
 
-Before you can use the `aws:createStack` action, you must assign the following policy to the IAM Automation assume role\. For more information about the assume role, see [Task 1: Create a service role for Automation](automation-permissions.md#automation-role)\. 
+Before you can use the `aws:createStack` action, you must assign the following policy to the IAM Automation assume role\. For more information about the assume role, see [Task 1: Create a service role for Automation](automation-setup-iam.md#create-service-role)\. 
 
 ```
 {

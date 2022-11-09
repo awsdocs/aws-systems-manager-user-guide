@@ -1,4 +1,4 @@
-# Patch a Windows ServerAMI<a name="automation-walk-patch-windows-ami-cli"></a>
+# Patch a Windows Server   AMI<a name="automation-walk-patch-windows-ami-cli"></a>
 
 The `AWS-UpdateWindowsAmi` runbook enables you to automate image maintenance tasks on your Amazon Windows Amazon Machine Image \(AMI\) without having to author the runbook in JSON or YAML\. This runbook is supported for Windows Server 2008 R2 or later\. You can use the `AWS-UpdateWindowsAmi` runbook to perform the following types of tasks\.
 + Install all Windows updates and upgrade Amazon software \(default behavior\)\.
@@ -6,7 +6,7 @@ The `AWS-UpdateWindowsAmi` runbook enables you to automate image maintenance tas
 + Customize an AMI using your scripts\.
 
 **Before you begin**  
-Before you begin working with runbooks, [configure roles for Automation](automation-permissions.md) to add an `iam:PassRole` policy that references the ARN of the instance profile you want to grant access to\. Optionally, configure Amazon EventBridge for Automation, a capability of AWS Systems Manager\. For more information, see [Setting up Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+Before you begin working with runbooks, [configure roles for Automation](automation-setup-iam.md) to add an `iam:PassRole` policy that references the ARN of the instance profile you want to grant access to\. Optionally, configure Amazon EventBridge for Automation, a capability of AWS Systems Manager\. For more information, see [Setting up Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 **Note**  
 Updates to AWS Systems Manager SSM Agent are typically rolled out to different regions at different times\. When you customize or update an AMI, use only source AMIs published for the region that you are working in\. This will ensure that you are working with the latest SSM Agent released for that region and avoid compatibility issues\.

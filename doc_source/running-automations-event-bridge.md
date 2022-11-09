@@ -1,4 +1,4 @@
-# Run automations based on events<a name="automation-cwe-target"></a>
+# Run automations based on events<a name="running-automations-event-bridge"></a>
 
 You can start an automation by specifying a runbook as the target of an Amazon EventBridge event\. You can start automations according to a schedule, or when a specific AWS system event occurs\. For example, let's say you create a runbook named *BootStrapInstances* that installs software on an instance when an instance starts\. To specify the *BootStrapInstances* runbook \(and corresponding automation\) as a target of an EventBridge event, you first create a new EventBridge rule\. \(Here's an example rule: **Service name**: EC2, **Event Type**: EC2 Instance State\-change Notification, **Specific state\(s\)**: running, **Any instance**\.\) Then you use the following procedures to specify the *BootStrapInstances* runbook as the target of the event using the EventBridge console and AWS Command Line Interface \(AWS CLI\)\. When a new instance starts, the system runs the automation and installs software\.
 
@@ -23,7 +23,7 @@ Use the following procedure to configure a runbook as the target of a EventBridg
 1. For **Event bus**, choose the event bus that you want to associate with this rule\. If you want this rule to respond to matching events that come from your own AWS account, select **default**\. When an AWS service in your account emits an event, it always goes to your account’s default event bus\.
 
 1. Choose how the rule is triggered\.    
-[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/automation-cwe-target.html)
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/running-automations-event-bridge.html)
 
 1. Choose **Next**\.
 
