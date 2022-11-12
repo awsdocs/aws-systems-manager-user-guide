@@ -91,6 +91,9 @@ Primary features of Change Manager include the following:
 + **Integration with Amazon CloudWatch alarms**
 
   Change Manager is integrated with CloudWatch alarms\. Change Manager listens for CloudWatch alarms during the runbook workflow and takes any actions, including sending notifications, that are defined for the alarm\.
++ **Integration with AWS CloudTrail Lake**
+
+  By creating an event data store in AWS CloudTrail Lake, you can view auditable information about the changes made by change requests that run in your account or organization\. The event information stored includes such details as which API actions were run, the request parameters included for those actions, the user account that ran the action, the resources that were updated during the process, and more\.
 + **Integration with AWS Organizations**
 
   Using the cross\-account capabilities provided by Organizations, you can use a delegated administrator account for managing Change Manager operations in OUs in your organization\. In your Organizations management account, you can specify which account is to be the delegated administrator account\. You can also control which of your OUs Change Manager can be used in\.

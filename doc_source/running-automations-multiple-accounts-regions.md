@@ -170,6 +170,8 @@ You can view information about a runbook by choosing the runbook name\.
 **Note**  
 You might not need to choose some of the options in the **Input parameters** section\. This is because you targeted resources in multiple Regions and accounts by using tags or a resource group\. For example, if you chose the `AWS-RestartEC2Instance` runbook, then you don't need to specify or choose instance IDs in the **Input parameters** section\. The automation locates the instances to restart by using the tags you specified\. 
 
+1. \(Optional\) Choose a CloudWatch alarm to apply to your automation for monitoring\. To attach a CloudWatch alarm to your automation, the IAM principal that starts the automation must have permission for the `iam:createServiceLinkedRole` action\. For more information about CloudWatch alarms, see [Using Amazon CloudWatch alarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html)\. Note that if your alarm activates, the automation is stopped\. If you use AWS CloudTrail, you will see the API call in your trail\.
+
 1. Use the options in the **Rate control** section to restrict the number of AWS resources that can run the Automation within each account\-Region pair\. 
 
    In the **Concurrency** section, choose an option: 

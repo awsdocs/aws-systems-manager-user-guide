@@ -562,6 +562,7 @@ sponsored by Amazon.
 + [Monitoring AWS Systems Manager](monitoring.md)
    + [Sending node logs to unified CloudWatch Logs (CloudWatch agent)](monitoring-cloudwatch-agent.md)
    + [Sending SSM Agent logs to CloudWatch Logs](monitoring-ssm-agent.md)
+   + [Monitoring your change request events](monitoring-change-request-events.md)
    + [Monitoring your automations](monitoring-automation-metrics.md)
    + [Monitoring Run Command metrics using Amazon CloudWatch](monitoring-cloudwatch-metrics.md)
    + [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
