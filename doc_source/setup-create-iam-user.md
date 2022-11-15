@@ -1,4 +1,4 @@
-# Step 3: Create non\-Admin IAM users and groups for Systems Manager<a name="setup-create-iam-user"></a>
+# Step 2: Create non\-Admin IAM users and groups for Systems Manager<a name="setup-create-iam-user"></a>
 
 Users in the administrators group for an account have access to all AWS services and resources in that account\. This section describes how to create users with permissions that are limited to AWS Systems Manager\.
 

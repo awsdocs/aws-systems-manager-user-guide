@@ -37,7 +37,7 @@ If AWS Systems Manager SSM Agent is already running on a managed node when you a
 
   Update SSM Agent manually on a managed node by following the steps in [Manually installing SSM Agent on EC2 instances for Windows Server](sysman-install-win.md), [Manually installing SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md), or [Working with SSM Agent on EC2 instances for macOS](install-ssm-agent-macos.md), depending on the operating system\. 
 
-  Alternatively, use the Run Command document `AWS-UpdateSSMAgent` to update the agent version on one or more managed nodes at a time\. For information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+  Alternatively, use the Run Command document `AWS-UpdateSSMAgent` to update the agent version on one or more managed nodes at a time\. For information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample)\.
 **Tip**  
 To always keep your agent up to date, we recommend updating SSM Agent to the latest version on an automated schedule that you define using either of the following methods:  
 Run `AWS-UpdateSSMAgent` as part of a State Manager association\. For information, see [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.

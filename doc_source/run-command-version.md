@@ -1,4 +1,4 @@
-# Running commands using the document version parameter<a name="run-command-version"></a>
+# Running commands using a specific document version<a name="run-command-version"></a>
 
 You can use the document version parameter to specify which version of an AWS Systems Manager document to use when the command runs\. You can specify one of the following options for this parameter:
 + $DEFAULT

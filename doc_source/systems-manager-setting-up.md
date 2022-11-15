@@ -8,6 +8,7 @@ If you plan to use Amazon EC2 instances *and* your own computing resources in a 
 If you already use other AWS services, you have completed some of these steps\. However, other steps are specific to Systems Manager\. Therefore, we recommend reviewing this entire section to ensure that you're ready to use all Systems Manager capabilities\. 
 
 **Topics**
++ [General setup for AWS Systems Manager](setting_up_prerequisites.md)
 + [Setting up AWS Systems Manager for EC2 instances](systems-manager-setting-up-ec2.md)
 + [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)
 + [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)

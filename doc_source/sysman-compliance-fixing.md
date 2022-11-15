@@ -6,7 +6,7 @@ For more information about patching, see [AWS Systems Manager Patch Manager](sy
 
 For more information about associations, see [Working with associations in Systems Manager](systems-manager-associations.md)\.
 
-For more information about running a command, see [Sending commands using Systems Manager Run Command](run-command.md)\.
+For more information about running a command, see [Running commands on managed nodes](run-command.md)\.
 
 **Specify Compliance as the target of an EventBridge event**  
 You can also configure Amazon EventBridge to perform an action in response to Systems Manager Compliance events\. For example, if one or more managed nodes fail to install Critical patch updates or run an association that installs anti\-virus software, then you can configure EventBridge to run the `AWS-RunPatchBaseline` document or the `AWS-RefreshAssocation` document when the Compliance event occurs\. 

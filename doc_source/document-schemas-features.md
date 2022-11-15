@@ -20,7 +20,7 @@ By using the latest schema version for `Command` and `Policy` documents, you can
 |  Cross\-platform support  |  Cross\-platform support allows you to specify different operating systems for different plugins within the same SSM document\. Cross\-platform support uses the `precondition` parameter within a step\.   | 
 
 **Note**  
-You must keep AWS Systems Manager SSM Agent on your instances updated with the latest version to use new Systems Manager features and SSM document features\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+You must keep AWS Systems Manager SSM Agent on your instances updated with the latest version to use new Systems Manager features and SSM document features\. For more information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample)\.
 
 The following table lists the differences between major schema versions\.
 

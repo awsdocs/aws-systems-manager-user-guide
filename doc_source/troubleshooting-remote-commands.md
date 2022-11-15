@@ -17,7 +17,7 @@ After you create, activate, reboot, or restart a managed node, install Run Comma
 
 ## A step in my script failed, but the overall status is 'succeeded'<a name="ts-exit-codes"></a>
 
-Using Run Command, you can define how your scripts handle exit codes\. By default, the exit code of the last command run in a script is reported as the exit code for the entire script\. You can, however, include a conditional statement to exit the script if any command before the final one fails\. For information and examples, see [Managing exit codes in Run Command commands](command-exit-codes.md)\. 
+Using Run Command, you can define how your scripts handle exit codes\. By default, the exit code of the last command run in a script is reported as the exit code for the entire script\. You can, however, include a conditional statement to exit the script if any command before the final one fails\. For information and examples, see [Specify exit codes in commands](command-workflow-scripts.md#command-exit-codes)\. 
 
 ## SSM Agent isn't running properly<a name="ts-ssmagent-linux"></a>
 

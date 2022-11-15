@@ -125,4 +125,4 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 1. Choose **Run**\.
 
 **Note**  
-For information about rebooting servers and instances when using Run Command to call scripts, see [Rebooting managed nodes from scripts](send-commands-reboot.md)\.
+For information about rebooting servers and instances when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md)\.

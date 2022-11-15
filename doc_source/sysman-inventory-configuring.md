@@ -27,7 +27,7 @@ You can inventory all managed nodes in your AWS account by creating a global inv
 
 **Note**  
 If a managed node is configured for the global inventory association, and you assign a specific association to that node, then Systems Manager Inventory deprioritizes the global association and applies the specific association\.
-Global inventory associations are available in SSM Agent version 2\.0\.790\.0 or later\. For information about how to update SSM Agent on your nodes, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+Global inventory associations are available in SSM Agent version 2\.0\.790\.0 or later\. For information about how to update SSM Agent on your nodes, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample)\.
 
 ### Configuring inventory collection with one click \(console\)<a name="sysman-inventory-config-collection-one-click"></a>
 

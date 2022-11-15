@@ -64,7 +64,7 @@ The Inventory **Detailed View ** page is only available in AWS Regions that offe
 
 ## UnsupportedAgent<a name="sysman-inventory-troubleshooting-unsupported-agent"></a>
 
-If the detailed status of an inventory association shows **UnsupportedAgent**, and the **Association status** shows **Failed**, then the version of AWS Systems Manager SSM Agent on the managed node isn't correct\. To create a global inventory association \(to inventory all nodes in your AWS account\) for example, you must use SSM Agent version 2\.0\.790\.0 or later\. You can view the agent version running on each of your nodes on the **Managed Instances** page in the **Agent version** column\. For information about how to update SSM Agent on your nodes, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
+If the detailed status of an inventory association shows **UnsupportedAgent**, and the **Association status** shows **Failed**, then the version of AWS Systems Manager SSM Agent on the managed node isn't correct\. To create a global inventory association \(to inventory all nodes in your AWS account\) for example, you must use SSM Agent version 2\.0\.790\.0 or later\. You can view the agent version running on each of your nodes on the **Managed Instances** page in the **Agent version** column\. For information about how to update SSM Agent on your nodes, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample)\.
 
 ## Skipped<a name="sysman-inventory-troubleshooting-skipped"></a>
 

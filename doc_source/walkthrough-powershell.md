@@ -47,7 +47,7 @@ Get-SSMDocumentList
 Using Run Command and the `AWS-RunPowerShell` document, you can run any command or script on a managed node as if you were logged on locally\. You can issue commands or enter a path to a local script to run the command\. 
 
 **Note**  
-For information about rebooting managed nodes when using Run Command to call scripts, see [Rebooting managed nodes from scripts](send-commands-reboot.md)\.
+For information about rebooting managed nodes when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md)\.
 
 **View the description and available parameters**
 
@@ -130,7 +130,7 @@ Get-SSMCommand `
 Using Run Command and the `AWS-InstallApplication` document, you can install, repair, or uninstall applications on managed nodes\. The command requires the path or address to an MSI\.
 
 **Note**  
-For information about rebooting managed nodes when using Run Command to call scripts, see [Rebooting managed nodes from scripts](send-commands-reboot.md)\.
+For information about rebooting managed nodes when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md)\.
 
 **View the description and available parameters**
 
@@ -231,7 +231,7 @@ Using Run Command, you can quickly join a managed node to an AWS Directory Servi
 You can only join a managed node to a domain\. You can't remove a node from a domain\.
 
 **Note**  
-For information about managed nodes when using Run Command to call scripts, see [Rebooting managed nodes from scripts](send-commands-reboot.md)\.
+For information about managed nodes when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md)\.
 
 **View the description and available parameters**
 
@@ -448,7 +448,7 @@ Get-SSMCommandInvocation `
 Using Run Command and the `AWS-InstallWindowsUpdates` document, you can manage updates for Windows Server managed nodes\. This command scans for or installs missing updates on your managed nodes and optionally reboots following installation\. You can also specify the appropriate classifications and severity levels for updates to install in your environment\.
 
 **Note**  
-For information about rebooting managed nodes when using Run Command to call scripts, see [Rebooting managed nodes from scripts](send-commands-reboot.md)\.
+For information about rebooting managed nodes when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md)\.
 
 The following examples demonstrate how to perform the specified Windows Update management tasks\.
 

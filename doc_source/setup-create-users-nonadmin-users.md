@@ -69,4 +69,4 @@ The user's password isn't included in the generated email message\. Provide the 
 
 1. Choose **Add permissions**\.
 
-Continue to [Step 4: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+Continue to [Step 3: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.

@@ -3,7 +3,7 @@
 The following procedure describes how to patch a server environment by using a custom patch baseline, patch groups, and a maintenance window\.
 
 **Before you begin**
-+ Install or update the SSM Agent on your managed nodes\. To patch Linux managed nodes, your nodes must be running SSM Agent version 2\.0\.834\.0 or later\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample)\.
++ Install or update the SSM Agent on your managed nodes\. To patch Linux managed nodes, your nodes must be running SSM Agent version 2\.0\.834\.0 or later\. For more information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample)\.
 + Configure roles and permissions for Maintenance Windows, a capability of AWS Systems Manager\. For more information, see [Setting up Maintenance Windows](sysman-maintenance-permissions.md)\.
 + Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 

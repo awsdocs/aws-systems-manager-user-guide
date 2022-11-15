@@ -28,7 +28,7 @@ arn:aws:ssm:::package/package-name status code: 400, request id: guid
 
 **Cause:** You're using a version of SSM Agent with Distributor that is earlier than version 2\.3\.274\.0\.
 
-**Solution:** Update the version of SSM Agent to version 2\.3\.274\.0 or later\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample) or [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
+**Solution:** Update the version of SSM Agent to version 2\.3\.274\.0 or later\. For more information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample) or [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 
 ## Error: Failed to retrieve manifest: Validation exception<a name="distributor-tshoot-3"></a>
 
@@ -42,7 +42,7 @@ arn:aws:ssm:region-id:account-id:package/package-name
 
 **Cause:** You're using a version of SSM Agent with Distributor that is earlier than version 2\.3\.274\.0\.
 
-**Solution:** Update the version of SSM Agent to version 2\.3\.274\.0 or later\. For more information, see [Update SSM Agent by using Run Command](rc-console.md#rc-console-agentexample) or [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
+**Solution:** Update the version of SSM Agent to version 2\.3\.274\.0 or later\. For more information, see [Updating the SSM Agent using Run Command](run-command-tutorial-update-software.md#rc-console-agentexample) or [Walkthrough: Automatically update SSM Agent \(CLI\)](sysman-state-cli.md)\.
 
 ## Package isn't supported \(package is missing install action\)<a name="distributor-tshoot-4"></a>
 

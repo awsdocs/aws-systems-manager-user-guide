@@ -1,6 +1,6 @@
 # Working with parameters using Run Command commands<a name="sysman-param-runcommand"></a>
 
-You can work with parameters in Run Command, a capability of AWS Systems Manager\. For more information, see [Sending commands using Systems Manager Run Command](run-command.md)\.
+You can work with parameters in Run Command, a capability of AWS Systems Manager\. For more information, see [Running commands on managed nodes](run-command.md)\.
 
 ## Run a String parameter \(console\)<a name="param-test-console"></a>
 

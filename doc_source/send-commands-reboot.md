@@ -1,4 +1,4 @@
-# Rebooting managed nodes from scripts<a name="send-commands-reboot"></a>
+# Handling reboots when running commands<a name="send-commands-reboot"></a>
 
 If you use Run Command, a capability of AWS Systems Manager, to run scripts that reboot managed nodes, we recommend that you specify an exit code in your script\. If you attempt to reboot a node from a script by using some other mechanism, the script execution status might not be updated correctly, even if the reboot is the last step in your script\. For Windows managed nodes, you specify `exit 3010` in your script\. For Linux and macOS managed nodes, you specify `exit 194`\. The exit code instructs AWS Systems Manager Agent \(SSM Agent\) to reboot the managed node, and then restart the script after the reboot completed\. Before starting the reboot, SSM Agent informs the Systems Manager service in the cloud that communication will be disrupted during the server reboot\.
 

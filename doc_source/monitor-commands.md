@@ -15,7 +15,7 @@ When you send a command to multiple managed nodes at the same time, each copy of
 Lastly, Run Command includes an aggregated command status for all plugins and invocations\. The aggregated command status can be different than the status reported by plugins or invocations, as noted in the following tables\.
 
 **Note**  
-If you run commands to large numbers of managed nodes using the `max-concurrency` or `max-errors` parameters, command status reflects the limits imposed by those parameters, as described in the following tables\. For more information about these parameters, see [Using targets and rate controls to send commands to a fleet](send-commands-multiple.md)\.
+If you run commands to large numbers of managed nodes using the `max-concurrency` or `max-errors` parameters, command status reflects the limits imposed by those parameters, as described in the following tables\. For more information about these parameters, see [Run commands at scale](send-commands-multiple.md)\.
 
 
 **Detailed status for command plugins and invocations**  

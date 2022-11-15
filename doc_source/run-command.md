@@ -1,4 +1,4 @@
-# Sending commands using Systems Manager Run Command<a name="run-command"></a>
+# Running commands on managed nodes<a name="run-command"></a>
 
 This section includes information about how to send commands from the AWS Systems Manager console to managed nodes\. This section also includes information about how to cancel a command\.
 
@@ -10,7 +10,6 @@ For more information, see [Restricting access to Systems Manager parameters usin
 
 **Topics**
 + [Running commands from the console](rc-console.md)
-+ [Running PowerShell scripts on Linux managed nodes](powershell-run-command-linux.md)
-+ [Running commands using the document version parameter](run-command-version.md)
-+ [Using targets and rate controls](send-commands-multiple.md)
++ [Running commands using a specific document version](run-command-version.md)
++ [Run commands at scale](send-commands-multiple.md)
 + [Canceling a command](rc-cancel.md)
