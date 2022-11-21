@@ -135,6 +135,7 @@ You can view quotas for all Systems Manager capabilities in the [Systems Manager
 + [Getting started with OpsCenter](OpsCenter-getting-started.md)
 + [Creating OpsItems](OpsCenter-creating-OpsItems.md)
 + [Working with OpsItems](OpsCenter-working-with-OpsItems.md)
++ [Working with OpsItems across accounts](OpsCenter-working-with-multiple-accounts.md)
 + [Reducing duplicate OpsItems](OpsCenter-working-deduplication.md)
 + [Working with Incident Manager incidents in OpsCenter](OpsCenter-create-OpsItems-for-Incident-Manager.md)
 + [Remediating OpsItem issues using Systems Manager Automation](OpsCenter-remediating.md)

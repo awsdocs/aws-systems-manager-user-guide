@@ -1,6 +1,6 @@
-# Using roles to collect AWS account information for Systems Manager Explorer: `AWSServiceRoleForAmazonSSM_AccountDiscovery`<a name="using-service-linked-roles-service-action-2"></a>
+# Using roles to collect AWS account information for OpsCenter and Explorer: `AWSServiceRoleForAmazonSSM_AccountDiscovery`<a name="using-service-linked-roles-service-action-2"></a>
 
-AWS Systems Manager uses AWS Identity and Access Management \(IAM\) [ service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to Systems Manager\. Service\-linked roles are predefined by Systems Manager and include all the permissions that the service requires to call other AWS services on your behalf\. 
+AWS Systems Manager uses AWS Identity and Access Management \(IAM\) [service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role)\. A service\-linked role is a unique type of IAM role that is linked directly to Systems Manager\. Service\-linked roles are predefined by Systems Manager and include all the permissions that the service requires to call other AWS services on your behalf\. 
 
 A service\-linked role makes setting up Systems Manager easier because you don’t have to manually add the necessary permissions\. Systems Manager defines the permissions of its service\-linked roles, and unless defined otherwise, only Systems Manager can assume its roles\. The defined permissions include the trust policy and the permissions policy, and that permissions policy can't be attached to any other IAM entity\.
 
@@ -17,6 +17,7 @@ The `AWSServiceRoleForAmazonSSM_AccountDiscovery` service\-linked role trusts th
 
 The role permissions policy allows Systems Manager to complete the following actions on the specified resources:
 + `organizations:DescribeAccount`
++ `organizations:DescribeOrganizationalUnit`
 + `organizations:DescribeOrganization`
 + `organizations:ListAccounts`
 + `organizations:ListAWSServiceAccessForOrganization`
@@ -24,12 +25,15 @@ The role permissions policy allows Systems Manager to complete the following act
 + `organizations:ListParents`
 + `organizations:ListDelegatedServicesForAccount` 
 + `organizations:ListDelegatedAdministrators`
++ `organizations:ListRoots`
 
 You must configure permissions to allow an IAM entity \(such as a user, group, or role\) to create, edit, or delete a service\-linked role\. For more information, see [Service\-linked role permissions](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html#service-linked-role-permissions) in the *IAM User Guide*\.
 
 ## Creating the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-2"></a>
 
-You must create a service\-linked role\. If you create a resource data sync by using Systems Manager in the AWS Management Console, you can create the service\-linked role by choosing the **Create role** button\. If you want to create a resource data sync programmatically, then you must create the role before you create the resource data sync\. You can create the role by using the [CreateServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html) API operation\.
+You must create a service\-linked role if you want to use Explorer and OpsCenter, capabilities of Systems Manager, across multiple AWS accounts\. For OpsCenter, you must manually create the service\-linked role\. For more information, see [\(Optional\) Setting up OpsCenter to work with OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md)\.
+
+For Explorer, if you create a resource data sync by using Systems Manager in the AWS Management Console, you can create the service\-linked role by choosing the **Create role** button\. If you want to create a resource data sync programmatically, then you must create the role before you create the resource data sync\. You can create the role by using the [CreateServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html) API operation\.
 
 ## Editing the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service\-linked role for Systems Manager<a name="edit-service-linked-role-service-action-2"></a>
 
@@ -78,3 +82,12 @@ Systems Manager doesn't support using service\-linked roles in every Region wher
 | Europe \(Paris\) | eu\-west\-3 | Yes | 
 | South America \(São Paulo\) | sa\-east\-1 | Yes | 
 | AWS GovCloud \(US\) | us\-gov\-west\-1 | No | 
+
+## Updates to the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service\-linked role<a name="service-action-2-updates"></a>
+
+View details about updates to the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service\-linked role since this service began tracking these changes\. For automatic alerts about changes to this page, subscribe to the RSS feed on the Systems Manager [Document history](systems-manager-release-history.md) page\.
+
+
+| Change | Description | Date | 
+| --- | --- | --- | 
+|  New permissions added  |  This service\-linked role now includes `organizations:DescribeOrganizationalUnit` and `organizations:ListRoots` permissions\. These permissions enable an AWS Organizations management account or a Systems Manager delegated administrator account to work with OpsItems across accounts\. For more information, see [\(Optional\) Setting up OpsCenter to work with OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md)\.  | October 17, 2022 | 

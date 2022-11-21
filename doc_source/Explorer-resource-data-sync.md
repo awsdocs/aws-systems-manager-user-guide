@@ -63,7 +63,7 @@ Use the following procedure to create a resource data sync for Explorer\.
 
 1. In the **Add accounts** section, choose an option\.
 **Note**  
-To use either of the AWS Organizations options, you must be logged into the AWS Organizations management account or you must be logged into an Explorer delegated administrator account\. For more information about the delegated administrator account, see [Configuring a Delegated Administrator](Explorer-setup-delegated-administrator.md)\.
+To use either of the AWS Organizations options, you must be logged into the AWS Organizations management account or you must be logged into an Explorer delegated administrator account\. For more information about the delegated administrator account, see [Configuring a delegated administrator](Explorer-setup-delegated-administrator.md)\.
 
 1. In the **Regions to include** section, choose one of the following options\.
    + Choose **All current and future regions** to automatically sync data from all current AWS Regions and any new Regions that come online in the future\.

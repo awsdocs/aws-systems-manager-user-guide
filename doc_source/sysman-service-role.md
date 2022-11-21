@@ -6,7 +6,7 @@ The following procedures describe how to create the required service role using 
 
 ## Create an IAM service role \(console\)<a name="sysman-service-role-console"></a>
 
-Use the following procedure to create a service role for hybrid activation\. Please note that this procedure uses the `AmazonSSMManagedInstanceCore` policy for Systems Manager core functionality\. Depending on your use case, you might need to add additional policies to your service role for your on\-premises machines to be able to access other capabilities or AWS services\. For example, without access to the required AWS managed Amazon Simple Storage Service \(Amazon S3\) buckets, Patch Manager patching operations fail\.
+Use the following procedure to create a service role for hybrid activation\. This procedure uses the `AmazonSSMManagedInstanceCore` policy for Systems Manager core functionality\. Depending on your use case, you might need to add additional policies to your service role for your on\-premises machines to be able to access other capabilities or AWS services\. For example, without access to the required AWS managed Amazon Simple Storage Service \(Amazon S3\) buckets, Patch Manager patching operations fail\.
 
 **To create a service role \(console\)**
 
@@ -41,18 +41,18 @@ Make a note of the role name\. You will choose this role when you create new ins
 
 1. \(Optional\) For **Description**, update the description for this instance profile\.
 
-1. \(Optional\) For **Tags**, add one or more tag\-key value pairs to organize, track, or control access for this role, and then choose **Create role**\. The system returns you to the **Roles** page\.
+1. \(Optional\) For **Tags**, add one or more tag\-key value pairs to organize, track, or control access for this role\. 
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 
 ## Create an IAM service role \(command line\)<a name="sysman-service-role-cli"></a>
 
-Use the following procedure to create a service role for hybrid activation\. Please note that this procedure uses the **AmazonSSMManagedInstanceCore** policy Systems Manager core functionality\. Depending on your use case, you might need to add additional policies to your service role for your on\-premises machines to be able to access other capabilities or AWS services\.
+Use the following procedure to create a service role for hybrid activation\. This procedure uses the `AmazonSSMManagedInstanceCore` policy Systems Manager core functionality\. Depending on your use case, you might need to add additional policies to your service role for your on\-premises machines to be able to access other capabilities or AWS services\.
 
 **S3 bucket policy requirement**  
 If either of the following cases are true, you must create a custom IAM permission policy for Amazon Simple Storage Service \(Amazon S3\) buckets before completing this procedure:
-+ **Case 1**: You're using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink\. 
-+ **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an Amazon S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
++ **Case 1** – You're using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink\. 
++ **Case 2** – You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an Amazon S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
 
 ------
 #### [ AWS CLI ]
@@ -111,11 +111,11 @@ If either of the following cases are true, you must create a custom IAM permissi
 
 ------
 
-1. Run the [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) command as follows to allow the service role you just created to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
+1. Run the [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) command as follows to allow the service role you just created to create a session token\. The session token gives your managed node permission to run commands using Systems Manager\.
 **Note**  
-The policies you add for a service profile for managed instances in a hybrid environment are the same policies used to create an instance profile for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+The policies you add for a service profile for managed nodes in a hybrid environment are the same policies used to create an instance profile for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
-   \(Required\) Run the following command to allow a managed instance to use AWS Systems Manager service core functionality\.
+   \(Required\) Run the following command to allow a managed node to use AWS Systems Manager service core functionality\.
 
 ------
 #### [ Linux & macOS ]
@@ -159,7 +159,7 @@ The policies you add for a service profile for managed instances in a hybrid env
 
 ------
 
-   \(Optional\) Run the following command to allow SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed instance\. Your instance profile needs this policy only if you join your instances to a Microsoft AD directory\.
+   \(Optional\) Run the following command to allow SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed node\. Your service role needs this policy only if you join your nodes to a Microsoft AD directory\.
 
 ------
 #### [ Linux & macOS ]
@@ -181,7 +181,7 @@ The policies you add for a service profile for managed instances in a hybrid env
 
 ------
 
-   \(Optional\) Run the following command to allow the CloudWatch agent to run on your managed instances\. This command makes it possible to read information on an instance and write it to CloudWatch\. Your service profile needs this policy only if you will use services such as Amazon EventBridge or Amazon CloudWatch Logs\.
+   \(Optional\) Run the following command to allow the CloudWatch agent to run on your managed nodes\. This command makes it possible to read information on a node and write it to CloudWatch\. Your service profile needs this policy only if you will use services such as Amazon EventBridge or Amazon CloudWatch Logs\.
 
    ```
    aws iam attach-role-policy \
@@ -232,11 +232,11 @@ The policies you add for a service profile for managed instances in a hybrid env
        -AssumeRolePolicyDocument (Get-Content -raw SSMService-Trust.json)
    ```
 
-1. Use [Register\-IAMRolePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-IAMRolePolicy.html) as follows to allow the service role you created to create a session token\. The session token gives your managed instance permission to run commands using Systems Manager\.
+1. Use [Register\-IAMRolePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-IAMRolePolicy.html) as follows to allow the service role you created to create a session token\. The session token gives your managed node permission to run commands using Systems Manager\.
 **Note**  
-The policies you add for a service profile for managed instances in a hybrid environment are the same policies used to create an instance profile for EC2 instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+The policies you add for a service profile for managed nodes in a hybrid environment are the same policies used to create an instance profile for EC2 instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
-   \(Required\) Run the following command to allow a managed instance to use AWS Systems Manager service core functionality\.
+   \(Required\) Run the following command to allow a managed node to use AWS Systems Manager service core functionality\.
 
    ```
    Register-IAMRolePolicy `
@@ -252,7 +252,7 @@ The policies you add for a service profile for managed instances in a hybrid env
        -PolicyArn arn:aws:iam::account-id:policy/my-bucket-policy-name
    ```
 
-   \(Optional\) Run the following command to allow SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed instance\. Your instance profile needs this policy only if you join your instances to a Microsoft AD directory\.
+   \(Optional\) Run the following command to allow SSM Agent to access AWS Directory Service on your behalf for requests to join the domain by the managed node\. Your instance profile needs this policy only if you join your nodes to a Microsoft AD directory\.
 
    ```
    Register-IAMRolePolicy `
@@ -260,7 +260,7 @@ The policies you add for a service profile for managed instances in a hybrid env
        -PolicyArn arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess
    ```
 
-   \(Optional\) Run the following command to allow the CloudWatch agent to run on your managed instances\. This command makes it possible to read information on an instance and write it to CloudWatch\. Your service profile needs this policy only if you will use services such as Amazon EventBridge or Amazon CloudWatch Logs\.
+   \(Optional\) Run the following command to allow the CloudWatch agent to run on your managed nodes\. This command makes it possible to read information on a node and write it to CloudWatch\. Your service profile needs this policy only if you will use services such as Amazon EventBridge or Amazon CloudWatch Logs\.
 
    ```
    Register-IAMRolePolicy `
@@ -270,4 +270,4 @@ The policies you add for a service profile for managed instances in a hybrid env
 
 ------
 
-Continue to [Step 3: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\.
+Continue to [Step 3: Create a managed\-node activation for a hybrid environment](sysman-managed-instance-activation.md)\.

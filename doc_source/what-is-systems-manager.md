@@ -1,6 +1,6 @@
 # What is AWS Systems Manager?<a name="what-is-systems-manager"></a>
 
-AWS Systems Manager is a collection of capabilities to help you manage your applications and infrastructure running in the AWS Cloud\. Systems Manager simplifies application and resource management, shortens the time to detect and resolve operational problems, and helps you manage your AWS resources securely at scale\.
+AWS Systems Manager is the operations hub for your AWS applications and resources and a secure end\-to\-end management solution for hybrid cloud environments that enables safe and secure operations at scale\.
 
 ## How Systems Manager works<a name="how-it-works"></a>
 

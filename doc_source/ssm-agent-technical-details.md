@@ -39,7 +39,7 @@ The default provider chain looks for credentials in the following order:
 
 For related information, see the following topics:
 + Instance profiles for EC2 instances – [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md) 
-+ Hybrid activations – [Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)
++ Hybrid activations – [Create a managed\-node activation for a hybrid environment](sysman-managed-instance-activation.md)
 + AWS CLI credentials – [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) in the *AWS Command Line Interface User Guide*
 + Default credential provider chain – [Specifying Credentials](https://docs.aws.amazon.com/sdk-for-go/latest/developer-guide/configuring-sdk.html#specifying-credentials) in the *AWS SDK for Go Developer Guide*
 **Note**  

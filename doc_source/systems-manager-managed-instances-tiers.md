@@ -18,7 +18,7 @@ The following information provides details on the three scenarios for which you 
 
 Scenario 1: You want to register more than 1,000 hybrid nodes  
 Using the standard\-instances tier, you can register a maximum of 1,000 non\-EC2 nodes \(on\-premises servers, edge devices, and VMs in a hybrid environment\) per AWS Region in a specific account without additional charge\. If you need to register more than 1,000 non\-EC2 nodes in a Region, you must use the advanced\-instances tier\. You can then activate as many managed servers, edge devices, and VMs in a hybrid environment as you want\. Charges for the advanced\-instances tier are based on the number of advanced instances activated as Systems Manager managed instances and the hours those instances are running\.  
-All Systems Manager managed nodes that use the managed\-instance activation process described in [Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md) are then subject to charge if you exceed 1,000 on\-premises nodes in a Region in a specific account \.   
+All Systems Manager managed nodes that use the managed\-instance activation process described in [Create a managed\-node activation for a hybrid environment](sysman-managed-instance-activation.md) are then subject to charge if you exceed 1,000 on\-premises nodes in a Region in a specific account \.   
 You can also activate existing Amazon Elastic Compute Cloud \(Amazon EC2\) instances using Systems Manager hybrid activations and work with them as non\-EC2 instances, such as for testing\. These would also qualify as hybrid nodes\. This isn't a common scenario\.
 
 Scenario 2: Patching Microsoft\-released applications on hybrid\-activated nodes  

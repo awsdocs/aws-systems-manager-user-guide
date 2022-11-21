@@ -5,7 +5,7 @@ This topic describes how to install AWS Systems Manager SSM Agent on Linux machi
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Linux, see [Working with SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
 
-Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-instance activation earlier in [Step 3: Create a managed\-instance activation for a hybrid environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
+Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-node activation earlier in [Step 3: Create a managed\-node activation for a hybrid environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
 
 The URLs in the following scripts let you download SSM Agent from *any* AWS Region\. If you want to download the agent from a *specific* Region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
 
@@ -85,7 +85,7 @@ https://s3.us-east-2.amazonaws.com/amazon-ssm-us-west-1/latest/linux_amd64/amazo
    export https_proxy=https://hostname:port
    ```
 
-1. Copy and paste one of the following command blocks into SSH\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the AWS Region you want to download SSM Agent from, then press Enter\.
+1. Copy and paste one of the following command blocks into SSH\. Replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-node activation, and with the identifier of the AWS Region you want to download SSM Agent from, then press `Enter`\.
 **Note**  
 Note the following important details:  
 `sudo` isn't necessary if you're a root user\.
@@ -196,13 +196,13 @@ sudo systemctl start amazon-ssm-agent
   sudo systemctl start snap.amazon-ssm-agent.amazon-ssm-agent.service
   ```
 **Important**  
-The *candidate* channel in the Snap store contains the latest version of SSM Agent; not the stable channel\. If you want to track SSM Agent version information on the candidate channel, run the following command on your Ubuntu Server 18\.04 and 16\.04 LTS 64\-bit instances\.  
+The *candidate* channel in the Snap store contains the latest version of SSM Agent; not the stable channel\. If you want to track SSM Agent version information on the candidate channel, run the following command on your Ubuntu Server 18\.04 and 16\.04 LTS 64\-bit managed nodes\.  
 
   ```
   sudo snap switch --channel=candidate amazon-ssm-agent
   ```
 
-The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the Systems Manager service\. The server or VM is now a managed instance\. Amazon EC2 instances configured for Systems Manager are also managed instances\. In the Systems Manager console, however, your on\-premises instances are distinguished from Amazon EC2 instances with the prefix "mi\-"\.
+The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the Systems Manager service\. The server or VM is now a managed node\. Amazon EC2 instances configured for Systems Manager are also managed nodes\. In the Systems Manager console, however, your on\-premises nodes are distinguished from Amazon EC2 instances with the prefix "mi\-"\.
 
 Continue to [Step 5: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
@@ -224,19 +224,19 @@ Every time you change the configuration, restart SSM Agent\.
 
 You can customize other features of SSM Agent using the same procedure\. For an up\-to\-date list of the available configuration properties and their default values, see [Config Property Definitions](https://github.com/aws/amazon-ssm-agent#config-property-definitions)\. 
 
-## Deregister and reregister a managed instance<a name="systems-manager-install-managed-linux-deregister-reregister"></a>
+## Deregister and reregister a managed node<a name="systems-manager-install-managed-linux-deregister-reregister"></a>
 
-You can deregister a managed instance by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API operation from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:
+You can deregister a managed node by calling the [DeregisterManagedInstance](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DeregisterManagedInstance.html) API operation from either the AWS CLI or Tools for Windows PowerShell\. Here's an example CLI command:
 
 `aws ssm deregister-managed-instance --instance-id "mi-1234567890"`
 
-You can reregister a managed instance after you deregistered it\. Use the following procedure to reregister a managed instance\. After you complete the procedure, your managed instance is displayed again in the list of managed instances\.
+You can reregister a managed node after you deregistered it\. Use the following procedure to reregister a managed node\. After you complete the procedure, your managed node is displayed again in the list of managed node\.
 
-**To reregister a managed instance on a Linux hybrid machine**
+**To reregister a managed node on a Linux hybrid machine**
 
-1. Connect to your instance\.
+1. Connect to your node\.
 
-1. Run the following command\. Be sure to replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-instance activation, and with the identifier of the Region you want to download the SSM Agent from\.
+1. Run the following command\. Be sure to replace the placeholder values with the Activation Code and Activation ID generated when you create a managed\-node activation, and with the identifier of the Region you want to download the SSM Agent from\.
 
    ```
    echo "yes" | sudo amazon-ssm-agent -register -code "activation-code" -id "activation-id" -region "region" && sudo systemctl restart amazon-ssm-agent
@@ -248,11 +248,11 @@ Use the following information to help you troubleshoot problems installing SSM A
 
 ### You receive DeliveryTimedOut error<a name="systems-manager-install-managed-linux-troubleshooting-delivery-timed-out"></a>
 
-**Problem**: While configuring an Amazon EC2 instance in one AWS account as a managed instance for a separate AWS account, you receive `DeliveryTimedOut` after running the commands to install SSM Agent on the target instance\.
+**Problem**: While configuring a managed node in one AWS account as a managed node for a separate AWS account, you receive `DeliveryTimedOut` after running the commands to install SSM Agent on the target node\.
 
-**Solution**: `DeliveryTimedOut` is the expected response code for this scenario\. The command to install SSM Agent on the target instance changes the instance ID of the source instance\. Because the instance ID has changed, the source instance isn't able to reply to the target instance that the command failed, completed, or timed out while executing\.
+**Solution**: `DeliveryTimedOut` is the expected response code for this scenario\. The command to install SSM Agent on the target node changes the instance ID of the source node\. Because the node ID has changed, the source node isn't able to reply to the target node that the command failed, completed, or timed out while executing\.
 
-### Unable to load instance associations<a name="systems-manager-install-managed-linux-troubleshooting-associations"></a>
+### Unable to load node associations<a name="systems-manager-install-managed-linux-troubleshooting-associations"></a>
 
 **Problem**: After running the install commands, you see the following error in the SSM Agent error logs:
 

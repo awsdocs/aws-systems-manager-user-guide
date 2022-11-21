@@ -5,6 +5,8 @@ This section includes information about how to manually create OpsItems in AWS S
 **Before You Begin**  
 When you manually create an OpsItem, you can specify an Amazon Resource Name \(ARN\) for an impacted resource\. If you specify an ARN, then OpsCenter automatically creates a deep link to detailed information about the resource\. For example, if you specify the ARN of an impacted Amazon EC2 instance, then OpsCenter creates a deep link to the details about that instance\. For information about how to create an ARN, see the [Amazon Resource Names \(ARNs\) and AWS service Namespaces](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *Amazon Web Services General Reference*\.
 
+If you want to manually create OpsItems in a separate AWS account, you must configure OpsCenter for cross\-account administration\. For more information, see [\(Optional\) Setting up OpsCenter to work with OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md)\.
+
 **Note**  
 OpsCenter doesn't support creating deep links for all ARN types\. To view a list of resources the support deep links based on ARNs, see [Supported resources reference](OpsCenter-related-resources-reference.md)\.
 

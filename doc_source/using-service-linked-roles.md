@@ -11,6 +11,6 @@ You can use the Systems Manager service\-linked role `AWSServiceRoleforAmazonSSM
 
 **Topics**
 + [Using roles to collect inventory and view OpsData: `AWSServiceRoleForAmazonSSM`](using-service-linked-roles-service-action-1.md)
-+ [Using roles to collect AWS account information for Systems Manager Explorer: `AWSServiceRoleForAmazonSSM_AccountDiscovery`](using-service-linked-roles-service-action-2.md)
-+ [Using roles to create OpsData and OpsItems for Systems Manager Explorer: `AWSServiceRoleForSystemsManagerOpsDataSync`](using-service-linked-roles-service-action-3.md)
++ [Using roles to collect AWS account information for OpsCenter and Explorer: `AWSServiceRoleForAmazonSSM_AccountDiscovery`](using-service-linked-roles-service-action-2.md)
++ [Using roles to create OpsData and OpsItems for Explorer: `AWSServiceRoleForSystemsManagerOpsDataSync`](using-service-linked-roles-service-action-3.md)
 + [Using roles to create operational insight OpsItems in Systems Manager OpsCenter: `AWSServiceRoleForAmazonSSM_OpsInsights`](using-service-linked-roles-service-action-4.md)

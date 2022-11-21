@@ -1,6 +1,6 @@
 # \(Optional\) Install the Session Manager plugin for the AWS CLI<a name="session-manager-working-with-install-plugin"></a>
 
-If you want to use the AWS Command Line Interface \(AWS CLI\) to start and end sessions that connect you to your managed nodes, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu Server\.
+If you want to use the AWS Command Line Interface \(AWS CLI\) to start and end sessions that connect you to your managed nodes, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu\.
 
 **Use the latest version of the Session Manager plugin**  
 The Session Manager plugin is updated occasionally with enhanced functionality\. We recommend that you regularly ensure you're using the latest version of the plugin\. For more information, see [Session Manager plugin latest version and release history](#plugin-version-history)\.
@@ -13,7 +13,7 @@ AWS CLI version 1\.16\.12 or later must be installed on your local machine in or
 + [Install and uninstall the Session Manager plugin on macOS](#install-plugin-macos)
 + [Install the Session Manager plugin on macOS with the signed installer](#install-plugin-macos-signed)
 + [Install Session Manager plugin on Linux](#install-plugin-linux)
-+ [Install the Session Manager plugin on Ubuntu Server](#install-plugin-debian)
++ [Install the Session Manager plugin on Ubuntu](#install-plugin-debian)
 + [Verify the Session Manager plugin installation](#install-plugin-verify)
 + [Session Manager plugin on GitHub](#plugin-github)
 + [\(Optional\) Turn on Session Manager plugin logging](#install-plugin-configure-logs)
@@ -156,7 +156,7 @@ You can install the Session Manager plugin on macOS using the signed installer\.
 **Note**  
 If you ever want to uninstall the plugin, run `sudo yum erase session-manager-plugin -y`
 
-## Install the Session Manager plugin on Ubuntu Server<a name="install-plugin-debian"></a>
+## Install the Session Manager plugin on Ubuntu<a name="install-plugin-debian"></a>
 
 1. Download the Session Manager plugin deb package\.
    + x86\_64
@@ -309,7 +309,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 | 1\.2\.54\.0 |  January 29, 2021  | Enhancement: Added support for running sessions in NonInteractiveCommands execution mode\. | 
 | 1\.2\.30\.0 |  November 24, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Improved overall performance\.  | 
 | 1\.2\.7\.0 |  October 15, 2020  |  **Enhancement**: \(Port forwarding sessions only\) Reduced latency and improved overall performance\.  | 
-| 1\.1\.61\.0 |  April 17, 2020  |  **Enhancement**: Added ARM support for Linux and Ubuntu Server\.   | 
+| 1\.1\.61\.0 |  April 17, 2020  |  **Enhancement**: Added ARM support for Linux and Ubuntu\.   | 
 | 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin isn't ready\.   | 
 |  1\.1\.50\.0  | November 19, 2019 |  **Enhancement**: Added support for forwarding a port to a local unix socket\.  | 
 |  1\.1\.35\.0  | November 7, 2019 |  **Enhancement**: \(Port forwarding sessions only\) Send a TerminateSession command to SSM Agent when the local user presses Ctrl\+C\.  | 

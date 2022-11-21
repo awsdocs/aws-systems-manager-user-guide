@@ -10,7 +10,7 @@ If you update tags keys or other data settings in Explorer, the system can take 
 
 The **Include all accounts from my AWS Organizations configuration** and **Select organization units in AWS Organizations** options on the **Create resource data sync** page are only available if you set up and configured AWS Organizations\. If you set up and configured AWS Organizations, then either the AWS Organizations management account or an Explorer delegated administrator can create resource data syncs that use these options\. 
 
-For more information, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md) and [Configuring a Delegated Administrator](Explorer-setup-delegated-administrator.md)\.
+For more information, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md) and [Configuring a delegated administrator](Explorer-setup-delegated-administrator.md)\.
 
  **Explorer doesn't display any data at all** 
 + Verify that you completed Integrated Setup in each account and Region where you want Explorer to access and display data\. If you don't, Explorer won't display OpsData and OpsItems for those accounts and Regions in which you didn't complete Integrated Setup\. For more information, see [Getting started with Systems Manager Explorer and OpsCenter](Explorer-setup.md)\.
