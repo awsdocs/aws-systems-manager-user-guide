@@ -1,7 +1,7 @@
 # Walkthrough: Creating a maintenance window for patching \(console\)<a name="sysman-patch-mw-console"></a>
 
 **Important**  
-You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend using the **Configure patching** page instead\. For more information, see [Creating a patching configuration \(console\)](create-patching-configuration.md)\. Although many patching use cases benefit from patching nodes on a schedule with a maintenance window, you can also run a one\-time patching operation manually without a maintenance window\. For more information, see [Patching managed nodes on demand \(console\)](patch-on-demand.md)\.
+You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend that you use a patch policy instead\. For more information, see [Introducing patch policies](patch-policies-about.md) and [Automate organization\-wide patching using a Quick Setup patch policyAutomate organization\-wide patching](quick-setup-patch-manager.md)\. 
 
 To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 

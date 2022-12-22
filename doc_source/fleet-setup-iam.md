@@ -60,6 +60,8 @@ The following policy provides permissions to all Fleet Manager features\. This m
             "arn:aws:ssm:*:account-id:document/SSM-SessionManagerRunShell",
             "arn:aws:ssm:*:*:document/AWS-PasswordReset",
             "arn:aws:ssm:*:*:document/AWSFleetManager-AddUsersToGroups",
+            "arn:aws:ssm:*:*:document/AWSFleetManager-AWSFleetManager-CopyFileSystemItem",
+            "arn:aws:ssm:*:*:document/AWSFleetManager-CreateDirectory",
             "arn:aws:ssm:*:*:document/AWSFleetManager-CreateGroup",
             "arn:aws:ssm:*:*:document/AWSFleetManager-CreateUser",
             "arn:aws:ssm:*:*:document/AWSFleetManager-CreateUserInteractive",
@@ -72,11 +74,16 @@ The following policy provides permissions to all Fleet Manager features\. This m
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetFileSystemContent",
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetGroups",
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetPerformanceCounters",
+            "arn:aws:ssm:*:*:document/AWSFleetManager-GetProcessDetails",
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetUsers",
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetWindowsEvents",
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetWindowsRegistryContent",
+            "arn:aws:ssm:*:*:document/AWSFleetManager-MoveFileSystemItem",
             "arn:aws:ssm:*:*:document/AWSFleetManager-RemoveUsersFromGroups",
-            "arn:aws:ssm:*:*:document/AWSFleetManager-SetWindowsRegistryValue"
+            "arn:aws:ssm:*:*:document/AWSFleetManager-RenameFileSystemItem",
+            "arn:aws:ssm:*:*:document/AWSFleetManager-SetWindowsRegistryValue",
+            "arn:aws:ssm:*:*:document/AWSFleetManager-StartProcess",
+            "arn:aws:ssm:*:*:document/AWSFleetManager-TerminateProcess"
          ],
          "Condition":{
             "BoolIfExists":{
@@ -164,6 +171,7 @@ The following policy provides permissions to read\-only Fleet Manager features\.
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetFileSystemContent",
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetGroups",
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetPerformanceCounters",
+            "arn:aws:ssm:*:*:document/AWSFleetManager-GetProcessDetails",
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetUsers",
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetWindowsEvents",
             "arn:aws:ssm:*:*:document/AWSFleetManager-GetWindowsRegistryContent"

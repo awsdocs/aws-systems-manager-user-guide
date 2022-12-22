@@ -8,7 +8,7 @@ The title of each section here is an active link to the corresponding section in
 **[Automation](systems-manager-automation.md)**
 + Create self\-service Automation runbooks for infrastructure\.
 + Use Automation, a capability of AWS Systems Manager, to simplify creating Amazon Machine Images \(AMIs\) from the AWS Marketplace or custom AMIs, using public Systems Manager documents \(SSM documents\) or by authoring your own workflows\.
-+ [Build and maintain AMIs](automation-walk.md) using the `AWS-UpdateLinuxAmi` and `AWS-UpdateWindowsAmi` Automation runbooks, or using custom Automation runbooks that you create\.
++ [Build and maintain AMIs](automation-tutorial-update-ami.md) using the `AWS-UpdateLinuxAmi` and `AWS-UpdateWindowsAmi` Automation runbooks, or using custom Automation runbooks that you create\.
 
 **[Inventory](systems-manager-inventory.md)**
 + Use Inventory, a capability of AWS Systems Manager, with AWS Config to audit your application configurations over time\.
@@ -25,6 +25,7 @@ The title of each section here is an active link to the corresponding section in
 **[Patch Manager](systems-manager-patch.md)**
 + Use Patch Manager, a capability of AWS Systems Manager, to roll out patches at scale and increase fleet compliance visibility across your nodes\.
 +  [Integrate Patch Manager with AWS Security Hub](patch-manager-security-hub-integration.md) to receive alerts when nodes in your fleet go out of compliance and monitor the patching status of your fleets from a security point of view\. There is a charge to use Security Hub\. For more information, see [Pricing](http://aws.amazon.com/security-hub/pricing/)\.
++ Use only one method at a time for scanning managed nodes for patch compliance to [avoid unintentionally overwriting compliance data](avoid-patch-compliance-overwrites.md)\.
 
 **[Run Command](execute-remote-commands.md)**
 + [Manage Instances at Scale without SSH Access Using EC2 Run Command](http://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/)\.

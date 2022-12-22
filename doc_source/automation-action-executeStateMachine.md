@@ -54,3 +54,38 @@ input
 A string that contains the JSON input data for the execution\.  
 Type: String  
 Required: No
+
+**Outputs**  
+The following outputs are predefined for this action\.
+
+executionArn  
+The ARN of the execution\.  
+Type: String
+
+input  
+The string that contains the JSON input data of the execution\. Length constraints apply to the payload size, and are expressed as bytes in UTF\-8 encoding\.\.  
+Type: String
+
+name  
+The name of the execution\.  
+Type: String
+
+output  
+The JSON output data of the execution\. Length constraints apply to the payload size, and are expressed as bytes in UTF\-8 encoding\.  
+Type: String
+
+startDate  
+The date the execution is started\.  
+Type: String
+
+stateMachineArn  
+The ARN of the executed stated machine\.  
+Type: String
+
+status  
+The current status of the execution\.  
+Type: String
+
+stopDate  
+If the execution has already ended, the date the execution stopped\.  
+Type: String

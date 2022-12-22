@@ -1,5 +1,8 @@
 # About patch groups<a name="sysman-patch-patchgroups"></a>
 
+**Important**  
+Patch groups are not used in patching operations that are based on *patch policies*\. For information about working with patch policies, see [Introducing patch policies](patch-policies-about.md)\.
+
 You can use a *patch group* to associate managed nodes with a specific patch baseline in Patch Manager, a capability of AWS Systems Manager\. Patch groups help ensure that you're deploying the appropriate patches, based on the associated patch baseline rules, to the correct set of nodes\. Patch groups can also help you avoid deploying patches before they have been adequately tested\. For example, you can create patch groups for different environments \(such as Development, Test, and Production\) and register each patch group to an appropriate patch baseline\. 
 
 When you run `AWS-RunPatchBaseline`, you can target managed nodes using their ID or tags\. SSM Agent and Patch Manager then evaluate which patch baseline to use based on the patch group value that you added to the managed node\.

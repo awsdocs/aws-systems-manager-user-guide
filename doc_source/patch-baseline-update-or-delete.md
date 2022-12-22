@@ -6,6 +6,11 @@ You can update or delete a custom patch baseline that you have created in Patch 
 
 Follow these steps to update or delete a patch baseline\.
 
+**Important**  
+ Use caution when deleting a custom patch baseline that might be used by a patch policy configuration in Quick Setup\.  
+If you are using a [patch policy configuration](patch-policies-about.md) in Quick Setup, updates you make to custom patch baselines are synchronized with Quick Setup once an hour\.   
+If a custom patch baseline that was referenced in a patch policy is deleted, a banner displays on the Quick Setup **Configuration details** page for your patch policy\. The banner informs you that the patch policy references a patch baseline that no longer exists, and that subsequent patching operations will fail\. In this case, return to the Quick Setup **Configurations** page, select the Patch Manager configuration , and choose **Actions**, **Edit configuration**\. The deleted patch baseline name is highlighted, and you must select a new patch baseline for the affected operating system\.
+
 **To update or delete a patch baseline \(console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.

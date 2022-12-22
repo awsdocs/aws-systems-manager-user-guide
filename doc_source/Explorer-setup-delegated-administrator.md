@@ -1,7 +1,7 @@
 # Configuring a delegated administrator<a name="Explorer-setup-delegated-administrator"></a>
 
 If you aggregate AWS Systems Manager Explorer data from multiple AWS Regions and accounts by using resource data sync with AWS Organizations, then we suggest that you configure a delegated administrator for Explorer\. A delegated administrator improves Explorer security in the following ways\.
-+ You limit the number of Explorer administrators who can create or delete multi\-account and Region resource data syncs to only one individual\.
++ You limit the number of Explorer administrators who can create or delete multi\-account and Region resource data syncs to an individual AWS account\.
 + You no longer need to be logged into the AWS Organizations management account to administer resource data syncs in Explorer\.
 
 For more information about resource data sync, see [Setting up Systems Manager Explorer to display data from multiple accounts and Regions](Explorer-resource-data-sync.md)\. For more information about AWS Organizations, see [What is AWS Organizations?](https://docs.aws.amazon.com/organizations/latest/userguide/) in the *AWS Organizations User Guide*\.

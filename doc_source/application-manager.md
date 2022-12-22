@@ -19,6 +19,7 @@ For **Container clusters**, the list includes the following:
 After import is complete, you can view operations information about your resources in these predefined categories\. Or, if you want to provide more context about a collection of resources, you can manually create an application in Application Manager and move resources or groups of resources into that application\. This allows you to view operations information in the context of an application\. 
 
 After you [set up](https://docs.aws.amazon.com/systems-manager/latest/userguide/application-manager-getting-started-related-services.html) and configure AWS services and Systems Manager capabilities, Application Manager displays the following types of information about your resources:
++ Information about the current state, status, and Amazon EC2 Auto Scaling health of the Amazon Elastic Compute Cloud \(Amazon EC2\) instances in your application
 + Alarms provided by Amazon CloudWatch
 + Compliance information provided by AWS Config and State Manager \(a component of Systems Manager\)
 + Kubernetes cluster information provided by Amazon EKS
@@ -42,6 +43,17 @@ Application Manager includes the following features:
 + **Create or edit CloudFormation stacks and templates**
 
   Application Manager helps you provision and manage resources for your applications by integrating with [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)\. You can create, edit, and delete AWS CloudFormation templates and stacks in Application Manager\. Application Manager also includes a template library where you can clone, create, and store templates\. Application Manager and CloudFormation display the same information about the current status of a stack\. Templates and template updates are stored in Systems Manager until you provision the stack, at which time the changes are also displayed in CloudFormation\.
++ **View information about your instances in the context of an application**
+
+  Application Manager integrates with Amazon Elastic Compute Cloud \(Amazon EC2\) to display information about your instances in the context of an application\. Application Manager displays instance state, status, and Amazon EC2 Auto Scaling health for a selected application in a graphical format\. The **Instances** tab also includes a table with the following information for each instance in your application\.
+  + Instance state \(Pending, Stopping, Running, Stopped\)
+  + Ping status for SSM Agent
+  + Status and name of the last Systems Manager Automation runbook processed on the instance
+  + A count of Amazon CloudWatch Logs alarms per state\.
+    + `ALARM` – The metric or expression is outside of the defined threshold\.
+    + `OK` – The metric or expression is within the defined threshold\.
+    + `INSUFFICIENT_DATA` – The alarm has just started, the metric is not available, or not enough data is available for the metric to determine the alarm state\.
+  + Auto Scaling group health for the parent and individual autoscaling groups
 + **View operational metrics and alarms for an application or cluster**
 
   Application Manager integrates with [Amazon CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) to provide real\-time operational metrics and alarms for an application or cluster\. You can drill down into your application tree to view alarms at each component level, or view alarms for an individual cluster\.
@@ -76,7 +88,7 @@ Application Manager includes the following features:
   Application Manager integrates with Amazon CloudWatch Application Insights\. Application Insights identifies and sets up key metrics, logs, and alarms across your application resources and technology stack\. Application Insights continuously monitors metrics and logs to detect and correlate anomalies and errors\. When the system detects errors or anomalies, Application Insights generates CloudWatch Events that you can use to set up notifications or take actions\. You can enable and view Application Insights on the **Overview** and **Monitoring** tabs in Application Manager\. For more information about Application Insights, see [What is Amazon CloudWatch Application Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/appinsights-what-is.html) in the *Amazon CloudWatch User Guide*\.
 + **Remediate issues with runbooks** 
 
-  Application Manager includes predefined Systems Manager runbooks for remediating common issues with AWS resources\. You can choose a resource in Application Manager and then choose a runbook that performs a remediation task\.
+  Application Manager includes predefined Systems Manager runbooks for remediating common issues with AWS resources\. You can execute a runbook against all of the applicable resources in an application without having to leave Application Manager\.
 
 ## Is there a charge to use Application Manager?<a name="application-manager-learn-more-cost"></a>
 

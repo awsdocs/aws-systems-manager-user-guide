@@ -2,13 +2,10 @@
 
 Like the `AWS-RunPatchBaseline` document, `AWS-RunPatchBaselineAssociation` performs patching operations on instances for both security related and other types of updates\. You can also use the document `AWS-RunPatchBaselineAssociation` to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for applications released by Microsoft\.\)
 
-**Note**  
-`AWS-RunPatchBaselineAssociation` isn't supported for on\-premises servers and virtual machines \(VMs\) in a hybrid environment\.
-
-This document supports Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux, macOS, and Windows Server\. The document will perform the appropriate actions for each platform, invoking a Python module on Linux and macOS instances, and a PowerShell module on Windows instances\.
+This document supports Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux, macOS, and Windows Server\. It does not support non\-EC2 nodes, such as on\-premises servers and virtual machines \(VMs\) in a hybrid environment\. The document will perform the appropriate actions for each platform, invoking a Python module on Linux and macOS instances, and a PowerShell module on Windows instances\.
 
 `AWS-RunPatchBaselineAssociation`, however, differs from `AWS-RunPatchBaseline` in the following ways: 
-+ `AWS-RunPatchBaselineAssociation` is intended for use primarily with associations created using [Quick Setup](systems-manager-quick-setup.md), a capability of AWS Systems Manager\. \(When using the Quick Setup Host Management configuration type, if you choose the option **Scan instances for missing patches daily**, the system uses `AWS-RunPatchBaselineAssociation` for the operation\.\)
++ `AWS-RunPatchBaselineAssociation` is intended for use primarily with State Manager associations created using [Quick Setup](systems-manager-quick-setup.md), a capability of AWS Systems Manager\. Specifically, when you use the Quick Setup Host Management configuration type, if you choose the option **Scan instances for missing patches daily**, the system uses `AWS-RunPatchBaselineAssociation` for the operation\.
 
   In most cases, however, when setting up your own patching operations, you should choose [`AWS-RunPatchBaseline`](patch-manager-about-aws-runpatchbaseline.md) or [`AWS-RunPatchBaselineWithHooks`](patch-manager-about-aws-runpatchbaselinewithhooks.md) instead of `AWS-RunPatchBaselineAssociation`\.
 + When you use the `AWS-RunPatchBaselineAssociation` document, you can specify a tag key pair in the document's `BaselineTags` parameter field\. If a custom patch baseline in your AWS account shares these tags, Patch Manager, a capability of AWS Systems Manager, uses that tagged baseline when it runs on the target instances instead of the currently specified "default" patch baseline for the operating system type\.
@@ -141,7 +138,7 @@ Replace *patch\-baseline\-arn* with the Amazon Resource Name \(ARN\) of the patc
 
 **Usage**: Required\.
 
-`AssociationId` is the ID of an existing association in State Manager, a capability of AWS Systems Manager\. It's used by Patch Manager to add compliance data to the specified Association\. By sending patching results as association compliance data instead of inventory compliance data, existing inventory compliance information for your instances isn't overwritten after a patching operation, nor for other association IDs\.  If you don't already have an association you want to use, you can create one by running [create\-association](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) the command\. For example:
+`AssociationId` is the ID of an existing association in State Manager, a capability of AWS Systems Manager\. It's used by Patch Manager to add compliance data to a specified association\. This association is related to a patch `Scan` operation enabled in a [Host Management configuration created in Quick Setup](quick-setup-host-management.md)\. By sending patching results as association compliance data instead of inventory compliance data, existing inventory compliance information for your instances isn't overwritten after a patching operation, nor for other association IDs\.  If you don't already have an association you want to use, you can create one by running [create\-association](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) the command\. For example:
 
 ------
 #### [ Linux & macOS ]
@@ -149,7 +146,7 @@ Replace *patch\-baseline\-arn* with the Amazon Resource Name \(ARN\) of the patc
 ```
 aws ssm create-association \
     --name "AWS-RunPatchBaselineAssociation" \
-    --association-name "MyPatchAssociation" \
+    --association-name "MyPatchHostConfigAssociation" \
     --targets "Key=instanceids,Values=[i-02573cafcfEXAMPLE,i-07782c72faEXAMPLE,i-07782c72faEXAMPLE]" \
     --parameters "Operation=Scan" \
     --schedule-expression "cron(0 */30 * * * ? *)" \
@@ -163,7 +160,7 @@ aws ssm create-association \
 ```
 aws ssm create-association ^
     --name "AWS-RunPatchBaselineAssociation" ^
-    --association-name "MyPatchAssociation" ^
+    --association-name "MyPatchHostConfigAssociation" ^
     --targets "Key=instanceids,Values=[i-02573cafcfEXAMPLE,i-07782c72faEXAMPLE,i-07782c72faEXAMPLE]" ^
     --parameters "Operation=Scan" ^
     --schedule-expression "cron(0 */30 * * * ? *)" ^

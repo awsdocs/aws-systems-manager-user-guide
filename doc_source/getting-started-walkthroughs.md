@@ -47,14 +47,8 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 
 **Automation**  
 [Automation](systems-manager-automation.md), a capability of AWS Systems Manager, allows you to safely automate operations and management tasks across AWS resources\. You can automate common IT tasks, safely perform disruptive tasks in bulk, simplify complex tasks, enhance operations security, and use stored configuration scripts to share best practices with the rest of your organization\.
-+ Advanced: [Walkthrough: Patch a Linux AMI \(console\)](automation-walk-patch-linux-ami-console.md)
-+ Advanced: [Patch a Linux AMI \(AWS CLI\)](automation-walk-patch-linux-ami-cli.md)
-+ Advanced: [Patch a Windows Server   AMI](automation-walk-patch-windows-ami-cli.md)
-+ Advanced: [Simplify AMI patching using Automation, AWS Lambda, and Parameter Store](automation-walk-patch-windows-ami-simplify.md)
-+ Advanced: [Patch an AMI and update an Auto Scaling group](automation-walk-patch-windows-ami-autoscaling.md)
-+ Advanced: [Run the EC2Rescue tool on unreachable instances](automation-ec2rescue.md)
-+ Advanced: [Reset passwords and SSH keys on EC2 instances](automation-ec2reset.md)
-+ Advanced: [Using Automation with Jenkins](automation-jenkins.md)
++ Advanced: [Update a Linux AMI](automation-tutorial-update-patch-linux-ami.md)
++ Advanced: [Update a Windows Server AMI](automation-tutorial-update-patch-windows-ami.md)
 
 **Change Calendar**  
 [Change Calendar](systems-manager-change-calendar.md), a capability of AWS Systems Manager, helps you set up date and time ranges when actions you specify are or are not permitted to occur in your AWS account\. 

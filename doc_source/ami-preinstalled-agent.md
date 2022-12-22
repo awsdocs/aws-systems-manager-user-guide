@@ -13,13 +13,15 @@ For example, when you launch an Amazon Elastic Compute Cloud \(Amazon EC2\) inst
 + Windows Server 2008\-2012 R2 AMIs published in November 2016 or later
 + Windows Server 2016, 2019, and 2022
 
-Although it's unlikely, it's possible that instances created from AMIs on the preceding list might not have the agent installed, or have the agent installed but not running\. Therefore, we recommend that each time you create an instance from an AWS managed AMI, you use the following procedure\. By doing so, you can verify that SSM Agent is installed and running before you try to use Systems Manager\.
-
-If you find that the SSM Agent is not installed, you can manually install it on [Linux, ](sysman-manual-agent-install.md) [macOS](sysman-manual-agent-install-macos2.md), and [Windows Server](sysman-install-win.md) instances\. 
-
 **Note**  
-SSM Agent might be preinstalled on AMIs found in AWS Marketplace or in the Community AMIs repository, but AWS doesn’t support these AMIs\.  
-SSM Agent might also be preinstalled on AWS managed AMIs with operating systems \(OSs\) that aren’t on the preceding list\. This typically indicates that the OS isn't supported by all components or capabilities of Systems Manager\. In this case, although it’s expected that Systems Manager will fully support the OS in the future, support isn't guaranteed\.
+SSM Agent might be preinstalled on AWS managed AMIs that aren’t on this list\. This typically indicates that the operating system \(OS\) is not fully supported by all Systems Manager capabilities\.  
+SSM Agent might also be preinstalled on AMIs found in AWS Marketplace or in the Community AMIs repository, but AWS doesn’t support these AMIs\.
+
+## Verify the status of SSM Agent<a name="verify-ssm-agent-status"></a>
+
+Depending on when it was initialized, an instance created from an AMI on the preceding list might not have SSM Agent preinstalled\. It's also possible that an instance has the agent preinstalled, but the agent isn't running\. Therefore, we recommend that you check the status of SSM Agent before you try to use Systems Manager on an instance for the first time\.
+
+Use the following procedure to verify that SSM Agent is installed and running on an instance\. If you find that the agent is not installed, you can manually install it on [Linux, ](sysman-manual-agent-install.md) [macOS](sysman-manual-agent-install-macos2.md), and [Windows Server](sysman-install-win.md) instances\. 
 
 **To verify installation of SSM Agent on an instance**
 

@@ -53,7 +53,7 @@ $tag.Value = "TagValue"
 New-EC2Tag -Resource i-02573cafcfEXAMPLE -Tag $tag
 ```
 
-For examples of installing and importing `AWS.Tools` modules, and using PowerShell Core cmdlets in runbooks, see [Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.
+For examples of installing and importing `AWS.Tools` modules, and using PowerShell Core cmdlets in runbooks, see [Using Document Builder to create runbooks](automation-document-builder.md)\.
 
 **Input**  
 Provide the information required to run your script\. Replace each *example resource placeholder* with your own information\.

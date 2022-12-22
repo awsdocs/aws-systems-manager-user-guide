@@ -13,7 +13,6 @@ By using pre\-configured Systems Manager documents \(SSM documents\), State Mana
 + Download and update agents on a defined schedule, including the SSM Agent\.
 + Configure network settings\.
 + Join nodes to a Microsoft Active Directory domain\.
-+ Patch nodes with software updates throughout their lifecycle\.
 + Run scripts on Linux, macOS, and Windows managed nodes throughout their lifecycle\.
 
 To manage configuration drift across other AWS resources, you can use Automation, a capability of Systems Manager, with State Manager to perform the following types of tasks:

@@ -63,7 +63,7 @@ As another example, to run an Automation task that stops your EC2 instances, you
     }
 ```
 
-To run an Automation task that copies a snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume, you specify the `AWS-CopySnapshot` SSM document as the `TaskArn` value and use the ` {{RESOURCE_ID}}` pseudo parameter\.
+To run an Automation task that copies a snapshot of an Amazon Elastic Block Store \(Amazon EBS\) volume, you specify the `AWS-CopySnapshot` SSM document as the `TaskArn` value and use the `{{RESOURCE_ID}}` pseudo parameter\.
 
 ```
 "TaskArn": "AWS-CopySnapshot",

@@ -1,4 +1,4 @@
-# Creating dynamic automations with conditional branching<a name="automation-branchdocs"></a>
+# Using conditional statements in runbooks<a name="automation-branch-condition"></a>
 
 By default, the steps that you define in the `mainSteps` section of a runbook run in sequential order\. After one action is completed, the next action specified in the `mainSteps` section begins\. Furthermore, if an action fails to run, the entire automation fails \(by default\)\. You can use the `aws:branch` automation action and the runbook options described in this section to create automations that perform *conditional branching*\. This means that you can create automations that jump to a different step after evaluating different choices or that dynamically respond to changes when a step is complete\. Here is a list of options that you can use to create dynamic automations:
 + **`aws:branch`**: This automation action allows you to create a dynamic automation that evaluates multiple choices in a single step and then jumps to a different step in the runbook based on the results of that evaluation\.
@@ -7,9 +7,9 @@ By default, the steps that you define in the `mainSteps` section of a runbook ru
 + **`isCritical`**: This option designates a step as critical for the successful completion of the automation\. If a step with this designation fails, then Automation reports the final status of the automation as `Failed`\. The default value for this option is `true`\.
 + **`onFailure`**: This option indicates whether the automation should stop, continue, or go to a different step on failure\. The default value for this option is abort\.
 
-The following section describes the `aws:branch` automation action\. For more information about the `nextStep`, `isEnd`, `isCritical`, and `onFailure` options, see [Examples of how to use dynamic options](#automation-branchdocs-examples)\.
+The following section describes the `aws:branch` automation action\. For more information about the `nextStep`, `isEnd`, `isCritical`, and `onFailure` options, see [Example `aws:branch` runbooks](#branch-runbook-examples)\.
 
-## Working with the `aws:branch` action<a name="automation-branchdocs-awsbranch"></a>
+## Working with the `aws:branch` action<a name="branch-action-explained"></a>
 
 The `aws:branch` action offers the most dynamic conditional branching options for automations\. As noted earlier, this action allows your automation to evaluate multiple conditions in a single step and then jump to a new step based on the results of that evaluation\. The `aws:branch` action functions like an `IF-ELIF-ELSE` statement in programming\.
 
@@ -70,7 +70,7 @@ mainSteps:
       PostProcessing
 ```
 
-### Creating an `aws:branch` step in a runbook<a name="automation-branchdocs-awsbranch-creating"></a>
+### Creating an `aws:branch` step in a runbook<a name="create-branch-action"></a>
 
 When you create an `aws:branch` step in a runbook, you define the `Choices` the automation should evaluate to determine which step the automation should jump to next\. As noted earlier, `Choices` are evaluated by using a Boolean expression\. Each choice must define the following options:
 + **NextStep**: The next step in the runbook to process if the designated choice is `true`\.
@@ -84,7 +84,7 @@ When you create an `aws:branch` step in a runbook, you define the `Choices` the 
 
   `Variable: "{{previousStepName.outputName}}"`
 **Note**  
-Creating the output variable is described in more detail in the next section, [About creating the output variable](#automation-branchdocs-awsbranch-creating-output)\.
+Creating the output variable is described in more detail in the next section, [About creating the output variable](#branch-action-output)\.
 + **Operation**: The criteria used to evaluate the choice, such as `StringEquals: Linux`\. The `aws:branch` action supports the following operations:
 
 **String operations**
@@ -162,7 +162,7 @@ mainSteps:
 
 ------
 
-#### About creating the output variable<a name="automation-branchdocs-awsbranch-creating-output"></a>
+#### About creating the output variable<a name="branch-action-output"></a>
 
 To create an `aws:branch` choice that references the output from a previous step, you need to identify the name of the previous step and the name of the output field\. You then combine the names of the step and the field by using the following format\.
 
@@ -227,7 +227,7 @@ Here is an example that shows how *"Variable": "\{\{ describeInstance\.Platform 
     Default: runEC2RescueForLinux
 ```
 
-### Example `aws:branch` runbooks<a name="automation-branchdocs-awsbranch-examples-docs"></a>
+### Example `aws:branch` runbooks<a name="branch-runbook-examples"></a>
 
 Here are some example runbooks that use `aws:branch`\.
 
@@ -353,7 +353,7 @@ mainSteps:
     Duration: PT3S
 ```
 
-### Creating complex branching automations with operators<a name="automation-branchdocs-awsbranch-operators"></a>
+### Creating complex branching automations with operators<a name="branch-operators"></a>
 
 You can create complex branching automations by using the `And`, `Or`, and `Not` operators in your `aws:branch` steps\.
 
@@ -421,7 +421,7 @@ mainSteps:
       sleep3
 ```
 
-## Examples of how to use dynamic options<a name="automation-branchdocs-examples"></a>
+## Examples of how to use conditional options<a name="conditional-examples"></a>
 
 This section includes different examples of how to use dynamic options in a runbook\. Each example in this section extends the following runbook\. This runbook has two actions\. The first action is named `InstallMsiPackage`\. It uses the `aws:runCommand` action to install an application on a Windows Server instance\. The second action is named `TestInstall`\. It uses the `aws:invokeLambdaFunction` action to perform a test of the installed application if the application installed successfully\. Step one specifies `onFailure: Abort`\. This means that if the application didn't install successfully, the automation stops before step two\.
 

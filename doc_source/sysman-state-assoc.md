@@ -300,49 +300,6 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
-   The following example creates an association that scans nodes for missing patch updates by using the `AWS-RunPatchBaseline` document\. This association targets all managed nodes in the account in the us\-east\-2 Region\. The association specifies the Operation and RebootOption parameters\.
-
-------
-#### [ Linux & macOS ]
-
-   ```
-   aws ssm create-association \
-     --name "AWS-RunPatchBaseline" \
-     --association-name "ScanningInstancesForMissingUpdate" \
-     --targets "Key=instanceids,Values=*" \
-     --parameters "Operation=Scan,RebootOption=NoReboot" \
-     --region us-east-2
-   ```
-
-------
-#### [ Windows ]
-
-   ```
-   aws ssm create-association ^
-     --name "AWS-RunPatchBaseline" ^
-     --association-name "ScanningInstancesForMissingUpdate" ^
-     --targets "Key=instanceids,Values=*" ^
-     --parameters "Operation=Scan,RebootOption=NoReboot" ^
-     --region us-east-2
-   ```
-
-------
-#### [ PowerShell ]
-
-   ```
-   New-SSMAssociation `
-     -AssociationName ScanningInstancesForMissingUpdate `
-     -Name AWS-RunPatchBaseline `
-     -Target @{
-         "Key"="instanceids"
-         "Values"="*"
-       } `
-     -Parameters "Operation=Scan,RebootOption=NoReboot" `
-     -Region us-east-2
-   ```
-
-------
-
    The following example targets node IDs by specifying a wildcard value \(\*\)\. This allows Systems Manager to create an association on *all* nodes in the current AWS account and AWS Region\. This association runs simultaneously on 10 nodes maximum at any given time\. Also, this association stops running on more nodes for a particular execution interval if the error count exceeds 5\. For compliance reporting, this association is assigned a severity level of Medium\. This association uses a schedule offset, which means it runs two days after the specified cron schedule\. It also includes the `ApplyOnlyAtCronInterval` parameter, which is required to use the schedule offset and which means the association won't run immediately after it is created\.
 
 ------
@@ -452,7 +409,7 @@ When you create an association, you specify when the schedule runs\. Specify the
 
 ------
 
-   The following example creates an association that runs on nodes tagged with a specific node id\. The association uses the SSM Agent document to update SSM Agent on the targeted nodes once when the change calendar is open\. The association checks the calendar state when it runs\. If the calendar is closed at launch time and the association is only run once, it won't run again because the association run window has passed\. If the calendar is open, the association runs accordingly\.
+   The following example creates an association that runs on nodes tagged with a specific node ID\. The association uses the SSM Agent document to update SSM Agent on the targeted nodes once when the change calendar is open\. The association checks the calendar state when it runs\. If the calendar is closed at launch time and the association is only run once, it won't run again because the association run window has passed\. If the calendar is open, the association runs accordingly\.
 **Note**  
 If you add new nodes to the tags or resource groups that an association acts on when the change calendar is closed, the association is applied to those nodes once the change calendar opens\.
 
@@ -497,7 +454,7 @@ If you add new nodes to the tags or resource groups that an association acts on 
 
 ------
 
-   The following example creates an association that runs on nodes tagged with a specific node id\. The association uses the SSM Agent document to update SSM Agent on the targeted nodes on the targeted nodes at 2:00 AM every Sunday\. This association runs only at the specified cron schedule when the change calendar is open\. When the association is created, it checks the calendar state\. If the calendar is closed, the association isn't applied\. When the interval to apply the association starts at 2:00 AM on Sunday, the association checks to see if the calendar is open\. If the calendar is open, the association runs accordingly\.
+   The following example creates an association that runs on nodes tagged with a specific node ID\. The association uses the SSM Agent document to update SSM Agent on the targeted nodes on the targeted nodes at 2:00 AM every Sunday\. This association runs only at the specified cron schedule when the change calendar is open\. When the association is created, it checks the calendar state\. If the calendar is closed, the association isn't applied\. When the interval to apply the association starts at 2:00 AM on Sunday, the association checks to see if the calendar is open\. If the calendar is open, the association runs accordingly\.
 **Note**  
 If you add new nodes to the tags or resource groups that an association acts on when the change calendar is closed, the association is applied to those nodes once the change calendar opens\.
 

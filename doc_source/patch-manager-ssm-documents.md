@@ -81,7 +81,7 @@ For more information about the `AWS-RunPatchBaseline` SSM document, see [About t
 Installs patches on your instances or scans instances to determine whether any qualified patches are missing\. Available in all commercial AWS Regions\. 
 
 `AWS-RunPatchBaselineAssociation` differs from `AWS-RunPatchBaseline` in a few important ways:
-+ `AWS-RunPatchBaselineAssociation` is intended for use primarily with associations created using Quick Setup, a capability of AWS Systems Manager\. \(When using the Quick Setup Host Management configuration type, if you choose the option **Scan instances for missing patches daily**, the system uses `AWS-RunPatchBaselineAssociation` for the operation\.\)
++ `AWS-RunPatchBaselineAssociation` is intended for use primarily with State Manager associations created using Quick Setup, a capability of AWS Systems Manager\. Specifically, when you use the Quick Setup Host Management configuration type, if you choose the option **Scan instances for missing patches daily**, the system uses `AWS-RunPatchBaselineAssociation` for the operation\.
 
   In most cases, however, when setting up your own patching operations, you should choose [`AWS-RunPatchBaseline`](patch-manager-about-aws-runpatchbaseline.md) or [`AWS-RunPatchBaselineWithHooks`](patch-manager-about-aws-runpatchbaselinewithhooks.md) instead of `AWS-RunPatchBaselineAssociation`\. 
 

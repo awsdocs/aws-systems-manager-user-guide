@@ -1,8 +1,11 @@
-# Patching managed nodes on demand \(console\)<a name="patch-on-demand"></a>
+# Patching managed nodes on demand<a name="patch-on-demand"></a>
 
 Using the **Patch now** option in Patch Manager, a capability of AWS Systems Manager, you can run on\-demand patching operations from the Systems Manager console\. This means you don’t have to create a schedule in order to update the compliance status of your managed nodes or to install patches on noncompliant nodes\. You also don’t need to switch the Systems Manager console between Patch Manager and Maintenance Windows, a capability of AWS Systems Manager, in order to set up or modify a scheduled patching window\.
 
 **Patch now** is especially useful when you must apply zero\-day updates or install other critical patches on your managed nodes as soon as possible\.
+
+**Note**  
+Patching on demand is supported for a single AWS account\-AWS Region pair at a time\. It can't be used with patching operations that are based on *patch policies*\. We recommend using patch policies for keeping all your managed nodes in compliance\. For more information about working with patch policies, see [Introducing patch policies](patch-policies-about.md)\.
 
 **Topics**
 + [How 'Patch now' works](#patch-on-demand-how-it-works)

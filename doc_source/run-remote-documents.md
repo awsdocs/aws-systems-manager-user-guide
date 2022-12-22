@@ -1,7 +1,7 @@
 # Running Systems Manager Command documents from remote locations<a name="run-remote-documents"></a>
 
 You can run AWS Systems Manager \(SSM\) documents from remote locations by using the `AWS-RunDocument` pre\-defined SSM document\. This document supports running SSM documents stored in the following locations:
-+ GitHub repositories \(public and private\)
++ Public and private GitHub repositories \(GitHub Enterprise is not supported\)
 + Amazon S3 buckets
 + Systems Manager
 

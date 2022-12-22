@@ -9,6 +9,7 @@ You can also download a directory that includes multiple scripts\. When you run 
 Note the following important details about running scripts from GitHub\.
 + Systems Manager doesn't verify that your script is capable of running on a node\. Before you download and run the script, verify that the required software is installed on the node\. Or, you can create a composite document that installs the software by using either Run Command or State Manager, capabilities of AWS Systems Manager, and then downloads and runs the script\.
 + You're responsible for ensuring that all GitHub requirements are met\. This includes refreshing your access token, as needed\. Ensure that you don't surpass the number of authenticated or unauthenticated requests\. For more information, see the GitHub documentation\.
++ GitHub Enterprise repositories are not supported\.
 
 **Topics**
 + [Run Ansible Playbooks from GitHub](integration-github-ansible.md)

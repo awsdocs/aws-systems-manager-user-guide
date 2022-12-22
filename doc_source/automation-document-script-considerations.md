@@ -1,8 +1,8 @@
-# Creating runbooks that run scripts<a name="automation-document-script"></a>
+# Using scripts in runbooks<a name="automation-document-script-considerations"></a>
 
 Automation runbooks support running scripts as part of the automation\. Automation is a capability of AWS Systems Manager\. By using runbooks, you can run scripts directly in AWS without creating a separate compute environment to run your scripts\. Because runbooks can run script steps along with other automation step types, such as approvals, you can manually intervene in critical or ambiguous situations\. You can send the output from `aws:executeScript` actions in your runbooks to Amazon CloudWatch Logs\. For more information, see [Logging Automation action output with CloudWatch Logs](automation-action-logging.md)\.
 
-## Permissions for using runbooks<a name="execution-permissions"></a>
+## Permissions for using runbooks<a name="script-permissions"></a>
 
 To use a runbook, Systems Manager must use the permissions of an AWS Identity and Access Management \(IAM\) role\. The method that Automation uses to determine which role's permissions to use depends on a few factors, and whether a step uses the `aws:executeScript` action\. 
 
@@ -20,16 +20,4 @@ You can add scripts to your runbooks by including the script inline as part of a
 
 ## Script constraints for runbooks<a name="script-constraints"></a>
 
-The automation action `aws:executeScript` supports running Python 3\.6, Python 3\.7, Python 3\.8, and PowerShell Core 6\.0 scripts\.
-
 Runbooks enforce a limit of five file attachments\. Scripts can either be in the form of a Python script \(\.py\), a PowerShell Core script \(\.ps1\), or attached as contents within a \.zip file\.
-
-The following topics describe how to create runbooks that run scripts\.
-
-**Topics**
-+ [Permissions for using runbooks](#execution-permissions)
-+ [Adding scripts to runbooks](#adding-scripts)
-+ [Script constraints for runbooks](#script-constraints)
-+ [Creating a runbook that runs a script \(console\)](automation-document-script-console.md)
-+ [Creating a runbook that runs scripts \(command line\)](automation-document-script-commandline.md)
-+ [AWS managed runbooks that run scripts](runbook-scripts.md)

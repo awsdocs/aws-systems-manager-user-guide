@@ -11,7 +11,7 @@ Some AWS managed Amazon Machine Images \(AMIs\) are configured to launch instanc
 + For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, you must attach an AWS Identity and Access Management \(IAM\) instance profile to the instance\. The instance profile enables the instance to communicate with the Systems Manager service\. If you don't assign an instance profile to the instance, you register it using a hybrid activation, which is not a common scenario\.
 + SSM Agent must be able to connect to a Systems Manager endpoint in order to register itself with the service\. Thereafter, the managed node must be available to the service, which is confirmed by the service sending a signal every five minutes to check the instance's health\. 
 
-After you verify that a managed node is running, you can use the following command to check whether SSM Agentsuccessfully registered with the Systems Manager service\. This command doesn't return results until a successful registration has taken place\.
+After you verify that a managed node is running, you can use the following command to check whether SSM Agent successfully registered with the Systems Manager service\. This command doesn't return results until a successful registration has taken place\.
 
 ------
 #### [ Linux & macOS ]

@@ -2,6 +2,24 @@
 
 You can customize widget layout in AWS Systems Manager Explorer by using a drag\-and\-drop capability\. You can also customize the OpsData and OpsItems displayed in Explorer by using filters, as described in this topic\. 
 
+## Before you begin<a name="Explorer-using-filters-before-you-begin"></a>
+
+Before you customize widget layout, verify that the widgets you want to view are currently displayed in Explorer\. To view some widgets in Explorer \(such as the AWS Config compliance widget\), you must enable them on the **Configure dashboard** page\. 
+
+**To enable widgets to display in Explorer**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Explorer**\.
+
+1. Choose **Dashboard actions**, **Configure dashboard**\.
+
+1. Choose the **Configure Dashboard** tab\.
+
+1. Either choose **Enable all** or turn on an individual widget or data source\.
+
+1. Choose **Explorer** to view your changes\.
+
 ## Customizing widget layout<a name="Explorer-using-filters-customize"></a>
 
 Use the following procedure to customize widget layout in Explorer\.

@@ -8,6 +8,10 @@ A Lambda extension is a companion process that augments the capabilities of a La
 
 The AWS Parameters and Secrets Lambda Extension works for both Parameter Store and AWS Secrets Manager\. To learn how to use the Lambda extension with secrets from Secrets Manager, see [Use AWS Secrets Manager secrets in AWS Lambda functions](https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieving-secrets_lambda.html) in the *AWS Secrets Manager User Guide*\. 
 
+**Related info**
+
+[Using the AWS Parameter and Secrets Lambda extension to cache parameters and secrets](http://aws.amazon.com/blogs/compute/using-the-aws-parameter-and-secrets-lambda-extension-to-cache-parameters-and-secrets/) \(AWS Compute Blog\)
+
 ## How the extension works<a name="ps-integration-lambda-extensions-how-it-works"></a>
 
 To use parameters in a Lambda function *without* the Lambda extension, you must configure your Lambda function to receive configuration updates by integrating with the `GetParameter` API action for Parameter Store\.

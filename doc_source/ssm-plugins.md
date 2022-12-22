@@ -666,7 +666,7 @@ Required: No
 
 ## `aws:domainJoin`<a name="aws-domainJoin"></a>
 
-Join an EC2 instance to a domain\. This plugin runs on Linux and Windows Server operating systems\. For more information about joining EC2 instances, see [Join an EC2 Instance to Your AWS Managed Microsoft AD Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_join_instance.html) in the *AWS Directory Service Administration Guide*\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
+Join an EC2 instance to a domain\. This plugin runs on Linux and Windows Server operating systems\. This plugin changes the hostname for Linux instances to the format EC2AMAZ\-*XXXXXXX*\. For more information about joining EC2 instances, see [Join an EC2 Instance to Your AWS Managed Microsoft AD Directory](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_join_instance.html) in the *AWS Directory Service Administration Guide*\. For more information about documents, see [AWS Systems Manager Documents](sysman-ssm-docs.md)\.
 
 ### Syntax<a name="domainJoin-syntax"></a>
 
@@ -805,7 +805,7 @@ For examples, see [Join an Amazon EC2 Instance to your AWS Managed Microsoft AD]
 
 ## `aws:downloadContent`<a name="aws-downloadContent"></a>
 
-\(Schema version 2\.0 or later\) Download SSM documents and scripts from remote locations\. This plugin is supported on Linux and Windows Server operating systems\.
+\(Schema version 2\.0 or later\) Download SSM documents and scripts from remote locations\. GitHub Enterprise repositories are not supported\. This plugin is supported on Linux and Windows Server operating systems\.
 
 ### Syntax<a name="downloadContent-syntax"></a>
 

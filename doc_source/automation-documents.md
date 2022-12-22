@@ -1,4 +1,4 @@
-# Working with runbooks<a name="automation-documents"></a>
+# Creating your own runbooks<a name="automation-documents"></a>
 
 An Automation runbook defines the *actions* that Systems Manager performs on your managed instances and other AWS resources when an automation runs\. Automation is a capability of AWS Systems Manager\. A runbook contains one or more steps that run in sequential order\. Each step is built around a single action\. Output from one step can be used as input in a later step\. 
 
@@ -17,24 +17,42 @@ If you run an automation workflow that invokes other services by using an AWS Id
 
 For information about the actions that you can specify in a runbook, see [Systems Manager Automation actions reference](automation-actions.md)\.
 
-For information about the AWS managed runbooks that run scripts, see [AWS managed runbooks that run scripts](runbook-scripts.md)\.
-
 For information about using the AWS Toolkit for Visual Studio Code to create runbooks, see [Working with Systems Manager Automation documents](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.html) in the *AWS Toolkit for Visual Studio Code User Guide*\.
 
-For information about using Document Builder to create a custom runbook, see [Creating runbooks using Document Builder](automation-document-builder.md)\. 
+For information about using Document Builder to create a custom runbook, see [Using Document Builder to create runbooks](automation-document-builder.md)\. 
 
-For information about creating custom runbooks that run scripts, see the following topics:
-+ [Creating runbooks that run scripts](automation-document-script.md) – Provides information for using Document Builder to create a runbook that includes the `aws:executeScript` action\.
-+ [Creating a runbook that runs scripts \(command line\)](automation-document-script-commandline.md) – Provides information for using a command line tool to create a runbook that runs a script\.
-+ [Using Document Builder to create a custom runbook](automation-walk-document-builder.md) – Provides step\-by\-step guidance for creating a runbook that runs scripts to \(1\) launch an EC2 instance and \(2\) wait for the instance status to change to `ok`\.
-
-**Topics**
+**Contents**
++ [Authoring Automation runbooks](automation-authoring-runbooks.md)
+  + [Identify your use case](automation-authoring-runbooks.md#automation-authoring-runbooks-use-case)
+  + [Set up your development environment](automation-authoring-runbooks.md#automation-authoring-runbooks-environment)
+  + [Develop runbook content](automation-authoring-runbooks.md#automation-authoring-runbooks-developing-content)
+  + [Example 1: Creating parent\-child runbooks](automation-authoring-runbooks-parent-child-example.md)
+    + [Create the child runbook](automation-authoring-runbooks-parent-child-example.md#automation-authoring-runbooks-child-runbook)
+    + [Create the parent runbook](automation-authoring-runbooks-parent-child-example.md#automation-authoring-runbooks-parent-runbook)
+  + [Example 2: Scripted runbook](automation-authoring-runbooks-scripted-example.md)
+  + [Additional runbook examples](automation-document-examples.md)
+    + [Deploy VPC architecture and Microsoft Active Directory domain controllers](automation-document-architecture-deployment-example.md)
+    + [Restore a root volume from the latest snapshot](automation-document-instance-recovery-example.md)
+    + [Create an AMI and cross\-Region copy](automation-document-backup-maintenance-example.md)
 + [Creating input parameters that populate AWS resources](populating-input-parameters.md)
-+ [Creating runbooks using Document Builder](automation-document-builder.md)
-+ [Creating a runbook using the Editor](automation-document-editor.md)
-+ [Creating runbooks that run scripts](automation-document-script.md)
-+ [Creating dynamic automations with conditional branching](automation-branchdocs.md)
-+ [Creating integrations for Automation](creating-integrations.md)
++ [Using Document Builder to create runbooks](automation-document-builder.md)
+  + [Create a runbook using Document Builder](automation-document-builder.md#create-runbook)
+  + [Create a runbook that runs scripts](automation-document-builder.md#create-runbook-scripts)
++ [Using scripts in runbooks](automation-document-script-considerations.md)
+  + [Permissions for using runbooks](automation-document-script-considerations.md#script-permissions)
+  + [Adding scripts to runbooks](automation-document-script-considerations.md#adding-scripts)
+  + [Script constraints for runbooks](automation-document-script-considerations.md#script-constraints)
++ [Using conditional statements in runbooks](automation-branch-condition.md)
+  + [Working with the `aws:branch` action](automation-branch-condition.md#branch-action-explained)
+    + [Creating an `aws:branch` step in a runbook](automation-branch-condition.md#create-branch-action)
+      + [About creating the output variable](automation-branch-condition.md#branch-action-output)
+    + [Example `aws:branch` runbooks](automation-branch-condition.md#branch-runbook-examples)
+    + [Creating complex branching automations with operators](automation-branch-condition.md#branch-operators)
+  + [Examples of how to use conditional options](automation-branch-condition.md#conditional-examples)
++ [Using action outputs as inputs](automation-action-outputs-inputs.md)
+  + [Using JSONPath in runbooks](automation-action-outputs-inputs.md#automation-action-json-path)
++ [Creating webhook integrations for Automation](creating-webhook-integrations.md)
+  + [Creating integrations \(console\)](creating-webhook-integrations.md#creating-integrations-console)
+  + [Creating integrations \(command line\)](creating-webhook-integrations.md#creating-integrations-commandline)
+  + [Creating webhooks for integrations](creating-webhook-integrations.md#creating-webhooks)
 + [Handling timeouts in runbooks](automation-handling-timeouts.md)
-+ [Invoking other AWS services from a Systems Manager Automation runbook](automation-aws-apis-calling.md)
-+ [Sample scenarios and custom runbook solutions](automation-document-samples.md)

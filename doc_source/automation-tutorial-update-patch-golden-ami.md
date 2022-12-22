@@ -1,4 +1,4 @@
-# Simplify AMI patching using Automation, AWS Lambda, and Parameter Store<a name="automation-walk-patch-windows-ami-simplify"></a>
+# Update a golden AMI using Automation, AWS Lambda, and Parameter Store<a name="automation-tutorial-update-patch-golden-ami"></a>
 
 The following example uses the model where an organization maintains and periodically patches their own, proprietary AMIs rather than building from Amazon Elastic Compute Cloud \(Amazon EC2\) AMIs\.
 
@@ -8,12 +8,12 @@ The following procedure shows how to automatically apply operating system \(OS\)
 Configure Automation roles and, optionally, Amazon EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\.
 
 **Topics**
-+ [Task 1: Create a parameter in Systems Manager Parameter Store](#automation-pet1)
-+ [Task 2: Create an IAM role for AWS Lambda](#automation-pet2)
-+ [Task 3: Create an AWS Lambda function](#automation-pet3)
-+ [Task 4: Create a runbook and patch the AMI](#automation-pet4)
++ [Task 1: Create a parameter in Systems Manager Parameter Store](#create-parameter-ami)
++ [Task 2: Create an IAM role for AWS Lambda](#create-lambda-role)
++ [Task 3: Create an AWS Lambda function](#create-lambda-function)
++ [Task 4: Create a runbook and patch the AMI](#create-custom-ami-update-runbook)
 
-## Task 1: Create a parameter in Systems Manager Parameter Store<a name="automation-pet1"></a>
+## Task 1: Create a parameter in Systems Manager Parameter Store<a name="create-parameter-ami"></a>
 
 Create a string parameter in Parameter Store that uses the following information:
 + **Name**: `latestAmi`\.
@@ -21,7 +21,7 @@ Create a string parameter in Parameter Store that uses the following information
 
 For information about how to create a Parameter Store string parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
-## Task 2: Create an IAM role for AWS Lambda<a name="automation-pet2"></a>
+## Task 2: Create an IAM role for AWS Lambda<a name="create-lambda-role"></a>
 
 Use the following procedure to create an IAM service role for AWS Lambda\. These policies give Lambda permission to update the value of the `latestAmi` parameter using a Lambda function and Systems Manager\.
 
@@ -108,7 +108,7 @@ Because various entities might reference the role, you cannot change the name of
 
 1. Choose **Create role**\.
 
-## Task 3: Create an AWS Lambda function<a name="automation-pet3"></a>
+## Task 3: Create an AWS Lambda function<a name="create-lambda-function"></a>
 
 Use the following procedure to create a Lambda function that automatically updates the value of the `latestAmi` parameter\.
 
@@ -208,7 +208,7 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. Choose **Test** to test the function\. The output should state that the parameter was successfully updated and include details about the update\. For example, “Updated parameter latestAmi with value ami\-123456”\.
 
-## Task 4: Create a runbook and patch the AMI<a name="automation-pet4"></a>
+## Task 4: Create a runbook and patch the AMI<a name="create-custom-ami-update-runbook"></a>
 
 Use the following procedure to create and run a runbook that patches the AMI you specified for the **latestAmi** parameter\. After the automation completes, the value of **latestAmi** is updated with the ID of the newly\-patched AMI\. Subsequent automations use the AMI created by the previous execution\.
 

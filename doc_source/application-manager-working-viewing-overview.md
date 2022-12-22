@@ -11,11 +11,14 @@ Application Manager is integrated with AWS Cost Explorer, a feature of [AWS Cost
 You can enable this feature by choosing the **Go to AWS Cost Management console** button\. By default, the data is filtered to the past three months\. For a non\-container application, if you choose the **View all** button, Application Manager opens the **Resources** tab\. For container applications, the **View all** button opens the AWS Cost Explorer console\.
 
 **Actions you can perform on this page**  
-You can perform the following actions on this page:
-+ In the **Alarms** section, choose a number to open the **Monitoring** tab where you can view more details about alarms of the chosen severity\.
-+ In the **OpsItems** section, choose a severity to open the **OpsItems** tab where you can view all OpsItems of the chosen severity\.
+You can turn on and access information about the following widgets on the **Overview** tab on this page\. When a widget is enabled, choose its **View all** to see relevant application details for that area\.
++ In the **Insights and Alarms** section, choose the number for a severity to open the **Monitoring**, tab, where you can view more details about alarms of the chosen severity\.
++ In the **Cost** section, choose **View all ** to open the **Resources** tab, where you can view cost data for a specific application or application component\.
++ In the **Compliance** section, choose **View all ** to open the **Compliance** tab, where you can view compliance information from AWS Config and State Manager associations\.
+**Note**  
+To view patch compliance details, choose the **Compliance** tab directly\. Then you can view patch compliance details for the managed nodes used by the selected application\. 
 + In the **Runbooks** section, choose a runbook to open it in the Systems Manager **Documents** page where you can view more details about the document\.
-+ If you enabled AWS Cost Explorer, the **Cost Explorer** section shows cost data for a specific application or application component\. 
++ In the **OpsItems** section, choose a severity to open the **OpsItems** tab where you can view all OpsItems of the chosen severity\.
 + Choose a **View all** button to open the corresponding tab\. You can view all alarms, OpsItems, or runbook history entries for the application\.
 
 **To open the **Overview** tab**

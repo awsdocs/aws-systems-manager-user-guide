@@ -2,7 +2,7 @@
 
 You can start an automation by specifying a runbook as the target of an Amazon EventBridge event\. You can start automations according to a schedule, or when a specific AWS system event occurs\. For example, let's say you create a runbook named *BootStrapInstances* that installs software on an instance when an instance starts\. To specify the *BootStrapInstances* runbook \(and corresponding automation\) as a target of an EventBridge event, you first create a new EventBridge rule\. \(Here's an example rule: **Service name**: EC2, **Event Type**: EC2 Instance State\-change Notification, **Specific state\(s\)**: running, **Any instance**\.\) Then you use the following procedures to specify the *BootStrapInstances* runbook as the target of the event using the EventBridge console and AWS Command Line Interface \(AWS CLI\)\. When a new instance starts, the system runs the automation and installs software\.
 
-For information about creating runbooks, see [Working with runbooks](automation-documents.md)\.
+For information about creating runbooks, see [Creating your own runbooks](automation-documents.md)\.
 
 ## Creating an EventBridge event that uses a runbook \(console\)<a name="automation-cwe-target-console"></a>
 

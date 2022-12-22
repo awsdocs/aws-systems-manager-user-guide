@@ -6,7 +6,7 @@ When you specify the `aws:branch` action for a step, you specify `Choices` that 
 
 If none of the choices are true, the automation checks to see if the step contains a `default` value\. A default value defines a step that the automation should jump to if none of the choices are true\. If no `default` value is specified for the step, then the automation processes the next step in the runbook\.
 
-The `aws:branch` action supports complex choice evaluations by using a combination of `And`, `Not`, and `Or` operators\. For more information about how to use `aws:branch`, including example runbooks and examples that use different operators, see [Creating dynamic automations with conditional branching](automation-branchdocs.md)\.
+The `aws:branch` action supports complex choice evaluations by using a combination of `And`, `Not`, and `Or` operators\. For more information about how to use `aws:branch`, including example runbooks and examples that use different operators, see [Using conditional statements in runbooks](automation-branch-condition.md)\.
 
 **Input**  
 Specify one or more `Choices` in a step\. The `Choices` can be based on either a value that you specified in the `Parameters` section of the runbook, or a dynamic value generated as the output from the previous step\. Here is a YAML sample that evaluates a parameter\.
@@ -48,7 +48,7 @@ mainSteps:
 Choices  
 One or more expressions that the Automation should evaluate when determining the next step to process\. Choices are evaluated by using a Boolean expression\. Each choice must define the following options:  
 + **NextStep**: The next step in the runbook to process if the designated choice is true\.
-+ **Variable**: Specify either the name of a parameter that is defined in the `Parameters` section of the runbook\. Or specify an output object from a previous step in the runbook\. For more information about creating variables for `aws:branch`, see [About creating the output variable](automation-branchdocs.md#automation-branchdocs-awsbranch-creating-output)\.
++ **Variable**: Specify either the name of a parameter that is defined in the `Parameters` section of the runbook\. Or specify an output object from a previous step in the runbook\. For more information about creating variables for `aws:branch`, see [About creating the output variable](automation-branch-condition.md#branch-action-output)\.
 + **Operation**: The criteria used to evaluate the choice\. The `aws:branch` action supports the following operations:
 
 **String operations**
@@ -77,4 +77,4 @@ Type: String
 Required: No
 
 **Note**  
-The `aws:branch` action supports `And`, `Or`, and `Not` operators\. For examples of `aws:branch` that use operators, see [Creating dynamic automations with conditional branching](automation-branchdocs.md)\.
+The `aws:branch` action supports `And`, `Or`, and `Not` operators\. For examples of `aws:branch` that use operators, see [Using conditional statements in runbooks](automation-branch-condition.md)\.

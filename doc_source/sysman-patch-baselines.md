@@ -2,6 +2,13 @@
 
 Patch Manager, a capability of AWS Systems Manager, provides predefined patch baselines for each of the operating systems supported by Patch Manager\. You can use these baselines as they are currently configured \(you can't customize them\) or you can create your own custom patch baselines\. Custom patch baselines allows you greater control over which patches are approved or rejected for your environment\. Also, the predefined baselines assign a compliance level of `Unspecified` to all patches installed using those baselines\. For compliance values to be assigned, you can create a copy of a predefined baseline and specify the compliance values you want to assign to patches\. For more information, see [About custom baselines](#patch-manager-baselines-custom) and [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md)\.
 
+**Note**  
+The information in this topic applies no matter which method or type of configuration you are using for your patching operations:  
+A patch policy configured in Quick Setup
+A Host Management option configured in Quick Setup
+A maintenance window to run a patch `Scan` or `Install` task
+An on\-demand **Patch now** operation
+
 **Topics**
 + [About predefined baselines](#patch-manager-baselines-pre-defined)
 + [About custom baselines](#patch-manager-baselines-custom)
@@ -38,7 +45,7 @@ For information about which versions of each operating system Patch Manager supp
 ## About custom baselines<a name="patch-manager-baselines-custom"></a>
 
 If you create your own patch baseline, you can choose which patches to auto\-approve by using the following categories\.
-+ Operating system: Windows, Amazon Linux, Ubuntu Server, and so on\.
++ Operating system: Windows Server, Amazon Linux, Ubuntu Server, and so on\.
 + Product name \(for operating systems\): For example, RHEL 6\.5, Amazon Linux 2014\.09, Windows Server 2012, Windows Server 2012 R2, and so on\.
 + Product name \(for applications released by Microsoft on Windows Server only\): For example, Word 2016, BizTalk Server, and so on\.
 + Classification: For example, critical updates, security updates, and so on\.
@@ -54,7 +61,7 @@ An auto\-approval delay is the number of days to wait after the patch was releas
 **Note**  
 If a Linux repository doesn’t provide release date information for packages, Systems Manager uses the build time of the package as the auto\-approval delay for Amazon Linux, Amazon Linux 2, RHEL, and CentOS\. If the system isn't able to find the build time of the package, Systems Manager treats the auto\-approval delay as having a value of zero\.
 
-When you specify an auto\-approval cutoff date, Patch Manager automatically applies all patches released or last updated on or before that date\. For example, if you specify July 7, 2020 as the cutoff date, no patches released or last updated on or after July 8, 2020 are installed automatically\.
+When you specify an auto\-approval cutoff date, Patch Manager automatically applies all patches released or last updated on or before that date\. For example, if you specify July 7, 2023 as the cutoff date, no patches released or last updated on or after July 8, 2023 are installed automatically\.
 
 You can also specify a compliance severity level\. If an approved patch is reported as missing, `Compliance Level` is the severity of the compliance violation\. 
 
@@ -68,5 +75,8 @@ For Windows Server, three predefined patch baselines are provided\. The patch ba
 + The formats of package names you can add to lists of approved patches and rejected patches for a patch baseline depend on the type of operating system you're patching\.
 
   For information about accepted formats for lists of approved patches and rejected patches, see [About package name formats for approved and rejected patch lists](patch-manager-approved-rejected-package-name-formats.md)\.
++ If you are using a [patch policy configuration](patch-policies-about.md) in Quick Setup, updates you make to custom patch baselines are synchronized with Quick Setup once an hour\. 
+
+  If a custom patch baseline that was referenced in a patch policy is deleted, a banner displays on the Quick Setup **Configuration details** page for your patch policy\. The banner informs you that the patch policy references a patch baseline that no longer exists, and that subsequent patching operations will fail\. In this case, return to the Quick Setup **Configurations** page, select the Patch Manager configuration , and choose **Actions**, **Edit configuration**\. The deleted patch baseline name is highlighted, and you must select a new patch baseline for the affected operating system\.
 
 For information about creating a patch baseline, see [Working with custom patch baselines \(console\)](sysman-patch-baseline-console.md) and [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.

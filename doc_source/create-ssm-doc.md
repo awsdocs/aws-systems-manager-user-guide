@@ -11,10 +11,10 @@ To create your own SSM document content, it's important to understand the differ
 +  [Systems Manager Command document plugin reference](ssm-plugins.md) 
 +  [Systems Manager Automation actions reference](automation-actions.md) 
 +  [Automation system variables](automation-variables.md) 
-+  [Sample scenarios and custom runbook solutions](automation-document-samples.md) 
++  [Additional runbook examples](automation-document-examples.md) 
 +  [Working with Systems Manager Automation runbooks](https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/systems-manager-automation-docs.html) using the AWS Toolkit for Visual Studio Code 
-+  [Using Document Builder to create a custom runbook](automation-walk-document-builder.md) 
-+  [Creating runbooks that run scripts](automation-document-script.md) 
++  [Using Document Builder to create runbooks](automation-document-builder.md) 
++  [Using scripts in runbooks](automation-document-script-considerations.md) 
 
 AWS pre\-defined SSM documents might perform some of the actions you require\. You can call these documents by using the `aws:runDocument`, `aws:runCommand`, or `aws:executeAutomation` plugins within your custom SSM document, depending on the document type\. You can also copy portions of those documents into a custom SSM document, and edit the content to meet your requirements\.
 
@@ -64,7 +64,7 @@ Update-SSMDocumentDefaultVersion `
 
 ## Cloning an SSM document<a name="cloning-ssm-document"></a>
 
-You can clone AWS Systems Manager documents using the Systems Manager Documents console to create SSM documents\. Cloning SSM documents copies content from an existing document to a new document that you can modify\.
+You can clone AWS Systems Manager documents using the Systems Manager Documents console to create SSM documents\. Cloning SSM documents copies content from an existing document to a new document that you can modify\. You can't clone a document larger than 64KB\.
 
 **To clone an SSM document**
 

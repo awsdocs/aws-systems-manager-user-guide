@@ -59,13 +59,7 @@ You repeat this task for each job function you want to create for your organizat
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Quick Setup** in the navigation pane\.
 
-1. Choose **Create**\.
-
-   \-or\-
-
-   If the **Quick Setup** start page opens first, choose **Get started**, and then choose **Create**\.
-
-1. Choose **Change Manager**, and then choose **Next**\.
+1. On the **Change Manager** card, choose **Create**\.
 
 1. For **Delegated administrator account**, enter the ID of the AWS account you want to use for managing change templates, change requests, and runbook workflows in Change Manager\. 
 

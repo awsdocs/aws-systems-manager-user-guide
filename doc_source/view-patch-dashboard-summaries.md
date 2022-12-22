@@ -20,9 +20,9 @@ The **Dashboard** tab in Patch Manager provides you with a summary view in the c
 1. Choose the **Dashboard** tab\.
 
 1. Scroll to the section containing summary data that you want to view:
-   + **Patch compliance summary**
-   + **Compliance reporting age**
-   + **Patch states**
-   + **Patch operations history**
-   + **Recurring patching tasks**
-   + **Scheduled reboot tasks**
+   + **Amazon EC2 instance management**
+   + **Compliance summary**
+   + **Noncompliance counts**
+   + **Compliance reports**
+   + **Non\-patch policy\-based operations**
+   + **Non\-patch policy\-based recurring tasks**

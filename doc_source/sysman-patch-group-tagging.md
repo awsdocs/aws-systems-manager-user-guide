@@ -1,5 +1,8 @@
 # Working with patch groups<a name="sysman-patch-group-tagging"></a>
 
+**Important**  
+Patch groups are not used in patching operations that are based on *patch policies*\. For more information about working with patch policies, see [Introducing patch policies](patch-policies-about.md)\.
+
 To help you organize your patching efforts, we recommend that you add managed nodes to patch groups by using tags\. Patch groups require use of the tag key `Patch Group` or `PatchGroup`\. `PatchGroup` \(without a space\) is required if you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS)\. You can specify any tag value, but the tag key must be `Patch Group` or `PatchGroup`\. For more information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\.
 
 After you group your managed nodes using tags, you add the patch group value to a patch baseline\. By registering the patch group with a patch baseline, you ensure that the correct patches are installed during the patching operation\. 

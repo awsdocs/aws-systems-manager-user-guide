@@ -4,7 +4,7 @@ Each runbook in Automation, a capability of AWS Systems Manager, defines an auto
 
 Automation includes several pre\-defined runbooks that you can use to perform common tasks like restarting one or more Amazon Elastic Compute Cloud \(Amazon EC2\) instances or creating an Amazon Machine Image \(AMI\)\. However, your use cases might extend beyond the capabilities of the pre\-defined runbooks\. If this is the case, you can create your own runbooks and modify them to your needs\.
 
-A runbook consists of automation actions, parameters for those actions, and input parameters that you specify\. A runbook's content is written in either YAML or JSON\. If you're not familiar with either YAML or JSON, we recommend using Document Builder, or learning more about either markup language before attempting to author your own runbook\. For more information about Document Builder, see [Using Document Builder to create a custom runbook](automation-walk-document-builder.md)\.
+A runbook consists of automation actions, parameters for those actions, and input parameters that you specify\. A runbook's content is written in either YAML or JSON\. If you're not familiar with either YAML or JSON, we recommend using Document Builder, or learning more about either markup language before attempting to author your own runbook\. For more information about Document Builder, see [Using Document Builder to create runbooks](automation-document-builder.md)\.
 
 The following sections will help you author your first runbook\.
 
@@ -38,7 +38,7 @@ For more information about installing the Toolkit for VS Code, see [Installing t
 
 With your use case identified and environment set up, you're ready to develop the content for your runbook\. Your use case and preferences will largely dictate the automation actions or runbooks you use in your runbook content\. Some actions support only a subset of input parameters when compared to another action that allows you to accomplish a similar task\. Other actions have specific outputs, such as `aws:createImage`, where some actions allow you to define your own outputs, such as `aws:executeAwsApi`\. 
 
-If you're unsure how to use a particular action in your runbook, we recommend reviewing the corresponding entry for the action in the [Systems Manager Automation actions reference](automation-actions.md)\. We also recommend reviewing the content of pre\-defined runbooks to see real\-world examples of how these actions are used\. For more examples of real\-world applications of runbooks, see [Sample scenarios and custom runbook solutions](automation-document-samples.md)\.
+If you're unsure how to use a particular action in your runbook, we recommend reviewing the corresponding entry for the action in the [Systems Manager Automation actions reference](automation-actions.md)\. We also recommend reviewing the content of pre\-defined runbooks to see real\-world examples of how these actions are used\. For more examples of real\-world applications of runbooks, see [Additional runbook examples](automation-document-examples.md)\.
 
 To demonstrate the differences in simplicity and flexibility that runbook content provides, the following tutorials provide an example of how to patch groups of Amazon EC2 instances in stages:
 + [Example 1: Creating parent\-child runbooks](automation-authoring-runbooks-parent-child-example.md) – In this example, two runbooks are used in a parent\-child relationship\. The parent runbook initiates a rate control automation of the child runbook\. 

@@ -43,8 +43,8 @@ Add the `no_proxy` setting to the file and specify the IP address listed here\. 
 1. Stop and restart SSM Agent using the following commands\.
 
    ```
-   sudo stop amazon-ssm-agent
-   sudo start amazon-ssm-agent
+   sudo service stop amazon-ssm-agent
+   sudo service start amazon-ssm-agent
    ```
 
 **Note**  

@@ -1,6 +1,6 @@
 # AWS Systems Manager Explorer<a name="Explorer"></a>
 
-AWS Systems Manager Explorer is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across AWS Regions\. In Explorer, OpsData includes metadata about your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, Systems Manager Patch Manager patch compliance details, and Systems Manager State Manager association compliance details\. OpsData also includes information from supporting AWS services like AWS Trusted Advisor, AWS Compute Optimizer, and information about your AWS Support cases\.
+AWS Systems Manager Explorer is a customizable operations dashboard that reports information about your AWS resources\. Explorer displays an aggregated view of operations data \(OpsData\) for your AWS accounts and across AWS Regions\. In Explorer, OpsData includes metadata about your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, edge devices, and on\-premises servers and virtual machines \(VMs\) in your hybrid environment\. OpsData also includes information provided by other Systems Manager capabilities, including Patch Manager patch compliance and State Manager association compliance details\. To further simplify how you access OpsData, Explorer displays information from supporting AWS services like AWS Config, AWS Trusted Advisor, AWS Compute Optimizer, and AWS Support \(support cases\)\.
 
 To raise operational awareness, Explorer also displays operational work items \(OpsItems\)\. Explorer provides context about how OpsItems are distributed across your business units or applications, how they trend over time, and how they vary by category\. You can group and filter information in Explorer to focus on items that are relevant to you and that require action\. When you identify high priority issues, you can use Systems Manager OpsCenter to run Automation runbooks and quickly resolve those issues\. To get started with Explorer, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/explorer)\. In the navigation pane, choose **Explorer**\.
 
@@ -12,7 +12,7 @@ The following image shows some of the individual report boxes, called *widgets*,
 
 Explorer includes the following features:
 + **Customizable display of actionable information**: Explorer includes drag\-and\-drop widgets that automatically display actionable information about your AWS resources\. Explorer displays information in two types of widgets\.
-  + **Informational widgets**: These widgets summarize data from Amazon EC2, Patch Manager, State Manager, and supporting AWS services like AWS Trusted Advisor, AWS Compute Optimizer, and AWS Support\. These widgets provide important context to help you understand the state and operational risks of your AWS resources\. Examples of informational widgets include **Instance count**, **Instance by AMI**, **Non\-compliant instances for patching**, **Non\-compliant associations**, and **Support Center cases**\. 
+  + **Informational widgets**: These widgets summarize data from Amazon EC2, Patch Manager, State Manager, and supporting AWS services like AWS Trusted Advisor, AWS Compute Optimizer, and AWS Support\. These widgets provide important context to help you understand the state and operational risks of your AWS resources\. Examples of informational widgets include **Instance count**, **Instance by AMI**, **Total noncompliant nodes** \(patching\), **Noncompliant associations**, and **Support Center cases**\. 
   + **OpsItem widgets**: A Systems Manager *OpsItem* is an operational work item that is related to one or more AWS resources\. OpsItems are a feature of Systems Manager OpsCenter\. OpsItems might require DevOps engineers to investigate and potentially remediate an issue\. Examples of possible OpsItems include high EC2 instance CPU utilization, detached Amazon Elastic Block Store \(Amazon EBS\) volumes, AWS CodeDeploy deployment failure, or Systems Manager Automation execution failure\. Examples of OpsItem widgets include **Open OpsItem summary**, **OpsItem by status**, and **OpsItems over time**\.
 + **Filters**: Each widget offers the ability to filter information based on AWS account, AWS Region, and tag\. Filters help you quickly refine the information displayed in Explorer\.
 + **Direct links to service screens**: To help you investigate issues with AWS resources, Explorer widgets contain direct links to related service screens\. Filters applied to a widget remain in effect if you navigate to a related service screen\.
@@ -41,10 +41,10 @@ OpsData is any operations data that is displayed in the Systems Manager Explorer
   Data displayed in Explorer includes: a count of OpsItems by status, a count of OpsItems by severity, a count of open OpsItems across groups and across 30\-day time periods, and historical data of OpsItems over time\.
 + **Systems Manager Patch Manager**
 
-  Data displayed in Explorer includes a count of nodes that aren't patch compliant\.
+  Data displayed in Explorer includes a count of noncompliant and critical noncompliant nodes\.
 + **AWS Trusted Advisor**
 
-  Data displayed in Explorer includes: status of best practice checks for EC2 reserved instances in the areas of cost optimization, security, fault tolerance, performance, and service limits\. 
+  Data displayed in Explorer includes: status of best practice checks for EC2 Reserved Instances in the areas of cost optimization, security, fault tolerance, performance, and service limits\.
 + **AWS Compute Optimizer**
 
   Data displayed in Explorer includes: a count of **Under provisioned** and **Over provisioned** EC2 instances, optimization findings, on\-demand pricing details, and recommendations for instance type and price\.

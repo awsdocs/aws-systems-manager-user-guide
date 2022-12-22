@@ -22,6 +22,12 @@ Displays the number of deployments that have succeeded, failed, or are running o
 **Configuration association status**  
 Displays the number of State Manager associations that have succeeded, failed, or are pending\. Quick Setup creates an association in each deployment for the configuration options selected\.
 
+**Setup status**  
+Displays the number of actions performed by the configuration type and their current statuses\. 
+
+**Resource compliance**  
+Displays the number of resources that are compliant to the configurations specified policy\.
+
 The **Configuration details** table displays information about the deployment of your configuration\. You can view more details about each deployment by selecting the deployment and then choosing **View details**\. The details page of each deployment displays the associations deployed to the nodes in that deployment\.
 
 ## Editing and deleting your configuration<a name="quick-setup-edit-delete"></a>

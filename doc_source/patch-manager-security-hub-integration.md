@@ -4,6 +4,13 @@
 
 By using the integration between Patch Manager, a capability of AWS Systems Manager, and Security Hub, you can send findings about out\-of\-compliance nodes from Patch Manager to Security Hub\. A finding is the observable record of a security check or security\-related detection\. Security Hub can then include those patch\-related findings in its analysis of your security posture\.
 
+**Note**  
+The information in the following topics applies no matter which method or type of configuration you are using for your patching operations:  
+A patch policy configured in Quick Setup
+A Host Management option configured in Quick Setup
+A maintenance window to run a patch `Scan` or `Install` task
+An on\-demand **Patch now** operation
+
 **Contents**
 + [How Patch Manager sends findings to Security Hub](#securityhub-integration-sending-findings)
   + [Types of findings that Patch Manager sends](#securityhub-integration-finding-types)

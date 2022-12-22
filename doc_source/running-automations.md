@@ -1,6 +1,6 @@
 # Running automations<a name="running-automations"></a>
 
-This section includes information about how to run Automation runbooks\. Automation is a capability of AWS Systems Manager\. For more examples of how to run automations, see [Automation walkthroughs](automation-walk.md)\.
+This section includes information about how to run Automation runbooks\. Automation is a capability of AWS Systems Manager\. For more detailed tutorials of how to run automations for your use case, see [Tutorials](automation-tutorials.md)\.
 
 **Topics**
 + [Run an automation](running-simple-automations.md)

@@ -3,9 +3,24 @@
 Use the following information to help you troubleshoot problems with Patch Manager, a capability of AWS Systems Manager\.
 
 **Topics**
++ [Issue: Unexpected patch compliance results](#patch-manager-troubleshooting-compliance)
 + [Errors when running `AWS-RunPatchBaseline` on Linux](#patch-manager-troubleshooting-linux)
 + [Errors when running `AWS-RunPatchBaseline` on Windows Server](#patch-manager-troubleshooting-windows)
 + [Contacting AWS Support](#patch-manager-troubleshooting-contact-support)
+
+## Issue: Unexpected patch compliance results<a name="patch-manager-troubleshooting-compliance"></a>
+
+**Problem**: When reviewing the patching compliance details generated after a `Scan` operation, the results include information that don't reflect the rules set up in your patch baseline\. For example, an exception you added to the **Rejected patches** list in a patch baseline is listed as `Missing`\. Or patches classified as `Important` are listed as missing even though your patch baseline specifies `Critical` patches only\.
+
+**Cause**: Patch Manager currently supports multiple methods of running `Scan` operations:
++ A patch policy configured in Quick Setup
++ A Host Management option configured in Quick Setup
++ A maintenance window to run a patch `Scan` or `Install` task
++ An on\-demand **Patch now** operation
+
+When a `Scan` operation runs, it overwrites the compliance details from the most recent scan\. If you have more than one method set up to run a `Scan` operation, and they use different patch baselines with different rules, they will result in differing patch compliance results\. 
+
+**Solution**: To avoid unexpected patch compliance results, we recommend using only one method at a time for running the Patch Manager `Scan` operation\. For more information, see [Avoiding unintentional patch compliance data overwrites](avoid-patch-compliance-overwrites.md)\.
 
 ## Errors when running `AWS-RunPatchBaseline` on Linux<a name="patch-manager-troubleshooting-linux"></a>
 
@@ -57,7 +72,7 @@ Unable to load and extract the content of payload, abort.failed to run commands:
 
 **Cause**: The `AWS-RunPatchBaseline` document has started running on a managed node where it's already running in another operation and has acquired the package manager `yum` process\.
 
-**Solution**: Ensure that no State Manager association, maintenance window tasks, or other configurations that run `AWS-RunPatchBaseline` on a schedule\) are targeting the same managed node around the same time\.
+**Solution**: Ensure that no State Manager association, maintenance window tasks, or other configurations that run `AWS-RunPatchBaseline` on a schedule are targeting the same managed node around the same time\.
 
 ### Issue: 'Permission denied / failed to run commands' error<a name="patch-manager-troubleshooting-linux-3"></a>
 
@@ -185,7 +200,9 @@ failed to run commands: exit status 4294967295
 
 **Cause**: This output indicates that the native Windows Update APIs were unable to run the patching operations\.
 
-**Solution**: Check the `HResult` code in the [Microsoft documentation](https://docs.microsoft.com/en-us/windows/deployment/update/windows-update-errors) to identify troubleshooting steps for resolving the error\.
+**Solution**: Check the `HResult` code in the following microsoft\.com topics to identify troubleshooting steps for resolving the error:
++ [Windows Update error codes by component](https://learn.microsoft.com/en-us/windows/deployment/update/windows-update-error-reference) 
++ [Windows Update common errors and mitigation](https://learn.microsoft.com/en-us/troubleshoot/windows-client/deployment/common-windows-update-errors) 
 
 ### Issue: managed node doesn't have access to Windows Update Catalog or WSUS<a name="patch-manager-troubleshooting-instance-access"></a>
 

@@ -5,7 +5,7 @@ You can use the AWS Systems Manager console to create and run `String`, `StringL
 **Note**  
 Parameters are only available in the AWS Region where they were created\.
 
-The following procedure walks you through the process of creating a parameter in the Parameter Store console\. You can create `String`, `StringList` parameter types from the console\.
+The following procedure walks you through the process of creating a parameter in the Parameter Store console\. You can create `String`, `StringList`, and `SecureString` parameter types from the console\.
 
 **To create a parameter**
 

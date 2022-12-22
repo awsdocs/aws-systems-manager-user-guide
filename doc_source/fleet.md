@@ -4,9 +4,7 @@ Fleet Manager, a capability of AWS Systems Manager, is a unified user interface 
 
 ## Who should use Fleet Manager?<a name="fleet-who"></a>
 
-Any AWS customer should use Fleet Manager who wants to have a centralized way to do the following:
-+ Manage their node fleet
-+ Manage their Amazon ECS clusters
+Any AWS customer who wants a centralized way to manage their node fleet should use Fleet Manager\.
 
 ## How can Fleet Manager benefit my organization?<a name="fleet-benefits"></a>
 
@@ -14,7 +12,6 @@ Fleet Manager offers these benefits:
 + Perform a variety of common systems administration tasks without having to manually connect to your managed nodes\.
 + Manage nodes running on multiple platforms from a single unified console\.
 + Manage nodes running different operating systems from a single unified console\.
-+ Manage ECS containers from a single unified console\.
 + Improve the efficiency of your systems administration\.
 
 ## What are the features of Fleet Manager?<a name="fleet-features"></a>

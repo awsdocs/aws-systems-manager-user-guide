@@ -4,7 +4,7 @@ AWS Systems Manager supports `AWS-RunPatchBaseline`, a Systems Manager document 
 
 You can use the document `AWS-RunPatchBaseline` to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for applications released by Microsoft\.\)
 
-This document supports Linux, macOS, and Windows Server managed nodes\. The document will perform the appropriate actions for each platform\.
+This document supports Linux, macOS, and Windows Server managed nodes\. The document will perform the appropriate actions for each platform\. 
 
 **Note**  
 Patch Manager also supports the legacy SSM document `AWS-ApplyPatchBaseline`\. However, this document supports patching on Windows managed nodes only\. We encourage you to use `AWS-RunPatchBaseline` instead because it supports patching on Linux, macOS, and Windows Server managed nodes\. Version 2\.0\.834\.0 or later of SSM Agent is required in order to use the `AWS-RunPatchBaseline` document\.
@@ -45,6 +45,7 @@ For information about viewing patch compliance data, see [About patch compliance
 
 **Topics**
 + [Parameter name: `Operation`](#patch-manager-about-aws-runpatchbaseline-parameters-operation)
++ [Parameter name: `AssociationId`](#patch-manager-about-aws-runpatchbaseline-parameters-association-id)
 + [Parameter name: `Snapshot ID`](#patch-manager-about-aws-runpatchbaseline-parameters-snapshot-id)
 + [Parameter name: `InstallOverrideList`](#patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist)
 + [Parameter name: `RebootOption`](#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)
@@ -62,6 +63,17 @@ When you choose the `Scan` option, `AWS-RunPatchBaseline` determines the patch c
 Install  
 When you choose the `Install` option, `AWS-RunPatchBaseline` attempts to install the approved and applicable updates that are missing from the managed node\. Patch compliance information generated as part of an `Install` operation doesn't list any missing updates, but might report updates that are in a failed state if the installation of the update didn't succeed for any reason\. Whenever an update is installed on a managed node, the node is rebooted to ensure the update is both installed and active\. \(Exception: If the `RebootOption` parameter is set to `NoReboot` in the `AWS-RunPatchBaseline` document, the managed node isn't rebooted after Patch Manager runs\. For more information, see [Parameter name: `RebootOption`](#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.\)  
 If a patch specified by the baseline rules is installed *before* Patch Manager updates the managed node, the system might not reboot as expected\. This can happen when a patch is installed manually by a user or installed automatically by another program, such as the `unattended-upgrades` package on Ubuntu Server\.
+
+### Parameter name: `AssociationId`<a name="patch-manager-about-aws-runpatchbaseline-parameters-association-id"></a>
+
+**Usage**: Optional\.
+
+`AssociationId` is the ID of an existing association in State Manager, a capability of AWS Systems Manager\. It's used by Patch Manager to add compliance data to a specified association\. This association is related to a patching operation that's [set up in a patch policy in Quick Setup](quick-setup-patch-manager.md)\. 
+
+**Note**  
+With the `AWS-RunPatchBaseline`, if an `AssociationId` value is provided along with a patch policy baseline override, patching is done as a `PatchPolicy` operation and the `ExecutionType` value reported in `AWS:ComplianceItem` is also `PatchPolicy`\. If no `AssociationId` value is provided, patching is done as a `Command` operation and the `ExecutionType` value report in on the `AWS:ComplianceItem` submitted is also `Command`\. 
+
+If you don't already have an association you want to use, you can create one by running [create\-association](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-association.html) the command\. 
 
 ### Parameter name: `Snapshot ID`<a name="patch-manager-about-aws-runpatchbaseline-parameters-snapshot-id"></a>
 

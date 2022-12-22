@@ -91,6 +91,6 @@ For information about generating patch compliance reports that are downloaded to
 
 1. Depending on the compliance state of the managed node, you can choose what action to take to remedy any noncompliant nodes\.
 
-   For example, you can choose to patch your noncompliant managed nodes immediately\. For information about patching your managed nodes on demand, see [Patching managed nodes on demand \(console\)](patch-on-demand.md)\.
+   For example, you can choose to patch your noncompliant managed nodes immediately\. For information about patching your managed nodes on demand, see [Patching managed nodes on demand](patch-on-demand.md)\.
 
    For information about patch compliance states, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.

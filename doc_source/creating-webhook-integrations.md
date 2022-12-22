@@ -1,6 +1,6 @@
-# Creating integrations for Automation<a name="creating-integrations"></a>
+# Creating webhook integrations for Automation<a name="creating-webhook-integrations"></a>
 
-To send messages using webhooks during an automation, create an integration\. Integrations can be invoked during an automation by using the `aws:invokeWebhook` action in your runbook\. If you haven't already created a webhook, see [Creating webhooks for integrations](#creating-integrations-webhooks)\. To learn more about the `aws:invokeWebhook` action, see [`aws:invokeWebhook` – Invoke an Automation webhook integration](invoke-webhook.md)\.
+To send messages using webhooks during an automation, create an integration\. Integrations can be invoked during an automation by using the `aws:invokeWebhook` action in your runbook\. If you haven't already created a webhook, see [Creating webhooks for integrations](#creating-webhooks)\. To learn more about the `aws:invokeWebhook` action, see [`aws:invokeWebhook` – Invoke an Automation webhook integration](invoke-webhook.md)\.
 
 As shown in the following procedures, you can create an integration by using either the Systems Manager Automation console or your preferred command line tool\. 
 
@@ -71,7 +71,7 @@ If you haven't already, install and configure the AWS Command Line Interface \(A
 
 ------
 
-## Creating webhooks for integrations<a name="creating-integrations-webhooks"></a>
+## Creating webhooks for integrations<a name="creating-webhooks"></a>
 
 When creating webhooks with your provider, note the following:
 + Protocol must be HTTPS\.
