@@ -13,7 +13,7 @@ If you want to prevent Session Manager users from running administrative command
 Use one of the following procedures to turn on or turn off the ssm\-user account sudo permissions on Linux and macOS managed nodes\.
 
 **Use Run Command to modify ssm\-user sudo permissions \(console\)**
-+ Use the procedure in [Running commands from the console](rc-console.md) with the following values:
++ Use the procedure in [Running commands from the console](running-commands-console.md) with the following values:
   + For **Command document**, choose `AWS-RunShellScript`\.
   + To remove sudo access, in the **Command parameters** area, paste the following in the **Commands** box\.
 
@@ -68,7 +68,7 @@ Use one of the following procedures to turn on or turn off the ssm\-user account
 Use one of the following procedures to turn on or turn off the ssm\-user account Administrator permissions on Windows Server managed nodes\.
 
 **Use Run Command to modify Administrator permissions \(console\)**
-+ Use the procedure in [Running commands from the console](rc-console.md) with the following values:
++ Use the procedure in [Running commands from the console](running-commands-console.md) with the following values:
 
   For **Command document**, choose `AWS-RunPowerShellScript`\.
 

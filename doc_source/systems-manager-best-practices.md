@@ -27,7 +27,7 @@ The title of each section here is an active link to the corresponding section in
 +  [Integrate Patch Manager with AWS Security Hub](patch-manager-security-hub-integration.md) to receive alerts when nodes in your fleet go out of compliance and monitor the patching status of your fleets from a security point of view\. There is a charge to use Security Hub\. For more information, see [Pricing](http://aws.amazon.com/security-hub/pricing/)\.
 + Use only one method at a time for scanning managed nodes for patch compliance to [avoid unintentionally overwriting compliance data](avoid-patch-compliance-overwrites.md)\.
 
-**[Run Command](execute-remote-commands.md)**
+**[Run Command](run-command.md)**
 + [Manage Instances at Scale without SSH Access Using EC2 Run Command](http://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/)\.
 + Audit all API calls made by or on behalf of Run Command, a capability of AWS Systems Manager, using AWS CloudTrail\.
 + When you send a command using Run Command, don't include sensitive information formatted as plaintext, such as passwords, configuration data, or other secrets\. All Systems Manager API activity in your account is logged in an Amazon S3 bucket for AWS CloudTrail logs\. This means that any user with access to S3 bucket can view the plaintext values of those secrets\. For this reason, we recommend creating and using `SecureString` parameters to encrypt sensitive data you use in your Systems Manager operations\.

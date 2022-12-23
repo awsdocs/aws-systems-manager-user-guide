@@ -11,5 +11,5 @@ For example, say you have two fleets of EC2 instances, one for testing, one for 
 Using this approach, if junior engineers attempt to run a command on a production instance, they will be denied access because their assigned IAM policy doesn't provide explicit access to instances tagged with `ssm:resourceTag/productionServer`\.
 
 For more information and examples, see the following topics:
-+ [Restricting Run Command access based on tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec)
++ [Restricting Run Command access based on tags](run-command-setting-up.md#tag-based-access)
 + [Restrict session access based on instance tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)

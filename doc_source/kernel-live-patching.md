@@ -88,7 +88,7 @@ When you turn on Kernel Live Patching, if the kernel already running on the mana
 
 1. In the **Command parameters** section, specify whether you want managed nodes to reboot as part of this operation\.
 
-1. For information about working with the remaining controls on this page, see [Running commands from the console](rc-console.md)\.
+1. For information about working with the remaining controls on this page, see [Running commands from the console](running-commands-console.md)\.
 
 1. Choose **Run**\.
 
@@ -147,7 +147,7 @@ For information about applying kernel live patches by running `yum` commands dir
    + If you're checking whether new kernel live patches are available, for **Operation**, choose `Scan`\. For **Reboot Option**, if don't want your managed nodes to reboot after this operation, choose `NoReboot`\. After the operation is complete, you can check for new patches and compliance status in Compliance\.
    + If you checked patch compliance already and are ready to apply available kernel live patches, for **Operation**, choose `Install`\. For **Reboot Option**, if you don't want your managed nodes to reboot after this operation, choose `NoReboot`\.
 
-1. For information about working with the remaining controls on this page, see [Running commands from the console](rc-console.md)\.
+1. For information about working with the remaining controls on this page, see [Running commands from the console](running-commands-console.md)\.
 
 1. Choose **Run**\.
 
@@ -237,7 +237,7 @@ When you turn off Kernel Live Patching, the process uninstalls the Kernel Live P
 
 1. In the **Command parameters** section, specify values for required parameters\.
 
-1. For information about working with the remaining controls on this page, see [Running commands from the console](rc-console.md)\.
+1. For information about working with the remaining controls on this page, see [Running commands from the console](running-commands-console.md)\.
 
 1. Choose **Run**\.
 

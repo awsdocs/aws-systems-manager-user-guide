@@ -102,7 +102,7 @@ Use [Session Manager](session-manager.md) to manage your edge devices and Amazon
 ------
 #### [ Run Command ]
 
-Use [Run Command](execute-remote-commands.md) to remotely and securely manage the configuration of your managed nodes at scale\. Use Run Command to perform on\-demand changes such as updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of managed nodes\. 
+Use [Run Command](run-command.md) to remotely and securely manage the configuration of your managed nodes at scale\. Use Run Command to perform on\-demand changes such as updating applications or running Linux shell scripts and Windows PowerShell commands on a target set of dozens or hundreds of managed nodes\. 
 
 ------
 #### [ State Manager ]

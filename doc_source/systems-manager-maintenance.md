@@ -16,7 +16,7 @@ For more information about working with the `--schedule` option, see [Reference:
 Maintenance windows support running four types of tasks:
 + Commands in Run Command, a capability of Systems Manager
 
-  For more information about Run Command, see [AWS Systems Manager Run Command](execute-remote-commands.md)\.
+  For more information about Run Command, see [AWS Systems Manager Run Command](run-command.md)\.
 + Workflows in Automation, a capability of Systems Manager
 
   For more information about Automation workflows, see [AWS Systems Manager Automation](systems-manager-automation.md)\.

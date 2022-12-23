@@ -1,4 +1,4 @@
-# Setting up Run Command<a name="sysman-rc-setting-up"></a>
+# Setting up Run Command<a name="run-command-setting-up"></a>
 
 Before you can manage nodes by using Run Command, a capability of AWS Systems Manager, configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up-ec2.md)\.
 
@@ -13,9 +13,9 @@ Monitor command executions using Amazon CloudWatch Logs
 You can configure Run Command to periodically send all command output and error logs to an Amazon CloudWatch log group\. You can monitor these output logs in near real\-time, search for specific phrases, values, or patterns, and create alarms based on the search\. For more information, see [Configuring Amazon CloudWatch Logs for Run Command](sysman-rc-setting-up-cwlogs.md)\.
 
 Restrict Run Command access to specific managed nodes  
-You can restrict a user's ability to run commands on managed nodes by using AWS Identity and Access Management \(IAM\)\. Specifically, you can create an IAM user policy with a condition that the user can only run commands on managed nodes that are tagged with specific tags\. For more information, see [Restricting Run Command access based on tags](#sysman-rc-setting-up-cmdsec)\.
+You can restrict a user's ability to run commands on managed nodes by using AWS Identity and Access Management \(IAM\)\. Specifically, you can create an IAM user policy with a condition that the user can only run commands on managed nodes that are tagged with specific tags\. For more information, see [Restricting Run Command access based on tags](#tag-based-access)\.
 
-## Restricting Run Command access based on tags<a name="sysman-rc-setting-up-cmdsec"></a>
+## Restricting Run Command access based on tags<a name="tag-based-access"></a>
 
 This section describes how to restrict a user's ability to run commands on managed instances by specifying a tag condition in an IAM policy\. Managed instances include Amazon EC2 instances and on\-premises servers, edge devices, and VMs in a hybrid environment that are configured for Systems Manager\. Though the information is not explicitly presented, you can also restrict access to managed AWS IoT Greengrass core devices\. To get started, you must tag your AWS IoT Greengrass devices\. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass Version 2 Developer Guide*\.
 

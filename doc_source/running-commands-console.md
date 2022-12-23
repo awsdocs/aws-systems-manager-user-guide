@@ -1,4 +1,4 @@
-# Running commands from the console<a name="rc-console"></a>
+# Running commands from the console<a name="running-commands-console"></a>
 
 You can use Run Command, a capability of AWS Systems Manager, from the AWS Management Console to configure managed nodes without having to log into them\. This topic includes an example that shows how to [update SSM Agent](run-command-tutorial-update-software.md#rc-console-agentexample) on a managed node by using Run Command\.
 
@@ -47,7 +47,7 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 
 1. Choose **Run**\.
 
-For information about canceling a command, see [Canceling a command](rc-cancel.md)\. 
+For information about canceling a command, see [Canceling a command](cancel-run-command.md)\. 
 
 ## Rerunning commands<a name="run-command-rerun"></a>
 

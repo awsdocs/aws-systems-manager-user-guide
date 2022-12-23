@@ -9,7 +9,7 @@ To use Patch Manager, a capability of AWS Systems Manager, complete the followin
 1. Do one of the following:
    + \(Recommended\) Configure a patch policy in Quick Setup, a capability of Systems Manager, that lets you install missing patches on a schedule for an entire organization, a subset of organizational units, or a single AWS account\. For more information, see [Automate organization\-wide patching using a Quick Setup patch policyAutomate organization\-wide patching](quick-setup-patch-manager.md)\.
    + Create a maintenance window that uses the Systems Manager document \(SSM document\) `AWS-RunPatchBaseline` in a Run Command task type\. For more information, see [Walkthrough: Creating a maintenance window for patching \(console\)](sysman-patch-mw-console.md)\.
-   + Manually run `AWS-RunPatchBaseline` in a Run Command operation\. For more information, see [Running commands from the console](rc-console.md)\.
+   + Manually run `AWS-RunPatchBaseline` in a Run Command operation\. For more information, see [Running commands from the console](running-commands-console.md)\.
    + Manually patch nodes on demand using the **Patch now** feature\. For more information, see [Patching managed nodes on demand](patch-on-demand.md)\.
 
 1. Monitor patching to verify compliance and investigate failures\.

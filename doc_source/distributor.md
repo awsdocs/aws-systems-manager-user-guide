@@ -3,7 +3,7 @@
 Distributor, a capability of AWS Systems Manager, helps you package and publish software to AWS Systems Manager managed nodes\. You can package and publish your own software or use Distributor to find and publish AWS\-provided agent software packages, such as **AmazonCloudWatchAgent**, or third\-party packages such as **Trend Micro\. **Publishing a package advertises specific versions of the package's document to managed nodes that you identify using node IDs, AWS account IDs, tags, or an AWS Region\. To get started with Distributor, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/distributor)\. In the navigation pane, choose **Distributor**\.
 
 After you create a package in Distributor, you can install the package in one of the following ways:
-+ One time by using [AWS Systems Manager Run Command](execute-remote-commands.md)
++ One time by using [AWS Systems Manager Run Command](run-command.md)
 + On a schedule by using [AWS Systems Manager State Manager](systems-manager-state.md)
 
 **Important**  

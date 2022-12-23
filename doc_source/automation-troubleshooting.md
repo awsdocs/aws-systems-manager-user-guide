@@ -85,7 +85,7 @@ When a step fails, the failure message might indicate which service was being in
 | --- | --- | --- | --- | 
 |  `aws:runInstances`  |  Amazon EC2  |  [ Amazon EC2 User Guide for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/)  |  [Troubleshooting EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html)  | 
 |  `aws:changeInstanceState`  |  Amazon EC2  |  [Amazon EC2 User Guide for Linux Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/)  |  [Troubleshooting EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-troubleshoot.html)  | 
-|  `aws:runCommand`  |  Systems Manager  |   [AWS Systems Manager Run Command](execute-remote-commands.md)  |   [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md)  | 
+|  `aws:runCommand`  |  Systems Manager  |   [AWS Systems Manager Run Command](run-command.md)  |   [Troubleshooting Systems Manager Run Command](troubleshooting-remote-commands.md)  | 
 |  `aws:createImage`  |  Amazon EC2  |  [https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html)  |  | 
 |  `aws:createStack`  |  AWS CloudFormation  |  [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)  |  [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html)  | 
 |  `aws:deleteStack`  |  AWS CloudFormation  |  [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)  |  [Troubleshooting AWS CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html)  | 

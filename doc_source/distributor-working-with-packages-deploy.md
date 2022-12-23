@@ -19,7 +19,7 @@ You can deploy packages to your AWS Systems Manager managed nodes by using Distr
 
 ## Installing or updating a package one time \(console\)<a name="distributor-deploy-pkg-console"></a>
 
-You can use the AWS Systems Manager console to install or update a package one time\. When you configure a one\-time installation, Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md), a capability of AWS Systems Manager, to perform the installation\.
+You can use the AWS Systems Manager console to install or update a package one time\. When you configure a one\-time installation, Distributor uses [AWS Systems Manager Run Command](run-command.md), a capability of AWS Systems Manager, to perform the installation\.
 
 **To install or update a package one time \(console\)**
 

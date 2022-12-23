@@ -99,4 +99,4 @@ netsh winhttp show proxy
 netsh winhttp set proxy proxy-server="hostname:port" bypass-list="169.254.169.254"
 ```
 
-For more information about using Run Command, see [Running commands on managed nodes](run-command.md)\.
+For more information about using Run Command, see [AWS Systems Manager Run Command](run-command.md)\.

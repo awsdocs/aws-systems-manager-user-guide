@@ -244,7 +244,7 @@ State Manager creates and immediately runs the association on the specified node
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
 
 **Note**  
-The `AWS-ApplyDSCMofs` is a Systems Manager Command document\. This means that you can also run this document by using Run Command, a capability of AWS Systems Manager\. For more information, see [Running commands on managed nodes](run-command.md)\.
+The `AWS-ApplyDSCMofs` is a Systems Manager Command document\. This means that you can also run this document by using Run Command, a capability of AWS Systems Manager\. For more information, see [AWS Systems Manager Run Command](run-command.md)\.
 
 ## Troubleshooting<a name="systems-manager-state-manager-using-mof-file-troubleshooting"></a>
 

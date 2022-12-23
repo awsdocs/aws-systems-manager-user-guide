@@ -8,7 +8,7 @@ You can use the AWS Management Console or the AWS Command Line Interface \(AWS C
 
 ## Uninstalling a package \(console\)<a name="distributor-pkg-uninstall-console"></a>
 
-You can use Run Command in the Systems Manager console to uninstall a package one time\. Distributor uses [AWS Systems Manager Run Command](execute-remote-commands.md) to uninstall packages\.
+You can use Run Command in the Systems Manager console to uninstall a package one time\. Distributor uses [AWS Systems Manager Run Command](run-command.md) to uninstall packages\.
 
 **To uninstall a package \(console\)**
 

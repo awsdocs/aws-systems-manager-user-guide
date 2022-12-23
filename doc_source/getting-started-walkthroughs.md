@@ -83,7 +83,7 @@ Sometimes, additional configuration, setup, or experience with Systems Manager a
 + [Working with Session Manager](session-manager-working-with.md)
 
 **Run Command**  
-[Run Command](execute-remote-commands.md), a capability of AWS Systems Manager, provides secure remote management of your managed nodes at scale without logging into them\. Run Command helps you manage your nodes without using bastion hosts, SSH, or remote PowerShell\. Run Command also provides a simple way of automating common administrative tasks across groups of managed nodes such as registry edits, user management, and software and patch installations\.
+[Run Command](run-command.md), a capability of AWS Systems Manager, provides secure remote management of your managed nodes at scale without logging into them\. Run Command helps you manage your nodes without using bastion hosts, SSH, or remote PowerShell\. Run Command also provides a simple way of automating common administrative tasks across groups of managed nodes such as registry edits, user management, and software and patch installations\.
 + [Walkthrough: Use the AWS CLI with Run Command](walkthrough-cli.md)
 + [Walkthrough: Use the AWS Tools for Windows PowerShell with Run Command](walkthrough-powershell.md)
 

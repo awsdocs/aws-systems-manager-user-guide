@@ -162,7 +162,7 @@ To see a list of Systems Manager condition keys, see [Condition Keys for AWS Sys
 
 For information about using the `ssm:resourceTag/*` condition key, see the following topics:
 + [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
-+ [Restricting Run Command access based on tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec) 
++ [Restricting Run Command access based on tags](run-command-setting-up.md#tag-based-access) 
 + [Restrict session access based on instance tags](getting-started-restrict-access-examples.md#restrict-access-example-instance-tags)
 
 For information about using the `ssm:Recursive` and` ssm:Overwrite` condition keys, see [Working with parameter hierarchies](sysman-paramstore-hierarchies.md)\.

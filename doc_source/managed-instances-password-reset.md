@@ -10,7 +10,7 @@ Before you can reset the password on a managed node, the following requirements 
 + The password reset functionality uses the Session Manager configuration that is set up for your account to connect to the managed node\. Therefore, the prerequisites for using Session Manager must have been completed for your account in the current AWS Region\. For more information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 **Note**  
 Session Manager support for on\-premises machines is provided for the advanced\-instances tier only\. For more information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
-+ The AWS user who is changing the password must have the `ssm:SendCommand` permission for the managed node\. For more information, see [Restricting Run Command access based on tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec)\.
++ The AWS user who is changing the password must have the `ssm:SendCommand` permission for the managed node\. For more information, see [Restricting Run Command access based on tags](run-command-setting-up.md#tag-based-access)\.
 
 **Restricting access**  
 You can limit a user's ability to reset passwords to specific managed nodes\. This is done by using identity\-based policies for the Session Manager `ssm:StartSession` operation with the `AWS-PasswordReset` SSM document\. For more information, see [Control user session access to instances](session-manager-getting-started-restrict-access.md)\.
@@ -109,7 +109,7 @@ Many password reset issues can be resolved by ensuring that you have completed t
 ### No authorization to run `ssm:SendCommand`<a name="password-reset-troubleshooting-sendcommand"></a>
 
 **Problem**: You attempt to connect to a managed node to change the password but receive an error message saying that you aren't authorized to run `ssm:SendCommand` on the managed node\.
-+ **Solution**: Your IAM user policy must include permission to run the `ssm:SendCommand` command\. For information, see [Restricting Run Command access based on tags](sysman-rc-setting-up.md#sysman-rc-setting-up-cmdsec)\.
++ **Solution**: Your IAM user policy must include permission to run the `ssm:SendCommand` command\. For information, see [Restricting Run Command access based on tags](run-command-setting-up.md#tag-based-access)\.
 
 ### Session Manager error message<a name="password-reset-troubleshooting-session-manager"></a>
 
