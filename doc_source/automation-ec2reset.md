@@ -17,6 +17,9 @@ You can use Automation, a capability of AWS Systems Manager, with the `AWSSuppor
 **Note**  
 If your EC2 instance for Windows Server is configured for Systems Manager, you can also reset your local Administrator password by using EC2Rescue and AWS Systems Manager Run Command\. For more information, see [Using EC2Rescue for Windows Server with Systems Manager Run Command](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-ssm.html) in the *Amazon EC2 User Guide for Windows Instances*\.
 
+**Related information**  
+[Connect to your Linux instance from Windows using PuTTY](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html) in the *Amazon EC2 User Guide for Linux Instances*
+
 ## How it works<a name="automation-ec2reset-how"></a>
 
 Troubleshooting an instance with Automation and the `AWSSupport-ResetAccess` runbook works as follows:
