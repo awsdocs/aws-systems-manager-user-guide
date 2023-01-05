@@ -3,7 +3,7 @@
 The following examples show how to use the AWS Tools for Windows PowerShell to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. This walkthrough includes an example for each of the pre\-defined AWS Systems Manager documents\.
 
 **Important**  
-Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permission on your managed nodes\. If a user has permission to run any of the predefined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the node\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, a capability of AWS Systems Manager, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+Only trusted administrators should be allowed to use Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permission on your managed nodes\. If a user has permission to run any of the predefined Systems Manager documents \(any document that begins with AWS\), then that user also has administrator access to the node\. For all other users, you should create restrictive documents and share them with specific users\.
 
 **Topics**
 + [Configure AWS Tools for Windows PowerShell session settings](#walkthrough-powershell-settings)

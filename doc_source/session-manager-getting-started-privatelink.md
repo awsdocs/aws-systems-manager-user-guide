@@ -4,7 +4,7 @@ You can further improve the security posture of your managed nodes by configurin
 
 AWS PrivateLink restricts all network traffic between your managed nodes, Systems Manager, and Amazon EC2 to the Amazon network\. \(Managed nodes don't have access to the internet\.\) Also, you don't need an internet gateway, a NAT device, or a virtual private gateway\. 
 
-For information about creating a VPC endpoint, see [\(Recommended\) Create a VPC endpoint](setup-create-vpc.md)\.
+For information about creating a VPC endpoint, see [Create VPC endpoints](setup-create-vpc.md)\.
 
 The alternative to using a VPC endpoint is to allow outbound internet access on your managed nodes\. In this case, the managed nodes must also allow HTTPS \(port 443\) outbound traffic to the following endpoints:
 + `ec2messages.region.amazonaws.com`

@@ -79,6 +79,6 @@ By default, remote access to your nodes using Run Command is encrypted using TLS
 
 ## Internetwork traffic privacy<a name="internetwork-privacy"></a>
 
-You can use Amazon Virtual Private Cloud \(Amazon VPC\) to create boundaries between resources in your managed nodes and control traffic between them, your on\-premises network, and the internet\. For details, see [\(Recommended\) Create a VPC endpoint](setup-create-vpc.md)\. 
+You can use Amazon Virtual Private Cloud \(Amazon VPC\) to create boundaries between resources in your managed nodes and control traffic between them, your on\-premises network, and the internet\. For details, see [Create VPC endpoints](setup-create-vpc.md)\. 
 
 For more information about Amazon Virtual Private Cloud security, see [Internetwork traffic privacy in Amazon VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Security.html) in the *Amazon VPC User Guide*\.

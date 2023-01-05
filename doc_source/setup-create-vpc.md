@@ -1,4 +1,4 @@
-# Step 5: Create VPC endpoints<a name="setup-create-vpc"></a>
+# Step 4: Create VPC endpoints<a name="setup-create-vpc"></a>
 
 You can improve the security posture of your managed instances \(including managed instances in your hybrid environment\) by configuring AWS Systems Manager to use an interface VPC endpoint in Amazon Virtual Private Cloud \(Amazon VPC\)\. By using an interface VPC endpoint \(interface endpoint\), you can connect to services powered by AWS PrivateLink\. AWS PrivateLink is a technology that allows you to privately access Amazon Elastic Compute Cloud \(Amazon EC2\) and Systems Manager APIs by using private IP addresses\. 
 
@@ -42,6 +42,7 @@ The security group attached to the VPC endpoint must allow incoming connections 
 
 **Amazon S3 buckets**  
 Your VPC endpoint policy must allow access to at least the following Amazon S3 buckets:
++ The S3 buckets listed in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)\.
 + The S3 buckets used by Patch Manager for patch baseline operations in your AWS Region\. These buckets contain the code that is retrieved and run on instances by the patch baseline service\. Each AWS Region has its own patch baseline operations buckets from which the code is retrieved when a patch baseline document is run\. If the code can't be downloaded, the patch baseline command will fail\. 
 **Note**  
 If you use an on\-premises firewall and plan to use Patch Manager, that firewall must also allow access to the appropriate patch baseline endpoint\.
@@ -65,7 +66,6 @@ If you use an on\-premises firewall and plan to use Patch Manager, that firewall
 In the Middle East \(Bahrain\) Region \(me\-south\-1\) *only*, these buckets use different naming conventions\. For this AWS Region *only*, use the following two buckets instead:  
 `patch-baseline-snapshot-me-south-1-uduvl7q8`
 `aws-patch-manager-me-south-1-a53fc9dce`
-+ The S3 buckets listed in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)\.
 
 **Amazon CloudWatch Logs**  
 If you don't allow your instances to access the internet, create a VPC endpoint for CloudWatch Logs to use features that send logs to CloudWatch Logs\. For more information about creating an endpoint for CloudWatch Logs, see [Creating a VPC endpoint for CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.html#create-VPC-endpoint-for-CloudWatchLogs) in the *Amazon CloudWatch Logs User Guide*\.
@@ -94,7 +94,9 @@ In the second step, you create the required *gateway* endpoint for Systems Manag
    + **`com.amazonaws.region.logs`** – This endpoint is optional\. However, it can be created if you want to use Amazon CloudWatch Logs \(CloudWatch Logs\) for Session Manager, Run Command, or SSM Agent logs\.
 
 1. Follow the steps in [Create a gateway endpoint](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html#create-gateway-endpoint) to create the following gateway endpoint for Amazon S3\. 
-   + **`com.amazonaws.region.s3`** – Systems Manager uses this endpoint to update SSM Agent and toperform patching operations\. Systems Manager also uses this endpoint for tasks like uploading output logs you choose to store in S3 buckets, retrieving scripts or other files you store in buckets, and so on\. If the security group associated with your instances restricts outbound traffic, you must add a rule to allow traffic to the prefix list for Amazon S3\. For more information, see [Modify your security group](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html#vpc-endpoints-security) in the *AWS PrivateLink Guide*\.
+   + **`com.amazonaws.region.s3`** – Systems Manager uses this endpoint to update SSM Agent and to perform patching operations\. Systems Manager also uses this endpoint for tasks like uploading output logs you choose to store in S3 buckets, retrieving scripts or other files you store in buckets, and so on\. If the security group associated with your instances restricts outbound traffic, you must add a rule to allow traffic to the prefix list for Amazon S3\. For more information, see [Modify your security group](https://docs.aws.amazon.com/vpc/latest/privatelink/vpce-gateway.html#vpc-endpoints-security) in the *AWS PrivateLink Guide*\.
+
+   For information about the AWS managed S3 buckets that SSM Agent must be able to access, see [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)\. If you're using a virtual private cloud \(VPC\) endpoint in your Systems Manager operations, you must provide explicit permission in an EC2 instance profile for Systems Manager, or in a service role for nodes in a hybrid environment\.
 
 ## Create an interface VPC endpoint policy<a name="sysman-endpoint-policies"></a>
 

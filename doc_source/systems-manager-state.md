@@ -58,15 +58,13 @@ State Manager doesn't currently support specifying months in cron expressions fo
 + **Multiple targeting options**
 
   An association also specifies the targets for the association\. State Manager supports targeting AWS resources by using tags, AWS Resource Groups, individual node IDs, or all managed nodes in the current AWS Region and AWS account\.
++ **Amazon S3 support**
+
+  Store the command output from association runs in an Amazon S3 bucket of your choice\. For more information, see [Creating associations](sysman-state-assoc.md)\.
 + 
 
 **EventBridge support**  
 This Systems Manager capability is supported as both an *event* type and a *target* type in Amazon EventBridge rules\. For information, see [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md) and [Reference: Amazon EventBridge event patterns and types for Systems Manager](reference-eventbridge-events.md)\.
-+ **AWS CloudTrail integration**
-
-  State Manager integrates with AWS CloudTrail to provide a record of all executions that you can audit, and Amazon EventBridge to track state changes\. You can also choose to store and view detailed command output in Amazon Simple Storage Service \(Amazon S3\)\. For more information, see the following topics:
-  + [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)
-  + [Monitoring Systems Manager events with Amazon EventBridge](monitoring-eventbridge-events.md)
 
 ## Is there a charge to use State Manager?<a name="state-manager-cost"></a>
 

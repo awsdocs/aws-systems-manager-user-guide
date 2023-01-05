@@ -3,7 +3,7 @@
 AWS IoT Greengrass core devices require an AWS Identity and Access Management \(IAM\) service role to communicate with AWS Systems Manager\. The role grants AWS Security Token Service \(AWS STS\) [https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) trust to the Systems Manager service\. You only need to create the service role once for each AWS account\. You will specify this role for the `RegistrationRole` parameter when you configure and deploy the SSM Agent component to your AWS IoT Greengrass devices\. If you already created this role while setting up on\-premises servers or virtual machines in a hybrid environment, you can skip this step\.
 
 **Note**  
-Users in your company or organization who will use Systems Manager on your edge devices must be granted permission in IAM to call the Systems Manager API\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+Users in your company or organization who will use Systems Manager on your edge devices must be granted permission in IAM to call the Systems Manager API\. 
 
 **S3 bucket policy requirement**  
 If either of the following cases are true, you must create a custom IAM permission policy for Amazon Simple Storage Service \(Amazon S3\) buckets before completing this procedure:

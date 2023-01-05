@@ -2,9 +2,11 @@
 
 In the course of performing various Systems Manager operations, AWS Systems Manager Agent \(SSM Agent\) accesses a number of Amazon Simple Storage Service \(Amazon S3\) buckets\. These S3 buckets are publicly accessible, and by default, SSM Agent connects to them using `HTTP` calls\. 
 
-However, if you're using a virtual private cloud \(VPC\) endpoint in your Systems Manager operations, you must provide explicit permission in an Amazon Elastic Compute Cloud \(Amazon EC2\) instance profile for Systems Manager, or in a service role for instances in a hybrid environment\. Otherwise, your resources can't access these public buckets\.
+However, if you're using a virtual private cloud \(VPC\) endpoint in your Systems Manager operations, you must provide explicit permission in an Amazon Elastic Compute Cloud \(Amazon EC2\) instance profile for Systems Manager, or in a service role for nodes in a hybrid environment\. Otherwise, your resources can't access these public buckets\.
 
 To grant your managed nodes access to these buckets when you are using a VPC endpoint, you create a custom Amazon S3 permissions policy, and then attach it to your instance profile \(for EC2 instances\) or your service role \(for AWS IoT Greengrass core devices and for on\-premises servers, edge devices, and virtual machines in a hybrid environment\)\.
+
+For information about using a virtual private cloud \(VPC\) endpoint in your Systems Manager operations, see [Create VPC endpoints](setup-create-vpc.md)\.
 
 **Note**  
 These permissions only provide access to the AWS managed buckets required by SSM Agent\. They don't provide the permissions that are necessary for other Amazon S3 operations\. They also don't provide permission to your own S3 buckets\. 

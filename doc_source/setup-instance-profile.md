@@ -1,4 +1,4 @@
-# Step 3: Create an IAM instance profile for Systems Manager<a name="setup-instance-profile"></a>
+# Step 2: Create an IAM instance profile for Systems Manager<a name="setup-instance-profile"></a>
 
 By default, AWS Systems Manager doesn't have permission to perform actions on your instances\. Grant access by using an AWS Identity and Access Management \(IAM\) instance profile\. An instance profile is a container that passes IAM role information to an Amazon Elastic Compute Cloud \(Amazon EC2\) instance at launch\. You can create an instance profile for Systems Manager by attaching one or more IAM policies that define the necessary permissions to a new role or to a role you already created\.
 
@@ -30,7 +30,7 @@ Required permissions in either of the following cases:
   arn:aws:s3:::aws-ssm-region/*
   ```
 
-  For more information, see [Step 5: Create VPC endpoints](setup-create-vpc.md), [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md), and [AWS PrivateLink and VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html) in the *Amazon VPC User Guide*\.
+  For more information, see [Step 4: Create VPC endpoints](setup-create-vpc.md), [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md), and [AWS PrivateLink and VPC endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-overview.html) in the *Amazon VPC User Guide*\.
 + **Case 2** – You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations\.
 
   Your Amazon EC2 instance profile for Systems Manager must grant access to an Amazon S3 bucket that you own for tasks like the following: 
@@ -198,4 +198,4 @@ Make a note of the role name\. You will choose this role when you create new ins
 
 For information about how to update a role to include a trusted entity or further restrict access, see [Modifying a role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_manage_modify.html) in the *IAM User Guide*\. 
 
-Continue to [Step 4: Attach an IAM instance profile to an Amazon EC2 instance](setup-launch-managed-instance.md)\.
+Continue to [Step 3: Attach an IAM instance profile to an Amazon EC2 instance](setup-launch-managed-instance.md)\.

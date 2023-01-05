@@ -12,7 +12,7 @@ If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud \(Amaz
 Configuring your hybrid environment for Systems Manager allows you to do the following: 
 + Create a consistent and secure way to remotely manage your hybrid workloads from one location using the same tools or scripts\.
 + Centralize access control for actions that can be performed on your machines by using AWS Identity and Access Management \(IAM\)\.
-+ Centralize auditing and your view into the actions performed on your machines by recording all actions in AWS CloudTrail\.
++ Centralize auditing of the operations performed on your machines by viewing the API activity recorded in AWS CloudTrail\.
 
   For information about using CloudTrail to monitor Systems Manager actions, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
 + Centralize monitoring by configuring Amazon EventBridge and Amazon Simple Notification Service \(Amazon SNS\) to send notifications about service execution success\.

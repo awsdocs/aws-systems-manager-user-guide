@@ -15,6 +15,7 @@ Use the following procedures to create a State Manager association that runs an 
 Be aware of the following important details before you run an automation by using State Manager:
 + Before you can create an association that uses a runbook, verify that you configured permissions for Automation, a capability of AWS Systems Manager\. For more information, see [Setting up Automation](automation-setup.md)\.
 + State Manager associations that use runbooks contribute to the maximum number of concurrently running automations in your AWS account\. You can have a maximum of 100 concurrent automations running\. For information, see [Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*\.
++ When running an automation, State Manager does not log the API operations initiated by the automation in AWS CloudTrail\.
 + Systems Manager automatically creates a service\-linked role so that State Manager has permission to call Systems Manager Automation API operations\. If you want, you can create the service\-linked role yourself by running the following command from the AWS CLI or AWS Tools for PowerShell\.
 
 ------

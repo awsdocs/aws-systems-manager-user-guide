@@ -6,6 +6,9 @@ If, for example, an association execution failed, you can drill down into the de
 
 The examples in this section also include information about how to use the [StartAssociationsOnce](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartAssociationsOnce.html) API operation to run an association once at the time of creation\. You can use this API operation when you investigate failed association executions\. If you see that an association failed, you can make a change on the resource, and then immediately run the association to see if the change on the resource allows the association to run successfully\.
 
+**Note**  
+API operations that are initiated by the SSM document during an association run are not logged in AWS CloudTrail\.
+
 ## Viewing association histories \(console\)<a name="sysman-state-assoc-history-console"></a>
 
 Use the following procedure to view the execution history for a specific association ID and then view execution details for one or more resources\. 

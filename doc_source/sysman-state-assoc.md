@@ -115,6 +115,8 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
    ```
 
    For minimal permissions, the Amazon S3 bucket you export to must have the default settings defined by the Amazon S3 console\. For more information about creating Amazon S3 buckets, see [Creating a bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html) in the *Amazon S3 User Guide*\. 
+**Note**  
+API operations that are initiated by the SSM document during an association run are not logged in AWS CloudTrail\.
 
 1. Choose **Create Association**\.
 

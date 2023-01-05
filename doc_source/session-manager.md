@@ -76,7 +76,7 @@ To use the AWS CLI to run session commands, you must be using version 1\.16\.12 
   You can configure Session Manager to encrypt the session data logs that you send to an Amazon Simple Storage Service \(Amazon S3\) bucket or stream to a CloudWatch Logs log group\. You can also configure Session Manager to further encrypt the data transmitted between client machines and your managed nodes during your sessions\. For information, see [Logging session activity](session-manager-logging.md) and [ Configure session preferences](session-manager-getting-started-configure-preferences.md)\.
 +  **AWS PrivateLink support for managed nodes without public IP addresses** 
 
-  You can also set up VPC Endpoints for Systems Manager using AWS PrivateLink to further secure your sessions\. AWS PrivateLink limits all network traffic between your managed nodes, Systems Manager, and Amazon EC2 to the Amazon network\. For more information, see [\(Recommended\) Create a VPC endpoint](setup-create-vpc.md)\.
+  You can also set up VPC Endpoints for Systems Manager using AWS PrivateLink to further secure your sessions\. AWS PrivateLink limits all network traffic between your managed nodes, Systems Manager, and Amazon EC2 to the Amazon network\. For more information, see [Create VPC endpoints](setup-create-vpc.md)\.
 +  **Tunneling** 
 
   In a session, use a Session\-type AWS Systems Manager \(SSM\) document to tunnel traffic, such as http or a custom protocol, between a local port on a client machine and a remote port on a managed node\.

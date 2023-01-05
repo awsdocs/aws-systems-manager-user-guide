@@ -1,6 +1,6 @@
-# Step 4: Attach an IAM instance profile to an Amazon EC2 instance<a name="setup-launch-managed-instance"></a>
+# Step 3: Attach an IAM instance profile to an Amazon EC2 instance<a name="setup-launch-managed-instance"></a>
 
-This topic describes how to attach the AWS Identity and Access Management \(IAM\) instance profile for AWS Systems Manager that you created in [Step 3: Create an IAM instance profile for Systems Manager](setup-instance-profile.md) to Amazon EC2 instances\. You can attach the instance profile to new Amazon EC2 instances when you launch them, or to existing Amazon EC2 instances\. 
+This topic describes how to attach the AWS Identity and Access Management \(IAM\) instance profile for AWS Systems Manager that you created in [Step 2: Create an IAM instance profile for Systems Manager](setup-instance-profile.md) to Amazon EC2 instances\. You can attach the instance profile to new Amazon EC2 instances when you launch them, or to existing Amazon EC2 instances\. 
 
 **SSM Agent requirements for instances**  
 AWS Systems Manager Agent \(SSM Agent\) is Amazon software that can be installed and configured on an EC2 instance, an on\-premises server, or a virtual machine \(VM\)\. SSM Agent makes it possible for Systems Manager to update, manage, and configure these resources\.
@@ -47,7 +47,7 @@ Depending on whether you are using the new EC2 launch wizard experience or the o
 **Warning**  
 Do not choose **Proceed without a key pair \(Not recommended\)**\. If you launch your instance without a key pair, then you can't connect to it\.
 
-1. In the **Advanced details** section, for **IAM instance profile**, select the instance profile you created using the procedure in [Step 3: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+1. In the **Advanced details** section, for **IAM instance profile**, select the instance profile you created using the procedure in [Step 2: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. In the **Summary** panel, review the instance configuration, and then choose **Launch instance**\.
 
@@ -61,7 +61,7 @@ Do not choose **Proceed without a key pair \(Not recommended\)**\. If you launch
    + Linux or macOS: [Launch an instance using the old launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/launching-instance.html) in the *Amazon EC2 User Guide for Linux Instances*
 
 1. As you follow the steps in your chosen topic, be sure to include the following selection:
-   + On the **Step 3: Configure Instance Details** page, for **IAM role** role, select the instance profile you created using the procedure in [Step 3: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+   + On the **Step 3: Configure Instance Details** page, for **IAM role** role, select the instance profile you created using the procedure in [Step 2: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. At the end of the wizard, choose **Launch**\.
 
@@ -85,7 +85,7 @@ Do not choose **Proceed without a key pair**\. If you launch your instance witho
 
 1. In the **Actions** menu, choose **Security**, **Modify IAM role**\.
 
-1. For **IAM role**, select the instance profile you created using the procedure in [Step 3: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+1. For **IAM role**, select the instance profile you created using the procedure in [Step 2: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
 
 1. Choose **Update **IAM role****\.
 
@@ -93,4 +93,4 @@ For more information about attaching IAM roles to instances, choose one of the f
 + [Attach an IAM role to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Linux Instances*
 + [Attach an IAM role to an instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) in the *Amazon EC2 User Guide for Windows Instances*
 
-Continue to [Step 5: Create VPC endpoints](setup-create-vpc.md)\.
+Continue to [Step 4: Create VPC endpoints](setup-create-vpc.md)\.

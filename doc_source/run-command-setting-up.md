@@ -1,6 +1,6 @@
 # Setting up Run Command<a name="run-command-setting-up"></a>
 
-Before you can manage nodes by using Run Command, a capability of AWS Systems Manager, configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\. For more information, see [ Create non\-Admin IAM users and groups for Systems Manager](systems-manager-setting-up-ec2.md)\.
+Before you can manage nodes by using Run Command, a capability of AWS Systems Manager, configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\.
 
 You must also configure your nodes for Systems Manager\. For more information, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
 

@@ -3,7 +3,7 @@
 The following sample walkthrough shows you how to use the AWS Command Line Interface \(AWS CLI\) to view information about commands and command parameters, how to run commands, and how to view the status of those commands\. 
 
 **Important**  
-Only trusted administrators should be allowed to use AWS Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permissions on your managed nodes\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with `AWS-`\), then that user also has administrator access to the node\. For all other users, you should create restrictive documents and share them with specific users\. For more information about restricting access to Run Command, a capability of AWS Systems Manager, see [ Create non\-Admin IAM users and groups for Systems Manager](setup-create-iam-user.md)\.
+Only trusted administrators should be allowed to use AWS Systems Manager pre\-configured documents shown in this topic\. The commands or scripts specified in Systems Manager documents run with administrative permissions on your managed nodes\. If a user has permission to run any of the pre\-defined Systems Manager documents \(any document that begins with `AWS-`\), then that user also has administrator access to the node\. For all other users, you should create restrictive documents and share them with specific users\.
 
 **Topics**
 + [Step 1: Getting started](#walkthrough-cli-settings)
