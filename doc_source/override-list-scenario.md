@@ -20,3 +20,5 @@ With the following strategy, you use the `InstallOverrideList` parameter to appl
 1. Create a second maintenance window that runs once a month\. However, for the Run Command task you register for this maintenance window, specify the location of your override list\.
 
 The result: Only `Security` patches, as defined in your default patch baseline, are installed each week\. All available patches, or whatever subset of patches you define, are installed each month\.
+
+For more information and sample lists, see [Parameter name: `InstallOverrideList`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist)\.

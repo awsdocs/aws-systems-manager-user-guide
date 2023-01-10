@@ -17,11 +17,7 @@ Verify that you've configured OpsCenter for working with OpsItems across account
 
 ## Creating OpsItems in a member account<a name="OpsCenter-working-with-multiple-accounts-creating"></a>
 
-If you're signed in to an AWS Organizations management account or the Systems Manager delegated administrator account you can create OpsItems in other accounts manually\. On the **Create OpsItem** page, you choose the **Other account** option, as shown in the following image, and then choose the account where you want to create the OpsItem\. 
-
-![\[The management account view when creating an OpsItem to be assigned to a separate account.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsCenter-create-multi-1.png)
-
-After you create the OpsItem, you can expand the **OpsItem details** and view the account ID to which you assigned the OpsItem\.
+If you're signed in to an AWS Organizations management account or the Systems Manager delegated administrator account you can create OpsItems in other accounts manually\. On the **Create OpsItem** page, you choose the **Other account** option\. After you create the OpsItem, you can expand the **OpsItem details** and view the account ID to which you assigned the OpsItem, as shown in the following image\.
 
 ![\[The management account view for an OpsItem assigned to a separate account.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsCenter-create-multi-2.png)
 

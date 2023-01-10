@@ -36,6 +36,8 @@ To create a patch policy, perform the following tasks in the Systems Manager con
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
+   If you are setting up patching for an organization, make sure you are signed in to the management account for the organization\. You can't set up the policy using the delegated administrator account or a member account\.
+
 1. In the navigation pane, choose **Quick Setup**\.
 
    \-or\-

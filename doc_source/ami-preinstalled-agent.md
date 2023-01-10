@@ -34,7 +34,7 @@ Use the following procedure to verify that SSM Agent is installed and running on
 ------
 #### [ Amazon Linux ]
 
-   `sudo systemctl status amazon-ssm-agent`
+   `sudo status amazon-ssm-agent`
 
 ------
 #### [ Amazon Linux 2 ]
@@ -124,7 +124,7 @@ In some cases, the command output indicates that the agent is installed but not 
 ------
 #### [ Amazon Linux ]
 
-   `sudo systemctl start amazon-ssm-agent`
+   `sudo start amazon-ssm-agent`
 
 ------
 #### [ Amazon Linux 2 ]

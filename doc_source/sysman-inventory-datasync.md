@@ -181,12 +181,8 @@ Use the following procedure to create a central Amazon S3 bucket to store aggreg
          "Condition": {
            "StringEquals": {
              "s3:x-amz-acl": "bucket-owner-full-control",
-             "s3:RequestObjectTag/OrgId": "organization-id",
-             "aws:SourceAccount": "123456789012"
-           },
-           "ArnLike": {
-             "aws:SourceArn": "arn:aws:ssm:*:123456789012:resource-data-sync/*"
-           }
+             "s3:RequestObjectTag/OrgId": "organization-id"
+                     }
          }
        },
        {
