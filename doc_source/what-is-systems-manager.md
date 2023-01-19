@@ -1,14 +1,10 @@
 # What is AWS Systems Manager?<a name="what-is-systems-manager"></a>
 
-AWS Systems Manager is the operations hub for your AWS applications and resources and a secure end\-to\-end management solution for hybrid cloud environments that enables safe and secure operations at scale\.
+AWS Systems Manager is the operations hub for your AWS applications and resources and a secure end\-to\-end management solution for hybrid cloud environments that enables secure operations at scale\.
 
 ## How Systems Manager works<a name="how-it-works"></a>
 
-The following diagram describes how some Systems Manager capabilities perform actions on your resources\. The diagram doesn't cover all capabilities\. Each enumerated interaction is described after the diagram\.
-
-**Diagram 1: General example of Systems Manager process flow**
-
-![\[Diagram showing how Systems Manager capabilities use a similar process of set up, launching, processing, and reporting.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/how-it-works.png)
+The following diagram describes how some Systems Manager capabilities perform actions on your resources\. The diagram doesn't cover all capabilities\. Each enumerated interaction is described before the diagram\.
 
 1. **Access Systems Manager** – Use one of the available options for [accessing Systems Manager](#access-methods)\.
 
@@ -19,6 +15,8 @@ The following diagram describes how some Systems Manager capabilities perform ac
 1. **Reporting** – Systems Manager, SSM Agent, and other AWS services that performed an action on behalf of Systems Manager report status\. Systems Manager can send status details to other AWS services, if configured\.
 
 1. **Systems Manager operations management capabilities** – If enabled, Systems Manager operations management capabilities such as Explorer, OpsCenter, and Incident Manager aggregate operations data or create artifacts in response to events or errors with your resources\. These artifacts include operational work items \(OpsItems\) and incidents\. Systems Manager operations management capabilities provide operational insight into your applications and resources and automated remediation solutions to help troubleshoot problems\.
+
+![\[Systems Manager capabilities perform actions on your resources.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/how-it-works.png)
 
 ## Systems Manager capabilities<a name="systems-manager-capabilities"></a>
 
@@ -188,6 +186,18 @@ On your Windows Server instances, Windows PowerShell 3\.0 or later is required t
 
 **AWS SDKs**  
 AWS provides software development kits \(SDKs\) that consist of libraries and sample code for various programming languages and platforms \(for example, [Java](http://aws.amazon.com/sdk-for-java/), [Python](http://aws.amazon.com/sdk-for-python/), [Ruby](http://aws.amazon.com/sdk-for-ruby/), [\.NET](http://aws.amazon.com/sdk-for-net/), [iOS and Android](http://aws.amazon.com/mobile/resources/), and [others](http://aws.amazon.com/tools/#sdk)\)\. The SDKs provide a convenient way to create programmatic access to Systems Manager\. For information about the AWS SDKs, including how to download and install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/#sdk)\.
+
+## Systems Manager service name history<a name="service-naming-history"></a>
+
+AWS Systems Manager \(Systems Manager\) was formerly known as "Amazon Simple Systems Manager \(SSM\)" and "Amazon EC2 Systems Manager \(SSM\)"\. The original abbreviated name of the service, "SSM", is still reflected in various AWS resources, including a few other service consoles\. Some examples:
++ **Systems Manager Agent**: SSM Agent
++ **Systems Manager parameters**: SSM parameters
++ **Systems Manager service endpoints**: `ssm.region.amazonaws.com`
++ **AWS CloudFormation resource types**: `AWS::SSM::Document`
++ **AWS Config rule identifier**: `EC2_INSTANCE_MANAGED_BY_SSM`
++ **AWS Command Line Interface \(AWS CLI\) commands**: `aws ssm describe-patch-baselines`
++ **AWS Identity and Access Management \(IAM\) managed policy names**: `AmazonSSMReadOnlyAccess`
++ **Systems Manager resource ARNs**: `arn:aws:ssm:region:account-id:patchbaseline/pb-07d8884178EXAMPLE`
 
 ## Supported AWS Regions<a name="systems-manager-supported-Regions"></a>
 

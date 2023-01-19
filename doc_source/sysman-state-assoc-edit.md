@@ -54,7 +54,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)\.
 
 1. Use the following format to create a command to edit and create a new version of an existing State Manager association\. Replace each *example resource placeholder* with your own information\.
 **Important**  

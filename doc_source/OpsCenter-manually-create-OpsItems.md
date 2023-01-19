@@ -59,7 +59,7 @@ The following procedure describes how to create an OpsItem by using the AWS Comm
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)\.
 
 1. Open the AWS Command Line Interface \(AWS CLI\) and run the following command to create an OpsItem\. Replace each *example resource placeholder* with your own information\.
 

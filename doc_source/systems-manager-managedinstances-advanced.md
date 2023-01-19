@@ -112,7 +112,7 @@ The following procedure describes how to change an account\-level setting\. This
 
    1. Verify that your instances meet Systems Manager requirements\. For information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
-   1. For servers and VMs in a hybrid environment, verify that you completed the activation process\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
+   1. For servers and VMs in a hybrid environment, verify that you completed the activation process\. For more information, see [Setting up Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 1. Choose **Change account settings**\.
 

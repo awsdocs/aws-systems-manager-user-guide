@@ -1,11 +1,11 @@
-# Step 4: Install SSM Agent for a hybrid environment \(Linux\)<a name="sysman-install-managed-linux"></a>
+# Step 3: Install SSM Agent for a hybrid environment \(Linux\)<a name="sysman-install-managed-linux"></a>
 
-This topic describes how to install AWS Systems Manager SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the next step, [Step 5: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
+This topic describes how to install AWS Systems Manager SSM Agent on Linux machines in a hybrid environment\. If you plan to use Windows Server machines in a hybrid environment, see the next step, [Step 4: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
 **Important**  
 This procedure is for servers and virtual machines \(VMs\) in an on\-premises or hybrid environment\. To download and install SSM Agent on an EC2 instance for Linux, see [Working with SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)\.
 
-Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-node activation earlier in [Step 3: Create a managed\-node activation for a hybrid environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
+Before you begin, locate the Activation Code and Activation ID that were sent to you after you completed the managed\-node activation earlier in [Step 2: Create a managed\-node activation for a hybrid environment](sysman-managed-instance-activation.md)\. You specify the Code and ID in the following procedure\.
 
 The URLs in the following scripts let you download SSM Agent from *any* AWS Region\. If you want to download the agent from a *specific* Region, copy the URL for your operating system, and then replace *region* with an appropriate value\.
 
@@ -204,7 +204,7 @@ The *candidate* channel in the Snap store contains the latest version of SSM Age
 
 The command downloads and installs SSM Agent onto the server or VM in your hybrid environment\. The command stops SSM Agent, and then registers the server or VM with the Systems Manager service\. The server or VM is now a managed node\. Amazon EC2 instances configured for Systems Manager are also managed nodes\. In the Systems Manager console, however, your on\-premises nodes are distinguished from Amazon EC2 instances with the prefix "mi\-"\.
 
-Continue to [Step 5: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
+Continue to [Step 4: Install SSM Agent for a hybrid environment \(Windows\)](sysman-install-managed-win.md)\.
 
 ## Setting up private key auto rotation<a name="ssm-agent-hybrid-private-key-rotation-linux"></a>
 

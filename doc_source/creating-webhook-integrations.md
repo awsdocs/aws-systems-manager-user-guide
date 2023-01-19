@@ -31,7 +31,7 @@ The supported fields for `webhook` type integrations are as follows:
 + URL
 
 **Before you begin**  
-If you haven't already, install and configure the AWS Command Line Interface \(AWS CLI\) or the AWS Tools for PowerShell\. For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+If you haven't already, install and configure the AWS Command Line Interface \(AWS CLI\) or the AWS Tools for PowerShell\. For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)\.
 
 **To create an integration for Automation \(command line\)**
 + Run the following commands to create the required `SecureString` parameter for an integration\. Replace each *example resource placeholder* with your own information\. The `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/` namespace is reserved in Parameter Store for integrations\. The name of your parameter must use this namespace followed by the name of your integration\. For example `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/myWebhookIntegration`\.

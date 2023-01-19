@@ -117,7 +117,7 @@ Yes\. For more information, see [AWS Systems Manager Pricing](http://aws.amazon.
 
 ## Does OpsCenter work with my on\-premises and hybrid managed nodes?<a name="OpsCenter-learn-more-hybrid"></a>
 
-Yes\. You can use OpsCenter to investigate and remediate issues with your on\-premises managed nodes that are configured for Systems Manager\. For more information about setting up and configuring on\-premises servers and virtual machines for Systems Manager, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
+Yes\. You can use OpsCenter to investigate and remediate issues with your on\-premises managed nodes that are configured for Systems Manager\. For more information about setting up and configuring on\-premises servers and virtual machines for Systems Manager, see [Setting up Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 ## What are the quotas for OpsCenter?<a name="OpsCenter-learn-more-limits"></a>
 

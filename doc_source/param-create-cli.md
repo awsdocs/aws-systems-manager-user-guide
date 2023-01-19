@@ -17,7 +17,7 @@ Parameters are only available in the AWS Region where they were created\.
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)\.
 
 1. Run the following command to create a `String`\-type parameter\. Replace each *example resource placeholder* with your own information\.
 
@@ -238,7 +238,7 @@ The system returns information like the following\.
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)\.
 
 1. Run the following command to create a parameter\. Replace each *example resource placeholder* with your own information\.
 
@@ -314,7 +314,7 @@ Parameter Store only supports [symmetric encryption KMS keys](https://docs.aws.a
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)\.
 
 1. Run **one** of the following commands to create a parameter that uses the `SecureString` data type\.
 
@@ -612,7 +612,7 @@ You can use the AWS CLI to create a parameter with line breaks\. Use line breaks
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)\.
 
 1. Run the following command to create a multi\-line parameter\. 
 

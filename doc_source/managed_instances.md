@@ -19,7 +19,7 @@ If you don't see your managed nodes listed in the console, then do the following
 
 1. Verify that your managed nodes meet Systems Manager requirements\. For information, see [Systems Manager prerequisites](systems-manager-prereqs.md)\.
 
-1. For servers and VMs in a hybrid environment, verify that you completed the activation process\. For more information, see [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
+1. For servers and VMs in a hybrid environment, verify that you completed the activation process\. For more information, see [Setting up Systems Manager for hybrid environments](systems-manager-managedinstances.md)\.
 
 **Note**  
 Note the following information\.  

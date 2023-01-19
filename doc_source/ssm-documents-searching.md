@@ -35,7 +35,7 @@ The **Document Name Prefix** filter and free text search can't be used together\
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)\.
 
 1. To perform free text document search with a single term, run the following command\. In this command, replace *search\_term* with your own information\.
 

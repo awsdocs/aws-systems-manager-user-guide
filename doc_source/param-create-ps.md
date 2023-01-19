@@ -14,9 +14,9 @@ Parameters are only available in the AWS Region where they were created\.
 
 ## Create a `String` parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-string"></a>
 
-1. Install and configure the AWS Tools for PowerShell, if you haven't already\.
+1. Install and configure the AWS Tools for PowerShell \(Tools for Windows PowerShell\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)\.
 
 1. Run the following command to create a parameter that contains a plain text value\. Replace each *example resource placeholder* with your own information\.
 
@@ -68,9 +68,9 @@ To create a parameter with a tag, create the service\.model\.tag before hand as 
 
 ## Create a `StringList` parameter \(Tools for Windows PowerShell\)<a name="param-create-ps-stringlist"></a>
 
-1. Install and configure the AWS Tools for PowerShell, if you haven't already\.
+1. Install and configure the AWS Tools for PowerShell \(Tools for Windows PowerShell\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)\.
 
 1. Run the following command to create a StringList parameter\. Replace each *example resource placeholder* with your own information\.
 **Note**  
@@ -120,9 +120,9 @@ Only the *value* of a `SecureString` parameter is encrypted\. Parameter names, d
 **Important**  
 Parameter Store only supports [symmetric encryption KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#symmetric-cmks)\. You can't use an [asymmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html#asymmetric-cmks) to encrypt your parameters\. For help determining whether a KMS key is symmetric or asymmetric, see [Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html) in the *AWS Key Management Service Developer Guide*
 
-1. Install and configure the AWS Tools for PowerShell, if you haven't already\.
+1. Install and configure the AWS Tools for PowerShell \(Tools for Windows PowerShell\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)\.
 
 1. Run the following command to create a parameter\. Replace each *example resource placeholder* with your own information\.
 **Note**  

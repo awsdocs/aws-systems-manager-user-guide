@@ -53,7 +53,7 @@ After your stack resources are provisioned and running, users can edit resources
 Use the following AWS Command Line Interface \(AWS CLI\) procedure to provision a stack by using a CloudFormation template that is stored as an SSM document in Systems Manager\. Replace each *example resource placeholder* with your own information\. For information about other AWS CLI procedures for creating stacks, see [Creating a stack](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-cli-creating-stack.html) in the *AWS CloudFormation User Guide*\. 
 
 **Before you begin**  
-Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\. For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\. For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)\.
 
 ------
 #### [ Linux & macOS ]

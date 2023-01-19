@@ -68,7 +68,7 @@ Use the following procedure to create a CloudFormation template in Application M
 After you create the content of your CloudFormation template in JSON or YAML, you can use the AWS Command Line Interface \(AWS CLI\) or AWS Tools for PowerShell to save the template as an SSM document\. Replace each *example resource placeholder* with your own information\.
 
 **Before you begin**  
-Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\. For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+Install and configure the AWS CLI or the AWS Tools for PowerShell, if you have not already\. For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)\.
 
 ------
 #### [ Linux & macOS ]

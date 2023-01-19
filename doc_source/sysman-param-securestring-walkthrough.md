@@ -7,7 +7,7 @@ This walkthrough assumes that you already specified your domain name and DNS ser
 
 **To create a `SecureString` parameter and join a node to a domain**
 
-1. Enter parameters into the system using AWS Tools for Windows PowerShell \(Tools for Windows PowerShell\)\.
+1. Enter parameters into the system using AWS Tools for Windows PowerShell\.
 
    ```
    Write-SSMParameter -Name "domainName" -Value "DOMAIN-NAME" -Type String

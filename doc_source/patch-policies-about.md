@@ -15,6 +15,9 @@ Instead of using other methods of patching your nodes, use a patch policy to tak
 **Note**  
 When patching operations based on a patch policy run, they use the `AWS-RunPatchBaseline` SSM document\. For more information, see [About the `AWS-RunPatchBaseline` SSM document](patch-manager-about-aws-runpatchbaseline.md)\.
 
+**Related information**  
+[Centrally deploy patching operations across your AWS Organization using Systems Manager Quick Setup](http://aws.amazon.com/blogs/mt/centrally-deploy-patching-operations-across-your-aws-organization-using-systems-manager-quick-setup/) \(AWS Cloud Operations and Migrations Blog\)
+
 ## Other differences with patch policies<a name="patch-policies-about-other-features"></a>
 
 Here are some other differences to note when using patch policies instead of previous methods of configuring patching:

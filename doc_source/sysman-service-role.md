@@ -1,4 +1,4 @@
-# Step 2: Create an IAM service role for a hybrid environment<a name="sysman-service-role"></a>
+# Step 1: Create an IAM service role for a hybrid environment<a name="sysman-service-role"></a>
 
 Servers and virtual machines \(VMs\) in a hybrid environment require an AWS Identity and Access Management \(IAM\) role to communicate with the AWS Systems Manager service\. The role grants AWS Security Token Service \(AWS STS\) [https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) trust to the Systems Manager service\. You only need to create a service role for a hybrid environment once for each AWS account\. However, you might choose to create multiple service roles for different hybrid activations if machines in your hybrid environment require different permissions\.
 
@@ -16,18 +16,18 @@ Use the following procedure to create a service role for hybrid activation\. Thi
 
 1. For **Select trusted entity**, make the following choices:
 
-   1. For **Trusted entity type**, choose **AWS service**
+   1. For **Trusted entity type**, choose **AWS service**\.
 
-   1. For **Use cases for other AWS services**, choose **Systems Manager**
+   1. For **Use cases for other AWS services**, choose **Systems Manager**\.
 
    1. Choose **Systems Manager**, as shown in the following image\.  
-![\[Screenshot illustrating the Systems Manager option selected as a use case.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/iam_use_cases_for_MWs.png)
+![\[Systems Manager option selected as a use case.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/iam_use_cases_for_MWs.png)
 
 1. Choose **Next**\. 
 
 1. On the **Add permissions** page, do the following: 
    + Use the **Search** field to locate the **AmazonSSMManagedInstanceCore** policy\. Select the check box next to its name\.   
-![\[Choosing the EC2 service in the IAM console\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
+![\[Policy for EC2 service selected in the IAM console.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
    + The console retains your selection even if you search for other policies\.
    + If you created a custom S3 bucket policy in the procedure [Task 1: \(Optional\) Create a custom policy for S3 bucket access](setup-instance-profile.md#instance-profile-custom-s3-policy), search for it and select the check box next to its name\.
    + If you plan to join instances to an Active Directory managed by AWS Directory Service, search for **AmazonSSMDirectoryServiceAccess** and select the check box next to its name\.
@@ -61,7 +61,7 @@ If either of the following cases are true, you must create a custom IAM permissi
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)\.
 
 1. On your local machine, create a text file with a name such as `SSMService-Trust.json` with the following trust policy\. Make sure to save the file with the `.json` file extension\. Be sure to specify your AWS account and the AWS Region in the ARN where you created your hybrid activation\.
 
@@ -194,9 +194,9 @@ The policies you add for a service profile for managed nodes in a hybrid environ
 
 **To create an IAM service role for a hybrid environment \(AWS Tools for Windows PowerShell\)**
 
-1. Install and configure the AWS Tools for PowerShell, if you haven't already\.
+1. Install and configure the AWS Tools for PowerShell \(Tools for Windows PowerShell\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)\.
 
 1. On your local machine, create a text file with a name such as `SSMService-Trust.json` with the following trust policy\. Make sure to save the file with the `.json` file extension\. Be sure to specify your AWS account and the AWS Region in the ARN where you created your hybrid activation\.
 
@@ -270,4 +270,4 @@ The policies you add for a service profile for managed nodes in a hybrid environ
 
 ------
 
-Continue to [Step 3: Create a managed\-node activation for a hybrid environment](sysman-managed-instance-activation.md)\.
+Continue to [Step 2: Create a managed\-node activation for a hybrid environment](sysman-managed-instance-activation.md)\.

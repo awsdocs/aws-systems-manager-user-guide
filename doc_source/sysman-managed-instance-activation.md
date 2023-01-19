@@ -1,4 +1,4 @@
-# Step 3: Create a managed\-node activation for a hybrid environment<a name="sysman-managed-instance-activation"></a>
+# Step 2: Create a managed\-node activation for a hybrid environment<a name="sysman-managed-instance-activation"></a>
 
 To set up servers and virtual machines \(VMs\) in your hybrid environment as managed nodes, you need to create a managed\-node activation\. After you successfully complete the activation, you *immediately* receive an Activation Code and Activation ID\. You specify this Code and ID combination when you install AWS Systems Manager SSM Agent on servers and VMs in your hybrid environment\. The Code and ID provide secure access to the Systems Manager service from your managed nodes\.
 
@@ -70,7 +70,7 @@ If you no longer want to manage an on\-premises server or virtual machine \(VM\)
                                          operation: Not existing role: arn:aws:iam::<accountid>:role/SSMRole
      ```
 
-     For more information about creating this role, see [Step 2: Create an IAM service role for a hybrid environment](sysman-service-role.md)\. 
+     For more information about creating this role, see [Step 1: Create an IAM service role for a hybrid environment](sysman-service-role.md)\. 
 
 1. For **Activation expiry date**, specify an expiration date for the activation\. The expiry date must be in the future, and not more than 30 days into the future\. The default value is 24 hours\.
 **Note**  
@@ -88,7 +88,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
 
 1. Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)\.
 
 1. Run the following command to create an activation\.
 **Note**  
@@ -99,7 +99,7 @@ The role you specify for the *iam\-role* parameter must have a trust relationshi
      An error occurred (ValidationException) when calling the CreateActivation
                                              operation: Not existing role: arn:aws:iam::<accountid>:role/SSMRole
      ```
-For more information about creating this role, see [Step 2: Create an IAM service role for a hybrid environment](sysman-service-role.md)\. 
+For more information about creating this role, see [Step 1: Create an IAM service role for a hybrid environment](sysman-service-role.md)\. 
 For `--expiration-date`, provide a date in timestamp format, such as `"2021-07-07T00:00:00"`, for when the activation code expires\. You can specify a date up to 30 days in advance\. If you don't provide an expiration date, the activation code expires in 24 hours\.
 
 ------

@@ -13,8 +13,8 @@ The following table includes information to help you get started with Run Comman
 | Topic | Details | 
 | --- | --- | 
 |  [Systems Manager prerequisites](systems-manager-prereqs.md)  |  \(Required\) Verify that your managed nodes meet the minimum requirements for Run Command, configure required roles, and install the SSM Agent\.  | 
-|  [Setting up AWS Systems Manager for hybrid environments](systems-manager-managedinstances.md)  |  \(Optional\) Register on\-premises servers and VMs with AWS so you can manage them using Run Command\.  | 
-|  [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)  |  \(Optional\) Configure edge devices so you can manage them using Run Command\.  | 
+|  [Setting up Systems Manager for hybrid environments](systems-manager-managedinstances.md)  |  \(Optional\) Register on\-premises servers and VMs with AWS so you can manage them using Run Command\.  | 
+|  [Setting up Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)  |  \(Optional\) Configure edge devices so you can manage them using Run Command\.  | 
 |  [AWS Systems Manager Run Command](#run-command)  |  Learn how to run a command that targets one or more managed nodes by using the AWS Management Console\.  | 
 |  [Run Command walkthroughs](run-command-walkthroughs.md)  |  Learn how to run commands using either Tools for Windows PowerShell or the AWS CLI\.  | 
 

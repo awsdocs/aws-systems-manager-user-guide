@@ -137,7 +137,7 @@ aws kms describe-key --key-id alias/aws/ssm
 The following example allows nodes to get a parameter value only for parameters that begin with `prod-`\. If the parameter is a `SecureString` parameter, then the node decrypts the string using AWS KMS\.
 
 **Note**  
-Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting up AWS Systems Manager for EC2 instances](systems-manager-setting-up-ec2.md)\.
+Instance policies, like in the following example, are assigned to the instance role in IAM\. For more information about configuring access to Systems Manager features, including how to assign policies to users and instances, see [Setting up Systems Manager for EC2 instances](systems-manager-setting-up-ec2.md)\.
 
 ```
 {

@@ -65,7 +65,7 @@ After the connection is made, you can run bash commands \(Linux and macOS\) or P
 
 Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
-For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)\.
 
 Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 

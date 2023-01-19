@@ -3,7 +3,7 @@
 After you create the content for your custom AWS Systems Manager \(SSM\) document, as described in [Writing SSM document content](create-ssm-doc.md#writing-ssm-doc-content), you can use the AWS Command Line Interface \(AWS CLI\) or AWS Tools for PowerShell to create an SSM document using your content\. This is shown in the following command\.
 
 **Before you begin**  
-Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\. For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+Install and configure the AWS CLI or the AWS Tools for PowerShell, if you haven't already\. For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Installing the AWS Tools for PowerShell](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-getting-set-up.html)\.
 
 Run the following command\. Replace each *example resource placeholder* with your own information\.
 

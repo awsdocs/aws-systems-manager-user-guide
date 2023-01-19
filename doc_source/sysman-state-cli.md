@@ -13,7 +13,7 @@ If you create an association by using either the AWS CLI or AWS Tools for Window
 
 1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\.
 
-   For information, see [Install or upgrade AWS command line tools](getting-started-cli.md)\.
+   For information, see [Installing or updating the latest version of the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)\.
 
 1. Run the following command to create an association by targeting instances using Amazon Elastic Compute Cloud \(Amazon EC2\) tags\. Replace each *example resource placeholder* with your own information\. The `Schedule` parameter sets a schedule to run the association every Sunday morning at 2:00 a\.m\. \(UTC\)\.
 

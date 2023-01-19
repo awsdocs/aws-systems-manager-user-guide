@@ -1,15 +1,15 @@
 # Related content and references<a name="systems-manager-related-content"></a>
 
-For more information about Systems Manager, see the following references, guides, blogposts, and sites\.
+For more information about Systems Manager, see the following references, guides, blog posts, and sites\.
 
 **Related API references**
 + **[AWS Systems Manager API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)** – Provides descriptions, syntax, and usage examples for each of the Systems Manager actions and data types\.
 + **[AWS AppConfig API Reference](https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/)** – Provides descriptions, syntax, and usage examples for each of the AWS AppConfig actions and data types\.
 
 **Related content**
-+ The following resources can help you work directly with Systems Manager\.
++ The following resources can help you work directly with Systems Manager:
   + **[AWS Blog & Podcast](http://aws.amazon.com/blogs/)** – Read blog posts about Systems Manager in the [AWS Management Tools Category](http://aws.amazon.com/blogs/aws/category/management-tools/amazon-ec2-systems-manager/), and other posts tagged with [http://aws.amazon.com/blogs/mt/tag/aws-systems-manager/](http://aws.amazon.com/blogs/mt/tag/aws-systems-manager/)\.
-  + **Systems Manager issues in [AWS re:Post](https://repost.aws/tags/TA-UbbRGVYRWCDaCvae6itYg/aws-systems-manager)** – Follow announcements, or post or answer a question in the re:Post Community\.
+  + **Systems Manager issues in [AWS re:Post](https://repost.aws/tags/TA-UbbRGVYRWCDaCvae6itYg/aws-systems-manager)** – Follow announcements, or post or answer a question in the AWS re:Post Community\.
   + **[AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)** – Manage Systems Manager from a command line tool\. Available to use on Windows, Mac, and Linux/UNIX systems\.
   + **[AWS Systems Manager section of the AWS Tools for PowerShell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/items/AWS_Systems_Manager_cmdlets.html)** – Manage Systems Manager with the same PowerShell tools that you use to manage your Windows, Linux, or Mac environments\. 
   + **[Systems Manager service quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm) in the *Amazon Web Services General Reference*** – Provides the default quotas for Systems Manager for an AWS account\. Unless otherwise noted, each quota is Region\-specific\.
