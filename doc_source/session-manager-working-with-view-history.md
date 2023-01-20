@@ -28,6 +28,10 @@ You can use the AWS Systems Manager console to view details about the sessions i
 
 1. Choose the **Session history** tab\.
 
+   \-or\-
+
+   If the Session Manager home page opens first, choose **Configure Preferences** and then choose the **Session history** tab\.
+
 ## Viewing session history \(AWS CLI\)<a name="view-history-cli"></a>
 
 To view a list of sessions in your account using the AWS CLI, run the following command\.
