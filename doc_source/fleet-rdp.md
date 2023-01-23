@@ -21,6 +21,15 @@ If you're connecting to a Windows Server 2022 instance, you might need to instal
 
 Because Fleet Manager uses Session Manager to connect to Windows instances using RDP, you must complete the prerequisites for Session Manager before using this feature\. Session Manager is a capability of AWS Systems Manager\. Session preferences in the AWS account and AWS Region are applied when connecting to your instances using RDP\. For information about setting up Session Manager, see [Setting up Session Manager](session-manager-getting-started.md)\.
 
+**Note**  
+If you log your Session Manager operations using Amazon Simple Storage Service \(Amazon S3\), you will encounter the following error in the `bucket_name/Port/stderr` directory\. This error, which is generated for each Remote Desktop connection, is expected behavior and can be safely ignored\.  
+
+```
+Setting up data channel with id SESSION_ID failed: failed to create websocket for datachannel with error: CreateDataChannel failed with no output or error: createDataChannel request failed: unexpected response from the service <BadRequest>
+<ClientErrorMessage>Session is already terminated</ClientErrorMessage>
+</BadRequest>
+```
+
 In addition to the required AWS Identity and Access Management \(IAM\) permissions for Systems Manager and Session Manager, the user or role you use to access the console must allow the following actions:
 + `ssm-guiconnect:CancelConnection`
 + `ssm-guiconnect:GetConnection`

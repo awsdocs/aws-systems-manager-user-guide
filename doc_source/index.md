@@ -195,6 +195,8 @@ sponsored by Amazon.
          + [Working with change templates](change-templates.md)
             + [Try out the AWS managed Hello World change template](change-templates-aws-managed.md)
             + [Creating change templates](change-templates-create.md)
+               + [About approvals in your change templates](cm-approvals-templates.md)
+                  + [Change Manager approval type examples](approval-type-samples.md)
                + [Creating change templates using Builder](change-templates-custom-builder.md)
                + [Creating change templates using Editor](change-templates-custom-editor.md)
                + [Creating change templates using command line tools](change-templates-tools.md)

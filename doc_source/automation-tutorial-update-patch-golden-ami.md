@@ -33,7 +33,7 @@ Use the following procedure to create an IAM service role for AWS Lambda\. These
 
 1. Choose the **JSON** tab\.
 
-1. Paste the following policy\. Replace each *example resource placeholder* with your own information\.
+1. Replace the default contents with the following policy\. Replace each *example resource placeholder* with your own information\.
 
    ```
    {
@@ -58,7 +58,11 @@ Use the following procedure to create an IAM service role for AWS Lambda\. These
    }
    ```
 
-1. Choose **Review policy**\.
+1. Choose **Next: Tags**\.
+
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this policy\. 
+
+1. Choose **Next: Review**\.
 
 1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **amiLambda**\.
 
@@ -86,7 +90,11 @@ Use the following procedure to create an IAM service role for AWS Lambda\. These
    }
    ```
 
-1. Choose **Review policy**\.
+1. Choose **Next: Tags**\.
+
+1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this policy\. 
+
+1. Choose **Next: Review**\.
 
 1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **amiParameter**\.
 
@@ -94,19 +102,17 @@ Use the following procedure to create an IAM service role for AWS Lambda\. These
 
 1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
 
-1. Immediately under **Choose the service that will use this role**, choose **Lambda**, and then choose **Next: Permissions**\.
+1. Immediately under **Use case**, choose **Lambda**, and then choose **Next**\.
 
-1. On the **Attach permissions policies** page, use the **Search** field to locate the two policies you created earlier\.
+1. On the **Add permissions** page, use the **Search** field to locate the two policies you created earlier\.
 
-1. Select the check box next to the policies, and then choose **Next: Tags**\.
-
-1. \(Optional\) Add one or more tag key\-value pairs to organize, track, or control access for this role, and then choose **Next: Review**\. 
+1. Select the check box next to the policies, and then choose **Next**\.
 
 1. For **Role name**, enter a name for your new role, such as **lambda\-ssm\-role** or another name that you prefer\. 
 **Note**  
 Because various entities might reference the role, you cannot change the name of the role after it has been created\.
 
-1. Choose **Create role**\.
+1. \(Optional\) Add one or more tag key\-value pairs to organize, track, or control access for this role, and then choose **Create role**\.
 
 ## Task 3: Create an AWS Lambda function<a name="create-lambda-function"></a>
 
@@ -120,17 +126,19 @@ Use the following procedure to create a Lambda function that automatically updat
 
 1. On the **Create function** page, choose **Author from scratch**\.
 
-1. For **Function name**, type **Automation\-UpdateSsmParam**\.
+1. For **Function name**, enter **Automation\-UpdateSsmParam**\.
 
-1. In the **Runtime** list, choose **Python 3\.8**\.
+1. For **Runtime**, choose **Python 3\.8**\.
 
-1. In the **Permissions** section, expand **Choose or create an execution role**\.
+1. For **Architecture**, select the type of computer processor for Lambda to use to run the function, **x86\_64** or **arm64**, 
+
+1. In the **Permissions** section, expand **Change default execution role**\.
 
 1. Choose **Use an existing role**, and then choose the service role for Lambda that you created in Task 2\.
 
 1. Choose **Create function**\.
 
-1. In the **Function code** area, on the **lambda\_function** tab, delete the pre\-populated code in the field, and then paste the following code sample\.
+1. In the **Code source** area, on the **lambda\_function** tab, delete the pre\-populated code in the field, and then paste the following code sample\.
 
    ```
    from __future__ import print_function
@@ -189,9 +197,9 @@ Use the following procedure to create a Lambda function that automatically updat
        return reponseString
    ```
 
-1. Choose **Save**\.
+1. Choose **File, Save**\.
 
-1. To test the Lambda function, from the **Select a test event** menu, choose **Configure test events**\.
+1. To test the Lambda function, from the **Test** menu, choose **Configure test event**\.
 
 1. For **Event name**, enter a name for the test event, such as **MyTestEvent**\.
 
@@ -204,9 +212,9 @@ Use the following procedure to create a Lambda function that automatically updat
    }
    ```
 
-1. Choose **Create**\.
+1. Choose **Save**\.
 
-1. Choose **Test** to test the function\. The output should state that the parameter was successfully updated and include details about the update\. For example, “Updated parameter latestAmi with value ami\-123456”\.
+1. Choose **Test** to test the function\. On the **Execution result** tab, the status should be reported as **Succeeded**, along with other details about the update\.
 
 ## Task 4: Create a runbook and patch the AMI<a name="create-custom-ami-update-runbook"></a>
 
@@ -222,15 +230,15 @@ Use the following procedure to create and run a runbook that patches the AMI you
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
 
-1. In the **Create document** dropdown, choose **Automation**\.
+1. For **Create document**, choose **Automation**\.
 
-1. In the **Name** field, enter **UpdateMyLatestWindowsAmi**\.
+1. For **Name**, enter **UpdateMyLatestWindowsAmi**\.
 
 1. Choose the **Editor** tab, and then choose **Edit**\.
 
-1. Choose **OK** when prompted, and delete the content in the **Document editor** field\.
+1. Choose **OK** when prompted\.
 
-1. In the **Document editor** field, paste the following YAML sample runbook content\.
+1. In the **Document editor** field, replace the default content with the following YAML sample runbook content\.
 
    ```
    ---

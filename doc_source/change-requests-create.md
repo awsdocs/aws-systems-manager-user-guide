@@ -11,6 +11,36 @@ In some cases, a change template might be configured so you specify your own Aut
 **Important**  
 If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes won't be reported in or viewable from the delegated administrator account\.
 
+**Topics**
++ [About change request approvals](#cm-approvals-requests)
++ [Creating change requests \(console\)](#change-requests-create-console)
++ [Creating change requests \(AWS CLI\)](#change-requests-create-cli)
+
+## About change request approvals<a name="cm-approvals-requests"></a>
+
+Depending on the requirements specified in a change template, change requests that you create from it can require approvals from up to five *levels* before the runbook workflow for the request can occur\. For each of those levels, the template creator could specify up to five potential *approvers*\. An approver isn't limited to a single AWS Identity and Access Management \(IAM\) user\. An approver in this sense can also be an IAM group or IAM role\. For IAM groups and IAM roles, one or more users belonging to the group or role can provide approvals toward receiving the total number of approvals required for a change request\. Template creators can also specify more approvers than the change template requires\.
+
+**Original approval workflows and updated and/or approvals**  
+Using change templates created before January 23, 2023, an approval must be received from each specified approver for the change request to be approved at that level\. For example, in the approval level setup shown in the following image, four approvers are specified\. Specified approvers include two IAM users \(John Stiles and Ana Carolina Silva\), a user group that contains three members \(GroupOfThree\), and a user role that represents ten users \(RoleOfTen\)\.
+
+![\[Approval level showing four required per-line approvers.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-1.png)
+
+For the change request to be approved at this level, it must be approved by John Stiles, Ana Carolina Silva, one member of the `GroupOfThree` group, and one member of the `RoleOfTen` role\.
+
+Using change templates created on or after January 23, 2023, for each approval level, template creators can specify an overall total number of required approvals\. Those approvals can come from any combination of IAM users, groups, and roles that have been specified as approvers\. A change template could require only one approval for a level but specify, for example, two individual users, two groups, and one role as potential approvers\.
+
+For example, in the approval level area shown in the following image, three approvals are required\. The template\-specified approvers include two IAM users \(John Stiles and Ana Carolina Silva\), a user group that contains three members \(`GroupOfThree`\), and a user role that represents ten users \(`RoleOfTen`\)\.
+
+![\[Approval level showing three approvals are required and four specified approvers.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/Add-approval-2.png)
+
+If all three users in the `GroupOfThree` group approve your change request, it is approved for that level\. It's not necessary to receive an approval from each user, group, or role\. The minimum number of approvals can come from any combination of potential approvers\.
+
+When your change request is created, notifications are sent to subscribers of the Amazon SNS topic that has been specified for approval notifications at that level\. The change template creator might have specified the notification topic that must be used or allowed you to specify one\.
+
+After the minimum number of required approvals is received at one level, notifications are sent to approvers that are subscribed to the Amazon SNS topic for the next level, and so on\.
+
+No matter how many approval levels and approvers are specified, only one rejection to a change request is required to prevent the runbook workflow for that request from occurring\.
+
 ## Creating change requests \(console\)<a name="change-requests-create-console"></a>
 
 The following procedure describes how to create a change request by using the Systems Manager console\.
@@ -59,7 +89,9 @@ You can choose to specify reviewers even if the permissions specified in the IAM
 
    1. Choose **Add approver**, and then select one or more users, groups, or AWS Identity and Access Management \(IAM\) roles from the lists of available reviewers\.
 **Note**  
-One or more approvers might already be specified\. This means that mandatory approvers are already specified in the change template you have selected\. These approvers can't be removed from the request\. If the **Add approver** button isn't turned on, the template you have chosen doesn't allow additional reviewers to be added to requests\.
+One or more approvers might already be specified\. This means that mandatory approvers are already specified in the change template you have selected\. These approvers can't be removed from the request\. If the **Add approver** button isn't available, the template you have chosen doesn't allow additional reviewers to be added to requests\.
+
+      For more information about approvals for change requests, see [About change request approvals](#cm-approvals-requests)\.
 
    1. Under **SNS topic to notify approvers**, choose one of the following to specify the Amazon SNS topic in your account to use for sending notifications to the approvers you are adding to this change request\.
 **Note**  
@@ -143,7 +175,8 @@ You can create a change request using the AWS Command Line Interface \(AWS CLI\)
 
    Replace *placeholders* with values for your change request\.
 **Note**  
-This sample JSON creates a change request using the `AWS-HelloWorldChangeTemplate` change template and `AWS-HelloWorld` runbook\. To help you adapt this sample for your own change requests, see [StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html) in the *AWS Systems Manager API Reference* for information about all available parameters,
+This sample JSON creates a change request using the `AWS-HelloWorldChangeTemplate` change template and `AWS-HelloWorld` runbook\. To help you adapt this sample for your own change requests, see [StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html) in the *AWS Systems Manager API Reference* for information about all available parameters  
+For more information about approvals for change requests, see [About change request approvals](#cm-approvals-requests)\.
 
    ```
    {

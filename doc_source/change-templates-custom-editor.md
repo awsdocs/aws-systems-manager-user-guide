@@ -22,7 +22,8 @@ Use the steps in this topic to configure a change template in Change Manager, a 
 **Note**  
 The parameter `minRequiredApprovals` is used to specify how many reviewers at a specified level must approve a change request that is created using this template\.  
 This example demonstrates two levels of approvals\. You can specify up to five levels of approvals, but only one level is required\.   
-In the first level, the specific user "John\-Doe" must approve each change request\. After that, any three members of the IAM role `Admin` must approve the change request\.
+In the first level, the specific user "John\-Doe" must approve each change request\. After that, any three members of the IAM role `Admin` must approve the change request\.  
+For more information about approvals for change templates, see [About approvals in your change templates](cm-approvals-templates.md)\.
 
 ------
 #### [ YAML ]

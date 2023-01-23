@@ -8,7 +8,8 @@ This functionality depends on whether an Amazon SNS was specified in the change 
 To review the change request, you can follow the link in your notification, or sign in to the AWS Management Console directly and follow the steps in this procedure\.
 
 **Note**  
-If an Amazon SNS topic is assigned for reviewers in a change template, notifications are sent to the topic's subscribers when the change request changes status\.
+If an Amazon SNS topic is assigned for reviewers in a change template, notifications are sent to the topic's subscribers when the change request changes status\.  
+For more information about approvals for change requests, see [About change request approvals](change-requests-create.md#cm-approvals-requests)\.
 
 ## Reviewing and approving or rejecting change requests \(console\)<a name="change-requests-review-console"></a>
 
