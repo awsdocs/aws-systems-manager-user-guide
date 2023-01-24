@@ -49,6 +49,8 @@ For this example, we also have these two Windows Server patch baselines:
 
 **Diagram 1: General example of patching operations process flow**
 
+The following diagram shows how Patch Manager determines which patch baselines to use in patching operations\.
+
 ![\[Diagram showing how patch baselines are determined when performing patching operations.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/patch-groups-how-it-works.png)
 
 The general process to scan or install patches using Run Command, a capability of AWS Systems Manager, and Patch Manager is as follows:

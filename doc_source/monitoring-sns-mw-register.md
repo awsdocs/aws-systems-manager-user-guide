@@ -19,7 +19,7 @@ Use the following procedure to register a Run Command task that is configured to
 
    \-or\-
 
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Maintenance Windows**\.
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Maintenance Windows**\.
 
 1. Select the maintenance window for which you would like to register a Run Command task configured to send Amazon Simple Notification Service \(Amazon SNS\) notifications\.
 

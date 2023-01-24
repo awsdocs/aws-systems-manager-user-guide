@@ -41,7 +41,7 @@ Use the following procedure to configure Systems Manager Inventory for all manag
 
    \-or\-
 
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Inventory** in the navigation pane\.
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Inventory** in the navigation pane\.
 
 1. In the **Managed instances with inventory enabled** card, choose **Click here to enable inventory on all instances**\.  
 ![\[Turning on Systems Manager Inventory on all managed nodes in the current AWS account and AWS Region.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/inventory-one-click-1.png)
@@ -63,7 +63,7 @@ This section includes information about how to configure Systems Manager Invento
 
    \-or\-
 
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Inventory** in the navigation pane\.
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Inventory** in the navigation pane\.
 
 1. Choose **Setup Inventory**\.
 

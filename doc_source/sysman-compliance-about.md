@@ -72,7 +72,7 @@ Use the following procedure to view compliance data in the Systems Manager conso
 
    \-or\-
 
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Compliance** in the navigation pane\.
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Compliance** in the navigation pane\.
 
 1. In the **Compliance dashboard filtering** section, choose an option to filter compliance data\. The **Compliance resources summary** section displays counts of compliance data based on the filter you chose\.
 

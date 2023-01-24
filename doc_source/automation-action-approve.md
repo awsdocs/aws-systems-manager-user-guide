@@ -104,7 +104,7 @@ You can approve or deny Automations that are waiting for approval in the console
 
    \-or\-
 
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Automation**\.
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Automation**\.
 
 1. Choose the option next to an Automation with a status of **Waiting**\.  
 ![\[Accessing the Approve/Deny Automation page\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/automation-approve-action-aws.png)

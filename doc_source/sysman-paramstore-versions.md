@@ -28,7 +28,7 @@ You can use the Systems Manager console to create a new version of a parameter a
 
    \-or\-
 
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Parameter Store**\.
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Parameter Store**\.
 
 1. Choose the name of a parameter that you created earlier\. For information about creating a new parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\. 
 

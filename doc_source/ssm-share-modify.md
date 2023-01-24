@@ -12,7 +12,7 @@ If you share a command, users can view and use that command until you either rem
 
    \-or\-
 
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
 
 1. In the documents list, choose the document you want to stop sharing, and then choose **View details**\. On the **Permissions** tab, verify that you're the document owner\. Only a document owner can stop sharing a document\.
 

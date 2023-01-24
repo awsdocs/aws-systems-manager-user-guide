@@ -49,7 +49,7 @@ For information about generating patch compliance reports that are downloaded to
 
      \-or\-
 
-     If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
+     If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Patch Manager**\.
    + Choose the **Compliance reporting** tab\.
    + For **Instance patching summary**, choose the ID of the managed node for which you want to review patch compliance results\.
    + Choose **View details**\.
@@ -59,7 +59,7 @@ For information about generating patch compliance reports that are downloaded to
 
      \-or\-
 
-     If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Compliance** in the navigation pane\.
+     If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Compliance** in the navigation pane\.
    + For **Compliance resources summary**, choose a number in the column for the types of patch resources you want to review, such as **Non\-Compliant resources**\.
    + In the **Resource** list, choose the ID of the managed node for which you want to review patch compliance results\.
 
@@ -68,7 +68,7 @@ For information about generating patch compliance reports that are downloaded to
 
      \-or\-
 
-     If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Fleet Manager** in the navigation pane\.
+     If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Fleet Manager** in the navigation pane\.
    + On the **Managed instances** tab, choose the ID of the managed node for which you want to review patch compliance results\.
 
 1. Choose the **Patch** tab\.

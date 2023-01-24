@@ -214,6 +214,7 @@ sponsored by Amazon.
          + [Method 1: Use AWS CloudFormation to configure a service role for Automation](automation-setup-cloudformation.md)
          + [Method 2: Use IAM to configure roles for Automation](automation-setup-iam.md)
          + [Allowing Automation to adapt to your concurrency needs](adaptive-concurrency.md)
+         + [Implement change controls for Automation](automation-change-calendar-integration.md)
       + [Running automations](running-automations.md)
          + [Run an automation](running-simple-automations.md)
          + [Run an automation with approvers](running-automations-require-approvals.md)

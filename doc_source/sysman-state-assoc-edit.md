@@ -22,7 +22,7 @@ This procedure requires that you have write access to an existing Amazon S3 buck
 
    \-or\-
 
-   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose ** State Manager**\.
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose ** State Manager**\.
 
 1. Choose the association you created in [Create an association \(command line\)](sysman-state-assoc.md#create-state-manager-association-commandline) and then choose **Edit**\.
 
