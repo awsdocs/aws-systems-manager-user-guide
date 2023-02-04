@@ -50,7 +50,7 @@ You can also store and download Ansible playbooks in Amazon S3 as either a singl
 ```
 
 **Important**  
-If you specify Amazon S3, then the AWS Identity and Access Management \(IAM\) instance profile on your managed nodes must be configured with the `AmazonS3ReadOnlyAccess` policy\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
+ You can set up the AWS Identity and Access Management \(IAM\) instance profile with a policy specifically created for Amazon S3 to download playbooks from Amazon S3\. You can use the `AmazonS3ReadOnlyAccess` policy as a quick start, but we recommend that you create a new policy for this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
 
 **Support for compressed playbook structure**
 

@@ -1,6 +1,10 @@
 # Deleting an association<a name="systems-manager-state-manager-delete-association"></a>
 
-The following procedure describes how to delete a State Manager association by using the AWS Management Console\. 
+The following procedure describes how to delete a State Manager association by using the AWS Systems Manager console\.
+
+## Delete an association<a name="systems-manager-state-manager-delete-an-association"></a>
+
+ Use the following procedure to delete an association by using the AWS Systems Manager console\.
 
 **To delete an association**
 
@@ -12,4 +16,4 @@ The following procedure describes how to delete a State Manager association by u
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose ** State Manager**\.
 
-1. Choose an association and then choose **Delete**\.
+1. Select an association and then choose **Delete**\.

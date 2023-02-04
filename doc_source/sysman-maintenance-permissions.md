@@ -4,7 +4,7 @@ Before users in your AWS account can create and schedule maintenance window task
 
 **Before you begin**  
 To complete the tasks in the section, you need one or both of the following resources set up already:
-+ You're assigning permissions to IAM users or groups\. These users or groups should already have been granted general permissions for working with maintenance windows\. Do this by ensuring that the IAM policy `AmazonSSMFullAccess` to the users or groups, or another IAM policy that provides a smaller set of access permissions for Systems Manager that covers maintenance window tasks\. 
++ Assigned permissions to an IAM entity \(such as a user or group\)\. These users or groups should already have general permissions for working with maintenance windows\. Do this by assigning the IAM policy `AmazonSSMFullAccess` to the users or groups, or another IAM policy that provides a smaller set of access permissions for Systems Manager that covers maintenance window tasks\. 
 + \(Optional\) For maintenance windows that run Run Command tasks, you can choose to send Amazon Simple Notification Service \(Amazon SNS\) status notifications\. Run Command is a capability of Systems Manager\. If you want to use this option, configure the Amazon SNS topic before completing these setup tasks\. For information about configuring Amazon SNS notifications for Systems Manager, including information about creating an IAM role to use for sending SNS notifications, see [Monitoring Systems Manager status changes using Amazon SNS notifications](monitoring-sns-notifications.md)\.
 
 **Overview of setup tasks**  
