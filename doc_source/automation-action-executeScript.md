@@ -132,19 +132,20 @@ mainSteps:
         InputPayload:
           instanceId: '{{InstanceId}}'
         Script: |-
-          def getInstanceStates(events,context):
-          import boto3
+          def tagInstance(events,context):
+            import boto3
 
-          #Initialize client
-          ec2 = boto3.client('ec2')
-          instanceId = events['instanceId']
-          tag = {
-              "Env": "Example"
-          }
-          ec2.create_tags(
-              Resources=[instanceId],
-              Tags=[tag]
-          )
+            #Initialize client
+            ec2 = boto3.client('ec2')
+            instanceId = events['instanceId']
+            tag = {
+                "Key": "Env",
+                "Value": "Example"
+            }
+            ec2.create_tags(
+                Resources=[instanceId],
+                Tags=[tag]
+            )
 ```
 
 ```
