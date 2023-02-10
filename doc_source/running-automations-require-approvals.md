@@ -4,7 +4,7 @@ The following procedures describe how to use the AWS Systems Manager console and
 
 **Before you begin**  
 In addition to the standard inputs required by the runbook, the `aws:approve` action requires the following two parameters: 
-+ A list of approvers\. The list of approvers must contain at least one approver in the form of an IAM user or a user ARN\. If multiple approvers are provided, a corresponding minimum approval count must also be specified within the runbook\. 
++ A list of approvers\. The list of approvers must contain at least one approver in the form of a user name or a user ARN\. If multiple approvers are provided, a corresponding minimum approval count must also be specified within the runbook\. 
 + An Amazon Simple Notification Service \(Amazon SNS\) topic ARN\. The Amazon SNS topic name must start with `Automation`\.
 
 This procedure assumes that you have already created an Amazon SNS topic, which is required to deliver the approval request\. For information, see [Create a Topic](https://docs.aws.amazon.com/sns/latest/dg/sns-getting-started.html#CreateTopic) in the *Amazon Simple Notification Service Developer Guide*\.
@@ -36,7 +36,7 @@ You can view information about a runbook by choosing the runbook name\.
 
    For example, if you chose the `AWS-StartEC2InstanceWithApproval` runbook, then you must specify or choose instance IDs for the **InstanceId** parameter\. 
 
-1. In the **Approvers** section, specify the IAM users or user ARNs of approvers for the automation action\.
+1. In the **Approvers** section, specify the user names or user ARNs of approvers for the automation action\.
 
 1. In the **SNSTopicARN** section, specify the SNS topic ARN to use for sending approval notification\. The SNS topic name must start with **Automation**\.
 
@@ -72,7 +72,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 1. Run the following command to run an automation with approvers\. Replace each *example resource placeholder* with your own information\. In the document name section, specify a runbook that includes the automation action, `aws:approve`\.
 
-   For `Approvers`, specify the IAM users or user ARNs of approvers for the action\. For `SNSTopic`, specify the SNS topic ARN to use to send approval notification\. The Amazon SNS topic name must start with `Automation`\.
+   For `Approvers`, specify the user names or user ARNs of approvers for the action\. For `SNSTopic`, specify the SNS topic ARN to use to send approval notification\. The Amazon SNS topic name must start with `Automation`\.
 **Note**  
 The specific names of the parameter values for approvers and the SNS topic depend on the values specified within the runbook you choose\. 
 

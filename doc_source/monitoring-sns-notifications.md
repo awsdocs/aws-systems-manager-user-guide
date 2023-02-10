@@ -155,7 +155,7 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 1. On the **Review** page, for **Role name**, enter a name to identify the role, such as **my\-sns\-role**\. 
 
-1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: **Runs SNS topics on your behalf\.**
+1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: **Runs Amazon SNS topics on your behalf\.**
 
 1. Choose **Create role**\. The system returns you to the **Roles** page\.
 

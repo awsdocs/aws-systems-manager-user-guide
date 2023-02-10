@@ -42,12 +42,12 @@ For more information about the `AWSServiceRoleForAmazonSSM_AccountDiscovery` rol
 
 ## Configuring permissions for Systems Manager OpsCenter<a name="Explorer-getting-started-user-permissions"></a>
 
-After you complete Integrated Setup, you must configure IAM user, group, or role permissions so that users can perform actions in OpsCenter\.
+After you complete Integrated Setup, you must configure user, group, or role permissions so that users can perform actions in OpsCenter\.
 
 **Before You Begin**  
-OpsItems can only be viewed or edited in the account where they were created\. You can't share or transfer OpsItems across AWS accounts\. For this reason, we recommend that you configure permissions for OpsCenter in the AWS account that is used to run your AWS workloads\. You can then create IAM users or groups in that account\. In this way, multiple operations engineers or IT professionals can create, view, and edit OpsItems in the same AWS account\.
+OpsItems can only be viewed or edited in the account where they were created\. You can't share or transfer OpsItems across AWS accounts\. For this reason, we recommend that you configure permissions for OpsCenter in the AWS account that is used to run your AWS workloads\. You can then create users or groups in that account\. In this way, multiple operations engineers or IT professionals can create, view, and edit OpsItems in the same AWS account\.
 
-Explorer and OpsCenter use the following API operations\. You can use all features of Explorer and OpsCenter if your IAM user, group, or role has access to these actions\. You can also create more restrictive access, as described later in this section\.
+Explorer and OpsCenter use the following API operations\. You can use all features of Explorer and OpsCenter if your user, group, or role has access to these actions\. You can also create more restrictive access, as described later in this section\.
 +  [CreateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html) 
 +  [CreateResourceDataSync](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateResourceDataSync.html) 
 +  [DescribeOpsItems](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeOpsItems.html) 
@@ -58,7 +58,7 @@ Explorer and OpsCenter use the following API operations\. You can use all featur
 +  [UpdateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateOpsItem.html) 
 +  [UpdateResourceDataSync](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateResourceDataSync.html) 
 
-The following procedure describes how to add a full\-access inline policy to an IAM user\. If you prefer, you can specify read\-only permission by assigning the following inline policy to a user's account, group, or role\.
+If you prefer, you can specify read\-only permission by adding the following inline policy to your account, group, or role\.
 
 ```
 {
@@ -81,48 +81,43 @@ The following procedure describes how to add a full\-access inline policy to an 
 
 For more information about creating and editing IAM policies, see [Creating IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\. For information about how to assign this policy to an IAM group, see [Attaching a Policy to an IAM Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html)\. 
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+Create a permission using the following and add it to your users, groups, or roles: 
 
-1. In the navigation pane, choose **Users**\.
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ssm:GetOpsItem",
+        "ssm:UpdateOpsItem",
+        "ssm:DescribeOpsItems",
+        "ssm:CreateOpsItem",
+        "ssm:CreateResourceDataSync",
+        "ssm:DeleteResourceDataSync",
+        "ssm:ListResourceDataSync",
+        "ssm:UpdateResourceDataSync"
 
-1. In the list, choose a name\.
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
 
-1. Choose the **Permissions** tab\.
+Depending on the identity application that you are using in your organization,  you can select any of the following options to configure user access\.
 
-1. Choose **Add inline policy**\. 
+To provide access, add permissions to your users, groups, or roles:
++ Users and groups in AWS IAM Identity Center \(successor to AWS Single Sign\-On\):
 
-1. Choose the **JSON** tab\.
+  Create a permission set\. Follow the instructions in [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
++ Users managed in IAM through an identity provider:
 
-1. Replace the default content with the following:
-
-   ```
-   {
-     "Version": "2012-10-17",
-     "Statement": [
-       {
-         "Effect": "Allow",
-         "Action": [
-           "ssm:GetOpsItem",
-           "ssm:UpdateOpsItem",
-           "ssm:DescribeOpsItems",
-           "ssm:CreateOpsItem",
-           "ssm:CreateResourceDataSync",
-           "ssm:DeleteResourceDataSync",
-           "ssm:ListResourceDataSync",
-           "ssm:UpdateResourceDataSync"
-   
-         ],
-         "Resource": "*"
-       }
-     ]
-   }
-   ```
-
-1. Choose **Review policy**\.
-
-1. On the **Review policy** page, for **Name**, enter a name for the inline policy\. For example: **OpsCenter\-Access\-Full**\.
-
-1. Choose **Create policy**\.
+  Create a role for identity federation\. Follow the instructions in [Creating a role for a third\-party identity provider \(federation\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*\.
++ IAM users:
+  + Create a role that your user can assume\. Follow the instructions in [Creating a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*\.
+  + \(Not recommended\) Attach a policy directly to a user or add a user to a user group\. Follow the instructions in [Adding permissions to a user \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*\.
 
 ### Restricting access to OpsItems by using tags<a name="OpsCenter-getting-started-user-permissions-tags"></a>
 

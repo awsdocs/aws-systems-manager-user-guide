@@ -114,7 +114,7 @@ The following procedure describes how to use the Systems Manager console to run 
 
 **Before you begin**  
 Before you complete the following procedure, note the following information:
-+ The IAM user or role you use to run a multi\-Region or multi\-account automation must have the `iam:PassRole` permission for the `AWS-SystemsManager-AutomationAdministrationRole` role\.
++ The user or role you use to run a multi\-Region or multi\-account automation must have the `iam:PassRole` permission for the `AWS-SystemsManager-AutomationAdministrationRole` role\.
 + AWS account IDs or OUs where you want to run the automation\.
 + [Regions supported by Systems Manager](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) where you want to run the automation\.
 + The tag key and the tag value, or the name of the resource group, where you want to run the automation\.

@@ -167,10 +167,10 @@ Required: No
 
 Approvers  
 A list of AWS authenticated principals who are able to either approve or reject the action\. The maximum number of approvers is 10\. You can specify principals by using any of the following formats:  
-+ An AWS Identity and Access Management \(IAM\) user name
-+ An IAM user ARN
++ A user name
++ A user ARN
 + An IAM role ARN
-+ An IAM assume role user ARN
++ An IAM assume role ARN
 Type: StringList  
 Required: Yes
 

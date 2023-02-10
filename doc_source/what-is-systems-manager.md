@@ -10,7 +10,7 @@ The following diagram describes how some Systems Manager capabilities perform ac
 
 1. **Choose a Systems Manager capability** – Determine which capability can help you perform the action you want to perform on your resources\. The diagram shows only a few of the capabilities that IT administrators and DevOps personnel use to manage their applications and resources\.
 
-1. **Verification and processing** – Systems Manager verifies that your AWS Identity and Access Management \(IAM\) user, group, or role has permission to perform the action you specified\. If the target of your action is a managed node, the Systems Manager Agent \(SSM Agent\) running on the node performs the action\. For other types of resources, Systems Manager performs the specified action or communicates with other AWS services to perform the action on behalf of Systems Manager\.
+1. **Verification and processing** – Systems Manager verifies that your user, group, or role has the required AWS Identity and Access Management \(IAM\) permissions to perform the action you specified\. If the target of your action is a managed node, the Systems Manager Agent \(SSM Agent\) running on the node performs the action\. For other types of resources, Systems Manager performs the specified action or communicates with other AWS services to perform the action on behalf of Systems Manager\.
 
 1. **Reporting** – Systems Manager, SSM Agent, and other AWS services that performed an action on behalf of Systems Manager report status\. Systems Manager can send status details to other AWS services, if configured\.
 
@@ -185,7 +185,7 @@ AWS provides two sets of command line tools: the [AWS Command Line Interface](ht
 On your Windows Server instances, Windows PowerShell 3\.0 or later is required to run certain SSM documents \(for example, the legacy `AWS-ApplyPatchBaseline` document\)\. Verify that your Windows Server instances are running Windows Management Framework 3\.0 or later\. The framework includes Windows PowerShell\.
 
 **AWS SDKs**  
-AWS provides software development kits \(SDKs\) that consist of libraries and sample code for various programming languages and platforms \(for example, [Java](http://aws.amazon.com/sdk-for-java/), [Python](http://aws.amazon.com/sdk-for-python/), [Ruby](http://aws.amazon.com/sdk-for-ruby/), [\.NET](http://aws.amazon.com/sdk-for-net/), [iOS and Android](http://aws.amazon.com/mobile/resources/), and [others](http://aws.amazon.com/tools/#sdk)\)\. The SDKs provide a convenient way to create programmatic access to Systems Manager\. For information about the AWS SDKs, including how to download and install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/#sdk)\.
+AWS provides software development kits \(SDKs\) that consist of libraries and sample code for various programming languages and platforms \(for example, [Java](http://aws.amazon.com/sdk-for-java/), [Python](http://aws.amazon.com/sdk-for-python/), [Ruby](http://aws.amazon.com/sdk-for-ruby/), [\.NET](http://aws.amazon.com/sdk-for-net/), [iOS and Android](http://aws.amazon.com/mobile/resources/), and [others](http://aws.amazon.com/tools/#sdk)\)\. The SDKs provide a convenient way to grant programmatic access to Systems Manager\. For information about the AWS SDKs, including how to download and install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/#sdk)\.
 
 ## Systems Manager service name history<a name="service-naming-history"></a>
 

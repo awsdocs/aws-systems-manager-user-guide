@@ -18,10 +18,11 @@ For an ongoing record of events in your AWS account, including events for System
 
 Most Systems Manager API operations are logged by CloudTrail and are documented in the [https://docs.aws.amazon.com/systems-manager/latest/APIReference/](https://docs.aws.amazon.com/systems-manager/latest/APIReference/)\. For example, calls to the `CreateMaintenanceWindows`, `PutInventory`, `SendCommand`, and `StartSession` actions generate entries in the CloudTrail log files\. For an example of setting up CloudTrail to monitor a Systems Manager API call, see [Monitoring session activity using Amazon EventBridge \(console\) ](session-manager-auditing.md#session-manager-auditing-eventbridge-events)\.
 
-Every event or log entry contains information about who generated the request\. The identity information helps you determine the following: 
-+ Whether the request was made with AWS account root user credentials or IAM user credentials\.
-+ Whether the request was made with temporary security credentials for a role or federated user\.
-+ Whether the request was made by another AWS service\.
+Every event or log entry contains information that helps you determine who made the request\.
++ AWS account root user
++ Temporary security credentials from an AWS Identity and Access Management \(IAM\) role or federated user\.
++ Long\-term security credentials from an IAM user\.
++ Another AWS service\.
 
 For more information, see the [CloudTrail userIdentity Element](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html)\.
 

@@ -3,7 +3,7 @@
 Invokes the specified Automation webhook integration\. For information about creating Automation integrations, see [Creating webhook integrations for Automation](creating-webhook-integrations.md)\.
 
 **Note**  
-To use the `aws:invokeWebhook` action, your AWS Identity and Access Management \(IAM\) user or service role must allow the following actions:  
+To use the `aws:invokeWebhook` action, your user or service role must allow the following actions:  
 ssm:GetParameter
 kms:Decrypt
 Permission for the AWS Key Management Service \(AWS KMS\) `Decrypt` operation is only required if you use a customer managed key to encrypt the parameter for your integration\.

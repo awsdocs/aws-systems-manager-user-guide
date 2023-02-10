@@ -90,13 +90,13 @@ You can change the Parameter Store default tier setting at any time\.
 ### Configuring permissions to specify a Parameter Store default tier<a name="parameter-store-tier-permissions"></a>
 
 Verify that you have permission in AWS Identity and Access Management \(IAM\) to change the default parameter tier in Parameter Store by doing one of the following:
-+ Make sure that you attach the `AdministratorAccess` policy to your IAM user, group, or role\.
++ Make sure that you attach the `AdministratorAccess` policy to your IAM entity \(such as user, group, or role\)\.
 + Make sure that you have permission to change the default tier setting by using the following API operations:
   + [GetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html)
   + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
   + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)
 
-Use the following procedure to add an inline IAM policy to a user account\. This policy allows a user to view and change the default tier setting for parameters in a specific AWS Region in an AWS account\. 
+Use the following procedure to add an inline IAM policy to a user\. This policy allows a user to view and change the default tier setting for parameters in a specific AWS Region in an AWS account\. 
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -142,7 +142,7 @@ Use the following procedure to add an inline IAM policy to a user account\. This
 
 1. Choose **Create policy**\.
 
-Administrators can specify read\-only permission by assigning the following inline policy to the user's account\.
+Administrators can specify read\-only permission by assigning the following inline policy to the user\.
 
 ```
 {

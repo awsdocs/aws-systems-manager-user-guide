@@ -232,28 +232,27 @@ When a change request invokes other AWS services by using the Change Manager ass
 
 ## Task 5: Configuring user access to Change Manager<a name="change-manager-passrole"></a>
 
-If your IAM user account, group, or role is assigned administrator permissions, then you have access to Change Manager\. If you don't have administrator permissions, then an administrator must assign the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\.
+If your user, group, or role is assigned administrator permissions, then you have access to Change Manager\. If you don't have administrator permissions, then an administrator must assign the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your user, group, or role\.
 
-Use the following procedure to configure a user account to use Change Manager\. The user account you choose will have permission to configure and run Change Manager\. If you need to create a new user account, see [Creating an IAM user in your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
+Use the following procedure to configure a user to use Change Manager\. The user you choose will have permission to configure and run Change Manager\. 
 
-**To configure user access and attach the `iam:PassRole` policy to a user account**
+Depending on the identity application that you are using in your organization, you can select any of the three options available to configure user access\. While configuring the user access, assign or add the following: 
 
-1. In the IAM navigation pane, choose **Users**, and then choose the user account you want to configure\.
+1. Assign the `AmazonSSMFullAccess` policy or a comparable policy that gives permission to access Systems Manager\.
 
-1. On the **Permissions** tab, in the policies list, verify that either the **AmazonSSMFullAccess** policy or a comparable policy that gives the account permissions to access Systems Manager is listed\.
+1. Assign the `iam:PassRole` policy\.
 
-1. Choose **Add inline policy**\.
+1. Add the ARN for the Change Manager assume role you copied at the end of [Task 2: Creating an assume role for Change Manager](#change-manager-role)\.
 
-1. On the **Create policy** page, on the **Visual editor** tab, choose **Choose a service**\.
+To provide access, add permissions to your users, groups, or roles:
++ Users and groups in AWS IAM Identity Center \(successor to AWS Single Sign\-On\):
 
-1. From **AWS Services**, choose **IAM**\.
+  Create a permission set\. Follow the instructions in [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
++ Users managed in IAM through an identity provider:
 
-1. For **Actions**, enter **PassRole** for the **Filter actions** prompt, and choose **PassRole**\.
-
-1. Expand the **Resources** section, choose **Add ARN**, paste the ARN for the Change Manager assume role you copied at the end of [Task 2: Creating an assume role for Change Manager](#change-manager-role), and then choose **Add**\.
-
-1. Choose **Review policy**\.
-
-1. For **Name**, enter a name to identify the policy, and then choose **Create policy**\.
+  Create a role for identity federation\. Follow the instructions in [Creating a role for a third\-party identity provider \(federation\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*\.
++ IAM users:
+  + Create a role that your user can assume\. Follow the instructions in [Creating a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*\.
+  + \(Not recommended\) Attach a policy directly to a user or add a user to a user group\. Follow the instructions in [Adding permissions to a user \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*\.
 
 You have finished configuring the required roles for Change Manager\. You can now use the Change Manager assume role ARN in your Change Manager operations\.

@@ -6,7 +6,7 @@ You can also download a directory that includes multiple scripts\. When you run 
 
 Note the following important details about running scripts from Amazon S3:
 + Systems Manager doesn't verify that your script is capable of running on an node\. Before you download and run the script, verify that the required software is installed on the node\. Or, you can create a composite document that installs the software by using either Run Command or State Manager, capabilities of AWS Systems Manager, and then downloads and runs the script\.
-+ Verify that your AWS Identity and Access Management \(IAM\) user account, role, or group has permission to read from the S3 bucket\.
++ Verify that your user, role, or group has been granted the AWS Identity and Access Management \(IAM\) permissions needed to read from the S3 bucket\.
 + Ensure that the instance profile on your Amazon Elastic Compute Cloud \(Amazon EC2\) instances has `s3:ListBucket` and `s3:GetObject` permissions\. If the instance profile doesn't have these permissions, the system fails to download your script from the S3 bucket\. For more information, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *IAM User Guide*\. 
 
 ## Run shell scripts from Amazon S3<a name="integration-s3-shell"></a>
@@ -68,7 +68,7 @@ If you selected targets by specifying tags applied to managed nodes or by specif
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Write command output to an S3 bucket** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile \(for EC2 instances\) or IAM service role \(on\-premises machines\) assigned to the instance, not those of the IAM user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) or [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. In addition, if the specified S3 bucket is in a different AWS account, make sure that the instance profile or IAM service role associated with the managed node has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile \(for EC2 instances\) or IAM service role \(on\-premises machines\) assigned to the instance, nor those of the user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) or [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. In addition, if the specified S3 bucket is in a different AWS account, make sure that the instance profile or IAM service role associated with the managed node has the necessary permissions to write to that bucket\.
 
 1. In the **SNS notifications** section, if you want notifications sent about the status of the command execution, select the **Enable SNS notifications** check box\.
 

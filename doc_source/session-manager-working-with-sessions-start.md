@@ -45,7 +45,7 @@ After the connection is made, you can run bash commands \(Linux and macOS\) or P
 You can use the Amazon Elastic Compute Cloud \(Amazon EC2\) console to start a session with an instance in your account\.
 
 **Note**  
-If you receive an error that you aren't authorized to perform one or more Systems Manager actions \(`ssm:command-name`, then you must contact your administrator for assistance\. Your administrator is the person that provided you with your user name and password\. Ask that person to update your policies to allow you to start sessions from the Amazon EC2 console\. If you're an administrator, see [Quickstart default IAM policies for Session Manager](getting-started-restrict-access-quickstart.md) for more information\.
+If you receive an error that you aren't authorized to perform one or more Systems Manager actions \(`ssm:command-name`, then you must contact your administrator for assistance\. Your administrator is the person that provided you with your sign\-in credentials\. Ask that person to update your policies to allow you to start sessions from the Amazon EC2 console\. If you're an administrator, see [Quickstart default IAM policies for Session Manager](getting-started-restrict-access-quickstart.md) for more information\.
 
 **To start a session \(Amazon EC2 console\)**
 

@@ -8,15 +8,15 @@ Follow these steps to embed Session Manager permissions in an existing AWS Ident
 
 1. In the navigation pane, choose **Roles**\.
 
-1. Choose the name of the role to embed a policy in\.
+1. Select the name of the role that you are adding the permissions to\.
 
 1. Choose the **Permissions** tab\.
 
-1. Choose **Add inline policy**\. The link is located on the right side of the page\.
+1. Choose **Add permissions**, and then select **Create inline policy**\.
 
 1. Choose the **JSON** tab\.
 
-1. Replace the default content with the following policy\. Replace *key\-name* with the Amazon Resource Name \(ARN\) of the KMS key you want to use\.
+1. Replace the default policy content with the following content\. Replace *key\-name* with the Amazon Resource Name \(ARN\) of the AWS Key Management Service key \(AWS KMS key\) that you want to use\.
 
    ```
    {

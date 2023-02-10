@@ -19,7 +19,7 @@ Change Manager complements the safety controls of your [continuous integration](
 
 When the need for a standard or emergency operational change is identified, someone in the organization creates a change request that is based on one of the change templates created for use in your organization or account\.
 
-If the requested change requires manual approvals, Change Manager notifies the designated approvers through an Amazon SNS notification that a change request is ready for their review\. You can designate approvers for change requests in the change template, or let users designate approvers the change request itself\. You can assign different reviewers to different templates\. For example, assign one user, user group, or AWS Identity and Access Management \(IAM\) role who must approve requests for changes to managed nodes, and another user, group, or IAM role for database changes\. If the change template allows auto\-approvals, and a requester's IAM user policy doesn't prohibit it, the user can also choose to run the Automation runbook for their request without a review step \(with the exception of change freeze events\)\.
+If the requested change requires manual approvals, Change Manager notifies the designated approvers through an Amazon SNS notification that a change request is ready for their review\. You can designate approvers for change requests in the change template, or let users designate approvers the change request itself\. You can assign different reviewers to different templates\. For example, assign one user, user group, or AWS Identity and Access Management \(IAM\) role who must approve requests for changes to managed nodes, and another user, group, or IAM role for database changes\. If the change template allows auto\-approvals, and a requester's user policy doesn't prohibit it, the user can also choose to run the Automation runbook for their request without a review step \(with the exception of change freeze events\)\.
 
 For each change template, you can add up to five levels of approvers\. For example, you might require technical reviewers to approve a change request created from a change template first, and then require a second level of approvals from one or more managers\.
 
@@ -96,7 +96,7 @@ Primary features of Change Manager include the following:
   By creating an event data store in AWS CloudTrail Lake, you can view auditable information about the changes made by change requests that run in your account or organization\. The event information stored includes such details as the following:
   + The API actions that were run
   + Tthe request parameters included for those actions
-  + The user account that ran the action
+  + The user that ran the action
   + The resources that were updated during the process
 + **Integration with AWS Organizations**
 

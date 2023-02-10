@@ -8,7 +8,7 @@ To use a runbook, Systems Manager must use the permissions of an AWS Identity an
 
 For runbooks that don't use `aws:executeScript`, Automation uses one of two sources of permissions:
 + The permissions of an IAM service role, or Assume role, that is specified in the runbook or passed in as a parameter\.
-+ If no IAM service role is specified, the permissions of the IAM user who started the automation\. 
++ If no IAM service role is specified, the permissions of the user who started the automation\. 
 
 When a step in a runbook includes the `aws:executeScript` action, however, an IAM service role \(Assume role\) is always required if the Python or PowerShell script specified for the action is calling any AWS API operations\. Automation checks for this role in the following order:
 + The permissions of an IAM service role, or Assume role, that is specified in the runbook or passed in as a parameter\.

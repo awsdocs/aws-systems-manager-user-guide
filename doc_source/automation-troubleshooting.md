@@ -30,13 +30,13 @@ The following examples describe situations when an automation failed to start wi
 
 **Access Denied to Systems Manager API**  
 **Error message**: `User: user arn isn't authorized to perform: ssm:StartAutomationExecution on resource: document arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
-+ Possible cause 1: The IAM user attempting to start the automation doesn't have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user account that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-setup-iam.md#configure-user-access)\. 
-+ Possible cause 2: The IAM user attempting to start the automation has permission to invoke the `StartAutomationExecution` API but doesn't have permission to invoke the API by using the specific runbook\. To resolve this issue, attach the required IAM policy to the user account that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-setup-iam.md#configure-user-access)\.
++ Possible cause 1: The user attempting to start the automation doesn't have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-setup-iam.md#configure-user-access)\. 
++ Possible cause 2: The user attempting to start the automation has permission to invoke the `StartAutomationExecution` API but doesn't have permission to invoke the API by using the specific runbook\. To resolve this issue, attach the required IAM policy to the user that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-setup-iam.md#configure-user-access)\.
 
 **Access Denied Because of Missing PassRole Permissions**  
 **Error message**: `User: user arn isn't authorized to perform: iam:PassRole on resource: automation assume role arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
 
-The IAM user attempting to start the automation doesn't have PassRole permission for the assume role\. To resolve this issue, attach the iam:PassRole policy to the role of the IAM user attempting to start the automation\. For more information, see [Task 2: Attach the iam:PassRole policy to your Automation role](automation-setup-iam.md#attach-passrole-policy)\.
+The user attempting to start the automation doesn't have PassRole permission for the assume role\. To resolve this issue, attach the iam:PassRole policy to the role of the user attempting to start the automation\. For more information, see [Task 2: Attach the iam:PassRole policy to your Automation role](automation-setup-iam.md#attach-passrole-policy)\.
 
 ### Invalid assume role<a name="automation-trbl-ar"></a>
 

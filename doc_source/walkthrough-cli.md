@@ -179,9 +179,9 @@ aws ssm list-command-invocations ^
 
 ------
 
-**Identify user account**
+**Identify user**
 
-The following command displays the default user account running the commands\. 
+The following command displays the default user running the commands\. 
 
 ------
 #### [ Linux & macOS ]

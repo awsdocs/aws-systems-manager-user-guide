@@ -1,6 +1,6 @@
 # About approvals in your change templates<a name="cm-approvals-templates"></a>
 
-For each change template that you create, you can specify up to five approval *levels* for change requests created from it\. For each of those levels, you can designate up to five potential *approvers*\. An approver isn't limited to a single AWS Identity and Access Management \(IAM\) user\. You can also specify an IAM group or IAM role as an individual approver\. For IAM groups and IAM roles, one or more users belonging to the group or role can provide approvals toward receiving the total number of approvals required for a change request\. You can also specify more approvers than your change template requires\.
+For each change template that you create, you can specify up to five approval *levels* for change requests created from it\. For each of those levels, you can designate up to five potential *approvers*\. An approver isn't limited to a single user\. You can also specify an IAM group or IAM role as an individual approver\. For IAM groups and IAM roles, one or more users belonging to the group or role can provide approvals toward receiving the total number of approvals required for a change request\. You can also specify more approvers than your change template requires\.
 
 Change Manager supports two main approaches to approvals: *per\-level approvals* and *per\-line approvals*\. A combination of the two types is also possible in some situations\. We recommend using only per\-level approvals in your Change Manager operations\.
 

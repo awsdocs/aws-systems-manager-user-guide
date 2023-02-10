@@ -1,6 +1,6 @@
 # Searching for SSM documents<a name="ssm-documents-searching"></a>
 
-You can search the AWS Systems Manager \(SSM\) document store for SSM documents by using either free text search or a filter\-based search\. This section describes how to use both capabilities to find an SSM document\. 
+You can search the AWS Systems Manager \(SSM\) document store for SSM documents by using either free text search or a filter\-based search\. You can also favorite documents to help you find frequently used SSM documents\. The following sections describes how to use these features\.
 
 ## Using free text search<a name="ssm-documents-searching-free-text"></a>
 
@@ -81,3 +81,43 @@ If you apply multiple filters, Systems Manager creates different search statemen
 
 **Note**  
 Searches that use filters are case sensitive\. 
+
+## Adding documents to your favorites<a name="favorite-documents"></a>
+
+To help you find frequently used SSM documents, add documents to your favorites\. You can favorite up to 20 documents per document type, per AWS account and AWS Region\. You can choose, modify, and view your favorites from the documents AWS Management Console\. The following procedures describe how to choose, modify, and view your favorites\.
+
+**To favorite an SSM document**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Documents**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
+
+1. Select the star icon next to the document name you want to favorite\.
+
+**To remove an SSM document from your favorites**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Documents**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
+
+1. Deselect the star icon next to the document name you want to remove from your favorites\.
+
+**To view your favorites from the documents AWS Management Console**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **Documents**\.
+
+   \-or\-
+
+   If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Documents** in the navigation pane\.
+
+1. Select the **Favorites** tab\.

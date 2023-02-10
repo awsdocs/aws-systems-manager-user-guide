@@ -11,9 +11,8 @@ Be sure to follow Jenkins security best practices when configuring your instance
 Complete the following tasks before you configure Automation with Jenkins:
 + Complete the [Update a golden AMI using Automation, AWS Lambda, and Parameter Store](automation-tutorial-update-patch-golden-ami.md) example\. The following example uses the **UpdateMyLatestWindowsAmi** runbook created in that example\.
 + Configure IAM roles for Automation\. Systems Manager requires an instance profile role and a service role ARN to process automations\. For more information, see [Setting up Automation](automation-setup.md)\.
-+ After you configure IAM roles for Automation, use the following procedure to create an IAM user account for your Jenkins server\. The automation uses the IAM user account's Access key and Secret key to authenticate the Jenkins server during the automation\.
 
-**To create a user account for the Jenkins server**
+**To create an IAM policy for the Jenkins server**
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
@@ -45,27 +44,15 @@ Complete the following tasks before you configure Automation with Jenkins:
 
 1. Choose **Create policy**\.
 
-1. In the navigation pane, choose **Users**\.
+1. In the navigation pane, choose **Roles**\.
 
-1. Choose **Add user**\.
+1. Choose the instance profile that's attached to your Jenkins server\.
 
-1. In the **Set user details** section, specify a user name \(for example, *Jenkins*\)\.
+1. In the **Permissions** tab, select **Add permissions** and choose **Attach policies**\.
 
-1. In the **Select AWS access type** section, choose **Programmatic Access**\.
+1. In the **Other permissions policies** section, enter the name of policy you created in the previous steps\. For example, **JenkinsPolicy**\.
 
-1. Choose **Next:Permissions**\.
-
-1. In the **Set permissions for** section, choose **Attach existing policies directly**\.
-
-1. In the filter field, enter the name of the policy you created earlier\.
-
-1. Select the check box next to the policy, and then choose **Next: Tags**\.
-
-1. \(Optional\) Add one or more tag key\-value pairs to organize, track, or control access for this user, and then choose **Next: Review**\.
-
-1. Verify the details, and then choose **Create**\.
-
-1. Copy the access and secret keys to a text file\. You will specify these credentials in the next procedure\.
+1. Select the check box next to your policy, and choose **Attach policies**\.
 
 Use the following procedure to configure the AWS CLI on your Jenkins server\.
 
@@ -91,11 +78,11 @@ Use the following procedure to configure the AWS CLI on your Jenkins server\.
 
 1. When the installation completes, select **Go back to the top page**\.
 
-1. Choose **Manage Jenkins**, and then choose **Configure System**\.
+1. Choose **Manage Jenkins**, and then choose **Manage nodes and clouds**\.
 
-1. In the **Cloud** section, select **Add a new cloud**, and then choose **Amazon EC2**\.
+1. In the **Configure Clouds** section, select **Add a new cloud**, and then choose **Amazon EC2**\.
 
-1. Enter your information in the remaining fields\. You must enter your AWS credentials in the **Add Credentials** field\.
+1. Enter your information in the remaining fields\. Make sure you select the **Use EC2 instance profile to obtain credentials** option\.
 
 Use the following procedure to configure your Jenkins project to invoke Automation\.
 

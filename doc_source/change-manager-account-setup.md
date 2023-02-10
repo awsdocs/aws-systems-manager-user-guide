@@ -17,7 +17,7 @@ Perform the task in this procedure the first time you access Change Manager\. Yo
 
 1. Sign in to the AWS Management Console\.
 
-   If you're using Change Manager for an organization, sign in using your credentials for your delegated administrator account\. The user account you use must have the necessary AWS Identity and Access Management \(IAM\) permissions for making updates to your Change Manager settings\.
+   If you're using Change Manager for an organization, sign in using your credentials for your delegated administrator account\. The user must have the necessary AWS Identity and Access Management \(IAM\) permissions for making updates to your Change Manager settings\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -36,7 +36,7 @@ Perform the task in this procedure the first time you access Change Manager\. Yo
      Choose **Create sample change request**, **Skip**, and then choose the **Settings** tab\.
 
 1. For **User identity management**, choose one of the following\.
-   + **AWS Identity and Access Management \(IAM\)** – Identify the users who make and approve requests and perform other action in Change Manager by using your existing IAM user accounts, groups, and roles\.
+   + **AWS Identity and Access Management \(IAM\)** – Identify the users who make and approve requests and perform other actions in Change Manager by using your existing user, groups, and roles\.
    + **AWS IAM Identity Center \(successor to AWS Single Sign\-On\) \(IAM Identity Center\)** – Allow [IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/) to create and manage identities, or connect to your existing identity source to identify the users who perform actions in Change Manager\.
 
 1. In the **Template reviewer notification** section, specify the Amazon Simple Notification Service \(Amazon SNS\) topics to use to notify template reviewers that a new change template or change template version is ready for review\. Ensure that the Amazon SNS topic you choose is configured to send notifications to your template reviewers\. 

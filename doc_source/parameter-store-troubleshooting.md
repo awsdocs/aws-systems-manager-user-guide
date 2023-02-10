@@ -11,7 +11,7 @@ Use the following information to help troubleshoot problems with creating `aws:e
 **Problem**: You ran a command to create an `aws:ec2:image` parameter, but parameter creation failed\. You receive a notification from Amazon EventBridge that reports the exception "Unable to Describe Resource"\. 
 
 **Solution**: This message can indicate the following: 
-+ You don't have the AWS Identity and Access Management \(IAM\) permission for the `ec2:DescribeImages` API operation, or you lack permission to access the specific image referenced in the parameter\. Contact an IAM user with administrator permissions in your organization to request the necessary permissions\.
++ You do not have all the permissions needed for the `ec2:DescribeImages` API operation, or you lack permission to access the specific image referenced in the parameter\. Contact a user with administrator permissions in your organization to request the necessary permissions\.
 + The Amazon Machine Image \(AMI\) ID you entered as a parameter value isn't valid\. Make sure you're entering the ID of an AMI that is available in the current AWS Region and account you're working in\.
 
 ### New `aws:ec2:image` parameter isn't available<a name="ps-ec2-aliases-2"></a>

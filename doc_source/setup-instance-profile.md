@@ -108,7 +108,7 @@ For information about the AWS managed S3 buckets you provide access to in the fo
 
    **4** The `GetEncryptionConfiguration` element is required if your S3 bucket is configured to use encryption\.
 
-   **5** If your S3 bucket is configured to use encryption, then the S3 bucket root \(for example, `arn:aws:s3:::DOC-EXAMPLE-BUCKET`\) must be listed in the **Resource** section\. Your IAM user, group, or role must be configured with access to the root bucket\.
+   **5** If your S3 bucket is configured to use encryption, then the S3 bucket root \(for example, `arn:aws:s3:::DOC-EXAMPLE-BUCKET`\) must be listed in the **Resource** section\. Your IAM entity \(user, role, or group\) must be configured with access to the root bucket\.
 
 1. If you're using a VPC endpoint in your operations, do the following: 
 

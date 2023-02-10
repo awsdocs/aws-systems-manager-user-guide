@@ -28,7 +28,7 @@ As one example, you might configure an instance to be managed by Systems Manager
 When you run a Systems Manager command on the instance, SSM Agent might try to use credentials different from the ones you expect it to use, such as from a credentials file instead of an instance profile\. This is because SSM Agent looks for credentials in the order prescribed for the *default credential provider chain*\.
 
 **Note**  
-On Linux and macOS, SSM Agent runs as the root user\. Therefore, the environment variables and credentials file that SSM Agent looks for in this process are those of the root user only \(`/root/.aws/credentials`\)\. SSM Agent doesn't look at the environment variables or credentials file of any other user accounts on the instance during the search for credentials\.
+On Linux and macOS, SSM Agent runs as the root user\. Therefore, the environment variables and credentials file that SSM Agent looks for in this process are those of the root user only \(`/root/.aws/credentials`\)\. SSM Agent doesn't look at the environment variables or credentials file of any other users on the instance during the search for credentials\.
 
 The default provider chain looks for credentials in the following order:
 
@@ -57,7 +57,7 @@ On Windows Server, SSM Agent handles setting a new password for the `ssm-user` a
 Starting with SSM Agent version 2\.3\.612\.0, the `ssm-user` account isn't created automatically on Windows Server machines that are being used as domain controllers\. To use Session Manager on a Windows Server domain controller, create the `ssm-user` account manually if it isn't already present, and assign Domain Administrator permissions to the user\.
 
 **Important**  
-In order for the ssm\-user account to be created, the instance profile attached to the instance must provide the necessary permissions\. For information, see [Verify or create an IAM role with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
+In order for the `ssm-user` account to be created, the instance profile attached to the instance must provide the necessary permissions\. For information, see [Verify or create an IAM role with Session Manager permissions](session-manager-getting-started-instance-profile.md)\.
 
 ## SSM Agent and the Instance Metadata Service \(IMDS\)<a name="imds"></a>
 

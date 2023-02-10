@@ -180,13 +180,13 @@ If you want the Automation service role to attach an IAM instance profile role t
 
 ## Task 3: Configure user access to Automation<a name="configure-user-access"></a>
 
-If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Systems Manager Automation\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\.
+If your user, group, or role is assigned administrator permissions, then you have access to Systems Manager Automation\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your user, group, or role\.
 
-Use the following procedure to configure a user account to use Automation\. The user account you choose will have permission to configure and run Automation\. If you need to create a new user account, see [Creating an IAM User in Your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
+Use the following procedure to configure a user to use Automation\. The user you choose will have permission to configure and run Automation\.
 
 **To configure user access and attach the iam:PassRole policy to a user account**
 
-1. In the IAM navigation pane, choose **Users**, and then choose the user account you want to configure\.
+1. In the IAM navigation pane, choose **Users**, and then choose the user you want to configure\.
 
 1. On the **Permissions** tab, in the policies list, verify that either the **AmazonSSMFullAccess** policy is listed or there is a comparable policy that gives the account permissions to access Systems Manager\.
 

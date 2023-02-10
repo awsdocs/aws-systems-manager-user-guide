@@ -3,7 +3,7 @@
 Increasing Parameter Store throughput increases the maximum number of transactions per second \(TPS\) that Parameter Store, a capability of AWS Systems Manager, can process\. Increased throughput allows you to operate Parameter Store at higher volumes to support applications and workloads that need concurrent access to multiple parameters\. You can increase the quota up to the max throughput on the **Settings** tab\. For more information about max throughput, see [AWS Systems Manager endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/ssm.html#limits_ssm)\. Increasing the throughput quota incurs a charge on your AWS account\. For more information, see [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\.
 
 **Note**  
-The Parameter Store throughput setting applies to all transactions created by all AWS Identity and Access Management \(IAM\) users in the current AWS account and AWS Region\. The throughput setting applies to standard and advanced parameters\. 
+The Parameter Store throughput setting applies to all transactions created by all IAM users in the current AWS account and AWS Region\. The throughput setting applies to standard and advanced parameters\. 
 
 **Topics**
 + [Configuring permissions to increase Parameter Store throughput](#parameter-store-throughput-permissions)
@@ -14,13 +14,13 @@ The Parameter Store throughput setting applies to all transactions created by al
 ## Configuring permissions to increase Parameter Store throughput<a name="parameter-store-throughput-permissions"></a>
 
 Verify that you have permission in IAM to increase Parameter Store throughput by doing one of the following:
-+ Make sure that the `AdministratorAccess` policy is attached to your IAM user, group, or role\.
++ Make sure that the `AdministratorAccess` policy is attached to your IAM entity \(user, group, or role\)\.
 + Make sure that you have permission to change the throughput service setting by using the following API operations:
   + [GetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html)
   + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
   + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)
 
-Use the following procedure to add an inline IAM policy to a user account\. This policy allows a user to view and change the parameter\-throughput setting for parameters in their account and Region\. 
+Use the following procedure to add an inline IAM policy to a user\. This policy allows a user to view and change the parameter\-throughput setting for parameters in their account and Region\. 
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 

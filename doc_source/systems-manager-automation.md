@@ -20,7 +20,7 @@ Automation offers these benefits:
   Administrators have a centralized place to grant and revoke access to runbooks\. Using only AWS Identity and Access Management \(IAM\) policies, you can control which individual users or groups in your organization can use Automation and which runbooks they can access\.
 +  **Automate common IT tasks** 
 
-  Automating common tasks can help improve operational efficiency, enforce organizational standards, and reduce operator errors\. For example, you can use the `AWS-UpdateCloudFormationStackWithApproval` runbook to update resources that were deployed by using an AWS CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more IAM users before the update begins\.
+  Automating common tasks can help improve operational efficiency, enforce organizational standards, and reduce operator errors\. For example, you can use the `AWS-UpdateCloudFormationStackWithApproval` runbook to update resources that were deployed by using an AWS CloudFormation template\. The update applies a new template\. You can configure the Automation to request approval by one or more users before the update begins\.
 +  **Safely perform disruptive tasks in bulk** 
 
   Automation includes features, like rate controls, that allow you to control the deployment of an automation across your fleet by specifying a concurrency value and an error threshold\. For more information about working with rate controls, see [Run automations at scale](running-automations-scale.md)\.

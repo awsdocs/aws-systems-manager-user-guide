@@ -13,7 +13,7 @@ Monitor command executions using Amazon CloudWatch Logs
 You can configure Run Command to periodically send all command output and error logs to an Amazon CloudWatch log group\. You can monitor these output logs in near real\-time, search for specific phrases, values, or patterns, and create alarms based on the search\. For more information, see [Configuring Amazon CloudWatch Logs for Run Command](sysman-rc-setting-up-cwlogs.md)\.
 
 Restrict Run Command access to specific managed nodes  
-You can restrict a user's ability to run commands on managed nodes by using AWS Identity and Access Management \(IAM\)\. Specifically, you can create an IAM user policy with a condition that the user can only run commands on managed nodes that are tagged with specific tags\. For more information, see [Restricting Run Command access based on tags](#tag-based-access)\.
+You can restrict a user's ability to run commands on managed nodes by using AWS Identity and Access Management \(IAM\)\. Specifically, you can create an IAM policy with a condition that the user can only run commands on managed nodes that are tagged with specific tags\. For more information, see [Restricting Run Command access based on tags](#tag-based-access)\.
 
 ## Restricting Run Command access based on tags<a name="tag-based-access"></a>
 
@@ -159,4 +159,4 @@ You can also create IAM policies that allows a user to run commands on multiple 
 }
 ```
 
-For more information about creating IAM user policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*\. For more information about tagging managed nodes, see [Tag Editor](https://docs.aws.amazon.com/ARG/latest/userguide/tag-editor.html) in the *AWS Resource Groups User Guide*\. 
+For more information about creating IAM policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*\. For more information about tagging managed nodes, see [Tag Editor](https://docs.aws.amazon.com/ARG/latest/userguide/tag-editor.html) in the *AWS Resource Groups User Guide*\. 

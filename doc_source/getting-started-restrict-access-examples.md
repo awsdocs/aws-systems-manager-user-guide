@@ -3,14 +3,14 @@
 Refer to the following example policies to help you create a custom AWS Identity and Access Management \(IAM\) policy for any Session Manager user access scenarios you want to support\.
 
 **Topics**
-+ [Example 1: Restrict access to specific managed nodes](#restrict-access-example-instances)
++ [Example 1: Restrict user access by node](#restrict-access-example-instances)
 + [Example 2: Restrict access based on tags](#restrict-access-example-instance-tags)
 + [Example 3: Allow a user to end only sessions they started](#restrict-access-example-user-sessions)
 + [Example 4: Allow full \(administrative\) access to all sessions](#restrict-access-example-full-access)
 
-## Example 1: Restrict access to specific managed nodes<a name="restrict-access-example-instances"></a>
+## Example 1: Restrict user access by node<a name="restrict-access-example-instances"></a>
 
-You can restrict access to specific managed nodes by creating an IAM user policy that includes the IDs of the nodes\. In the following example, the user is allowed Session Manager access to three specific managed nodes only, and allowed to end only their sessions on those nodes\. If the user sends a command to any other managed node or tries to end any other session, the command result will include `AccessDenied`\.
+You can create an IAM policy that defines which managed nodes that a user is allowed to connect to using Session Manager\. For example, the following policy grants a user the permission to start, end, and resume their sessions on three specific nodes\. The policy restricts the user from connecting to nodes other than those specified\.
 
 ```
 {
@@ -106,7 +106,7 @@ You can create IAM policies that allow a user to start sessions to managed nodes
 }
 ```
 
-For more information about creating IAM user policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*\. For more information about tagging managed nodes, see [Tagging managed nodes](tagging-managed-instances.md) and [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances* \(content applies to Windows and Linux managed nodes\)\. For more information about increasing your security posture against unauthorized root\-level commands on your managed nodes, see [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
+For more information about creating IAM policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*\. For more information about tagging managed nodes, see [Tagging managed nodes](tagging-managed-instances.md) and [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances* \(content applies to Windows and Linux managed nodes\)\. For more information about increasing your security posture against unauthorized root\-level commands on your managed nodes, see [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 
 ## Example 3: Allow a user to end only sessions they started<a name="restrict-access-example-user-sessions"></a>
 
@@ -149,7 +149,7 @@ This method doesn't work for accounts that grant access to AWS using federated I
 
 ### Method 2: Grant TerminateSession privileges using tags supplied by AWS<a name="restrict-access-example-user-sessions-tags"></a>
 
-You can control which sessions a user can end by using a condition with specific tag key variables in an IAM user policy\. The condition specifies that the user can only end sessions that are tagged with one or both of these specific tag key variables and a specified value\.
+You can control which sessions that a user can end by including conditional tag key variables in an IAM policy\. The condition specifies that the user can only end sessions that are tagged with one or both of these specific tag key variables and a specified value\.
 
 When a user in your AWS account starts a session, Session Manager applies two resource tags to the session\. The first resource tag is `aws:ssmmessages:target-id`, with which you specify the ID of the target the user is allowed to end\. The other resource tag is `aws:ssmmessages:session-id`, with a value in the format of `role-id:caller-specified-role-name`\.
 

@@ -14,23 +14,23 @@ Also, be aware that the **Detailed View** page displays inventory data for the *
 
 ## Configuring access<a name="systems-manager-inventory-query-iam"></a>
 
-Before you can query and view data from multiple accounts and Regions on the **Detailed View** page in the Systems Manager console, you must configure your AWS Identity and Access Management \(IAM\) user account with permission to view the data\.
+Before you can query and view data from multiple accounts and Regions on the **Detailed View** page in the Systems Manager console, you must configure your IAM user with permission to view the data\.
 
-Optionally, if the inventory data is stored in an Amazon S3 bucket that uses AWS Key Management Service \(AWS KMS\) encryption, you must also configure your IAM account and the `Amazon-GlueServiceRoleForSSM` service role for AWS KMS encryption\. If you don't configure your IAM account and this role, Systems Manager displays Cannot load Glue tables when you choose the **Detailed View** tab in the console\.
+Optionally, if the inventory data is stored in an Amazon S3 bucket that uses AWS Key Management Service \(AWS KMS\) encryption, you must also configure your IAM user and the `Amazon-GlueServiceRoleForSSM` service role for AWS KMS encryption\. If you don't configure your IAM user and this role, Systems Manager displays Cannot load Glue tables when you choose the **Detailed View** tab in the console\.
 
 **Topics**
-+ [Configuring your IAM user account to access the Detailed View page](#systems-manager-inventory-query-iam-user)
++ [Configuring your IAM user to access the Detailed View page](#systems-manager-inventory-query-iam-user)
 + [\(Optional\) Configure permissions for viewing AWS KMS encrypted data](#systems-manager-inventory-query-kms)
 
-### Configuring your IAM user account to access the Detailed View page<a name="systems-manager-inventory-query-iam-user"></a>
+### Configuring your IAM user to access the Detailed View page<a name="systems-manager-inventory-query-iam-user"></a>
 
-The following procedure describes how to use the IAM console to configure your IAM user account so that you can view inventory data on the **Detailed View** page\. 
+The following procedure describes how to use the IAM console to configure your IAM user so that you can view inventory data on the **Detailed View** page\. 
 
-**To configure IAM user account access to the **Detailed View** page**
+**To configure IAM user access to the **Detailed View** page**
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Users**, and then choose the user account you want to configure\. The **Summary** page opens\.
+1. In the navigation pane, choose **Users**, and then choose the user you want to configure\. The **Summary** page opens\.
 
 1. On the **Permissions** tab, choose **Add permissions**\.
 
@@ -119,14 +119,14 @@ If you paste this block after the last block in the policy, be sure to separate 
 When you choose a resource data sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServiceRoleForSSM** role\. This role allows AWS Glue to access the Amazon S3 bucket for resource data sync\. Systems Manager automatically attaches the following policies to the role:  
 **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}**: This policy allows communication between AWS Glue and Systems Manager Inventory\.
 **AWSGlueServiceRole**: This is an AWS managed policy that allows access to AWS Glue\.
-If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user account, and this policy isn't attached to the **Amazon\-GlueServiceRoleForSSM** role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
+If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user, and this policy isn't attached to the **Amazon\-GlueServiceRoleForSSM **role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
 
 ### \(Optional\) Configure permissions for viewing AWS KMS encrypted data<a name="systems-manager-inventory-query-kms"></a>
 
-If the Amazon S3 bucket used to store inventory data is encrypted by using the AWS Key Management Service \(AWS KMS\), you must configure your IAM user account and the **Amazon\-GlueServiceRoleForSSM** role with `kms:Decrypt` permissions for the AWS KMS key\. If you don't configure your IAM account and this role, Systems Manager displays Cannot load Glue tables when you choose the **Detailed View** tab in the console\.
+If the Amazon S3 bucket used to store inventory data is encrypted by using the AWS Key Management Service \(AWS KMS\), you must configure your IAM user and the **Amazon\-GlueServiceRoleForSSM** role with `kms:Decrypt` permissions for the AWS KMS key\. If you don't configure your IAM user and this role, Systems Manager displays Cannot load Glue tables when you choose the **Detailed View** tab in the console\.
 
 **Before you begin**  
-To configure your IAM user account with `kms:Decrypt` permissions for the AWS KMS key, you add the following policy block to your IAM account as an inline policy, as described in the previous procedure \([Configuring your IAM user account to access the Detailed View page](#systems-manager-inventory-query-iam-user)\)\.
+To configure your IAM user with `kms:Decrypt` permissions for the AWS KMS key, you add the following policy block to your IAM user as an inline policy, as described in the previous procedure \([Configuring your IAM user to access the Detailed View page](#systems-manager-inventory-query-iam-user)\)\.
 
 ```
 {

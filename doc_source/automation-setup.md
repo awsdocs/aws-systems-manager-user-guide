@@ -6,10 +6,10 @@ To ensure proper access to AWS Systems Manager Automation, review the following 
 
 ## Verifying user access for runbooks<a name="automation-setup-user-access"></a>
 
-Verify that you have permission to use runbooks\. If your AWS Identity and Access Management \(IAM\) user account, group, or role is assigned administrator permissions, then you have access to Systems Manager Automation\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\.
+Verify that you have permission to use runbooks\. If your user, group, or role is assigned administrator permissions, then you have access to Systems Manager Automation\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your user, group, or role\.
 
 **Important**  
-The IAM policy `AmazonSSMFullAccess` grants permissions to Systems Manager actions\. However, some runbooks require permissions to other services, such as the runbook `AWS-ReleaseElasticIP`, which requires IAM permissions for `ec2:ReleaseAddress`\. Therefore, you must review the actions taken in a runbook to ensure your IAM user account, group, or role is assigned the necessary permissions to perform the actions included in the runbook\.
+The IAM policy `AmazonSSMFullAccess` grants permissions to Systems Manager actions\. However, some runbooks require permissions to other services, such as the runbook `AWS-ReleaseElasticIP`, which requires IAM permissions for `ec2:ReleaseAddress`\. Therefore, you must review the actions taken in a runbook to ensure your user, group, or role is assigned the necessary permissions to perform the actions included in the runbook\.
 
 ## Configuring a service role \(assume role\) access for automations<a name="automation-setup-configure-role"></a>
 

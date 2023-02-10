@@ -2,7 +2,7 @@
 
 Runs a secondary automation by calling a secondary runbook\. With this action, you can create runbooks for your most common operations, and reference those runbooks during an automation\. This action can simplify your runbooks by removing the need to duplicate steps across similar runbooks\.
 
-The secondary automation runs in the context of the user who initiated the primary automation\. This means that the secondary automation uses the same AWS Identity and Access Management \(IAM\) role or user account as the user who started the first automation\.
+The secondary automation runs in the context of the user who initiated the primary automation\. This means that the secondary automation uses the same AWS Identity and Access Management \(IAM\) role or user as the user who started the first automation\.
 
 **Important**  
 If you specify parameters in a secondary automation that use an assume role \(a role that uses the iam:passRole policy\), then the user or role that initiated the primary automation must have permission to pass the assume role specified in the secondary automation\. For more information about setting up an assume role for Automation, see [Method 2: Use IAM to configure roles for Automation](automation-setup-iam.md)\.

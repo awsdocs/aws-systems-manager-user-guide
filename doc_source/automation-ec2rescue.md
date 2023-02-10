@@ -34,7 +34,7 @@ EC2Rescue needs permission to perform a series of actions on your instances duri
 
 #### Granting permissions by using IAM policies<a name="automation-ec2rescue-access-iam"></a>
 
-You can either attach the following IAM policy to your IAM user account, group, or role as an inline policy; or, you can create a new IAM managed policy and attach it to your user account, group, or role\. For more information about adding an inline policy to your user account, group, or role see [Working With Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html)\. For more information about creating a new managed policy, see [Working With Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html)\.
+You can either attach the following IAM policy to your user, group, or role as an inline policy; or, you can create a new IAM managed policy and attach it to your user, group, or role\. For more information about adding an inline policy to your user, group, or role see [Working With Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_inline-using.html)\. For more information about creating a new managed policy, see [Working With Managed Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-using.html)\.
 
 **Note**  
 If you create a new IAM managed policy, you must also attach the **AmazonSSMAutomationRole** managed policy to it so that your instances can communicate with the Systems Manager API\.

@@ -3,7 +3,7 @@
 Use the samples in this section to help you create AWS Identity and Access Management \(IAM\) policies that provide the most commonly needed permissions for Session Manager access\. 
 
 **Note**  
-You can also use an AWS KMS key policy to control which IAM users, IAM roles, and AWS accounts are given access to your KMS key\. For information, see [Overview of Managing Access to Your AWS KMS Resources](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html) and [Using Key Policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
+You can also use an AWS KMS key policy to control which IAM entities \(users or roles\) and AWS accounts are given access to your KMS key\. For information, see [Overview of Managing Access to Your AWS KMS Resources](https://docs.aws.amazon.com/kms/latest/developerguide/control-access-overview.html) and [Using Key Policies in AWS KMS](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html) in the *AWS Key Management Service Developer Guide*\.
 
 **Topics**
 + [Quickstart end user policies for Session Manager](#restrict-access-quickstart-end-user)

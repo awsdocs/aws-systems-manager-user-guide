@@ -20,7 +20,7 @@ When onboarding a management account, Quick Setup enables trusted access between
 **Note**  
 Quick Setup uses AWS CloudFormation stack sets to deploy changes\. Stack sets aren't deployed to your organization's management account\. For more information, see [Considerations when creating a stack set with service\-managed permissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-getting-started-create.html?icmpid=docs_cfn_console#stacksets-orgs-considerations)\. 
 
-If your IAM user, group, or role has access to the API operations listed in the following table, you can use all features of Quick Setup\. There are two tabs of API operations, the first tab is permissions required by all accounts and the second tab contains the additional permissions you need for the management account of your organization\.
+If your user, group, or role has access to the API operations listed in the following table, you can use all features of Quick Setup\. There are two tabs of API operations, the first tab is permissions required by all accounts and the second tab contains the additional permissions you need for the management account of your organization\.
 
 ------
 #### [ Non\-management account ]

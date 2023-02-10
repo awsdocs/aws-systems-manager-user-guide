@@ -65,13 +65,13 @@ SSM Agent proxy settings are evaluated in the following order\.
 
 1. AmazonSSMAgent Registry settings \(`HKLM:\SYSTEM\CurrentControlSet\Services\AmazonSSMAgent`\)
 
-1. System environment variables \(http\_proxy, https\_proxy, no\_proxy\)
+1. System environment variables \(`http_proxy`, `https_proxy`, `no_proxy`\)
 
-1. LocalSystem user account environment variables \(http\_proxy, https\_proxy, no\_proxy\)
+1. LocalSystem user account environment variables `http_proxy`, `https_proxy`, `no_proxy`\)
 
-1. Internet Explorer settings \(HTTP, secure, exceptions\)
+1. Internet Explorer settings \(`HTTP`, `secure`, `exceptions`\)
 
-1. WinHTTP proxy settings \(http=, https=, bypass\-list=\)
+1. WinHTTP proxy settings \(`http=`, `https=`, `bypass-list=`\)
 
 ## SSM Agent proxy settings and Systems Manager services<a name="ssm-agent-proxy-services"></a>
 
