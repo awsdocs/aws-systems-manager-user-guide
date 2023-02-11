@@ -31,7 +31,7 @@ You must configure permissions to allow an IAM entity \(such as a user, group, o
 
 ## Creating the `AWSServiceRoleForAmazonSSM_AccountDiscovery` service\-linked role for Systems Manager<a name="create-service-linked-role-service-action-2"></a>
 
-You must create a service\-linked role if you want to use Explorer and OpsCenter, capabilities of Systems Manager, across multiple AWS accounts\. For OpsCenter, you must manually create the service\-linked role\. For more information, see [\(Optional\) Setting up OpsCenter to work with OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md)\.
+You must create a service\-linked role if you want to use Explorer and OpsCenter, capabilities of Systems Manager, across multiple AWS accounts\. For OpsCenter, you must manually create the service\-linked role\. For more information, see [\(Optional\) Setting up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md)\.
 
 For Explorer, if you create a resource data sync by using Systems Manager in the AWS Management Console, you can create the service\-linked role by choosing the **Create role** button\. If you want to create a resource data sync programmatically, then you must create the role before you create the resource data sync\. You can create the role by using the [CreateServiceLinkedRole](https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateServiceLinkedRole.html) API operation\.
 
@@ -90,4 +90,4 @@ View details about updates to the `AWSServiceRoleForAmazonSSM_AccountDiscovery` 
 
 | Change | Description | Date | 
 | --- | --- | --- | 
-|  New permissions added  |  This service\-linked role now includes `organizations:DescribeOrganizationalUnit` and `organizations:ListRoots` permissions\. These permissions enable an AWS Organizations management account or a Systems Manager delegated administrator account to work with OpsItems across accounts\. For more information, see [\(Optional\) Setting up OpsCenter to work with OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md)\.  | October 17, 2022 | 
+|  New permissions added  |  This service\-linked role now includes `organizations:DescribeOrganizationalUnit` and `organizations:ListRoots` permissions\. These permissions enable an AWS Organizations management account or a Systems Manager delegated administrator account to work with OpsItems across accounts\. For more information, see [\(Optional\) Setting up OpsCenter to centrally manage OpsItems across accounts](OpsCenter-getting-started-multiple-accounts.md)\.  | October 17, 2022 | 

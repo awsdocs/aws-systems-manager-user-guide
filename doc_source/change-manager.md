@@ -131,7 +131,7 @@ A change request is a request in Change Manager to run an Automation runbook tha
 
 When you create a change request, one or more approvers in your organization or account must review and approve the request\. Without the required approvals, the runbook workflow, which applies the changes you request, isn't permitted to run\.
 
-In the system, change requests are a type of OpsItem in AWS Systems Manager OpsCenter\. However, OpsItems of the type `/aws/changerequest` aren't displayed in OpsCenter\. As OpsItems, change requests are subject to the same enforced quotas as other types of OpsItems\. For information about the number of OpsItems that can be created for an AWS account in an AWS Region, see [What are the quotas for OpsCenter?](OpsCenter.md#OpsCenter-learn-more-limits)\.
+In the system, change requests are a type of OpsItem in AWS Systems Manager OpsCenter\. However, OpsItems of the type `/aws/changerequest` aren't displayed in OpsCenter\. As OpsItems, change requests are subject to the same enforced quotas as other types of OpsItems\. 
 
 Additionally, to create a change request programmatically, you don't call the `CreateOpsItem` API operation\. Instead, you use the `[StartChangeRequestExecution](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_StartChangeRequestExecution.html)` API operation\. But rather than running immediately, the change request must be approved, and there must not any blocking events in Change Calendar to prevent the workflow from running\. When approvals have been received and the calendar isn't blocked \(or permission has been given to bypass blocking calendar events\), the `StartChangeRequestExecution` action is able to complete\.
 

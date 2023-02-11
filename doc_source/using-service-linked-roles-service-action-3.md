@@ -48,7 +48,7 @@ The procedure for deleting Systems Manager resources used by the `AWSServiceRole
 
 **To delete Systems Manager resources used by the `AWSServiceRoleForSystemsManagerOpsDataSync` role**
 + To stop Explorer from creating new OpsItems for Security Hub findings, see [How to stop receiving findings](explorer-securityhub-integration.md#explorer-securityhub-integration-disable-receive)\.
-+ To stop OpsCenter from creating new OpsItems for Security Hub findings, see [How to stop receiving findings](opscenter-securityhub-integration.md#opscenter-securityhub-integration-disable-receive)\.
++ To stop OpsCenter from creating new OpsItems for Security Hub findings, see  
 
 **To manually delete the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role using IAM**
 

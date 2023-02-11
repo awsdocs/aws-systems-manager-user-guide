@@ -1,39 +1,32 @@
-# Remediating OpsItem issues using Systems Manager Automation<a name="OpsCenter-remediating"></a>
+# Remediate OpsItem issues<a name="OpsCenter-remediating"></a>
 
-AWS Systems Manager Automation helps you quickly remediate issues with AWS resources identified in your OpsItems\. Automation uses predefined SSM Automation runbooks to remediate commons issues with AWS resources\. For example, Automation includes runbooks to perform the following actions: 
-+ Stop, start, restart, and terminate Amazon Relational Database Service \(Amazon RDS\) and Amazon Elastic Compute Cloud \(Amazon EC2\) instances\.
-+ Create AWS resources such as Amazon Machine Images \(AMIs\), Amazon Elastic Block Store \(Amazon EBS\) snapshots, and Amazon DynamoDB backups\.
-+ Configure a resource to use AWS services, including Amazon EventBridge, AWS CloudTrail, and Amazon Simple Storage Service \(Amazon S3\) bucket logging and versioning\.
-+ Attach an AWS Identity and Access Management \(IAM\) instance profile to an instance\.
-+ Troubleshoot RDP and SSH connectivity issues for Amazon EC2 instances\.
-+ Reset access for an Amazon EC2 instance\.
+Using AWS Systems Manager Automation runbooks, you can remediate issues with AWS resources that are identified in an OpsItem\. Automation uses predefined runbooks to remediate common issues with AWS resources\.
 
-Each OpsItem in the AWS Management Console includes a **Runbooks** section\.
+Each OpsItem includes the **Runbooks** section that provides a list of runbooks that you can use for remediation\. When you choose an Automation runbook from the list, OpsCenter automatically displays some of the fields required to run the document\. When you run an Automation runbook, the system associates the runbook with the related resource of the OpsItem\. If Amazon EventBridge creates an OpsItem, it associates a runbook with the OpsItem\. OpsCenter keeps a 30\-day record of Automation runbooks for an OpsItem\. 
 
-## Automation runbook features in OpsCenter<a name="OpsCenter-remediating-features"></a>
+ You can choose a status to view important details about the runbook, such as the reason why an automation failed and which step of the Automation runbook was running when the failure occurred, as shown in the following example\. 
 
-The following list describes some of the features available to help you run Automation runbooks and remediate issues\.
-+ When you choose an AWS resource that generated an OpsItem, OpsCenter displays a list of Automation runbooks that you can run on that resource\. 
-+ When you choose an Automation runbook from the list, OpsCenter prepopulates some of the fields required to run the document\.
-+ OpsCenter keeps a 30\-day record of Automation runbooks run for a specific OpsItem\.
-+ In the **Status and results** column, you can choose a status to view important details about that run, such as the reason why an Automation failed and which step of the Automation runbook was running when the failure occurred, as shown in the following example\.  
 ![\[Status information for the last time an Automation runbook was run.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_results.png)
-+ The **Related resource details** page for a selected OpsItem includes the **Run automation** list\. The list allows you to choose recent or resource\-specific Automation runbooks that you can run to remediate issues\. This page also includes helpful data providers, including Amazon CloudWatch metrics and alarms, AWS CloudTrail logs, and details from AWS Config, to name a few\.  
+
+The **Related resource details** page for a selected OpsItem includes the **Run automation** list\. You can choose recent or resource\-specific Automation runbooks and run them to remediate issues\. This page also includes data providers, including Amazon CloudWatch metrics and alarms, AWS CloudTrail logs, and details from AWS Config\.
+
 ![\[List of available Automation runbooks you can run and metrics available on the Related Resources tab.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_related_resource_details.png)
-+ You can view information about an Automation runbook by either choosing its name in the console or by using the [Systems Manager Automation runbook reference](automation-documents-reference.md)\.
 
-## Using a runbook to remediate an OpsItem issue<a name="OpsCenter-remediating-how-to"></a>
+You can view information about an Automation runbook by either choosing its name in the console or by using the [Systems Manager Automation runbook reference](automation-documents-reference.md)\.
 
-When you run a Systems Manager Automation runbook from an OpsItem, you can run a simple version or you can choose the **Advanced configuration** option\. The **Advanced configuration** opens the runbook in Systems Manager Automation, which provides several options for running the runbook\.
+## Remediating an OpsItem using a runbook<a name="OpsCenter-remediating-how-to"></a>
 
-![\[An OpsCenter runbook that uses the Advanced Configuration and opens in Systems Manager Automation\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_runbook_advanced.png)
+When you run a Systems Manager Automation runbook from an OpsItem, you can run a simple version or you can choose the **Advanced configuration** option\. The **Advanced configuration** option opens the runbook in Systems Manager Automation, which provides several options for running the runbook\.
 
-The following procedure describes how to run a simple version of a runbook\. For information about running an **Advanced configuration** runbook, see [Running automations](running-automations.md)\.
+![\[An OpsCenter runbook that uses Advanced Configuration and opens in Systems Manager Automation\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_runbook_advanced.png)
 
-**Before You Begin**  
-Before you run an automation document \(runbook\) to remediate an OpsItem issue, do the following:
+**Before you begin**  
+Before you use an Automation runbook to remediate an OpsItem issue, do the following:
 + Verify that you have permission to run Systems Manager Automation runbooks\. For more information, see [Setting up Automation](automation-setup.md)\.
-+ Collect resource\-specific ID information for the automation that you want to run\. For example, if you want to run an automation that restarts an EC2 instance, then you must specify the ID of the instance to restart\.
++ Collect resource\-specific ID information for the automation that you want to run\. For example, if you want to run an automation that restarts an EC2 instance, then you must specify the ID of the EC2 instance to restart\.
+
+**Note**  
+For information about running an **Advanced configuration** runbook, see [Running automations](running-automations.md)\.
 
 **To run an Automation runbook to remediate an OpsItem issue**
 
@@ -42,7 +35,7 @@ Before you run an automation document \(runbook\) to remediate an OpsItem issue,
 1. In the navigation pane, choose **OpsCenter**\.
 
 1. Choose the OpsItem ID to open the details page\.  
-![\[A new OpsItem on the OpsCenter Overview page\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_1.png)
+![\[A new OpsItem on the OpsCenter Overview page.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_1.png)
 
 1. Scroll to the **Runbooks** section\.
 
@@ -54,11 +47,11 @@ Before you run an automation document \(runbook\) to remediate an OpsItem issue,
 
 1. In the navigation pane, choose **Automation**, and then choose the **Execution ID** link to view the steps and the status of the execution\. 
 
-## Working with associated runbooks<a name="OpsCenter-remediating-associated-runbooks"></a>
+## Remediating an OpsItem using an associated runbook<a name="OpsCenter-remediating-associated-runbooks"></a>
 
-After you run an Automation runbook from an OpsItem, the runbook is automatically associated with the related resource of that OpsItem for future reference\. Associated runbooks are ranked higher than others in the **Runbooks** list\.
+After you run an Automation runbook from an OpsItem, OpsCenter associates the runbook with the OpsItem\. An *associated* runbook is ranked higher than other runbooks in the **Runbooks** list\.
 
-Use the following procedure to run an Automation runbook that has already been associated with a related resource in an OpsItem\. For information about adding related resources, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md)\.
+Use the following procedure to run an Automation runbook that has already been associated with a related resource in an OpsItem\. For information about adding related resources, see [Manage OpsItems](OpsCenter-working-with-OpsItems.md)\.
 
 **To run a resource\-associated runbook to remediate an OpsItem issue**
 
@@ -74,4 +67,4 @@ Use the following procedure to run an Automation runbook that has already been a
 
 1. Enter the required information for the runbook, and then choose **Execute**\.
 
-1. In the navigation pane, choose **Automation**, and then choose the **Execution ID** link to view the steps and the status of the execution\. 
+1. In the navigation pane, choose **Automation**, and then choose the **Execution ID** link to view the steps and the status of the runbook\. 

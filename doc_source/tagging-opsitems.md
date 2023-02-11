@@ -12,7 +12,6 @@ The topics in this section describe how to work with tags on OpsItems\.
 You can add tags to custom AWS Systems Manager OpsItems at the time you create them if you use a command line tool\.
 
 For information, see the following topic:
-+ [Creating OpsItems by using the AWS CLI](OpsCenter-manually-create-OpsItems.md#OpsCenter-manually-create-OpsItems-CLI)
 
 ## Adding tags to existing OpsItems<a name="tagging-opsitems-update"></a>
 

@@ -80,5 +80,5 @@ For Systems Manager actions that aren't supported by EventBridge, you can choose
 + [Passing data to Automation using input transformers](automation-tutorial-eventbridge-input-transformers.md)
 + [Remediating compliance issues using EventBridge](sysman-compliance-fixing.md)
 + [Viewing inventory delete actions in EventBridge](sysman-inventory-custom.md#sysman-inventory-delete-cwe)
-+ [Configuring EventBridge to automatically create OpsItems for specific events](OpsCenter-automatically-create-OpsItems-2.md)
++ [Configure EventBridge rules to create OpsItems](OpsCenter-automatically-create-OpsItems-2.md)
 + [Configuring EventBridge rules for parameters and parameter policies](sysman-paramstore-cwe.md#cwe-parameter-changes)

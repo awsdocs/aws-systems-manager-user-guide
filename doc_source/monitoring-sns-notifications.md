@@ -115,8 +115,6 @@ Use the following procedure to create a custom AWS Identity and Access Managemen
 
    *sns\-topic\-name* represents the name of the Amazon SNS topic you want to use for publishing notifications\.
 
-   
-
 1. Choose **Next: Tags**\.
 
 1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this policy\. 
@@ -135,29 +133,31 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 **To create an IAM service role for Amazon SNS notifications**
 
-1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
 
-1. In the navigation pane, choose **Roles**, and then choose **Create role**\.
+1. In the navigation pane of the IAM console, choose **Roles**, and then choose **Create role**\.
 
-1. Under **Select type of trusted entity**, choose **AWS service**\.
+1. Choose the **AWS service** role type, and then choose Systems Manager\.
 
-1. In the **Choose a use case** section, choose **Systems Manager**\. 
-
-1. In the **Select your use case** section, choose **Systems Manager**, and then choose **Next: Permissions**\.
+1. Choose the Systems Manager use case\. Then, choose **Next**\.
 
 1. On the **Attach permissions policies** page, select the box to the left of the name of the custom policy you created in Task 2\. For example: **my\-sns\-publish\-permissions**\.
 
-1. Choose **Next: Tags**\.
+1. \(Optional\) Set a [permissions boundary](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html)\. This is an advanced feature that is available for service roles, but not service\-linked roles\. 
 
-1. \(Optional\) Add one or more tag\-key value pairs to organize, track, or control access for this role\. 
+   Expand the **Permissions boundary** section and choose **Use a permissions boundary to control the maximum role permissions**\. IAM includes a list of the AWS managed and customer managed policies in your account\. Select the policy to use for the permissions boundary or choose **Create policy** to open a new browser tab and create a new policy from scratch\. For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html#access_policies_create-start) in the *IAM User Guide*\. After you create the policy, close that tab and return to your original tab to select the policy to use for the permissions boundary\.
 
-1. Choose **Next: Review**\. 
+1. Choose **Next**\.
 
-1. On the **Review** page, for **Role name**, enter a name to identify the role, such as **my\-sns\-role**\. 
+1. If possible, enter a role name or role name suffix to help you identify the purpose of this role\. Role names must be unique within your AWS account\. They are not distinguished by case\. For example, you cannot create roles named both **PRODROLE** and **prodrole**\. Because various entities might reference the role, you cannot edit the name of the role after it has been created\.
 
-1. \(Optional\) Change the default role description to reflect the purpose of this role\. For example: **Runs Amazon SNS topics on your behalf\.**
+1. \(Optional\) For **Description**, enter a description for the new role\.
 
-1. Choose **Create role**\. The system returns you to the **Roles** page\.
+1. Choose **Edit** in the **Step 1: Select trusted entities** or **Step 2: Select permissions** sections to edit the use cases and permissions for the role\. 
+
+1. \(Optional\) Add metadata to the user by attaching tags as key\-value pairs\. For more information about using tags in IAM, see [Tagging IAM resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) in the *IAM User Guide*\.
+
+1. Review the role and then choose **Create role**\.
 
 1. Choose the name of the role, and then copy or make a note of the **Role ARN** value\. This Amazon Resource Name \(ARN\) for the role is used when you send a command that is configured to return Amazon SNS notifications\.
 
@@ -165,9 +165,39 @@ Use the following procedure to create an IAM role for Amazon SNS notifications\.
 
 ### Task 4: Configure user access<a name="monitoring-sns-passpolicy"></a>
 
-If your IAM user account, group, or role is assigned administrator permissions, then you have access to Run Command and Maintenance Windows, capabilities of AWS Systems Manager\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your IAM account, group, or role\. 
+If an IAM entity \(user, role, or group\) is assigned administrator permissions, then the user or role has access to Run Command and Maintenance Windows, capabilities of AWS Systems Manager\.
 
-Use the following procedure to configure a user account to use Run Command and Maintenance Windows\. If you need to create a new user account, see [Creating an IAM user in your AWS account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html) in the *IAM User Guide*\.
+For entities without administrator permissions, an administrator must grant the following permissions to the IAM entity:
+
+
+
+
++ The `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions\.
++ `iam:PassRole` permissions for the role created in [Task 3: Create an IAM role for Amazon SNS notifications](#monitoring-iam-notifications)\. For example:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "arn:aws:iam::account-id:role/sns-role-name"
+        }
+    ]
+}
+```
+
+To provide access, add permissions to your users, groups, or roles:
++ Users and groups in AWS IAM Identity Center \(successor to AWS Single Sign\-On\):
+
+  Create a permission set\. Follow the instructions in [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
++ Users managed in IAM through an identity provider:
+
+  Create a role for identity federation\. Follow the instructions in [Creating a role for a third\-party identity provider \(federation\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*\.
++ IAM users:
+  + Create a role that your user can assume\. Follow the instructions in [Creating a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*\.
+  + \(Not recommended\) Attach a policy directly to a user or add a user to a user group\. Follow the instructions in [Adding permissions to a user \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*\.
 
 **To configure user access and attach the `iam:PassRole` policy to a user account**
 
@@ -213,9 +243,9 @@ If you need to create a custom service role for maintenance window tasks, see [U
 
 1. Select the custom Maintenance Windows service role you created from the **Role name** list\.
 
-1. On the **Permissions** tab, verify that either the `AmazonSSMMaintenanceWindowRole` policy is listed or there is a comparable policy that gives maintenance windows permission to the Systems Manager API\. If it is not, choose **Attach policies** to attach it\.
+1. On the **Permissions** tab, verify that either the `AmazonSSMMaintenanceWindowRole` policy is listed or there is a comparable policy that gives maintenance windows permission to the Systems Manager API\. If it is not, choose **Add permissions, Attach policies** to attach it\.
 
-1. Choose **Add inline policy**\.
+1. Choose **Add permissions, Create inline policy**\.
 
 1. Choose the **Visual editor** tab\.
 
@@ -229,4 +259,4 @@ If you need to create a custom service role for maintenance window tasks, see [U
 
 1. Choose **Review policy**\.
 
-1. On the **Review Policy** page, specify a name for the `PassRole` policy, and then choose **Create policy**\.
+1. On the **Review policy** page, specify a name for the `PassRole` policy, and then choose **Create policy**\.

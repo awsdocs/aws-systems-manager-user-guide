@@ -164,4 +164,4 @@ Here is an example that specifies API operations for viewing and updating OpsIte
 }
 ```
 
-For information about adding tags to an OpsItem, see [Creating OpsItems manually](OpsCenter-manually-create-OpsItems.md)\.
+For information about adding tags to an OpsItem, see [Create OpsItems manually](OpsCenter-manually-create-OpsItems.md)\.

@@ -1,8 +1,8 @@
-# Configuring EventBridge to automatically create OpsItems for specific events<a name="OpsCenter-automatically-create-OpsItems-2"></a>
+# Configure EventBridge rules to create OpsItems<a name="OpsCenter-automatically-create-OpsItems-2"></a>
 
-Use the following procedure to configure **Systems Manager OpsItems** as the target of an Amazon EventBridge event\. When EventBridge receives the event, it creates a new OpsItem in OpsCenter\. This procedure describes how to update an *existing* EventBridge event rule\. For information about how to create a new event rule, see [Creating a rule for an AWS service](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-eventbridge-rule.html) in the *Amazon EventBridge User Guide*\.
+ When Amazon EventBridge receives an event, it creates a new OpsItem based on default rules\. You can create a rule or edit an existing rule to set OpsCenter as the target of an EventBridge event\. For information about how to create an event rule, see [Creating a rule for an AWS service](https://docs.aws.amazon.com/eventbridge/latest/userguide/create-eventbridge-rule.html) in the *Amazon EventBridge User Guide*\.
 
-**To configure OpsCenter as a target of an EventBridge event**
+**To configure an EventBridge rule to create OpsItems in OpsCenter**
 
 1. Open the Amazon EventBridge console at [https://console\.aws\.amazon\.com/events/](https://console.aws.amazon.com/events/)\.
 
@@ -10,29 +10,29 @@ Use the following procedure to configure **Systems Manager OpsItems** as the tar
 
 1. On the **Rules** page, for **Event bus**, choose **default**\.
 
-1. Choose a rule\.
+1. For **Rules**, choose a rule by selecting the check box next to its name\.
 
-1. In the **Rule details** section, verify that **Status** is set to **Enabled**\.
+1. Select the name of the rule to open its details page\. In **Rule details**, verify that **Status** is set to **Enabled**\.
+**Note**  
+If required, you can update the status using **Edit** in the upper\-right corner of the page\.
 
-   To update the status, choose **Edit** in the upper\-right corner of the page, and then turn on **Enable the rule on the selected event bus**\.
+1. Choose the **Targets** tab\. 
 
 1. On the **Targets** tab, choose **Edit**\.
 
 1. For **Select a target**, choose **Systems Manager OpsItem**\.
 
-1. For many target types, EventBridge needs permissions to send events to the target\. In these cases, EventBridge can create the AWS Identity and Access Management \(IAM\) role needed for your rule to run: 
+1. For many target types, EventBridge needs permission to send events to the target\. In these cases, EventBridge can create the AWS Identity and Access Management \(IAM\) role needed for your rule to run: 
    + To create an IAM role automatically, choose **Create a new role for this specific resource**\.
    + To use an IAM role that you created to give EventBridge permission to create OpsItems in OpsCenter, choose **Use existing role**\.
 
-   For more information about the required role and permissions, see [Getting started with OpsCenter](OpsCenter-getting-started.md)\.
+1. In **Additional settings**, for **Configure target input**, choose **Input Transformer**\.
 
-1. In the **Additional settings** section, for **Configure target input**, choose **Input Transformer**\.
-
-   You can use the **Input transformer** option to specify a deduplication string and other important information for OpsItems such as a title and a severity\.
+   You can use the **Input transformer** option to specify a deduplication string and other important information for OpsItems, such as title and severity\.
 
 1. Choose **Configure input transformer**\.
 
-1. In the **Target input transformer** section, for **Input path**, specify the values to parse from the triggering event\. For example, to parse the start time, end time, and other details from the event that triggers the rule, use the following JSON\.
+1. In **Target input transformer**, for **Input path**, specify the values to parse from the triggering event\. For example, to parse the start time, end time, and other details from the event that triggers the rule, use the following JSON\.
 
    ```
    {
@@ -88,6 +88,4 @@ Use the following procedure to configure **Systems Manager OpsItems** as the tar
 
 1. Choose **Update rule**\.
 
-After an OpsItem is created from an event, you can view the event details by opening the OpsItem and scrolling down to the **Private operational data** section\.
-
-For information about how to configure the options in an OpsItem, see [Working with OpsItems](OpsCenter-working-with-OpsItems.md)\.
+After an OpsItem is created from an event, you can view the event details by opening the OpsItem and scrolling down to the **Private operational data** section\. For information about how to configure the options in an OpsItem, see [Manage OpsItems](OpsCenter-working-with-OpsItems.md)\.

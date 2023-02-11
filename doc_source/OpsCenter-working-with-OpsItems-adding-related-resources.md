@@ -1,9 +1,40 @@
-# Supported resources reference<a name="OpsCenter-related-resources-reference"></a>
+# Adding related resources to an OpsItem<a name="OpsCenter-working-with-OpsItems-adding-related-resources"></a>
 
-AWS Systems Manager OpsCenter automatically creates a deep link to the primary resource page when you specify the Amazon Resource Name \(ARN\) for the following types of AWS resources\. For example, if you specify the ARN of an EC2 instance in the **Related Resources** field, then OpsCenter creates a deep link to the information about that instance in the Amazon EC2 console\. This allows you to view detailed information about your impacted AWS resources without having to leave OpsCenter\. For more information about adding related resources, see [Working with related resources](OpsCenter-working-with-OpsItems.md#OpsCenter-working-with-OpsItems-related-resources)\.
+Each OpsItem includes a **Related resources** section that lists the Amazon Resource Name \(ARN\) of the related resource\. A *related resource* is the impacted AWS resource that needs to be investigated\. 
+
+If Amazon EventBridge creates the OpsItem, the system automatically populates the OpsItem with the ARN of the resource\. You can manually specify ARNs of related resources\. For some ARN types, OpsCenter automatically creates a deep link that displays details about the resource\. The deep link makes it unnecessary for you to have to use other console pages to view that information\. For example, you can specify the ARN of an Amazon Elastic Compute Cloud \(Amazon EC2\) instance\. Then, in OpsCenter, you can view all of the details that Amazon EC2 provides about that instance\. 
+
+**To view and add related resources to an OpsItem**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **OpsCenter**\.
+
+1. Choose the **OpsItems** tab\.
+
+1. Choose an OpsItem ID\.  
+![\[A new OpsItem on the OpsCenter Overview page.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_1.png)
+
+1. To view information about the impacted resource, choose the **Related resources details** tab\.  
+![\[Viewing the Related resource details tab for an OpsItem.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_working_scenario_1_5.png)
+
+   This tab displays information about the resource from several AWS services\. Expand the **Resource details** section to view information about this resource as provided by the AWS service that hosts it\. You can also toggle through other related resources associated with this OpsItem by using the **Related resources** list\.
+
+1. To add additional related resources, choose the **Overview** tab\.
+
+1. In the **Related resources** section, choose **Add**\.
+
+1. For **Resource type**, choose a resource from the list\.
+
+1. For **Resource ID**, enter either the ID or the Amazon Resource Name \(ARN\)\. The type of information you choose depends on the resource that you chose in the previous step\.
+
+**Note**  
+You can manually add the ARNs of additional related resources\. Each OpsItem can list a maximum of 100 related resource ARNs\.
+
+The following table lists the resource types that automatically create deep links to related resources\.
 
 
-**Supported resources**  
+**Supported resource types**  
 
 | Resource name | ARN format | 
 | --- | --- | 
@@ -15,14 +46,14 @@ AWS Systems Manager OpsCenter automatically creates a deep link to the primary r
 |  AWS CloudTrail trail  |  <pre>arn:aws:cloudtrail:region:account-id:trail/trailname</pre>  | 
 |  AWS CodeBuild project  |  <pre>arn:aws:codebuild:region:account-id:resourcetype/resource</pre>  | 
 |  AWS CodePipeline  |  <pre>arn:aws:codepipeline:region:account-id:resource-specifier</pre>  | 
-|  DevOps Guru insight  |  <pre>arn:aws:devops-guru:region:account-id:insight/proactive or reactive/resource-id</pre>  | 
+|  Amazon DevOps Guru insight  |  <pre>arn:aws:devops-guru:region:account-id:insight/proactive or reactive/resource-id</pre>  | 
 |  Amazon DynamoDB table  |  <pre>arn:aws:dynamodb:region:account-id:table/tablename</pre>  | 
 |  Amazon Elastic Compute Cloud \(Amazon EC2\) customer gateway  |  <pre>arn:aws:ec2:region:account-id:customer-gateway/cgw-id</pre>  | 
 |  Amazon EC2 elastic IP  |  <pre>arn:aws:ec2:region:account-id:eip/eipalloc-id</pre>  | 
 |  Amazon EC2 Dedicated Host  |  <pre>arn:aws:ec2:region:account-id:dedicated-host/host-id</pre>  | 
 |  Amazon EC2 instance  |  <pre>arn:aws:ec2:region:account-id:instance/instance-id</pre>  | 
 |  Amazon EC2 internet gateway  |  <pre>arn:aws:ec2:region:account-id:internet-gateway/igw-id</pre>  | 
-|  Amazon EC2 network access control list \(ACL\)  |  <pre>arn:aws:ec2:region:account-id:network-acl/nacl-id</pre>  | 
+|  Amazon EC2 network access control list \(network ACL\)  |  <pre>arn:aws:ec2:region:account-id:network-acl/nacl-id</pre>  | 
 |  Amazon EC2 network interface  |  <pre>arn:aws:ec2:region:account-id:network-interface/eni-id</pre>  | 
 |  Amazon EC2 route table  |  <pre>arn:aws:ec2:region:account-id:route-table/route-table-id</pre>  | 
 |  Amazon EC2 security group  |  <pre>arn:aws:ec2:region:account-id:security-group/security-group-id</pre>  | 

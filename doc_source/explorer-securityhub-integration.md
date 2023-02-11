@@ -4,7 +4,7 @@
 
 Explorer, a capability of AWS Systems Manager, integration with Security Hub allows you to receive findings from Security Hub in Explorer\. Security Hub findings provide security information that you can use in Explorer to aggregate and take action on your security, performance, and operational issues in Systems Manager\. You can view a widget that provides summary of all Security Hub findings based on severity\. 
 
-Turning on Security Hub integration accrues a cost\. Explorer integrates with Systems Manager OpsCenter \(OpsCenter\) to provide Security Hub findings\. There is a cost to use Explorer with OpsCenter\. For more information, see [Receiving findings from AWS Security Hub in OpsCenter](opscenter-securityhub-integration.md) and [AWS Systems Manager Pricing](http://aws.amazon.com/systems-manager/pricing/)\.
+Turning on Security Hub integration accrues a cost\. Explorer integrates with Systems Manager OpsCenter \(OpsCenter\) to provide Security Hub findings\. There is a cost to use Explorer with OpsCenter\. 
 
 ## How Explorer receives findings from Security Hub<a name="explorer-securityhub-integration-receiving-findings"></a>
 
