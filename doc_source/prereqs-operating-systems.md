@@ -4,7 +4,7 @@ You can manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances and on\-pre
 
 **Note**  
 If you plan to manage and configure AWS IoT Greengrass core devices by using Systems Manager, those devices must meet the requirements for AWS IoT Greengrass\. For more information, see [Setting up AWS IoT Greengrass core devices](https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html) in the *AWS IoT Greengrass Version 2 Developer Guide*\.  
-If you plan to manage and configure AWS IoT and non\-AWS edge devices, those devices must meet the requirements listed here and be configured as on\-premises managed nodes for Systems Manager\. For more information, see [Setting up Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\.
+If you plan to manage and configure AWS IoT and non\-AWS edge devices, those devices must meet the requirements listed here and be configured as on\-premises managed nodes for Systems Manager\. For more information, see [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\.
 
 **Important**  
 Patch Manager, a capability of Systems Manager, might not support all the operating system \(OS\) versions listed in this topic\. For a list of OS versions supported by Patch Manager, see [Patch Manager prerequisites](patch-manager-prerequisites.md)\.

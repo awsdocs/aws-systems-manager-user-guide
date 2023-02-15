@@ -19,9 +19,7 @@ Before trying these tutorials, complete the following prerequisites\.
   + [Working with SSM Agent on EC2 instances for Windows Server](sysman-install-ssm-win.md)
   + [Working with SSM Agent on EC2 instances for Linux](sysman-install-ssm-agent.md)
 
-  For information about creating and attaching an IAM instance profile for Systems Manager to your instance, see the following topics:
-  + [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
-  + [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md)
+  For information about configuring IAM permissions for Systems Manager to your instance, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\.
 + **Create additional resources as needed** – Run Command, a capability of Systems Manager, includes many tasks that don't require you to create resources other than those listed in this prerequisites topic\. For that reason, we provide a simple Run Command task for you to use your first time through the tutorials\. You also need an EC2 instance that is configured to use with Systems Manager, as described earlier in this topic\. After you configure that instance, you can register a simple Run Command task\. 
 
   The Systems Manager Maintenance Windows capability supports running the following four types of tasks: 

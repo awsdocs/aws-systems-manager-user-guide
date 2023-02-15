@@ -1,6 +1,6 @@
 # AWS Systems Manager identity\-based policy examples<a name="security_iam_id-based-policy-examples"></a>
 
-By default, AWS Identity and Access Management \(IAM\) users and roles don't have permission to create or modify AWS Systems Manager resources\. They also can't perform tasks using the Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS API\. An IAM administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need\. The administrator must then attach those policies to the IAM users or groups that require those permissions\.
+By default, AWS Identity and Access Management \(IAM\) entities \(users and roles\) don't have permission to create or modify AWS Systems Manager resources\. They also can't perform tasks using the Systems Manager console, AWS Command Line Interface \(AWS CLI\), or AWS API\. An administrator must create IAM policies that grant users and roles permission to perform specific API operations on the specified resources they need\. The administrator must then attach those policies to the users or groups that require those permissions\.
 
 The following is an example of a permissions policy that allows a user to delete documents with names that begin with **MyDocument\-** in the US East \(Ohio\) \(us\-east\-2\) AWS Region\.
 
@@ -80,7 +80,7 @@ You can grant the required permissions with the following policy statement\.
 }
 ```
 
-If you create an identity\-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities \(IAM users or roles\) with that policy\.
+If you create an identity\-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for IAM entities \(users or roles\) with that policy\.
 
 You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API\. Instead, allow access to only the actions that match the API operation that you're trying to perform\.
 
@@ -127,7 +127,7 @@ This example shows how you might create a policy that allows IAM users to view t
 
 You can create standalone policies that you administer in your own AWS account\. We refer to these as *customer managed policies*\. You can attach these policies to multiple principal entities in your AWS account\. When you attach a policy to a principal entity, you give the entity the permissions that are defined in the policy\. For more information, see [Customer managed policy examples](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html#customer-managed-policies) in the *[IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/)*\.
 
-The following examples of user policies grant permissions for various Systems Manager actions\. Use them to limit the Systems Manager access for your IAM users and roles\. These policies work when performing actions in the Systems Manager API, AWS SDKs, or the AWS CLI\. For users who use the console, you need to grant additional permissions specific to the console\. For more information, see [Using the Systems Manager console](#security_iam_id-based-policy-examples-console)\.
+The following examples of user policies grant permissions for various Systems Manager actions\. Use them to limit the Systems Manager access for your IAM entities \(users and roles\)\. These policies work when performing actions in the Systems Manager API, AWS SDKs, or the AWS CLI\. For users who use the console, you need to grant additional permissions specific to the console\. For more information, see [Using the Systems Manager console](#security_iam_id-based-policy-examples-console)\.
 
 **Note**  
 All examples use the US West \(Oregon\) Region \(us\-west\-2\) and contain fictitious account IDs\. The account ID shouldn't be specified in the Amazon Resource Name \(ARN\) for AWS public documents \(documents that begin with `AWS-*`\)\.
@@ -199,7 +199,7 @@ The following example IAM policy allows a user to do the following in the US Eas
 + Start and stop workflows in Automation, a capability of AWS Systems Manager\.
 + Get information about Automation workflows\.
 
-If you want to give a user permission to use this document to send commands on any node for which the user has access \(as determined by their user account\), you could specify an entry similar to the following in the `Resource` section and remove the other node entries\. The following example uses the US East \(Ohio\) Region \(us\-east\-2\)\.
+If you want to give a user permission to use this document to send commands on any node for which the user has access, you could specify an entry similar to the following in the `Resource` section and remove the other node entries\. The following example uses the US East \(Ohio\) Region \(us\-east\-2\)\.
 
 ```
 "arn:aws:ec2:us-east-2:*:instance/*"
@@ -302,4 +302,4 @@ You can use conditions in your identity\-based policy to control access to Syste
 }
 ```
 
-You can attach this policy to the IAM users in your account\. If a user named `richard-roe` attempts to view an Systems Manager document, the document must be tagged `Owner=richard-roe` or `owner=richard-roe`\. Otherwise they're denied access\. The condition tag key `Owner` matches both `Owner` and `owner` because condition key names aren't case\-sensitive\. For more information, see [IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.
+You can attach this policy to the users in your account\. If a user named `richard-roe` attempts to view an Systems Manager document, the document must be tagged `Owner=richard-roe` or `owner=richard-roe`\. Otherwise they're denied access\. The condition tag key `Owner` matches both `Owner` and `owner` because condition key names aren't case\-sensitive\. For more information, see [IAM JSON policy elements: Condition](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html) in the *IAM User Guide*\.

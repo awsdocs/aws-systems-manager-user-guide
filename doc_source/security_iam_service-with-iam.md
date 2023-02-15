@@ -205,13 +205,13 @@ Systems Manager supports using temporary credentials\.
 
 ### Service\-linked roles<a name="security_iam_service-with-iam-roles-service-linked"></a>
 
-[Service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) allow AWS services to access resources in other services to complete an action on your behalf\. Service\-linked roles are listed in your IAM account and are owned by the service\. An IAM administrator can view but not edit the permissions for service\-linked roles\.
+[Service\-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role) allow AWS services to access resources in other services to complete an action on your behalf\. Service\-linked roles are listed in your IAM account and are owned by the service\. An administrator can view but not edit the permissions for service\-linked roles\.
 
 Systems Manager supports service\-linked roles\. For details about creating or managing Systems Manager service\-linked roles, see [Using service\-linked roles for Systems Manager](using-service-linked-roles.md)\.
 
 ### Service roles<a name="security_iam_service-with-iam-roles-service"></a>
 
-This feature allows a service to assume a [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) on your behalf\. This role allows the service to access resources in other services to complete an action on your behalf\. Service roles are displayed in your IAM account and are owned by the account\. This means that an IAM administrator can change the permissions for this role\. However, doing so might break the functionality of the service\.
+This feature allows a service to assume a [service role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-role) on your behalf\. This role allows the service to access resources in other services to complete an action on your behalf\. Service roles are displayed in your IAM account and are owned by the account\. This means that an administrator can change the permissions for this role\. However, doing so might break the functionality of the service\.
 
 Systems Manager supports service roles\. 
 
@@ -219,7 +219,7 @@ Systems Manager supports service roles\.
 
 For Systems Manager to interact with your managed nodes, you must choose a role to allow Systems Manager to access nodes on your behalf\. If you have previously created a service role or service\-linked role, then Systems Manager provides you with a list of roles to choose from\. It's important to choose a role that allows access to start and stop managed nodes\. 
 
-To access EC2 instances, the role your AWS account needs is an IAM instance profile\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
+To access EC2 instances, you must configure instance permissions\. For information, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\. 
 
 To access on\-premises nodes or virtual machines \(VMs\), the role your AWS account needs is an IAM service role for a hybrid environment\. For information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
 
@@ -241,7 +241,7 @@ The following AWS managed policies, which you can attach to users in your accoun
 + `AWSResourceAccessManagerServiceRolePolicy` – Service role policy containing read\-only AWS Resource Access Manager access to the account's AWS Organizations structure\. It also contains IAM permissions to self\-delete the role\.
 + `AWSSystemsManagerChangeManagementServicePolicy` – Service policy that provides access to AWS resources managed or used by the Systems Manager change management framework and used by the service\-linked role `AWSServiceRoleForSystemsManagerChangeManagement`\.
 + `AWSSystemsManagerOpsDataSyncServiceRolePolicy` – Service policy that allows the `AWSServiceRoleForSystemsManagerOpsDataSync` service\-linked role to create and update OpsItems and OpsData from AWS Security Hub findings\.
-+ `AmazonEC2RoleforSSM` – This policy will be deprecated\. In its place, use the **AmazonSSMManagedInstanceCore** policy to allow Systems Manager service core functionality on EC2 instances\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
++ `AmazonEC2RoleforSSM` – This policy will be deprecated\. In its place, use the **AmazonSSMManagedInstanceCore** policy to allow Systems Manager service core functionality on EC2 instances\. For information, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\. 
 
 **Note**  
 In a hybrid environment, you need an additional IAM role that allows servers and VMs to communicate with the Systems Manager service\. This is the IAM service role for Systems Manager\. This role grants AWS Security Token Service \(AWS STS\) *AssumeRole* trust to the Systems Manager service\. The `AssumeRole` action returns a set of temporary security credentials \(consisting of an access key ID, a secret access key, and a security token\)\. You use these temporary credentials to access AWS resources that you might not normally have access to\. For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md) and [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) in the *[AWS Security Token Service API Reference](https://docs.aws.amazon.com/STS/latest/APIReference/)*\. 

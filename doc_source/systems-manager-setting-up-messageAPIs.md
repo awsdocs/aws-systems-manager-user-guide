@@ -32,4 +32,4 @@ Systems Manager uses the `ssmmessages` endpoint for API operations from SSM Agen
 
 `DescribeInstanceProperties` and `DescribeDocumentParameters`: Systems Manager runs these API operations to render specific nodes in the Amazon EC2 console\. Results of the `DescribeInstanceProperties` operation are displayed in the Fleet Manager node\. Results of the `DescribeDocumentParameters` operation are displayed in the **Documents** node\.
 
-`ssm:RegisterManagedInstance`: SSM Agent runs this API operation to register an on\-premises server or virtual machine \(VM\) with Systems Manager as a managed instance using an activation code and ID, or to register AWS IoT Greengrass Version 2 credentials\. 
+`ssm:RegisterManagedInstance`: SSM Agent runs this API operation to register an on\-premises server or virtual machine \(VM\) with Systems Manager as a managed instance using an activation code and ID, or to register AWS IoT Greengrass Version 2 credentials\. This operation is also called by Amazon EC2 instances running SSM Agent version 3\.1\.x or later\.

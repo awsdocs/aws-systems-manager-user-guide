@@ -55,7 +55,7 @@ If you haven't already, install and configure the AWS Command Line Interface \(A
       --name "/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/myWebhookIntegration" ^
       --type "SecureString" ^
       --data-type "aws:ssm:integration" ^
-      --value "{'description': 'My first webhook integration for Automation.', 'url': 'myWebHookURL'}"
+      --value  "{\"description\":\"My first webhook integration for Automation.\",\"url\":\"myWebHookURL\"}"
   ```
 
 ------
@@ -66,7 +66,7 @@ If you haven't already, install and configure the AWS Command Line Interface \(A
       -Name "/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/myWebhookIntegration" `
       -Type "SecureString"
       -DataType "aws:ssm:integration"
-      -Value "{'description': 'My first webhook integration for Automation.', 'url': 'myWebHookURL'}"
+      -Value '{"description": "My first webhook integration for Automation.", "url": "myWebHookURL"}'
   ```
 
 ------

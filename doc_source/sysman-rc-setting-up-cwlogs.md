@@ -4,9 +4,7 @@ When you send a command by using Run Command, a capability of AWS Systems Manage
 
 If you configured your node or on\-premises hybrid machine to use the AWS Identity and Access Management \(IAM\) managed policies `AmazonSSMManagedInstanceCore` and `CloudWatchAgentServerPolicy`, then your node requires no additional configuration to send output to CloudWatch Logs\. Choose this option if sending commands from the console, or add the `cloud-watch-output-config` section and `CloudWatchOutputEnabled` parameter if using the AWS Command Line Interface \(AWS CLI\), AWS Tools for Windows PowerShell, or an API operation\. The `cloud-watch-output-config` section and `CloudWatchOutputEnabled` parameter are described in more detail later in this topic\.
 
-For information about adding policies to an instance profile for EC2 instances, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. For information about adding policies to a service role for on\-premises servers and virtual machines that you plan to use as managed nodes, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
-
-For information about updating an existing instance profile, see [Add permissions to a Systems Manager instance profile \(console\)](setup-instance-profile.md#instance-profile-add-permissions)\.
+For information about adding policies to an instance profile for EC2 instances, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\. For information about adding policies to a service role for on\-premises servers and virtual machines that you plan to use as managed nodes, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
 
 If you're using a custom policy on your nodes, update the policy on each node to allow Systems Manager to send output and logs to CloudWatch Logs\. Add the following policy objects to your custom policy\. For more information about updating an IAM policy, see [Editing IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html) in the *IAM User Guide*\.
 

@@ -18,7 +18,7 @@ However, in some cases, you might need to modify the permissions attached to you
   To create an IAM role that contains permissions only for Session Manager actions, follow the steps in [Create a custom IAM role for Session Manager](getting-started-create-iam-instance-profile.md)\.
 +  **Create and use a new IAM role with permissions for all Systems Manager actions** 
 
-  To create an IAM role for Systems Manager managed instances that uses a default policy supplied by AWS to grant all Systems Manager permissions, follow the steps in [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+  To create an IAM role for Systems Manager managed instances that uses a default policy supplied by AWS to grant all Systems Manager permissions, follow the steps in [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\.
 
 **Topics**
 + [Adding Session Manager permissions to an existing IAM role](getting-started-add-permissions-to-existing-profile.md)

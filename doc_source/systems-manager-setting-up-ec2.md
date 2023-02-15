@@ -8,6 +8,5 @@ If you plan to use Systems Manager to manage and configure on\-premises machines
 If you already use other AWS services, you have completed some of these steps\. However, other steps are specific to Systems Manager\. Therefore, we recommend reviewing this entire section to ensure that you're ready to use all Systems Manager capabilities\. 
 
 **Topics**
-+ [Step 1: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
-+ [Step 2: Attach an IAM instance profile to an Amazon EC2 instance](setup-launch-managed-instance.md)
-+ [Step 3: Create VPC endpoints](setup-create-vpc.md)
++ [Step 1: Configure instance permissions for Systems Manager](setup-instance-permissions.md)
++ [Step 2: Create VPC endpoints](setup-create-vpc.md)

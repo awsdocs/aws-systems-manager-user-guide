@@ -4,7 +4,7 @@ This section describes the setup tasks that account and system administrators pe
 
 **Note**  
 You can register edge devices as managed nodes using the same procedures used for on\-premises servers\. These types of edge devices include both AWS IoT devices and devices other than AWS IoT devices\. Use the process described in this section to set up these types of edge devices\.  
-Systems Manager also supports edge devices that use AWS IoT Greengrass Core software\. The setup process and requirements for AWS IoT Greengrass core devices are different from those for AWS IoT and edge devices other than AWS edge devices\. For information about registering AWS IoT Greengrass devices for use with Systems Manager, see [Setting up Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\.
+Systems Manager also supports edge devices that use AWS IoT Greengrass Core software\. The setup process and requirements for AWS IoT Greengrass core devices are different from those for AWS IoT and edge devices other than AWS edge devices\. For information about registering AWS IoT Greengrass devices for use with Systems Manager, see [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\.
 macOS isn't supported for Systems Manager hybrid environments\.
 
 If you plan to use Systems Manager to manage Amazon Elastic Compute Cloud \(Amazon EC2\) instances, or to use both Amazon EC2 instances and your own resources in a hybrid environment, follow the steps in [Setting up Systems Manager for EC2 instances](systems-manager-setting-up-ec2.md) first\. 

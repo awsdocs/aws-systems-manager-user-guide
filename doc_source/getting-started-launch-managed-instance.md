@@ -36,7 +36,7 @@ You can launch an Amazon EC2 instance using the AWS Management Console as descri
 
    1. From **Common security groups**, choose your security group from the list of existing security groups\.
 
-1. Expand the **Advanced details** section, and for **IAM instance profile**, choose the instance profile that you created when getting set up in [Step 1: Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+1. If you aren't using Default Host Management Configuration, expand the **Advanced details** section, and for **IAM instance profile**, choose the instance profile that you created when getting set up in [Step 1: Configure instance permissions for Systems Manager](setup-instance-permissions.md)\.
 
 1. Keep the default selections for the other configuration settings for your instance\.
 

@@ -79,7 +79,7 @@ You can also store and download Chef cookbooks in Amazon S3 as either a single `
 ```
 
 **Important**  
-If you specify Amazon S3, the AWS Identity and Access Management \(IAM\) instance profile on your managed nodes must be configured with the `AmazonS3ReadOnlyAccess` policy\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+If you specify Amazon S3, the AWS Identity and Access Management \(IAM\) instance profile on your managed nodes must be configured with the `AmazonS3ReadOnlyAccess` policy\. For more information, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\.
 
 **Topics**
 + [Prerequisites: Set up your association, repository, and cookbooks](#state-manager-chef-prereqs)
@@ -173,7 +173,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the managed node, not those of the user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) or [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile or IAM service role associated with the managed node has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the managed node, not those of the IAM user performing this task\. For more information, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md) or [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile or IAM service role associated with the managed node has the necessary permissions to write to that bucket\.
 
 1. Choose **Create Association**\.
 

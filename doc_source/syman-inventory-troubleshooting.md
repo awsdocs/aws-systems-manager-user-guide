@@ -24,7 +24,7 @@ There are two reasons why inventory collection never exits the `Pending` status:
   If you create a global inventory association by using Systems Manager Quick Setup, the status of the inventory association \(`AWS-GatherSoftwareInventory` document\) shows `Pending` if there are no nodes available in the selected Region\.****
 + Insufficient permissions:
 
-  An inventory association shows `Pending` if one or more nodes don't have permission to run Systems Manager Inventory\. Verify that the AWS Identity and Access Management \(IAM\) instance profile includes the **AmazonSSMManagedInstanceCore** managed policy\. For information about how to add this policy to an instance profile, see [Task 2: Add permissions to a Systems Manager instance profile \(console\)](setup-instance-profile.md#instance-profile-add-permissions)\.
+  An inventory association shows `Pending` if one or more nodes don't have permission to run Systems Manager Inventory\. Verify that the AWS Identity and Access Management \(IAM\) instance profile includes the **AmazonSSMManagedInstanceCore** managed policy\. For information about how to add this policy to an instance profile, see [Alternative configuration](setup-instance-permissions.md#instance-profile-add-permissions)\.
 
   At a minimum, the instance profile must have the following IAM permissions\.
 

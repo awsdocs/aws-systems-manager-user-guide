@@ -2,7 +2,7 @@
 
 To set up servers, edge devices, and virtual machines \(VMs\) in your hybrid environment as managed nodes, you create a managed\-node hybrid activation\. After you complete the activation, you receive an activation code and ID\. This code and ID combination functions like an Amazon Elastic Compute Cloud \(Amazon EC2\) access ID and secret key to provide secure access to the AWS Systems Manager service from your managed nodes\.
 
-For information about configuring AWS IoT devices, non\-AWS IoT devices, and on\-premises servers and VMs as managed nodes, see [Setting up Systems Manager for hybrid environments](systems-manager-managedinstances.md)\. For information about configuring AWS IoT Greengrass core devices for Systems Manager, see [Setting up Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\.
+For information about configuring AWS IoT devices, non\-AWS IoT devices, and on\-premises servers and VMs as managed nodes, see [Setting up Systems Manager for hybrid environments](systems-manager-managedinstances.md)\. For information about configuring AWS IoT Greengrass core devices for Systems Manager, see [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\.
 
 **Note**  
 macOS isn't supported for Systems Manager hybrid environments\.

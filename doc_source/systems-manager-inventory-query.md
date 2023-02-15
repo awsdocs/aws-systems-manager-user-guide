@@ -14,119 +14,99 @@ Also, be aware that the **Detailed View** page displays inventory data for the *
 
 ## Configuring access<a name="systems-manager-inventory-query-iam"></a>
 
-Before you can query and view data from multiple accounts and Regions on the **Detailed View** page in the Systems Manager console, you must configure your IAM user with permission to view the data\.
+Before you can query and view data from multiple accounts and Regions on the **Detailed View** page in the Systems Manager console, you must configure your IAM entity with permission to view the data\.
 
-Optionally, if the inventory data is stored in an Amazon S3 bucket that uses AWS Key Management Service \(AWS KMS\) encryption, you must also configure your IAM user and the `Amazon-GlueServiceRoleForSSM` service role for AWS KMS encryption\. If you don't configure your IAM user and this role, Systems Manager displays Cannot load Glue tables when you choose the **Detailed View** tab in the console\.
+If the inventory data is stored in an Amazon S3 bucket that uses AWS Key Management Service \(AWS KMS\) encryption, you must also configure your IAM entity and the `Amazon-GlueServiceRoleForSSM` service role for AWS KMS encryption\. 
 
 **Topics**
-+ [Configuring your IAM user to access the Detailed View page](#systems-manager-inventory-query-iam-user)
++ [Configuring your IAM entity to access the Detailed View page](#systems-manager-inventory-query-iam-user)
 + [\(Optional\) Configure permissions for viewing AWS KMS encrypted data](#systems-manager-inventory-query-kms)
 
-### Configuring your IAM user to access the Detailed View page<a name="systems-manager-inventory-query-iam-user"></a>
+### Configuring your IAM entity to access the Detailed View page<a name="systems-manager-inventory-query-iam-user"></a>
 
-The following procedure describes how to use the IAM console to configure your IAM user so that you can view inventory data on the **Detailed View** page\. 
+The following describes the minimum permissions required to view inventory data on the **Detailed View** page\.
 
-**To configure IAM user access to the **Detailed View** page**
+The `AWSQuicksightAthenaAccess` managed policy
 
-1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+The following `PassRole` and additional required permissions block
 
-1. In the navigation pane, choose **Users**, and then choose the user you want to configure\. The **Summary** page opens\.
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowGlue",
+            "Effect": "Allow",
+            "Action": [
+                "glue:GetCrawler",
+                "glue:GetCrawlers",
+                "glue:GetTables",
+                "glue:StartCrawler",
+                "glue:CreateCrawler"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "iamPassRole",
+            "Effect": "Allow",
+            "Action": "iam:PassRole",
+            "Resource": "*",
+            "Condition": {
+                "StringEquals": {
+                    "iam:PassedToService": "glue.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Sid": "iamRoleCreation",
+           "Effect": "Allow",
+            "Action": [
+                "iam:CreateRole",
+                "iam:AttachRolePolicy"
+            ],
+            "Resource": "arn:aws:iam::account_ID:role/*"
+        },
+        {
+            "Sid": "iamPolicyCreation",
+            "Effect": "Allow",
+            "Action": "iam:CreatePolicy",
+            "Resource": "arn:aws:iam::account_ID:policy/*"
+        }
+    ]
+}
+```
 
-1. On the **Permissions** tab, choose **Add permissions**\.
+\(Optional\) If the Amazon S3 bucket used to store inventory data is encrypted by using AWS KMS, you must also add the following block to the policy\.
 
-1. On the **Grant permissions** page, choose **Attach existing policies directly**\.
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "kms:Decrypt"
+    ],
+    "Resource": [
+        "arn:aws:kms:Region:account_ID:key/key_ARN"
+    ]
+}
+```
 
-1. In the Search field, search for `AWSQuicksightAthenaAccess`\.
+To provide access, add permissions to your users, groups, or roles:
++ Users and groups in AWS IAM Identity Center \(successor to AWS Single Sign\-On\):
 
-1. Choose the option next to this policy, and then choose **Next: Review**\.
+  Create a permission set\. Follow the instructions in [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
++ Users managed in IAM through an identity provider:
 
-1. Choose **Add permissions**\.
-
-1. Choose the user name again to return to the **Summary** page\.
-
-1. Now add an inline policy so that AWS Glue can crawl your inventory data\. On the **Permissions** tab, choose **Add inline policy**\. The **Create policy** page opens\.
-
-1. Choose the **JSON** tab\.
-
-1. Delete the existing JSON text in the editor, and then copy and paste the following policy into the JSON editor\. 
-
-   ```
-   {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Sid": "AllowGlue",
-               "Effect": "Allow",
-               "Action": [
-                   "glue:GetCrawler",
-                   "glue:GetCrawlers",
-                   "glue:GetTables",
-                   "glue:StartCrawler",
-                   "glue:CreateCrawler"
-               ],
-               "Resource": "*"
-           },
-           {
-               "Sid": "iamPassRole",
-               "Effect": "Allow",
-               "Action": "iam:PassRole",
-               "Resource": "*",
-               "Condition": {
-                   "StringEquals": {
-                       "iam:PassedToService": "glue.amazonaws.com"
-                   }
-               }
-           },
-           {
-               "Sid": "iamRoleCreation",
-              "Effect": "Allow",
-               "Action": [
-                   "iam:CreateRole",
-                   "iam:AttachRolePolicy"
-               ],
-               "Resource": "arn:aws:iam::account_ID:role/*"
-           },
-           {
-               "Sid": "iamPolicyCreation",
-               "Effect": "Allow",
-               "Action": "iam:CreatePolicy",
-               "Resource": "arn:aws:iam::account_ID:policy/*"
-           }
-       ]
-   }
-   ```
-**Note**  
-\(Optional\) If the Amazon S3 bucket used to store inventory data is encrypted by using AWS KMS, you must also add the following block to the policy\.  
-
-   ```
-   {
-       "Effect": "Allow",
-       "Action": [
-           "kms:Decrypt"
-       ],
-       "Resource": [
-           "arn:aws:kms:Region:account_ID:key/key_ARN"
-       ]
-   }
-   ```
-If you paste this block after the last block in the policy, be sure to separate the blocks with a comma \(,\)\.
-
-1. On the **Review Policy** page, enter a name in the **Name** field\.
-
-1. Choose **Create policy**\.
-
-**Important**  
-When you choose a resource data sync on the **Inventory Detail View** page, Systems Manager automatically creates the **Amazon\-GlueServiceRoleForSSM** role\. This role allows AWS Glue to access the Amazon S3 bucket for resource data sync\. Systems Manager automatically attaches the following policies to the role:  
-**Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}**: This policy allows communication between AWS Glue and Systems Manager Inventory\.
-**AWSGlueServiceRole**: This is an AWS managed policy that allows access to AWS Glue\.
-If a policy with the name **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** already exists in your IAM user, and this policy isn't attached to the **Amazon\-GlueServiceRoleForSSM **role, then the system returns an error\. To resolve this issue, use the IAM console to verify that the contents of the **Amazon\-GlueServicePolicyForSSM\-\{*Amazon S3 bucket name*\}** policy match the inline policy in this procedure\. Then attach the policy to the **Amazon\-GlueServiceRoleForSSM** role\.
+  Create a role for identity federation\. Follow the instructions in [Creating a role for a third\-party identity provider \(federation\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*\.
++ IAM users:
+  + Create a role that your user can assume\. Follow the instructions in [Creating a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*\.
+  + \(Not recommended\) Attach a policy directly to a user or add a user to a user group\. Follow the instructions in [Adding permissions to a user \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*\.
 
 ### \(Optional\) Configure permissions for viewing AWS KMS encrypted data<a name="systems-manager-inventory-query-kms"></a>
 
-If the Amazon S3 bucket used to store inventory data is encrypted by using the AWS Key Management Service \(AWS KMS\), you must configure your IAM user and the **Amazon\-GlueServiceRoleForSSM** role with `kms:Decrypt` permissions for the AWS KMS key\. If you don't configure your IAM user and this role, Systems Manager displays Cannot load Glue tables when you choose the **Detailed View** tab in the console\.
+If the Amazon S3 bucket used to store inventory data is encrypted by using the AWS Key Management Service \(AWS KMS\), you must configure your IAM entity and the **Amazon\-GlueServiceRoleForSSM** role with `kms:Decrypt` permissions for the AWS KMS key\. 
 
 **Before you begin**  
-To configure your IAM user with `kms:Decrypt` permissions for the AWS KMS key, you add the following policy block to your IAM user as an inline policy, as described in the previous procedure \([Configuring your IAM user to access the Detailed View page](#systems-manager-inventory-query-iam-user)\)\.
+To provide the `kms:Decrypt` permissions for the AWS KMS key, add the following policy block to your IAM entity:
 
 ```
 {

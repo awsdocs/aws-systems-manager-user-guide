@@ -1,6 +1,6 @@
 # Setting up Run Command<a name="run-command-setting-up"></a>
 
-Before you can manage nodes by using Run Command, a capability of AWS Systems Manager, configure an AWS Identity and Access Management \(IAM\) user policy for any user who will run commands\.
+Before you can manage nodes by using Run Command, a capability of AWS Systems Manager, configure an AWS Identity and Access Management \(IAM\) policy for any user who will run commands\.
 
 You must also configure your nodes for Systems Manager\. For more information, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
 
@@ -19,7 +19,7 @@ You can restrict a user's ability to run commands on managed nodes by using AWS 
 
 This section describes how to restrict a user's ability to run commands on managed instances by specifying a tag condition in an IAM policy\. Managed instances include Amazon EC2 instances and on\-premises servers, edge devices, and VMs in a hybrid environment that are configured for Systems Manager\. Though the information is not explicitly presented, you can also restrict access to managed AWS IoT Greengrass core devices\. To get started, you must tag your AWS IoT Greengrass devices\. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass Version 2 Developer Guide*\.
 
-You can restrict command execution to specific managed nodes by creating an IAM user policy that includes a condition that the user can only run commands on nodes with specific tags\. In the following example, the user is allowed to use Run Command \(`Effect: Allow, Action: ssm:SendCommand`\) by using any SSM document \(`Resource: arn:aws:ssm:*:*:document/*`\) on any node \(`Resource: arn:aws:ec2:*:*:instance/*`\) with the condition that the node is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to a node that isn't tagged or that has any tag other than `Finance: WebServer`, the execution results show `AccessDenied`\.
+You can restrict command execution to specific managed nodes by creating an IAM policy that includes a condition that the user can only run commands on nodes with specific tags\. In the following example, the user is allowed to use Run Command \(`Effect: Allow, Action: ssm:SendCommand`\) by using any SSM document \(`Resource: arn:aws:ssm:*:*:document/*`\) on any node \(`Resource: arn:aws:ec2:*:*:instance/*`\) with the condition that the node is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to a node that isn't tagged or that has any tag other than `Finance: WebServer`, the execution results show `AccessDenied`\.
 
 ```
 {

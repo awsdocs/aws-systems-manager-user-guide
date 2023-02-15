@@ -113,6 +113,7 @@ To start creating her runbook content, Emily reviews the available automation ac
        action: 'aws:executeAwsApi'
        onFailure: Abort
        inputs:
+         inputs:
          Service: ec2
          Api: DescribeInstances
          InstanceIds:

@@ -7,6 +7,7 @@ The only supported feature for macOS instances is viewing the file system\.
 
 **Topics**
 + [Managed nodes](managed_instances.md)
++ [Default Host Management Configuration](managed-instances-default-host-management.md)
 + [Connect using Remote Desktop](fleet-rdp.md)
 + [Working with the file system](fleet-file-management.md)
 + [Monitoring managed node performance](fleet-monitoring.md)

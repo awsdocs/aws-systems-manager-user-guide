@@ -96,53 +96,31 @@ Verify that you have permission in AWS Identity and Access Management \(IAM\) to
   + [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html)
   + [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html)
 
-Use the following procedure to add an inline IAM policy to a user\. This policy allows a user to view and change the default tier setting for parameters in a specific AWS Region in an AWS account\. 
+Grant the following permissions to the IAM entity to allow a user to view and change the default tier setting for parameters in a specific AWS Region in an AWS account\.
 
-1. Sign in to the AWS Management Console and open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\.
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetServiceSetting"                
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:UpdateServiceSetting"
+            ],
+            "Resource": "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier"
+        }
+    ]
+}
+```
 
-1. In the navigation pane, choose **Users**\.
-
-1. In the list, choose the name of the user to attach a policy to\.
-
-1. Choose the **Permissions** tab\.
-
-1. On the right side of the page, under **Permission policies**, choose **Add inline policy**\. 
-
-1. Choose the **JSON** tab\.
-
-1. Replace the default content with the following:
-
-   ```
-   {
-       "Version": "2012-10-17",
-       "Statement": [
-           {
-               "Effect": "Allow",
-               "Action": [
-                   "ssm:GetServiceSetting"                
-               ],
-               "Resource": "*"
-           },
-           {
-               "Effect": "Allow",
-               "Action": [
-                   "ssm:UpdateServiceSetting"
-               ],
-               "Resource": "arn:aws:ssm:region:account-id:servicesetting/ssm/parameter-store/default-parameter-tier"
-           }
-       ]
-   }
-   ```
-
-1. For `Resource`, replace *region* and *account\-id* with your own information\.
-
-1. Choose **Review policy**\.
-
-1. On the **Review policy** page, for **Name**, enter a name for the inline policy, such as **Parameter\-Store\-Default\-Tier** or another name you prefer\.
-
-1. Choose **Create policy**\.
-
-Administrators can specify read\-only permission by assigning the following inline policy to the user\.
+Administrators can specify read\-only permission by assigning the following permissions\.
 
 ```
 {
@@ -167,7 +145,16 @@ Administrators can specify read\-only permission by assigning the following inli
 }
 ```
 
-For more information about creating and editing IAM policies, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the *IAM User Guide*\.
+To provide access, add permissions to your users, groups, or roles:
++ Users and groups in AWS IAM Identity Center \(successor to AWS Single Sign\-On\):
+
+  Create a permission set\. Follow the instructions in [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html) in the *AWS IAM Identity Center \(successor to AWS Single Sign\-On\) User Guide*\.
++ Users managed in IAM through an identity provider:
+
+  Create a role for identity federation\. Follow the instructions in [Creating a role for a third\-party identity provider \(federation\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html) in the *IAM User Guide*\.
++ IAM users:
+  + Create a role that your user can assume\. Follow the instructions in [Creating a role for an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) in the *IAM User Guide*\.
+  + \(Not recommended\) Attach a policy directly to a user or add a user to a user group\. Follow the instructions in [Adding permissions to a user \(console\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_change-permissions.html#users_change_permissions-add-console) in the *IAM User Guide*\.
 
 ### Specifying or changing the Parameter Store default tier \(console\)<a name="parameter-store-tier-changing"></a>
 

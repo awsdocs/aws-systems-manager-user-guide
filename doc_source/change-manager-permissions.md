@@ -161,7 +161,7 @@ By attaching the `iam:PassRole` policy, the Change Manager service can pass assu
 1. For **Name**, enter a name to identify this policy, and then choose **Create policy**\.
 
 **More info**  
-+ [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
++ [Configure instance permissions for Systems Manager](setup-instance-permissions.md)
 + [Create an IAM service role for a hybrid environment](sysman-service-role.md)
 
 ## Task 4: Adding inline policies to an assume role to invoke other AWS services<a name="change-manager-role-add-inline-policy"></a>

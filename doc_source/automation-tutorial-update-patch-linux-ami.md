@@ -8,7 +8,7 @@ The `AWS-UpdateLinuxAmi` runbook allows you to automate image maintenance tasks 
 + Install additional software packages\.
 
 **Before you begin**  
-Before you begin working with runbooks, configure roles and, optionally, EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+Before you begin working with runbooks, configure roles and, optionally, EventBridge for Automation\. For more information, see [Setting up Automation](automation-setup.md)\. This walkthrough also requires that you specify the name of an AWS Identity and Access Management \(IAM\) instance profile\. For more information about creating an IAM instance profile, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\.
 
 The `AWS-UpdateLinuxAmi` runbook accepts the following input parameters\.
 
@@ -18,7 +18,7 @@ The `AWS-UpdateLinuxAmi` runbook accepts the following input parameters\.
 | Parameter | Type | Description | 
 | --- | --- | --- | 
 |  SourceAmiId  |  String  |  \(Required\) The source AMI ID\.  | 
-|  IamInstanceProfileName  |  String  |  \(Required\) The name of the IAM instance profile role you created in [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The runbook uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the automation fails\.  | 
+|  IamInstanceProfileName  |  String  |  \(Required\) The name of the IAM instance profile role you created in [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\. The instance profile role gives Automation permission to perform actions on your instances, such as running commands or starting and stopping services\. The runbook uses only the name of the instance profile role\. If you specify the Amazon Resource Name \(ARN\), the automation fails\.  | 
 |  AutomationAssumeRole  |  String  |  \(Required\) The name of the IAM service role you created in [Setting up Automation](automation-setup.md)\. The service role \(also called an assume role\) gives Automation permission to assume your IAM role and perform actions on your behalf\. For example, the service role allows Automation to create a new AMI when running the `aws:createImage` action in a runbook\. For this parameter, the complete ARN must be specified\.  | 
 |  TargetAmiName  |  String  |  \(Optional\) The name of the new AMI after it is created\. The default name is a system\-generated string that includes the source AMI ID, and the creation time and date\.  | 
 |  InstanceType  |  String  |  \(Optional\) The type of instance to launch as the workspace host\. Instance types vary by region\. The default type is t2\.micro\.  | 

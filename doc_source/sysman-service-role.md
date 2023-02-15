@@ -29,7 +29,7 @@ Use the following procedure to create a service role for hybrid activation\. Thi
    + Use the **Search** field to locate the **AmazonSSMManagedInstanceCore** policy\. Select the check box next to its name\.   
 ![\[Policy for EC2 service selected in the IAM console.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/setup-instance-profile-2.png)
    + The console retains your selection even if you search for other policies\.
-   + If you created a custom S3 bucket policy in the procedure [Task 1: \(Optional\) Create a custom policy for S3 bucket access](setup-instance-profile.md#instance-profile-custom-s3-policy), search for it and select the check box next to its name\.
+   + If you created a custom S3 bucket policy in the procedure [\(Optional\) Create a custom policy for S3 bucket access](setup-instance-permissions.md#instance-profile-custom-s3-policy), search for it and select the check box next to its name\.
    + If you plan to join instances to an Active Directory managed by AWS Directory Service, search for **AmazonSSMDirectoryServiceAccess** and select the check box next to its name\.
    + If you plan to use EventBridge or CloudWatch Logs to manage or monitor your instance, search for **CloudWatchAgentServerPolicy** and select the check box next to its name\.
 
@@ -52,7 +52,7 @@ Use the following procedure to create a service role for hybrid activation\. Thi
 **S3 bucket policy requirement**  
 If either of the following cases are true, you must create a custom IAM permission policy for Amazon Simple Storage Service \(Amazon S3\) buckets before completing this procedure:
 + **Case 1** – You're using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink\. 
-+ **Case 2** – You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an Amazon S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
++ **Case 2** – You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an Amazon S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-permissions.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
 
 ------
 #### [ AWS CLI ]
@@ -113,7 +113,7 @@ If either of the following cases are true, you must create a custom IAM permissi
 
 1. Run the [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) command as follows to allow the service role you just created to create a session token\. The session token gives your managed node permission to run commands using Systems Manager\.
 **Note**  
-The policies you add for a service profile for managed nodes in a hybrid environment are the same policies used to create an instance profile for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+The policies you add for a service profile for managed nodes in a hybrid environment are the same policies used to create an instance profile for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information about the AWS policies used in the following commands, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\.
 
    \(Required\) Run the following command to allow a managed node to use AWS Systems Manager service core functionality\.
 
@@ -234,7 +234,7 @@ The policies you add for a service profile for managed nodes in a hybrid environ
 
 1. Use [Register\-IAMRolePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-IAMRolePolicy.html) as follows to allow the service role you created to create a session token\. The session token gives your managed node permission to run commands using Systems Manager\.
 **Note**  
-The policies you add for a service profile for managed nodes in a hybrid environment are the same policies used to create an instance profile for EC2 instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+The policies you add for a service profile for managed nodes in a hybrid environment are the same policies used to create an instance profile for EC2 instances\. For more information about the AWS policies used in the following commands, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\.
 
    \(Required\) Run the following command to allow a managed node to use AWS Systems Manager service core functionality\.
 

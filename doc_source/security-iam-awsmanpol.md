@@ -369,7 +369,7 @@ arn:aws:events:*:*:rule/SSMExplorerManagedRule
 
 ## `AmazonSSMReadOnlyAccess`<a name="security-iam-awsmanpol-AmazonSSMReadOnlyAccess"></a>
 
-Use the `AmazonSSMReadOnlyAccess` AWS managed policy to allow read\-only access to AWS Systems Manager\. Assigning this policy to an AWS Identity and Access Management \(IAM\) user allows read\-only API operations, such as `Describe*`, `Get*`, and `List*`\. View the [policy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess) for the full list of actions supported by this policy\. 
+Use the `AmazonSSMReadOnlyAccess` AWS managed policy to allow read\-only access to AWS Systems Manager\. Assigning this policy to an IAM entity grants permission to read\-only API operations, such as `Describe*`, `Get*`, and `List*`\. View the [policy](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess) for the full list of actions supported by this policy\. 
 
 ### Service\-level permissions<a name="AmazonSSMReadOnlyAccess-service-level-permissions"></a>
 
@@ -532,7 +532,7 @@ arn:aws:ssm:*:*:servicesetting/ssm/opsdata/*
 
 ## AWS managed policy: `AmazonSSMManagedEC2InstanceDefaultPolicy`<a name="security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy"></a>
 
-You shouldn't attach `AmazonSSMManagedEC2InstanceDefaultPolicy` to your IAM entities\. This policy should be attached to a role that grants permissions to your Amazon EC2 instances to allow Systems Manager functionality\. 
+You shouldn't attach `AmazonSSMManagedEC2InstanceDefaultPolicy` to your IAM entities\. This policy should be attached to a role that grants permissions to your Amazon EC2 instances to allow Systems Manager functionality\. For more information, see [Default Host Management Configuration](managed-instances-default-host-management.md)\.
 
 This policy grants permissions that allow the SSM Agent on your Amazon EC2 instance to retrieve Documents, execute commands using Run Command, establish sessions using Session Manager, collect an inventory of the instance, and scan for patches and patch compliance using Patch Manager\.
 

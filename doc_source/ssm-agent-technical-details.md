@@ -17,7 +17,7 @@ Use the information in this topic to help you implement AWS Systems Manager Agen
 **Note**  
 The following information applies to SSM Agent version 3\.1\.1927\.0 or earlier, and for Amazon ECS container instances\.
 
-This topic describes important information about how SSM Agent is granted permission to perform actions on your resources\. The content is primarily focused on SSM Agent running Amazon Elastic Compute Cloud \(Amazon EC2\) instances and servers or VMs in your hybrid environment\. For edge devices, you must configure your devices to use AWS IoT Greengrass Core software, configure an AWS Identity and Access Management \(IAM\) service role, and deploy SSM Agent to your devices by using AWS IoT Greengrass\. For more information, see [Setting up Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\.
+This topic describes important information about how SSM Agent is granted permission to perform actions on your resources\. The content is primarily focused on SSM Agent running Amazon Elastic Compute Cloud \(Amazon EC2\) instances and servers or VMs in your hybrid environment\. For edge devices, you must configure your devices to use AWS IoT Greengrass Core software, configure an AWS Identity and Access Management \(IAM\) service role, and deploy SSM Agent to your devices by using AWS IoT Greengrass\. For more information, see [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)\.
 
 When SSM Agent is installed on an instance, it requires permissions in order to communicate with the Systems Manager service\. On Amazon Elastic Compute Cloud \(Amazon EC2\) instances, these permissions are provided in an instance profile that is attached to the instance\. On a hybrid instance \(on\-premises\), SSM Agent normally gets the needed permissions from the shared credentials file, located at `/root/.aws/credentials` \(Linux and macOS\) or `%USERPROFILE%\.aws\credentials` \(Windows Server\)\. The needed permissions are added to this file during the hybrid activation process\.
 
@@ -41,7 +41,7 @@ The default provider chain looks for credentials in the following order:
 1. An instance profile attached to an Amazon EC2 instance\.
 
 For related information, see the following topics:
-+ Instance profiles for EC2 instances – [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) and [Attach an IAM instance profile to an EC2 instance](setup-launch-managed-instance.md) 
++ Instance profiles for EC2 instances – [Configure instance permissions for Systems Manager](setup-instance-permissions.md) 
 + Hybrid activations – [Create a managed\-node activation for a hybrid environment](sysman-managed-instance-activation.md)
 + AWS CLI credentials – [Configuration and credential file settings](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) in the *AWS Command Line Interface User Guide*
 + Default credential provider chain – [Specifying Credentials](https://docs.aws.amazon.com/sdk-for-go/latest/developer-guide/configuring-sdk.html#specifying-credentials) in the *AWS SDK for Go Developer Guide*

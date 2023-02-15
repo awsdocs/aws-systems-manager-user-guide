@@ -10,7 +10,7 @@ This document supports Amazon Elastic Compute Cloud \(Amazon EC2\) instances for
   In most cases, however, when setting up your own patching operations, you should choose [`AWS-RunPatchBaseline`](patch-manager-about-aws-runpatchbaseline.md) or [`AWS-RunPatchBaselineWithHooks`](patch-manager-about-aws-runpatchbaselinewithhooks.md) instead of `AWS-RunPatchBaselineAssociation`\.
 + When you use the `AWS-RunPatchBaselineAssociation` document, you can specify a tag key pair in the document's `BaselineTags` parameter field\. If a custom patch baseline in your AWS account shares these tags, Patch Manager, a capability of AWS Systems Manager, uses that tagged baseline when it runs on the target instances instead of the currently specified "default" patch baseline for the operating system type\.
 **Important**  
-If you choose to use `AWS-RunPatchBaselineAssociation` in patching operations other than those set up using Quick Setup, and you want to use its optional `BaselineTags` parameter, you must provide some additional permissions to the [instance profile](setup-instance-profile.md) for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [Parameter name: `BaselineTags`](#patch-manager-about-aws-runpatchbaselineassociation-parameters-baselinetags)\.
+If you choose to use `AWS-RunPatchBaselineAssociation` in patching operations other than those set up using Quick Setup, and you want to use its optional `BaselineTags` parameter, you must provide some additional permissions to the [instance profile](setup-instance-permissions.md) for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [Parameter name: `BaselineTags`](#patch-manager-about-aws-runpatchbaselineassociation-parameters-baselinetags)\.
 
   Both of the following formats are valid for your `BaselineTags` parameter:
 
@@ -108,7 +108,7 @@ If a patch specified by the baseline rules is installed *before* Patch Manager u
 The `BaselineTags` value is used by Patch Manager to ensure that a set of instances that are patched in a single operation all have the exact same set of approved patches\. When the patching operation runs, Patch Manager checks to see if a patch baseline for the operating system type is tagged with the same key\-value pair you specify for `BaselineTags`\. If there is a match, this custom patch baseline is used\. If there isn't a match, a patch baseline is identified according to any patch group specified for the patching operating\. If there is none, the AWS managed predefined patch baseline for that operating system is used\. 
 
 **Additional permission requirements**  
-If you use `AWS-RunPatchBaselineAssociation` in patching operations other than those set up using Quick Setup, and you want to use the optional `BaselineTags` parameter, you must add the following permissions to the [instance profile](setup-instance-profile.md) for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\.
+If you use `AWS-RunPatchBaselineAssociation` in patching operations other than those set up using Quick Setup, and you want to use the optional `BaselineTags` parameter, you must add the following permissions to the [instance profile](setup-instance-permissions.md) for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\.
 
 **Note**  
 Quick Setup and `AWS-RunPatchBaselineAssociation` don't support on\-premises servers and virtual machines \(VMs\)\.

@@ -5,7 +5,6 @@ If you need to create a service role for Automation, a capability of AWS Systems
 **Topics**
 + [Task 1: Create a service role for Automation](#create-service-role)
 + [Task 2: Attach the iam:PassRole policy to your Automation role](#attach-passrole-policy)
-+ [Task 3: Configure user access to Automation](#configure-user-access)
 
 ## Task 1: Create a service role for Automation<a name="create-service-role"></a>
 
@@ -177,31 +176,3 @@ If you want the Automation service role to attach an IAM instance profile role t
 1. Choose **Review policy**\.
 
 1. On the **Review Policy** page, enter a name and then choose **Create Policy**\.
-
-## Task 3: Configure user access to Automation<a name="configure-user-access"></a>
-
-If your user, group, or role is assigned administrator permissions, then you have access to Systems Manager Automation\. If you don't have administrator permissions, then an administrator must give you permission by assigning the `AmazonSSMFullAccess` managed policy, or a policy that provides comparable permissions, to your user, group, or role\.
-
-Use the following procedure to configure a user to use Automation\. The user you choose will have permission to configure and run Automation\.
-
-**To configure user access and attach the iam:PassRole policy to a user account**
-
-1. In the IAM navigation pane, choose **Users**, and then choose the user you want to configure\.
-
-1. On the **Permissions** tab, in the policies list, verify that either the **AmazonSSMFullAccess** policy is listed or there is a comparable policy that gives the account permissions to access Systems Manager\.
-
-1. Choose **Add inline policy**\.
-
-1. On the **Create policy** page, choose the **Visual editor** tab, and then choose **Choose a service**\.
-
-1. In the search box, enter **IAM**, or scroll down to find **IAM** lower in the page, and choose **IAM**\.
-
-1. For **Actions**, enter **PassRole** in the search box, and choose **PassRole**\.
-
-1. Expand the **Resources** section, choose **Add ARN**, paste the ARN for the Automation service role you copied at the end of Task 1, and then choose **Add**\.
-
-1. Choose **Review policy**\.
-
-1. On the **Review Policy** page, provide a **Name** for the policy and then choose **Create policy**\.
-
-You have finished configuring the required roles for Automation\. You can now use the Automation service role ARN in your runbooks\.

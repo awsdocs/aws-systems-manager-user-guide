@@ -12,7 +12,7 @@ For information about using a virtual private cloud \(VPC\) endpoint in your Sys
 These permissions only provide access to the AWS managed buckets required by SSM Agent\. They don't provide the permissions that are necessary for other Amazon S3 operations\. They also don't provide permission to your own S3 buckets\. 
 
 For more information, see the following topics: 
-+ [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
++ [Configure instance permissions for Systems Manager](setup-instance-permissions.md)
 + [Create an IAM service role for a hybrid environment](sysman-service-role.md)
 
 **Topics**

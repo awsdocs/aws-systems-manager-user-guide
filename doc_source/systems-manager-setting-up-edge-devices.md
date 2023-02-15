@@ -1,4 +1,4 @@
-# Setting up Systems Manager for edge devices<a name="systems-manager-setting-up-edge-devices"></a>
+# Setting up AWS Systems Manager for edge devices<a name="systems-manager-setting-up-edge-devices"></a>
 
 This section describes the setup tasks that account and system administrators perform to enable configuration and management of AWS IoT Greengrass core devices\. After you complete these tasks, users who have been granted permissions by the AWS account administrator can use AWS Systems Manager to configure and manage their organization's AWS IoT Greengrass core devices\. 
 
@@ -29,7 +29,7 @@ Users in your company or organization who will use Systems Manager on your edge 
 **S3 bucket policy requirement**  
 If either of the following cases are true, you must create a custom IAM permission policy for Amazon Simple Storage Service \(Amazon S3\) buckets before completing this procedure:
 + **Case 1**: You're using a VPC endpoint to privately connect your VPC to supported AWS services and VPC endpoint services powered by AWS PrivateLink\. 
-+ **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an Amazon S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-profile.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
++ **Case 2**: You plan to use an Amazon S3 bucket that you create as part of your Systems Manager operations, such as for storing output for Run Command commands or Session Manager sessions to an Amazon S3 bucket\. Before proceeding, follow the steps in [Create a custom S3 bucket policy for an instance profile](setup-instance-permissions.md#instance-profile-custom-s3-policy)\. The information about S3 bucket policies in that topic also applies to your service role\.
 **Note**  
 If your devices are protected by a firewall and you plan to use Patch Manager, the firewall must allow access to the patch baseline endpoint `arn:aws:s3:::patch-baseline-snapshot-region/*`\.  
 *region* represents the identifier for an AWS Region supported by AWS Systems Manager, such as `us-east-2` for the US East \(Ohio\) Region\. For a list of supported *region* values, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.
@@ -80,7 +80,7 @@ Make a note of the name\. You will specify it when you deploy SSM Agent to your 
 
 1. Run the [attach\-role\-policy](https://docs.aws.amazon.com/cli/latest/reference/iam/attach-role-policy.html) command as follows to allow the service role you just created to create a session token\. The session token gives your edge devices permission to run commands using Systems Manager\.
 **Note**  
-The policies you add for a service profile for edge devices are the same policies used to create an instance profile for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+The policies you add for a service profile for edge devices are the same policies used to create an instance profile for Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information about the IAM policies used in the following commands, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\.
 
    \(Required\) Run the following command to allow an edge device to use AWS Systems Manager service core functionality\.
 
@@ -180,7 +180,7 @@ Make a note of the name\. You will specify it when you deploy SSM Agent to your 
 
 1. Use [Register\-IAMRolePolicy](https://docs.aws.amazon.com/powershell/latest/reference/items/Register-IAMRolePolicy.html) as follows to allow the service role you created to create a session token\. The session token gives your edge devices permission to run commands using Systems Manager\.
 **Note**  
-The policies you add for a service role for edge devices in an AWS IoT Greengrass environment are the same policies used to create an instance profile for EC2 instances\. For more information about the AWS policies used in the following commands, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
+The policies you add for a service role for edge devices in an AWS IoT Greengrass environment are the same policies used to create an instance profile for EC2 instances\. For more information about the AWS policies used in the following commands, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\.
 
    \(Required\) Run the following command to allow an edge device to use AWS Systems Manager service core functionality\.
 

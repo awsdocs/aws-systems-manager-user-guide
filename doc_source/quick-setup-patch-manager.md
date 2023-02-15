@@ -82,7 +82,7 @@ If a custom patch baseline that was referenced in a patch policy is deleted, a b
 **Note**  
 If you are setting up a patch policy for an organization, the management account for your organization must have at least read\-only permissions for this bucket\. All organization units included in the policy must have write\-access to the bucket\. For information about granting bucket access to different accounts, see [Example 2: Bucket owner granting cross\-account bucket permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html) in the *Amazon Simple Storage Service User Guide*\.
 
-1. Provide the **S3 URI** or **Browse S3** for the bucket that you want to store patch log output in\. The management account must have read access to this bucket\. All non\-management accounts and targets configured in the **Targets** section must have write access to the provided S3 bucket for logging\.
+1. Choose **Browse S3** to select the bucket that you want to store patch log output in\. The management account must have read access to this bucket\. All non\-management accounts and targets configured in the **Targets** section must have write access to the provided S3 bucket for logging\.
 
 1. In the **Targets** section, choose one of the following to identify the accounts and Regions for this patch policy operation\.
 **Note**  

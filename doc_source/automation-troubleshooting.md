@@ -22,7 +22,7 @@ To solve this problem, you must specify a value for the `SubnetId` input paramet
 
 ## Automation execution failed to start<a name="automation-trbl-access"></a>
 
-An automation can fail with an access denied error or an invalid assume role error if you haven't properly configured AWS Identity and Access Management \(IAM\) users, roles, and policies for Automation\.
+An automation can fail with an access denied error or an invalid assume role error if you haven't properly configured AWS Identity and Access Management \(IAM\) roles, and policies for Automation\.
 
 ### Access denied<a name="automation-trbl-access-denied"></a>
 
@@ -30,8 +30,8 @@ The following examples describe situations when an automation failed to start wi
 
 **Access Denied to Systems Manager API**  
 **Error message**: `User: user arn isn't authorized to perform: ssm:StartAutomationExecution on resource: document arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`
-+ Possible cause 1: The user attempting to start the automation doesn't have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-setup-iam.md#configure-user-access)\. 
-+ Possible cause 2: The user attempting to start the automation has permission to invoke the `StartAutomationExecution` API but doesn't have permission to invoke the API by using the specific runbook\. To resolve this issue, attach the required IAM policy to the user that was used to start the automation\. For more information, see [Task 3: Configure user access to Automation](automation-setup-iam.md#configure-user-access)\.
++ Possible cause 1: The user attempting to start the automation doesn't have permission to invoke the `StartAutomationExecution` API\. To resolve this issue, attach the required IAM policy to the user that was used to start the automation\.  
++ Possible cause 2: The user attempting to start the automation has permission to invoke the `StartAutomationExecution` API but doesn't have permission to invoke the API by using the specific runbook\. To resolve this issue, attach the required IAM policy to the user that was used to start the automation\. 
 
 **Access Denied Because of Missing PassRole Permissions**  
 **Error message**: `User: user arn isn't authorized to perform: iam:PassRole on resource: automation assume role arn (Service: AWSSimpleSystemsManagement; Status Code: 400; Error Code: AccessDeniedException; Request ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)`

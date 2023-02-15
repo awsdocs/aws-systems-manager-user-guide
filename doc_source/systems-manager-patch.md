@@ -29,7 +29,7 @@ A compliance item generated through the use of a patch policy has an execution t
 
 **Integrations**  
 Patch Manager integrates with the following other AWS services: 
-+ **AWS Identity and Access Management \(IAM\)** – Use IAM to control which users, groups, and roles have access to Patch Manager operations\. For more information, see [How AWS Systems Manager works with IAM](security_iam_service-with-iam.md) and [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
++ **AWS Identity and Access Management \(IAM\)** – Use IAM to control which users, groups, and roles have access to Patch Manager operations\. For more information, see [How AWS Systems Manager works with IAM](security_iam_service-with-iam.md) and [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\. 
 + **AWS CloudTrail** – Use CloudTrail to record an auditable history of patching operation events initiated by users, roles, or groups\. For more information, see [Logging AWS Systems Manager API calls with AWS CloudTrail](monitoring-cloudtrail-logs.md)\.
 + **AWS Security Hub** – Patch compliance data from Patch Manager can be sent to AWS Security Hub\. Security Hub gives you a comprehensive view of your high\-priority security alerts and compliance status\. It also monitors the patching status of your fleet\. For more information, see [Integrating Patch Manager with AWS Security Hub](patch-manager-security-hub-integration.md)\. 
 + **AWS Config** – Set up recording in AWS Config to view Amazon EC2 instance management data in the Patch Manager Dashboard\. For more information, see [Viewing patch Dashboard summaries \(console\)](view-patch-dashboard-summaries.md)\.

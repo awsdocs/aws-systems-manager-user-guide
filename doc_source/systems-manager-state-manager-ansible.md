@@ -50,7 +50,7 @@ You can also store and download Ansible playbooks in Amazon S3 as either a singl
 ```
 
 **Important**  
- You can set up the AWS Identity and Access Management \(IAM\) instance profile with a policy specifically created for Amazon S3 to download playbooks from Amazon S3\. You can use the `AmazonS3ReadOnlyAccess` policy as a quick start, but we recommend that you create a new policy for this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
+If you specify Amazon S3, then the AWS Identity and Access Management \(IAM\) instance profile on your managed nodes must be configured with the `AmazonS3ReadOnlyAccess` policy\. For more information, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\. 
 
 **Support for compressed playbook structure**
 
@@ -147,7 +147,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
 1. \(Optional\) For **Output options**, to save the command output to a file, select the **Enable writing output to S3** box\. Enter the bucket and prefix \(folder\) names in the boxes\.
 **Note**  
-The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the managed node, not those of the user performing this task\. For more information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md) or [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile or IAM service role associated with the managed node has the necessary permissions to write to that bucket\.
+The S3 permissions that grant the ability to write the data to an S3 bucket are those of the instance profile assigned to the managed node, not those of the IAM user performing this task\. For more information, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md) or [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. In addition, if the specified S3 bucket is in a different AWS account, verify that the instance profile or IAM service role associated with the managed node has the necessary permissions to write to that bucket\.
 
 1. Choose **Create Association**\.
 

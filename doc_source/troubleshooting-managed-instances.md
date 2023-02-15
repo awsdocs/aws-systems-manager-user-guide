@@ -100,7 +100,7 @@ To install or reinstall SSM Agent on a managed node, see the following topics:
 
 ## Solution 2: Verify that an IAM instance profile has been specified for the instance \(EC2 instances only\)<a name="instances-missing-solution-2"></a>
 
-For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, verify that the instance is configured with an AWS Identity and Access Management \(IAM\) instance profile that allows the instance to communicate with the Systems Manager API\. Also verify that your user account has an IAM user trust policy that allows your account to communicate with the Systems Manager API\.
+For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, verify that the instance is configured with an AWS Identity and Access Management \(IAM\) instance profile that allows the instance to communicate with the Systems Manager API\. Also verify that your user has an IAM trust policy that allows your user to communicate with the Systems Manager API\.
 
 **Note**  
 On\-premises servers, edge devices, and virtual machines \(VMs\) use an IAM service role instead of an instance profile\. For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\.
@@ -123,16 +123,7 @@ On\-premises servers, edge devices, and virtual machines \(VMs\) use an IAM serv
 
    [Open `AmazonSSMManagedInstanceCore` in the console](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore$jsonEditor)
 
-   For information about other policies that can be attached to an instance profile for Systems Manager, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\.
-
-**To create and attach an instance profile with the necessary permissions to a new EC2 instance**
-+ Complete the tasks in the following topics:
-  + [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)
-  + [Launch an instance that uses the Systems Manager instance profile \(console\)](setup-launch-managed-instance.md#setup-launch-managed-instance-new)
-
-**To attach an existing instance profile with the necessary permissions to an existing Amazon EC2 instance**
-+ Complete the task in the following topic:
-  + [Attach the Systems Manager instance profile to an existing instance \(console\)](setup-launch-managed-instance.md#setup-launch-managed-instance-existing)
+   For information about other policies that can be attached to an instance profile for Systems Manager, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\.
 
 ## Solution 3: Verify service endpoint connectivity<a name="instances-missing-solution-3"></a>
 

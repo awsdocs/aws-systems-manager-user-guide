@@ -88,7 +88,7 @@ Many password reset issues can be resolved by ensuring that you have completed t
 ### Managed node not available<a name="password-reset-troubleshooting-instances"></a>
 
 **Problem**: You want to reset the password for a managed node on the **Managed instances** console page, but the node isn't in the list\.
-+ **Solution**: The managed node you want to connect to might not be configured for Systems Manager\. To use an EC2 instance with Systems Manager, an AWS Identity and Access Management \(IAM\) instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Create an IAM instance profile for Systems Manager](setup-instance-profile.md)\. 
++ **Solution**: The managed node you want to connect to might not be configured for Systems Manager\. To use an EC2 instance with Systems Manager, an AWS Identity and Access Management \(IAM\) instance profile that gives Systems Manager permission to perform actions on your instances must be attached to the instance\. For information, see [Configure instance permissions for Systems Manager](setup-instance-permissions.md)\. 
 
   To use an on\-premises server, edge device, or virtual machine \(VM\) with Systems Manager, create an IAM service role that gives Systems Manager permission to perform actions on your machines\. For more information, see [Create an IAM service role for a hybrid environment](sysman-service-role.md)\. \(Session Manager support for on\-premises servers and VMs is provided for the advanced\-instances tier only\. For more information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.\)
 
@@ -109,7 +109,7 @@ Many password reset issues can be resolved by ensuring that you have completed t
 ### No authorization to run `ssm:SendCommand`<a name="password-reset-troubleshooting-sendcommand"></a>
 
 **Problem**: You attempt to connect to a managed node to change the password but receive an error message saying that you aren't authorized to run `ssm:SendCommand` on the managed node\.
-+ **Solution**: Your IAM user policy must include permission to run the `ssm:SendCommand` command\. For information, see [Restricting Run Command access based on tags](run-command-setting-up.md#tag-based-access)\.
++ **Solution**: Your IAM policy must include permission to run the `ssm:SendCommand` command\. For information, see [Restricting Run Command access based on tags](run-command-setting-up.md#tag-based-access)\.
 
 ### Session Manager error message<a name="password-reset-troubleshooting-session-manager"></a>
 
