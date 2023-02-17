@@ -40,13 +40,6 @@ Use the following procedure to create a custom IAM role with a policy that provi
            {
                "Effect": "Allow",
                "Action": [
-                   "s3:GetEncryptionConfiguration"
-               ],
-               "Resource": "*"
-           },
-           {
-               "Effect": "Allow",
-               "Action": [
                    "kms:Decrypt"
                ],
                "Resource": "key-name"
