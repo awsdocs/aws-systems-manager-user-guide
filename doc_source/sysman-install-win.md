@@ -16,7 +16,7 @@ This procedure applies to installing or reinstalling SSM Agent on an EC2 instanc
 
 **To manually install the latest version of SSM Agent on EC2 instances for Windows Server**
 
-1. Log in to your instance by using Remote Desktop or Windows PowerShell\.
+1. Connect to your instance by using Remote Desktop or Windows PowerShell\. For more information, see [Connect to your instance](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/EC2_GetStarted.html#ec2-connect-to-instance-windows) in the *Amazon EC2 User Guide for Windows Instances*\.
 
 1. Download the latest version of SSM Agent to your instance\. You can download using either PowerShell commands or a direct download link\. 
 **Note**  

@@ -23,18 +23,3 @@ To use Patch Manager, a capability of AWS Systems Manager, complete the followin
 + [Viewing available patches \(console\)](viewing-available-patches.md)
 + [Working with patch groups](sysman-patch-group-tagging.md)
 + [Working with Patch Manager settings](patch-manager-settings.md)
-
-**More info**  
-+ [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
-+ [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
-+ [About patch compliance](sysman-compliance-about.md#sysman-compliance-monitor-patch)\.
-
-**Topics**
-+ [Creating a patch policy](patch-policy-create.md)
-+ [Viewing patch Dashboard summaries \(console\)](view-patch-dashboard-summaries.md)
-+ [Working with patch compliance reports](patch-compliance-reports.md)
-+ [Patching managed nodes on demand](patch-on-demand.md)
-+ [Working with patch baselines](patch-baselines.md)
-+ [Viewing available patches \(console\)](viewing-available-patches.md)
-+ [Working with patch groups](sysman-patch-group-tagging.md)
-+ [Working with Patch Manager settings](patch-manager-settings.md)

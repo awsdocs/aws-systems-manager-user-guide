@@ -22,7 +22,7 @@ After configuring your hybrid environment for Systems Manager, you can do the fo
 **About managed nodes**  
 After you finish configuring your on\-premises servers, edge devices, and VMs for Systems Manager as described in this section, your hybrid machines are listed in the AWS Management Console and described as *managed nodes*\. In the console, the IDs of your hybrid managed nodes are distinguished from Amazon EC2 instances with the prefix "mi\-"\. Amazon EC2 instance IDs use the prefix "i\-"\.
 
-A managed node is any machine configured for Systems Manager\. Systems Manager supports instances, edge devices, and on\-premises servers or VMs, including VMs in other cloud environments\. Previously, managed nodes were all referred to as managed instances\. The term *instance* now refers to EC2 instances only\. The [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html) and [register\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/register-managed-instance.html) commands were named before this terminology change\.
+A managed node is any machine configured for Systems Manager\. Systems Manager supports instances, edge devices, and on\-premises servers or VMs, including VMs in other cloud environments\. Previously, managed nodes were all referred to as managed instances\. The term *instance* now refers to EC2 instances only\. The [deregister\-managed\-instance](https://docs.aws.amazon.com/cli/latest/reference/ssm/deregister-managed-instance.html) command was named before this terminology change\.
 
  For more information, see [Managed nodes](managed_instances.md)\.
 

@@ -44,8 +44,8 @@ For more information about the `AWSServiceRoleForAmazonSSM_AccountDiscovery` rol
 
 After you complete Integrated Setup, you must configure user, group, or role permissions so that users can perform actions in OpsCenter\.
 
-**Before You Begin**  
-OpsItems can only be viewed or edited in the account where they were created\. You can't share or transfer OpsItems across AWS accounts\. For this reason, we recommend that you configure permissions for OpsCenter in the AWS account that is used to run your AWS workloads\. You can then create users or groups in that account\. In this way, multiple operations engineers or IT professionals can create, view, and edit OpsItems in the same AWS account\.
+**Before you begin**  
+You can configure your OpsCenter to create and manage OpsItems across multiple accounts or just a single account\. If you configure OpsCenter to create and manage OpsItems across multiple accounts, the AWS Organizations management account can create, view, or edit OpsItems in other accounts manually\. If required, you can also select the Systems Manager delegated administrator account to create and manage OpsItems in member accounts\.  However, if you configure OpsCenter for a single account, you can only view or edit OpsItems in the account where OpsItems were created\. You can't share or transfer OpsItems across AWS accounts\. For this reason, we recommend that you configure permissions for OpsCenter in the AWS account that is used to run your AWS workloads\. You can then create users or groups in that account\. In this way, multiple operations engineers or IT professionals can create, view, and edit OpsItems in the same AWS account\.
 
 Explorer and OpsCenter use the following API operations\. You can use all features of Explorer and OpsCenter if your user, group, or role has access to these actions\. You can also create more restrictive access, as described later in this section\.
 +  [CreateOpsItem](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateOpsItem.html) 

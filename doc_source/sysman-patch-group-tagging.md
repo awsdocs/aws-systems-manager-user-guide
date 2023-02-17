@@ -50,9 +50,9 @@ If a managed node you expect to see isn't listed, see [Troubleshooting managed n
 
 1. In the list of instances, choose an instance that you want to configure for patching\.
 
-1. In the **Actions** menu, choose **Instance Settings**, **Add/Edit Tags**\.
+1. In the **Actions** menu, choose **Instance settings**, **Manage tags**\.
 
-1. If the instance already has one or more tags applied, choose **Create Tag**\.
+1. Choose **Add new tag**\.
 
 1. For **Key**, enter **Patch Group** or **PatchGroup**\. If you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS), you must use `PatchGroup` \(without a space\)\.
 
@@ -76,11 +76,9 @@ For AWS IoT Greengrass core devices and hybrid managed nodes \(mi\-\*\), you can
 
    If the AWS Systems Manager home page opens first, choose the menu icon \(![\[The menu icon\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/menu-icon-small.png)\) to open the navigation pane, and then choose **Fleet Manager** in the navigation pane\.
 
-1. In the **Managed instances** list, choose a managed node that you want to configure for patching\.
+1. In the **Managed nodes** list, choose the name of the managed node that you want to configure for patching\.
 **Note**  
 If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
-
-1. Choose **View details**\.
 
 1. Select the **Tags** tab, then choose **Edit**\.
 
@@ -102,12 +100,10 @@ To associate a specific patch baseline with your managed nodes, you must add the
 
 1. In the navigation pane, choose **Patch Manager**\.
 
-1. In the **Patch baselines** list, choose the patch baseline you want to configure for your patch group\.
+1. If you are accessing Patch Manager for the first time in the current AWS Region and the Patch Manager start page opens, choose **Start with an overview**\.
 
-   \-or\-
-
-   If you are accessing Patch Manager for the first time in the current AWS Region, choose **View predefined patch baselines**, and then choose the patch baseline you want to configure for your patch group\.
+1. Choose the **Patch baselines** tab, and then in the **Patch baselines** list, choose the patch baseline you want to configure for your patch group\.
 
 1. Choose **Actions**, then **Modify patch groups**\.
 
-1. Enter the tag value you added to your managed nodes in the previous section, then choose **Add**\.
+1. Enter the tag *value* you added to your managed nodes in the previous section, then choose **Add**\.

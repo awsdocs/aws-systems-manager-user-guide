@@ -15,6 +15,9 @@ Patch Manager, a capability of Systems Manager, might not support all the operat
 + [Raspberry Pi OS \(formerly Raspbian\)](#prereqs-os-raspbian)
 + [Windows Server](#prereqs-os-windows-server)
 
+**Important**  
+Amazon Linux 2022 is in Preview phase\. For more information, see [Amazon Linux 2022](https://aws.amazon.com/linux/amazon-linux-2022)
+
 ## Linux<a name="prereqs-os-linux"></a>
 
 
