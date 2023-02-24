@@ -12,7 +12,7 @@ The following is an example of an ISO 8601 formatted date and time string\.
 2020-05-08T15:16:43Z
 ```
 
-This represents May 8th, 2020 at 15:16 Coordinated Universal Time \(UTC\)\. The calendar date portion of the string is represented by a four\-digit year, two\-digit month, and two\-digit day separated by hyphens\. This can be represented in the following format\.
+This represents May 8, 2020 at 15:16 Coordinated Universal Time \(UTC\)\. The calendar date portion of the string is represented by a four\-digit year, two\-digit month, and two\-digit day separated by hyphens\. This can be represented in the following format\.
 
 ```
 YYYY-MM-DD

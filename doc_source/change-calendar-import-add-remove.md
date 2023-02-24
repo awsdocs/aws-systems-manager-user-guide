@@ -12,6 +12,6 @@ If several events are added to or removed from your source calendar after you ha
 
 1. From the list of calendars, choose the calendar name from the list\.
 
-1. Choose **Choose file**, and then browse to and select the replacement `.ics` file\.
+1. Choose **Choose file**, and then navigate to and select the replacement `.ics` file\.
 
 1. In response to the notification about overwriting the existing file, choose **Confirm**\.

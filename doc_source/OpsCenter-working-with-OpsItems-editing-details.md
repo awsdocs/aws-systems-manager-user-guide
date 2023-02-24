@@ -1,6 +1,6 @@
 # Editing an OpsItem<a name="OpsCenter-working-with-OpsItems-editing-details"></a>
 
-The **OpsItem details** section includes information about an OpsItem,  including the description, title, source, OpsItem ID, and the status t\.  You can edit a single OpsItem or you can select multiple OpsItems and edit the  following fields: **Status**, **Priority**,  **Severity**, **Category**\. 
+The **OpsItem details** section includes information about an OpsItem,  including the description, title, source, OpsItem ID, and the status\.  You can edit a single OpsItem or you can select multiple OpsItems and edit the  following fields: **Status**, **Priority**,  **Severity**, **Category**\. 
 
 When Amazon EventBridge creates an OpsItem, it populates the **Title**, **Source**, and **Description** fields\. You can edit the **Title** and **Description** fields, but you can't edit the **Source** field\.
 

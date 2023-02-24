@@ -2,13 +2,16 @@
 
 A parameter label is a user\-defined alias to help you manage different versions of a parameter\. When you modify a parameter, AWS Systems Manager automatically saves a new version and increments the version number by one\. A label can help you remember the purpose of a parameter version when there are multiple versions\.
 
-For example, let's say you have a parameter called /MyApp/DB/ConnectionString\. The value of the parameter is a connection string to a MySQL server in a local database in a test environment\. After you finish updating the application, you want the parameter to use a connection string for a production database\. You change the value of /MyApp/DB/ConnectionString\. Systems Manager automatically creates version two with the new connection string\. To help you remember the purpose of each version, you attach a label to each parameter\. For version one, you attach the label *Test* and for version two you attach the label *Production*\.
+For example, let's say you have a parameter called `/MyApp/DB/ConnectionString`\. The value of the parameter is a connection string to a MySQL server in a local database in a test environment\. After you finish updating the application, you want the parameter to use a connection string for a production database\. You change the value of `/MyApp/DB/ConnectionString`\. Systems Manager automatically creates version two with the new connection string\. To help you remember the purpose of each version, you attach a label to each parameter\. For version one, you attach the label *Test* and for version two you attach the label *Production*\.
 
 You can move labels from one version of a parameter to another version\. For example, if you create version 3 of the `/MyApp/DB/ConnectionString` parameter with a connection string for a new production database, then you can move the *Production* label from version 2 of the parameter to version 3 of the parameter\.
 
 Parameter labels are a lightweight alternative to parameter tags\. Your organization might have strict guidelines for tags that must be applied to different AWS resources\. In contrast, a label is simply a text association for a specific version of a parameter\. 
 
 Similar to tags, you can query parameters by using labels\. You can view a list of specific parameter versions that all use the same label if you query your parameter set by using the [GetParametersByPath](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetParametersByPath.html) API operation, as described later in this section\.
+
+**Note**  
+If you run a command that specifies a version of a parameter that doesn't exist, the command fails\. It doesn't fall back to the latest or default value of the parameter\.
 
 **Label requirements and restrictions**
 

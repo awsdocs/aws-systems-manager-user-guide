@@ -1,6 +1,6 @@
 # Sending SSM Agent logs to CloudWatch Logs<a name="monitoring-ssm-agent"></a>
 
-AWS Systems Manager Agent \(SSM Agent\) is Amazon software that runs on your EC2 instances, edge devices, and on\-premises servers and virtual machines that are configured for Systems Manager\. SSM Agent processes requests from the Systems Manager service in the cloud and configures your machine as specified in the request\. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
+AWS Systems Manager Agent \(SSM Agent\) is Amazon software that runs on your EC2 instances, edge devices, on\-premises servers, and virtual machines \(VMs\) that are configured for Systems Manager\. SSM Agent processes requests from the Systems Manager service in the cloud and configures your machine as specified in the request\. For more information about SSM Agent, see [Working with SSM Agent](ssm-agent.md)\.
 
 In addition, using the following steps, you can configure SSM Agent to send log data to Amazon CloudWatch Logs\. 
 

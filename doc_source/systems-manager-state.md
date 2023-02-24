@@ -33,14 +33,16 @@ State Manager is appropriate for any AWS customer that wants to improve the mana
 ## What are the features of State Manager?<a name="state-manager-features"></a>
 
 Key features of State Manager include the following:
-+ **State Manager associations**
++ 
 
-  A State Manager *association* is a configuration that you assign to your AWS resources\. The configuration defines the state that you want to maintain on your resources\. For example, an association can specify that antivirus software must be installed and running on a managed node, or that certain ports must be closed\.
+**State Manager associations**  
+A State Manager *association* is a configuration that you assign to your AWS resources\. The configuration defines the state that you want to maintain on your resources\. For example, an association can specify that antivirus software must be installed and running on a managed node, or that certain ports must be closed\.
 
   An association specifies a schedule for when to apply the configuration and the targets for the association\. For example, an association for antivirus software might run once a day on all managed nodes in an AWS account\. If the software isn't installed on a node, then the association could instruct State Manager to install it\. If the software is installed, but the service isn't running, then the association could instruct State Manager to start the service\.
-+ **Flexible scheduling options**
++ 
 
-  State Manager offers the following options for scheduling when an association runs:
+**Flexible scheduling options**  
+State Manager offers the following options for scheduling when an association runs:
   + **Immediate or delayed processing**
 
     When you create an association, by default, the system immediately runs it on the specified resources\. After the initial run, the association runs in intervals according to the schedule that you defined\. 
@@ -55,12 +57,14 @@ State Manager doesn't currently support specifying months in cron expressions fo
     To further control when an association runs, for example if you want to run an association two days after patch Tuesday, you can specify an offset\. An *offset* defines how many days to wait after the scheduled day to run an association\.
 
     For information about building cron and rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
-+ **Multiple targeting options**
++ 
 
-  An association also specifies the targets for the association\. State Manager supports targeting AWS resources by using tags, AWS Resource Groups, individual node IDs, or all managed nodes in the current AWS Region and AWS account\.
-+ **Amazon S3 support**
+**Multiple targeting options**  
+An association also specifies the targets for the association\. State Manager supports targeting AWS resources by using tags, AWS Resource Groups, individual node IDs, or all managed nodes in the current AWS Region and AWS account\.
++ 
 
-  Store the command output from association runs in an Amazon S3 bucket of your choice\. For more information, see [Creating associations](sysman-state-assoc.md)\.
+**Amazon S3 support**  
+Store the command output from association runs in an Amazon S3 bucket of your choice\. For more information, see [Creating associations](sysman-state-assoc.md)\.
 + 
 
 **EventBridge support**  

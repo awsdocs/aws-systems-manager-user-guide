@@ -4,9 +4,7 @@ By default, AWS Systems Manager doesn't have permission to perform actions on yo
 
 ## Recommended configuration<a name="default-host-management"></a>
 
-The Default Host Management Configuration allows Systems Manager to manage your Amazon EC2 instances automatically\. After you've turned on this setting, all instances using Instance Metadata Service Version 2 \(IMDSv2\) in your account with SSM Agent version 3\.2\.582\.0 or later installed automatically become managed instances\. Default Host Management Configuration doesn't support Instance Metadata Service Version 1\. For information about transitioning to IMDSv2, see [Transition to using Instance Metadata Service Version 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html#instance-metadata-transition-to-version-2) in the *Amazon EC2 User Guide for Linux Instances*\. For information about checking the version of the SSM Agent installed on your instance, see [Checking the SSM Agent version number](ssm-agent-get-version.md)\. For information about updating the SSM Agent, see [Automatically updating SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console)\.
-
-Benefits of managed instances include the following:
+Default Host Management Configuration allows Systems Manager to manage your Amazon EC2 instances automatically\. After you've turned on this setting, all instances using Instance Metadata Service Version 2 \(IMDSv2\) in the AWS Region and AWS account with SSM Agent version 3\.2\.582\.0 or later installed automatically become managed instances\. Default Host Management Configuration doesn't support Instance Metadata Service Version 1\. For information about transitioning to IMDSv2, see [Transition to using Instance Metadata Service Version 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html#instance-metadata-transition-to-version-2) in the *Amazon EC2 User Guide for Linux Instances*\. For information about checking the version of the SSM Agent installed on your instance, see [Checking the SSM Agent version number](ssm-agent-get-version.md)\. For information about updating the SSM Agent, see [Automatically updating SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console)\. Benefits of managed instances include the following:
 + Connect to your instances securely using Session Manager\.
 + Perform automated patch scans using Patch Manager\.
 + View detailed information about your instances using Systems Manager Inventory\.
@@ -15,15 +13,46 @@ Benefits of managed instances include the following:
 
 Fleet Manager, Inventory, Patch Manager, and Session Manager are capabilities of AWS Systems Manager\.
 
-Default Host Management Configuration allows instance management without the use of instance profiles and ensures that Systems Manager manages all instances in your account\. This allows you to separate your systems management permissions from application or other workload permissions you might need to provide to your instances\. You can also add policies to the default IAM role created by the Default Host Management Configuration if the permissions provided aren't sufficient for your use case\. If an instance already has an instance profile attached that contains permissions for Systems Manager, the SSM Agent attempts to use it before using the Default Host Management Configuration permissions\. For more information about the Default Host Management Configuration, see [Default Host Management Configuration](managed-instances-default-host-management.md)\.
-
-**To turn on the Default Host Management Configuration setting**  
-You can turn on the Default Host Management Configuration from the Fleet Manager console\. This procedure is intended to be performed by administrators\. To successfully complete this procedure using either the AWS Management Console or your preferred command line tool, you must have permissions for the `iam:PassRole` API operation for all resources, or for the `AmazonSSMManagedEC2InstanceDefaultRole` IAM role\.
+Default Host Management Configuration allows instance management without the use of instance profiles and ensures that Systems Manager has permissions to manage all instances in the Region and account\. If the permissions provided aren't sufficient for your use case, you can also add policies to the default IAM role created by the Default Host Management Configuration\. Alternatively, if you don't need permissions for all of the capabilities provided by the default IAM role, you can create your own custom role and policies\. Any changes made to the IAM role you choose for Default Host Management Configuration applies to all managed Amazon EC2 instances in the Region and account\. For more information about the policy used by Default Host Management Configuration, see [AWS managed policy: `AmazonSSMManagedEC2InstanceDefaultPolicy`](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSSMManagedEC2InstanceDefaultPolicy)\.For more information about the Default Host Management Configuration, see [Default Host Management Configuration](managed-instances-default-host-management.md)\.
 
 **Note**  
-You must turn on the Default Host Management Configuration in each AWS Region you wish to automatically manage your Amazon EC2 instances\. 
+This procedure is intended to be performed only by administrators\. Implement least privilege access when allowing individuals to configure or modify the Default Host Management Configuration\. You must turn on the Default Host Management Configuration in each AWS Region you wish to automatically manage your Amazon EC2 instances\.
 
-Before you begin, if you have instance profiles attached to your Amazon EC2 instances, remove any permissions that allow the `ssm:UpdateInstanceInformation` operation\.
+**To turn on the Default Host Management Configuration setting**  
+You can turn on the Default Host Management Configuration from the Fleet Manager console\. To successfully complete this procedure using either the AWS Management Console or your preferred command line tool, you must have permissions for the [GetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_GetServiceSetting.html), [ResetServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_ResetServiceSetting.html), and [UpdateServiceSetting](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_UpdateServiceSetting.html) API operations\. Additionally, you must have permissions for the `iam:PassRole` permission for the `AWSSystemsManagerDefaultEC2InstanceManagementRole` IAM role\. The following is an example policy\. Replace each *example resource placeholder* with your own information\.
+
+```
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"ssm:GetServiceSetting",
+				"ssm:ResetServiceSetting",
+				"ssm:UpdateServiceSetting"
+			],
+			"Resource": "arn:aws:ssm:region:account-id:servicesetting/ssm/managed-instance/default-instance-management-role"
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
+				"iam:PassRole"
+			],
+			"Resource": "arn:aws:iam::account-id:role/service-role/AWSSystemsManagerDefaultEC2InstanceManagementRole",
+			"Condition": {
+				"StringEquals": {
+					"iam:PassedToService": [
+						"ssm.amazonaws.com"
+					]
+				}
+			}
+		}
+	]
+}
+```
+
+Before you begin, if you have instance profiles attached to your Amazon EC2 instances, remove any permissions that allow the `ssm:UpdateInstanceInformation` operation\. The SSM Agent attempts to use instance profile permissions before using the Default Host Management Configuration permissions\. If you allow the `ssm:UpdateInstanceInformation` operation in your instance profiles, the instance will not use the Default Host Management Configuration permissions\.
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -41,7 +70,7 @@ Before you begin, if you have instance profiles attached to your Amazon EC2 inst
 
 1. Choose **Configure** to complete setup\. 
 
-After turning on the Default Host Management Configuration, it might take up 30 minutes for your instances to use the credentials of the role you chose\.
+After turning on the Default Host Management Configuration, it might take up 30 minutes for your instances to use the credentials of the role you chose\. You must turn on the Default Host Management Configuration in each Region you wish to automatically manage your Amazon EC2 instances\.
 
 ## Alternative configuration<a name="instance-profile-add-permissions"></a>
 

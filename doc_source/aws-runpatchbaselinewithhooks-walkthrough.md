@@ -21,7 +21,7 @@ For this example, we have set up our infrastructure this way:
 + The application hosted on the managed nodes is a `nodeJS` application\.
 + The application hosted on the managed nodes is managed by the pm2 process manager\.
 + The application already has a specified health check endpoint\.
-+ The application’s health check endpoint requires no end user authentication\. The endpoint allows for a health check that meets the organization’s requirements in establishing availability\. \(In your environments, it may be enough to simply ascertain that the `nodeJS` application is running and able to listen for requests\. In other cases, you might want to also verify that a connection to the caching layer or database layer has already been established\.\)
++ The application’s health check endpoint requires no end user authentication\. The endpoint allows for a health check that meets the organization’s requirements in establishing availability\. \(In your environments, it might be enough to simply ascertain that the `nodeJS` application is running and able to listen for requests\. In other cases, you might want to also verify that a connection to the caching layer or database layer has already been established\.\)
 
 The examples in this walkthrough are for demonstration purposes only and not meant to be implemented as\-is into production environments\. Also, keep in mind that the lifecycle hooks feature of Patch Manager, a capability of Systems Manager, with the `AWS-RunPatchBaselineWithHooks` document can support numerous other scenarios\. Here are several examples\.
 + Stop a metrics reporting agent before patching and restarting it after the managed node reboots\.

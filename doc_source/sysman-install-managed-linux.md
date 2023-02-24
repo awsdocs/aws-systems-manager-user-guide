@@ -250,7 +250,7 @@ Use the following information to help you troubleshoot problems installing SSM A
 
 **Problem**: While configuring a managed node in one AWS account as a managed node for a separate AWS account, you receive `DeliveryTimedOut` after running the commands to install SSM Agent on the target node\.
 
-**Solution**: `DeliveryTimedOut` is the expected response code for this scenario\. The command to install SSM Agent on the target node changes the instance ID of the source node\. Because the node ID has changed, the source node isn't able to reply to the target node that the command failed, completed, or timed out while executing\.
+**Solution**: `DeliveryTimedOut` is the expected response code for this scenario\. The command to install SSM Agent on the target node changes the node ID of the source node\. Because the node ID has changed, the source node isn't able to reply to the target node that the command failed, completed, or timed out while executing\.
 
 ### Unable to load node associations<a name="systems-manager-install-managed-linux-troubleshooting-associations"></a>
 

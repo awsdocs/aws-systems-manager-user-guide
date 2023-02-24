@@ -4,7 +4,7 @@ You can use the resource data sync feature in AWS Systems Manager to send compli
 
 Use the following procedure to create a resource data sync for Compliance by using the AWS Management Console\.
 
-**To create and configure an Amazon S3 bucket for resource data sync \(console\)**
+**To create and configure an S3 bucket for resource data sync \(console\)**
 
 1. Open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 
@@ -61,10 +61,10 @@ Use the following procedure to create a resource data sync for Compliance by usi
 
 1. In the **Bucket name** field, enter the name of the Amazon S3 bucket you created at the start of this procedure\.
 
-1. \(Optional\) In the **Bucket prefix** field, enter the name of an Amazon S3 bucket prefix \(subdirectory\)\.
+1. \(Optional\) In the **Bucket prefix** field, enter the name of an S3 bucket prefix \(subdirectory\)\.
 
-1. In the **Bucket region** field, choose **This region** if the Amazon S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and enter the name of the Region\.
+1. In the **Bucket region** field, choose **This region** if the S3 bucket you created is located in the current AWS Region\. If the bucket is located in a different AWS Region, choose **Another region**, and enter the name of the Region\.
 **Note**  
-If the sync and the target Amazon S3 bucket are located in different Regions, you might be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
+If the sync and the target S3 bucket are located in different Regions, you might be subject to data transfer pricing\. For more information, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/)\.
 
 1. Choose **Create**\.

@@ -20,4 +20,4 @@ Make sure you choose the sync used for Compliance\. Systems Manager supports res
 
 1. Choose **Delete**\.
 
-1. Delete the Amazon Simple Storage Service \(Amazon S3\) bucket where the data was stored\. For information about deleting an Amazon S3 bucket, see [Deleting a bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-bucket.html)\.
+1. Delete the Amazon Simple Storage Service \(Amazon S3\) bucket where the data was stored\. For information about deleting an S3 bucket, see [Deleting a bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/delete-bucket.html)\.

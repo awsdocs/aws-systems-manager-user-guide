@@ -30,7 +30,7 @@ The title of each section here is an active link to the corresponding section in
 **[Run Command](run-command.md)**
 + [Manage Instances at Scale without SSH Access Using EC2 Run Command](http://aws.amazon.com/blogs/aws/manage-instances-at-scale-without-ssh-access-using-ec2-run-command/)\.
 + Audit all API calls made by or on behalf of Run Command, a capability of AWS Systems Manager, using AWS CloudTrail\.
-+ When you send a command using Run Command, don't include sensitive information formatted as plaintext, such as passwords, configuration data, or other secrets\. All Systems Manager API activity in your account is logged in an Amazon S3 bucket for AWS CloudTrail logs\. This means that any user with access to S3 bucket can view the plaintext values of those secrets\. For this reason, we recommend creating and using `SecureString` parameters to encrypt sensitive data you use in your Systems Manager operations\.
++ When you send a command using Run Command, don't include sensitive information formatted as plaintext, such as passwords, configuration data, or other secrets\. All Systems Manager API activity in your account is logged in an S3 bucket for AWS CloudTrail logs\. This means that any user with access to S3 bucket can view the plaintext values of those secrets\. For this reason, we recommend creating and using `SecureString` parameters to encrypt sensitive data you use in your Systems Manager operations\.
 
   For more information, see [Restricting access to Systems Manager parameters using IAM policies](sysman-paramstore-access.md)\.
 **Note**  

@@ -64,7 +64,7 @@ If you no longer need to use a feature or service that requires a service\-linke
 
 ### Cleaning up the `AWSServiceRoleForAmazonSSM_OpsInsights` service\-linked role<a name="service-linked-role-review-before-delete-service-action-4"></a>
 
-Before you can use IAM to delete the `AWSServiceRoleForAmazonSSM_OpsInsights` service\-linked role, you must first disable operational insights in Systems Manager OpsCenter\. For more information, see [Analyzing operational insights to reduce duplicate OpsItems](OpsCenter-working-operational-insights.md)\.
+Before you can use IAM to delete the `AWSServiceRoleForAmazonSSM_OpsInsights` service\-linked role, you must first deactivate operational insights in Systems Manager OpsCenter\. For more information, see [Analyzing operational insights to reduce duplicate OpsItems](OpsCenter-working-operational-insights.md)\.
 
 ### Manually delete the `AWSServiceRoleForAmazonSSM_OpsInsights` service\-linked role<a name="slr-manual-delete-service-action-4"></a>
 

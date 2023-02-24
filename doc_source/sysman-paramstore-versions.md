@@ -2,7 +2,7 @@
 
 Each time you edit the value of a parameter, Parameter Store, a capability of AWS Systems Manager creates a new *version* of the parameter and retains the previous versions\. When you initially create a parameter, Parameter Store assigns version `1` to that parameter\. When you change the value of the parameter, Parameter Store automatically increments the version number by one\. You can view the details, including the values, of all versions in a parameter's history\. 
 
-You can also specify the version of a parameter to use in API commands and SSM documents; for example: `ssm:MyParameter:3`\. You can specify a parameter name and a specific version number in API calls and SSM documents\. If you don't specify a version number, the system automatically uses the latest version\. 
+You can also specify the version of a parameter to use in API commands and SSM documents; for example: `ssm:MyParameter:3`\. You can specify a parameter name and a specific version number in API calls and SSM documents\. If you don't specify a version number, the system automatically uses the latest version\. If you specify the number for a version that doesn't exist, the system returns an error rather than falling back to the latest or default version of the parameter\.
 
 You can use parameter versions to see the number of times a parameter changed over a period of time\. Parameter versions also provide a layer of protection if a parameter value is accidentally changed\. 
 

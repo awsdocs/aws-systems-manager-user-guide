@@ -4,7 +4,7 @@ Amazon DevOps Guru applies machine learning to analyze your operational data, a
 
 Amazon DevOps Guru automatically creates OpsItems\. You can enable Amazon DevOps Guru to create OpsItems by using Quick Setup, which is a capability of Systems Manager\. The system creates OpsItems by using the [AWSServiceRoleForDevOpsGuru](https://docs.aws.amazon.com/devops-guru/latest/userguide/using-service-linked-roles.html) AWS Identity and Access Management \(IAM\) service\-linked role\.
 
-**To integrate OpsCenter with DevOps Guru:**
+**To integrate OpsCenter with DevOps Guru**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -12,8 +12,8 @@ Amazon DevOps Guru automatically creates OpsItems\. You can enable Amazon DevOp
 
 1. On the **Customize DevOps Guru configuration options** page, choose the **Library** tab\. 
 
-1. In the **DevOps Guru** pane, choose **Create**
+1. In the **DevOps Guru** pane, choose **Create**\.
 
 1. For **Configuration options**, select **Enable AWS Systems Manager OpsItems\.**
 
-1. Select **Create** once you complete the setup\.
+1. Select **Create** after you complete the setup\.

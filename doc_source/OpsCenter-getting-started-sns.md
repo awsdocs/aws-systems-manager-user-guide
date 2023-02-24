@@ -43,8 +43,6 @@ Use the following procedure to update the Amazon SNS access policy so that Syste
        }
    ```
 
-   Enter this block after the existing `Sid` block\.
-
 1. Choose **Save changes**\.
 
 The system now sends notifications to the Amazon SNS topic when OpsItems are created or updated\.
@@ -85,7 +83,7 @@ OpsCenter doesn't support publishing OpsItems to an Amazon SNS topic that is con
        }
    ```
 
-   Enter this block after one of the existing `Sid` blocks\.In the following example, the new block is entered at line 14\.  
+    In the following example, the new block is entered at line 14\.  
 ![\[Editing the AWS KMS access policy of an Amazon SNS topic.\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_SNS_KMS_access_policy.png)
 
 1. Choose **Save changes**\.

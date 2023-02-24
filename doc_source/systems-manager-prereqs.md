@@ -1,6 +1,6 @@
 # Systems Manager prerequisites<a name="systems-manager-prereqs"></a>
 
-The prerequisites for using AWS Systems Manager to manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, edge devices, and on\-premises servers and virtual machines \(VMs\) are covered step by step in the *Setting Up* chapters of this user guide:
+The prerequisites for using AWS Systems Manager to manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, edge devices, on\-premises servers, and VMs are covered step by step in the *Setting Up* chapters of this user guide:
 + [Setting up AWS Systems Manager](systems-manager-setting-up.md)
 + [Setting up Systems Manager for hybrid environments](systems-manager-managedinstances.md)
 + [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)

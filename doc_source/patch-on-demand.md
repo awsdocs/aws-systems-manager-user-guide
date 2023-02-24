@@ -61,9 +61,9 @@ The following table lists the lifecycle hooks available for each of the three **
 
 | Reboot option | Hook: Before installation | Hook: After installation | Hook: On exit | Hook: After scheduled reboot | 
 | --- | --- | --- | --- | --- | 
-| Reboot if needed |  Run an SSM document before patching begins\. Example use: Safely shut down applications before the patching process begins\.   |  Run an SSM document at the end of the patching operation and before managed node reboot\. Example use: Run operations such as installing third\-party applications before a potential reboot\.  |  Run an SSM document immediately after the patching operation completes\. Example use: Ensure that applications are running as expected after patching\.  | Not available | 
+| Reboot if needed |  Run an SSM document before patching begins\. Example use: Safely shut down applications before the patching process begins\.   |  Run an SSM document at the end of the patching operation and before managed node reboot\. Example use: Run operations such as installing third\-party applications before a potential reboot\.  |  Run an SSM document immediately after the patching operation is complete\. Example use: Ensure that applications are running as expected after patching\.  | Not available | 
 | Do not reboot my instances | Same as above\. |  Run an SSM document at the end of the patching operation\. Example use: Ensure that applications are running as expected after patching\.  |  *Not available*   |  *Not available*   | 
-| Schedule a reboot time | Same as above\. | Same as for Do not reboot my instances\. | Not available |  Run an SSM document immediately after a scheduled reboot completes\. Example use: Ensure that applications are running as expected after the reboot\.  | 
+| Schedule a reboot time | Same as above\. | Same as for Do not reboot my instances\. | Not available |  Run an SSM document immediately after a scheduled reboot is complete\. Example use: Ensure that applications are running as expected after the reboot\.  | 
 
 ## Running 'Patch now'<a name="run-patch-now"></a>
 

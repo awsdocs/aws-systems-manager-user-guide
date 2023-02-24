@@ -40,7 +40,7 @@ VPC gateway endpoint connections can't be extended out of a VPC\. Resources on t
 **Incoming connections**  
 The security group attached to the VPC endpoint must allow incoming connections on port 443 from the private subnet of the managed instance\. If incoming connections aren't allowed, then the managed instance can't connect to the SSM and EC2 endpoints\.
 
-**Amazon S3 buckets**  
+**S3 buckets**  
 Your VPC endpoint policy must allow access to at least the following Amazon S3 buckets:
 + The S3 buckets listed in [SSM Agent communications with AWS managed S3 buckets](ssm-agent-minimum-s3-permissions.md)\.
 + The S3 buckets used by Patch Manager for patch baseline operations in your AWS Region\. These buckets contain the code that is retrieved and run on instances by the patch baseline service\. Each AWS Region has its own patch baseline operations buckets from which the code is retrieved when a patch baseline document is run\. If the code can't be downloaded, the patch baseline command will fail\. 

@@ -128,7 +128,7 @@ failed to run commands: exit status 1
 ```
 /var/log/amazon/ssm/patch-baseline-operations/urllib3/util/ssl_.py:369: 
 SNIMissingWarning: An HTTPS request has been made, but the SNI (Server Name Indication) extension
-to TLS is not available on this platform. This may cause the server to present an incorrect TLS 
+to TLS is not available on this platform. This might cause the server to present an incorrect TLS 
 certificate, which can cause validation failures. You can upgrade to a newer version of Python 
 to solve this. 
 For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
@@ -136,7 +136,7 @@ For more information, see https://urllib3.readthedocs.io/en/latest/advanced-usag
 
 **Cause**: This message doesn't indicate an error\. Instead, it's a warning that the older version of Python distributed with the operating system doesn't support TLS Server Name Indication\. The Systems Manager patch payload script issues this warning when connecting to AWS APIs that support SNI\.
 
-**Solution**: To troubleshoot any patching failures when this message is reported, review the contents of the `stdout` and `stderr` files\. If you haven't configured the patch baseline to store these files in an Amazon S3 bucket or in Amazon CloudWatch Logs, you can locate the files in the following location on your Linux managed node\. 
+**Solution**: To troubleshoot any patching failures when this message is reported, review the contents of the `stdout` and `stderr` files\. If you haven't configured the patch baseline to store these files in an S3 bucket or in Amazon CloudWatch Logs, you can locate the files in the following location on your Linux managed node\. 
 
 `/var/lib/amazon/ssm/instance-id/document/orchestration/Run-Command-execution-id/awsrunShellScript/PatchLinux`
 

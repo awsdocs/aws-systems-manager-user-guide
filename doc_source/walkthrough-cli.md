@@ -328,7 +328,7 @@ chmod +x ./install
 
 This script installs the AWS CodeDeploy agent on Amazon Linux and Red Hat Enterprise Linux \(RHEL\) instances, as described in [Create an Amazon EC2 instance for CodeDeploy](https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-ec2-create.html) in the *AWS CodeDeploy User Guide*\.
 
-The script installs the CodeDeploy agent from an AWS managed Amazon S3 bucket in thee US East \(Ohio\) Region \(us\-east\-2\), `aws-codedeploy-us-east-2`\.
+The script installs the CodeDeploy agent from an AWS managed S3 bucket in thee US East \(Ohio\) Region \(us\-east\-2\), `aws-codedeploy-us-east-2`\.
 
 **Run a bash script in an AWS CLI command**
 

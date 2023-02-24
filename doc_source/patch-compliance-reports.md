@@ -9,8 +9,8 @@ The information in the following topics apply no matter which method or type of 
 + An on\-demand **Patch now** operation
 
 **Important**  
-If you have multiple types of operations in place to scan your instances for patch compliance, note that each scan overwrites the patch compliance data of previous scans\. As a result, you may end up with unexpected results in your patch compliance data\. For more information, see [Avoiding unintentional patch compliance data overwrites](avoid-patch-compliance-overwrites.md)\.  
-To verify which patch baseline was used to generate the latest compliance information, browse to the **Compliance reporting** tab in Patch Manager, locate the row for the managed node you want information about, and then choose the baseline ID in the **Baseline ID used** column\.
+If you have multiple types of operations in place to scan your instances for patch compliance, note that each scan overwrites the patch compliance data of previous scans\. As a result, you might end up with unexpected results in your patch compliance data\. For more information, see [Avoiding unintentional patch compliance data overwrites](avoid-patch-compliance-overwrites.md)\.  
+To verify which patch baseline was used to generate the latest compliance information, navigate to the **Compliance reporting** tab in Patch Manager, locate the row for the managed node you want information about, and then choose the baseline ID in the **Baseline ID used** column\.
 
 **Topics**
 + [Viewing patch compliance results \(console\)](viewing-patch-compliance-results.md)

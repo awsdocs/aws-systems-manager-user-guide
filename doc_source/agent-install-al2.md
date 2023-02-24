@@ -72,7 +72,7 @@ Even though URLs in the following commands include an `ec2-downloads-windows` di
 
 When you install SSM Agent on multiple instances using a script or template, we recommended using installation files that are stored in the AWS Region you're working in\. 
 
-For the following commands, we provide examples that use a publicly accessible Amazon S3 bucket in the US East \(Ohio\) Region \(`us-east-2`\)\. 
+For the following commands, we provide examples that use a publicly accessible S3 bucket in the US East \(Ohio\) Region \(`us-east-2`\)\. 
 
 **Tip**  
 You can also replace a global URL in the procedure [Quick installation commands for SSM Agent on Amazon Linux](agent-install-al.md#quick-install-al) earlier in this topic with a custom Regional URL you construct\.

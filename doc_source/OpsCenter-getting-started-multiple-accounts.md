@@ -41,7 +41,7 @@ To enable a user to work with OpsItems across accounts, the Systems Manager serv
 
 **To verify the Systems Manager service principal is enabled in AWS Organizations**
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\. For information, see [Installing CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Configuring CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) management account\. 
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\. For information, see [Installing CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Configuring CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)\. 
 
 1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
 
@@ -91,7 +91,7 @@ To enable a user to work with OpsItems across accounts, the Systems Manager serv
 
 If you haven't previously configured the Systems Manager service principal for Organizations, use the following procedure to do so\. For more information about this command, see [enable\-aws\-service\-access](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/organizations/enable-aws-service-access.html) in the *AWS CLI Command Reference*\.
 
-1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\. For information, see [Installing CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Configuring CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) 
+1. Install and configure the AWS Command Line Interface \(AWS CLI\), if you haven't already\. For information, see [Installing CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Configuring CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)\. 
 
 1. [Download](https://aws.amazon.com/cli/) the latest version of the AWS CLI to your local machine\.
 

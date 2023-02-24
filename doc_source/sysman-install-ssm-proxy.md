@@ -56,7 +56,7 @@ After running the preceding command, you can review the SSM Agent logs to confir
 
 ## SSM Agent proxy setting precedence<a name="ssm-agent-proxy-precedence"></a>
 
-When configuring proxy settings for the SSM Agent on Windows Server instances, it's important to understand these settings are evaluated and applied to the agent configuration when the SSM Agent is started\. How you configure your proxy settings for a Windows Server instance can determine whether other settings might supersede your desired settings\.
+When configuring proxy settings for the SSM Agent on Windows Server instances, it's important to understand these settings are evaluated and applied to the agent configuration when the SSM Agent is started\. How you configure your proxy settings for a Windows Server instance can determine whether other settings might supersede your intended settings\.
 
 **Important**  
 SSM Agent communicates using the HTTPS protocol\. For this reason, you must configure the `HTTPS proxy` parameter by using one of the following settings options\.

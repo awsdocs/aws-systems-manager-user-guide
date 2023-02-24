@@ -18,7 +18,7 @@ After you import the `.ics` file, you can remove individual events from it using
 
 1. Choose **Actions, Edit**, and then in the **Import calendar** area, choose **Choose file**\.
 
-1. Browse to and select the exported `.ics` file on your local computer\.
+1. Navigate to and select the exported `.ics` file on your local computer\.
 
 1. If prompted, for **Select a time zone**, select which time zone applies to the calendar\.
 

@@ -39,7 +39,7 @@ For information about running an **Advanced configuration** runbook, see [Runnin
 
 1. Scroll to the **Runbooks** section\.
 
-1. Use the Runbooks Search bar or the numbers in the upper right to find the Automation runbook that you want to run\.
+1. Use the search bar or the numbers in the upper right to find the Automation runbook that you want to run\.
 
 1. Choose a runbook, and then choose **Execute**\.
 

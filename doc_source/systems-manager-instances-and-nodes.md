@@ -1,6 +1,6 @@
 # AWS Systems Manager Node Management<a name="systems-manager-instances-and-nodes"></a>
 
-AWS Systems Manager provides the following capabilities for accessing, managing, and configuring your *managed nodes*\. A managed node is any machine configured for Systems Manager\. You can configure Amazon Elastic Compute Cloud \(Amazon EC2\) instances, edge devices, and on\-premises servers and virtual machines \(VMs\) in a hybrid environment as managed nodes\. 
+AWS Systems Manager provides the following capabilities for accessing, managing, and configuring your *managed nodes*\. A managed node is any machine configured for Systems Manager\. You can configure Amazon Elastic Compute Cloud \(Amazon EC2\) instances, edge devices, on\-premises servers, and virtual machines \(VMs\) in a hybrid environment as managed nodes\.
 
 **Topics**
 + [AWS Systems Manager Fleet Manager](fleet.md)

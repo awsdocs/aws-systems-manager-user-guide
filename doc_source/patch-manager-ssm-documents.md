@@ -11,7 +11,7 @@ The five recommended SSM documents include:
 + `AWS-RunPatchBaselineAssociation`
 + `AWS-RunPatchBaselineWithHooks`
 
-The four legacy SSM documents that are still available for use in some AWS Regions, but might be deprecated in the future, include:
+The four legacy SSM documents that are still available for use in some AWS Regions, but might be no longer supported in the future, include:
 + `AWS-ApplyPatchBaseline`
 + `AWS-FindWindowsUpdates`
 + `AWS-InstallMissingWindowsUpdates`
@@ -113,7 +113,7 @@ For more information about the `AWS-RunPatchBaselineWithHooks` SSM document, see
 
 ## Legacy SSM documents for patching managed nodes<a name="patch-manager-ssm-documents-legacy"></a>
 
-The following four SSM documents are still available for use in your patching operations in some AWS Regions\. However, they might be deprecated in the future, so we don't recommend their use\. Instead, use the documents described in [SSM documents recommended for patching managed nodes](#patch-manager-ssm-documents-recommended)\.
+The following four SSM documents are still available for use in your patching operations in some AWS Regions\. However, they might be no longer supported in the future, so we don't recommend their use\. Instead, use the documents described in [SSM documents recommended for patching managed nodes](#patch-manager-ssm-documents-recommended)\.
 
 **Topics**
 + [`AWS-ApplyPatchBaseline`](#patch-manager-ssm-documents-legacy-AWS-ApplyPatchBaseline)

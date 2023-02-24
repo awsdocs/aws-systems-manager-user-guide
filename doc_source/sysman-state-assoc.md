@@ -9,19 +9,24 @@ You can assign tags to an association when you create it by using a command line
 
 The following procedures describe how to create an association that uses either a `Command` or a `Policy` document to target managed nodes\. For information about creating an association that uses an Automation runbook to target nodes or other types of AWS resources, see [Scheduling automations with State Manager associations](scheduling-automations-state-manager-associations.md)\.
 
-**Before you begin**  
-When you create an association, you can either specify a schedule for the association or run the association immediately\. If you specify a schedule, you must enter the schedule in the form of either a cron or rate expression\. For more information about cron and rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
+**Association targets and rate controls**  
+An association specifies which managed nodes, or targets, should receive the association\. State Manager includes several features to help you target your managed nodes and control how the association is deployed to those targets\. For more information about targets and rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
 
-An association also specifies which managed nodes, or targets, should receive the association\. State Manager includes several features to help you target your managed nodes and control how the association is deployed to those targets\. For more information about targets and rate controls, see [About targets and rate controls in State Manager associations](systems-manager-state-manager-targets-and-rate-controls.md)\.
+**Running associations**  
+By default, State Manager runs an association immediately after you create it, and then according to the schedule that you've defined\. 
 
-## About creating associations<a name="state-manager-about-creating-associations"></a>
-
-When you create an association, by default, the system immediately runs it on the specified resources\. After the initial run, the association runs in intervals according to the schedule that you defined and according to the following rules:
+The system also runs associations according to the following rules:
 + State Manager attempts to run the association on all specified or targeted nodes during an interval\.
 + If an association doesn't run during an interval \(because, for example, a concurrency value limited the number of nodes that could process the association at one time\), then State Manager attempts to run the association during the next interval\.
++ State Manager runs the association after changes to the association's configuration, target nodes, documents, or parameters\. For more information, see [When are associations applied to resources?](sysman-state-about.md#state-manager-about-scheduling)
 + State Manager records history for all skipped intervals\. You can view the history on the **Execution History** tab\.
 
-For associations that run according to a schedule, you can specify standard cron or rate expressions that define when the association runs\. State Manager also supports cron expressions that include a day of the week and the number sign \(\#\) to designate the *n*th day of a month to run an association\. Here is an example that runs a cron schedule on the third Tuesday of every month at 23:30 UTC:
+## Scheduling associations<a name="state-manager-about-creating-associations"></a>
+
+You can schedule associations to run at basic intervals such as *every 10 hours*, or you can create more advanced schedules using custom cron and rate expressions\. You can also prevent associations from running when you first create them\. 
+
+**Using cron and rate expressions to schedule association runs**  
+In addition to standard cron and rate expressions, State Manager also supports cron expressions that include a day of the week and the number sign \(\#\) to designate the *n*th day of a month to run an association\. Here is an example that runs a cron schedule on the third Tuesday of every month at 23:30 UTC:
 
 `cron(30 23 ? * TUE#3 *)`
 
@@ -36,7 +41,9 @@ State Manager also supports the \(L\) sign to indicate the last *X* day of the m
 To further control when an association runs, for example if you want to run an association two days after patch Tuesday, you can specify an offset\. An *offset* defines how many days to wait after the scheduled day to run an association\. For example, if you specified a cron schedule of `cron(0 0 ? * THU#2 *)`, you could specify the number 3 in the **Schedule offset** field to run the association each Sunday after the second Thursday of the month\.
 
 **Note**  
-To use offsets, you must either choose the **Apply association only at the next specified Cron interval** option in the console or you must specify the `ApplyOnlyAtCronInterval` parameter from the command line\. This option tells State Manager not to run an association immediately after you create it\.
+To use offsets, you must either select **Apply association only at the next specified Cron interval** in the console or specify the `ApplyOnlyAtCronInterval` parameter from the command line\. When either of these options are activated, State Manager doesn't run the association immediately after you create it\.
+
+For more information about cron and rate expressions, see [Reference: Cron and rate expressions for Systems Manager](reference-cron-and-rate-expressions.md)\.
 
 ## Create an association \(console\)<a name="sysman-state-assoc-console"></a>
 
@@ -502,4 +509,4 @@ If you add new nodes to the tags or resource groups that an association acts on 
 ------
 
 **Note**  
-If you delete the association you created, the association no longer runs on any targets of that association\. Also, if you specified the `apply-only-at-cron-interval` parameter, you can reset this option\. To do so, specify the `no-apply-only-at-cron-interval` parameter when you update the association from the command line\. This parameter forces the association to run immediately after updating the assocation and according to the interval specified\.
+If you delete the association you created, the association no longer runs on any targets of that association\. Also, if you specified the `apply-only-at-cron-interval` parameter, you can reset this option\. To do so, specify the `no-apply-only-at-cron-interval` parameter when you update the association from the command line\. This parameter forces the association to run immediately after updating the association and according to the interval specified\.

@@ -1,6 +1,6 @@
 # AWS Systems Manager Session Manager<a name="session-manager"></a>
 
-Session Manager is a fully managed AWS Systems Manager capability\. With Session Manager, you can manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, edge devices, and on\-premises servers and virtual machines \(VMs\)\. You can use either an interactive one\-click browser\-based shell or the AWS Command Line Interface \(AWS CLI\)\. Session Manager provides secure and auditable node management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also allows you to comply with corporate policies that require controlled access to managed nodes, strict security practices, and fully auditable logs with node access details, while providing end users with simple one\-click cross\-platform access to your managed nodes\. To get started with Session Manager, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/session-manager)\. In the navigation pane, choose **Session Manager**\.
+Session Manager is a fully managed AWS Systems Manager capability\. With Session Manager, you can manage your Amazon Elastic Compute Cloud \(Amazon EC2\) instances, edge devices, on\-premises servers, and virtual machines \(VMs\)\. You can use either an interactive one\-click browser\-based shell or the AWS Command Line Interface \(AWS CLI\)\. Session Manager provides secure and auditable node management without the need to open inbound ports, maintain bastion hosts, or manage SSH keys\. Session Manager also allows you to comply with corporate policies that require controlled access to managed nodes, strict security practices, and fully auditable logs with node access details, while providing end users with simple one\-click cross\-platform access to your managed nodes\. To get started with Session Manager, open the [Systems Manager console](https://console.aws.amazon.com/systems-manager/session-manager)\. In the navigation pane, choose **Session Manager**\.
 
 ## How can Session Manager benefit my organization?<a name="session-manager-benefits"></a>
 
@@ -46,7 +46,7 @@ Logging isn't available for Session Manager sessions that connect through port f
 ## What are the main features of Session Manager?<a name="session-manager-features"></a>
 + **Support for Windows Server, Linux and macOS managed nodes**
 
-  Session Manager enables you to establish secure connections to your Amazon Elastic Compute Cloud \(EC2\) instances, edge devices, and on\-premises servers and virtual machines \(VMs\)\. For a list of supported operating system types, see [Setting up Session Manager](session-manager-getting-started.md)\.
+  Session Manager enables you to establish secure connections to your Amazon Elastic Compute Cloud \(EC2\) instances, edge devices, on\-premises servers, and virtual machines \(VMs\)\. For a list of supported operating system types, see [Setting up Session Manager](session-manager-getting-started.md)\.
 **Note**  
 Session Manager support for on\-premises machines is provided for the advanced\-instances tier only\. For information, see [Turning on the advanced\-instances tier](systems-manager-managedinstances-advanced.md)\.
 +  **Console, CLI, and SDK access to Session Manager capabilities** 
