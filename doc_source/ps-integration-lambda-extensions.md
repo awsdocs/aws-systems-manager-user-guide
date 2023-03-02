@@ -220,33 +220,36 @@ The following tables provide extension ARNs for supported architectures and Regi
 
 | Region | ARN | 
 | --- | --- | 
-|  US East \(Ohio\)  |  `arn:aws:lambda:us-east-2:590474943231:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  US East \(N\. Virginia\)  |  `arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  US West \(N\. California\)  |  `arn:aws:lambda:us-west-1:997803712105:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  US West \(Oregon\)  |  `arn:aws:lambda:us-west-2:345057560386:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Africa \(Cape Town\)  |  `arn:aws:lambda:af-south-1:317013901791:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Asia Pacific \(Hong Kong\)  |  `arn:aws:lambda:ap-east-1:768336418462:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Asia Pacific \(Jakarta\)  |  `arn:aws:lambda:ap-southeast-3:490737872127:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Asia Pacific \(Mumbai\)  |  `arn:aws:lambda:ap-south-1:176022468876:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-| Asia Pacific \(Osaka\) |  `arn:aws:lambda:ap-northeast-3:576959938190:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Asia Pacific \(Seoul\)  |  `arn:aws:lambda:ap-northeast-2:738900069198:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Asia Pacific \(Singapore\)  |  `arn:aws:lambda:ap-southeast-1:044395824272:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Asia Pacific \(Sydney\)  |  `arn:aws:lambda:ap-southeast-2:665172237481:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Asia Pacific \(Tokyo\)  |  `arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Canada \(Central\)  |  `arn:aws:lambda:ca-central-1:200266452380:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-| China \(Beijing\) |  `arn:aws-cn:lambda:cn-north-1:287114880934:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-| China \(Ningxia\) |  `arn:aws-cn:lambda:cn-northwest-1:287310001119:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(Frankfurt\)  |  `arn:aws:lambda:eu-central-1:187925254637:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(Ireland\)  |  `arn:aws:lambda:eu-west-1:015030872274:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(London\)  |  `arn:aws:lambda:eu-west-2:133256977650:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(Milan\)  |  `arn:aws:lambda:eu-south-1:325218067255:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(Paris\)  |  `arn:aws:lambda:eu-west-3:780235371811:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Europe \(Stockholm\)  |  `arn:aws:lambda:eu-north-1:427196147048:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-|  Middle East \(Bahrain\)  |  `arn:aws:lambda:me-south-1:832021897121:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-| Middle East \(UAE\) | arn:aws:lambda:me\-central\-1:858974508948:layer:AWS\-Parameters\-and\-Secrets\-Lambda\-Extension:2 | 
-|  South America \(São Paulo\)  |  `arn:aws:lambda:sa-east-1:933737806257:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-| AWS GovCloud \(US\-East\) |  `arn:aws-us-gov:lambda:us-gov-east-1:129776340158:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
-| AWS GovCloud \(US\-West\) |  `arn:aws-us-gov:lambda:us-gov-west-1:127562683043:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2`  | 
+|  US East \(Ohio\)  |  `arn:aws:lambda:us-east-2:590474943231:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  US East \(N\. Virginia\)  |  `arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  US West \(N\. California\)  |  `arn:aws:lambda:us-west-1:997803712105:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  US West \(Oregon\)  |  `arn:aws:lambda:us-west-2:345057560386:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Africa \(Cape Town\)  |  `arn:aws:lambda:af-south-1:317013901791:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Asia Pacific \(Hong Kong\)  |  `arn:aws:lambda:ap-east-1:768336418462:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+| Asia Pacific \(Hyderabad\) Region |  `arn:aws:lambda:ap-south-2:070087711984:layer:AWS-Parameters-and-Secrets-Lambda-Extension:1`  | 
+|  Asia Pacific \(Jakarta\)  |  `arn:aws:lambda:ap-southeast-3:490737872127:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Asia Pacific \(Mumbai\)  |  `arn:aws:lambda:ap-south-1:176022468876:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+| Asia Pacific \(Osaka\) |  `arn:aws:lambda:ap-northeast-3:576959938190:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Asia Pacific \(Seoul\)  |  `arn:aws:lambda:ap-northeast-2:738900069198:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Asia Pacific \(Singapore\)  |  `arn:aws:lambda:ap-southeast-1:044395824272:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Asia Pacific \(Sydney\)  |  `arn:aws:lambda:ap-southeast-2:665172237481:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Asia Pacific \(Tokyo\)  |  `arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Canada \(Central\)  |  `arn:aws:lambda:ca-central-1:200266452380:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+| China \(Beijing\) |  `arn:aws-cn:lambda:cn-north-1:287114880934:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+| China \(Ningxia\) |  `arn:aws-cn:lambda:cn-northwest-1:287310001119:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Europe \(Frankfurt\)  |  `arn:aws:lambda:eu-central-1:187925254637:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Europe \(Ireland\)  |  `arn:aws:lambda:eu-west-1:015030872274:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Europe \(London\)  |  `arn:aws:lambda:eu-west-2:133256977650:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Europe \(Milan\)  |  `arn:aws:lambda:eu-south-1:325218067255:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+|  Europe \(Paris\)  |  `arn:aws:lambda:eu-west-3:780235371811:layer:AWS-Parameters-and-Secrets-Lambda-Extension:3`  | 
+| Europe \(Spain\) Region |  `arn:aws:lambda:eu-south-2:524103009944:layer:AWS-Parameters-and-Secrets-Lambda-Extension:1`  | 
+|  Europe \(Stockholm\)  |  `arn:aws:lambda:eu-north-1:427196147048:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+| Europe \(Zurich\) Region |  `arn:aws:lambda:eu-central-2:772501565639:layer:AWS-Parameters-and-Secrets-Lambda-Extension:1`  | 
+|  Middle East \(Bahrain\)  |  `arn:aws:lambda:me-south-1:832021897121:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+| Middle East \(UAE\) | arn:aws:lambda:me\-central\-1:858974508948:layer:AWS\-Parameters\-and\-Secrets\-Lambda\-Extension:4 | 
+|  South America \(São Paulo\)  |  `arn:aws:lambda:sa-east-1:933737806257:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+| AWS GovCloud \(US\-East\) |  `arn:aws-us-gov:lambda:us-gov-east-1:129776340158:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
+| AWS GovCloud \(US\-West\) |  `arn:aws-us-gov:lambda:us-gov-west-1:127562683043:layer:AWS-Parameters-and-Secrets-Lambda-Extension:4`  | 
 
 ### Extension ARNs for ARM64 architecture<a name="arm64"></a>
 
@@ -255,13 +258,24 @@ The following tables provide extension ARNs for supported architectures and Regi
 
 | Region | ARN | 
 | --- | --- | 
-|  US East \(Ohio\)  |  `arn:aws:lambda:us-east-2:590474943231:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  US East \(N\. Virginia\)  |  `arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  US West \(Oregon\)  |  `arn:aws:lambda:us-west-2:345057560386:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Asia Pacific \(Mumbai\)  |  `arn:aws:lambda:ap-south-1:176022468876:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Asia Pacific \(Singapore\)  |  `arn:aws:lambda:ap-southeast-1:044395824272:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Asia Pacific \(Sydney\)  |  `arn:aws:lambda:ap-southeast-2:665172237481:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Asia Pacific \(Tokyo\)  |  `arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Europe \(Frankfurt\)  |  `arn:aws:lambda:eu-central-1:187925254637:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Europe \(Ireland\)  |  `arn:aws:lambda:eu-west-1:015030872274:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
-|  Europe \(London\)  |  `arn:aws:lambda:eu-west-2:133256977650:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:2`  | 
+|  US East \(Ohio\)  |  `arn:aws:lambda:us-east-2:590474943231:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:4`  | 
+|  US East \(N\. Virginia\)  |  `arn:aws:lambda:us-east-1:177933569100:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:4`  | 
+|  US West \(N\. California\) Region  |  `arn:aws:lambda:us-west-1:997803712105:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 
+|  US West \(Oregon\)  |  `arn:aws:lambda:us-west-2:345057560386:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:4`  | 
+|  Africa \(Cape Town\) Region  |  `arn:aws:lambda:af-south-1:317013901791:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 
+|  Asia Pacific \(Hong Kong\) Region  |  `arn:aws:lambda:ap-east-1:768336418462:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 
+|  Asia Pacific \(Jakarta\) Region  |  `arn:aws:lambda:ap-southeast-3:490737872127:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 
+|  Asia Pacific \(Mumbai\)  |  `arn:aws:lambda:ap-south-1:176022468876:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:4`  | 
+|  Asia Pacific \(Seoul\) Region  |  `arn:aws:lambda:ap-northeast-2:738900069198:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 
+|  Asia Pacific \(Singapore\)  |  `arn:aws:lambda:ap-southeast-1:044395824272:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:4`  | 
+|  Asia Pacific \(Sydney\)  |  `arn:aws:lambda:ap-southeast-2:665172237481:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:4`  | 
+|  Asia Pacific \(Tokyo\)  |  `arn:aws:lambda:ap-northeast-1:133490724326:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:4`  | 
+|  Canada \(Central\) Region  |  `arn:aws:lambda:ca-central-1:200266452380:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 
+|  Europe \(Frankfurt\)  |  `arn:aws:lambda:eu-central-1:187925254637:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:4`  | 
+|  Europe \(Ireland\)  |  `arn:aws:lambda:eu-west-1:015030872274:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:4`  | 
+|  Europe \(London\)  |  `arn:aws:lambda:eu-west-2:133256977650:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:4`  | 
+|  Europe \(Milan\) Region  |  `arn:aws:lambda:eu-south-1:325218067255:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 
+|  Europe \(Paris\) Region  |  `arn:aws:lambda:eu-west-3:780235371811:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 
+|  Europe \(Stockholm\) Region  |  `arn:aws:lambda:eu-north-1:427196147048:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 
+|  Middle East \(Bahrain\) Region  |  `arn:aws:lambda:me-south-1:832021897121:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 
+|  South America \(São Paulo\) Region  |  `arn:aws:lambda:sa-east-1:933737806257:layer:AWS-Parameters-and-Secrets-Lambda-Extension-Arm64:1`  | 

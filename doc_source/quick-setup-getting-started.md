@@ -112,6 +112,7 @@ Quick Setup for organizations is available in the following AWS Regions, unless 
 + Asia Pacific \(Tokyo\)
 + Canada \(Central\)
 + Europe \(Frankfurt\)
++ Europe \(Stockholm\)
 + Europe \(Ireland\)
 + Europe \(London\)
 + Europe \(Paris\)

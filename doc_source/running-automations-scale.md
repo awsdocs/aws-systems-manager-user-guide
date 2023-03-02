@@ -271,7 +271,7 @@ The following procedure describes how to use the AWS CLI \(on Linux or Windows\)
 
 ------
 
-   *Targeting all managed Amazon EC2 instances in the current AWS account and AWS Region*
+   *Targeting all Amazon EC2 instances in the current AWS account and AWS Region*
 
 ------
 #### [ Linux & macOS ]

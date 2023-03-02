@@ -77,7 +77,7 @@ The command returns output similar to the following\. Connectivity checks to the
 ```
 
 ------
-#### [ Windows ]
+#### [ Powershell & Windows ]
 
 ```
 PS C:\Program Files\Amazon\SSM> ssm-cli.exe get-diagnostics --output table      

@@ -1,6 +1,6 @@
 # Using action outputs as inputs<a name="automation-action-outputs-inputs"></a>
 
-You can define outputs for various automation actions in your runbooks\. This allows you to run scripts, or invoke API operations for other AWS services once so you can reuse the values as inputs in later actions\.
+You can define outputs for various automation actions in your runbooks\. This allows you to run scripts, or invoke API operations for other AWS services once so you can reuse the values as inputs in later actions\. Parameter types in runbooks are static\. This means the parameter type can't be changed after it's defined\. When using parameters with automation actions, the type of a parameter can't be dynamically changed within an action's input\. If you need to convert an output value to a different type to use as an input for a later action, use the `aws:executeScript` action\. Specify the output you want to convert in the `InputPayload` for the function\. Convert the type in your function, and use a `return` statement to output the newly converted value\.
 
 Here is an example runbook that demonstrates how to define action outputs, and reference the value as input for a later action\. The runbooks does the following:
 + Uses the `aws:executeAwsApi` action to call the Amazon EC2 DescribeImages API operation to get the name of a specific Windows Server 2016 AMI\. It outputs the image ID as `ImageId`\.
@@ -285,6 +285,3 @@ Returns:
 
 Type: MapList
 ```
-
-**Important**  
-If you run an automation workflow that invokes other services by using an AWS Identity and Access Management \(IAM\) service role, be aware that the service role must be configured with permission to invoke those services\. This requirement applies to all AWS Automation runbooks \(`AWS-*` runbooks\) such as the `AWS-ConfigureS3BucketLogging`, `AWS-CreateDynamoDBBackup`, and `AWS-RestartEC2Instance` runbooks, to name a few\. This requirement also applies to any custom Automation runbooks you create that invoke other AWS services by using actions that call other services\. For example, if you use the `aws:executeAwsApi`, `aws:createStack`, or `aws:copyImage` actions, configure the service role with permission to invoke those services\. You can give permissions to other AWS services by adding an IAM inline policy to the role\. For more information, see [\(Optional\) Add an Automation inline policy to invoke other AWS services](automation-setup-iam.md#add-inline-policy)\.
