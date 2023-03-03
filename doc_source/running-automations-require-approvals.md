@@ -40,7 +40,7 @@ You can view information about a runbook by choosing the runbook name\.
 
 1. In the **SNSTopicARN** section, specify the SNS topic ARN to use for sending approval notification\. The SNS topic name must start with **Automation**\.
 
-1. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\.
+1. Optionally, you can choose an IAM service role from the **AutomationAssumeRole** list\. If you're targeting more than 100 accounts and Regions, you must specify the `AWS-SystemsManager-AutomationAdministrationRole`\.
 
 1. Choose **Execute automation**\. 
 

@@ -118,4 +118,13 @@ Quick Setup for organizations is available in the following AWS Regions, unless 
 + Europe \(Paris\)
 + South America \(São Paulo\)
 
+Additionally, Quick Setup Host Management is available for individual AWS accounts in the following Regions:
++ Europe \(Milan\)
++ Asia Pacific \(Hong Kong\)
++ Middle East \(Bahrain\)
++ China \(Beijing\)
++ China \(Ningxia\)
++ AWS GovCloud \(US\-East\)
++ AWS GovCloud \(US\-West\)
+
 Quick Setup for individual AWS accounts is available in all AWS Regions where Systems Manager is supported\. For a list of supported Regions, see the **Region** column in [Systems Manager service endpoints](https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region) in the *Amazon Web Services General Reference*\.

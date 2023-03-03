@@ -4,8 +4,6 @@ A *composite* AWS Systems Manager \(SSM\) document is a custom document that per
 
 For example, you can create a composite document that performs the following actions:
 
-1. Updates SSM Agent to the latest version\.
-
 1. Installs all patches in the allow list\.
 
 1. Installs antivirus software\.
@@ -13,8 +11,6 @@ For example, you can create a composite document that performs the following act
 1. Downloads scripts from GitHub and runs them\.
 
 In this example, your custom SSM document includes the following plugins to perform these actions:
-
-1. The `aws:runDocument` plugin to run the `AWS-UpdateSSMAgent` document, which updates AWS Systems Manager SSM Agent to the latest version\.
 
 1. The `aws:runDocument` plugin to run the `AWS-RunPatchBaseline` document, which installs all allow listed patches\.
 
