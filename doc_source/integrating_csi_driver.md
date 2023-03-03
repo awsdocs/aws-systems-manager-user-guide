@@ -21,11 +21,17 @@ The ASCP is available on GitHub in the [secrets\-store\-csi\-driver\-provider\-a
    helm install -n kube-system csi-secrets-store secrets-store-csi-driver/secrets-store-csi-driver
    ```
 
-1. To install the ASCP, use the YAML file in the GitHub repository deployment directory\. For information about installing `kubectl`, see [Installing `kubectl`](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) \.
+2. To install the ASCP:
+   - Use the YAML file in the GitHub repository deployment directory\. For information about installing `kubectl`, see [Installing `kubectl`](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html) \.
 
    ```
    kubectl apply -f https://raw.githubusercontent.com/aws/secrets-store-csi-driver-provider-aws/main/deployment/aws-provider-installer.yaml
    ```
+   - Alternatively, using Helm. For more on information, see [Installing the Chart](https://aws.github.io/secrets-store-csi-driver-provider-aws).
+   ```
+    helm repo add aws-secrets-manager https://aws.github.io/secrets-store-csi-driver-provider-aws
+    helm install -n kube-system secrets-provider-aws aws-secrets-manager/secrets-store-csi-driver-provider-aws
+    ```
 
 ## Step 1: Set up access control<a name="integrating_csi_driver_access"></a>
 
