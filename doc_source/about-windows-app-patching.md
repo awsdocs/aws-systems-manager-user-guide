@@ -14,7 +14,7 @@ For Windows Server, three predefined patch baselines are provided\. The patch ba
 You can also create a custom patch baseline to update applications released by Microsoft on Windows Server machines\.
 
 **Support for patching applications released by Microsoft on on\-premises servers, edge devices, VMs, and other non\-EC2 nodes**  
-To patch applications released by Microsoft on virtual machines \(VMs\) and non\-EC2 managed nodes, you must turn on the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. **However, there is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\.** For more information, see [Configuring instance tiers](systems-manager-managed-instances-tiers.md)\.
+To patch applications released by Microsoft on virtual machines \(VMs\) and other non\-EC2 managed nodes, you must turn on the advanced\-instances tier\. There is a charge to use the advanced\-instances tier\. **However, there is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\.** For more information, see [Configuring instance tiers](systems-manager-managed-instances-tiers.md)\.
 
 **Windows update option for "other Microsoft products"**  
 In order for Patch Manager to be able to patch applications released by Microsoft on your Windows Server managed nodes, the Windows Update option **Give me updates for other Microsoft products when I update Windows** must be activated on the managed node\. 

@@ -12,8 +12,16 @@ All actions can run by default, except during calendar events\. During events, t
 **`DEFAULT_CLOSED`**, or Closed by default  
 All actions are blocked by default, except during calendar events\. During events, the state of a `DEFAULT_CLOSED` calendar is `OPEN` and actions are permitted to run\.
 
+You can choose to have all scheduled Automation workflows, maintenance windows, and State Manager associations added automatically to a calendar\. You can also remove any of those individual types from the calendar display\. 
+
 ## Who should use Change Calendar?<a name="systems-manager-change-calendar-who"></a>
-+ Any Amazon Web Services customer who creates or runs Automation runbooks, creates change requests in Change Manager, or creates associations in State Manager\. \(Automation, Change Manager, and State Manager are all capabilities of AWS Systems Manager\.\) By integrating these capabilities with Change Calendar, you can allow or block these three action types depending on the current state of the change calendar you associate with each one\.
++ AWS customers who perform the following action types:
+  + Create or run Automation runbooks\.
+  + Create change requests in Change Manager\.
+  + Run maintenance windows\.
+  + Create associations in State Manager\.
+
+  Automation, Change Manager, Maintenance Windows, and State Manager are all capabilities of AWS Systems Manager\. By integrating these capabilities with Change Calendar, you can allow or block these action types depending on the current state of the change calendar you associate with each one\.
 + Administrators who are responsible for keeping the configurations of Systems Manager managed nodes consistent, stable, and functional\.
 
 ## Benefits of Change Calendar<a name="systems-manager-change-calendar-benefits"></a>

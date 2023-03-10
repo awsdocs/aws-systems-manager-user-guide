@@ -2,7 +2,7 @@
 
 EC2Rescue can help you diagnose and troubleshoot problems on Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux and Windows Server\. You can run the tool manually, as described in [Using EC2Rescue for Linux Server](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Linux-Server-EC2Rescue.html) and [Using EC2Rescue for Windows Server](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/Windows-Server-EC2Rescue.html)\. Or, you can run the tool automatically by using Systems Manager Automation and the **`AWSSupport-ExecuteEC2Rescue`** runbook\. Automation is a capability of AWS Systems Manager\. The **`AWSSupport-ExecuteEC2Rescue`** runbook is designed to perform a combination of Systems Manager actions, AWS CloudFormation actions, and Lambda functions that automate the steps normally required to use EC2Rescue\. 
 
-You can use the **`AWSSupport-ExecuteEC2Rescue`** runbook to troubleshoot and potentially remediate different types of operating system \(OS\) issues\. See the following topics for a complete list:
+You can use the **`AWSSupport-ExecuteEC2Rescue`** runbook to troubleshoot and potentially remediate different types of operating system \(OS\) issues\. Instances with encypted root volumes are not supported\. See the following topics for a complete list:
 
 **Windows**: See *Rescue Action* in [Using EC2Rescue for Windows Server with the Command Line](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2rw-cli.html#ec2rw-rescue)\.
 

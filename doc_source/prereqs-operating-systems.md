@@ -97,6 +97,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | Versions | x86 | x86\_64 | ARM64 | 
 | --- | --- | --- | --- | 
 | 8\.4\-8\.5 |  | ✓ | ✓ | 
+| 8\.6 |  | ✓ | ✓ | 
 
 
 **SUSE Linux Enterprise Server \(SLES\)**  
@@ -114,6 +115,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | 12\.04 LTS and 14\.04 LTS | ✓ | ✓ |  | 
 | 16\.04 LTS and 18\.04 LTS |  | ✓ | ✓ | 
 | 20\.04 LTS and 20\.10 STR |  | ✓ | ✓ | 
+| 22\.04 LTS |  | ✓ | ✓ | 
 
 ## macOS<a name="prereqs-os-mac"></a>
 
@@ -124,8 +126,8 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | --- | --- | --- | --- | 
 | 10\.14\.x \(Mojave\) |  | ✓ |  | 
 | 10\.15\.x \(Catalina\) |  | ✓ |  | 
-| 11\.x \(BigSur\) |  | ✓ |  | 
-| 12\.x \(Monterey\) |  | ✓ |  | 
+| 11\.x \(BigSur\) |  | ✓ | ✓ | 
+| 12\.x \(Monterey\) |  | ✓ | ✓ | 
 
 **Note**  
 macOS support is limited to the following AWS Regions:  

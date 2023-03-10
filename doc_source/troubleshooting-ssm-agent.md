@@ -55,7 +55,7 @@ If you specify date\-based log file rotation in the seelog\.xml file \(on Window
 
 ## Unable to connect to SSM endpoints<a name="systems-manager-ssm-agent-troubleshooting-endpoint-access"></a>
 
-SSM Agent must be able to connect to the following endpoints:
+SSM Agent must allow HTTPS \(port 443\) outbound traffic to the following endpoints:
 + `ssm.region.amazonaws.com`
 + `ssmmessages.region.amazonaws.com`
 + `ec2messages.region.amazonaws.com`

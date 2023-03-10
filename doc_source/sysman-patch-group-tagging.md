@@ -14,12 +14,16 @@ After you group your managed nodes using tags, you add the patch group value to 
 
 ## Task 1: Add EC2 instances to a patch group using tags<a name="sysman-patch-group-tagging-ec2"></a>
 
-For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, you can add tags by using the AWS Systems Manager console, the Amazon EC2 console, the AWS Command Line Interface \(AWS CLI\) command `create-tags`, or the API operation `CreateTags`\.
+For Amazon Elastic Compute Cloud \(Amazon EC2\) instances, you can add tags by using any of the following:
++ The AWS Systems Manager console
++ The Amazon EC2 console
++ The AWS Command Line Interface \(AWS CLI\) command `[create\-tags](https://docs.aws.amazon.com/cli/latest/reference/ssm/create-tags.html)`
++ The Systems Manager API operation `[CreateTags](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_CreateTags.html)`
 
 **Important**  
 You can't apply the `Patch Group` tag \(with a space\) to an Amazon EC2 instance if the **Allow tags in instance metadata** option is enabled on the instance\. Allowing tags in instance metadata prevents tag key names from containing spaces\. If you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS), you must use the tag key `PatchGroup` \(without a space\)\.
 
-**To add EC2 instances to a patch group \(AWS Systems Manager console\)**
+**To add EC2 instances to a patch group \(Systems Manager console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
@@ -34,7 +38,7 @@ You can't apply the `Patch Group` tag \(with a space\) to an Amazon EC2 instance
 When using the Amazon EC2 console and AWS CLI, it's possible to apply `Key = Patch Group` or `Key = PatchGroup` tags to instances that aren't yet configured for use with Systems Manager\.  
 If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
-1. Select the **Tags** tab, then choose **Edit**\.
+1. Choose the **Tags** tab, then choose **Edit**\.
 
 1. In the left column, enter **Patch Group** or **PatchGroup**\. If you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS), you must use `PatchGroup` \(without a space\)\.
 
@@ -64,7 +68,12 @@ If a managed node you expect to see isn't listed, see [Troubleshooting managed n
 
 ## Task 2: Add managed nodes to a patch group using tags<a name="sysman-patch-group-tagging-managed"></a>
 
-For AWS IoT Greengrass core devices and hybrid managed nodes \(mi\-\*\), you can add tags by using the Systems Manager console, the AWS CLI command `add-tags-to-resource`, or the API operation `AddTagsToResource`\. You can't add tags for hybrid managed node using the Amazon EC2 console\.
+For AWS IoT Greengrass core devices and hybrid managed nodes \(mi\-\*\), you can add tags by using any of the following:
++ The Systems Manager console
++ The AWS CLI command `[add\-tags\-to\-resource](https://docs.aws.amazon.com/cli/latest/reference/ssm/add-tags-to-resource.html)`
++ The Systems Manager API operation `[AddTagsToResource](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_AddTagsToResource.html)`
+
+ You can't add tags for hybrid managed nodes using the Amazon EC2 console\.
 
 **To add managed nodes to a patch group \(Systems Manager console\)**
 
@@ -80,7 +89,7 @@ For AWS IoT Greengrass core devices and hybrid managed nodes \(mi\-\*\), you can
 **Note**  
 If a managed node you expect to see isn't listed, see [Troubleshooting managed node availability](troubleshooting-managed-instances.md) for troubleshooting tips\.
 
-1. Select the **Tags** tab, then choose **Edit**\.
+1. Choose the **Tags** tab, then choose **Edit**\.
 
 1. In the left column, enter **Patch Group** or **PatchGroup**\. If you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS), you must use `PatchGroup` \(without a space\)\.
 
@@ -94,16 +103,26 @@ If a managed node you expect to see isn't listed, see [Troubleshooting managed n
 
 To associate a specific patch baseline with your managed nodes, you must add the patch group value to the patch baseline\. By registering the patch group with a patch baseline, you can ensure that the correct patches are installed during a patching operation\. For more information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\.
 
-**To add a patch group to a patch baseline \(console\)**
+**Note**  
+The steps you follow depend on whether you first accessed Patch Manager before or after the [patch policies](patch-policies-about.md) release on December 22, 2022\.
+
+**To add a patch group to a patch baseline \(Systems Manager console\)**
 
 1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
 
 1. In the navigation pane, choose **Patch Manager**\.
 
-1. If you are accessing Patch Manager for the first time in the current AWS Region and the Patch Manager start page opens, choose **Start with an overview**\.
+1. If you're accessing Patch Manager for the first time in the current AWS Region and the Patch Manager start page opens, choose **Start with an overview**\.
 
-1. Choose the **Patch baselines** tab, and then in the **Patch baselines** list, choose the patch baseline you want to configure for your patch group\.
+1. Choose the **Patch baselines** tab, and then in the **Patch baselines** list, choose the patch baseline that you want to configure for your patch group\.
 
-1. Choose **Actions**, then **Modify patch groups**\.
+   If you didn't first access Patch Manager until after the patch policies release, you must choose a custom baseline that you have created\.
 
-1. Enter the tag *value* you added to your managed nodes in the previous section, then choose **Add**\.
+1. If you already used Patch Manager before the patch policies release: 
+   + Choose **Actions**, then **Modify patch groups**\.
+   + Enter the tag *value* you added to your managed nodes in [Task 2: Add managed nodes to a patch group using tags](#sysman-patch-group-tagging-managed), then choose **Add**\.
+
+   If you began using Patch Manager after the patch policies release:
+   + In the **Tags** section near the bottom of the page, choose **Edit tags**, and then choose **Add tags**\.
+   + For **Key**, enter **Patch Group** or **PatchGroup**\. If you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS), you must use `PatchGroup` \(without a space\)\.
+   + For **Value**, enter the tag value you added to your managed nodes in [Task 2: Add managed nodes to a patch group using tags](#sysman-patch-group-tagging-managed), then choose **Save changes**\.

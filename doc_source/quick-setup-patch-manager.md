@@ -109,11 +109,38 @@ Currently, selecting resource groups is supported only for single account config
    + For **Concurrency**, enter a number or percentage of nodes to run the patch policy on at the same time\.
    + For **Error threshold**, enter the number or percentage of nodes that can experience an error before the patch policy fails\.
 
-1. \(Optional\) If you want, apply the IAM policies created by this Quick Setup configuration to nodes that already have an instance profile attached \(EC2 instances\) or a service role attached \(hybrid, non\-EC2 nodes\)\. Select **Add required IAM policies to existing instance profiles attached to your instances**\.
+1. \(Optional\) Select the **Add required IAM policies to existing instance profiles attached to your instances** check box\.
 
-   Select this option when your managed nodes already have an instance profile or service role attached, but it doesn't contain all the permissions required for working with Systems Manager\.
+   This selection applies the IAM policies created by this Quick Setup configuration to nodes that already have an instance profile attached \(EC2 instances\) or a service role attached \(hybrid, non\-EC2 nodes\)\. We recommend this selection when your managed nodes already have an instance profile or service role attached, but it doesn't contain all the permissions required for working with Systems Manager\.
 
    Your selection here is applied to managed nodes created later in the accounts and Regions that this patch policy configuration applies to\.
+**Important**  
+If you don't select this check box but want Quick Setup to patch your managed nodes using this patch policy, you must ensure that the following are implemented:  
+The IAM managed policy `AmazonSSMManagedInstanceCore` must be attached to the [IAM instance profile](setup-instance-permissions.md) or [IAM service role](sysman-service-role.md) that's used to provide Systems Manager permissions to your managed nodes\.
+You must add the following as an inline policy to the IAM instance profile or IAM service role\.  
+
+      ```
+      {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Sid": "AccessToPatchPolicyRelatedBuckets",
+            "Effect": "Allow",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::aws-quicksetup-patchpolicy-*"
+          }
+        ]
+      }
+      ```
+You must tag your IAM instance profile or IAM service role with the following key\-value pair\.  
+`Key: QSConfigId-quick-setup-configuration-id, Value: quick-setup-configuration-id`  
+*quick\-setup\-configuration\-id* represents the value of the parameter applied to the AWS CloudFormation stack that is used in creating your patch policy configuration\. To retrieve this ID, do the following:  
+Open the AWS CloudFormation console at [https://console\.aws\.amazon\.com/cloudformation](https://console.aws.amazon.com/cloudformation/)\.
+Select the name of the stack that is used to create your patch policy\. The name is in a format such as `StackSet-AWS-QuickSetup-PatchPolicy-LA-q4bkg-52cd2f06-d0f9-499e-9818-d887cEXAMPLE`\.
+Choose the **Parameters** tab\.
+In the **Parameters** list, in the **Key** column, locate the key **QSConfigurationId**\. In the **Value** column for its row, locate the configuration ID, such as `q4bkg`\.  
+In this example, for the tag to apply to your instance profile or service role, the key is `QSConfigId-q4bkg`, and the value is `q4bkg`\.
+For information about adding tags to an IAM role, see [Tagging IAM roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags_roles.html#id_tags_roles_procs-console) and [Managing tags on instance profiles \(AWS CLI or AWS API\)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags_instance-profiles.html#id_tags_instance-profile_procs-cli-api) in the *IAM User Guide*\.
 
 1. Choose **Create**\.
 

@@ -2,7 +2,7 @@
 
 Like the `AWS-RunPatchBaseline` document, `AWS-RunPatchBaselineAssociation` performs patching operations on instances for both security related and other types of updates\. You can also use the document `AWS-RunPatchBaselineAssociation` to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for applications released by Microsoft\.\)
 
-This document supports Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux, macOS, and Windows Server\. It does not support non\-EC2 nodes, such as on\-premises servers and virtual machines \(VMs\) in a hybrid environment\. The document will perform the appropriate actions for each platform, invoking a Python module on Linux and macOS instances, and a PowerShell module on Windows instances\.
+This document supports Amazon Elastic Compute Cloud \(Amazon EC2\) instances for Linux, macOS, and Windows Server\. It does not support non\-EC2 nodes, such as on\-premises servers and virtual machines \(VMs\), in a hybrid environment\. The document will perform the appropriate actions for each platform, invoking a Python module on Linux and macOS instances, and a PowerShell module on Windows instances\.
 
 `AWS-RunPatchBaselineAssociation`, however, differs from `AWS-RunPatchBaseline` in the following ways: 
 + `AWS-RunPatchBaselineAssociation` is intended for use primarily with State Manager associations created using [Quick Setup](systems-manager-quick-setup.md), a capability of AWS Systems Manager\. Specifically, when you use the Quick Setup Host Management configuration type, if you choose the option **Scan instances for missing patches daily**, the system uses `AWS-RunPatchBaselineAssociation` for the operation\.

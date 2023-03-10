@@ -61,7 +61,7 @@ Contains the details of the mount request\.
 **objects**  
 A string containing a YAML declaration of the parameters to be mounted\. We recommend using a YAML multi\-line string or pipe \(\|\) character\.    
 **objectName**  
-The friendly name of the parameter\. This becomes the file name of the parameter in the Amazon EKS pod unless you specify `objectAlias`\. Use the `Name` of the parameter, not a full Amazon Resource Name \(ARN\)\.  
+The friendly name of the parameter\. This becomes the file name of the parameter in the Amazon EKS pod unless you specify `objectAlias`\. For Parameter Store this must be the `Name` of the parameter, and cannot be a full Amazon Resource Name \(ARN\)\.   
 **jmesPath**  
 \(Optional\) A map of the keys in the JSON encoded parameter to the files to be mounted in Amazon EKS\. The following example shows what a JSON encoded parameter looks like\.  
 
@@ -77,7 +77,7 @@ The key in the parameter\.
 **objectAlias**  
 The file name to be mounted in the Amazon EKS pod\.  
 **objectType**  
-Required if you don't use a Secrets Manager ARN for `objectName`\. Can be either `secretsmanager` or `ssmparameter`\.  
+ For Parameter Store, this field is required\. Use `ssmparameter`\.  
 **objectAlias**  
 \(Optional\) The file name of the parameter in the Amazon EKS pod\. If you don't specify this field, the `objectName` appears as the file name\.  
 **objectVersion**  
@@ -165,7 +165,7 @@ Before you begin, install the ASCP\. For more information, see [Installing the A
    eksctl utils associate-iam-oidc-provider --region="$REGION" --cluster="$CLUSTERNAME" --approve # Only run this once
    ```
 
-1. Create the service account the pod uses, and associate the resource policy you created in step 3 with that service account\. For this tutorial, for the service account name, you use *nginx\-deployment\-sa*\. For more information, see [Create an IAM role for a service account](https://docs.aws.amazon.com/eks/latest/userguide/create-service-account-iam-policy-and-role.html#create-service-account-iam-role)\.
+1. Create the service account the pod uses, and associate the resource policy you created in step 3 with that service account\. For this tutorial, for the service account name, you use *nginx\-deployment\-sa*\. For more information, see [Create an IAM role for a service account](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html)\.
 
    ```
    eksctl create iamserviceaccount --name nginx-deployment-sa --region="$REGION" --cluster "$CLUSTERNAME" --attach-policy-arn "$POLICY_ARN" --approve --override-existing-serviceaccounts
