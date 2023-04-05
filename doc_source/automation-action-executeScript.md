@@ -61,6 +61,9 @@ Provide the information required to run your script\. Replace each *example reso
 **Note**  
 The attachment for a Python script can be a \.py file or a \.zip file that contains the script\. PowerShell scripts must be stored in \.zip files\.
 
+**Note**  
+The Boto3 version used in the script comes from the [Lambda runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html)\.
+
 ------
 #### [ YAML ]
 
