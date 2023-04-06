@@ -2,6 +2,9 @@
 
 Calls and runs AWS API operations\. Most API operations are supported, although not all API operations have been tested\. Streaming API operations, such as the [GetObject](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectGET.html) operation, aren't supported\. If you're not sure if an API operation you want to use is a streaming operation, review the [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/index.html) documentation for the service to determine if an API requires streaming inputs\. Each `aws:executeAwsApi` action can run up to a maximum duration of 25 seconds\. For more examples of how to use this action, see [Additional runbook examples](automation-document-examples.md)\.
 
+**Note**  
+We continuously keep the Boto3 version used in this action up to date\. It may take a few weeks for the newest version to become available for the action\.
+
 **Inputs**  
 Inputs are defined by the API operation that you choose\. 
 
