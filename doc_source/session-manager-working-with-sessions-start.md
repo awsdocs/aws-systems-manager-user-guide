@@ -69,7 +69,7 @@ For information, see [Installing or updating the latest version of the AWS CLI](
 
 Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 
-To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 To start a session using the AWS CLI, run the following command replacing *instance\-id* with your own information\.
 
@@ -114,7 +114,7 @@ To start a Session Manager port forwarding session, version 2\.3\.672\.0 or late
 
 **Note**  
 Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.  
-To use the AWS CLI to run session commands, you must install the Session Manager plugin on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.  
+To use the AWS CLI to run session commands, you must install the Session Manager plugin on your local machine\. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.  
 Depending on your operating system and command line tool, the placement of quotation marks can differ and escape characters might be required\.
 
 To start a port forwarding session, run the following command from the CLI\. Replace each *example resource placeholder* with your own information\.
@@ -155,7 +155,7 @@ To start a Session Manager port forwarding session to a remote host, version 3\.
 
 **Note**  
 Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.  
-To use the AWS CLI to run session commands, you must install the Session Manager plugin on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.  
+To use the AWS CLI to run session commands, you must install the Session Manager plugin on your local machine\. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.  
 Depending on your operating system and command line tool, the placement of quotation marks can differ and escape characters might be required\.
 
 To start a port forwarding session, run the following command from the CLI\. Replace each *example resource placeholder* with your own information\.
@@ -194,7 +194,7 @@ For information about other options you can use with the start\-session command,
 
 Before you start a session, make sure that you have completed the setup steps for Session Manager\. For information, see [Setting up Session Manager](session-manager-getting-started.md)\.
 
-To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 To start an interactive command session, run the following command\. Replace each *example resource placeholder* with your own information\.
 

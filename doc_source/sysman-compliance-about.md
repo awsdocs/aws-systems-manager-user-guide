@@ -9,7 +9,7 @@ Systems Manager integrates with [Chef InSpec](https://www.chef.io/inspec/)\. InS
 
 After you use Patch Manager to install patches on your instances, compliance status information is immediately available to you in the console or in response to AWS Command Line Interface \(AWS CLI\) commands or corresponding Systems Manager API operations\.
 
-For information about patch compliance status values, see [Understanding patch compliance state values](about-patch-compliance-states.md)\.
+For information about patch compliance status values, see [Understanding patch compliance state values](patch-manager-compliance-states.md)\.
 
 ## About State Manager association compliance<a name="sysman-compliance-about-association"></a>
 
@@ -102,7 +102,7 @@ Returns high\-level aggregated patch compliance state for a patch group\. \(API:
 Returns the high\-level patch state for the instances in the specified patch group\. \(API: [DescribeInstancePatchStatesForPatchGroup](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeInstancePatchStatesForPatchGroup.html)\)
 
 **Note**  
-For an illustration of how to configure patching and view patch compliance details by using the AWS CLI, see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
+For an illustration of how to configure patching and view patch compliance details by using the AWS CLI, see [Tutorial: Patch a server environment \(AWS CLI\)](patch-manager-patch-servers-using-the-aws-cli.md)\.
 
 ## Viewing compliance configuration history and change tracking<a name="sysman-compliance-history"></a>
 

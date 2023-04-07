@@ -1,7 +1,7 @@
 # Manually installing SSM Agent on Amazon Linux instances<a name="agent-install-al"></a>
 
 **Important**  
-This topic provides commands for working with SSM Agent on **Amazon Linux** instances\. Some of these commands aren't supported on **Amazon Linux 2** instances\. Before continuing, verify that you're viewing the correct topic for your instance type\. For commands to run on Amazon Linux 2 instances, see [Manually installing SSM Agent on Amazon Linux 2 instances](agent-install-al2.md)\.
+This topic provides commands for working with SSM Agent on **Amazon Linux** instances\. Some of these commands aren't supported on **Amazon Linux 2** and Amazon Linux 2023 instances\. Before continuing, verify that you're viewing the correct topic for your instance type\. For commands to run on Amazon Linux 2 or Amazon Linux 2023 instances, see [Manually installing SSM Agent on Amazon Linux 2 and Amazon Linux 2023 instances](agent-install-al2.md)\.
 
 In most cases, the Amazon Machine Images \(AMIs\) for Amazon Linux that are provided by AWS come with AWS Systems Manager Agent \(SSM Agent\) preinstalled by default\. For more information, see [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)\.
 

@@ -107,7 +107,7 @@ For information about `ssmmessages` actions, see [Reference: ec2messages, ssmmes
 Use the following procedure to create a custom IAM role with a policy that provides permissions for Session Manager actions on your instances\. The policy also provides the permissions needed for session logs to be stored in Amazon Simple Storage Service \(Amazon S3\) buckets and Amazon CloudWatch Logs log groups\.
 
 **Important**  
-To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the IAM `s3:PutObjectAcl` permission to the policy\. If this permission isn't added, the account that owns the Amazon S3 bucket can't access the session output logs\.
+To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the `s3:PutObjectAcl` permission to the IAM role policy\. If this permission isn't added, the account that owns the Amazon S3 bucket can't access the session output logs\.
 
 For information about specifying preferences for storing session logs, see [Logging session activity](session-manager-logging.md)\.
 

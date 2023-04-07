@@ -1,7 +1,7 @@
 # Walkthrough: Creating a maintenance window for patching \(console\)<a name="sysman-patch-mw-console"></a>
 
 **Important**  
-You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend that you use a patch policy instead\. For more information, see [Introducing patch policies](patch-policies-about.md) and [Automate organization\-wide patching using a Quick Setup patch policyAutomate organization\-wide patching](quick-setup-patch-manager.md)\. 
+You can continue to use this legacy topic to create a maintenance window for patching\. However, we recommend that you use a patch policy instead\. For more information, see [Using Quick Setup patch policies](patch-manager-policies.md) and [Automate organization\-wide patching using a Quick Setup patch policyAutomate organization\-wide patching](quick-setup-patch-manager.md)\. 
 
 To minimize the impact on your server availability, we recommend that you configure a maintenance window to run patching during times that won't interrupt your business operations\. For more information about maintenance windows, see [AWS Systems Manager Maintenance Windows](systems-manager-maintenance.md)\.
 
@@ -90,8 +90,8 @@ The S3 permissions that grant the ability to write the data to an S3 bucket are 
 1. For **Parameters**:
    + For **Operation**, choose **Scan** to scan for missing patches, or choose **Install** to scan for and install missing patches\.
    + You don't need to enter anything in the **Snapshot Id** field\. This system automatically generates and provides this parameter\.
-   + You don't need to enter anything in the **Install Override List** field unless you want Patch Manager to use a different patch set than is specified for the patch baseline\. For information, see [Parameter name: `InstallOverrideList`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-installoverridelist)\.
-   + For **Reboot option**, specify whether you want nodes to reboot if patches are installed during the `Install` operation, or if Patch Manager detects other patches that were installed since the last node reboot\. For information, see [Parameter name: `RebootOption`](patch-manager-about-aws-runpatchbaseline.md#patch-manager-about-aws-runpatchbaseline-parameters-norebootoption)\.
+   + You don't need to enter anything in the **Install Override List** field unless you want Patch Manager to use a different patch set than is specified for the patch baseline\. For information, see [Parameter name: `InstallOverrideList`](patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-installoverridelist)\.
+   + For **Reboot option**, specify whether you want nodes to reboot if patches are installed during the `Install` operation, or if Patch Manager detects other patches that were installed since the last node reboot\. For information, see [Parameter name: `RebootOption`](patch-manager-aws-runpatchbaseline.md#patch-manager-aws-runpatchbaseline-parameters-norebootoption)\.
    + \(Optional\) For **Comment**, enter a tracking note or reminder about this command\.
    + For **Timeout \(seconds\)**, enter the number of seconds the system should wait for the operation to finish before it is considered unsuccessful\.
 

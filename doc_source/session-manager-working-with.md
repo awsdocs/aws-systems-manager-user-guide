@@ -5,7 +5,7 @@ You can use the AWS Systems Manager console, the Amazon Elastic Compute Cloud \(
 For more information about sessions, see [What is a session?](session-manager.md#what-is-a-session)
 
 **Topics**
-+ [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)
++ [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)
 + [Start a session](session-manager-working-with-sessions-start.md)
 + [End a session](session-manager-working-with-sessions-end.md)
 + [View session history](session-manager-working-with-view-history.md)

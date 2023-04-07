@@ -23,4 +23,4 @@ Before you start a runbook from Application Manager, do the following:
 
 1. Choose the application in the list\. Application Manager opens the **Overview** tab\.
 
-1. Choose **Start runbook**\. Application Manager opens the **Execute automation document** page in a new tab\. For information about the options in the **Execute automation document** page, see [Running automations](running-automations.md)\.
+1. Choose **Start runbook**\. Application Manager opens the **Automation widget** pop up\. For information about the options in the **Automation widget**, see [Running automations](running-automations.md)\.

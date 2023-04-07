@@ -4,7 +4,7 @@ By default, AWS Systems Manager doesn't have permission to perform actions on yo
 
 ## Recommended configuration<a name="default-host-management"></a>
 
-Default Host Management Configuration allows Systems Manager to manage your Amazon EC2 instances automatically\. After you've turned on this setting, all instances using Instance Metadata Service Version 2 \(IMDSv2\) in the AWS Region and AWS account with SSM Agent version 3\.2\.582\.0 or later installed automatically become managed instances\. Default Host Management Configuration doesn't support Instance Metadata Service Version 1\. For information about transitioning to IMDSv2, see [Transition to using Instance Metadata Service Version 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html#instance-metadata-transition-to-version-2) in the *Amazon EC2 User Guide for Linux Instances*\. For information about checking the version of the SSM Agent installed on your instance, see [Checking the SSM Agent version number](ssm-agent-get-version.md)\. For information about updating the SSM Agent, see [Automatically updating SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console)\. Benefits of managed instances include the following:
+Default Host Management Configuration allows Systems Manager to manage your Amazon EC2 instances automatically\. After you've turned on this setting, all instances using Instance Metadata Service Version 2 \(IMDSv2\) in the AWS Region and AWS account with SSM Agent version 3\.2\.582\.0 or later installed automatically become managed instances\. Default Host Management Configuration doesn't support Instance Metadata Service Version 1\. For information about transitioning to IMDSv2, see [Transition to using Instance Metadata Service Version 2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-metadata-transition-to-version-2.html) in the *Amazon EC2 User Guide for Linux Instances*\. For information about checking the version of the SSM Agent installed on your instance, see [Checking the SSM Agent version number](ssm-agent-get-version.md)\. For information about updating the SSM Agent, see [Automatically updating SSM Agent](ssm-agent-automatic-updates.md#ssm-agent-automatic-updates-console)\. Benefits of managed instances include the following:
 + Connect to your instances securely using Session Manager\.
 + Perform automated patch scans using Patch Manager\.
 + View detailed information about your instances using Systems Manager Inventory\.
@@ -148,7 +148,7 @@ For information about the AWS managed S3 buckets you provide access to in the fo
    {
        "Version": "2012-10-17",
        "Statement": [
-           ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png){
+           ![\[Footnote callout 1\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png){
                "Effect": "Allow",
                "Action": "s3:GetObject",
                "Resource": [
@@ -162,17 +162,17 @@ For information about the AWS managed S3 buckets you provide access to in the fo
                    "arn:aws:s3:::patch-baseline-snapshot-region/*"
                ]
            },
-           ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png){
+           ![\[Footnote callout 2\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png){
                "Effect": "Allow",
                "Action": [
                    "s3:GetObject",
                    "s3:PutObject",
-                   "s3:PutObjectAcl", ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
-                   "s3:GetEncryptionConfiguration" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
+                   "s3:PutObjectAcl", ![\[Footnote callout 3\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
+                   "s3:GetEncryptionConfiguration" ![\[Footnote callout 4\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
                ],
                "Resource": [
                    "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
-                   "arn:aws:s3:::DOC-EXAMPLE-BUCKET" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout05.png)
+                   "arn:aws:s3:::DOC-EXAMPLE-BUCKET" ![\[Footnote callout 5\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout05.png)
                ]
            }
        ]

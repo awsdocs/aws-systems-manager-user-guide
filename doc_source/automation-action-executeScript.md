@@ -118,21 +118,21 @@ schemaVersion: '0.3'
 assumeRole: '{{AutomationAssumeRole}}'
 parameters:
     AutomationAssumeRole:
-    type: String
-    description: '(Required) The Amazon Resource Name (ARN) of the IAM role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to operate this runbook.'
+        type: String
+        description: '(Required) The Amazon Resource Name (ARN) of the IAM role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to operate this runbook.'
     InstanceId:
-    type: String
-    description: (Required) The ID of the EC2 instance you want to tag.
+        type: String
+        description: (Required) The ID of the EC2 instance you want to tag.
 mainSteps:
-    - name: tagInstance
+  - name: tagInstance
     action: 'aws:executeScript'
     inputs:
-        Runtime: python3.8
+        Runtime: "python3.8"
         Handler: tagInstance
         InputPayload:
-          instanceId: '{{InstanceId}}'
+            instanceId: '{{InstanceId}}'
         Script: |-
-          def tagInstance(events,context):
+            def tagInstance(events,context):
             import boto3
 
             #Initialize client
@@ -154,13 +154,13 @@ schemaVersion: '0.3'
 assumeRole: '{{AutomationAssumeRole}}'
 parameters:
     AutomationAssumeRole:
-    type: String
-    description: '(Required) The Amazon Resource Name (ARN) of the IAM role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to operate this runbook.'
+        type: String
+        description: '(Required) The Amazon Resource Name (ARN) of the IAM role that allows Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses your IAM permissions to operate this runbook.'
     InstanceId:
-    type: String
-    description: (Required) The ID of the EC2 instance you want to tag.
+        type: String
+        description: (Required) The ID of the EC2 instance you want to tag.
 mainSteps:
-    - name: tagInstance
+  - name: tagInstance
     action: 'aws:executeScript'
     inputs:
         Runtime: PowerShell 7.0

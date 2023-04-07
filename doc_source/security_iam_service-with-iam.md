@@ -106,7 +106,7 @@ The following table describes the ARN formats for the resource types supported b
 | Application \(AWS AppConfig\) | arn:aws:appconfig:region:account\-id:application/application\-id | 
 | Association | arn:aws:ssm:region:account\-id:association/association\-id | 
 | Automation execution | arn:aws:ssm:region:account\-id:automation\-execution/automation\-execution\-id | 
-| Automation definition \(with version subresource\) |  arn:aws:ssm:*region*:*account\-id*:automation\-definition/*automation\-definition\-id*:*version\-id* ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)  | 
+| Automation definition \(with version subresource\) |  arn:aws:ssm:*region*:*account\-id*:automation\-definition/*automation\-definition\-id*:*version\-id* ![\[Footnote callout 1\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)  | 
 | Configuration profile \(AWS AppConfig\) | arn:aws:appconfig:region:account\-id:application/application\-id/configurationprofile/configurationprofile\-id | 
 | Contact \(Incident Manager\) |  arn:aws:ssm\-contacts:*region*:*account\-id*:contact/*contact\-alias*  | 
 | Deployment strategy \(AWS AppConfig\) | arn:aws:appconfig:region:account\-id:deploymentstrategy/deploymentstrategy\-id | 
@@ -120,15 +120,15 @@ The following table describes the ARN formats for the resource types supported b
 | Parameter |  A one\-level parameter: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/security_iam_service-with-iam.html) A parameter named with a hierarchical construction: [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/security_iam_service-with-iam.html)  | 
 | Patch baseline |  arn:aws:ssm:*region*:*account\-id*:patchbaseline/*patch\-baseline\-id*   | 
 | Response plan |  arn:aws:ssm\-incidents:*region*:*account\-id*:response\-plan/*response\-plan\-name*  | 
-| Session |  arn:aws:ssm:*region*:*account\-id*:session/*session\-id* ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)  | 
+| Session |  arn:aws:ssm:*region*:*account\-id*:session/*session\-id* ![\[Footnote callout 3\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)  | 
 |  All Systems Manager resources  |  arn:aws:ssm:\*  | 
 |  All Systems Manager resources owned by the specified AWS account in the specified AWS Region  |  arn:aws:ssm:*region*:*account\-id*:\*  | 
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png) For automation definitions, Systems Manager supports a second\-level resource, *version ID*\. In AWS, these second\-level resources are known as *subresources*\. Specifying a version subresource for an automation definition resource allows you to provide access to certain versions of an automation definition\. For example, you might want to ensure that only the latest version of an automation definition is used in your node management\.
+![\[Footnote callout 1\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png) For automation definitions, Systems Manager supports a second\-level resource, *version ID*\. In AWS, these second\-level resources are known as *subresources*\. Specifying a version subresource for an automation definition resource allows you to provide access to certain versions of an automation definition\. For example, you might want to ensure that only the latest version of an automation definition is used in your node management\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png) To organize and manage parameters, you can create names for parameters with a hierarchical construction\. With hierarchical construction, a parameter name can include a path that you define by using forward slashes\. You can name a parameter resource with a maximum of fifteen levels\. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment\. For more information, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
+![\[Footnote callout 2\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png) To organize and manage parameters, you can create names for parameters with a hierarchical construction\. With hierarchical construction, a parameter name can include a path that you define by using forward slashes\. You can name a parameter resource with a maximum of fifteen levels\. We suggest that you create hierarchies that reflect an existing hierarchical structure in your environment\. For more information, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png) In most cases, the session ID is constructed using the ID of the account user who started the session, plus an alphanumeric suffix\. For example:
+![\[Footnote callout 3\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png) In most cases, the session ID is constructed using the ID of the account user who started the session, plus an alphanumeric suffix\. For example:
 
 ```
 arn:aws:us-east-2:111122223333:session/JohnDoe-1a2b3c4sEXAMPLE

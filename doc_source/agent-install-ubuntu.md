@@ -12,7 +12,7 @@ Before you install SSM Agent on an Ubuntu Server instance, note the following:
 + For important information that applies to installation of SSM Agent on all Linux\-based operating systems, see [Manually installing SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md)\.
 
 **Topics**
-+ [Install SSM Agent on Ubuntu Server 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS 64\-bit \(Snap\)](agent-install-ubuntu-64-snap.md)
++ [Install SSM Agent on Ubuntu Server 22\.04 LTS, 20\.10 STR & 20\.04, 18\.04, and 16\.04 LTS 64\-bit \(Snap\)](agent-install-ubuntu-64-snap.md)
 + [Install SSM Agent on Ubuntu Server 16\.04 and 14\.04 64\-bit \(deb\)](agent-install-ubuntu-64-deb.md)
 + [Install SSM Agent on Ubuntu Server 16\.04 and 14\.04 32\-bit](agent-install-ubuntu-32.md)
 + [Determining the correct SSM Agent version to install on 64\-bit Ubuntu Server 16\.04 instances](agent-install-ubuntu-about-v16.md)

@@ -3,6 +3,7 @@
 Use the information in this topic to help you implement AWS Systems Manager Agent \(SSM Agent\) and understand how the agent works\.
 
 **Topics**
++ [SSM Agent version 3\.2\.x\.x credential behavior](#credentials-file)
 + [SSM Agent credentials precedence](#credentials-precedence)
 + [About the local ssm\-user account](#ssm-user-account)
 + [SSM Agent and the Instance Metadata Service \(IMDS\)](#imds)
@@ -11,6 +12,10 @@ Use the information in this topic to help you implement AWS Systems Manager Agen
 + [Installing SSM Agent on VMs and on\-premises instances](#agent-hybrid-installations)
 + [Validating on\-premises servers, edge devices, and virtual machines using a hardware fingerprint](#fingerprint-validation)
 + [SSM Agent on GitHub](#github)
+
+## SSM Agent version 3\.2\.x\.x credential behavior<a name="credentials-file"></a>
+
+Starting with version 3\.2\.183\.0 of SSM Agent, the agent stores a set of temporary credentials at `/var/lib/amazon/ssm/credentials` \(for Linux and macOS\) or `%PROGRAMFILES%\Amazon\SSM\credentials` \(for Windows Server\)\. The temporary credentials have the permissions you specify for the IAM role you chose for Default Host Management Configuration, or the instance profile attached to your managed node\. Only the root and SYSTEM user accounts can access these credentials\.
 
 ## SSM Agent credentials precedence<a name="credentials-precedence"></a>
 

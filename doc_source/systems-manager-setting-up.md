@@ -12,3 +12,4 @@ If you already use other AWS services, you have completed some of these steps\. 
 + [Setting up Systems Manager for EC2 instances](systems-manager-setting-up-ec2.md)
 + [Setting up Systems Manager for hybrid environments](systems-manager-managedinstances.md)
 + [Setting up AWS Systems Manager for edge devices](systems-manager-setting-up-edge-devices.md)
++ [Setting up a delegated administrator for Systems Manager](setting_up_delegated_admin.md)

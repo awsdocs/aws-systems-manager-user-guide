@@ -19,7 +19,6 @@ Before you manually install SSM Agent on a macOS operating system, review the fo
 
   SSM Agent doesn't need to be manually installed on macOS EC2 instances unless it has been uninstalled\.
 + EC2 instances for macOS are not supported in all AWS Regions\. For lists of Regions where x86\-based and M1 EC2 instances for macOS are supported, see [macOS workloads](https://aws.amazon.com/ec2/faqs/#macos_workloads) in the Amazon EC2 FAQs\.
-+ Systems Manager doesn't support macOS in hybrid environments\.
 + An updated version of SSM Agent is released whenever new capabilities are added to Systems Manager or updates are made to existing capabilities\. Failing to use the latest version of the agent can prevent your managed node from using various Systems Manager capabilities and features\. For that reason, we recommend that you automate the process of keeping SSM Agent up to date on your machines\. For information, see [Automating updates to SSM Agent](ssm-agent-automatic-updates.md)\. Subscribe to the [SSM Agent Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md) page on GitHub to get notifications about SSM Agent updates\.
 
 **Topics**

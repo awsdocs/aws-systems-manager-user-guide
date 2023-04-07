@@ -1,12 +1,12 @@
 # Automate organization\-wide patching using a Quick Setup patch policy<a name="quick-setup-patch-manager"></a>
 
-With Quick Setup, a capability of AWS Systems Manager, you can create patch policies powered by Patch Manager\. A patch policy defines the schedule and baseline to use when automatically patching your Amazon Elastic Compute Cloud \(Amazon EC2\) instances and other managed nodes\. Using a single patch policy configuration, you can define patching for all accounts in multiple AWS Regions in your organization, for only the accounts and Regions you choose, or for a single account\-Region pair\. For more information about patch policies, see [Introducing patch policies](patch-policies-about.md)\.
+With Quick Setup, a capability of AWS Systems Manager, you can create patch policies powered by Patch Manager\. A patch policy defines the schedule and baseline to use when automatically patching your Amazon Elastic Compute Cloud \(Amazon EC2\) instances and other managed nodes\. Using a single patch policy configuration, you can define patching for all accounts in multiple AWS Regions in your organization, for only the accounts and Regions you choose, or for a single account\-Region pair\. For more information about patch policies, see [Using Quick Setup patch policies](patch-manager-policies.md)\.
 
 **Prerequisite**  
 To define a patch policy for a node using Quick Setup, the node must be a *managed node*\. For more information about managing your nodes, see [Setting up AWS Systems Manager](systems-manager-setting-up.md)\.
 
 **Important**  
-Systems Manager supports several methods for scanning managed nodes for patch compliance\. If you implement more than one of these methods at a time, the patch compliance information you see is always the result of the most recent scan\. Results from previous scans are overwritten\. If the scanning methods use different patch baselines, with different approval rules, the patch compliance information can change unexpectedly\. For more information, see [Avoiding unintentional patch compliance data overwrites](avoid-patch-compliance-overwrites.md)\.
+Systems Manager supports several methods for scanning managed nodes for patch compliance\. If you implement more than one of these methods at a time, the patch compliance information you see is always the result of the most recent scan\. Results from previous scans are overwritten\. If the scanning methods use different patch baselines, with different approval rules, the patch compliance information can change unexpectedly\. For more information, see [Avoiding unintentional patch compliance data overwrites](patch-manager-compliance-data-overwrites.md)\.
 
 ## Supported Regions for patch policy configurations<a name="patch-policies-supported-regions"></a>
 
@@ -67,7 +67,7 @@ To create a patch policy, perform the following tasks in the Systems Manager con
 
 1. In the **Patch baseline** section, choose the patch baselines to use when scanning and updating your targets\. 
 
-   By default, Patch Manager uses the predefined patch baselines\. For more information, see [About predefined baselines](sysman-patch-baselines.md#patch-manager-baselines-pre-defined)\.
+   By default, Patch Manager uses the predefined patch baselines\. For more information, see [About predefined baselines](patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-pre-defined)\.
 
    If you choose **Custom patch baseline**, change the selected patch baseline for operating systems that you don't want to use a predefined AWS patch baseline\.
 
@@ -75,7 +75,7 @@ To create a patch policy, perform the following tasks in the Systems Manager con
 **Note**  
 When creating a patch policy for your organization, Quick Setup creates an Amazon S3 bucket in your organization's management account that contains the baselines used by the patch policy\. 
 **Important**  
-If you are using a [patch policy configuration](patch-policies-about.md) in Quick Setup, updates you make to custom patch baselines are synchronized with Quick Setup once an hour\.   
+If you are using a [patch policy configuration](patch-manager-policies.md) in Quick Setup, updates you make to custom patch baselines are synchronized with Quick Setup once an hour\.   
 If a custom patch baseline that was referenced in a patch policy is deleted, a banner displays on the Quick Setup **Configuration details** page for your patch policy\. The banner informs you that the patch policy references a patch baseline that no longer exists, and that subsequent patching operations will fail\. In this case, return to the Quick Setup **Configurations** page, select the Patch Manager configuration , and choose **Actions**, **Edit configuration**\. The deleted patch baseline name is highlighted, and you must select a new patch baseline for the affected operating system\.
 
 1. \(Optional\) In the **Patching log storage** section, select **Write output to S3 bucket** to store patching operation logs in an Amazon S3 bucket\. 
@@ -97,13 +97,13 @@ If you are working in a single account, options for working with organizations a
 
 1. For **Choose how you want to target instances**, choose one of the following to identify the nodes to patch: 
    + **All managed nodes** – All managed nodes in the selected OUs and Regions\.
-**Note**  
-This option currently supports only Amazon EC2 instances\.
    + **Specify the resource group** – Choose the name of a resource group from the list to target its associated resources\.
 **Note**  
 Currently, selecting resource groups is supported only for single account configurations\. To patch resources in multiple accounts, choose a different targeting option\.
    + **Specify a node tag** – Only nodes tagged with the key\-value pair that you specify are patched in all accounts and Regions you have targeted\. 
    + **Manual** – Choose managed nodes from all specified accounts and Regions manually from a list\.
+**Note**  
+This option currently supports only Amazon EC2 instances\.
 
 1. In the **Rate control** section, do the following:
    + For **Concurrency**, enter a number or percentage of nodes to run the patch policy on at the same time\.

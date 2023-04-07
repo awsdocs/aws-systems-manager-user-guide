@@ -2,7 +2,7 @@
 
 The section includes examples of AWS Command Line Interface \(AWS CLI\) commands that you can use to perform configuration tasks for Patch Manager, a capability of AWS Systems Manager\.
 
-For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Walkthrough: Patch a server environment \(AWS CLI\)](sysman-patch-cliwalk.md)\.
+For an illustration of using the AWS CLI to patch a server environment by using a custom patch baseline, see [Tutorial: Patch a server environment \(AWS CLI\)](patch-manager-patch-servers-using-the-aws-cli.md)\.
 
 For more information about using the AWS CLI for AWS Systems Manager tasks, see the [AWS Systems Manager section of the AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/ssm/index.html)\.
 
@@ -682,7 +682,7 @@ aws ssm remove-tags-from-resource ^
 
 ### Create a patch group<a name="patch-manager-cli-commands-create-patch-group"></a>
 
-To help you organize your patching efforts, we recommend that you add managed nodes to patch groups by using tags\. Patch groups require use of the tag key `Patch Group` or `PatchGroup`\. If you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS), you must use `PatchGroup` \(without a space\)\. You can specify any tag value, but the tag key must be `Patch Group` or `PatchGroup`\. For more information about patch groups, see [About patch groups](sysman-patch-patchgroups.md)\.
+To help you organize your patching efforts, we recommend that you add managed nodes to patch groups by using tags\. Patch groups require use of the tag key `Patch Group` or `PatchGroup`\. If you have [allowed tags in EC2 instance metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#allow-access-to-tags-in-IMDS), you must use `PatchGroup` \(without a space\)\. You can specify any tag value, but the tag key must be `Patch Group` or `PatchGroup`\. For more information about patch groups, see [About patch groups](patch-manager-patch-groups.md)\.
 
 After you group your managed nodes using tags, you add the patch group value to a patch baseline\. By registering the patch group with a patch baseline, you ensure that the correct patches are installed during the patching operation\.
 
@@ -1495,7 +1495,7 @@ The system returns information like the following\.
 Run the following command\. 
 
 **Note**  
-The target managed nodes reboot as needed to complete patch installation\. For more information, see [About the `AWS-RunPatchBaseline` SSM document](patch-manager-about-aws-runpatchbaseline.md)\.
+The target managed nodes reboot as needed to complete patch installation\. For more information, see [About the `AWS-RunPatchBaseline` SSM document](patch-manager-aws-runpatchbaseline.md)\.
 
 ------
 #### [ Linux & macOS ]

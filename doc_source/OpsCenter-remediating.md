@@ -16,17 +16,9 @@ You can view information about an Automation runbook by either choosing its name
 
 ## Remediating an OpsItem using a runbook<a name="OpsCenter-remediating-how-to"></a>
 
-When you run a Systems Manager Automation runbook from an OpsItem, you can run a simple version or you can choose the **Advanced configuration** option\. The **Advanced configuration** option opens the runbook in Systems Manager Automation, which provides several options for running the runbook\.
-
-![\[An OpsCenter runbook that uses Advanced Configuration and opens in Systems Manager Automation\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/OpsItems_automation_runbook_advanced.png)
-
-**Before you begin**  
 Before you use an Automation runbook to remediate an OpsItem issue, do the following:
 + Verify that you have permission to run Systems Manager Automation runbooks\. For more information, see [Setting up Automation](automation-setup.md)\.
 + Collect resource\-specific ID information for the automation that you want to run\. For example, if you want to run an automation that restarts an EC2 instance, then you must specify the ID of the EC2 instance to restart\.
-
-**Note**  
-For information about running an **Advanced configuration** runbook, see [Running automations](running-automations.md)\.
 
 **To run an Automation runbook to remediate an OpsItem issue**
 
@@ -43,9 +35,11 @@ For information about running an **Advanced configuration** runbook, see [Runnin
 
 1. Choose a runbook, and then choose **Execute**\.
 
-1. Enter the required information for the runbook, and then choose **Execute**\.
+1. Enter the required information for the runbook, and then choose **Submit**\.
 
-1. In the navigation pane, choose **Automation**, and then choose the **Execution ID** link to view the steps and the status of the execution\. 
+   Once you start the runbook, the system returns to the previous screen and displays the status\.  
+
+1. In the **Automation executions in the last 30 days** section, choose the **Execution ID** link to view steps and the status of the execution\.
 
 ## Remediating an OpsItem using an associated runbook<a name="OpsCenter-remediating-associated-runbooks"></a>
 
@@ -67,4 +61,6 @@ Use the following procedure to run an Automation runbook that has already been a
 
 1. Enter the required information for the runbook, and then choose **Execute**\.
 
-1. In the navigation pane, choose **Automation**, and then choose the **Execution ID** link to view the steps and the status of the runbook\. 
+   Once you start the runbook, the system returns to the previous screen and displays the status\. 
+
+1. In the **Automation executions in the last 30 days** section, choose the **Execution ID** link to view steps and the status of the execution\.

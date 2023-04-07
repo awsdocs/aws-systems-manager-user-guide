@@ -9,7 +9,7 @@ When you create a change request in Change Manager, a capability of AWS Systems 
 In some cases, a change template might be configured so you specify your own Automation runbook to use, and to specify who should review and approve the request\.
 
 **Important**  
-If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. While you can make changes from other accounts in the organization, those changes won't be reported in or viewable from the delegated administrator account\.
+If you use Change Manager across an organization, we recommend always making changes from the delegated administrator account\. Although you can make changes from other accounts in the organization, those changes won't be reported in or viewable from the delegated administrator account\.
 
 **Topics**
 + [About change request approvals](#cm-approvals-requests)

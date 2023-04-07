@@ -1,32 +1,32 @@
-# Manually installing SSM Agent on Amazon Linux 2 instances<a name="agent-install-al2"></a>
+# Manually installing SSM Agent on Amazon Linux 2 and Amazon Linux 2023 instances<a name="agent-install-al2"></a>
 
 **Important**  
-This topic provides commands for working with SSM Agent on **Amazon Linux 2** instances\. Some of these commands aren't supported on Amazon Linux instances\. Before continuing, ensure you're viewing the correct topic for your instance type\. For commands to run on Amazon Linux instances, see [Manually installing SSM Agent on Amazon Linux instances](agent-install-al.md)\.
+This topic provides commands for working with SSM Agent on **Amazon Linux 2** and **Amazon Linux 2023** instances\. Some of these commands aren't supported on Amazon Linux instances\. Before continuing, ensure you're viewing the correct topic for your instance type\. For commands to run on Amazon Linux instances, see [Manually installing SSM Agent on Amazon Linux instances](agent-install-al.md)\.
 
-In most cases, the Amazon Machine Images \(AMIs\) for Amazon Linux 2 that are provided by AWS come with AWS Systems Manager Agent \(SSM Agent\) preinstalled by default\. For more information, see [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)\.
+In most cases, the Amazon Machine Images \(AMIs\) for Amazon Linux 2 and Amazon Linux 2023 that are provided by AWS come with AWS Systems Manager Agent \(SSM Agent\) preinstalled by default\. For more information, see [Amazon Machine Images \(AMIs\) with SSM Agent preinstalled](ami-preinstalled-agent.md)\.
 
-In the event that SSM Agent isn’t preinstalled on a new Amazon Linux 2 instance, or if you need to manually reinstall the agent, use the information on this page to help you\.
+In the event that SSM Agent isn’t preinstalled on a new Amazon Linux 2 or Amazon Linux 2023 instance, or if you need to manually reinstall the agent, use the information on this page to help you\.
 
 **Before you begin**  
-Before you install SSM Agent on an Amazon Linux 2 instance, note the following:
+Before you install SSM Agent on an Amazon Linux 2 or Amazon Linux 2023 instance, note the following:
 + For important information that applies to installation of SSM Agent on all Linux\-based operating systems, see [Manually installing SSM Agent on EC2 instances for Linux](sysman-manual-agent-install.md)\.
 + If you use a `yum` command to update SSM Agent on a managed node after the agent has been installed or updated using the SSM document `AWS-UpdateSSMAgent`, you might see the following message: "Warning: RPMDB altered outside of yum\." This message is expected and can be safely ignored\.
 
 **Topics**
-+ [Quick installation commands for SSM Agent on Amazon Linux 2](#quick-install-al2)
-+ [Create custom agent installation commands for Amazon Linux 2 in your Region](#custom-url-al2)
++ [Quick installation commands for SSM Agent on Amazon Linux 2 or Amazon Linux 2023](#quick-install-al2)
++ [Create custom agent installation commands for Amazon Linux 2 or Amazon Linux 2023 in your Region](#custom-url-al2)
 
-## Quick installation commands for SSM Agent on Amazon Linux 2<a name="quick-install-al2"></a>
+## Quick installation commands for SSM Agent on Amazon Linux 2 or Amazon Linux 2023<a name="quick-install-al2"></a>
 
 Use the following steps to manually install SSM Agent on a single instance\. This procedure uses globally available installation files\. 
 
-**To install SSM Agent on Amazon Linux 2 using quick copy and paste commands**
+**To install SSM Agent on Amazon Linux 2 or Amazon Linux 2023 using quick copy and paste commands**
 
-1. Connect to your Amazon Linux 2 instance using your preferred method, such as SSH\.
+1. Connect to your Amazon Linux 2 or Amazon Linux 2023 instance using your preferred method, such as SSH\.
 
 1. Copy the command for your instance’s architecture and run it on the instance\.
 **Note**  
-Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for Amazon Linux 2\.   
+Even though URLs in the following commands include an `ec2-downloads-windows` directory, these are the correct global installation files for Amazon Linux 2 and Amazon Linux 2023\.   
 **x86\_64**  
 
    ```
@@ -68,7 +68,7 @@ Even though URLs in the following commands include an `ec2-downloads-windows` di
    sudo systemctl start amazon-ssm-agent
    ```
 
-## Create custom agent installation commands for Amazon Linux 2 in your Region<a name="custom-url-al2"></a>
+## Create custom agent installation commands for Amazon Linux 2 or Amazon Linux 2023 in your Region<a name="custom-url-al2"></a>
 
 When you install SSM Agent on multiple instances using a script or template, we recommended using installation files that are stored in the AWS Region you're working in\. 
 

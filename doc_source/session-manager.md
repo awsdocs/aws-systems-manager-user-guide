@@ -59,7 +59,7 @@ Session Manager support for on\-premises machines is provided for the advanced\-
 
   The **AWS CLI** includes access to Session Manager capabilities for end users\. You can start a session, view a list of sessions, and permanently end a session by using the AWS CLI\. 
 **Note**  
-To use the AWS CLI to run session commands, you must be using version 1\.16\.12 of the CLI \(or later\), and you must have installed the Session Manager plugin on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+To use the AWS CLI to run session commands, you must be using version 1\.16\.12 of the CLI \(or later\), and you must have installed the Session Manager plugin on your local machine\. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
   The **Session Manager SDK** consists of libraries and sample code that allows application developers to build front\-end applications, such as custom shells or self\-service portals for internal users that natively use Session Manager to connect to managed nodes\. Developers and partners can integrate Session Manager into their client\-side tooling or Automation workflows using the Session Manager APIs\. You can even build custom solutions\.
 +  **IAM access control** 

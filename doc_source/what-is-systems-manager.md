@@ -110,7 +110,7 @@ Use [State Manager](systems-manager-state.md) to automate the process of keeping
 ------
 #### [ Patch Manager ]
 
-Use [Patch Manager](systems-manager-patch.md) to automate the process of patching your managed nodes with both security related and other types of updates\. You can use Patch Manager to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for applications released by Microsoft\.\)
+Use [Patch Manager](patch-manager.md) to automate the process of patching your managed nodes with both security related and other types of updates\. You can use Patch Manager to apply patches for both operating systems and applications\. \(On Windows Server, application support is limited to updates for applications released by Microsoft\.\)
 
 This capability allows you to scan managed nodes for missing patches and apply missing patches individually or to large groups of managed nodes by using tags\. Patch Manager uses *patch baselines*, which can include rules for auto\-approving patches within days of their release, and a list of approved and rejected patches\. You can install security patches on a regular basis by scheduling patching to run as a Systems Manager maintenance window task, or you can patch your managed nodes on demand at any time\.
 

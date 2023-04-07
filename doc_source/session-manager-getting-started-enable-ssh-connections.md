@@ -33,7 +33,7 @@ To use Session Manager with on\-premises servers, edge devices, and virtual mach
 1. On the local machine from which you want to connect to a managed node using SSH, do the following:
    + Ensure that version 1\.1\.23\.0 or later of the Session Manager plugin is installed\.
 
-     For information about installing the Session Manager plugin, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+     For information about installing the Session Manager plugin, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
    + Update the SSH configuration file to allow running a proxy command that starts a Session Manager session and transfer all data through the connection\.
 
      **Linux and macOS**

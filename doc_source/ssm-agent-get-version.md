@@ -20,7 +20,7 @@ The following procedures describe how to get the currently installed SSM Agent v
 Choose from the following tabs to get the currently installed SSM Agent version from within an operating system\.
 
 ------
-#### [ Amazon Linux and Amazon Linux 2 ]
+#### [ Amazon Linux, Amazon Linux 2, and Amazon Linux 2023 ]
 **Note**  
 This command varies depending on the package manager for your operating system\.
 
@@ -162,7 +162,7 @@ To check if your Ubuntu Server 16\.04 instance uses deb or Snap packages, see [M
    3.0.655.0 is the version of SSM agent
    ```
 
-   Run the following command for Ubuntu Server 20\.10 STR and 20\.04, 18\.04, and 16\.04 LTS 64\-bit instances \(with Snap package\)\.
+   Run the following command for Ubuntu Server 22\.04 LTS, 20\.10 STR and 20\.04, 18\.04, and 16\.04 LTS 64\-bit instances \(with Snap package\)\.
 
    ```
    sudo snap list amazon-ssm-agent

@@ -23,7 +23,7 @@ You can also activate existing Amazon Elastic Compute Cloud \(Amazon EC2\) insta
 
 Scenario 2: Patching Microsoft\-released applications on hybrid\-activated nodes  
 The advanced\-instances tier is also required if you want to patch Microsoft\-released applications on non\-EC2 nodes \(on\-premises servers, edge devices, and VMs\) in a hybrid environment\. If you activate the advanced\-instances tier to patch Microsoft applications on non\-EC2 nodes, charges are then incurred for all on\-premises nodes, even if you have fewer than 1,000\.  
-There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [About patching applications released by Microsoft on Windows Server](about-windows-app-patching.md)\.
+There is no additional charge to patch applications released by Microsoft on Amazon Elastic Compute Cloud \(Amazon EC2\) instances\. For more information, see [About patching applications released by Microsoft on Windows Server](patch-manager-patching-windows-applications.md)\.
 
 Scenario 3: Connecting to hybrid\-activated nodes using Session Manager  
 Session Manager provides interactive shell access to your instances\. To connect to hybrid\-activated \(non\-EC2\) nodes using Session Manager, including on\-premises servers, edge devices, and VMs in a hybrid environment, you must activate the advanced\-instances tier\. Charges are then incurred for all hybrid\-activated nodes, even if you have fewer than 1,000\.

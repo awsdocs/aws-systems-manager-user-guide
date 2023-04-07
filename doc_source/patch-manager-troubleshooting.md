@@ -20,7 +20,7 @@ Use the following information to help you troubleshoot problems with Patch Manag
 
 When a `Scan` operation runs, it overwrites the compliance details from the most recent scan\. If you have more than one method set up to run a `Scan` operation, and they use different patch baselines with different rules, they will result in differing patch compliance results\. 
 
-**Solution**: To avoid unexpected patch compliance results, we recommend using only one method at a time for running the Patch Manager `Scan` operation\. For more information, see [Avoiding unintentional patch compliance data overwrites](avoid-patch-compliance-overwrites.md)\.
+**Solution**: To avoid unexpected patch compliance results, we recommend using only one method at a time for running the Patch Manager `Scan` operation\. For more information, see [Avoiding unintentional patch compliance data overwrites](patch-manager-compliance-data-overwrites.md)\.
 
 ## Errors when running `AWS-RunPatchBaseline` on Linux<a name="patch-manager-troubleshooting-linux"></a>
 
@@ -347,7 +347,7 @@ The following are some common causes and their solutions\.
 
 1. Select **Step 1 \- Output** and find the `BaselineId` value\.
 
-1. Check the assigned [patch baseline configuration](sysman-patch-baselines.md#patch-manager-baselines-custom), that is, the operating system, product name, classification, and severity for the patch baseline\.
+1. Check the assigned [patch baseline configuration](patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-custom), that is, the operating system, product name, classification, and severity for the patch baseline\.
 
 1. Go to the [Microsoft Update Catalog](https://www.catalog.update.microsoft.com/home.aspx)\.
 
@@ -381,7 +381,7 @@ Before you contact AWS Support, collect the following items:
 + [SSM agent logs](sysman-agent-logs.md)
 + Run Command command ID, maintenance window ID, or Automation execution ID
 + For Windows Server managed nodes, also collect the following:
-  + `%PROGRAMDATA%\Amazon\PatchBaselineOperations\Logs` as described on the **Windows** tab of [How patches are installed](patch-manager-how-it-works-installation.md)
+  + `%PROGRAMDATA%\Amazon\PatchBaselineOperations\Logs` as described on the **Windows** tab of [How patches are installed](patch-manager-installing-patches.md)
   + Windows update logs: For Windows Server 2012 R2 and older, use `%windir%/WindowsUpdate.log`\. For Windows Server 2016 and newer, first run the PowerShell command [https://docs.microsoft.com/en-us/powershell/module/windowsupdate/get-windowsupdatelog?view=win10-ps](https://docs.microsoft.com/en-us/powershell/module/windowsupdate/get-windowsupdatelog?view=win10-ps) before using `%windir%/WindowsUpdate.log`
 + For Linux managed nodes, also collect the following:
   + The contents of the directory `/var/lib/amazon/ssm/instance-id/document/orchestration/Run-Command-execution-id/awsrunShellScript/PatchLinux`

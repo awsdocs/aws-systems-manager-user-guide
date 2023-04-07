@@ -191,7 +191,7 @@ When using a customer managed key, the IAM policy that grants a user access to a
             "Action": [
                 "kms:Decrypt",
                 "kms:Encrypt",
-                "kms:GenerateDataKey"  ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+                "kms:GenerateDataKey"  ![\[Footnote callout 1\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Resource": [
                 "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-12345EXAMPLE"

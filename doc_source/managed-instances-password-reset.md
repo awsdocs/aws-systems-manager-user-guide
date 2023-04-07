@@ -48,7 +48,7 @@ If the version of SSM Agent on the managed node doesn't support password resets,
 
 1. To reset the password for a user on a managed node, run the following command\. Replace each *example resource placeholder* with your own information\.
 **Note**  
-To use the AWS CLI to reset a password, the Session Manager plugin must be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+To use the AWS CLI to reset a password, the Session Manager plugin must be installed on your local machine\. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ------
 #### [ Linux & macOS ]

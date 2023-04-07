@@ -52,7 +52,19 @@ To help you resolve duplicate OpsItems and reduce the number of OpsItems created
 + The `AWS-AddOpsItemDedupStringToEventBridgeRule` runbook adds a deduplication string for all OpsItem targets that are associated with a specific Amazon EventBridge rule\. This runbook doesn't add a deduplication string if a rule already has one\.
 + The `AWS-DisableEventBridgeRule` turns off a rule in EventBridge if the rule is generating dozens or hundreds of OpsItems\.
 
-To run one of these runbooks, open an insight, choose the runbook, and then choose **Execute**\. 
+**To resolve an operational insight**
+
+1. Open the AWS Systems Manager console at [https://console\.aws\.amazon\.com/systems\-manager/](https://console.aws.amazon.com/systems-manager/)\.
+
+1. In the navigation pane, choose **OpsCenter**\.
+
+1. On the **Overview** tab, scroll down to **Operational insights**\.
+
+1. Choose **View all operational insights**\.
+
+1. Choose an insight ID to view more information\.
+
+1. Choose a runbook and choose **Execute**\.
 
 ## Turning off operational insights<a name="OpsCenter-working-operational-insights-disable"></a>
 

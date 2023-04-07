@@ -6,6 +6,7 @@ For example, when you launch an Amazon Elastic Compute Cloud \(Amazon EC2\) inst
 + Amazon Linux Base AMIs dated 2017\.09 and later
 + Amazon Linux 2
 + Amazon Linux 2 ECS\-Optimized Base AMIs
++ Amazon Linux 2023 \(AL2023\)
 + Amazon EKS\-Optimized Amazon Linux AMIs
 + macOS 10\.14\.x \(Mojave\), 10\.15\.x \(Catalina\), and 11\.x \(Big Sur\)
 + SUSE Linux Enterprise Server \(SLES\) 12 and 15
@@ -37,7 +38,7 @@ Use the following procedure to verify that SSM Agent is installed and running on
    `sudo status amazon-ssm-agent`
 
 ------
-#### [ Amazon Linux 2 ]
+#### [ Amazon Linux 2 and Amazon Linux 2023 ]
 
    `sudo systemctl status amazon-ssm-agent`
 
@@ -127,7 +128,7 @@ In some cases, the command output indicates that the agent is installed but not 
    `sudo start amazon-ssm-agent`
 
 ------
-#### [ Amazon Linux 2 ]
+#### [ Amazon Linux 2 and Amazon Linux 2023 ]
 
    `sudo systemctl enable amazon-ssm-agent`
 

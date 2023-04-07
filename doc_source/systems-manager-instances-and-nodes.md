@@ -10,5 +10,5 @@ AWS Systems Manager provides the following capabilities for accessing, managing,
 + [AWS Systems Manager Session Manager](session-manager.md)
 + [AWS Systems Manager Run Command](run-command.md)
 + [AWS Systems Manager State Manager](systems-manager-state.md)
-+ [AWS Systems Manager Patch Manager](systems-manager-patch.md)
++ [AWS Systems Manager Patch Manager](patch-manager.md)
 + [AWS Systems Manager Distributor](distributor.md)

@@ -1,12 +1,12 @@
-# \(Optional\) Install the Session Manager plugin for the AWS CLI<a name="session-manager-working-with-install-plugin"></a>
+# Install the Session Manager plugin for the AWS CLI<a name="session-manager-working-with-install-plugin"></a>
 
-If you want to use the AWS Command Line Interface \(AWS CLI\) to start and end sessions that connect you to your managed nodes, you must first install the Session Manager plugin on your local machine\. The plugin can be installed on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu\.
+To use the AWS Command Line Interface \(AWS CLI\) to initiate sessions with your managed nodes, you must first install the *Session Manager plugin* on your local machine\. You can install the plugin on supported versions of Microsoft Windows, macOS, Linux, and Ubuntu\.
 
-**Use the latest version of the Session Manager plugin**  
-The Session Manager plugin is updated occasionally with enhanced functionality\. We recommend that you regularly ensure you're using the latest version of the plugin\. For more information, see [Session Manager plugin latest version and release history](#plugin-version-history)\.
+**Always use the latest Session Manager plugin version**  
+We occassionally update the Session Manager plugin with new or enhanced functionality\. Therefore we recommend that you always install the most recent version\. For more information, see [Session Manager plugin latest version and release history](#plugin-version-history)\.
 
-**Installation prerequisite**  
-AWS CLI version 1\.16\.12 or later must be installed on your local machine in order to use the Session Manager plugin\.
+**Install the required AWS CLI version**  
+To use the Session Manager plugin, you must have AWS CLI version 1\.16\.12 or later installed on your local machine\.
 
 **Topics**
 + [Install the Session Manager plugin on Windows](#install-plugin-windows)
@@ -62,9 +62,21 @@ The bundled installer doesn't support installing to paths that contain spaces\.
 
 1. Download the bundled installer\.
 
+------
+#### [ x86\_64 ]
+
    ```
    curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/sessionmanager-bundle.zip" -o "sessionmanager-bundle.zip"
    ```
+
+------
+#### [ ARM64 \(M1\) ]
+
+   ```
+   curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac_arm64/sessionmanager-bundle.zip" -o "sessionmanager-bundle.zip"
+   ```
+
+------
 
 1. Unzip the package\.
 
@@ -95,7 +107,7 @@ The bundled installer doesn't support installing to paths that contain spaces\.
 1. Verify that the installation was successful\. For information, see [Verify the Session Manager plugin installation](#install-plugin-verify)\.
 
 **Note**  
-If you ever want to uninstall the plugin, run the following two commands in the order shown\.  
+To uninstall the plugin, run the following two commands in the order shown\.  
 
 ```
 sudo rm -rf /usr/local/sessionmanagerplugin
@@ -113,11 +125,23 @@ You can install the Session Manager plugin on macOS using the signed installer\.
 
 1. Download the signed installer\.
 
+------
+#### [ x86\_64 ]
+
    ```
    curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/session-manager-plugin.pkg" -o "session-manager-plugin.pkg"
    ```
 
-1. Run the install command\.
+------
+#### [ ARM64 \(M1\) ]
+
+   ```
+   curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac_arm64/session-manager-plugin.pkg" -o "session-manager-plugin.pkg"
+   ```
+
+------
+
+1. Run the install commands\.
 
    ```
    sudo installer -pkg session-manager-plugin.pkg -target /
@@ -128,28 +152,30 @@ You can install the Session Manager plugin on macOS using the signed installer\.
 
 ## Install Session Manager plugin on Linux<a name="install-plugin-linux"></a>
 
-1. Download the Session Manager plugin RPM package\.
-   + x86\_64
+1. Download and install the Session Manager plugin RPM package\.
 
-     ```
-     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
-     ```
-   + x86
-
-     ```
-     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_32bit/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
-     ```
-   + ARM64
-
-     ```
-     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_arm64/session-manager-plugin.rpm" -o "session-manager-plugin.rpm"
-     ```
-
-1. Run the install command\.
+------
+#### [ x86\_64 ]
 
    ```
-   sudo yum install -y session-manager-plugin.rpm
+   sudo yum install -y https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
    ```
+
+------
+#### [ x86 ]
+
+   ```
+   sudo yum install -y https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_32bit/session-manager-plugin.rpm
+   ```
+
+------
+#### [ ARM64 ]
+
+   ```
+   sudo yum install -y https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_arm64/session-manager-plugin.rpm
+   ```
+
+------
 
 1. Verify that the installation was successful\. For information, see [Verify the Session Manager plugin installation](#install-plugin-verify)\.
 
@@ -159,21 +185,29 @@ If you ever want to uninstall the plugin, run `sudo yum erase session-manager-pl
 ## Install the Session Manager plugin on Ubuntu<a name="install-plugin-debian"></a>
 
 1. Download the Session Manager plugin deb package\.
-   + x86\_64
 
-     ```
-     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
-     ```
-   + x86
+------
+#### [ x86\_64 ]
 
-     ```
-     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_32bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
-     ```
-   + ARM64
+   ```
+   curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_64bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+   ```
 
-     ```
-     curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"
-     ```
+------
+#### [ x86 ]
+
+   ```
+   curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_32bit/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+   ```
+
+------
+#### [ ARM64 ]
+
+   ```
+   curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/ubuntu_arm64/session-manager-plugin.deb" -o "session-manager-plugin.deb"
+   ```
+
+------
 
 1. Run the install command\.
 
@@ -296,6 +330,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 
 | Version | Release date | Details | 
 | --- | --- | --- | 
+| 1\.2\.463\.0 |  March 15, 2023  | Enhancement: Added ARM64 support for Apple Mac \(M1\) in macOS bundle installer and signed installer\.  | 
 | 1\.2\.398\.0 |  October 14, 2022  | Enhancement: Support golang version 1\.17\. Update default session\-manager\-plugin runner for macOS to use python3\. Update import path from SSMCLI to session\-manager\-plugin\. | 
 | 1\.2\.339\.0 |  June 16, 2022  | Bug fix: Fix idle session timeout for port sessions\. | 
 | 1\.2\.331\.0 |  May 27, 2022  | Bug fix: Fix port sessions closing prematurely when the local server doesn't connect before timeout\. | 

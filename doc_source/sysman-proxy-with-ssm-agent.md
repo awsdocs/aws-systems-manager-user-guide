@@ -98,7 +98,7 @@ Add the `no_proxy` setting to the file and specify the IP address listed here\. 
    + On Ubuntu Server instances where SSM Agent is installed by using a snap: 
 
      `/etc/systemd/system/snap.amazon-ssm-agent.amazon-ssm-agent.service.d/override.conf`
-   + On Amazon Linux 2 instances: 
+   + On Amazon Linux 2 and Amazon Linux 2023 instances: 
 
      `/etc/systemd/system/amazon-ssm-agent.service.d/override.conf`
    + On other operating systems: 

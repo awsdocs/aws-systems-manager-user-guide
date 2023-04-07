@@ -47,7 +47,7 @@ Run `AWS-UpdateSSMAgent` as part of a maintenance window\. For information about
 
 ## Session Manager plugin not found<a name="plugin-not-found"></a>
 
-To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+To use the AWS CLI to run session commands, the Session Manager plugin must also be installed on your local machine\. For information, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ## Session Manager plugin not automatically added to command line path \(Windows\)<a name="windows-plugin-env-var-not-set"></a>
 
@@ -73,7 +73,7 @@ When you install the Session Manager plugin on Windows, the `session-manager-plu
 
 ## Session Manager plugin becomes unresponsive<a name="plugin-unresponsive"></a>
 
-During a port forwarding session, traffic might stop forwarding if you have antivirus software installed on your local machine\. In some cases, antivirus software interferes with the Session Manager plugin causing process deadlocks\. To resolve this issue, allow or exclude the Session Manager plugin from the antivirus software\. For information about the default installation path for the Session Manager plugin, see [\(Optional\) Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
+During a port forwarding session, traffic might stop forwarding if you have antivirus software installed on your local machine\. In some cases, antivirus software interferes with the Session Manager plugin causing process deadlocks\. To resolve this issue, allow or exclude the Session Manager plugin from the antivirus software\. For information about the default installation path for the Session Manager plugin, see [Install the Session Manager plugin for the AWS CLI](session-manager-working-with-install-plugin.md)\.
 
 ## TargetNotConnected<a name="ssh-target-not-connected"></a>
 

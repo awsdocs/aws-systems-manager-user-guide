@@ -37,11 +37,11 @@ Use this sample policy to give users the ability to start and resume sessions fr
             ],
             "Resource": [
                 "arn:aws:ec2:region:account-id:instance/instance-id",
-                "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+                "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Footnote callout 1\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Condition": {
                 "BoolIfExists": {
-                    "ssm:SessionDocumentAccessCheck": "true" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)
+                    "ssm:SessionDocumentAccessCheck": "true" ![\[Footnote callout 2\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)
                 }
             }
         },
@@ -68,7 +68,7 @@ Use this sample policy to give users the ability to start and resume sessions fr
         {
             "Effect": "Allow",
             "Action": [
-                "kms:GenerateDataKey" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
+                "kms:GenerateDataKey" ![\[Footnote callout 3\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
             ],
             "Resource": "key-name"
         }
@@ -89,7 +89,7 @@ Use this sample policy to give users the ability to start and resume sessions fr
             "Effect": "Allow",
             "Action": [
                 "ssm:StartSession",
-                "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
+                "ssm:SendCommand" ![\[Footnote callout 4\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
             ],
             "Resource": [
                 "arn:aws:ec2:region:account-id:instance/instance-id"
@@ -130,15 +130,15 @@ Use this sample policy to give users the ability to start and resume sessions fr
             "Effect": "Allow",
             "Action": [
                 "ssm:StartSession",
-                "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
+                "ssm:SendCommand" ![\[Footnote callout 4\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout04.png)
             ],
             "Resource": [
                 "arn:aws:ec2:region:account-id:instance/instance-id",
-                "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+                "arn:aws:ssm:region:account-id:document/SSM-SessionManagerRunShell" ![\[Footnote callout 1\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Condition": {
                 "BoolIfExists": {
-                    "ssm:SessionDocumentAccessCheck": "true" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)
+                    "ssm:SessionDocumentAccessCheck": "true" ![\[Footnote callout 2\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout02.png)
                 }
             }
         },
@@ -166,7 +166,7 @@ Use this sample policy to give users the ability to start and resume sessions fr
         {
             "Effect": "Allow",
             "Action": [
-                "kms:GenerateDataKey" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
+                "kms:GenerateDataKey" ![\[Footnote callout 3\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout03.png)
             ],
             "Resource": "key-name"
         }
@@ -280,7 +280,7 @@ Use this sample policy to give administrators the ability to perform session\-re
             "Effect": "Allow",
             "Action": [
                 "ssm:StartSession",
-                "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+                "ssm:SendCommand" ![\[Footnote callout 1\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Resource": [
                 "arn:aws:ec2:region:account-id:instance/*"
@@ -328,7 +328,7 @@ Use this sample policy to give administrators the ability to perform session\-re
             "Effect": "Allow",
             "Action": [
                 "ssm:StartSession",
-                "ssm:SendCommand" ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+                "ssm:SendCommand" ![\[Footnote callout 1\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
             ],
             "Resource": [
                 "arn:aws:ec2:region:account-id:instance/*"

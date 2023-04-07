@@ -52,7 +52,7 @@ Use the following procedure to create the required IAM roles for Systems Manager
 
 **To create the required IAM administration role for multi\-Region and multi\-account automations by using AWS CloudFormation**
 
-1. Download and unzip the [https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationAdministrationRole.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationAdministrationRole.zip)\. Or, if your accounts are managed by AWS Organizations [https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationAdministrationRole-org.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationAdministrationRole-org.zip)\. This file contains the `AWS-SystemsManager-AutomationAdministrationRole.json` AWS CloudFormation template file\.
+1. Download and unzip the [https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationAdministrationRole.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationAdministrationRole.zip)\. Or, if your accounts are managed by AWS Organizations [https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationAdministrationRole (org).zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationAdministrationRole (org).zip)\. This file contains the `AWS-SystemsManager-AutomationAdministrationRole.yaml` AWS CloudFormation template file\.
 
 1. Open the AWS CloudFormation console at [https://console\.aws\.amazon\.com/cloudformation](https://console.aws.amazon.com/cloudformation/)\.
 
@@ -60,7 +60,7 @@ Use the following procedure to create the required IAM roles for Systems Manager
 
 1. In the **Specify template** section, choose **Upload a template**\.
 
-1. Choose **Choose file**, and then choose the `AWS-SystemsManager-AutomationAdministrationRole.json` AWS CloudFormation template file\.
+1. Choose **Choose file**, and then choose the `AWS-SystemsManager-AutomationAdministrationRole.yaml` AWS CloudFormation template file\.
 
 1. Choose **Next**\.
 
@@ -80,7 +80,7 @@ You must repeat the following procedure in *every* account that you want to targ
 
 **To create the required IAM automation role for multi\-Region and multi\-account automations by using AWS CloudFormation**
 
-1. Download the [https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationExecutionRole.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationExecutionRole.zip)\. Or, if your accounts are managed by AWS Organizations [https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationExecutionRole-org.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationExecutionRole-org.zip)\.This file contains the `AWS-SystemsManager-AutomationExecutionRole.json` AWS CloudFormation template file\.
+1. Download the [https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationExecutionRole.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationExecutionRole.zip)\. Or, if your accounts are managed by AWS Organizations [https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationExecutionRole (org).zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/AWS-SystemsManager-AutomationExecutionRole (org).zip)\. This file contains the `AWS-SystemsManager-AutomationExecutionRole.yaml` AWS CloudFormation template file\.
 
 1. Open the AWS CloudFormation console at [https://console\.aws\.amazon\.com/cloudformation](https://console.aws.amazon.com/cloudformation/)\.
 
@@ -88,7 +88,7 @@ You must repeat the following procedure in *every* account that you want to targ
 
 1. In the **Specify template** section, choose **Upload a template**\.
 
-1. Choose **Choose file**, and then choose the `AWS-SystemsManager-AutomationExecutionRole.json` AWS CloudFormation template file\.
+1. Choose **Choose file**, and then choose the `AWS-SystemsManager-AutomationExecutionRole.yaml` AWS CloudFormation template file\.
 
 1. Choose **Next**\.
 
