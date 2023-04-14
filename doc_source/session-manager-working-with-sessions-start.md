@@ -30,15 +30,30 @@ Before you start a session, make sure that you have completed the setup steps fo
 
 1. Choose **Start session**\.
 
-1. \(Optional\) Enter a reason for the session in the **Reason for session** field\.
+1. \(Optional\) Enter a session description in the **Reason for session** field\.
 
-1. For **Target instances**, choose the option button to the left of the managed node you want to connect to\.
+1. For **Target instances**, choose the option button to the left of the managed node that you want to connect to\.
 
-   If a managed node you want to connect to isn't in the list, or is listed but an error message reports, "The instance you selected isn't configured to use Session Manager," see [Managed node not available or not configured for Session Manager](session-manager-troubleshooting.md#session-manager-troubleshooting-instances) for troubleshooting steps\.
+   If the node that you want isn't in the list, or if you select a node and receive a configuration error, see [Managed node not available or not configured for Session Manager](session-manager-troubleshooting.md#session-manager-troubleshooting-instances) for troubleshooting steps\.
+
+1. Choose **Start session** to launch the session immediately\.
+
+   \-or\-
+
+   Choose **Next** for session options\.
+
+1. \(Optional\) For **Session document**, select the document that you want to run when the session starts\. If your document supports runtime parameters, you can enter one or more comma\-separated values in each parameter field\.
+
+1. Choose **Next**\.
 
 1. Choose **Start session**\.
 
 After the connection is made, you can run bash commands \(Linux and macOS\) or PowerShell commands \(Windows\) as you would through any other connection type\.
+
+**Important**  
+If you want to allow users to specify a document when starting sessions in the Session Manager console, note the following:  
+You must grant users the `ssm:GetDocument` and `ssm:ListDocuments` permissions in their IAM policy\. For more information, see [Grant access to custom Session documents in the console](getting-started-restrict-access-examples.md#grant-access-documents-console-example)\.
+The console only supports Session documents that have the `sessionType` defined as `Standard_Stream`\. For more information, see [Session document schema](session-manager-schema.md)\.
 
 ## Starting a session \(Amazon EC2 console\)<a name="start-ec2-console"></a>
 

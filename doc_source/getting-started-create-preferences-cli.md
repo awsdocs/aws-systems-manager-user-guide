@@ -1,13 +1,19 @@
-# Create Session Manager preferences \(command line\)<a name="getting-started-create-preferences-cli"></a>
+# Create a Session Manager preferences document \(command line\)<a name="getting-started-create-preferences-cli"></a>
 
-The following procedure describes how to use your preferred command line tool to create AWS Systems Manager Session Manager preferences for your AWS account in the selected AWS Region\. Use Session Manager preferences to specify options for logging session data in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group\. You can also use Session Manager preferences to encrypt your session data\.
+Use the following procedure to create SSM documents that define your preferences for AWS Systems Manager Session Manager sessions\. You can use the document to configure session options including data encryption, session duration, and logging\. For example, you can specify whether to store session log data in an Amazon Simple Storage Service \(Amazon S3\) bucket or Amazon CloudWatch Logs log group\. You can create documents that define general preferences for all sessions for an AWS account and AWS Region, or that define preferences for individual sessions\. 
 
-For information about using command line tools to update existing Session Manager preferences, see [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)\.
+**Note**  
+You can also configure general session preferences by using the Session Manager console\.
+
+Documents used to set Session Manager preferences must have a `sessionType` of `Standard_Stream`\. For more information about Session documents, see [Session document schema](session-manager-schema.md)\.
+
+For information about using the command line to update existing Session Manager preferences, see [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)\.
 
 For an example of how to create session preferences using AWS CloudFormation, see [Create a Systems Manager document for Session Manager preferences](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#aws-resource-ssm-document--examples) in the *AWS CloudFormation User Guide*\.
 
 **Note**  
-You can use this procedure to create custom Session documents for your Session Manager preferences that override account level settings\. When you create your custom Session documents, specify a value other than `SSM-SessionManagerRunShell` for the name parameter and modify the inputs as needed\. To use your custom Session documents, you must provide the name of your custom Session document for the `--document-name` parameter when starting a session from the AWS Command Line Interface \(AWS CLI\)\. When you start a session from the console, you can't specify custom Session documents\.
+This procedure describes how to create documents for setting Session Manager preferences at the AWS account level\. To create documents that will be used for setting session\-level preferences, specify a value other than `SSM-SessionManagerRunShell` for the file name related command inputs \.   
+To use your document to set preferences for sessions started from the AWS Command Line Interface \(AWS CLI\), provide the document name as the `--document-name` parameter value\. To set preferences for sessions started from the Session Manager console, you can type or select the name of your document from a list\.
 
 **To create Session Manager preferences \(command line\)**
 

@@ -344,7 +344,7 @@ Required: No
 **Encoding**  
 The file encoding to use \(for example, UTF\-8\)\. Use the encoding name, not the display name\.  
 Type: String  
-Valid values: For a list of supported values, see [Encoding Class](http://msdn.microsoft.com/en-us/library/system.text.encoding.aspx) in the MSDN Library\.  
+Valid values: For a list of supported values, see [Encoding Class](https://learn.microsoft.com/en-us/dotnet/api/system.text.encoding?view=net-7.0) in the Microsoft Learn Library\.  
 Required: Yes
 
 **Filter**  

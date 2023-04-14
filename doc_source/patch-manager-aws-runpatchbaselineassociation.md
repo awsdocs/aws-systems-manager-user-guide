@@ -388,6 +388,10 @@ Any other fields you want to provide in a patch list for Linux are optional and 
 **Warning**  
 The default option is `RebootIfNeeded`\. Be sure to select the correct option for your use case\. For example, if your instances must reboot immediately to complete a configuration process, choose `RebootIfNeeded`\. Or, if you need to maintain instances availability until a scheduled reboot time, choose `NoReboot`\.
 
+**Important**  
+We don’t recommend using Patch Manager for patching cluster instances in Amazon EMR \(previously called Amazon Elastic MapReduce\)\. In particular, don’t select the `RebootIfNeeded` option for the `RebootOption` parameter\. \(This option is available in the SSM Command documents for patching `AWS-RunPatchBaseline`, `AWS-RunPatchBaselineAssociation`, and `AWS-RunPatchBaselineWithHooks`\.\)  
+The underlying commands for patching using Patch Manager use `yum` and `dnf` commands\. Therefore, the operations result in incompatibilities because of how packages are installed\. For information about the preferred methods for updating software on Amazon EMR clusters, see [Using the default AMI for Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-default-ami.html) in the *Amazon EMR Management Guide*\.
+
 RebootIfNeeded  
 When you choose the `RebootIfNeeded` option, the instance is rebooted in either of the following cases:   
 + Patch Manager installed one or more patches\. 

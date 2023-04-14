@@ -399,6 +399,6 @@ The following section provides an overview with links for building a visualizati
 
 1. Create a data set from the `AWS_Application` table and any other tables you created\. For more information, see [Creating a Data Set Using Amazon Athena Data](https://docs.aws.amazon.com/quicksight/latest/user/create-a-data-set-athena.html)\.
 
-1. Join tables\. For example, you could join the `instanceid` column from `AWS_InstanceInformation` because it matches the `resourceid` column in other inventory tables\. For more information about joining tables, see [Joining Tables](https://docs.aws.amazon.com/quicksight/latest/user/joining-tables.html)\.
+1. Join tables\. For example, you could join the `instanceid` column from `AWS_InstanceInformation` because it matches the `resourceid` column in other inventory tables\. For more information about joining tables, see [Joining Tables](https://docs.aws.amazon.com/quicksight/latest/user/joining-data.html)\.
 
 1. Build a visualization\. For more information, see [Working with Amazon QuickSight Visuals](https://docs.aws.amazon.com/quicksight/latest/user/working-with-visuals.html)\.

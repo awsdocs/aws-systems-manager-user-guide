@@ -28,7 +28,7 @@ If your user, group, or role has access to the API operations listed in the foll
 ```
 "iam:CreateRole",
 "iam:AttachRolePolicy",
-"iam:PutPolicy",
+"iam:PutRolePolicy",
 "iam:GetRole",
 "iam:ListRoles",
 "iam:PassRole"
@@ -47,6 +47,7 @@ If your user, group, or role has access to the API operations listed in the foll
 "cloudformation:ListStackInstances",
 "cloudformation:ListStackSetOperationResults",
 "cloudformation:TagResource",
+"cloudformation:CreateStack",
 "cloudformation:DeleteStackSet",
 "cloudformation:UpdateStackSet",
 "cloudformation:CreateStackSet",

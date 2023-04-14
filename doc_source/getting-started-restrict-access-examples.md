@@ -3,12 +3,41 @@
 Refer to the following example policies to help you create a custom AWS Identity and Access Management \(IAM\) policy for any Session Manager user access scenarios you want to support\.
 
 **Topics**
-+ [Example 1: Restrict user access by node](#restrict-access-example-instances)
-+ [Example 2: Restrict access based on tags](#restrict-access-example-instance-tags)
-+ [Example 3: Allow a user to end only sessions they started](#restrict-access-example-user-sessions)
-+ [Example 4: Allow full \(administrative\) access to all sessions](#restrict-access-example-full-access)
++ [Example 1: Grant access to documents in the console](#grant-access-documents-console-example)
++ [Example 2: Restrict access to specific managed nodes](#restrict-access-example-instances)
++ [Example 3: Restrict access based on tags](#restrict-access-example-instance-tags)
++ [Example 4: Allow a user to end only sessions they started](#restrict-access-example-user-sessions)
++ [Example 5: Allow full \(administrative\) access to all sessions](#restrict-access-example-full-access)
 
-## Example 1: Restrict user access by node<a name="restrict-access-example-instances"></a>
+## Example 1: Grant access to documents in the console<a name="grant-access-documents-console-example"></a>
+
+You can allow users to specify a custom document when they launch a session using the Session Manager console\. The following example IAM policy grants permission to access documents with names that begin with **SessionDocument\-** in the specified AWS Region and AWS account\.
+
+To use this policy, replace each *example resource placeholder* with your own information\.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetDocument",
+                "ssm:ListDocuments"
+            ],
+            "Resource": [
+                "arn:aws:ssm:region:account-id:document/SessionDocument-*"
+                
+            ]
+        }
+    ]
+}
+```
+
+**Note**  
+The Session Manager console only supports Session documents that have a `sessionType` of `Standard_Stream` which are used to define session preferences\. For more information, see [Session document schema](session-manager-schema.md)\.
+
+## Example 2: Restrict access to specific managed nodes<a name="restrict-access-example-instances"></a>
 
 You can create an IAM policy that defines which managed nodes that a user is allowed to connect to using Session Manager\. For example, the following policy grants a user the permission to start, end, and resume their sessions on three specific nodes\. The policy restricts the user from connecting to nodes other than those specified\.
 
@@ -41,7 +70,7 @@ You can create an IAM policy that defines which managed nodes that a user is all
 }
 ```
 
-## Example 2: Restrict access based on tags<a name="restrict-access-example-instance-tags"></a>
+## Example 3: Restrict access based on tags<a name="restrict-access-example-instance-tags"></a>
 
 You can restrict access to managed nodes based on specific tags\. In the following example, the user is allowed to start and resume sessions \(`Effect: Allow, Action: ssm:StartSession, ssm:ResumeSession`\) on any managed node \(`Resource: arn:aws:ec2:region:987654321098:instance/*`\) with the condition that the node is a Finance WebServer \(`ssm:resourceTag/Finance: WebServer`\)\. If the user sends a command to a managed node that isn't tagged or that has any tag other than `Finance: WebServer`, the command result will include `AccessDenied`\.
 
@@ -108,7 +137,7 @@ You can create IAM policies that allow a user to start sessions to managed nodes
 
 For more information about creating IAM policies, see [Managed Policies and Inline Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html) in the *IAM User Guide*\. For more information about tagging managed nodes, see [Tagging managed nodes](tagging-managed-instances.md) and [Tagging your Amazon EC2 resources](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) in the *Amazon EC2 User Guide for Linux Instances* \(content applies to Windows and Linux managed nodes\)\. For more information about increasing your security posture against unauthorized root\-level commands on your managed nodes, see [Restricting access to root\-level commands through SSM Agent](ssm-agent-restrict-root-level-commands.md)
 
-## Example 3: Allow a user to end only sessions they started<a name="restrict-access-example-user-sessions"></a>
+## Example 4: Allow a user to end only sessions they started<a name="restrict-access-example-user-sessions"></a>
 
 Session Manager provides two methods to control which sessions a user in your AWS account is allowed to end\.
 + Use the variable `{aws:username}` in an AWS Identity and Access Management \(IAM\) permissions policy\. Users can end only sessions they started\. This method doesn't work for accounts that use federated IDs to grant access to AWS\. Federated IDs use the variable `{aws:userid}` instead of `{aws:username}`\.
@@ -262,7 +291,7 @@ You can also create IAM policies that allow a user to end sessions that are tagg
 }
 ```
 
-## Example 4: Allow full \(administrative\) access to all sessions<a name="restrict-access-example-full-access"></a>
+## Example 5: Allow full \(administrative\) access to all sessions<a name="restrict-access-example-full-access"></a>
 
 The following IAM policy allows a user to fully interact with all managed nodes and all sessions created by all users for all nodes\. It should be granted only to an Administrator who needs full control over your organization's Session Manager activities\.
 

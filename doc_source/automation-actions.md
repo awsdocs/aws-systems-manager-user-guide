@@ -45,6 +45,11 @@ If you run an automation workflow that invokes other services by using an AWS Id
 
 Common properties are parameters or options that are found in all actions\. Some options define behavior for a step, such as how long to wait for a step to complete and what to do if the step fails\. The following properties are common to all actions\.
 
+[description](#descriptProp)  
+Information you provide to describe the purpose of a runbook or a step\.  
+Type: String  
+Required: No
+
 [name](#nameProp)  
 An identifier that must be unique across all step names in the runbook\.  
 Type: String  

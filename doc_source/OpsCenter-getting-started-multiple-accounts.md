@@ -1,8 +1,8 @@
 # \(Optional\) Setting up OpsCenter to centrally manage OpsItems across accounts<a name="OpsCenter-getting-started-multiple-accounts"></a>
 
-You can set up a central account to create manual OpsItems for member accounts, and manage and remediate those OpsItems\. The central account can be the AWS Organizations management account, or both the AWS Organizations management account and Systems Manager administrator account\. You can only use this feature after you configure AWS Organizations\. 
+You can set up a central account to create manual OpsItems for member accounts, and manage and remediate those OpsItems\. The central account can be the AWS Organizations management account, or both the AWS Organizations management account and Systems Manager delegated administrator account\. We recommend that you use the Systems Manager delegated administrator account as a central account\. You can only use this feature after you configure AWS Organizations\. 
 
-With AWS Organizations, you can consolidate multiple AWS accounts into an organization that you create and manage centrally\. A management account user, or both management account user and delegated administrator, can create OpsItems for all selected member accounts simultaneously, and manage those OpsItems\.
+With AWS Organizations, you can consolidate multiple AWS accounts into an organization that you create and manage centrally\. The central account user can create OpsItems for all selected member accounts simultaneously, and manage those OpsItems\.
 
 Use the process in this section to enable the Systems Manager service principal in Organizations and configure AWS Identity and Access Management \(IAM\) permissions for working with OpsItems across accounts\. 
 

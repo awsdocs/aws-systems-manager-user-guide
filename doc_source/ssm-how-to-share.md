@@ -174,7 +174,7 @@ The following procedure requires that you specify an AWS Region for your command
 
 ------
 
-1. Use the following command to modify the permissions for the document and share it\. You must be the owner of the document to edit the permissions\. This command privately shares the document with a specific individual, based on that person's AWS account ID\.
+1. Use the following command to modify the permissions for the document and share it\. You must be the owner of the document to edit the permissions\. Optionally, you can specify a version of the document you want to share using the `--shared-document-version` parameter\. If you don't specify a version, the system shares the `Default` version of the document\. This example command privately shares the document with a specific individual, based on that person's AWS account ID\.
 
 ------
 #### [ Linux & macOS ]

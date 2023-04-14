@@ -13,7 +13,7 @@ After you turn on KMS key encryption for your session data, both the users who s
 
 For more information about creating and managing KMS keys, see the [https://docs.aws.amazon.com/kms/latest/developerguide/](https://docs.aws.amazon.com/kms/latest/developerguide/)\.
 
-For information about using the AWS CLI to turn on KMS key encryption of session data in your account, see [Create Session Manager preferences \(command line\)](getting-started-create-preferences-cli.md) or [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)\.
+For information about using the AWS CLI to turn on KMS key encryption of session data in your account, see [Create a Session Manager preferences document \(command line\)](getting-started-create-preferences-cli.md) or [Update Session Manager preferences \(command line\)](getting-started-configure-preferences-cli.md)\.
 
 **Note**  
 There is a charge to use KMS keys\. For information, see [AWS Key Management Service pricing](http://aws.amazon.com/kms/pricing/)\.

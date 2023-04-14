@@ -16,7 +16,7 @@ You can view quotas for all Systems Manager capabilities in [Systems Manager ser
 
 To set up and work with OpsCenter to remediate OpsItems, perform the following steps:
 
-1. [Set up OpsCenter using Integrated Setup](OpsCenter-setup.md)\.
+1. [Set up OpsCenter using Integrated Setup](OpsCenter-setup.md)\. You can also [set up OpsCenter to centrally manage OpsItems across accounts ](OpsCenter-getting-started-multiple-accounts.md) if needed\. 
 
 1. [Integrate AWS services with OpsCenter](OpsCenter-applications-that-integrate.md)\. OpsCenter can integrate with Amazon CloudWatch, Amazon CloudWatch Application Insights, Amazon EventBridge, Amazon DevOps Guru, AWS Config, AWS Security Hub, and AWS Systems Manager Incident Manager\. 
 

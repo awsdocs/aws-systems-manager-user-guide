@@ -100,7 +100,7 @@ This command varies depending on the package manager for your operating system\.
 
 1. Log in to your managed node\.
 
-1. Run the following command for RHEL 6 and 7\.
+1. Run the following command for RHEL 6, 7, 8, and 9\.
 
    ```
    yum info amazon-ssm-agent
@@ -114,6 +114,12 @@ This command varies depending on the package manager for your operating system\.
    Name        : amazon-ssm-agent
    Arch        : x86_64
    Version     : 3.0.655.0
+   ```
+
+   Run the following command for the DNF package utility\.
+
+   ```
+   dnf info amazon-ssm-agent
    ```
 
 ------

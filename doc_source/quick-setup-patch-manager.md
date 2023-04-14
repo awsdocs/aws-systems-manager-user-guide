@@ -73,7 +73,38 @@ To create a patch policy, perform the following tasks in the Systems Manager con
 
    The patch baselines available in Quick Setup, whether you use AWS predefined patch baselines or custom patch baselines, are those of the Home Region you selected\.
 **Note**  
-When creating a patch policy for your organization, Quick Setup creates an Amazon S3 bucket in your organization's management account that contains the baselines used by the patch policy\. 
+When creating a patch policy for your organization, Quick Setup creates an Amazon S3 bucket in your organization's management account that contains the baselines used by the patch policy\.   
+If you use VPC endpoints to connect to Systems Manager, make sure your VPC endpoint policy for S3 allows access to this S3 bucket\. For example:  
+
+   ```
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "AccessToAllPatchPolicyRelatedBuckets",
+         "Effect": "Allow",
+         "Action": "s3:GetObject",
+         "Resource": "arn:aws:s3:::aws-quicksetup-patchpolicy-*"
+       }
+     ]
+   }
+   ```
+\-or\-  
+
+   ```
+   {
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "AccessToMyPatchPolicyRelatedBucket",
+         "Effect": "Allow",
+         "Action": "s3:GetObject",
+         "Resource": "arn:aws:s3:::aws-quicksetup-patchpolicy-aws-quicksetup-patchpolicy-account-id-quick-setup-configuration-id"![\[Footnote callout 1\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/callout01.png)
+       }
+     ]
+   }
+   ```
+**1**You can locate the full name of your bucket in the S3 console after the patch policy configuration is created\.
 **Important**  
 If you are using a [patch policy configuration](patch-manager-policies.md) in Quick Setup, updates you make to custom patch baselines are synchronized with Quick Setup once an hour\.   
 If a custom patch baseline that was referenced in a patch policy is deleted, a banner displays on the Quick Setup **Configuration details** page for your patch policy\. The banner informs you that the patch policy references a patch baseline that no longer exists, and that subsequent patching operations will fail\. In this case, return to the Quick Setup **Configurations** page, select the Patch Manager configuration , and choose **Actions**, **Edit configuration**\. The deleted patch baseline name is highlighted, and you must select a new patch baseline for the affected operating system\.

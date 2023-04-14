@@ -15,6 +15,7 @@ If you monitor API operations, you might see calls to the following:
 + `ssm:DescribeDocumentParameters`
 + `ssm:ListInstanceAssociations`
 + `ssm:RegisterManagedInstance`
++ `ssm:UpdateInstanceAssociationStatus`
 + `ssm:UpdateInstanceInformation`
 + `ssm:GetManifest`
 + `ssm:PutConfigurePackageResult`
@@ -30,11 +31,13 @@ Systems Manager uses the `ssmmessages` endpoint for API operations from SSM Agen
 **Instance\-related API operations**  
 `UpdateInstanceInformation`: SSM Agent calls the Systems Manager service in the cloud every 5 minutes to provide heartbeat information\. This call is necessary to maintain a heartbeat with the agent so that the service knows the agent is functioning as expected\. 
 
-`ListInstanceAssociations`: The agent runs this API operation to see if a new State Manager association is available\. This API operation is required for State Manager, a capability of AWS Systems Manager, to function\.
+`UpdateInstanceAssociationStatus`: The agent runs this API operation to update an association\. This API operation is required for State Manager, a capability of AWS Systems Manager, to function\.
+
+`ListInstanceAssociations`: The agent runs this API operation to see if a new State Manager association is available\. This API operation is required for State Manager to function\.
 
 `DescribeInstanceProperties` and `DescribeDocumentParameters`: Systems Manager runs these API operations to render specific nodes in the Amazon EC2 console\. Results of the `DescribeInstanceProperties` operation are displayed in the Fleet Manager node\. Results of the `DescribeDocumentParameters` operation are displayed in the **Documents** node\.
 
-`ssm:RegisterManagedInstance`: SSM Agent runs this API operation to register an on\-premises server or virtual machine \(VM\) with Systems Manager as a managed instance using an activation code and ID, or to register AWS IoT Greengrass Version 2 credentials\. This operation is also called by Amazon EC2 instances running SSM Agent version 3\.1\.x or later\.
+`RegisterManagedInstance`: SSM Agent runs this API operation to register an on\-premises server or virtual machine \(VM\) with Systems Manager as a managed instance using an activation code and ID, or to register AWS IoT Greengrass Version 2 credentials\. This operation is also called by Amazon EC2 instances running SSM Agent version 3\.1\.x or later\.
 
 **Distributor\-related API operations**  
 SSM Agent runs `GetManifest` to determine system requirements for installing or updating a specified version of an [AWS Systems Manager Distributor](distributor.md) package\. This is a legacy API operation and not available in AWS Regions launched after 2017\. 

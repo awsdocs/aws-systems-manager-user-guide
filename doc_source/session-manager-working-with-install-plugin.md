@@ -21,12 +21,12 @@ To use the Session Manager plugin, you must have AWS CLI version 1\.16\.12 or la
 
 ## Install the Session Manager plugin on Windows<a name="install-plugin-windows"></a>
 
-You can install the Session Manager plugin on Microsoft Windows Vista or later using the standalone installer\.
+You can install the Session Manager plugin on Windows Vista or later using the standalone installer\.
 
 When updates are released, you must repeat the installation process to get the latest version of the Session Manager plugin\.
 
 **Note**  
-For best results, we recommend that you start sessions on Windows clients using Windows PowerShell, version 5 or later\. Alternatively, you can use the Command shell in Microsoft Windows 10\. The Session Manager plugin only supports PowerShell and the Command shell\. Third\-party command line tools might not be compatible with the plugin\.
+For best results, we recommend that you start sessions on Windows clients using Windows PowerShell, version 5 or later\. Alternatively, you can use the Command shell in Windows 10\. The Session Manager plugin only supports PowerShell and the Command shell\. Third\-party command line tools might not be compatible with the plugin\.
 
 **To install the Session Manager plugin using the EXE installer**
 
@@ -347,7 +347,7 @@ The following table lists all releases of the Session Manager plugin and the fea
 | 1\.1\.61\.0 |  April 17, 2020  |  **Enhancement**: Added ARM support for Linux and Ubuntu\.   | 
 | 1\.1\.54\.0 |  January 6, 2020  |  **Bug fix**: Handle race condition scenario of packets being dropped when the Session Manager plugin isn't ready\.   | 
 |  1\.1\.50\.0  | November 19, 2019 |  **Enhancement**: Added support for forwarding a port to a local unix socket\.  | 
-|  1\.1\.35\.0  | November 7, 2019 |  **Enhancement**: \(Port forwarding sessions only\) Send a TerminateSession command to SSM Agent when the local user presses Ctrl\+C\.  | 
+|  1\.1\.35\.0  | November 7, 2019 |  **Enhancement**: \(Port forwarding sessions only\) Send a TerminateSession command to SSM Agent when the local user presses `Ctrl+C`\.  | 
 | 1\.1\.33\.0 | September 26, 2019 | Enhancement: \(Port forwarding sessions only\) Send a disconnect signal to the server when the client drops the TCP connection\.  | 
 | 1\.1\.31\.0 | September 6, 2019 | Enhancement: Update to keep port forwarding session open until remote server closes the connection\. | 
 |  1\.1\.26\.0  | July 30, 2019 |  **Enhancement**: Update to limit the rate of data transfer during a session\.  | 
