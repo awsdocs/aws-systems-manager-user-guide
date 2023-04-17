@@ -58,7 +58,12 @@ With this condition element set to `true`, explicit access to a Session document
     "Resource": [
         "arn:aws:ec2:us-west-2:123456789012:instance/i-02573cafcfEXAMPLE",
         "arn:aws:ssm:us-west-2:123456789012:document/SSM-SessionManagerRunShell"
-    ] 
+    ],
+    "Condition": {
+        "BoolIfExists": {
+            "ssm:SessionDocumentAccessCheck": "true"
+        }
+    }
 }
 ```
 
