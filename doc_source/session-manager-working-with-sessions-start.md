@@ -156,7 +156,7 @@ aws ssm start-session ^
 
 ------
 
-The value you specify for `portNumber` represents the remote port on the managed node where traffic should be redirected to, such as `3389` for connecting to a Windows node using the Remote Desktop Protocol \(RDP\)\. If this parameter isn't specified, Session Manager assumes `80` as the default remote port\. 
+The `portNumber` value represents the remote port on the managed node where you want the session traffic to be redirected\. For example, you might specify port `3389` for connecting to a Windows node using the Remote Desktop Protocol \(RDP\)\. If you don't specify the `portNumber` parameter, Session Manager uses `80` as the default value\. 
 
 The value you specify for `localPortNumber` represents the local port on the client where traffic should be redirected to, such as `56789`\. This value is what you enter when connecting to a managed node using a client\. For example, **localhost:56789**\.
 
@@ -197,9 +197,9 @@ aws ssm start-session ^
 
 ------
 
-The value you specify for `host` represents the hostname or IP address of the remote host you want to connect to\. General connectivity and name resolution requirements between the managed node and the remote host still apply\.
+The `host` value represents the hostname or IP address of the remote host that you want to connect to\. General connectivity and name resolution requirements between the managed node and the remote host still apply\.
 
-The value you specify for `portNumber` represents the remote port on the managed node where traffic should be redirected to, such as `3306` for connecting to a MySQL database\. If this parameter isn't specified, Session Manager assumes `80` as the default remote port\. 
+The `portNumber` value represents the port on the remote host where you want the session traffic to be redirected\. For example, you might specify port `3306` for connecting to a MySQL database\. If you don't specify the `portNumber` parameter, Session Manager uses `80` as the default value\. 
 
 The value you specify for `localPortNumber` represents the local port on the client where traffic should be redirected to, such as `56789`\. This value is what you enter when connecting to a managed node using a client\. For example, **localhost:56789**\.
 

@@ -2,7 +2,7 @@
 
 This topic describes how to use the pre\-defined Systems Manager document \(SSM document\) `AWS-RunRemoteScript` to download scripts from GitHub, including Ansible Playbooks, Python, Ruby, and PowerShell scripts\. By using this SSM document, you no longer need to manually port scripts into Amazon Elastic Compute Cloud \(Amazon EC2\) or wrap them in SSM documents\. AWS Systems Manager integration with GitHub promotes *infrastructure as code*, which reduces the time it takes to manage nodes while standardizing configurations across your fleet\. 
 
-You can also create custom SSM documents that allow you to download and run scripts or other SSM documents from remote locations\. For more information, see [Creating composite documents](composite-docs.md)\.
+You can also create custom SSM documents that allow you to download and run scripts or other SSM documents from remote locations\. For more information, see [Creating composite documents](documents-creating-content.md#documents-creating-composite)\.
 
 You can also download a directory that includes multiple scripts\. When you run the primary script in the directory, Systems Manager also runs any referenced scripts that are included in the directory\. 
 

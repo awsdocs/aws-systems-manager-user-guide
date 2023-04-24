@@ -1,4 +1,4 @@
-# SSM document schema features and examples<a name="document-schemas-features"></a>
+# Schemas, features, and examples<a name="documents-schemas-features"></a>
 
 AWS Systems Manager \(SSM\) documents use the following schema versions\.
 + Documents of type `Command` can use schema version 1\.2, 2\.0, and 2\.2\. If you use schema 1\.2 documents, we recommend that you create documents that use schema version 2\.2\.

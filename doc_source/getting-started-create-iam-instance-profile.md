@@ -1,8 +1,8 @@
 # Create a custom IAM role for Session Manager<a name="getting-started-create-iam-instance-profile"></a>
 
-You can create a custom AWS Identity and Access Management \(IAM\) role that provides permissions for only Session Manager actions on your instances\. You can also include a policy to provide the permissions needed for session logs to be sent to Amazon Simple Storage Service \(Amazon S3\) and Amazon CloudWatch Logs\.
+You can create an AWS Identity and Access Management \(IAM\) role that grants Session Manager the permission to perform actions on your Amazon EC2 managed instances\. You can also include a policy to grant the permissions needed for session logs to be sent to Amazon Simple Storage Service \(Amazon S3\) and Amazon CloudWatch Logs\.
 
-After you create the IAM role, see [Attaching an IAM Role to an Instance](https://docs.aws.amazon.com/IAM/latest/UserGuide/iam-roles-for-amazon-ec2.html#attach-iam-role) and [Attach or Replace an Instance Profile](https://aws.amazon.com/premiumsupport/knowledge-center/attach-replace-ec2-instance-profile/) for information about how to attach the role to an instance\. For more information about IAM instance profiles and roles, see [Using Instance Profile](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) and [IAM roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) in the *IAM User Guide*\. For more information about creating an IAM service role for on\-premises machines, see [Create an IAM service role for a hybrid environment](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html)\.
+After you create the IAM role, for information about how to attach the role to an instance, see [Attach or Replace an Instance Profile](https://aws.amazon.com/premiumsupport/knowledge-center/attach-replace-ec2-instance-profile/) at the AWS re:Post website\. For more information about IAM instance profiles and roles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html) in the *IAM User Guide* and [IAM roles for Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html) in the *Amazon Elastic Compute Cloud User Guide for Linux Instances*\. For more information about creating an IAM service role for on\-premises machines, see [Create an IAM service role for a hybrid environment](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html)\.
 
 **Topics**
 + [Creating an IAM role with minimal Session Manager permissions \(console\)](#create-iam-instance-profile-ssn-only)
@@ -20,7 +20,7 @@ Use the following procedure to create a custom IAM role with a policy that provi
 
 1. Choose the **JSON** tab\.
 
-1. Replace the default content with the following policy\. Replace *key\-name* with the Amazon Resource Name \(ARN\) of the KMS key you want to use\.
+1. Replace the default content with the following policy\. To encrypt session data using AWS Key Management Service \(AWS KMS\), replace *key\-name* with the Amazon Resource Name \(ARN\) of the AWS KMS key that you want to use\.
 
    ```
    {
@@ -107,7 +107,7 @@ For information about `ssmmessages` actions, see [Reference: ec2messages, ssmmes
 Use the following procedure to create a custom IAM role with a policy that provides permissions for Session Manager actions on your instances\. The policy also provides the permissions needed for session logs to be stored in Amazon Simple Storage Service \(Amazon S3\) buckets and Amazon CloudWatch Logs log groups\.
 
 **Important**  
-To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the `s3:PutObjectAcl` permission to the IAM role policy\. If this permission isn't added, the account that owns the Amazon S3 bucket can't access the session output logs\.
+To output session logs to an Amazon S3 bucket owned by a different AWS account, you must add the `s3:PutObjectAcl` permission to the IAM role policy\. Additionally, you must ensure that the bucket policy grants cross\-account access to the IAM role used by the owning account to grant Systems Manager permissions for managed instances\. If the bucket uses Key Management Service \(KMS\) encryption, then the bucket's KMS policy must also grant this cross\-account access\. For more information about configuring cross\-account bucket permissions in Amazon S3, see [Granting cross\-account bucket permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access-example2.html) in the *Amazon Simple Storage Service User Guide*\. If the cross\-account permissions aren't added, the account that owns the Amazon S3 bucket can't access the session output logs\.
 
 For information about specifying preferences for storing session logs, see [Logging session activity](session-manager-logging.md)\.
 

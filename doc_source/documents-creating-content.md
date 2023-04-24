@@ -1,4 +1,4 @@
-# Creating SSM documents<a name="create-ssm-doc"></a>
+# Creating SSM document content<a name="documents-creating-content"></a>
 
 If the AWS Systems Manager public documents don't perform all the actions you want to perform on your AWS resources, you can create your own SSM documents\. You can also clone SSM documents using the console\. Cloning documents copies content from an existing document to a new document that you can modify\. When creating or cloning a document, the content of the document must not exceed 64KB\. This quota also includes the content specified for input parameters at runtime\. When you create a new `Command` or `Policy` document, we recommend that you use schema version 2\.2 or later so you can take advantage of the latest features, such as document editing, automatic versioning, sequencing, and more\.
 
@@ -6,9 +6,9 @@ If the AWS Systems Manager public documents don't perform all the actions you wa
 
 To create your own SSM document content, it's important to understand the different schemas, features, plugins, and syntax available for SSM documents\. We recommend becoming familiar with the following resources\.
 +  [Writing your own AWS Systems Manager documents](http://aws.amazon.com/blogs/mt/writing-your-own-aws-systems-manager-documents/) 
-+  [SSM document data elements](sysman-doc-syntax.md) 
-+  [SSM document schema features and examples](document-schemas-features.md) 
-+  [Systems Manager Command document plugin reference](ssm-plugins.md) 
++  [Data elements and parameters](documents-syntax-data-elements-parameters.md) 
++  [Schemas, features, and examples](documents-schemas-features.md) 
++  [Command document plugin reference](documents-command-ssm-plugin-reference.md) 
 +  [Systems Manager Automation actions reference](automation-actions.md) 
 +  [Automation system variables](automation-variables.md) 
 +  [Additional runbook examples](automation-document-examples.md) 
@@ -82,24 +82,86 @@ You can clone AWS Systems Manager documents using the Systems Manager Documents 
 
 1. Modify the document as you prefer, and then choose **Create document** to save the document\. 
 
-## Using SSM documents in State Manager Associations<a name="ssm-docs-assoc"></a>
-
-If you create an SSM document for State Manager, a capability of AWS Systems Manager, you must associate the document with your managed instances after you add the document to the system\. For more information, see [Creating associations](sysman-state-assoc.md)\.
-
-Keep in mind the following details when using SSM documents in State Manager associations\.
-+ You can assign multiple documents to a target by creating different State Manager associations that use different documents\. 
-+ If you create a document with conflicting plugins \(for example, domain join and remove from domain\), the last plugin run will be the final state\. State Manager doesn't validate the logical sequence or rationality of the commands or plugins in your document\.
-+ When processing documents, instance associations are applied first, and next tagged group associations are applied\. If an instance is part of multiple tagged groups, then the documents that are part of the tagged group won't be run in any particular order\. If an instance is directly targeted through multiple documents by its instance ID, there is no particular order of execution\. 
-+ If you change the default version of an SSM Policy document for State Manager, any association that uses the document will start using the new default version the next time Systems Manager applies the association to the instance\.
-+ If you create an association using an SSM document that was shared with you, and then the owner stops sharing the document with you, your associations no longer have access to that document\. However, if the owner shares the same SSM document with you again later, your associations automatically remap to it\.
-
 After writing your SSM document content, you can use your content to create an SSM document using one of the following methods\.
 
 **Topics**
 + [Writing SSM document content](#writing-ssm-doc-content)
 + [Cloning an SSM document](#cloning-ssm-document)
-+ [Using SSM documents in State Manager Associations](#ssm-docs-assoc)
-+ [Create an SSM document \(console\)](create-ssm-console.md)
-+ [Create an SSM document \(command line\)](create-ssm-document-cli.md)
-+ [Create an SSM document \(API\)](create-ssm-document-api.md)
-+ [Creating composite documents](composite-docs.md)
++ [Creating composite documents](#documents-creating-composite)
+
+## Creating composite documents<a name="documents-creating-composite"></a>
+
+A *composite* AWS Systems Manager \(SSM\) document is a custom document that performs a series of actions by running one or more secondary SSM documents\. Composite documents promote *infrastructure as code* by allowing you to create a standard set of SSM documents for common tasks such as boot\-strapping software or domain\-joining instances\. You can then share these documents across AWS accounts in the same AWS Region to reduce SSM document maintenance and ensure consistency\.
+
+For example, you can create a composite document that performs the following actions:
+
+1. Installs all patches in the allow list\.
+
+1. Installs antivirus software\.
+
+1. Downloads scripts from GitHub and runs them\.
+
+In this example, your custom SSM document includes the following plugins to perform these actions:
+
+1. The `aws:runDocument` plugin to run the `AWS-RunPatchBaseline` document, which installs all allow listed patches\.
+
+1. The `aws:runDocument` plugin to run the `AWS-InstallApplication` document, which installs the antivirus software\.
+
+1. The `aws:downloadContent` plugin to download scripts from GitHub and run them\.
+
+Composite and secondary documents can be stored in Systems Manager, GitHub \(public and private repositories\), or Amazon S3\. Composite documents and secondary documents can be created in JSON or YAML\. 
+
+**Note**  
+Composite documents can only run to a maximum depth of three documents\. This means that a composite document can call a child document; and that child document can call one last document\.
+
+To create a composite document, add the [`aws:runDocument`](documents-command-ssm-plugin-reference.md#aws-rundocument) plugin in a custom SSM document and specify the required inputs\. The following is an example of a composite document that performs the following actions:
+
+1. Runs the [`aws:downloadContent`](documents-command-ssm-plugin-reference.md#aws-downloadContent) plugin to download an SSM document from a GitHub public repository to a local directory called bootstrap\. The SSM document is called StateManagerBootstrap\.yml \(a YAML document\)\.
+
+1. Runs the `aws:runDocument` plugin to run the StateManagerBootstrap\.yml document\. No parameters are specified\.
+
+1. Runs the `aws:runDocument` plugin to run the `AWS-ConfigureDocker pre-defined` SSM document\. The specified parameters install Docker on the instance\.
+
+```
+{
+  "schemaVersion": "2.2",
+  "description": "My composite document for bootstrapping software and installing Docker.",
+  "parameters": {
+  },
+  "mainSteps": [
+    {
+      "action": "aws:downloadContent",
+      "name": "downloadContent",
+      "inputs": {
+        "sourceType": "GitHub",
+        "sourceInfo": "{\"owner\":\"TestUser1\",\"repository\":\"TestPublic\", \"path\":\"documents/bootstrap/StateManagerBootstrap.yml\"}",
+        "destinationPath": "bootstrap"
+      }
+    },
+    {
+      "action": "aws:runDocument",
+      "name": "runDocument",
+      "inputs": {
+        "documentType": "LocalPath",
+        "documentPath": "bootstrap",
+        "documentParameters": "{}"
+      }
+    },
+    {
+      "action": "aws:runDocument",
+      "name": "configureDocker",
+      "inputs": {
+        "documentType": "SSMDocument",
+        "documentPath": "AWS-ConfigureDocker",
+        "documentParameters": "{\"action\":\"Install\"}"
+      }
+    }
+  ]
+}
+```
+
+**More info**  
++ For information about rebooting servers and instances when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md)\.
++ For more information about creating an SSM document, see [Creating SSM document content](#documents-creating-content)\.
++ For more information about the plugins you can add to a custom SSM document, see [Command document plugin reference](documents-command-ssm-plugin-reference.md)\.
++ If you simply want to run a document from a remote location \(without creating a composite document\), see [Running documents from remote locations](documents-running-remote-github-s3.md)\.

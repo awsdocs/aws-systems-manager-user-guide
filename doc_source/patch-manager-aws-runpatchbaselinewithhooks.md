@@ -186,9 +186,9 @@ This tracking file is stored in the following locations on your managed nodes:
 
 The value to provide for the `PreInstallHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different AWS account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
 
-The SSM document you specify is run before the `Install` operation and performs any actions supported by SSM Agent, such as a shell script to check application health check before patching is performed on the managed node\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which doesn't perform any operation on the managed node\. 
+The SSM document you specify is run before the `Install` operation and performs any actions supported by SSM Agent, such as a shell script to check application health check before patching is performed on the managed node\. \(For a list of actions, see [Command document plugin reference](documents-command-ssm-plugin-reference.md)\)\. The default SSM document name is `AWS-Noop`, which doesn't perform any operation on the managed node\. 
 
-For information about creating a custom SSM document, see [Creating SSM documents](create-ssm-doc.md)\. 
+For information about creating a custom SSM document, see [Creating SSM document content](documents-creating-content.md)\. 
 
 ### Parameter name: `PostInstallHookDocName`<a name="patch-manager-aws-runpatchbaselinewithhooks-parameters-postinstallhookdocname"></a>
 
@@ -198,9 +198,9 @@ For information about creating a custom SSM document, see [Creating SSM document
 
 The value to provide for the `PostInstallHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different AWS account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
 
-The SSM document you specify is run after the `Install with NoReboot` operation and performs any actions supported by SSM Agent, such as a shell script for installing third party updates before reboot\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which doesn't perform any operation on the managed node\. 
+The SSM document you specify is run after the `Install with NoReboot` operation and performs any actions supported by SSM Agent, such as a shell script for installing third party updates before reboot\. \(For a list of actions, see [Command document plugin reference](documents-command-ssm-plugin-reference.md)\)\. The default SSM document name is `AWS-Noop`, which doesn't perform any operation on the managed node\. 
 
-For information about creating a custom SSM document, see [Creating SSM documents](create-ssm-doc.md)\. 
+For information about creating a custom SSM document, see [Creating SSM document content](documents-creating-content.md)\. 
 
 ### Parameter name: `OnExitHookDocName`<a name="patch-manager-aws-runpatchbaselinewithhooks-parameters-onexithookdocname"></a>
 
@@ -210,6 +210,6 @@ For information about creating a custom SSM document, see [Creating SSM document
 
 The value to provide for the `OnExitHookDocName` parameter is the name or Amazon Resource Name \(ARN\) of an SSM document of your choice\. You can provide the name of an AWS managed document or the name or ARN of a custom SSM document that you have created or that has been shared with you\. \(For an SSM document that has been shared with you from a different AWS account, you must specify the full resource ARN, such as `aws:arn:ssm:us-east-2:123456789012:document/MySharedDocument`\.\)
 
-The SSM document you specify is run after the managed node reboot operation and performs any actions supported by SSM Agent, such as a shell script to verify node health after the patching operation is complete\. \(For a list of actions, see [Systems Manager Command document plugin reference](ssm-plugins.md)\)\. The default SSM document name is `AWS-Noop`, which doesn't perform any operation on the managed node\. 
+The SSM document you specify is run after the managed node reboot operation and performs any actions supported by SSM Agent, such as a shell script to verify node health after the patching operation is complete\. \(For a list of actions, see [Command document plugin reference](documents-command-ssm-plugin-reference.md)\)\. The default SSM document name is `AWS-Noop`, which doesn't perform any operation on the managed node\. 
 
-For information about creating a custom SSM document, see [Creating SSM documents](create-ssm-doc.md)\. 
+For information about creating a custom SSM document, see [Creating SSM document content](documents-creating-content.md)\. 

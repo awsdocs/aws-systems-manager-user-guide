@@ -23,6 +23,7 @@ If you don't see your managed nodes listed in the console, then do the following
 
 **Note**  
 Note the following information\.  
+The Fleet Manager console does not display Amazon EC2 nodes that have been terminated\.
 Systems Manager requires accurate time references in order to perform operations on your machines\. If the date and time aren't set correctly on your managed nodes, the machines might not match the signature date of your API requests\. For more information, see [Use cases and best practices](systems-manager-best-practices.md)\.
 When you create or edit tags, the system can take up to one hour to display changes in the table filter\.
 

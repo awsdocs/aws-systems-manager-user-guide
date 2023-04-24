@@ -1,4 +1,4 @@
-# Running Systems Manager Command documents from remote locations<a name="run-remote-documents"></a>
+# Running documents from remote locations<a name="documents-running-remote-github-s3"></a>
 
 You can run AWS Systems Manager \(SSM\) documents from remote locations by using the `AWS-RunDocument` pre\-defined SSM document\. This document supports running SSM documents stored in the following locations:
 + Public and private GitHub repositories \(GitHub Enterprise is not supported\)
@@ -8,14 +8,14 @@ You can run AWS Systems Manager \(SSM\) documents from remote locations by using
 While you can also run remote documents by using State Manager or Automation, capabilities of AWS Systems Manager, the following procedure describes only how to run remote SSM documents by using AWS Systems Manager Run Command in the Systems Manager console\. 
 
 **Note**  
-`AWS-RunDocument` can be used to run only command\-type SSM documents, not other types such as Automation runbooks\. The `AWS-RunDocument` uses the `aws:downloadContent` plugin\. For more information about the `aws:downloadContent` plugin, see [`aws:downloadContent`](ssm-plugins.md#aws-downloadContent)\.
+`AWS-RunDocument` can be used to run only command\-type SSM documents, not other types such as Automation runbooks\. The `AWS-RunDocument` uses the `aws:downloadContent` plugin\. For more information about the `aws:downloadContent` plugin, see [`aws:downloadContent`](documents-command-ssm-plugin-reference.md#aws-downloadContent)\.
 
 **Before you begin**  
 Before you run a remote document, you must complete the following tasks\.
-+ Create an SSM Command document and save it in a remote location\. For more information, see [Creating SSM documents](create-ssm-doc.md)
++ Create an SSM Command document and save it in a remote location\. For more information, see [Creating SSM document content](documents-creating-content.md)
 + If you plan to run a remote document that is stored in a private GitHub repository, then you must create a Systems Manager `SecureString` parameter for your GitHub security access token\. You can't access a remote document in a private GitHub repository by manually passing your token over SSH\. The access token must be passed as a Systems Manager `SecureString` parameter\. For more information about creating a `SecureString` parameter, see [Creating Systems Manager parameters](sysman-paramstore-su-create.md)\.
 
-## Run a remote document \(console\)<a name="run-remote-documents-console"></a>
+## Run a remote document \(console\)<a name="documents-running-remote-github-s3-console"></a>
 
 **To run a remote document**
 

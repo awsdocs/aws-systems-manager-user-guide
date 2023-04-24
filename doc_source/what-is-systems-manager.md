@@ -64,7 +64,7 @@ Use [Automation](systems-manager-automation.md) to automate common maintenance a
 ------
 #### [ Change Calendar ]
 
-[Change Calendar](systems-manager-change-calendar.md) helps you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) can or can't be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you're creating a [Systems Manager document](sysman-ssm-docs.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\. You can add events manually in the Change Calendar interface or import events from a supported third\-party calendar using an `.ics` file\.
+[Change Calendar](systems-manager-change-calendar.md) helps you set up date and time ranges when actions you specify \(for example, in [Systems Manager Automation](systems-manager-automation.md) runbooks\) can or can't be performed in your AWS account\. In Change Calendar, these ranges are called *events*\. When you create a Change Calendar entry, you're creating a [Systems Manager document](documents.md) of the type `ChangeCalendar`\. In Change Calendar, the document stores [iCalendar 2\.0](https://icalendar.org/) data in plaintext format\. Events that you add to the Change Calendar entry become part of the document\. You can add events manually in the Change Calendar interface or import events from a supported third\-party calendar using an `.ics` file\.
 
 ------
 #### [ Maintenance Windows ]
@@ -165,7 +165,7 @@ Use [Quick Setup](systems-manager-quick-setup.md) to configure frequently used A
 ------
 #### [ Documents ]
 
-A [Systems Manager document](sysman-ssm-docs.md) \(SSM document\) defines the actions that Systems Manager performs\. SSM document types include *Command* documents, which are used by State Manager and Run Command, and Automation runbooks, which are used by Systems Manager Automation\. Systems Manager includes dozens of pre\-configured documents that you can use by specifying parameters at runtime\. Documents can be expressed in JSON or YAML, and include steps and parameters that you specify\.
+A [Systems Manager document](documents.md) \(SSM document\) defines the actions that Systems Manager performs\. SSM document types include *Command* documents, which are used by State Manager and Run Command, and Automation runbooks, which are used by Systems Manager Automation\. Systems Manager includes dozens of pre\-configured documents that you can use by specifying parameters at runtime\. Documents can be expressed in JSON or YAML, and include steps and parameters that you specify\.
 
 ------
 

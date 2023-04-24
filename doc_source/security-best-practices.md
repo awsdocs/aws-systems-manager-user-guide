@@ -22,7 +22,7 @@ For more information, see [Restricting access to Systems Manager parameters usin
 
 **Define allowedValues and allowedPattern for document parameters**  
 You can validate user input for parameters in Systems Manager documents \(SSM documents\) by defining `allowedValues` and `allowedPattern`\. For `allowedValues`, you define an array of values allowed for the parameter\. If a user inputs a value that isn't allowed, the execution fails to start\. For `allowedPattern`, you define a regular expression that validates whether the user input matches the defined pattern for the parameter\. If the user input doesn't match the allowed pattern, the execution fails to start\.  
-For more information about `allowedValues` and `allowedPattern`, see [SSM document data elements](sysman-doc-syntax.md)\.
+For more information about `allowedValues` and `allowedPattern`, see [Data elements and parameters](documents-syntax-data-elements-parameters.md)\.
 
 **Block public sharing for documents**  
 Unless your use case requires public sharing to be allowed, we recommend turning on the block public sharing setting for your SSM documents in the **Preferences** section of the Systems Manager Documents console\.

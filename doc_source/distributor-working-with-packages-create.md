@@ -4,7 +4,7 @@ To create a package, prepare your installable software or assets, one file per o
 
 Different platforms might sometimes use the same file, but all files that you attach to your package must be listed in the `Files` section of the manifest\. If you're creating a package by using the simple workflow in the console, the manifest is generated for you\. The maximum number of files that you can attach to a single document is 20\. The maximum size of each file is 1 GB\. For more information about supported platforms, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
 
-When you create a package, the system creates a new [SSM document](sysman-ssm-docs.md)\. This document allows you to deploy the package to managed nodes\.
+When you create a package, the system creates a new [SSM document](documents.md)\. This document allows you to deploy the package to managed nodes\.
 
 For demonstration purposes only, an example package, [ExamplePackage\.zip](https://docs.aws.amazon.com/systems-manager/latest/userguide/samples/ExamplePackage.zip), is available for you to download from our website\. The example package includes a completed JSON manifest and three \.zip files containing installers for PowerShell v7\.0\.0\. The installation and uninstallation scripts don't contain valid commands\. Although you must zip each software installable and scripts into a \.zip file to create a package in the **Advanced** workflow, you don't zip installable assets in the **Simple** workflow\.
 
@@ -14,7 +14,7 @@ For demonstration purposes only, an example package, [ExamplePackage\.zip](https
 
 ## Create a package \(simple\)<a name="distributor-working-with-packages-create-simple"></a>
 
-This section describes how to create a package in Distributor by choosing the **Simple** package creation workflow in the Distributor console\. Distributor is a capability of AWS Systems Manager\. To create a package, prepare your installable assets, one file per operating system platform\. At least one file is required to create a package\. The **Simple** package creation process generates installation and uninstallation scripts, file hashes, and a JSON\-formatted manifest for you\. The **Simple** workflow handles the process of uploading and zipping your installable files, and creating a new package and associated [SSM document](sysman-ssm-docs.md)\. For more information about supported platforms, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
+This section describes how to create a package in Distributor by choosing the **Simple** package creation workflow in the Distributor console\. Distributor is a capability of AWS Systems Manager\. To create a package, prepare your installable assets, one file per operating system platform\. At least one file is required to create a package\. The **Simple** package creation process generates installation and uninstallation scripts, file hashes, and a JSON\-formatted manifest for you\. The **Simple** workflow handles the process of uploading and zipping your installable files, and creating a new package and associated [SSM document](documents.md)\. For more information about supported platforms, see [Supported package platforms and architectures](distributor.md#what-is-a-package-platforms)\.
 
 When you use the Simple method to create a package, Distributor creates `install` and `uninstall` scripts for you\. However, when you create a package for an in\-place update, you must provide your own `update` script content on the **Update script** tab\. When you add input commands for an `update` script, Distributor includes this script in the \.zip package it creates for you, along with the `install` and `uninstall` scripts\.
 
@@ -403,7 +403,7 @@ Prepare your package by copying or moving all \.zip files into a folder or direc
 
 ### Step 4: Add a package to Distributor<a name="distributor-working-with-packages-add"></a>
 
-You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI and AWS Tools for PowerShell\), or AWS SDKs to add a new package to Distributor\. When you add a package, you're adding a new [SSM document](sysman-ssm-docs.md)\. The document allows you to deploy the package to managed nodes\.
+You can use the AWS Systems Manager console, AWS command line tools \(AWS CLI and AWS Tools for PowerShell\), or AWS SDKs to add a new package to Distributor\. When you add a package, you're adding a new [SSM document](documents.md)\. The document allows you to deploy the package to managed nodes\.
 
 **Topics**
 + [Adding a package \(console\)](#create-pkg-console)

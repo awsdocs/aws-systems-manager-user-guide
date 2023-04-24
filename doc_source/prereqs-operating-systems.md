@@ -11,7 +11,7 @@ Patch Manager, a capability of Systems Manager, might not support all the operat
 
 **Topics**
 + [Linux](#prereqs-os-linux)
-+ [macOS](#prereqs-os-mac)
++ [macOS \(Amazon EC2 instances only\)](#prereqs-os-mac)
 + [Raspberry Pi OS \(formerly Raspbian\)](#prereqs-os-raspbian)
 + [Windows Server](#prereqs-os-windows-server)
 
@@ -121,7 +121,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | 20\.04 LTS and 20\.10 STR |  | ✓ | ✓ | 
 | 22\.04 LTS |  | ✓ | ✓ | 
 
-## macOS<a name="prereqs-os-mac"></a>
+## macOS \(Amazon EC2 instances only\)<a name="prereqs-os-mac"></a>
 
 
 ****  
@@ -134,13 +134,7 @@ Beginning with version 2015\.03, Amazon Linux is released in x86\_64 versions\.
 | 12\.x \(Monterey\) |  | ✓ | ✓ | 
 
 **Note**  
-macOS support is limited to the following AWS Regions:  
-US East \(N\. Virginia\) \(us\-east\-1\)
-US East \(Ohio\) \(us\-east\-2\)
-US West \(Oregon\) \(us\-west\-2\)
-Europe \(Ireland\) \(eu\-west\-1\)
-Asia Pacific \(Singapore\) \(ap\-southeast\-1\)
-For more information about Amazon EC2 support for macOS, see [Amazon EC2 Mac instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html) in the *Amazon EC2 User Guide for Linux Instances*
+macOS is not supported in all AWS Regions\. For more information about Amazon EC2 support for macOS, see [Amazon EC2 Mac instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-mac-instances.html) in the *Amazon EC2 User Guide for Linux Instances*\.
 
 ## Raspberry Pi OS \(formerly Raspbian\)<a name="prereqs-os-raspbian"></a>
 

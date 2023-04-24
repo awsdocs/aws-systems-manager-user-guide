@@ -12,8 +12,8 @@ The topics in this section describe how to work with tags on Systems Manager doc
 You can add tags to custom SSM documents at the time you create them\.
 
 For information, see the following topics:
-+ [Create an SSM document \(console\)](create-ssm-console.md)
-+ [Create an SSM document \(command line\)](create-ssm-document-cli.md)
++ [Create an SSM document \(console\)](documents-using.md#create-ssm-console)
++ [Create an SSM document \(command line\)](documents-using.md#create-ssm-document-cli)
 
 ## Adding tags to existing documents<a name="tagging-documents-update"></a>
 

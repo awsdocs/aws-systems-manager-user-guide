@@ -8,7 +8,7 @@ Run Command, a capability of AWS Systems Manager, reports detailed status inform
 
 ## Run Command status<a name="monitor-about-status"></a>
 
-Run Command reports status details for three areas: plugins, invocations, and an overall command status\. A *plugin* is a code\-execution block that is defined in your command's SSM document\. For more information about plugins, see [Systems Manager Command document plugin reference](ssm-plugins.md)\.
+Run Command reports status details for three areas: plugins, invocations, and an overall command status\. A *plugin* is a code\-execution block that is defined in your command's SSM document\. For more information about plugins, see [Command document plugin reference](documents-command-ssm-plugin-reference.md)\.
 
 When you send a command to multiple managed nodes at the same time, each copy of the command targeting each node is a *command invocation*\. For example, if you use the `AWS-RunShellScript` document and send an `ifconfig` command to 20 Linux instances, that command has 20 invocations\. Each command invocation individually reports status\. The plugins for a given command invocation individually report status as well\. 
 

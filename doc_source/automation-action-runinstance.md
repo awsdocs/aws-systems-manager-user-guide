@@ -66,27 +66,6 @@ inputs:
 
 ------
 
-ImageId  
-The ID of the Amazon Machine Image \(AMI\)\.  
-Type: String  
-Required: Yes
-
-InstanceType  
-The instance type\.  
-If an instance type value isn't provided, the m1\.small instance type is used\.
-Type: String  
-Required: No
-
-MinInstanceCount  
-The minimum number of instances to be launched\.  
-Type: String  
-Required: No
-
-MaxInstanceCount  
-The maximum number of instances to be launched\.  
-Type: String  
-Required: No
-
 AdditionalInfo  
 Reserved\.  
 Type: String  
@@ -122,8 +101,19 @@ The name of the IAM instance profile for the instance\.
 Type: String  
 Required: No
 
+ImageId  
+The ID of the Amazon Machine Image \(AMI\)\.  
+Type: String  
+Required: Yes
+
 InstanceInitiatedShutdownBehavior  
 Indicates whether the instance stops or terminates on system shutdown\.  
+Type: String  
+Required: No
+
+InstanceType  
+The instance type\.  
+If an instance type value isn't provided, the m1\.small instance type is used\.
 Type: String  
 Required: No
 
@@ -138,13 +128,18 @@ Type: String
 Required: No
 
 MaxInstanceCount  
-The maximum number of instances to filter when searching for offerings\.  
-Type: Integer  
+The maximum number of instances to be launched\.  
+Type: String  
+Required: No
+
+MetadataOptions  
+The metadata options for the instance\. For more information, see [TagSpecification](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_InstanceMetadataOptionsRequest.html)\.  
+Type: StringMap  
 Required: No
 
 MinInstanceCount  
-The minimum number of instances to filter when searching for offerings\.  
-Type: Integer  
+The minimum number of instances to be launched\.  
+Type: String  
 Required: No
 
 Monitoring  

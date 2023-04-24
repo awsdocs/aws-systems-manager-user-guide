@@ -1,7 +1,7 @@
 # Walkthrough: Creating associations that run Chef recipes<a name="systems-manager-state-manager-chef"></a>
 
 You can create State Manager associations that run Chef recipes by using the `AWS-ApplyChefRecipes` SSM document\. State Manager is a capability of AWS Systems Manager\. You can target Linux\-based Systems Manager managed nodes with the `AWS-ApplyChefRecipes` SSM document\. This document offers the following benefits for running Chef recipes:
-+ Supports multiple releases of Chef \(Chef 11 through Chef 14\)\.
++ Supports multiple releases of Chef \(Chef 11 through Chef 15\)\.
 + Automatically installs the Chef client software on target nodes\.
 + Optionally runs [Systems Manager compliance checks](systems-manager-compliance.md) on target nodes, and stores the results of compliance checks in an Amazon Simple Storage Service \(Amazon S3\) bucket\.
 + Runs multiple cookbooks and recipes in a single run of the document\.
@@ -19,7 +19,7 @@ Before you create an `AWS-ApplyChefRecipes` document, prepare your Chef cookbook
 
 Though AWS can't officially support cookbooks on the [Chef Supermarket](https://supermarket.chef.io/) website, many of them work with the `AWS-ApplyChefRecipes` document\. The following are examples of criteria to determine when you're testing a community cookbook:
 + The cookbook should support the Linux\-based operating systems of the Systems Manager managed nodes that you're targeting\.
-+ The cookbook should be valid for the Chef client version \(Chef 11 through Chef 14\) that you use\.
++ The cookbook should be valid for the Chef client version \(Chef 11 through Chef 15\) that you use\.
 + The cookbook is compatible with Chef Infra Client, and, doesn't require a Chef server\.
 
 Verify that you can reach the Chef\.io website, so that any cookbooks you specify in your run list can be installed when the Systems Manager document \(SSM document\) runs\. Using a nested `cookbooks` folder is supported, but not required; you can store cookbooks directly under the root level\.
@@ -46,7 +46,7 @@ When you run a Systems Manager document \(SSM document\) by using a State Manage
 
 ## Use GitHub as a cookbook source<a name="state-manager-chef-github"></a>
 
-The `AWS-ApplyChefRecipes` document uses the [`aws:downloadContent`](ssm-plugins.md#aws-downloadContent) plugin to download cookbooks\. To download content from GitHub, specify information about your GitHub repository to the document in JSON format\. The following is an example\.
+The `AWS-ApplyChefRecipes` document uses the [`aws:downloadContent`](documents-command-ssm-plugin-reference.md#aws-downloadContent) plugin to download cookbooks\. To download content from GitHub, specify information about your GitHub repository to the document in JSON format\. The following is an example\.
 
 ```
 {
@@ -147,7 +147,7 @@ The following procedure describes how to use the Systems Manager console to crea
 
      For example, if your Chef cookbooks configure a third\-party application that accepts payments, you can use custom JSON to specify the payment endpoint URL\. If the third\-party software manufacturer changes the payment endpoint URL, you can use custom JSON to update the payment endpoint to the new URL\.
 
-1. For **Chef client version**, specify a Chef version\. Valid values are `11`, `12`, `13`, `14`, or `None`\. If you specify `11` through `14`, Systems Manager installs the correct Chef client version on your target nodes\. If you specify `None`, Systems Manager doesn't install the Chef client on target nodes before running the document's recipes\. The default value is `14`\.
+1. For **Chef client version**, specify a Chef version\. Valid values are `11`, `12`, `13`, `14`, `15`, or `None`\. If you specify `11` through `15`, Systems Manager installs the correct Chef client version on your target nodes\. If you specify `None`, Systems Manager doesn't install the Chef client on target nodes before running the document's recipes\. The default value is `15`\.
 
 1. \(Optional\) For **Chef client arguments**, specify additional arguments that are supported for the version of Chef you're using\. To learn more about supported arguments, run `chef-client -h` on a node that is running the Chef client\.
 
@@ -221,7 +221,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" \
        --targets Key=tag:OS,Values=Linux \
-       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ChefRecipeTest\", \"repository\": \"ChefCookbooks\", \"path\": \"cookbooks/HelloWorld\", \"getOptions\": \"branch:master\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' \
+       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ChefRecipeTest\", \"repository\": \"ChefCookbooks\", \"path\": \"cookbooks/HelloWorld\", \"getOptions\": \"branch:master\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["15"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' \
        --association-name "MyChefAssociation" \
        --schedule-expression "cron(0 2 ? * SUN *)"
    ```
@@ -232,7 +232,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" ^
        --targets Key=tag:OS,Values=Linux ^
-       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ChefRecipeTest\", \"repository\": \"ChefCookbooks\", \"path\": \"cookbooks/HelloWorld\", \"getOptions\": \"branch:master\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' ^
+       --parameters '{"SourceType":["GitHub"],"SourceInfo":["{\"owner\":\"ChefRecipeTest\", \"repository\": \"ChefCookbooks\", \"path\": \"cookbooks/HelloWorld\", \"getOptions\": \"branch:master\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["15"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' ^
        --association-name "MyChefAssociation" ^
        --schedule-expression "cron(0 2 ? * SUN *)"
    ```
@@ -273,7 +273,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" \
        --targets "Key=tag:OS,Values= Linux" \
-       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/HelloWorld\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' \
+       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/HelloWorld\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["15"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' \
        --association-name "name" \
        --schedule-expression "cron(0 2 ? * SUN *)"
    ```
@@ -284,7 +284,7 @@ The following procedure describes how to use the AWS Command Line Interface \(AW
    ```
    aws ssm create-association --name "AWS-ApplyChefRecipes" ^
        --targets "Key=tag:OS,Values= Linux" ^
-       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/HelloWorld\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["14"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' ^
+       --parameters '{"SourceType":["S3"],"SourceInfo":["{\"path\":\"https://s3.amazonaws.com/DOC-EXAMPLE-BUCKET/HelloWorld\"}"], "RunList":["{\"recipe[HelloWorld::HelloWorldRecipe]\", \"recipe[HelloWorld::InstallApp]\"}"], "JsonAttributesContent": ["{\"state\": \"visible\",\"colors\": {\"foreground\": \"light-blue\",\"background\": \"dark-gray\"}}"], "ChefClientVersion": ["15"], "ChefClientArguments":["{--fips}"], "WhyRun": false, "ComplianceSeverity": ["Medium"], "ComplianceType": ["Custom:Chef"], "ComplianceReportBucket": ["ChefComplianceResultsBucket"]}' ^
        --association-name "name" ^
        --schedule-expression "cron(0 2 ? * SUN *)"
    ```

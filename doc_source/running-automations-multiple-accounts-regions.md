@@ -38,7 +38,7 @@ Running automations across multiple Regions and accounts or OUs works as follows
 
 1. Choose the runbook, Regions, and accounts or OUs where you want to run the automation\.
 **Note**  
-Automations don't run recursively through OUs\. Be sure that the target OU contains the desired accounts\. If you choose a custom runbook, the runbook must be shared with all of the target accounts\. For information about sharing runbooks, see [Sharing SSM documents](ssm-sharing.md)\. For information about using shared runbooks, see [Using shared SSM documents](ssm-using-shared.md)\.
+Automations don't run recursively through OUs\. Be sure that the target OU contains the desired accounts\. If you choose a custom runbook, the runbook must be shared with all of the target accounts\. For information about sharing runbooks, see [Sharing SSM documents](documents-ssm-sharing.md)\. For information about using shared runbooks, see [Using shared SSM documents](documents-ssm-sharing.md#using-shared-documents)\.
 
 1. Run the automation\.
 **Note**  
