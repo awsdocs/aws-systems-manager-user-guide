@@ -39,7 +39,7 @@ Use the following procedure to create a custom patch baseline to be used exclusi
      + **Approve patches released up to a specific date**: The patch release date for which Patch Manager automatically applies all patches released or updated on or before that date\. For example, if you specify July 7, 2023, no patches released or last updated on or after July 8, 2023, are installed automatically\.
    + \(Optional\) **Compliance reporting**: The severity level you want to assign to Service Packs approved by the baseline, such as `High`\.
 **Note**  
-If an approved Service Pack is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
+If you specify a compliance reporting level and the patch state of any approved Service Pack is reported as `Missing`, then the patch baseline's overall reported compliance severity is the severity level you specified\.
 
 1. \(Optional\) For **Manage tags**, apply one or more tag key name/value pairs to the patch baseline\.
 

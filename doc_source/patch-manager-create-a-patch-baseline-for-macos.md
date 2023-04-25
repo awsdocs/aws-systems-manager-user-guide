@@ -41,9 +41,9 @@ The Homebrew open\-source software package management system has discontinued su
      + brew cask
 
      The default selection is `All`\. 
-   + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `High`\.
+   + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `Critical` or `High`\.
 **Note**  
-If an approved patch is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
+If you specify a compliance reporting level and the patch state of any approved patch is reported as `Missing`, then the patch baseline's overall reported compliance severity is the severity level you specified\.
    + **Include non\-security updates**: Select the check box to install nonsecurity operating system patches made available in the source repository, in addition to the security\-related patches\. 
 
    For more information about working with approval rules in a custom patch baseline, see [About custom baselines](patch-manager-predefined-and-custom-patch-baselines.md#patch-manager-baselines-custom)\.

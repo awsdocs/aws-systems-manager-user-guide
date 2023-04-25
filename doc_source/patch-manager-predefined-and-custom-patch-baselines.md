@@ -66,7 +66,8 @@ If a Linux repository doesn’t provide release date information for packages, S
 
 When you specify an auto\-approval cutoff date, Patch Manager automatically applies all patches released or last updated on or before that date\. For example, if you specify July 7, 2023 as the cutoff date, no patches released or last updated on or after July 8, 2023 are installed automatically\.
 
-You can also specify a compliance severity level\. If an approved patch is reported as missing, `Compliance Level` is the severity of the compliance violation\. 
+**Note**  
+When you create a custom patch baseline, you can specify a compliance severity level for patches approved by that patch baseline, such as `Critical` or `High`\. If the patch state of any approved patch is reported as `Missing`, then the patch baseline's overall reported compliance severity is the severity level you specified\.
 
 Keep the following in mind when you create a patch baseline:
 + Patch Manager provides one predefined patch baseline for each supported operating system\. These predefined patch baselines are used as the default patch baselines for each operating system type unless you create your own patch baseline and designate it as the default for the corresponding operating system type\. 

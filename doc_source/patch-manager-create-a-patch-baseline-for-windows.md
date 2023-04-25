@@ -43,7 +43,7 @@ You can include Windows Service Pack installations in your approval rules by inc
      + **Approve patches released up to a specific date**: The patch release date for which Patch Manager automatically applies all patches released or updated on or before that date\. For example, if you specify July 7, 2023, no patches released or last updated on or after July 8, 2023, are installed automatically\.
    + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `High`\.
 **Note**  
-If an approved patch is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
+If you specify a compliance reporting level and the patch state of any approved patch is reported as `Missing`, then the patch baseline's overall reported compliance severity is the severity level you specified\.
 
 1. \(Optional\) In the **Approval rules for applications** section, use the fields to create one or more auto\-approval rules\.
 **Note**  
@@ -55,9 +55,9 @@ Instead of specifying approval rules, you can specify lists of approved and reje
    + **Auto\-approval**: The method for selecting patches for automatic approval\.
      + **Approve patches after a specified number of days**: The number of days for Patch Manager to wait after a patch is released or updated before a patch is automatically approved\. You can enter any integer from zero \(0\) to 360\. For most scenarios, we recommend waiting no more than 100 days\.
      + **Approve patches released up to a specific date**: The patch release date for which Patch Manager automatically applies all patches released or updated on or before that date\. For example, if you specify July 7, 2023, no patches released or last updated on or after July 8, 2023, are installed automatically\.
-   + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `High`\.
+   + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `Critical` or `High`\.
 **Note**  
-If an approved patch is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
+If you specify a compliance reporting level and the patch state of any approved patch is reported as `Missing`, then the patch baseline's overall reported compliance severity is the severity level you specified\.
 
 1. \(Optional\) If you want to explicitly approve any patches instead of letting patches be selected according to approval rules, do the following in the **Patch exceptions** section:
    + For **Approved patches**, enter a comma\-separated list of the patches you want to approve\.

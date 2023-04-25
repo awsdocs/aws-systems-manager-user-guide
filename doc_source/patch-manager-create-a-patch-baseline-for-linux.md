@@ -46,9 +46,9 @@ Enter `kernel-3.10.0-*.el7.x86_64` in the **Approved patches** list in your patc
 Because it's not possible to reliably determine the release dates of update packages for Ubuntu Server, the auto\-approval options aren't supported for this operating system\.
      + **Approve patches after a specified number of days**: The number of days for Patch Manager to wait after a patch is released or last updated before a patch is automatically approved\. You can enter any integer from zero \(0\) to 360\. For most scenarios, we recommend waiting no more than 100 days\.
      + **Approve patches released up to a specific date**: The patch release date for which Patch Manager automatically applies all patches released or updated on or before that date\. For example, if you specify July 7, 2023, no patches released or last updated on or after July 8, 2023, are installed automatically\.
-   + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `High`\.
+   + \(Optional\) **Compliance reporting**: The severity level you want to assign to patches approved by the baseline, such as `Critical` or `High`\.
 **Note**  
-If an approved patch is reported as missing, the option you choose in **Compliance reporting**, such as `Critical` or `Medium`, determines the severity of the compliance violation\.
+If you specify a compliance reporting level and the patch state of any approved patch is reported as `Missing`, then the patch baseline's overall reported compliance severity is the severity level you specified\.
    + **Include non\-security updates**: Select the check box to install nonsecurity Linux operating system patches made available in the source repository, in addition to the security\-related patches\. 
 **Note**  
 For SUSE Linux Enterprise Server, \(SLES\) it isn't necessary to select the check box because patches for security and nonsecurity issues are installed by default on SLES managed nodes\. For more information, see the content for SLES in [How security patches are selected](patch-manager-selecting-patches.md)\.
