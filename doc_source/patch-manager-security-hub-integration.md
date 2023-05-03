@@ -50,7 +50,45 @@ If Security Hub isn't available, Patch Manager retries sending the findings unti
 
 ### Updating existing findings in Security Hub<a name="securityhub-integration-finding-updates"></a>
 
-Patch Manager doesn't update a finding after it sends the finding to Security Hub\. If a patching operation runs on an `AwsEc2Instance` resource type for which patch noncompliance was already reported, and the resource is again found to be noncompliant, new findings are sent to Security Hub\. No findings are sent for resources that are compliant, even if they were previously noncompliant\.
+This procedure describes how to view findings in Security Hub about managed nodes in your fleet that are out of patch compliance\.
+
+**To review Security Hub findings for patch compliance**
+
+1. Sign in to the AWS Management Console and open the AWS Security Hub console at [https://console\.aws\.amazon\.com/securityhub/](https://console.aws.amazon.com/securityhub/)\.
+
+1. In the navigation pane, choose **Findings**\.
+
+1. Choose the **Add filters** \(![\[Image NOT FOUND\]](http://docs.aws.amazon.com/systems-manager/latest/userguide/images/search-icon.png)\) box\.
+
+1. In the menu, under **Filters**, choose **Product name**\.
+
+1. In the dialog box that opens, choose **is** in the first field and then enter **Systems Manager Patch Manager** in the second field\.
+
+1. Choose **Apply**\.
+
+1. Add any additional filters you want to help narrow down your results\.
+
+1. In the list of results, choose the title of a finding you want more information about\.
+
+   A pane opens on the right side of the screen with more details about the resource, the issue discovered, and a recommended remediation\.
+**Important**  
+At this time, Security Hub reports the resource type of all managed nodes as `EC2 Instance`\. This includes on\-premises servers and virtual machines \(VMs\) that you have registered for use with Systems Manager\.
+
+**Severity classifications**  
+The list of findings for **Systems Manager Patch Manager** includes a report of the severity of the finding\. **Severity** levels include the following, from lowest to highest:
++ **INFORMATIONAL ** – No issue was found\.
++ **LOW** – The issue does not require remediation\.
++ **MEDIUM** – The issue must be addressed but is not urgent\.
++ **HIGH** – The issue must be addressed as a priority\.
++ **CRITICAL** – The issue must be remediated immediately to avoid escalation\.
+
+Severity is determined by the most severe noncompliant package on an instance\. Because you can have multiple patch baselines with multiple severity levels, the highest severity is reported out of all the noncompliant packages\. For example, suppose you have two noncompliant packages where the severity of package A is "Critical" and the severity of package B is "Low"\. "Critical" will be reported as the severity\.
+
+Note that the severity field correlates directly with the Patch Manager `Compliance` field\. This is a field that you set assign to individual patches that match the rule\. Because this `Compliance` field is assigned to individual patches, it is not reflected at the Patch Summary level\.
+
+**Related content**
++ [Findings](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings.html) in the *AWS Security Hub User Guide*
++ [Multi\-Account patch compliance with Patch Manager and Security Hub](http://aws.amazon.com/blogs/mt/multi-account-patch-compliance-with-patch-manager-and-security-hub/) in the *AWS Management & Governance Blog*
 
 ## Typical finding from Patch Manager<a name="securityhub-integration-finding-example"></a>
 

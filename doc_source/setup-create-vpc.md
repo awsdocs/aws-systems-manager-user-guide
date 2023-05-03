@@ -106,23 +106,3 @@ You can create policies for VPC interface endpoints for AWS Systems Manager in w
 + The resources that can have actions performed on them
 
 For more information, see [Control access to services with VPC endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints-access.html) in the *Amazon VPC User Guide*\.
-
-Example: Allow users to only get and list command invocations
-
-```
-{
-   "Statement":[
-      {
-         "Sid":"SSMCommandsReadOnly",
-         "Principal":"*",
-         "Action":[
-            "ssm:ListCommands",
-            "ssm:ListCommandInvocations",
-            "ssm:GetCommandInvocation"
-         ],
-         "Effect":"Allow",
-         "Resource":"*"
-      }
-   ]
-}
-```

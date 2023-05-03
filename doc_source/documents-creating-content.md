@@ -162,6 +162,5 @@ To create a composite document, add the [`aws:runDocument`](documents-command-ss
 
 **More info**  
 + For information about rebooting servers and instances when using Run Command to call scripts, see [Handling reboots when running commands](send-commands-reboot.md)\.
-+ For more information about creating an SSM document, see [Creating SSM document content](#documents-creating-content)\.
 + For more information about the plugins you can add to a custom SSM document, see [Command document plugin reference](documents-command-ssm-plugin-reference.md)\.
 + If you simply want to run a document from a remote location \(without creating a composite document\), see [Running documents from remote locations](documents-running-remote-github-s3.md)\.
