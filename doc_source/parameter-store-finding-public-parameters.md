@@ -19,6 +19,7 @@ The following is a list of some services which provide public parameters:
 + `global-infrastructure`
 + `marketplace`
 + `storagegateway`
++ `suse`
 
 All public parameters aren't published to all AWS Regions\.
 
