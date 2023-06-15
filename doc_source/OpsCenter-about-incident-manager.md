@@ -1,7 +1,0 @@
-# Incident Manager<a name="OpsCenter-about-incident-manager"></a>
-
-Incident Manager, a capability of AWS Systems Manager, provides an incident management console that helps you mitigate and recover from incidents affecting your AWS hosted applications\. An *incident* is any unplanned interruption or reduction in quality of services\. After you set up and configure [Incident Manager](https://docs.aws.amazon.com/incident-manager/latest/userguide/what-is-incident-manager.html), the system automatically creates OpsItems in OpsCenter\. 
-
-When the system creates an incident in Incident Manager, it also creates an OpsItem in OpsCenter, and displays the incident as a related item\. If the OpsItem already exists, Incident Manager doesn't create an OpsItem\. The first OpsItem is known as the parent OpsItem\. If an incident grows in scale and scope, you can add incidents to an existing OpsItem\. If required, you can manually create an incident for an OpsItem\. After an incident is closed, you can create an analysis in Incident Manager to review and improve the remediation process for similar issues\. 
-
-By default, OpsCenter integrates with Incident Manager\. If Incident Manager is not set up, the OpsCenter page displays a message to set up Incident Manager\. When Incident Manager creates an OpsItem, you can manage and remediate the OpsItem from OpsCenter\. For instructions on creating an incident for an OpsItem, see [Creating an incident for an OpsItem](OpsCenter-working-with-OpsItems-create-an-incident.md)\. 

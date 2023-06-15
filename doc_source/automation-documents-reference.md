@@ -1,3 +1,0 @@
-# Systems Manager Automation runbook reference<a name="automation-documents-reference"></a>
-
-To help you get started quickly, AWS Systems Manager provides predefined runbooks\. These runbooks are maintained by Amazon Web Services, AWS Support, and AWS Config\. The runbook reference describes each of the predefined runbooks provided by Systems Manager, AWS Support, and AWS Config\. For more information, see [Systems Manager Automation runbook reference](https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide)\.
